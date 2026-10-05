@@ -8,6 +8,9 @@ Target: Samsung Galaxy XR (Android XR, Chrome). Also runs in a desktop browser.
 
 ## What it does
 - About 5 s sequence, then an idle loop: dawn (sky shifts dark blue-purple to orange, a sun rises behind a hill) → the four strokes of 日 draw in order → the sun pulses gently behind the glyph.
+- The glyph is a real 3D object: each stroke is a deep, rounded slab (about 2x as deep as it is wide), shaded by a key light, a warm rim light from the sun, and a soft fill. A soft halo glows around the strokes and brightens with the sunrise.
+- The sun and hill sit about 0.9 m behind the glyph, so moving your head gives real parallax. After the strokes finish, the glyph sways slowly (about 17 degrees each way) so the depth shows even when you hold still.
+- Colour: the default is an icy cyan-white glyph with a cyan halo, chosen to contrast with the orange sky. Try `?color=gold`, `?color=jade` or `?color=rose` on the URL; the palettes are in `src/main.js`.
 - Glyph is about 30 cm tall, placed about 1.2 m in front of where you are looking when the session starts, at eye height, facing you.
 - Replay: pinch (hands), controller select, mouse click, or R / Space on desktop.
 - "Enter VR" / "Enter AR" buttons appear only if the browser reports the mode as supported. In AR (passthrough) the sky and hill are hidden and only the sun and kanji show. Errors starting a session are shown on the 2D page.
@@ -37,6 +40,8 @@ Look at these first:
 4. Does a pinch replay the animation? Does Enter AR work, and does the sun/kanji look right over passthrough?
 5. Timing (dawn about 2 s, strokes about 3 s): too fast or slow? Anything that flickers or stutters?
 6. The glow and rays: pleasant, or too bright / distracting?
+7. Depth: does the glyph read as a solid 3D object, from head-on and when you move your head? Is the sway comfortable, or distracting?
+8. Colour: cyan vs `?color=gold` etc. Which reads best against the sky?
 
 ## Credits
 - Stroke data: [KanjiVG](https://kanjivg.org) © Ulrich Apel and contributors, licensed [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). The derived `data/kanji-65e5.json` is under the same licence.

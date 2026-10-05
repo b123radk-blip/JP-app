@@ -3,7 +3,10 @@ import { OrbitControls } from '../vendor/three/OrbitControls.js';
 
 // ---------- tunables ----------
 const GLYPH_HEIGHT = 0.30;     // metres, glyph bounding-box height
-const STROKE_WIDTH_UNITS = 5;  // KanjiVG units (the source glyph uses 3, this is bolder for VR)
+const STROKE_WIDTH_UNITS = 6.5; // KanjiVG units (the source glyph uses 3, this is bolder for VR)
+const DEPTH_RATIO = 2.0;       // glyph depth radius / width radius: >1 makes the strokes deep slabs, not flat ribbons
+const SWAY = 0.30;             // radians of slow yaw sway once drawn, so the depth reads even without head movement
+const GLOW_SHELL = 2.6;        // halo shell radius relative to the stroke radius
 const DIST = 1.2;              // metres in front of the viewer
 const DESKTOP_POS = new THREE.Vector3(0, 1.4, -DIST);
 
@@ -12,9 +15,19 @@ const STROKE_START = 2.0;
 const STROKE_DUR = 0.75;
 const IDLE_START = STROKE_START + 4 * STROKE_DUR; // 5.0 s
 
-const SUN_R = 0.2, SUN_Z = -0.3, SUN_Y_HIDDEN = -0.42, SUN_Y_UP = 0.0;
-const HILL_Z = -0.18;
+// sun and hill sit well behind the glyph (stereo parallax), scaled so they look the same size as before
+const SUN_R = 0.2, SUN_Z = -0.9, SUN_SCALE = 1.4, SUN_Y_HIDDEN = -0.59, SUN_Y_UP = 0.0;
+const HILL_Z = -0.6, HILL_SCALE = 1.3;
 
+// glyph colour presets, chosen to read against the orange sun / dark hill. Try ?color=gold|cyan|jade|rose
+const PALETTES = {
+  cyan: { body: 0xdaf7ff, emissive: 0x58d8ff, glow: 0x3fd0ff },
+  gold: { body: 0xffe9b8, emissive: 0xffc060, glow: 0xffb347 },
+  jade: { body: 0xdcffe8, emissive: 0x5cf0a0, glow: 0x38e890 },
+  rose: { body: 0xffe0ee, emissive: 0xff86bc, glow: 0xff6aae },
+};
+
+const params = new URLSearchParams(location.search);
 const clamp01 = (x) => Math.min(1, Math.max(0, x));
 const smooth = (x) => { x = clamp01(x); return x * x * (3 - 2 * x); };
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -70,7 +83,7 @@ for (let i = 0; i <= 60; i++) { const x = -3 + (6 * i) / 60; hillShape.lineTo(x,
 hillShape.lineTo(3, -2.5);
 const hillMat = new THREE.MeshBasicMaterial({ color: 0x05060f });
 const hill = new THREE.Mesh(new THREE.ShapeGeometry(hillShape), hillMat);
-hill.position.z = HILL_Z;
+hill.position.z = HILL_Z; hill.scale.setScalar(HILL_SCALE);
 group.add(hill);
 
 // sun: disc + additive glow + rays
@@ -92,7 +105,7 @@ function rayTexture() {
   return new THREE.CanvasTexture(c);
 }
 const sun = new THREE.Group();
-sun.position.set(0, SUN_Y_HIDDEN, SUN_Z);
+sun.position.set(0, SUN_Y_HIDDEN, SUN_Z); sun.scale.setScalar(SUN_SCALE);
 group.add(sun);
 const discMat = new THREE.MeshBasicMaterial({ color: 0xff6a2a, transparent: true });
 const disc = new THREE.Mesh(new THREE.CircleGeometry(SUN_R, 64), discMat);
@@ -106,11 +119,15 @@ const rayMat = new THREE.MeshBasicMaterial({ map: rayTexture(), color: 0xffb070,
 const rayGeo = new THREE.PlaneGeometry(0.07, 0.8).translate(0, SUN_R + 0.4 - 0.02, 0);
 for (let i = 0; i < 10; i++) { const m = new THREE.Mesh(rayGeo, rayMat); m.rotation.z = (i / 10) * Math.PI * 2; rays.add(m); }
 
-// light: one point light at the sun (rim light) + a constant soft fill so the glyph stays readable
-const sunLight = new THREE.PointLight(0xffa060, 0, 4, 1.5);
-sunLight.position.set(0, 0, SUN_Z);
+// lights: warm rim light behind the glyph (grows with the sunrise), a key light from front-left-above so the
+// side walls of the strokes are shaded, plus a soft fill. Lights live in `group` so they follow its placement.
+const sunLight = new THREE.PointLight(0xffa060, 0, 6, 1.5);
+sunLight.position.set(0, 0.15, -0.5);
 group.add(sunLight);
-scene.add(new THREE.HemisphereLight(0xfff4e6, 0xd9b090, 2.4));
+const keyLight = new THREE.PointLight(0xffffff, 0, 8, 2);
+keyLight.position.set(-0.7, 0.6, 0.9);
+group.add(keyLight);
+scene.add(new THREE.HemisphereLight(0xfff0dd, 0x6a4a3a, 0.9));
 
 // ---------- kanji strokes ----------
 const kanji = await (await fetch('./data/kanji-65e5.json')).json();
@@ -120,11 +137,21 @@ const cx = (bb.minX + bb.maxX) / 2, cy = (bb.minY + bb.maxY) / 2;
 const RADIUS = (STROKE_WIDTH_UNITS * S) / 2;
 const RADIAL = 14;
 
-const strokeMat = new THREE.MeshStandardMaterial({ color: 0xfff6e6, roughness: 0.45, metalness: 0, emissive: 0xffe6c8, emissiveIntensity: 0 });
+const pal = PALETTES[params.get('color')] || PALETTES.cyan;
+const strokeMat = new THREE.MeshStandardMaterial({ color: pal.body, roughness: 0.38, metalness: 0.1, emissive: pal.emissive, emissiveIntensity: 0 });
+const RZ = RADIUS * DEPTH_RATIO;                       // depth radius
 const capGeo = new THREE.SphereGeometry(RADIUS, 20, 14);
 
+// soft halo: a fatter additive shell, drawn back-faces only, that fades to nothing at its own edge; the glyph body hides its middle
+const glowUniforms = { color: { value: new THREE.Color(pal.glow) }, strength: { value: 0 } };
+const shellMat = new THREE.ShaderMaterial({
+  uniforms: glowUniforms, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, side: THREE.BackSide,
+  vertexShader: 'varying vec3 vN; varying vec3 vV; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vN = normalize(normalMatrix * normal); vV = normalize(-mv.xyz); gl_Position = projectionMatrix * mv; }',
+  fragmentShader: 'varying vec3 vN; varying vec3 vV; uniform vec3 color; uniform float strength; void main(){ float f = pow(abs(dot(normalize(vN), normalize(vV))), 2.2); gl_FragColor = vec4(color * f * strength, 1.0); }',
+});
+
 // Extrude a circular cross-section along a planar centre-line (the strokes are flat in x/y).
-function buildTube(pts) {
+function buildTube(pts, rw, rd) {
   const n = pts.length;
   const pos = new Float32Array(n * RADIAL * 3), nor = new Float32Array(n * RADIAL * 3);
   const t = new THREE.Vector3(), nrm = new THREE.Vector3(), dir = new THREE.Vector3();
@@ -134,9 +161,11 @@ function buildTube(pts) {
     nrm.set(-t.y, t.x, 0);
     for (let j = 0; j < RADIAL; j++) {
       const ang = (j / RADIAL) * Math.PI * 2;
-      dir.copy(nrm).multiplyScalar(Math.cos(ang)); dir.z += Math.sin(ang);
+      const c = Math.cos(ang), sn = Math.sin(ang);
       const k = (i * RADIAL + j) * 3;
-      pos[k] = pts[i].x + dir.x * RADIUS; pos[k + 1] = pts[i].y + dir.y * RADIUS; pos[k + 2] = pts[i].z + dir.z * RADIUS;
+      pos[k] = pts[i].x + nrm.x * c * rw; pos[k + 1] = pts[i].y + nrm.y * c * rw; pos[k + 2] = pts[i].z + sn * rd;
+      // normal of an ellipse with radii (rw, rd) is proportional to (c / rw, sn / rd) in the (in-plane normal, z) basis
+      dir.copy(nrm).multiplyScalar(c / rw); dir.z += sn / rd; dir.normalize();
       nor[k] = dir.x; nor[k + 1] = dir.y; nor[k + 2] = dir.z;
     }
   }
@@ -152,25 +181,33 @@ function buildTube(pts) {
   return g;
 }
 
+const pivot = new THREE.Group();   // swayed as a whole; the sun and hill stay put behind it
+group.add(pivot);
 const strokes = kanji.strokes.map((s) => {
   const pts = s.points.map(([x, y]) => new THREE.Vector3((x - cx) * S, -(y - cy) * S, 0));
   const holder = new THREE.Group();
-  const tube = new THREE.Mesh(buildTube(pts), strokeMat);
-  const startCap = new THREE.Mesh(capGeo, strokeMat);
-  const tip = new THREE.Mesh(capGeo, strokeMat);
-  startCap.position.copy(pts[0]); tip.position.copy(pts[0]);
-  holder.add(tube, startCap, tip);
-  group.add(holder);
-  return { pts, tube, startCap, tip, segs: pts.length - 1 };
+  const tube = new THREE.Mesh(buildTube(pts, RADIUS, RZ), strokeMat);
+  const shell = new THREE.Mesh(buildTube(pts, RADIUS * GLOW_SHELL, RZ * GLOW_SHELL), shellMat);
+  const startCap = new THREE.Mesh(capGeo, strokeMat), tip = new THREE.Mesh(capGeo, strokeMat);
+  const startGlow = new THREE.Mesh(capGeo, shellMat), tipGlow = new THREE.Mesh(capGeo, shellMat);
+  for (const m of [startCap, tip]) m.scale.set(1, 1, DEPTH_RATIO);
+  for (const m of [startGlow, tipGlow]) m.scale.set(GLOW_SHELL, GLOW_SHELL, GLOW_SHELL * DEPTH_RATIO);
+  for (const m of [startCap, tip, startGlow, tipGlow]) m.position.copy(pts[0]);
+  shell.renderOrder = startGlow.renderOrder = tipGlow.renderOrder = 5;
+  holder.add(tube, startCap, tip, shell, startGlow, tipGlow);
+  pivot.add(holder);
+  return { pts, tube, shell, startCap, tip, startGlow, tipGlow, segs: pts.length - 1 };
 });
 
 function setStrokeProgress(s, p) {
-  s.startCap.visible = s.tip.visible = p > 0;
+  s.startCap.visible = s.tip.visible = s.startGlow.visible = s.tipGlow.visible = p > 0;
   const f = p * s.segs, k = Math.min(s.segs, Math.floor(f));
   s.tube.geometry.setDrawRange(0, k * RADIAL * 6);
-  s.tube.visible = k > 0;
+  s.shell.geometry.setDrawRange(0, k * RADIAL * 6);
+  s.tube.visible = s.shell.visible = k > 0;
   const i0 = Math.min(s.segs, k), i1 = Math.min(s.segs, k + 1);
   s.tip.position.lerpVectors(s.pts[i0], s.pts[i1], f - k);
+  s.tipGlow.position.copy(s.tip.position);
 }
 
 // ---------- timeline ----------
@@ -188,8 +225,9 @@ function applyTime(t) {
   const fade = passthrough ? dawn : 1;           // no hill in passthrough, so fade the sun in instead
   discMat.opacity = fade;
   glowMat.opacity = fade * (0.35 + 0.2 * dawn);
-  sunLight.intensity = 1.4 * dawn;
-  strokeMat.emissiveIntensity = 0.55 * dawn;
+  sunLight.intensity = 3.0 * dawn;
+  keyLight.intensity = 5.0 * smooth((t - 0.6) / 1.4);
+  strokeMat.emissiveIntensity = 0.18 * dawn;
   strokes.forEach((s, i) => setStrokeProgress(s, smooth((t - (STROKE_START + i * STROKE_DUR)) / STROKE_DUR)));
   const idle = Math.max(0, t - IDLE_START);
   const pulse = 1 + 0.05 * Math.sin(idle * 1.6) * smooth(idle);
@@ -197,15 +235,19 @@ function applyTime(t) {
   disc.scale.setScalar(1 + 0.012 * Math.sin(idle * 1.6) * smooth(idle));
   rayMat.opacity = 0.22 * smooth((t - 1.0) / 2.0) * fade;
   rays.rotation.z = t * 0.04;
+  glowUniforms.strength.value = (1.5 * dawn) * (1 + 0.18 * Math.sin(idle * 1.6) * smooth(idle));
+  // slow sway once drawn: head-on, depth is easy to miss; this shows the side walls of the strokes
+  pivot.rotation.y = SWAY * Math.sin(idle * 0.7) * smooth(idle / 1.5);
+  pivot.position.y = 0.008 * Math.sin(idle * 1.1) * smooth(idle / 1.5);
 }
 
 // ---------- timing / replay ----------
-const params = new URLSearchParams(location.search);
 let frozen = params.has('t') ? parseFloat(params.get('t')) : null; // ?t=2.5 freezes the timeline (used for screenshots)
 let t0 = performance.now();
 function replay() { t0 = performance.now(); if (frozen !== null) frozen = null; }
 window.__setTime = (t) => { frozen = t; };
 window.__ready = true;
+window.__dbg = { camera, controls, pivot };
 
 // desktop: click (without dragging) or R / Space replays
 let down = null;
