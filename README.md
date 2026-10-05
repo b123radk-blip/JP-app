@@ -11,7 +11,11 @@ https://b123radk-blip.github.io/JP-app/fire.html: 火 on its own, with the fire 
 - A flame front runs along each stroke as it is drawn (longer strokes take longer), with a column of flame and a spray of sparks at the tip.
 - Strokes behind the front glow white-hot, then cool to breathing embers (the charcoal body's glow is driven per vertex by how long ago the front passed).
 - Flames, embers and sparks rise from the stroke surfaces for as long as the page is open, and a warm bloom behind the glyph flickers with the fire.
-- Click / pinch / controller select re-ignites it. Code: `fire.html`, `src/fire.js`, data from `node scripts/build-kanji.mjs 706b`.
+- Timing: all strokes finish in about 2.9 s (was about 4.6 s). `STROKE_SPEED` at the top of `src/fire.js` scales every stroke's burn time; lower is faster.
+- Fire density, flame size and opacity were dialled down about 20% so the strokes stay readable (`FLAME_PER_RING`, `FRONT_FLAMES`, flame alpha and size in `src/fire.js`).
+- Furigana: when the last stroke finishes, the reading ひ fades in above the glyph over about 0.7 s, drawn on top of the flames over a faint dark backing. It is drawn with the device's own Japanese font (`READING` in `src/fire.js`).
+- Sound: when the strokes finish, a spoken "ひ" plays once (`audio/hi.mp3`). There is a "Sound: on/off" button on the 2D page. The voice is a **placeholder**: Open JTalk's "Mei" voice is intelligible but robotic. `python3 scripts/make-audio.py` regenerates it (the script checks the phonemes first), or overwrite `audio/hi.mp3` with a better recording / TTS render of the same kana.
+- Click / pinch / controller select re-ignites it (the furigana and sound restart too). Code: `fire.html`, `src/fire.js`, data from `node scripts/build-kanji.mjs 706b`.
 - Screenshots: `PAGE=fire.html PREFIX=fire- TIMES=0.9,1.5,2.4,3.6,5,8 npm run screenshots`.
 - Particle count is capped at 1800 (instanced billboard quads). If it stutters on the headset, lower `FLAME_PER_RING` / `MAX_P` at the top of `src/fire.js`.
 
@@ -55,3 +59,4 @@ Look at these first:
 ## Credits
 - Stroke data: [KanjiVG](https://kanjivg.org) © Ulrich Apel and contributors, licensed [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). The derived `data/kanji-65e5.json` is under the same licence.
 - [three.js](https://threejs.org) (MIT, see `vendor/three/LICENSE`).
+- Voice (placeholder): HTS Voice "Mei", MMDAgent Project Team / Nagoya Institute of Technology, [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/), synthesised with Open JTalk (via `pyopenjtalk-plus`).

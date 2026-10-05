@@ -10,11 +10,12 @@ const STROKE_WIDTH_UNITS = 6.5; // KanjiVG units
 const DEPTH_RATIO = 1.6;
 const DIST = 1.2;               // metres in front of the viewer in XR
 const DESKTOP_POS = new THREE.Vector3(0, 1.4, -DIST);
-const IGNITE_START = 0.6;       // seconds of darkness before the first stroke is lit
-const STROKE_GAP = 0.1;
-const FLAME_PER_RING = 1.3;     // flames per second per burning stroke sample
+const IGNITE_START = 0.5;       // seconds of darkness before the first stroke is lit
+const STROKE_GAP = 0.06;
+const STROKE_SPEED = 0.6;       // multiplies every stroke's burn time (1 = the first version, 0.6 = 40% shorter)
+const FLAME_PER_RING = 1.0;     // flames per second per burning stroke sample
 const EMBER_PER_RING = 0.07;
-const FRONT_FLAMES = 110, FRONT_SPARKS = 70; // per second at each moving flame front
+const FRONT_FLAMES = 90, FRONT_SPARKS = 60; // per second at each moving flame front
 const MAX_P = 1800;             // particle pool size
 
 const params = new URLSearchParams(location.search);
@@ -150,7 +151,7 @@ let cursor = IGNITE_START;
 const capGeo = new THREE.SphereGeometry(RADIUS, 20, 14);
 const strokes = kanji.strokes.map((s, si) => {
   const pts = s.points.map(([x, y]) => new THREE.Vector3((x - cx) * S, -(y - cy) * S, 0));
-  const dur = 0.35 + s.length * 0.012, start = cursor;
+  const dur = (0.35 + s.length * 0.012) * STROKE_SPEED, start = cursor;
   cursor += dur + STROKE_GAP;
   const heat = new Float32Array(pts.length * RADIAL);
   const segs = pts.length - 1;
@@ -162,6 +163,48 @@ const strokes = kanji.strokes.map((s, si) => {
   return { si, pts, dur, start, segs, heat, tIgn, tube, startCap, tip };
 });
 const BURN_END = cursor;
+const STROKES_END = Math.max(...strokes.map((s) => s.start + s.dur)); // the last stroke has finished: furigana and sound start here
+
+// furigana: the reading, floating above the glyph, drawn on top of the flames and faded in once the strokes finish
+const READING = 'ひ';
+function readingTexture(txt) {
+  const c = document.createElement('canvas'); c.width = c.height = 256;
+  const g = c.getContext('2d');
+  g.textAlign = 'center'; g.textBaseline = 'middle';
+  g.font = '700 190px "Noto Sans CJK JP","Noto Sans JP","Hiragino Sans","Yu Gothic",Meiryo,sans-serif';
+  g.shadowColor = 'rgba(255,150,60,0.9)'; g.shadowBlur = 28; g.fillStyle = '#fff4de';
+  g.fillText(txt, 128, 138); g.fillText(txt, 128, 138); // twice thickens the glow
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+  return tex;
+}
+const FURI_Y = GLYPH_HEIGHT / 2 + 0.115;
+const furiBackMat = new THREE.MeshBasicMaterial({ map: radialTexture(), color: 0x000000, transparent: true, opacity: 0, depthTest: false, depthWrite: false });
+const furiBack = new THREE.Mesh(new THREE.PlaneGeometry(0.32, 0.32), furiBackMat);
+const furiMat = new THREE.MeshBasicMaterial({ map: readingTexture(READING), transparent: true, opacity: 0, depthTest: false, depthWrite: false });
+const furi = new THREE.Mesh(new THREE.PlaneGeometry(0.14, 0.14), furiMat);
+furiBack.renderOrder = 19; furi.renderOrder = 20;
+furiBack.position.set(0, FURI_Y, 0.03); furi.position.set(0, FURI_Y, 0.04);
+group.add(furiBack, furi);
+function applyFurigana(t) {
+  const f = smooth((t - STROKES_END) / 0.7);
+  furiMat.opacity = f; furiBackMat.opacity = 0.3 * f; // faint dark backing keeps it legible over bright flames
+  furi.position.y = FURI_Y - 0.02 * (1 - f);
+}
+
+// spoken reading (placeholder voice, see scripts/make-audio.py). Plays once when the strokes finish.
+const sayAudio = new Audio('./audio/hi.mp3');
+sayAudio.preload = 'auto';
+sayAudio.addEventListener('error', () => { state.note = 'Could not load audio/hi.mp3'; renderStatus(); });
+let soundOn = true, said = false;
+function say() {
+  if (!soundOn) return;
+  sayAudio.currentTime = 0;
+  sayAudio.play().catch(() => { state.note = 'Sound is blocked until you tap the page once (browser autoplay rule).'; renderStatus(); });
+}
+const soundBtn = document.createElement('button');
+soundBtn.textContent = 'Sound: on';
+soundBtn.onclick = () => { soundOn = !soundOn; soundBtn.textContent = 'Sound: ' + (soundOn ? 'on' : 'off'); state.note = ''; renderStatus(); };
+buttonsEl.appendChild(soundBtn);
 const allRings = [];
 for (const s of strokes) s.pts.forEach((_, i) => allRings.push({ s, i, t: s.tIgn[i] }));
 allRings.sort((a, b) => a.t - b.t);
@@ -222,7 +265,7 @@ const pMat = new THREE.ShaderMaterial({
       if (kind < 0.5) {            // flame: white-yellow -> orange -> red
         vec3 c0 = vec3(1.0, 0.92, 0.65), c1 = vec3(1.0, 0.5, 0.1), c2 = vec3(0.75, 0.12, 0.02);
         col = age < 0.35 ? mix(c0, c1, age / 0.35) : mix(c1, c2, (age - 0.35) / 0.65);
-        alpha = a * (1.0 - age) * 0.55;
+        alpha = a * (1.0 - age) * 0.46;
       } else if (kind < 1.5) {     // ember: flickering orange dot
         col = vec3(1.0, 0.55, 0.15);
         alpha = a * (1.0 - age) * (0.65 + 0.35 * sin(uTime * 12.0 + seed * 40.0));
@@ -275,7 +318,7 @@ function stepSim(t, dt) {
   acc.ember += burned * EMBER_PER_RING * dt;
   for (; acc.flame >= 1; acc.flame--) {
     const r = allRings[Math.floor(rnd() * burned)]; const [x, y, z] = surfacePoint(r.s, r.i, 1);
-    spawn(0, x, y, z, (rnd() - 0.5) * 0.04, 0.12 + rnd() * 0.16, (rnd() - 0.5) * 0.03, 0.9 + rnd() * 0.8, 0.045 + rnd() * 0.04);
+    spawn(0, x, y, z, (rnd() - 0.5) * 0.04, 0.12 + rnd() * 0.16, (rnd() - 0.5) * 0.03, 0.9 + rnd() * 0.8, 0.04 + rnd() * 0.035);
   }
   for (; acc.ember >= 1; acc.ember--) {
     const r = allRings[Math.floor(rnd() * burned)]; const [x, y, z] = surfacePoint(r.s, r.i, 1.5);
@@ -287,7 +330,7 @@ function stepSim(t, dt) {
     const p = (t - s.start) / s.dur;
     if (p <= 0 || p >= 1.05) continue;
     const tip = s.tip.position;
-    for (let n = acc.front; n >= 1; n--) spawn(0, tip.x + (rnd() - 0.5) * RADIUS, tip.y, tip.z + (rnd() - 0.5) * RZ, (rnd() - 0.5) * 0.06, 0.14 + rnd() * 0.18, (rnd() - 0.5) * 0.05, 0.6 + rnd() * 0.5, 0.05 + rnd() * 0.035);
+    for (let n = acc.front; n >= 1; n--) spawn(0, tip.x + (rnd() - 0.5) * RADIUS, tip.y, tip.z + (rnd() - 0.5) * RZ, (rnd() - 0.5) * 0.06, 0.14 + rnd() * 0.18, (rnd() - 0.5) * 0.05, 0.6 + rnd() * 0.5, 0.045 + rnd() * 0.03);
     for (let n = acc.spark; n >= 1; n--) {
       const a = rnd() * Math.PI * 2, sp = 0.15 + rnd() * 0.35;
       spawn(2, tip.x, tip.y, tip.z, Math.cos(a) * sp, 0.1 + rnd() * sp, (rnd() - 0.5) * sp, 0.35 + rnd() * 0.45, 0.006);
@@ -323,9 +366,10 @@ function stepSim(t, dt) {
   // the fire lights the room: bloom follows how much of the glyph is burning, with a fast flicker
   const burn = Math.min(1, burned / allRings.length);
   const flicker = 0.85 + 0.15 * Math.sin(t * 13.0) * Math.sin(t * 7.3 + 1.0) + 0.08 * Math.sin(t * 31.0);
-  bloomMat.opacity = (0.06 + 0.5 * burn) * flicker;
+  bloomMat.opacity = (0.06 + 0.42 * burn) * flicker;
   bloom.scale.setScalar(0.8 + 0.45 * burn);
   pMat.uniforms.uTime.value = t;
+  applyFurigana(t);
 }
 
 // ---------- timing / replay ----------
@@ -337,11 +381,11 @@ function simulateTo(t) {
   for (let tau = 0; tau < t; tau += h) stepSim(tau, h);
   stepSim(t, 0);
 }
-function replay() { frozen = null; resetSim(); t0 = last = performance.now(); }
+function replay() { frozen = null; said = false; resetSim(); t0 = last = performance.now(); }
 window.__setTime = (t) => { frozen = t; simulateTo(t); };
 if (frozen !== null) simulateTo(frozen);
 window.__ready = true;
-window.__dbg = { camera, controls };
+window.__dbg = { camera, controls, audio: sayAudio };
 
 let down = null;
 renderer.domElement.addEventListener('pointerdown', (e) => { down = [e.clientX, e.clientY]; });
@@ -423,7 +467,9 @@ renderer.setAnimationLoop((now, frame) => {
   if (frozen === null) {
     const nowMs = performance.now();
     const dt = Math.min(0.05, (nowMs - last) / 1000); last = nowMs;
-    stepSim((nowMs - t0) / 1000, dt);
+    const t = (nowMs - t0) / 1000;
+    stepSim(t, dt);
+    if (!said && t >= STROKES_END) { said = true; say(); }
   }
   if (controls.enabled) controls.update();
   renderer.render(scene, camera);
