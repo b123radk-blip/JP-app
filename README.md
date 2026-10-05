@@ -19,7 +19,7 @@ https://b123radk-blip.github.io/JP-app/fire.html: 火 on its own, with the fire 
 - Reuse: the fire is a function, `createFireGlyph({ glyphHeight, maxParticles, density, parallel, seed })` in `src/fire.js`. The big 火 uses it with the stroke order; the 火 inside the sentence is a second instance with `parallel: true` (all strokes ignite at once, no stroke order), smaller and with less fire, running on its own clock. To make a card for another kanji you need its KanjiVG data (`node scripts/build-kanji.mjs <hex>`), a new reading / meaning / sentence, and its own heat-and-particle look; the fire itself is specific to 火.
 - Click / pinch / controller select re-ignites it (the furigana and sound restart too). Code: `fire.html`, `src/fire.js`, data from `node scripts/build-kanji.mjs 706b`.
 - Screenshots: `PAGE=fire.html PREFIX=fire- TIMES=3.6,5.2,8,12 npm run screenshots`.
-- Particle count is capped at 1800 + 700 (instanced billboard quads, one pool per fire glyph). If it stutters on the headset, lower `FLAME_PER_RING` / `MAX_P` at the top of `src/fire.js`.
+- Particle count is capped at 1800 + 700 (instanced billboard quads, one pool per fire glyph). If it stutters on the headset, lower `FLAME_PER_RING` or the two `maxParticles` values in `src/fire.js`.
 
 ## What it does (日 page)
 - About 5 s sequence, then an idle loop: dawn (sky shifts dark blue-purple to orange, a sun rises behind a hill) → the four strokes of 日 draw in order → the sun pulses gently behind the glyph.
