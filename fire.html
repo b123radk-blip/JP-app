@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>日 WebXR Test</title>
+<title>火 Fire Test</title>
 <link rel="icon" href="data:,">
 <style>
-  html, body { margin: 0; height: 100%; background: #05060f; color: #f1e8da; font: 18px/1.45 system-ui, sans-serif; overflow: hidden; }
+  html, body { margin: 0; height: 100%; background: #05060a; color: #f1e8da; font: 18px/1.45 system-ui, sans-serif; overflow: hidden; }
   canvas { display: block; }
   #ui { position: fixed; left: 16px; right: 16px; top: 12px; pointer-events: none; }
   #ui > * { pointer-events: auto; }
@@ -17,21 +17,22 @@
   button { font: inherit; padding: 10px 18px; border-radius: 10px; border: 1px solid #ffb36b; background: rgba(255, 140, 60, .18); color: #fff3e2; cursor: pointer; }
   button:hover { background: rgba(255, 140, 60, .32); }
   #hint { margin-top: 10px; color: #c9b9a3; font-size: 15px; }
+  #hint a { color: #b6a68f; }
   #footer { position: fixed; left: 16px; right: 16px; bottom: 8px; color: #8d8272; font-size: 13px; pointer-events: none; }
   #footer a { color: #b6a68f; pointer-events: auto; }
 </style>
 </head>
 <body>
 <div id="ui">
-  <h1>日 · WebXR test</h1>
+  <h1>火 · fire test</h1>
   <div id="status">Checking WebXR…</div>
   <div id="buttons"></div>
-  <div id="hint">Click / pinch / controller select replays the animation. Drag to orbit on desktop. <a href="fire.html" style="color:#b6a68f">火 fire test</a> · <a href="status.html" style="color:#b6a68f">status page</a></div>
+  <div id="hint">Click / pinch / controller select re-ignites it. Drag to orbit on desktop. <a href="./">日 page</a> · <a href="status.html">status page</a></div>
 </div>
 <div id="footer">Stroke data: <a href="https://kanjivg.org">KanjiVG</a> © Ulrich Apel, licensed <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Rendered with three.js (MIT).</div>
 <script type="importmap">
 { "imports": { "three": "./vendor/three/three.module.js" } }
 </script>
-<script type="module" src="./src/main.js"></script>
+<script type="module" src="./src/fire.js"></script>
 </body>
 </html>

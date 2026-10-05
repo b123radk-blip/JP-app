@@ -6,7 +6,16 @@ Target: Samsung Galaxy XR (Android XR, Chrome). Also runs in a desktop browser.
 **Live page:** https://b123radk-blip.github.io/JP-app/  (GitHub Pages, built from the `claude/kanji-3d-galaxy-xr-uoi522` branch; allow a minute or two after each push, then reload or reopen the tab)
 **Status check page:** https://b123radk-blip.github.io/JP-app/status.html
 
-## What it does
+## 火 fire test (separate page)
+https://b123radk-blip.github.io/JP-app/fire.html: 火 on its own, with the fire as part of the glyph. Built to be viewed in isolation; the 日 page is unchanged.
+- A flame front runs along each stroke as it is drawn (longer strokes take longer), with a column of flame and a spray of sparks at the tip.
+- Strokes behind the front glow white-hot, then cool to breathing embers (the charcoal body's glow is driven per vertex by how long ago the front passed).
+- Flames, embers and sparks rise from the stroke surfaces for as long as the page is open, and a warm bloom behind the glyph flickers with the fire.
+- Click / pinch / controller select re-ignites it. Code: `fire.html`, `src/fire.js`, data from `node scripts/build-kanji.mjs 706b`.
+- Screenshots: `PAGE=fire.html PREFIX=fire- TIMES=0.9,1.5,2.4,3.6,5,8 npm run screenshots`.
+- Particle count is capped at 1800 (instanced billboard quads). If it stutters on the headset, lower `FLAME_PER_RING` / `MAX_P` at the top of `src/fire.js`.
+
+## What it does (日 page)
 - About 5 s sequence, then an idle loop: dawn (sky shifts dark blue-purple to orange, a sun rises behind a hill) → the four strokes of 日 draw in order → the sun pulses gently behind the glyph.
 - The glyph is a real 3D object: each stroke is a deep, rounded slab (about 2x as deep as it is wide), shaded by a key light, a warm rim light from the sun, and a soft fill. A soft halo glows around the strokes and brightens with the sunrise.
 - The sun and hill sit about 0.9 m behind the glyph, so moving your head gives real parallax. After the strokes finish, the glyph sways slowly (about 17 degrees each way) so the depth shows even when you hold still.

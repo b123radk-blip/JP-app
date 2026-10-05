@@ -1,14 +1,18 @@
 // Renders the page in headless Chromium (software WebGL) at fixed points of the timeline.
 // Usage: npm run serve  (in another shell), then: npm run screenshots
+// Other page / times: PAGE=fire.html PREFIX=fire- TIMES=0.8,1.6,3,6 npm run screenshots
 // Needs Playwright (global or local) and a Chromium binary (PLAYWRIGHT_BROWSERS_PATH or /opt/pw-browsers/chromium).
 import { createRequire } from 'node:module';
 const require = createRequire('/opt/node22/lib/node_modules/_');
 let chromium;
 try { ({ chromium } = createRequire(import.meta.url)('playwright')); } catch { ({ chromium } = require('playwright')); }
 
-const URL = process.env.URL || 'http://localhost:8080/';
+const URL = process.env.URL || 'http://localhost:8080/' + (process.env.PAGE || '');
+const PREFIX = process.env.PREFIX || '';
 const OUT = process.env.OUT || 'docs/screenshots';
-const TIMES = [['0-before-dawn', 0.0], ['1-mid-dawn', 1.0], ['2-dawn-done', 2.0], ['3-mid-strokes', 3.4], ['4-all-strokes', 5.0], ['5-idle', 7.0]];
+const TIMES = process.env.TIMES
+  ? process.env.TIMES.split(',').map((t) => [`t${t}`, parseFloat(t)])
+  : [['0-before-dawn', 0.0], ['1-mid-dawn', 1.0], ['2-dawn-done', 2.0], ['3-mid-strokes', 3.4], ['4-all-strokes', 5.0], ['5-idle', 7.0]];
 
 const browser = await chromium.launch({
   executablePath: process.env.CHROME || '/opt/pw-browsers/chromium',
@@ -23,7 +27,7 @@ await page.waitForFunction(() => window.__ready === true, null, { timeout: 15000
 for (const [name, t] of TIMES) {
   await page.evaluate((x) => window.__setTime(x), t);
   await page.waitForTimeout(250);
-  await page.screenshot({ path: `${OUT}/${name}.png` });
+  await page.screenshot({ path: `${OUT}/${PREFIX}${name}.png` });
   console.log('shot', name, t);
 }
 console.log('status line:', await page.locator('#status').innerText());
