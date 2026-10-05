@@ -3,46 +3,35 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>WebXR Status Check</title>
+<title>日 WebXR Test</title>
+<link rel="icon" href="data:,">
 <style>
-  body { font: 20px/1.5 system-ui, sans-serif; background: #10131a; color: #e8ecf4; margin: 0; padding: 24px; }
-  h1 { font-size: 26px; margin: 0 0 16px; }
-  .row { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #2a3040; }
-  .k { flex: 0 0 280px; color: #9aa6c0; }
-  .yes { color: #5ee08a; } .no { color: #ff7a7a; }
-  small { color: #9aa6c0; display: block; margin-top: 16px; }
+  html, body { margin: 0; height: 100%; background: #05060f; color: #f1e8da; font: 18px/1.45 system-ui, sans-serif; overflow: hidden; }
+  canvas { display: block; }
+  #ui { position: fixed; left: 16px; right: 16px; top: 12px; pointer-events: none; }
+  #ui > * { pointer-events: auto; }
+  h1 { font-size: 22px; margin: 0 0 6px; font-weight: 600; }
+  #status { color: #c9b9a3; font-size: 16px; margin-bottom: 10px; max-width: 900px; }
+  #status .ok { color: #7fe3a0; } #status .bad { color: #ff8f8f; }
+  #buttons { display: flex; gap: 10px; flex-wrap: wrap; }
+  button { font: inherit; padding: 10px 18px; border-radius: 10px; border: 1px solid #ffb36b; background: rgba(255, 140, 60, .18); color: #fff3e2; cursor: pointer; }
+  button:hover { background: rgba(255, 140, 60, .32); }
+  #hint { margin-top: 10px; color: #c9b9a3; font-size: 15px; }
+  #footer { position: fixed; left: 16px; right: 16px; bottom: 8px; color: #8d8272; font-size: 13px; pointer-events: none; }
+  #footer a { color: #b6a68f; pointer-events: auto; }
 </style>
 </head>
 <body>
-<h1>WebXR status check</h1>
-<div id="out"></div>
-<small>Placeholder page. Send a screenshot of this to confirm the headset can run WebXR.</small>
-<script>
-const out = document.getElementById('out');
-function row(k, v, ok) {
-  const d = document.createElement('div');
-  d.className = 'row';
-  d.innerHTML = '<span class="k"></span><span class="v"></span>';
-  d.firstChild.textContent = k;
-  d.lastChild.textContent = v;
-  if (ok !== undefined) d.lastChild.className = ok ? 'yes' : 'no';
-  out.appendChild(d);
-}
-(async () => {
-  row('Secure context (HTTPS)', String(window.isSecureContext), window.isSecureContext);
-  row('navigator.xr present', String(!!navigator.xr), !!navigator.xr);
-  if (navigator.xr) {
-    for (const mode of ['immersive-vr', 'immersive-ar']) {
-      try {
-        const s = await navigator.xr.isSessionSupported(mode);
-        row(mode, s ? 'supported' : 'not supported', s);
-      } catch (e) {
-        row(mode, 'error: ' + e.message, false);
-      }
-    }
-  }
-  row('User agent', navigator.userAgent);
-})();
+<div id="ui">
+  <h1>日 · WebXR test</h1>
+  <div id="status">Checking WebXR…</div>
+  <div id="buttons"></div>
+  <div id="hint">Click / pinch / controller select replays the animation. Drag to orbit on desktop. <a href="status.html" style="color:#b6a68f">status page</a></div>
+</div>
+<div id="footer">Stroke data: <a href="https://kanjivg.org">KanjiVG</a> © Ulrich Apel, licensed <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>. Rendered with three.js (MIT).</div>
+<script type="importmap">
+{ "imports": { "three": "./vendor/three/three.module.js" } }
 </script>
+<script type="module" src="./src/main.js"></script>
 </body>
 </html>

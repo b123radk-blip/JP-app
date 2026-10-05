@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebXR Status Check</title>
+<link rel="icon" href="data:,">
+<style>
+  body { font: 20px/1.5 system-ui, sans-serif; background: #10131a; color: #e8ecf4; margin: 0; padding: 24px; }
+  h1 { font-size: 26px; margin: 0 0 16px; }
+  .row { display: flex; gap: 12px; padding: 8px 0; border-bottom: 1px solid #2a3040; }
+  .k { flex: 0 0 280px; color: #9aa6c0; }
+  .yes { color: #5ee08a; } .no { color: #ff7a7a; }
+  small { color: #9aa6c0; display: block; margin-top: 16px; }
+</style>
+</head>
+<body>
+<h1>WebXR status check</h1>
+<div id="out"></div>
+<small>Placeholder page. Send a screenshot of this to confirm the headset can run WebXR.</small>
+<script>
+const out = document.getElementById('out');
+function row(k, v, ok) {
+  const d = document.createElement('div');
+  d.className = 'row';
+  d.innerHTML = '<span class="k"></span><span class="v"></span>';
+  d.firstChild.textContent = k;
+  d.lastChild.textContent = v;
+  if (ok !== undefined) d.lastChild.className = ok ? 'yes' : 'no';
+  out.appendChild(d);
+}
+(async () => {
+  row('Secure context (HTTPS)', String(window.isSecureContext), window.isSecureContext);
+  row('navigator.xr present', String(!!navigator.xr), !!navigator.xr);
+  if (navigator.xr) {
+    for (const mode of ['immersive-vr', 'immersive-ar']) {
+      try {
+        const s = await navigator.xr.isSessionSupported(mode);
+        row(mode, s ? 'supported' : 'not supported', s);
+      } catch (e) {
+        row(mode, 'error: ' + e.message, false);
+      }
+    }
+  }
+  row('User agent', navigator.userAgent);
+})();
+</script>
+</body>
+</html>

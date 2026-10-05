@@ -1,0 +1,17 @@
+{
+  "name": "jp-app",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "description": "One-kanji WebXR proof of concept for Galaxy XR",
+  "scripts": {
+    "build:kanji": "node scripts/build-kanji.mjs",
+    "vendor": "mkdir -p vendor/three && cp node_modules/three/build/three.module.js node_modules/three/build/three.core.js node_modules/three/examples/jsm/controls/OrbitControls.js node_modules/three/LICENSE vendor/three/",
+    "serve": "python3 -m http.server 8080",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "devDependencies": {
+    "svg-path-properties": "^1.3.0",
+    "three": "0.186.1"
+  }
+}
