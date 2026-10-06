@@ -1,59 +1,86 @@
-# Roadmap: from 15 cards to 2000-3000
+# Roadmap: about 3,000 words and their kanji, each with its own visual cue
 
-Goal: 2000-3000 cards, built in batches over many sessions. This file says how, so each session can pick up the next
-batch without re-deciding. (Assumption: a card = one kanji, so the target is roughly the 2,136 jōyō kanji plus extras. If
-"words" means vocabulary such as 日本 or 学生, see "Word cards" below: the plan changes a little, not a lot.)
+**Goal.** Learn kanji *and* vocabulary fast, through visual cues the brain links to each one. About 3,000 words plus the
+kanji they are written with. Built in steps over many sessions; every step ships a working app.
 
-## Where the time goes per card, and how to cut it
+## The numbers (JLPT lists, see Sources)
 
-| Step | Today (by hand) | At scale |
+| Through level | Words (cumulative) | Distinct kanji used in those words | JLPT kanji (cumulative) |
+|---|---|---|---|
+| N5 | 718 (155 kana-only) | 450 | 79 (the app's N5 set has 112) |
+| N4 | 1,386 | 784 | 245 |
+| N3 | 3,526 | 1,441 | 612 |
+
+So **3,000 words ≈ N5 + N4 + most of N3**, about **3,000 word cards + ~650 kanji cards**. Words also use kanji from
+higher levels (N5's 椅子 uses N2's 椅). Those kanji are shown in a neutral style with furigana until their own level
+brings a kanji card for them.
+
+## Learning design
+
+1. **Kanji unlock words.** The teaching order is generated: a kanji card comes first, then the words written with it
+   follow soon after (学 → 学生, 学校; 日 + 本 → 日本). Every new kanji is reused right away, which is what makes it stick.
+   A word becomes "new" only after all its taught kanji have been introduced.
+2. **Layered visual identity.**
+   - Component look: 氵 water, 木 wood, 日 gold, 亻 skin.
+   - Kanji look: its own recipe.
+   - Word scene: what the word means.
+
+   A word card draws its kanji in their own looks, then adds one strong scene for the word (日本: sunrise over islands).
+   You see 学 the same way in 学 and in 学生, so the cue carries over.
+3. **Word card.**
+   - The word draws in stroke by stroke, each kanji in its own look, kana in a neutral style.
+   - Then the word's scene, the reading, the meaning, a "built from" line (学 study + 生 life), an example sentence and the voice.
+   - Retired cards (once known) show plain text, as kanji cards do.
+4. **Recognition first** (see the word → recall reading and meaning). Production cards (English → word) come later, as an
+   option per card.
+5. **Kana-only words** (about 20 %) get word cards too: kana glyphs + the word's scene. They come after the kanji words
+   of each level.
+
+## Production pipeline (built in Step 1)
+
+| Piece of content | Source | Done by |
 |---|---|---|
-| Stroke data + components | `build-kanji.mjs <hex>` | batch script: download KanjiVG for a whole level and build (done in seconds) |
-| Meaning, readings | written by hand | imported from KANJIDIC2 (EDRDG, CC BY-SA 4.0; attribution in the footer), then trimmed: one short English meaning, the 1-3 most useful readings |
-| Example sentence | written, then `verify-sentences.py` | candidates from Tatoeba (CC BY 2.0 FR) that only use kanji the learner already has, scored by length and level, then the same two-analyser check; `needsNativeReview` stays until a person confirms |
-| Mnemonic | written | drafted from the components ("a person (亻) next to a tree (木)"), reviewed in batches |
-| Animation recipe | designed per card | **drafted automatically** from components and meaning (below), then improved where the preview sheet shows a weak card |
-| Voice | VOICEVOX on your PC | unchanged: `npm run voice:list` picks up new cards, `voicevox.mjs generate` renders only the new clips |
+| Strokes, components (kanji and kana) | KanjiVG | script |
+| Kanji meanings, readings | KANJIDIC2 | script (trimmed to 1-3 meanings) |
+| Words, readings, meanings, part of speech | JLPT lists + JMdict | script |
+| Per-kanji furigana of a word | KANJIDIC2 readings + alignment | script (special readings like 今日 stay whole) |
+| Example sentence + English | Tatoeba | script picks short candidates, segments them with SudachiPy, keeps only those Open JTalk agrees with |
+| Animation recipe | component families + meaning rules + similarity check | drafter script, then reviewed on contact sheets |
+| Mnemonic (kanji) | | written per batch by the session (one line, labelled as a memory aid) |
+| Voice | VOICEVOX on your PC | `scripts/voicevox.mjs` (only new clips) |
 
-## Animations at scale
+Every card records what is still a draft (`review` field) and every sentence keeps `needsNativeReview: true` until a
+person confirms it. A generated review list makes that quick.
 
-3000 hand-designed scenes is not realistic, and not needed. Three layers:
+Sources and licences:
+- KanjiVG: CC BY-SA 3.0.
+- KANJIDIC2 and JMdict (EDRDG): CC BY-SA 4.0.
+- JLPT word and kanji lists: Jonathan Waller (tanos.co.uk), via open-anki-jlpt-decks (MIT) and kanji-data (MIT); only the level assignment is used.
+- Tatoeba: CC BY 2.0 FR.
 
-1. **Component families (automatic).** Most kanji are built from ~200 common components. Each recurring component gets one
-   look and, where it makes sense, a prop: 氵 water + ripples, 木 wood + tree, 日 gold, 亻 skin, 口 rose, 言 paper + speech,
-   火/灬 heat + flames, 艹 leaves, 金 gold + glints, 糸 thread, 心 heart ... A drafted recipe styles every component it
-   contains, so 3000 cards start out consistent and readable through their parts (which is also how kanji are learned).
-2. **Meaning props (semi-automatic).** A table from meaning words to scene props and emblems (mountain → mountains,
-   river → river, see → eye, say → speech, up → arrow:up ...). The drafter picks one; it covers the concrete half of the
-   list.
-3. **Hand-made specials (manual).** For the cards the preview sheet shows as weak, and for the learner's look-alike pairs,
-   design a stronger recipe or a new prop, as in this pilot. New props are cheap once the slot exists (~30-60 lines each).
+The app's footer credits all of them.
 
-Guards that keep this honest at any size: the similarity check (also against a list of **look-alike kanji** such as
-土/士, 未/末, 人/入, 己/已, which should get maximally different animations), the per-card performance budget, and the
-preview sheet per batch.
+## Steps
 
-## Batches
-
-| Batch | Cards | New pieces likely needed |
+| Step | Content | Cards after |
 |---|---|---|
-| N5 rest | ~95 | the "missing pieces" of docs/EFFECTS-PLAN.md: road, room, speech, eye, hand, footprints, walk, scale motions |
-| N4 | ~170 | more components (彳 糸 言 門), calendar, food, transport props |
-| N3 | ~370 | the component families do most of the work; drafter + review |
-| N2, N1 | ~1500 | drafter + review; specials only where the sheet shows weakness |
+| **1. Foundation** (next) | Pipeline, word cards in the app, unlock order, recipe drafter, look-alike check; the rest of the N5 kanji (~97) and the 196 N5 words writable with them | ~310 |
+| 2. N5 complete | The props and emblems the drafter asked for most; N5 words with higher-level kanji (neutral style); kana-only N5 words | ~830 |
+| 3. N4 | ~170 kanji + ~670 words, in 1-2 sessions | ~1,670 |
+| 4-8. N3 | ~370 kanji + ~2,100 words, in ~5 sessions of ~500 cards | ~3,650 |
+| Then | Tune the learning with your review history (new cards per day, intervals), production cards, stats screen, cloud sync; N2 if wanted | |
 
-Per batch: build data → draft cards → verify sentences → preview sheet → fix weak / similar cards → voice list → push.
-Each session should finish a batch in a usable state (all checks green), so the app keeps working between sessions.
+Each step follows the same loop: generate → verify sentences → contact sheets → fix the weakest cards and every look-alike
+pair → voice list → `npm test` + e2e → push. The prompt for each step is in `docs/prompts/`; the session that finishes a
+step writes the prompt for the next one, using what it measured (how many drafts needed fixing).
+
+**Your part per step** (about 30-60 minutes):
+- Flip through the new cards in `?preview=1` on the headset and note weak ones.
+- Run `node scripts/voicevox.mjs generate --speaker <id>` and push.
+- Work through the native-review list if you have a native speaker.
 
 ## App limits to watch
 
-- Font subset: grows to ~2500 kanji, about 1-1.5 MB per weight; still fine, maybe split by level later.
-- Decks: one file per level; cards and stroke data are already loaded one at a time.
-- Study: new cards per day and the session size are in `config.js`; a stats screen and a level picker get useful past N4.
-- Progress lives in the browser (export / import exists); with thousands of cards, cloud sync becomes worth adding.
-
-## Word cards (if "words" means vocabulary)
-
-A word card (日本, 学生, 食べる) would reuse the kanji animations: each kanji draws with its own recipe, side by side,
-and the word gets its own short scene (e.g. 日本: the sunrise over islands). The SRS, sentences, voice and checks work the
-same; the main new work is the card layout and choosing which words come first.
+- Font subset: about 3,000 characters, 1-1.5 MB per weight. Fine; can be split per level later.
+- Content loads one card at a time; decks are id lists plus unlock rules. Thousands of cards are fine.
+- Progress lives in the browser (export / import exists). With thousands of reviews, cloud sync becomes worth adding.
