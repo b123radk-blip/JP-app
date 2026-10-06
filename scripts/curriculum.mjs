@@ -1,49 +1,41 @@
-// Teaching order for a level: each kanji, then the words it unlocks (all their kanji taught), most useful first.
-// Usage: node scripts/curriculum.mjs --level n5 [--kanji-set n5|jlpt] [--dry]
-// Writes content/decks/<level>.json ({ cards: [ids in order], requires: { wordId: [kanji ids] } }) and the work list
-// .cache/work/<level>-items.json of cards that do not exist yet (input of pick-sentences.py and draft-cards.mjs).
-// Existing cards keep their place at the front (their ids and the learner's progress never change).
-// Words written with one kanji (山 やま, 人 ひと) are taught by that kanji's card, not by a separate word card.
+// Teaching order for a level: the cards that exist keep their place; after them come the planned kanji (chosen by how many
+// of the level's words they unlock, scripts/lib/order.mjs), each followed by the words it unlocks, with kana-only words and
+// words whose other kanji lie outside the plan spread through the section by usefulness.
+// Usage: node scripts/curriculum.mjs --level n5 [--plan 150] [--dry]
+//   --plan N  choose N new kanji by unlock value and save them to scripts/data/kanji-plan.json (later runs reuse that list)
+// Writes content/decks/<level>.json ({ cards: [ids in order], requires: { wordId: [kanji ids with a card] } }) and the work
+// list .cache/work/<level>-items.json of cards that do not exist yet (input of pick-sentences.py and draft-cards.mjs).
+// Words written with one taught kanji (山 やま) are taught by that kanji's card, not by a separate word card.
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { pickKanji, orderSection, splitKanji } from './lib/order.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
-const LEVEL = arg('--level', 'n5'), LV = +LEVEL[1], SET = arg('--kanji-set', LEVEL === 'n5' ? 'n5' : 'jlpt');
+const LEVEL = arg('--level', 'n5'), LV = +LEVEL[1], PLAN_FILE = 'scripts/data/kanji-plan.json';
 const words = JSON.parse(readFileSync('data/lexicon/words.json', 'utf8'));
 const kanji = JSON.parse(readFileSync('data/lexicon/kanji.json', 'utf8'));
 const deckPath = `content/decks/${LEVEL}.json`;
 const deck = existsSync(deckPath) ? JSON.parse(readFileSync(deckPath, 'utf8')) : { id: LEVEL, title: LEVEL.toUpperCase(), cards: [] };
 const exists = (id) => existsSync(`content/cards/${id}.json`);
+const charOf = (id) => String.fromCodePoint(parseInt(id, 16));
 
-// the kanji this level teaches: the app's N5 set for N5, otherwise the JLPT kanji of the level
-const taught = new Set(Object.entries(kanji).filter(([, k]) => (SET === 'n5' ? k.n5set : k.jlpt === LV)).map(([c]) => c));
-const earlier = new Set(Object.entries(kanji).filter(([, k]) => (LV < 5 && (k.n5set || (k.jlpt && k.jlpt > LV)))).map(([c]) => c));
-const known = (c) => taught.has(c) || earlier.has(c);
-const pool = words.filter((w) => w.level === LV && !w.kanaOnly && !w.affix && w.kanji.length && w.kanji.every(known) && w.furigana);
-const single = pool.filter((w) => [...w.word].length === 1);                 // taught by the kanji card itself
-const multi = pool.filter((w) => [...w.word].length > 1);
+// kanji with a card in any deck so far (this deck's existing cards first)
+const known = new Set(deck.cards.filter((id) => !id.startsWith('w')).map(charOf));
+const plans = existsSync(PLAN_FILE) ? JSON.parse(readFileSync(PLAN_FILE, 'utf8')) : {};
+if (arg('--plan')) {
+  const n = +arg('--plan');
+  const weight = { [LV]: 1, [LV - 1]: 0.3, [LV - 2]: 0.1 };                       // this level's words count most, the next ones less
+  plans[LEVEL] = pickKanji(words.filter((w) => !w.affix), known, n, { freq: (c) => kanji[c]?.freq ?? null, weight });
+  writeFileSync(PLAN_FILE, `${JSON.stringify(plans, null, 1)}\n`);
+}
+const plan = (plans[LEVEL] ?? []).filter((c) => !known.has(c));
+const taught = new Set([...known, ...plan]);
 
-const order = [...deck.cards], introduced = new Set(order.filter((id) => !id.startsWith('w')).map((id) => String.fromCodePoint(parseInt(id, 16))));
-const placed = new Set(order);
-const unlocked = (w) => w.kanji.every((c) => introduced.has(c) || earlier.has(c));
-function placeWords() {                                                        // every word unlocked now, most useful first
-  for (const w of multi.filter((x) => !placed.has(x.id) && unlocked(x)).sort((a, b) => b.use - a.use)) { order.push(w.id); placed.add(w.id); }
-}
-placeWords();
-const left = new Set([...taught].filter((c) => !introduced.has(c)));
-while (left.size) {
-  // next kanji: the one whose words (now or soon) are most useful, then the more common kanji
-  let best = null, bestScore = -1;
-  for (const c of left) {
-    let s = 0;
-    for (const w of multi) if (!placed.has(w.id) && w.kanji.includes(c)) s += w.use * (w.kanji.every((x) => x === c || introduced.has(x) || earlier.has(x)) ? 1 : 0.25);
-    s += 2 * (single.find((w) => w.word === c)?.use ?? 0) + (kanji[c].freq ? (2500 - kanji[c].freq) / 500 : 0);
-    if (s > bestScore) { best = c; bestScore = s; }
-  }
-  left.delete(best); introduced.add(best);
-  const id = kanji[best].hex;
-  if (!placed.has(id)) { order.push(id); placed.add(id); }
-  placeWords();
-}
+// the level's words; one-kanji words of a taught kanji are its card's own word
+const level = words.filter((w) => w.level === LV && !w.affix && (w.kanaOnly || w.furigana));
+const single = level.filter((w) => w.kanji.length === 1 && [...w.word].length === 1 && taught.has(w.kanji[0]));
+const target = level.filter((w) => !single.includes(w) && !deck.cards.includes(w.id));
+const section = orderSection(target, known, plan);
+const order = [...deck.cards, ...section.map((e) => (e.type === 'kanji' ? kanji[e.char].hex : e.id))];
 
 // primary reading of a kanji card: its own one-kanji word if it has one (山 やま), else the reading its words use most
 function primaryReading(c) {
@@ -52,22 +44,25 @@ function primaryReading(c) {
   const counts = Object.entries(kanji[c].inWords).sort((a, b) => b[1] - a[1]);
   return counts[0]?.[0] ?? (kanji[c].kun[0]?.replace(/\(.*\)/, '') || kanji[c].on[0]);
 }
-const requires = {};
-for (const w of multi) if (placed.has(w.id)) requires[w.id] = w.kanji.filter((c) => taught.has(c) || earlier.has(c)).map((c) => kanji[c].hex);
+const byId = new Map(words.map((w) => [w.id, w]));
+const requires = { ...(deck.requires ?? {}) };
+for (const id of order) if (id.startsWith('w') && !requires[id]) requires[id] = splitKanji(byId.get(id), taught).taught.map((c) => kanji[c].hex);
 
 const items = order.filter((id) => !exists(id)).map((id) => {
   if (!id.startsWith('w')) {
-    const c = String.fromCodePoint(parseInt(id, 16)), k = kanji[c];
-    return { id, type: 'kanji', kanji: c, meanings: k.meanings, on: k.on, kun: k.kun, primaryReading: primaryReading(c), words: single.filter((w) => w.word === c).map((w) => ({ id: w.id, reading: w.reading, meaning: w.meaning })), deckWords: pool.filter((w) => w.kanji.includes(c)).flatMap((w) => w.forms.filter((f) => f.includes(c))), strokes: k.strokes };
+    const c = charOf(id), k = kanji[c];
+    return { id, type: 'kanji', kanji: c, meanings: k.meanings, on: k.on, kun: k.kun, jlpt: k.jlpt, primaryReading: primaryReading(c), words: single.filter((w) => w.word === c).map((w) => ({ id: w.id, reading: w.reading, meaning: w.meaning })), deckWords: level.filter((w) => w.kanji.includes(c)).flatMap((w) => w.forms.filter((f) => f.includes(c))), strokes: k.strokes };
   }
-  const w = multi.find((x) => x.id === id);
-  return { id, type: 'word', word: w.word, reading: w.reading, meaning: w.meaning, pos: w.pos, furigana: w.furigana, kanji: requires[id], forms: w.forms, use: w.use, seq: w.seq };
+  const w = byId.get(id), { outside } = splitKanji(w, taught);
+  return { id, type: 'word', word: w.word, reading: w.reading, meaning: w.meaning, pos: w.pos, furigana: w.furigana, kanji: requires[id], outside, kanaOnly: w.kanaOnly, forms: w.forms, use: w.use, seq: w.seq };
 });
 
-console.log(`${LEVEL}: ${order.length} cards in order (${order.filter((i) => !i.startsWith('w')).length} kanji, ${order.filter((i) => i.startsWith('w')).length} words); ${items.length} new (${items.filter((i) => i.type === 'kanji').length} kanji, ${items.filter((i) => i.type === 'word').length} words); ${single.length} one-kanji words taught by their kanji card`);
-if (process.argv.includes('--dry')) { console.log(order.map((id) => (id.startsWith('w') ? multi.find((w) => w.id === id)?.word : String.fromCodePoint(parseInt(id, 16)))).join(' ')); process.exit(0); }
+const count = (f) => order.filter(f).length, isK = (id) => !id.startsWith('w');
+console.log(`${LEVEL}: ${order.length} cards in order (${count(isK)} kanji, ${count((i) => !isK(i))} words); ${items.length} new: ${items.filter((i) => i.type === 'kanji').length} kanji, ` +
+  `${items.filter((i) => i.type === 'word' && !i.kanaOnly && !i.outside.length).length} words with taught kanji, ${items.filter((i) => i.outside?.length).length} with kanji outside the plan, ${items.filter((i) => i.kanaOnly).length} kana-only; ${single.length} one-kanji words taught by their kanji card`);
+if (process.argv.includes('--dry')) { console.log(section.map((e) => (e.type === 'kanji' ? `[${e.char}]` : byId.get(e.id).word)).join(' ')); process.exit(0); }
 mkdirSync('.cache/work', { recursive: true });
-writeFileSync(`.cache/work/${LEVEL}-items.json`, JSON.stringify({ level: LEVEL, known: [...taught, ...earlier], items }, null, 1));
-writeFileSync(deckPath, `{ "id": ${JSON.stringify(deck.id)}, "title": ${JSON.stringify(deck.title)},\n  "cards": [\n${chunk(order).join(',\n')}\n  ],\n  "requires": {\n${Object.entries(requires).filter(([id]) => placed.has(id)).map(([id, ks]) => `    ${JSON.stringify(id)}: ${JSON.stringify(ks)}`).join(',\n')}\n  }\n}\n`);
+writeFileSync(`.cache/work/${LEVEL}-items.json`, JSON.stringify({ level: LEVEL, known: [...taught], items }, null, 1));
+writeFileSync(deckPath, `{ "id": ${JSON.stringify(deck.id)}, "title": ${JSON.stringify(deck.title)},\n  "cards": [\n${chunk(order).join(',\n')}\n  ],\n  "requires": {\n${Object.entries(requires).filter(([id]) => order.includes(id)).map(([id, ks]) => `    ${JSON.stringify(id)}: ${JSON.stringify(ks)}`).join(',\n')}\n  }\n}\n`);
 function chunk(ids) { const out = []; for (let i = 0; i < ids.length; i += 10) out.push('    ' + ids.slice(i, i + 10).map((x) => JSON.stringify(x)).join(', ')); return out; }
 console.log(`wrote ${deckPath} and .cache/work/${LEVEL}-items.json`);
