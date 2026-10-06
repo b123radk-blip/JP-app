@@ -8,9 +8,14 @@
     "build:kanji": "node scripts/build-kanji.mjs",
     "vendor": "mkdir -p vendor/three && cp node_modules/three/build/three.module.js node_modules/three/build/three.core.js node_modules/three/examples/jsm/controls/OrbitControls.js node_modules/three/LICENSE vendor/three/",
     "serve": "python3 -m http.server 8080",
-    "screenshots": "node scripts/screenshots.mjs"
+    "screenshots": "node scripts/screenshots.mjs",
+    "build:font": "python3 scripts/build-font.py",
+    "check": "node scripts/check-content.mjs",
+    "test": "node --test test/*.test.mjs && node scripts/check-content.mjs",
+    "e2e": "node scripts/e2e-app.mjs"
   },
   "devDependencies": {
+    "@expo-google-fonts/noto-sans-jp": "^0.4.2",
     "svg-path-properties": "^1.3.0",
     "three": "0.186.1"
   }

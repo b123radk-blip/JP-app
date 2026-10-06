@@ -82,7 +82,7 @@ function radialTexture() {
 }
 
 // ---------- the reusable fire glyph ----------
-const kanji = await (await fetch('./data/kanji-706b.json')).json();
+const kanji = await (await fetch('../data/kanji-706b.json')).json();
 const RADIAL = 14;
 const mulberry32 = (a) => () => { a |= 0; a = a + 0x6D2B79F5 | 0; let t = Math.imul(a ^ a >>> 15, 1 | a); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
 
@@ -435,7 +435,7 @@ function makeClip(url) {
   a.addEventListener('error', () => { state.note = `Could not load ${url}`; renderStatus(); });
   return a;
 }
-const sayKanji = makeClip('./audio/hi.mp3'), saySentence = makeClip('./audio/fire-is-hot.mp3');
+const sayKanji = makeClip('../audio/hi.mp3'), saySentence = makeClip('../audio/fire-is-hot.mp3');
 let soundOn = true, saidKanji = false, saidSentence = false;
 function play(a) {
   if (!soundOn) return;

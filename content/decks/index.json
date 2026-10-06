@@ -1,0 +1,7 @@
+{ "decks": [
+  { "id": "n5", "title": "N5", "file": "n5.json", "enabled": true },
+  { "id": "n4", "title": "N4", "enabled": false },
+  { "id": "n3", "title": "N3", "enabled": false },
+  { "id": "n2", "title": "N2", "enabled": false },
+  { "id": "n1", "title": "N1", "enabled": false }
+] }

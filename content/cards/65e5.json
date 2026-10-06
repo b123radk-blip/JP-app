@@ -1,0 +1,19 @@
+{
+  "id": "65e5",
+  "kanji": "日",
+  "meaning": "sun; day",
+  "primaryReading": "ひ",
+  "readings": { "kun": ["ひ"], "on": ["ニチ", "ジツ"] },
+  "effect": "sun",
+  "audio": { "reading": "hi" },
+  "sentences": [
+    {
+      "segments": [
+        { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "いい" },
+        { "text": "日", "reading": "ひ" }, { "text": "です" }, { "text": "。" }
+      ],
+      "en": "It's a good day today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

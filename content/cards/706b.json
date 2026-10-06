@@ -1,0 +1,20 @@
+{
+  "id": "706b",
+  "kanji": "火",
+  "meaning": "fire",
+  "primaryReading": "ひ",
+  "readings": { "kun": ["ひ"], "on": ["カ"] },
+  "effect": "fire",
+  "audio": { "reading": "hi" },
+  "sentences": [
+    {
+      "segments": [
+        { "text": "火", "reading": "ひ" }, { "text": "は" }, { "text": "熱", "reading": "あつ" },
+        { "text": "い" }, { "text": "。" }
+      ],
+      "en": "Fire is hot.",
+      "audio": "fire-is-hot",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

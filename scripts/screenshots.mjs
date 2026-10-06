@@ -16,13 +16,13 @@ const TIMES = process.env.TIMES
 
 const browser = await chromium.launch({
   executablePath: process.env.CHROME || '/opt/pw-browsers/chromium',
-  args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-sandbox'],
+  args: ['--disable-background-networking', '--disable-component-update', '--no-first-run', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-sandbox'],
 });
 const page = await browser.newPage({ viewport: { width: 1100, height: 760 } });
 const errors = [];
 page.on('console', (m) => { if (['error', 'warning'].includes(m.type())) errors.push(`[${m.type()}] ${m.text()}`); });
 page.on('pageerror', (e) => errors.push(`[pageerror] ${e.message}`));
-await page.goto(URL + '?t=0', { waitUntil: 'networkidle' });
+await page.goto(URL + '?t=0', { waitUntil: 'load' });
 await page.waitForFunction(() => window.__ready === true, null, { timeout: 15000 });
 for (const [name, t] of TIMES) {
   await page.evaluate((x) => window.__setTime(x), t);

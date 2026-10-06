@@ -130,7 +130,7 @@ group.add(keyLight);
 scene.add(new THREE.HemisphereLight(0xfff0dd, 0x6a4a3a, 0.9));
 
 // ---------- kanji strokes ----------
-const kanji = await (await fetch('./data/kanji-65e5.json')).json();
+const kanji = await (await fetch('../data/kanji-65e5.json')).json();
 const bb = kanji.bbox;
 const S = GLYPH_HEIGHT / (bb.maxY - bb.minY);
 const cx = (bb.minX + bb.maxX) / 2, cy = (bb.minY + bb.maxY) / 2;
