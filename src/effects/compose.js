@@ -46,7 +46,7 @@ const pivotOf = (spec) => (spec ? motion.PIVOT[spec.type]?.(spec) ?? 'center' : 
 
 export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   const group = new THREE.Group(), W = EFFECTS.word;
-  const H = word ? Math.min(W.glyphBox, W.maxWidth / word.glyphs.length) : glyphHeight;
+  const H = word ? Math.min(W.glyphBox, (word.maxWidth ?? W.maxWidth) / word.glyphs.length) : glyphHeight;
   const laid = word ? layoutWord(word.glyphs.map((g) => g.data), H) : { ...normalizeStrokes(kanji, glyphHeight), components: kanji.components };
   const { S, strokes } = laid;
   strokes.forEach((s, i) => { s.index = i; });
@@ -82,7 +82,7 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   group.add(backdrop.group);
 
   const mats = [], motions = [], built = [];
-  const plan = word ? planWord(r, word.glyphs.map((g) => ({ strokes: g.data.strokes.length, components: g.data.components, recipe: g.recipe }))) : planKanji(r, laid.components, strokes.length);
+  const plan = word ? planWord(r, word.glyphs.map((g) => ({ strokes: g.data.strokes.length, components: g.data.components, recipe: g.recipe, material: g.material }))) : planKanji(r, laid.components, strokes.length);
   for (const part of plan) {
     const spec = part.material;
     const mat = MATERIALS[spec.type](ctx, spec, part.strokes);
@@ -128,5 +128,7 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
     return { drawCalls, pointLights, particles: pools.reduce((s, p) => s + p.max, 0), alive: pools.reduce((s, p) => s + p.alive, 0) };
   }
   reset();
-  return { group, strokesEnd: rev.end, step, reset, stats, setPassthrough: (b) => backdrop.setPassthrough(b), dispose: () => disposeObject(group) };
+  // where each glyph of a word sits (centre x, top y), for labels such as the furigana over a kanji drawn plain
+  const glyphBoxes = word ? word.glyphs.map((g, i) => ({ x: (i - (word.glyphs.length - 1) / 2) * H, top: H / 2, size: H })) : [{ x: 0, top: glyphHeight / 2, size: glyphHeight }];
+  return { group, strokesEnd: rev.end, glyphBoxes, step, reset, stats, setPassthrough: (b) => backdrop.setPassthrough(b), dispose: () => disposeObject(group) };
 }

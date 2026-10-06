@@ -162,6 +162,22 @@ await page.evaluate(() => window.__app.seek(2.4)); await page.waitForTimeout(200
 await page.evaluate(() => window.__app.app.screen.jump('w1443530')); await page.waitForFunction(() => window.__app.info().player?.id === 'w1443530');
 await page.evaluate(() => window.__app.seek(7)); await page.waitForTimeout(200); await shot(page, '15-word-card');   // 電車: 電 and 車 keep their looks
 await page.close();
+// word cards with a kanji outside the plan (drawn plain, furigana over it) and kana-only words (katakana in their own look)
+const cardJson = (id) => JSON.parse(readFileSync(`content/cards/${id}.json`, 'utf8'));
+const KANJI_RE = /[\u4e00-\u9fff]/u, KATA_RE = /^[\u30a0-\u30ff]+$/u, HIRA_RE = /^[\u3040-\u309f]+$/u;
+const plainWord = deckIds.find((id) => id.startsWith('w') && [...cardJson(id).word].some((ch) => KANJI_RE.test(ch) && !(cardJson(id).kanji ?? []).includes(ch.codePointAt(0).toString(16))));
+const kataWord = deckIds.find((id) => id.startsWith('w') && KATA_RE.test(cardJson(id).word) && [...cardJson(id).word].length > 2);
+const hiraWord = deckIds.find((id) => id.startsWith('w') && HIRA_RE.test(cardJson(id).word));
+for (const [id, name, test] of [[plainWord, '16-word-plain-kanji', (p) => p.glyphKinds.includes('plain') && p.plainFurigana > 0], [kataWord, '17-word-katakana', (p) => p.glyphKinds.every((k) => k === 'katakana')], [hiraWord, '18-word-hiragana', (p) => p.glyphKinds.every((k) => k === 'hiragana')]]) {
+  check(!!id, `the deck has a ${name.slice(3)} card`);
+  if (!id) continue;
+  page = await open(`?preview=1&deck=n5&card=${id}&t=0`);
+  await page.waitForFunction((i) => window.__app.info().player?.id === i, id);
+  await page.evaluate(() => window.__app.seek(window.__app.info().player.strokesEnd + 2)); await page.waitForTimeout(200); await shot(page, name);
+  const p = (await info(page)).player;
+  check(test(p), `${name.slice(3)} (${cardJson(id).word}): glyphs ${p.glyphKinds.join(' ')}, ${p.plainFurigana} furigana label(s) over plain kanji`);
+}
+
 page = await open(`?preview=1&card=6c34&t=2&recipe=${encodeURIComponent(JSON.stringify({ material: 'heat', reveal: 'ignite', particles: ['flames'], backdrop: 'halo' }))}`);
 st = await info(page);
 check(st.player.id === '6c34' && st.player.paused && st.player.effect.drawCalls === 2 + 1 + 1, `a URL recipe is tried on 水 (heat material: 2 draw calls for the whole kanji, + flames + halo) and t= freezes the time (${st.player.effect.drawCalls})`);

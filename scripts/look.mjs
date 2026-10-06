@@ -21,7 +21,8 @@ const tiles = [];
 for (const key of ids) {
   const id = key.split('~')[0], r = tries[key] ? `&recipe=${encodeURIComponent(JSON.stringify(tries[key]))}` : '';
   await page.goto(`${BASE}?preview=1&cards=${id}&card=${id}&t=0${r}`, { waitUntil: 'load' });
-  await page.waitForFunction((i) => window.__app?.ready === true && window.__app.info().player?.id === i, id, { timeout: 30000 });
+  try { await page.waitForFunction((i) => window.__app?.ready === true && window.__app.info().player?.id === i, id, { timeout: 30000 }); }
+  catch (e) { console.log(`${key}: did not load\n${[...new Set(errors)].join('\n')}`); continue; }
   await page.addStyleTag({ content: '#ui, #footer { display: none !important; }' });
   await page.evaluate(() => { const { kit } = window.__app.app; kit.camera.position.set(0, 1.42, 0.02); kit.controls.target.set(0, 1.42, -1.2); kit.controls.update(); });
   const end = await page.evaluate(() => window.__app.info().player.strokesEnd);

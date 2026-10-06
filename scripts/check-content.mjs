@@ -52,7 +52,10 @@ function checkWordCard(path, id, c) {
   }
   const glyphs = [...c.word].map((ch) => { const d = strokeData(hex(ch), path); const t = taught.includes(hex(ch)) && cards[hex(ch)];
     return d && { strokes: d.strokes.length, components: d.components, recipe: t && typeof t.effect !== 'string' ? normalizeRecipe(t.effect, COMPONENT_LOOKS) : null }; });
-  return { glyphs: glyphs.every(Boolean) ? glyphs : null, n: 0, components: null, uses: [...c.word].filter((ch) => HAS_KANJI.test(ch)) };
+  const kanji = [...c.word].filter((ch) => HAS_KANJI.test(ch));
+  // a kana-only word: the sentence must use the word (a verb or adjective may be conjugated: its stem then)
+  const stem = [...c.word].length > 2 && /^(v|adj-i)/.test(c.pos?.[0] ?? '') ? c.word.slice(0, -1) : c.word;
+  return { glyphs: glyphs.every(Boolean) ? glyphs : null, n: 0, components: null, uses: kanji.length ? kanji : [stem] };
 }
 
 for (const [id, c] of Object.entries(cards)) {

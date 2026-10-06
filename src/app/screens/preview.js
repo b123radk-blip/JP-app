@@ -11,7 +11,7 @@ import { createButton } from '../../ui/button.js';
 import { createEffect } from '../../effects/index.js';
 import { normalizeRecipe, describeRecipe } from '../../effects/catalog.js';
 import { loadCardAssets } from '../../content/loader.js';
-import { addMnemonic, cardText } from '../card-player.js';
+import { addMnemonic, addPlainFurigana, cardText } from '../card-player.js';
 
 const LOOP_AFTER = 7;                    // seconds after the last stroke before the animation replays
 
@@ -43,6 +43,7 @@ export function create(app, { ids, index = 0, recipe = null, freeze = null }) {
     const addText = (t, x, y) => { t.mesh.position.set(x, y, 0); g.add(t.mesh); texts.push(t); return t; };
     const effect = createEffect(effectSpec, { ...assets, glyphHeight: LAYOUT.glyphHeight });
     effect.setPassthrough(app.passthrough); effect.group.position.y = Y.kanji; g.add(effect.group);
+    const furigana = addPlainFurigana(card, assets, effect, addText);
     const r = normalizeRecipe(effectSpec, COMPONENT_LOOKS), st = effect.stats?.() ?? {}, B = EFFECTS.budget;
     addText(makeLabel(`${cardText(card)}  ${card.id}  ·  ${i + 1} / ${ids.length}${recipe ? '  ·  trying a URL recipe' : ''}`, { size: 0.04, weight: 400, color: COLORS.textDim, glow: null }), 0, Y.top);
     addText(makeLabel(`${card.meaning}  ·  ${card.primaryReading}`, { size: 0.045, panel: { pad: 0.012, radius: 0.018 } }), 0, Y.meaning);
@@ -52,7 +53,7 @@ export function create(app, { ids, index = 0, recipe = null, freeze = null }) {
     let t = 0;
     app.say(`Preview ${cardText(card)} (${card.id}): ${describeRecipe(r)}\n${JSON.stringify(effectSpec ?? '(no effect: default recipe)', null, 1)}`);
     return {
-      group: g, card, effect,
+      group: g, card, effect, glyphKinds: assets.word?.glyphs.map((x) => x.kind) ?? ['kanji'], furigana: furigana.length,
       get t() { return t; },
       update(dt) { if (paused) return; t += dt; if (t > effect.strokesEnd + LOOP_AFTER) { this.seek(0); return; } effect.step(t, dt); },
       seek(target) { effect.reset(); const h = 1 / 60; for (let tau = h; tau < target; tau += h) effect.step(tau, h); t = target; effect.step(t, 0); },
@@ -66,7 +67,7 @@ export function create(app, { ids, index = 0, recipe = null, freeze = null }) {
     name: 'preview', group,
     update(dt) { view?.update(dt); },
     get player() {                                            // the test hook (window.__app.seek / info) talks to this
-      return view && { seek: (x) => view.seek(x), info: () => ({ id: view.card.id, preview: true, t: view.t, paused, strokesEnd: view.effect.strokesEnd, effect: view.effect.stats?.() ?? null, times: { rating: view.effect.strokesEnd + 3 } }) };
+      return view && { seek: (x) => view.seek(x), info: () => ({ id: view.card.id, preview: true, t: view.t, paused, strokesEnd: view.effect.strokesEnd, effect: view.effect.stats?.() ?? null, glyphKinds: view.glyphKinds, plainFurigana: view.furigana, times: { rating: view.effect.strokesEnd + 3 } }) };
     },
     onPlaced: () => view?.seek(0),
     onEnvironment: (p) => view?.effect.setPassthrough(p),

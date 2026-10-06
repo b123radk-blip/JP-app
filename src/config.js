@@ -56,7 +56,10 @@ export const EFFECTS = {
   budget: { particles: 2000, drawCalls: 160, pointLights: 3 },
   emblem: { delay: 0.35, pop: 0.45, size: 0.135, at: [0.25, 0.08] },   // after the last stroke; size and default place in metres (glyph space)
   idleRamp: 1.5,                      // idle motions fade in over this many seconds after the last stroke
-  word: { glyphBox: 0.3, maxWidth: 0.6, maxReveal: 4.2 },   // word cards: glyph box size (m), widest row (m), longest stroke reveal (s)
+  word: { glyphBox: 0.3, maxWidth: 0.6, kanaMaxWidth: 0.84, maxReveal: 4.2 },   // word cards: glyph box (m), widest row (m; long kana-only words: kanaMaxWidth), longest stroke reveal (s)
+  // looks of the glyphs of a word that have no kanji card: hiragana take the word recipe's material (ivory by default),
+  // katakana always their own preset (the script is a cue: a loanword), kanji outside the plan the neutral "plain" one
+  glyphLooks: { katakana: 'katakana', plain: 'plain' },
   // Recipe similarity (scripts/check-recipes.mjs): 0 = nothing shared, 1 = identical. Slot weights below. Kanji that look
   // alike (scripts/lib/lookalike.mjs: 人/入, 日/目) must stay below `lookalike`.
   similarity: { warn: 0.72, fail: 0.9, lookalike: 0.5, weights: { material: 2, reveal: 1, particles: 2, scene: 2.5, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5 } },
@@ -85,6 +88,8 @@ export const MATERIALS = {
   pearl:  { body: 0xfbf8ff, emissive: 0xd8c8ff, glow: 0xf0e8ff, rough: 0.2, metal: 0.25, emissiveK: 0.18, glowK: 1.2, breath: 0.15 },
   fur:    { body: 0xd8a868, emissive: 0x6a4020, glow: 0xe8c088, rough: 1.0, metal: 0.0, emissiveK: 0.08, glowK: 0.5, breath: 0.06 },
   neon:   { body: 0xe8fbff, emissive: 0x3ff0ff, glow: 0x8a5cff, rough: 0.2, metal: 0.1, emissiveK: 0.6, glowK: 1.8, breath: 0.35 },
+  katakana: { body: 0xe6e2ff, emissive: 0x8a78ff, glow: 0x9c8cff, rough: 0.35, metal: 0.05, emissiveK: 0.16, glowK: 0.9, breath: 0.12 },   // katakana in words
+  plain:  { body: 0xc8c8cc, emissive: 0x505058, glow: 0x8a8a96, rough: 0.7, metal: 0.0, emissiveK: 0.06, glowK: 0.3, breath: 0.0 },        // kanji not taught yet (furigana over them)
   lacquer: { body: 0xd0302a, emissive: 0x6a0a08, glow: 0xff5040, rough: 0.15, metal: 0.2, emissiveK: 0.12, glowK: 0.8, breath: 0.08 },
 };
 

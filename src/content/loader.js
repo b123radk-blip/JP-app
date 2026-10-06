@@ -13,6 +13,15 @@ export const loadDeck = (file) => getJSON(`content/decks/${file}`);
 export const loadCard = (id) => getJSON(`content/cards/${id}.json`);
 export const loadStrokes = (id) => getJSON(`data/kanji-${id}.json`);
 
+// What kind of glyph a character of a word is: a kanji with its own card ('kanji'), a kanji outside the plan, drawn plain
+// with furigana ('plain'), or kana ('hiragana', 'katakana'; the long-vowel mark ー counts as katakana).
+export function glyphKind(ch, taught) {
+  const c = ch.codePointAt(0);
+  if (c >= 0x3040 && c <= 0x309f) return 'hiragana';
+  if (c >= 0x30a0 && c <= 0x30ff) return 'katakana';
+  return taught ? 'kanji' : 'plain';
+}
+
 // Everything a card's animation needs. Kanji card: its stroke data. Word card: every glyph's stroke data, plus the recipe of
 // each kanji the word teaches (from that kanji's card), so the word draws each kanji in its own look.
 export async function loadCardAssets(id) {
@@ -21,7 +30,7 @@ export async function loadCardAssets(id) {
   const glyphs = await Promise.all([...card.word].map(async (ch) => {
     const hex = ch.codePointAt(0).toString(16), taught = (card.kanji ?? []).includes(hex);
     const [data, kcard] = await Promise.all([loadStrokes(hex), taught ? loadCard(hex) : null]);
-    return { char: ch, data, taught, effect: kcard?.effect };
+    return { char: ch, data, taught, kind: glyphKind(ch, taught), effect: kcard?.effect };
   }));
   return { card, assets: { word: { glyphs } } };
 }

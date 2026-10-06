@@ -27,6 +27,34 @@ export function addMnemonic(card, addText, M = LAYOUT.mnemonic) {
   return out;
 }
 export const cardText = (card) => card.word ?? card.kanji;
+// the glyph kinds of a word, from its assets (loader.js glyphKind)
+const kindsOf = (assets) => assets.word?.glyphs.map((g) => g.kind) ?? [];
+export const isKanaOnly = (assets) => !!assets.word && kindsOf(assets).every((k) => k === 'hiragana' || k === 'katakana');
+
+// Furigana over the kanji of a word that are drawn plain (outside the plan: the learner has not met them yet), shown from the
+// start. One label per furigana segment that holds such a kanji, centred over that segment's glyphs.
+export function addPlainFurigana(card, assets, effect, addText) {
+  const kinds = kindsOf(assets), boxes = effect.glyphBoxes ?? [], out = [];
+  let i = 0;
+  for (const seg of card.furigana ?? []) {
+    const n = [...seg.text].length, span = boxes.slice(i, i + n);
+    if (seg.reading && kinds.slice(i, i + n).includes('plain') && span.length) {
+      const x = (span[0].x + span.at(-1).x) / 2, size = Math.min(0.045, span[0].size * 0.24);
+      const label = addText(makeLabel(seg.reading, { size, weight: 700, color: '#fff4de', glow: null, panel: { pad: 0.006, radius: 0.01 } }), x, span[0].top + size * 0.9);
+      effect.group.add(label.mesh); out.push(label);
+    }
+    i += n;
+  }
+  return out;
+}
+// The retired (plain text) form of a card: a word with plain kanji keeps its furigana over them.
+function plainText(card, assets, size) {
+  const kinds = kindsOf(assets);
+  if (!kinds.includes('plain')) return makeLabel(cardText(card), { size, outline: false, glow: 'rgba(255,150,60,0.6)' });
+  let i = 0;
+  const segs = card.furigana.map((seg) => { const n = [...seg.text].length, plain = kinds.slice(i, i + n).includes('plain'); i += n; return plain ? seg : { text: seg.text }; });
+  return makeRubyLine(segs, { size });
+}
 
 // opts: card, assets (loader.loadCardAssets), active, index, total, labels { again, hard, good, easy } (interval text), onRate(rating), onExit()
 export async function createCardPlayer(app, { card, assets, active, index, total, labels, onRate, onExit }) {
@@ -45,9 +73,12 @@ export async function createCardPlayer(app, { card, assets, active, index, total
     effect = createEffect(card.effect, { ...assets, glyphHeight: LAYOUT.glyphHeight });
     effect.setPassthrough(app.passthrough);
     effect.group.position.y = Y.kanji; group.add(effect.group);
-  } else plain = addText(makeLabel(cardText(card), { size: Math.min(0.22, 0.62 / [...cardText(card)].length), outline: false, glow: 'rgba(255,150,60,0.6)' }), 0, Y.kanji);
+    addPlainFurigana(card, assets, effect, addText);
+  } else plain = addText(plainText(card, assets, Math.min(0.22, 0.62 / [...cardText(card)].length)), 0, Y.kanji);
 
+  // the reading line above (a kana-only word shows it only once: the word itself)
   const furi = addText(makeLabel(card.primaryReading, { size: 0.075 }), 0, Y.furigana);
+  furi.mesh.visible = !isKanaOnly(assets);
   const meaning = addText(makeLabel(card.meaning, { size: 0.05, color: '#ffe9c9', panel: PANEL }), 0, Y.meaning);
   const jp = addText(makeRubyLine(sentence.segments, { size: 0.075, panel: PANEL }), 0, Y.sentence);
   const en = addText(makeLabel(sentence.en, { size: 0.045, weight: 400, color: '#ffe9c9', maxWidth: 1.0, panel: PANEL }), 0, Y.english);
