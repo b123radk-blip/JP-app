@@ -1,0 +1,22 @@
+{
+  "id": "w1315920",
+  "type": "word",
+  "word": "時間",
+  "primaryReading": "じかん",
+  "furigana": [{ "text": "時", "reading": "じ" }, { "text": "間", "reading": "かん" }],
+  "meaning": "time",
+  "pos": ["n"],
+  "kanji": ["6642", "9593"],
+  "builtFrom": [{ "k": "時", "m": "time" }, { "k": "間", "m": "interval" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["dial"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "いつだって" }, { "text": "読書", "reading": "どくしょ" }, { "text": "の" }, { "text": "時間", "reading": "じかん" }, { "text": "は" }, { "text": "見", "reading": "み" }, { "text": "つけられる。" } ],
+      "en": "We can always find time for reading.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [228889, 66247] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 時間" },
+  "source": { "jmdict": 1315920, "jlpt": 5 }
+}

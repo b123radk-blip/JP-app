@@ -1,0 +1,26 @@
+{
+  "id": "56db",
+  "kanji": "四",
+  "meaning": "four",
+  "primaryReading": "し",
+  "readings": { "kun": ["よ", "よ(つ)", "よっ(つ)", "よん"], "on": ["シ"] },
+  "mnemonic": "A window (囗) with its curtains drawn: four panes.",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw",
+    "scene": ["room"],
+    "backdrop": "sky:indoor",
+    "motion": "count:4",
+    "emblem": "window"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "四", "reading": "よん" }, { "text": "部", "reading": "ぶ" }, { "text": "に" }, { "text": "分", "reading": "わ" }, { "text": "かれている。" } ],
+      "en": "This book is divided into four parts.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219630, 56951] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1579470"] }
+}

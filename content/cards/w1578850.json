@@ -1,0 +1,29 @@
+{
+  "id": "w1578850",
+  "type": "word",
+  "word": "行く",
+  "primaryReading": "いく",
+  "furigana": [{ "text": "行", "reading": "い" }, { "text": "く" }],
+  "meaning": "to go; to move (towards)",
+  "pos": ["v5k-s", "vi"],
+  "kanji": ["884c"],
+  "builtFrom": [{ "k": "行", "m": "going" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["road"],
+    "emblem": "arrow:up",
+    "motion": "drift:away",
+    "backdrop": "sky:dusk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "すぐに" }, { "text": "行", "reading": "い" }, { "text": "ってください。" } ],
+      "en": "Please go right away.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214964, 591204] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 行く" },
+  "source": { "jmdict": 1578850, "jlpt": 5 }
+}

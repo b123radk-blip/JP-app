@@ -1,0 +1,28 @@
+{
+  "id": "w1347750",
+  "type": "word",
+  "word": "小さい",
+  "primaryReading": "ちいさい",
+  "furigana": [{ "text": "小", "reading": "ちい" }, { "text": "さい" }],
+  "meaning": "small; little",
+  "pos": ["adj-i"],
+  "kanji": ["5c0f"],
+  "builtFrom": [{ "k": "小", "m": "little" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["mountains"],
+    "backdrop": "sky:dusk",
+    "motion": "shrink:0.6"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "はとても" }, { "text": "小", "reading": "ちい" }, { "text": "さい。" } ],
+      "en": "This book is very small.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219692, 57014] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 小さい" },
+  "source": { "jmdict": 1347750, "jlpt": 5 }
+}

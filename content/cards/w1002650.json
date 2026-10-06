@@ -1,0 +1,22 @@
+{
+  "id": "w1002650",
+  "type": "word",
+  "word": "お母さん",
+  "primaryReading": "おかあさん",
+  "furigana": [{ "text": "お" }, { "text": "母", "reading": "かあ" }, { "text": "さん" }],
+  "meaning": "mother; mom",
+  "pos": ["n"],
+  "kanji": ["6bcd"],
+  "builtFrom": [{ "k": "母", "m": "mother" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "scene": ["room"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ただいま、" }, { "text": "お" }, { "text": "母", "reading": "かあ", "base": null, "dict": true }, { "text": "さん" }, { "text": "。" } ],
+      "en": "I'm home, Mom!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203661, 40899] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お母さん" },
+  "source": { "jmdict": 1002650, "jlpt": 5 }
+}

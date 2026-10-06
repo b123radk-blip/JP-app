@@ -1,0 +1,26 @@
+{
+  "id": "9593",
+  "kanji": "間",
+  "meaning": "interval; space",
+  "primaryReading": "ま",
+  "readings": { "kun": ["あいだ", "ま", "あい"], "on": ["カン", "ケン"] },
+  "mnemonic": "The sun (日) shining through the gap in a gate (門): between.",
+  "effect": {
+    "material": "metal",
+    "reveal": "draw",
+    "particles": ["motes:still"],
+    "scene": ["gate"],
+    "backdrop": "sky:morning",
+    "parts": { "門": {}, "日": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "読書", "reading": "どくしょ" }, { "text": "をする" }, { "text": "時間", "reading": "じかん" }, { "text": "がない。" } ],
+      "en": "I have no time to read.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [154787, 259753] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1265070",
+  "type": "word",
+  "word": "古い",
+  "primaryReading": "ふるい",
+  "furigana": [{ "text": "古", "reading": "ふる" }, { "text": "い" }],
+  "meaning": "old; aged",
+  "pos": ["adj-i"],
+  "kanji": ["53e4"],
+  "builtFrom": [{ "k": "古", "m": "old" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["dust"], "backdrop": "sky:golden", "emblem": "clock" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "いランプを" }, { "text": "買", "reading": "か" }, { "text": "った。" } ],
+      "en": "I bought an old lamp.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157235, 257298] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 古い" },
+  "source": { "jmdict": 1265070, "jlpt": 5 }
+}

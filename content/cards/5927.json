@@ -1,0 +1,19 @@
+{
+  "id": "5927",
+  "kanji": "大",
+  "meaning": "large; big",
+  "primaryReading": "だい",
+  "readings": { "kun": ["おお", "おお(きい)", "おお(いに)"], "on": ["ダイ", "タイ"] },
+  "mnemonic": "A person stretching arms and legs as wide as they can: big.",
+  "effect": { "material": "skin", "reveal": "draw", "backdrop": "sky:noon", "motion": "grow", "emblem": "person" },
+  "sentences": [
+    {
+      "segments": [ { "text": "大", "reading": "おお" }, { "text": "きなスーパーがある。" } ],
+      "en": "We have a big supermarket.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [137746, 275490] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

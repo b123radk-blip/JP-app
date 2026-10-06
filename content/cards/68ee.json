@@ -1,0 +1,26 @@
+{
+  "id": "68ee",
+  "kanji": "森",
+  "meaning": "forest; woods",
+  "primaryReading": "もり",
+  "readings": { "kun": ["もり"], "on": ["シン"] },
+  "mnemonic": "Three trees (木) crowd together: a deep forest where fireflies glow at night.",
+  "effect": {
+    "material": "wood",
+    "reveal": "draw:sparks",
+    "particles": ["motes:still", "mist"],
+    "scene": ["tree:木"],
+    "backdrop": "sky:night",
+    "parts": { "木": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "一人", "reading": "ひとり" }, { "text": "で" }, { "text": "森", "reading": "もり" }, { "text": "を" }, { "text": "歩", "reading": "ある" }, { "text": "いた。" } ],
+      "en": "I walked in the woods by myself.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158463, 256066] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

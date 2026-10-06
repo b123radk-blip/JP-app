@@ -11,7 +11,7 @@ export function parseKanjiVG(svg, id) {
     if (tag.startsWith('<path')) {
       const n = Number(attr(tag, 'id')?.match(/-s(\d+)$/)?.[1]);
       if (!attr(tag, 'id')?.startsWith(`kvg:${id}-s`) || !Number.isFinite(n)) continue;
-      strokes.push({ n, d: attr(tag, 'd') });
+      strokes.push({ n, d: attr(tag, 'd'), type: attr(tag, 'kvg:type') ?? '' });
       for (const c of stack) if (c) c.strokes.push(n);
       continue;
     }

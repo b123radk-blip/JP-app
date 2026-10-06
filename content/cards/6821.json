@@ -1,0 +1,26 @@
+{
+  "id": "6821",
+  "kanji": "校",
+  "meaning": "exam; school",
+  "primaryReading": "こう",
+  "readings": { "kun": [], "on": ["コウ", "キョウ"] },
+  "mnemonic": "Wooden (木) buildings where children mix (交): school.",
+  "effect": {
+    "material": "wood",
+    "reveal": "draw",
+    "scene": ["room"],
+    "backdrop": "sky:deep",
+    "parts": { "木": {}, "交": {} },
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "学校", "reading": "がっこう" }, { "text": "は" }, { "text": "休", "reading": "やす" }, { "text": "んでください。" } ],
+      "en": "You shouldn't go to school.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [184400, 21528] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

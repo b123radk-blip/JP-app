@@ -1,0 +1,19 @@
+{
+  "id": "4e07",
+  "kanji": "万",
+  "meaning": "ten thousand; 10,000",
+  "primaryReading": "まん",
+  "readings": { "kun": ["よろず"], "on": ["マン", "バン"] },
+  "mnemonic": "Ten thousand coins pouring into a pile.",
+  "effect": { "material": "gold", "reveal": "draw", "particles": ["coins"], "backdrop": "halo", "emblem": "yen" },
+  "sentences": [
+    {
+      "segments": [ { "text": "一千万", "reading": "いちせんまん" }, { "text": "円", "reading": "えん" }, { "text": "くらいかな？" } ],
+      "en": "Is it about ten million yen?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [190376, 27535] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1584460"] }
+}

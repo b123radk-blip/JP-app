@@ -1,0 +1,26 @@
+{
+  "id": "4eca",
+  "kanji": "今",
+  "meaning": "now",
+  "primaryReading": "いま",
+  "readings": { "kun": ["いま"], "on": ["コン", "キン"] },
+  "mnemonic": "A roof (人) over one single tick of the clock: now.",
+  "effect": {
+    "material": "cyan",
+    "reveal": "draw:dust",
+    "backdrop": "plain",
+    "motion": "pulse",
+    "emblem": "clock",
+    "parts": { "人": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今", "reading": "いま" }, { "text": "お" }, { "text": "金", "reading": "かね" }, { "text": "はいらない。" } ],
+      "en": "I do not need money now.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157084, 257450] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1288850"] }
+}

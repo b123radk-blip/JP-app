@@ -1,0 +1,25 @@
+{
+  "id": "591a",
+  "kanji": "多",
+  "meaning": "many; frequent",
+  "primaryReading": "た",
+  "readings": { "kun": ["おお(い)", "まさ(に)", "まさ(る)"], "on": ["タ"] },
+  "mnemonic": "Evening (夕) piled on evening: many.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": [{ "type": "motes", "dir": "still", "count": 2 }],
+    "backdrop": "sky:night",
+    "parts": { "夕": { "motion": "count:2" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "はすることが" }, { "text": "多", "reading": "おお" }, { "text": "い。" } ],
+      "en": "I have a lot of things to do today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171769, 242706] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

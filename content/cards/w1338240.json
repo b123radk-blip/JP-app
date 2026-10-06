@@ -1,0 +1,28 @@
+{
+  "id": "w1338240",
+  "type": "word",
+  "word": "出る",
+  "primaryReading": "でる",
+  "furigana": [{ "text": "出", "reading": "で" }, { "text": "る" }],
+  "meaning": "to leave; to exit",
+  "pos": ["v1", "vi"],
+  "kanji": ["51fa"],
+  "builtFrom": [{ "k": "出", "m": "exit" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["gate"],
+    "motion": "drift:toward",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "電話", "reading": "でんわ" }, { "text": "には" }, { "text": "出", "reading": "で" }, { "text": "なかったからメールしておきました。" } ],
+      "en": "He didn't answer the phone, so I left him an email.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [449040, 449041] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 出る" },
+  "source": { "jmdict": 1338240, "jlpt": 5 }
+}

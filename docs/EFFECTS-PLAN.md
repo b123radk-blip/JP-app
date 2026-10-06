@@ -5,7 +5,12 @@ needs. The table is **machine-read**: `node scripts/check-recipes.mjs --plan --w
 "generated" (similar pairs, missing pieces) from it. Edit a row, re-run, and the lists follow.
 
 **Scope.** The project's N5 set (`N5_KANJI` in `scripts/build-font.py`, 110 kanji) plus 明 and 林 from the pilot (often
-listed as N4): 112 kanji. The 15 pilot cards (marked *pilot*) are built and in the deck; every other row is a draft.
+listed as N4): 112 kanji.
+
+**Status (Step 1 done).** Every row is a card now. `scripts/draft-cards.mjs` drafted the cards from these rows (missing
+pieces swapped for the closest one that exists), and the contact-sheet review then hand-tuned 67 of them, so a card's
+JSON can differ from its row: **the card is the truth**. The rows stay the place to plan new pieces and to write
+mnemonics for the next levels' kanji. docs/BATCH-LOG.md has what the review found.
 
 **Notation.** One cell per slot, `type` or `type:variant` (`sky:storm`, `arrow:up`, `count:3`). Scene props ride in the
 backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Material presets
@@ -119,7 +124,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 子 | people | skin | draw | — | plain | bounce | — | — | A baby wrapped up, arms out: child. |
 | 父 | people | wood | draw | — | room | none | — | — | Father with two crossed sticks (乂) to chop firewood. |
 | 母 | people | rose | draw | — | room | pulse | heart | — | Mother's arms around two little ones. |
-| 友 | people | jade | assemble | — | plain | none | — | 又 | Two hands (𠂇 又) reaching to shake: friend. |
+| 友 | people | jade | assemble | — | plain | none | — | 又 | Two hands (one shaped like ナ, one like 又) reaching to shake: friend. |
 | 生 | people | jade | grow | leaves | sky:day | none | — | — | A plant sprouting from the ground: life, to be born. |
 | 学 | people | chalk | draw | — | school | none | book | 子 | A child (子) under a roof, sparks of ideas (⺍) above: study. |
 | 名 | people | paper | stamp | — | sky:night | none | — | 夕 口 | In the dark evening (夕) you call out your name with your mouth (口). |
@@ -178,7 +183,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 ## Too alike
 
 <!-- generated:similar -->
-45 pairs at or above 0.72 (bold: at or above 0.9, which `npm test` would reject in a deck):
+56 pairs at or above 0.72 (bold: at or above 0.9, which `npm test` would reject in a deck):
 
 - 先 ~ 行 0.90 (same: material, reveal, particles, scene, backdrop, motion, emblem)
 - 千 ~ 道 0.90 (same: material, reveal, particles, scene, backdrop, motion, emblem)
@@ -187,44 +192,55 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 - 人 ~ 子 0.90 (same: material, reveal, particles, scene, backdrop, emblem, parts)
 - 半 ~ 八 0.86 (same: material, reveal, particles, scene, motion, emblem, parts)
 - 言 ~ 語 0.83 (same: material, particles, scene, backdrop, motion, emblem)
+- 田 ~ 男 0.81 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 週 ~ 曜 0.81 (same: reveal, particles, scene, backdrop, motion, emblem)
 - 大 ~ 長 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 大 ~ 女 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
 - 小 ~ 少 0.81 (same: material, reveal, scene, backdrop, motion, emblem)
 - 長 ~ 人 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 長 ~ 女 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
 - 長 ~ 子 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 人 ~ 女 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 女 ~ 子 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 足 ~ 歩 0.81 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 話 ~ 言 0.81 (same: reveal, particles, scene, backdrop, motion, emblem)
 - 九 ~ 書 0.79 (same: material, reveal, particles, scene, backdrop, emblem)
 - 目 ~ 見 0.79 (same: material, reveal, particles, scene, backdrop, emblem)
 - 食 ~ 肉 0.79 (same: material, particles, scene, motion, emblem, parts)
+- 日 ~ 女 0.78 (same: reveal, particles, scene, motion, emblem, parts)
 - 田 ~ 父 0.78 (same: reveal, particles, scene, motion, emblem, parts)
-- 田 ~ 男 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 話 ~ 語 0.78 (same: particles, scene, backdrop, motion, emblem)
+- 後 ~ 行 0.77 (same: reveal, particles, scene, backdrop, parts)
 - 田 ~ 国 0.76 (same: material, reveal, particles, scene, motion, emblem)
-- 週 ~ 曜 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
 - 中 ~ 私 0.76 (same: material, reveal, particles, scene, backdrop, motion)
 - 南 ~ 東 0.76 (same: material, reveal, particles, scene, motion, emblem)
 - 万 ~ 買 0.76 (same: material, reveal, particles, scene, motion, emblem)
-- 大 ~ 女 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
 - 大 ~ 手 0.76 (same: material, reveal, particles, scene, backdrop, parts)
-- 長 ~ 女 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
-- 人 ~ 女 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
 - 人 ~ 手 0.76 (same: material, reveal, particles, scene, backdrop, parts)
-- 女 ~ 子 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
 - 女 ~ 口 0.76 (same: material, reveal, particles, scene, backdrop, parts)
 - 子 ~ 手 0.76 (same: material, reveal, particles, scene, backdrop, parts)
 - 父 ~ 校 0.76 (same: material, reveal, particles, scene, motion, emblem)
 - 母 ~ 思 0.76 (same: material, reveal, particles, scene, motion, emblem)
 - 友 ~ 会 0.76 (same: material, reveal, particles, scene, motion, emblem)
 - 口 ~ 思 0.76 (same: material, reveal, particles, scene, backdrop, motion)
-- 足 ~ 歩 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
-- 話 ~ 言 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 左 ~ 右 0.75 (same: reveal, particles, scene, backdrop, emblem)
+- 半 ~ 九 0.74 (same: particles, scene, backdrop, emblem, parts)
 - 半 ~ 大 0.74 (same: particles, scene, backdrop, emblem, parts)
 - 半 ~ 長 0.74 (same: particles, scene, backdrop, emblem, parts)
 - 半 ~ 人 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 半 ~ 女 0.74 (same: particles, scene, backdrop, emblem, parts)
 - 半 ~ 子 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 九 ~ 大 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 九 ~ 長 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 九 ~ 人 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 九 ~ 女 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 九 ~ 子 0.74 (same: particles, scene, backdrop, emblem, parts)
 - 父 ~ 会 0.74 (same: particles, scene, backdrop, motion, emblem)
-- 日 ~ 女 0.72 (same: reveal, particles, scene, motion, emblem, parts)
+- 友 ~ 書 0.74 (same: particles, scene, backdrop, motion, emblem)
+- 南 ~ 西 0.73 (same: reveal, particles, scene, emblem, parts)
 - 金 ~ 万 0.72 (same: material, particles, scene, backdrop, parts)
 - 半 ~ 友 0.72 (same: material, particles, scene, backdrop, emblem)
 - 母 ~ 口 0.72 (same: material, reveal, particles, scene, motion, parts)
-- 話 ~ 語 0.72 (same: particles, scene, backdrop, motion, emblem)
 <!-- /generated:similar -->
 
 What to do about the groups the check and a read-through flag:
@@ -250,86 +266,32 @@ What to do about the groups the check and a read-through flag:
 ## Missing pieces
 
 <!-- generated:missing -->
-78 pieces or presets named in the table above that do not exist yet (with the kanji that need them):
+24 pieces or presets named in the table above that do not exist yet (with the kanji that need them):
 
-- material preset (data only): rose — 13: 花 毎 右 西 安 好 女 母 口 食 話 思 肉
-- backdrop: road — 10: 前 後 先 千 足 行 来 歩 車 道
-- material preset (data only): paper — 8: 週 四 百 名 読 言 語 本
 - particles: footprints — 7: 後 先 千 足 行 歩 道
-- material preset (data only): metal — 6: 分 間 五 入 車 駅
-- backdrop: room — 6: 四 安 父 母 読 会
-- particles: coins — 4: 金 万 買 円
-- material preset (data only): clay — 4: 土 六 男 歩
 - reveal: grow — 4: 土 花 森 生
-- particles: dust as a layer (the tip kind exists; needs an emitter) — 4: 土 新 古 車
 - reveal: stamp — 4: 今 五 名 円
-- emblem: hand — 4: 左 右 五 手
-- emblem: compass — 4: 北 南 東 西
 - reveal: brush — 4: 九 読 書 語
-- emblem: speech — 4: 口 話 言 語
 - particles: kana — 4: 読 話 言 語
-- particles: steam — 3: 気 食 肉
 - reveal: split — 3: 分 半 八
 - motion: split — 3: 分 半 八
-- particles: sparks as a layer (the tip kind exists; needs an emitter) — 3: 分 五 十
-- material preset (data only): ink — 3: 後 九 書
 - backdrop: calendar — 3: 週 毎 曜
-- backdrop: gate — 3: 間 入 聞
-- emblem: yen — 3: 万 買 円
 - reveal: assemble — 3: 好 友 会
-- motion: walk — 3: 人 足 歩
-- emblem: book — 3: 学 読 本
 - backdrop: ground — 2: 土 出
-- backdrop: field — 2: 田 男
-- particles: petals — 2: 花 社
-- sky preset (data only): noon — 2: 午 南
-- particles: snow — 2: 北 白
-- motion: spin — 2: 十 円
-- motion: shrink — 2: 小 少
 - reveal: carve — 2: 新 肉
-- emblem: heart — 2: 母 思
 - backdrop: school — 2: 学 校
-- emblem: eye — 2: 目 見
-- emblem: ear — 2: 耳 聞
-- particles: notes — 2: 耳 聞
-- emblem: foot — 2: 足 歩
 - backdrop: kitchen — 2: 食 飲
 - backdrop: market — 2: 買 肉
-- emblem: crescent — 1: 月
-- material preset (data only): cloud — 1: 気
-- material preset (data only): fur — 1: 犬
-- motion: wag — 1: 犬
-- motion: swim — 1: 魚
 - backdrop: seasons — 1: 年
-- emblem: calendar — 1: 年
 - emblem: sundial — 1: 午
-- emblem: target — 1: 中
-- sky preset (data only): snow — 1: 北
-- sky preset (data only): sunset — 1: 西
 - motion: open — 1: 間
-- sky preset (data only): dawn — 1: 一
 - emblem: chopsticks — 1: 二
-- emblem: window — 1: 四
 - emblem: dice — 1: 六
-- emblem: stars — 1: 七
-- emblem: plus — 1: 十
 - motion: stack — 1: 百
-- motion: grow — 1: 大
-- motion: stretch — 1: 長
-- material preset (data only): pearl — 1: 白
-- particles: hearts — 1: 好
-- motion: bounce — 1: 子
-- material preset (data only): chalk — 1: 学
-- motion: blink — 1: 目
-- motion: wave — 1: 手
 - reveal: pour — 1: 飲
-- emblem: lightbulb — 1: 知
 - backdrop: map — 1: 国
 - backdrop: station — 1: 駅
-- material preset (data only): neon — 1: 電
-- motion: shake — 1: 電
 - particles: arcs — 1: 電
-- material preset (data only): lacquer — 1: 社
 <!-- /generated:missing -->
 
 Build order suggested by that list (most kanji unlocked per piece, cheapest first). Lesson from the pilot: the cards that
@@ -369,13 +331,28 @@ KanjiVG component groups (`data/kanji-*.json` → `components`) let a recipe sty
 | 女 / 子 | 好 安 / 好 学 | proposed: `rose` / `skin` |
 | 門 | 聞 間 | proposed: `metal` |
 
-## Built in this pilot
+## Built so far
 
-Pieces (see CLAUDE.md for options and costs): materials `glow` (presets cyan, gold, silver, jade, skin, water, ice, wood,
-stone) and `heat`; reveals `draw` (tips drops, dust, sparks) and `ignite`; particles `flames`, `embers`, `bubbles`, `flow`,
-`rain`, `leaves`, `mist`, `motes`; scene props `mountains`, `river`, `ripples`, `tree`, `lanterns`, `dial`; backdrops
-`plain`, `halo`, `sunrise`, `sky` (day, dusk, night, twilight, storm, forest, deep, lake, morning, golden); motions `none`, `sway`, `float`, `pulse`, `drift`, `lean`, `tilt`, `count`; emblems `arrow`, `question`, `zzz`,
-`clock`, `dots`. Round 2 added the scene props and three high-contrast skies, and rebuilt 山 川 水 木 林 三 時 with them.
+Pieces (see CLAUDE.md for options and costs):
+- **Materials:** `glow` with 21 presets (cyan, gold, silver, jade, skin, water, ice, wood, stone, ivory, rose, paper, ink,
+  metal, clay, cloud, chalk, pearl, fur, neon, lacquer) and `heat`.
+- **Reveals:** `draw` (tips drops, dust, sparks) and `ignite`.
+- **Particles:** flames, embers, sparks, dust, bubbles, flow, rain, leaves, mist, motes, snow, petals, steam, coins,
+  hearts, notes.
+- **Scene props:** mountains, river, ripples, tree, lanterns, dial, road, field, room, gate.
+- **Backdrops:** plain, halo, sunrise, and `sky` with 15 presets (day, dusk, night, twilight, storm, forest, deep, lake,
+  morning, golden, noon, dawn, sunset, snow, indoor).
+- **Motions:** none, sway, float, pulse, drift, lean, tilt, count, grow, shrink, stretch, spin, bounce, shake, wave, wag,
+  walk, blink, swim.
+- **Emblems:** arrow, question, zzz, clock, dots, speech, eye, ear, hand, foot, person, heart, note, lightbulb, book, yen,
+  crescent, compass, plus, calendar, stars, window, bowl, cup, phone, train, car, bolt, sun, cloud, target, house, pen.
+
+History:
+- The pilot built the first set.
+- Round 2 added the scene props and three high-contrast skies, and rebuilt 山 川 水 木 林 三 時 with them.
+- Step 1 moved the stroke reveal to the GPU (fixed draw calls per part) and added the rest of the list above.
+
+Still missing: see the generated list above and the review notes in docs/BATCH-LOG.md.
 
 Why these: they cover the 15 pilot cards (literal nature, compounds with components, abstract words via emblem + motion,
 and the two hardest groups, numbers 三 and time 時), and the generated list above shows they are also the pieces the rest

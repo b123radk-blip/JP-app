@@ -1,0 +1,25 @@
+{
+  "id": "4f1a",
+  "kanji": "会",
+  "meaning": "meeting; meet",
+  "primaryReading": "かい",
+  "readings": { "kun": ["あ(う)", "あ(わせる)", "あつ(まる)"], "on": ["カイ", "エ"] },
+  "mnemonic": "People (人) under one roof, talking (云): meet.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw:sparks",
+    "scene": ["room"],
+    "backdrop": "sky:forest",
+    "parts": { "人": {}, "云": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "い" }, { "text": "友人", "reading": "ゆうじん" }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "った。" } ],
+      "en": "I saw an old friend of mine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157229, 257304] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

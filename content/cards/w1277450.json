@@ -1,0 +1,22 @@
+{
+  "id": "w1277450",
+  "type": "word",
+  "word": "好き",
+  "primaryReading": "すき",
+  "furigana": [{ "text": "好", "reading": "す" }, { "text": "き" }],
+  "meaning": "liking; being fond of",
+  "pos": ["adj-na", "n"],
+  "kanji": ["597d"],
+  "builtFrom": [{ "k": "好", "m": "fond" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["hearts"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ポップスは" }, { "text": "好", "reading": "す" }, { "text": "きですか。" } ],
+      "en": "Do you care for pop songs?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196222, 33398] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 好き" },
+  "source": { "jmdict": 1277450, "jlpt": 5 }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "53f3",
+  "kanji": "右",
+  "meaning": "right",
+  "primaryReading": "みぎ",
+  "readings": { "kun": ["みぎ"], "on": ["ウ", "ユウ"] },
+  "mnemonic": "A hand bringing food to the mouth (口), as most people do with the right.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "backdrop": "plain",
+    "motion": "drift:right",
+    "emblem": "hand",
+    "parts": { "口": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "右", "reading": "みぎ" }, { "text": "の" }, { "text": "道", "reading": "みち" }, { "text": "を" }, { "text": "行", "reading": "い" }, { "text": "け。" } ],
+      "en": "Take the right road.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [189919, 27075] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1171010"] }
+}

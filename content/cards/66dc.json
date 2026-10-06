@@ -1,0 +1,25 @@
+{
+  "id": "66dc",
+  "kanji": "曜",
+  "meaning": "weekday",
+  "primaryReading": "よう",
+  "readings": { "kun": [], "on": ["ヨウ"] },
+  "mnemonic": "The sun (日) and a bird with wings (羽 隹) flying over the days of the week.",
+  "effect": {
+    "material": "silver",
+    "reveal": "draw",
+    "scene": ["lanterns:7"],
+    "backdrop": "sky:indoor",
+    "parts": { "日": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "土曜日", "reading": "どようび" }, { "text": "からここにいます。" } ],
+      "en": "I've been here since Saturday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [154894, 259645] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

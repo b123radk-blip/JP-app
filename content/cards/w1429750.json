@@ -1,0 +1,22 @@
+{
+  "id": "w1429750",
+  "type": "word",
+  "word": "長い",
+  "primaryReading": "ながい",
+  "furigana": [{ "text": "長", "reading": "なが" }, { "text": "い" }],
+  "meaning": "long",
+  "pos": ["adj-i"],
+  "kanji": ["9577"],
+  "builtFrom": [{ "k": "長", "m": "long" }],
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "stretch", "scene": ["road"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "日", "reading": "ひ" }, { "text": "はだんだん" }, { "text": "長", "reading": "なが" }, { "text": "くなる。" } ],
+      "en": "The day is getting longer and longer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [122906, 281096] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 長い" },
+  "source": { "jmdict": 1429750, "jlpt": 5 }
+}

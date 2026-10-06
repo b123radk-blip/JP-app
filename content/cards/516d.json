@@ -1,0 +1,19 @@
+{
+  "id": "516d",
+  "kanji": "六",
+  "meaning": "six",
+  "primaryReading": "ろく",
+  "readings": { "kun": ["む", "む(つ)", "むっ(つ)", "むい"], "on": ["ロク", "リク"] },
+  "mnemonic": "A lamp with a lid on top and two legs: roll a six.",
+  "effect": { "material": "clay", "reveal": "draw", "backdrop": "sky:dusk", "motion": "count:6", "emblem": "dots:6" },
+  "sentences": [
+    {
+      "segments": [ { "text": "もうすぐ" }, { "text": "六", "reading": "ろく" }, { "text": "時", "reading": "じ" }, { "text": "です。" } ],
+      "en": "It's nearly six o'clock.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [519112, 519113] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1585310"] }
+}

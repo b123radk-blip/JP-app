@@ -1,0 +1,22 @@
+{
+  "id": "w1445590",
+  "type": "word",
+  "word": "土曜日",
+  "primaryReading": "どようび",
+  "furigana": [{ "text": "土", "reading": "ど" }, { "text": "曜", "reading": "よう" }, { "text": "日", "reading": "び" }],
+  "meaning": "Saturday",
+  "pos": ["n", "adv"],
+  "kanji": ["571f", "66dc", "65e5"],
+  "builtFrom": [{ "k": "土", "m": "soil" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["field"], "backdrop": "sky:noon", "emblem": "calendar" },
+  "sentences": [
+    {
+      "segments": [ { "text": "土曜日", "reading": "どようび" }, { "text": "に" }, { "text": "学校", "reading": "がっこう" }, { "text": "はありますか。" } ],
+      "en": "Do you have school on Saturdays?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [124466, 279528] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 土曜日" },
+  "source": { "jmdict": 1445590, "jlpt": 5 }
+}

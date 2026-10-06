@@ -1,0 +1,22 @@
+{
+  "id": "w1443000",
+  "type": "word",
+  "word": "電気",
+  "primaryReading": "でんき",
+  "furigana": [{ "text": "電", "reading": "でん" }, { "text": "気", "reading": "き" }],
+  "meaning": "electricity",
+  "pos": ["n"],
+  "kanji": ["96fb", "6c17"],
+  "builtFrom": [{ "k": "電", "m": "electricity" }, { "k": "気", "m": "spirit" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:indoor", "motion": "blink", "emblem": "lightbulb" },
+  "sentences": [
+    {
+      "segments": [ { "text": "電気", "reading": "でんき" }, { "text": "をつけて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Please turn on the light.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [124843, 279150] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 電気" },
+  "source": { "jmdict": 1443000, "jlpt": 5 }
+}

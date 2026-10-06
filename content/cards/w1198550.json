@@ -1,0 +1,22 @@
+{
+  "id": "w1198550",
+  "type": "word",
+  "word": "会社",
+  "primaryReading": "かいしゃ",
+  "furigana": [{ "text": "会", "reading": "かい" }, { "text": "社", "reading": "しゃ" }],
+  "meaning": "company; corporation",
+  "pos": ["n"],
+  "kanji": ["4f1a", "793e"],
+  "builtFrom": [{ "k": "会", "m": "meeting" }, { "k": "社", "m": "company" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["road"], "emblem": "house", "backdrop": "sky:lake" },
+  "sentences": [
+    {
+      "segments": [ { "text": "会社", "reading": "かいしゃ" }, { "text": "へ" }, { "text": "電話", "reading": "でんわ" }, { "text": "してください。" } ],
+      "en": "Call me at the office.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [237029, 22364] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 会社" },
+  "source": { "jmdict": 1198550, "jlpt": 5 }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "w1387500",
+  "type": "word",
+  "word": "先月",
+  "primaryReading": "せんげつ",
+  "furigana": [{ "text": "先", "reading": "せん" }, { "text": "月", "reading": "げつ" }],
+  "meaning": "last month",
+  "pos": ["n", "adv"],
+  "kanji": ["5148", "6708"],
+  "builtFrom": [{ "k": "先", "m": "before" }, { "k": "月", "m": "month" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:left",
+    "motion": "drift:left",
+    "backdrop": "sky:twilight"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "先月", "reading": "せんげつ" }, { "text": "から" }, { "text": "気分", "reading": "きぶん" }, { "text": "がすぐれないんだ。" } ],
+      "en": "I haven't been feeling like myself since last month.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141889, 272682] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 先月" },
+  "source": { "jmdict": 1387500, "jlpt": 5 }
+}

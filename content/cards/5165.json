@@ -1,0 +1,26 @@
+{
+  "id": "5165",
+  "kanji": "入",
+  "meaning": "enter; insert",
+  "primaryReading": "い",
+  "readings": { "kun": ["い(る)", "い(る)", "い(り)", "い(れる)"], "on": ["ニュウ", "ジュ"] },
+  "mnemonic": "A tent flap pulled aside: go in.",
+  "effect": {
+    "material": "metal",
+    "reveal": "draw",
+    "scene": ["gate"],
+    "backdrop": "sky:dawn",
+    "motion": "drift:away",
+    "emblem": "arrow:up"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "スタジオに" }, { "text": "入", "reading": "い" }, { "text": "れません。" } ],
+      "en": "We cannot go into the studio.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214681, 51974] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

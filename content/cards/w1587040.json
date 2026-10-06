@@ -1,0 +1,22 @@
+{
+  "id": "w1587040",
+  "type": "word",
+  "word": "言う",
+  "primaryReading": "いう",
+  "furigana": [{ "text": "言", "reading": "い" }, { "text": "う" }],
+  "meaning": "to say; to utter",
+  "pos": ["v5u", "vt"],
+  "kanji": ["8a00"],
+  "builtFrom": [{ "k": "言", "m": "say" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "speech", "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ばかげたことを" }, { "text": "言", "reading": "い", "base": "い", "dict": true }, { "text": "う" }, { "text": "な。" } ],
+      "en": "Don't be absurd.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198300, 35493] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 言う" },
+  "source": { "jmdict": 1587040, "jlpt": 5 }
+}

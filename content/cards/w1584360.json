@@ -1,0 +1,29 @@
+{
+  "id": "w1584360",
+  "type": "word",
+  "word": "毎年",
+  "primaryReading": "まいとし",
+  "furigana": [{ "text": "毎", "reading": "まい" }, { "text": "年", "reading": "とし" }],
+  "meaning": "every year; yearly",
+  "pos": ["adv", "n"],
+  "kanji": ["6bce", "5e74"],
+  "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "年", "m": "year" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "motion": "count:3",
+    "backdrop": "sky:forest",
+    "particles": ["leaves"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "毎年", "reading": "まいとし" }, { "text": "ここに" }, { "text": "来", "reading": "こ" }, { "text": "なきゃ。" } ],
+      "en": "I'll have to come here every year.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [81248, 322467] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 毎年" },
+  "source": { "jmdict": 1584360, "jlpt": 5 }
+}

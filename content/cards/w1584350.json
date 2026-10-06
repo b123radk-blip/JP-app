@@ -1,0 +1,29 @@
+{
+  "id": "w1584350",
+  "type": "word",
+  "word": "毎月",
+  "primaryReading": "まいつき",
+  "furigana": [{ "text": "毎", "reading": "まい" }, { "text": "月", "reading": "つき" }],
+  "meaning": "every month; each month",
+  "pos": ["adv", "n"],
+  "kanji": ["6bce", "6708"],
+  "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "月", "m": "month" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "crescent",
+    "motion": "count:3",
+    "backdrop": "sky:deep",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "母", "reading": "はは" }, { "text": "から" }, { "text": "毎月", "reading": "まいつき" }, { "text": "便", "reading": "たよ" }, { "text": "りをもらう。" } ],
+      "en": "I hear from my mother every month.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [152873, 261673] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 毎月" },
+  "source": { "jmdict": 1584350, "jlpt": 5 }
+}

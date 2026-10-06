@@ -1,0 +1,26 @@
+{
+  "id": "5206",
+  "kanji": "分",
+  "meaning": "part; minute of time",
+  "primaryReading": "ぶん",
+  "readings": { "kun": ["わ(ける)", "わ(け)", "わ(かれる)", "わ(かる)"], "on": ["ブン", "フン", "ブ"] },
+  "mnemonic": "A knife (刀) cuts something in two (八): divide; also minutes.",
+  "effect": {
+    "material": "metal",
+    "reveal": "draw",
+    "particles": ["sparks"],
+    "backdrop": "sky:noon",
+    "emblem": "dots:2",
+    "parts": { "刀": { "motion": "wave" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "コツが" }, { "text": "分", "reading": "わ" }, { "text": "かってきたよ。" } ],
+      "en": "I think I'm starting to get the hang of it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224139, 61475] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

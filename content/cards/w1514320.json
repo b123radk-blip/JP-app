@@ -1,0 +1,29 @@
+{
+  "id": "w1514320",
+  "type": "word",
+  "word": "歩く",
+  "primaryReading": "あるく",
+  "furigana": [{ "text": "歩", "reading": "ある" }, { "text": "く" }],
+  "meaning": "to walk",
+  "pos": ["v5k", "vi"],
+  "kanji": ["6b69"],
+  "builtFrom": [{ "k": "歩", "m": "walk" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "foot",
+    "scene": ["road"],
+    "motion": "walk",
+    "backdrop": "sky:dusk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "歩", "reading": "ある" }, { "text": "いて" }, { "text": "行", "reading": "い" }, { "text": "きますか？それともバスで" }, { "text": "行", "reading": "い" }, { "text": "きますか？" } ],
+      "en": "Will you go on foot or by bus?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231584, 68951] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 歩く" },
+  "source": { "jmdict": 1514320, "jlpt": 5 }
+}

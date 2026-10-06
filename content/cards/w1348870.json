@@ -1,0 +1,28 @@
+{
+  "id": "w1348870",
+  "type": "word",
+  "word": "少し",
+  "primaryReading": "すこし",
+  "furigana": [{ "text": "少", "reading": "すこ" }, { "text": "し" }],
+  "meaning": "a little; a bit",
+  "pos": ["adv"],
+  "kanji": ["5c11"],
+  "builtFrom": [{ "k": "少", "m": "few" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": "shrink:0.85",
+    "emblem": "dots:1",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "に" }, { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "少", "reading": "すこ" }, { "text": "しください。" } ],
+      "en": "Give me some water, please.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [164359, 250150] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 少し" },
+  "source": { "jmdict": 1348870, "jlpt": 5 }
+}

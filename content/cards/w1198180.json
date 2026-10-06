@@ -1,0 +1,29 @@
+{
+  "id": "w1198180",
+  "type": "word",
+  "word": "会う",
+  "primaryReading": "あう",
+  "furigana": [{ "text": "会", "reading": "あ" }, { "text": "う" }],
+  "meaning": "to meet; to encounter",
+  "pos": ["v5u", "vi"],
+  "kanji": ["4f1a"],
+  "builtFrom": [{ "k": "会", "m": "meeting" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["motes"],
+    "backdrop": "sky:deep",
+    "motion": "bounce",
+    "emblem": "hand"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "友人", "reading": "ゆうじん" }, { "text": "とは" }, { "text": "会", "reading": "あ" }, { "text": "っていない。" } ],
+      "en": "I haven't met friends.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [79378, 324339] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 会う" },
+  "source": { "jmdict": 1198180, "jlpt": 5 }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "79c1",
+  "kanji": "私",
+  "meaning": "private; I",
+  "primaryReading": "わたし",
+  "readings": { "kun": ["わたくし", "わたし"], "on": ["シ"] },
+  "mnemonic": "Grain (禾) I keep for myself (厶): I, private.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "backdrop": "sky:golden",
+    "parts": { "禾": { "motion": "sway" }, "厶": { "material": "skin" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "学生", "reading": "がくせい" }, { "text": "です。" } ],
+      "en": "I am a student.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1311110", "w2842390"] }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1548220",
+  "type": "word",
+  "word": "来年",
+  "primaryReading": "らいねん",
+  "furigana": [{ "text": "来", "reading": "らい" }, { "text": "年", "reading": "ねん" }],
+  "meaning": "next year",
+  "pos": ["n", "adv"],
+  "kanji": ["6765", "5e74"],
+  "builtFrom": [{ "k": "来", "m": "come" }, { "k": "年", "m": "year" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:right",
+    "motion": "drift:right",
+    "backdrop": "sky:golden",
+    "particles": ["petals"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "来年", "reading": "らいねん" }, { "text": "は" }, { "text": "会", "reading": "あ" }, { "text": "えるでしょう。" } ],
+      "en": "I will be able to see you next year.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78581, 325134] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 来年" },
+  "source": { "jmdict": 1548220, "jlpt": 5 }
+}

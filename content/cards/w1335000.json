@@ -1,0 +1,29 @@
+{
+  "id": "w1335000",
+  "type": "word",
+  "word": "十日",
+  "primaryReading": "とおか",
+  "furigana": [{ "text": "十", "reading": "とお" }, { "text": "日", "reading": "か" }],
+  "meaning": "10th day of the month",
+  "pos": ["n"],
+  "kanji": ["5341", "65e5"],
+  "builtFrom": [{ "k": "十", "m": "ten" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:10"],
+    "backdrop": "sky:indoor",
+    "motion": "sway"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "十", "reading": "とお", "base": "とお", "dict": true }, { "text": "日", "reading": "か", "base": "か", "dict": true }, { "text": "は" }, { "text": "日曜日", "reading": "にちようび" }, { "text": "です。" } ],
+      "en": "The 10th is a Sunday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1335000, "jlpt": 5 }
+}

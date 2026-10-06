@@ -1,0 +1,22 @@
+{
+  "id": "w1412890",
+  "type": "word",
+  "word": "大きな",
+  "primaryReading": "おおきな",
+  "furigana": [{ "text": "大", "reading": "おお" }, { "text": "きな" }],
+  "meaning": "big; large",
+  "pos": ["adj-pn"],
+  "kanji": ["5927"],
+  "builtFrom": [{ "k": "大", "m": "large" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:dawn", "motion": "grow:1.35", "emblem": "house" },
+  "sentences": [
+    {
+      "segments": [ { "text": "なんと" }, { "text": "大", "reading": "おお" }, { "text": "きな" }, { "text": "犬", "reading": "いぬ" }, { "text": "だろう。" } ],
+      "en": "What a big dog that is!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198813, 36009] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 大きな" },
+  "source": { "jmdict": 1412890, "jlpt": 5 }
+}

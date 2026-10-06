@@ -1,0 +1,25 @@
+{
+  "id": "77e5",
+  "kanji": "知",
+  "meaning": "know; wisdom",
+  "primaryReading": "ち",
+  "readings": { "kun": ["し(る)", "し(らせる)"], "on": ["チ"] },
+  "mnemonic": "The answer flies from the mouth (口) like an arrow (矢): know.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "backdrop": "plain",
+    "emblem": "lightbulb",
+    "parts": { "矢": {}, "口": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "話", "reading": "はなし" }, { "text": "は" }, { "text": "知", "reading": "し" }, { "text": "っています。" } ],
+      "en": "I have heard the story.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [206034, 43281] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

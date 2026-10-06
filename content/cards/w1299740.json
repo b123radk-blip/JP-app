@@ -1,0 +1,28 @@
+{
+  "id": "w1299740",
+  "type": "word",
+  "word": "三つ",
+  "primaryReading": "みっつ",
+  "furigana": [{ "text": "三", "reading": "みっ" }, { "text": "つ" }],
+  "meaning": "three",
+  "pos": ["num"],
+  "kanji": ["4e09"],
+  "builtFrom": [{ "k": "三", "m": "three" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "dots:3",
+    "particles": ["motes"],
+    "backdrop": "sky:twilight"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これを" }, { "text": "三", "reading": "みっ" }, { "text": "つください。" } ],
+      "en": "I'd like three of these.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [217647, 54957] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "source": { "jmdict": 1299740, "jlpt": 5 }
+}

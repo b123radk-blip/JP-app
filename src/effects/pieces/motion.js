@@ -4,6 +4,8 @@
 import { EFFECTS } from '../../config.js';
 import { smooth } from './util.js';
 
+// How much wider than at rest a whole-glyph motion makes the kanji or word (the emblem keeps clear of it).
+export const widthScale = (s) => (s.type === 'grow' ? s.to + 0.02 : s.type === 'stretch' && s.axis === 'x' ? s.to : s.type === 'pulse' ? 1 + s.amp : 1);
 export const PIVOT = { sway: (s) => (s.axis === 'z' ? 'base' : 'center'), lean: () => 'base', tilt: () => 'base', grow: () => 'base', shrink: () => 'base', stretch: () => 'base', wave: () => 'base', wag: () => 'base', walk: () => 'base' };
 const DIRS = { up: [0, 1, 0], down: [0, -1, 0], left: [-1, 0, 0], right: [1, 0, 0], toward: [0, 0, 1], away: [0, 0, -1] };
 const held = (x) => Math.tanh(3 * Math.sin(x)) / Math.tanh(3);          // a sine that holds near its peaks

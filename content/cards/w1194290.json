@@ -1,0 +1,22 @@
+{
+  "id": "w1194290",
+  "type": "word",
+  "word": "火曜日",
+  "primaryReading": "かようび",
+  "furigana": [{ "text": "火", "reading": "か" }, { "text": "曜", "reading": "よう" }, { "text": "日", "reading": "び" }],
+  "meaning": "Tuesday",
+  "pos": ["n", "adv"],
+  "kanji": ["706b", "66dc", "65e5"],
+  "builtFrom": [{ "k": "火", "m": "fire" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["flames"], "backdrop": "halo", "emblem": "calendar" },
+  "sentences": [
+    {
+      "segments": [ { "text": "できたら" }, { "text": "火曜日", "reading": "かようび" }, { "text": "に" }, { "text": "来", "reading": "き" }, { "text": "なさい。" } ],
+      "en": "Come on Tuesday if possible.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202359, 39570] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 火曜日" },
+  "source": { "jmdict": 1194290, "jlpt": 5 }
+}

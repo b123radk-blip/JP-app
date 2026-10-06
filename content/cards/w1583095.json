@@ -1,0 +1,22 @@
+{
+  "id": "w1583095",
+  "type": "word",
+  "word": "八つ",
+  "primaryReading": "やっつ",
+  "furigana": [{ "text": "八", "reading": "やっ" }, { "text": "つ" }],
+  "meaning": "eight",
+  "pos": ["num"],
+  "kanji": ["516b"],
+  "builtFrom": [{ "k": "八", "m": "eight" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:8", "particles": ["motes"], "backdrop": "sky:storm" },
+  "sentences": [
+    {
+      "segments": [ { "text": "卵", "reading": "たまご" }, { "text": "を" }, { "text": "八", "reading": "やっ", "base": "やっ", "dict": true }, { "text": "つ" }, { "text": "ください。" } ],
+      "en": "Eight eggs, please.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "source": { "jmdict": 1583095, "jlpt": 5 }
+}

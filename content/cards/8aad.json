@@ -1,0 +1,27 @@
+{
+  "id": "8aad",
+  "kanji": "読",
+  "meaning": "read",
+  "primaryReading": "よ",
+  "readings": { "kun": ["よ(む)", "よ(み)"], "on": ["ドク", "トク", "トウ"] },
+  "mnemonic": "Words (言) you buy (売) in a shop and take home: read.",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw",
+    "particles": ["notes"],
+    "scene": ["room"],
+    "backdrop": "sky:indoor",
+    "emblem": "book",
+    "parts": { "言": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "読", "reading": "よ" }, { "text": "みやすい" }, { "text": "本", "reading": "ほん" }, { "text": "だったよ。" } ],
+      "en": "I found the book easy.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204958, 42200] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

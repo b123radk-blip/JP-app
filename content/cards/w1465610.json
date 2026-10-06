@@ -1,0 +1,22 @@
+{
+  "id": "w1465610",
+  "type": "word",
+  "word": "入れる",
+  "primaryReading": "いれる",
+  "furigana": [{ "text": "入", "reading": "い" }, { "text": "れる" }],
+  "meaning": "to put in; to let in",
+  "pos": ["v1", "vt"],
+  "kanji": ["5165"],
+  "builtFrom": [{ "k": "入", "m": "enter" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "motion": "drift:down", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はバケツに" }, { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "入", "reading": "い" }, { "text": "れた。" } ],
+      "en": "I poured water into the bucket.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159141, 255384] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 入れる" },
+  "source": { "jmdict": 1465610, "jlpt": 5 }
+}

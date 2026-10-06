@@ -1,0 +1,22 @@
+{
+  "id": "w1206730",
+  "type": "word",
+  "word": "学校",
+  "primaryReading": "がっこう",
+  "furigana": [{ "text": "学", "reading": "がっ" }, { "text": "校", "reading": "こう" }],
+  "meaning": "school",
+  "pos": ["n"],
+  "kanji": ["5b66", "6821"],
+  "builtFrom": [{ "k": "学", "m": "study" }, { "k": "校", "m": "exam" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "emblem": "book", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "学校", "reading": "がっこう" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きません。" } ],
+      "en": "I do not go to school.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157854, 256677] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 学校" },
+  "source": { "jmdict": 1206730, "jlpt": 5 }
+}

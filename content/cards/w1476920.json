@@ -1,0 +1,29 @@
+{
+  "id": "w1476920",
+  "type": "word",
+  "word": "八日",
+  "primaryReading": "ようか",
+  "furigana": [{ "text": "八", "reading": "よう" }, { "text": "日", "reading": "か" }],
+  "meaning": "8th day of the month",
+  "pos": ["n"],
+  "kanji": ["516b", "65e5"],
+  "builtFrom": [{ "k": "八", "m": "eight" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:8"],
+    "backdrop": "sky:snow",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "八", "reading": "よう" }, { "text": "日", "reading": "か" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "でした。" } ],
+      "en": "It rained on the 8th.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1476920, "jlpt": 5 }
+}

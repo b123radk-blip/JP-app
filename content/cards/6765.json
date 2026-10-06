@@ -1,0 +1,27 @@
+{
+  "id": "6765",
+  "kanji": "来",
+  "meaning": "come; due",
+  "primaryReading": "らい",
+  "readings": { "kun": ["く(る)", "きた(る)", "きた(す)", "き(たす)"], "on": ["ライ", "タイ"] },
+  "mnemonic": "A rice plant (米) walking towards you: come.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["leaves"],
+    "scene": ["road"],
+    "backdrop": "sky:day",
+    "motion": "drift:toward",
+    "emblem": "arrow:down"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "すぐにここへ" }, { "text": "来", "reading": "き" }, { "text": "なさい。" } ],
+      "en": "Come here at once.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214956, 52251] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

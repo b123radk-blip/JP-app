@@ -1,0 +1,22 @@
+{
+  "id": "w1206900",
+  "type": "word",
+  "word": "学生",
+  "primaryReading": "がくせい",
+  "furigana": [{ "text": "学", "reading": "がく" }, { "text": "生", "reading": "せい" }],
+  "meaning": "student",
+  "pos": ["n"],
+  "kanji": ["5b66", "751f"],
+  "builtFrom": [{ "k": "学", "m": "study" }, { "k": "生", "m": "life" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "emblem": "book", "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたも" }, { "text": "私", "reading": "わたし" }, { "text": "も" }, { "text": "学生", "reading": "がくせい" }, { "text": "です。" } ],
+      "en": "Both you and I are students.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231470, 68837] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 学生" },
+  "source": { "jmdict": 1206900, "jlpt": 5 }
+}

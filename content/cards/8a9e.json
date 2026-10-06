@@ -1,0 +1,26 @@
+{
+  "id": "8a9e",
+  "kanji": "語",
+  "meaning": "word; speech",
+  "primaryReading": "ご",
+  "readings": { "kun": ["かた(る)", "かた(らう)"], "on": ["ゴ"] },
+  "mnemonic": "Words (言) of my (吾) people: language.",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw",
+    "backdrop": "plain",
+    "motion": "wave",
+    "emblem": "compass",
+    "parts": { "言": {}, "吾": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "語", "reading": "ご" }, { "text": "はどうつづるのですか。" } ],
+      "en": "How do you spell the word?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [210816, 48087] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

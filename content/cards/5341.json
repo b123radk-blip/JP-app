@@ -1,0 +1,26 @@
+{
+  "id": "5341",
+  "kanji": "十",
+  "meaning": "ten",
+  "primaryReading": "じゅう",
+  "readings": { "kun": ["とお", "と", "そ"], "on": ["ジュウ", "ジッ", "ジュッ"] },
+  "mnemonic": "A plus sign: all ten fingers crossed.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["sparks"],
+    "backdrop": "halo",
+    "motion": "spin",
+    "emblem": "plus"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "本", "reading": "ほん" }, { "text": "に" }, { "text": "十", "reading": "じゅう" }, { "text": "ドルをつかった。" } ],
+      "en": "I spent ten dollars on books.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [152809, 261738] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1579840"] }
+}

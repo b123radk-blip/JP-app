@@ -1,0 +1,26 @@
+{
+  "id": "53e4",
+  "kanji": "古",
+  "meaning": "old",
+  "primaryReading": "ふる",
+  "readings": { "kun": ["ふる(い)", "ふる", "ふる(す)"], "on": ["コ"] },
+  "mnemonic": "Ten (十) mouths (口) have retold this story: old.",
+  "effect": {
+    "material": "stone",
+    "reveal": "draw",
+    "particles": ["dust"],
+    "backdrop": "sky:dusk",
+    "emblem": "book",
+    "parts": { "十": {}, "口": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "い" }, { "text": "車", "reading": "くるま" }, { "text": "を" }, { "text": "買", "reading": "か" }, { "text": "いました。" } ],
+      "en": "I bought an old car.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157232, 257301] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

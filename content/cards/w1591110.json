@@ -1,0 +1,29 @@
+{
+  "id": "w1591110",
+  "type": "word",
+  "word": "聞く",
+  "primaryReading": "きく",
+  "furigana": [{ "text": "聞", "reading": "き" }, { "text": "く" }],
+  "meaning": "to hear",
+  "pos": ["v5k", "vt"],
+  "kanji": ["805e"],
+  "builtFrom": [{ "k": "聞", "m": "hear" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "ear",
+    "particles": ["notes"],
+    "backdrop": "sky:twilight",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ちょっと" }, { "text": "聞", "reading": "き" }, { "text": "いてもいい？" } ],
+      "en": "May I ask you something?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202714, 39949] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 聞く" },
+  "source": { "jmdict": 1591110, "jlpt": 5 }
+}

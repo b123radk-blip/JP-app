@@ -1,0 +1,22 @@
+{
+  "id": "w1184270",
+  "type": "word",
+  "word": "下さい",
+  "primaryReading": "ください",
+  "furigana": [{ "text": "下", "reading": "くだ" }, { "text": "さい" }],
+  "meaning": "please (give me)",
+  "pos": ["exp"],
+  "kanji": ["4e0b"],
+  "builtFrom": [{ "k": "下", "m": "down" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "backdrop": "sky:dawn", "motion": "tilt" },
+  "sentences": [
+    {
+      "segments": [ { "text": "くつろいでいて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Make yourself at home.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225652, 2378] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 下さい" },
+  "source": { "jmdict": 1184270, "jlpt": 5 }
+}

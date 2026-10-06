@@ -1,0 +1,26 @@
+{
+  "id": "5186",
+  "kanji": "円",
+  "meaning": "circle; yen",
+  "primaryReading": "えん",
+  "readings": { "kun": ["まる(い)", "まる", "まど", "まど(か)"], "on": ["エン"] },
+  "mnemonic": "A coin drawn as a box: yen, round.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw:dust",
+    "particles": ["coins", "motes"],
+    "backdrop": "sky:snow",
+    "motion": "spin",
+    "emblem": "yen"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "円", "reading": "えん" }, { "text": "はドルより" }, { "text": "安", "reading": "やす" }, { "text": "い。" } ],
+      "en": "The yen is weaker than the dollar.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [188813, 25960] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

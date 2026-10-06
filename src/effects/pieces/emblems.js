@@ -53,7 +53,7 @@ export function create(ctx, spec) {
   const mat = new THREE.MeshStandardMaterial({ color: spec.color, emissive: spec.color, emissiveIntensity: 0.45, roughness: 0.35, metalness: 0.1 });
   const shape = SHAPES[spec.type](spec, mat);
   inner.add(...shape.meshes); group.add(inner);
-  const [ax, ay] = spec.at ?? [Math.max(E.at[0], ctx.halfWidth + 0.08), E.at[1]];   // beside the kanji (or the whole word)
+  const [ax, ay] = spec.at ?? [Math.max(E.at[0], ctx.halfWidth * (ctx.widthScale ?? 1) + 0.08), E.at[1]];   // beside the kanji (or the whole word), clear of its motion
   group.scale.setScalar(E.size); group.visible = false;
   return {
     group,

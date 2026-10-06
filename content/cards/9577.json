@@ -1,0 +1,25 @@
+{
+  "id": "9577",
+  "kanji": "長",
+  "meaning": "long; leader",
+  "primaryReading": "ちょう",
+  "readings": { "kun": ["なが(い)", "おさ"], "on": ["チョウ"] },
+  "mnemonic": "An old person with long hair streaming down: long.",
+  "effect": {
+    "material": "silver",
+    "reveal": "draw",
+    "particles": ["flow"],
+    "backdrop": "sky:golden",
+    "motion": "stretch"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "そう" }, { "text": "長", "reading": "なが" }, { "text": "くはかからない。" } ],
+      "en": "It doesn't take very long.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [213767, 51054] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

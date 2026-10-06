@@ -1,0 +1,26 @@
+{
+  "id": "5148",
+  "kanji": "先",
+  "meaning": "before; ahead",
+  "primaryReading": "さき",
+  "readings": { "kun": ["さき", "ま(ず)"], "on": ["セン"] },
+  "mnemonic": "Legs (儿) striding out ahead of everyone: ahead, previous.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw:dust",
+    "backdrop": "sky:dawn",
+    "motion": "drift:right",
+    "emblem": "foot",
+    "parts": { "儿": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それから" }, { "text": "先", "reading": "さき" }, { "text": "の" }, { "text": "話", "reading": "はなし" }, { "text": "を" }, { "text": "聞", "reading": "き" }, { "text": "きたい。" } ],
+      "en": "I'd like to know the rest of the story.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205916, 43163] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1387210"] }
+}

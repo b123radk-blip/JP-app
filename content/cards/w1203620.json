@@ -1,0 +1,22 @@
+{
+  "id": "w1203620",
+  "type": "word",
+  "word": "外国",
+  "primaryReading": "がいこく",
+  "furigana": [{ "text": "外", "reading": "がい" }, { "text": "国", "reading": "こく" }],
+  "meaning": "foreign country",
+  "pos": ["n", "adj-no"],
+  "kanji": ["5916", "56fd"],
+  "builtFrom": [{ "k": "外", "m": "outside" }, { "k": "国", "m": "country" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "compass", "backdrop": "sky:snow", "particles": ["motes"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "来年", "reading": "らいねん" }, { "text": "外国", "reading": "がいこく" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],
+      "en": "I will go abroad next year.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [152388, 262162] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 外国" },
+  "source": { "jmdict": 1203620, "jlpt": 5 }
+}

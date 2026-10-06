@@ -1,0 +1,26 @@
+{
+  "id": "9053",
+  "kanji": "道",
+  "meaning": "road-way; street",
+  "primaryReading": "みち",
+  "readings": { "kun": ["みち", "いう"], "on": ["ドウ", "トウ"] },
+  "mnemonic": "A head (首) leading the way along the road (⻌).",
+  "effect": {
+    "material": "stone",
+    "reveal": "draw",
+    "particles": ["dust"],
+    "scene": ["road"],
+    "backdrop": "sky:day",
+    "parts": { "首": {}, "⻌": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "道", "reading": "みち" }, { "text": "はどこに" }, { "text": "出", "reading": "で" }, { "text": "ますか。" } ],
+      "en": "Where does this street lead to?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [220308, 57628] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1454080"] }
+}

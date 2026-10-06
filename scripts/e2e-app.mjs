@@ -104,8 +104,12 @@ check(st.ids.includes('study-ahead'), '...with a "Study ahead" option');
 await setDay(page, 1);
 await click(page, 'deck-n5'); await waitCard(page, '65e5'); st = await info(page);
 check(st.player.active, 'day 2: after only ONE good day, 日 still shows its animation');
-const day2 = ['65e5', ...await (async () => { await seekEnd(page); await click(page, 'rate-good'); return rateAll(page); })()];
-check(day2.length === 15 && day2.slice(10).join() === deckIds.slice(10).join(), `day 2: the 10 due cards, then the last 5 new ones (${day2.length})`);
+const wordsSeen = [];
+const day2 = ['65e5', ...await (async () => { await seekEnd(page); await click(page, 'rate-good'); return rateAll(page, async (i) => { if (i.player.type === 'word') { wordsSeen.push(i.player.id); if (!budget(i.player.effect)) overBudget.push(i.player.id); } }); })()];
+check(day2.length === 20 && day2.slice(10).join() === deckIds.slice(10, 20).join(), `day 2: the 10 due cards, then 10 new ones in deck order (${day2.length})`);
+check(wordsSeen.length >= 3, `day 2 brings the first word cards, each drawn from its kanji (${wordsSeen.join(' ')})`);
+const deckJson = JSON.parse(readFileSync('content/decks/n5.json', 'utf8'));
+check(day2.filter((id) => deckJson.requires[id]).every((id) => deckJson.requires[id].every((k) => day2.indexOf(k) < day2.indexOf(id) || day1.includes(k))), 'every word came after the kanji it needs');
 await setDay(page, 3);                                       // the first ten are now due after a 3-day interval
 await click(page, 'deck-n5'); await page.waitForFunction(() => window.__app.info().player);
 await page.evaluate(() => window.__app.app.screen.jump('65e5')); await waitCard(page, '65e5'); st = await info(page);   // the debug panel's jump
@@ -136,13 +140,18 @@ check(true, 'Next / Prev buttons flip through the cards');
 const costs = await page.evaluate(async (ids) => {
   const { normalizeRecipe, estimateCost } = await import('/src/effects/catalog.js');
   const { COMPONENT_LOOKS } = await import('/src/config.js');
-  const out = [];
+  const get = async (p) => (await fetch(p)).json(), hex = (ch) => ch.codePointAt(0).toString(16), out = [];
   for (const id of ids) {
     window.__app.app.screen.jump(id);
     for (let k = 0; k < 100 && window.__app.info().player?.id !== id; k++) await new Promise((r) => setTimeout(r, 50));
-    const card = await (await fetch(`/content/cards/${id}.json`)).json(), strokes = await (await fetch(`/data/kanji-${id}.json`)).json();
-    const est = estimateCost(normalizeRecipe(card.effect, COMPONENT_LOOKS), strokes.strokes.length, strokes.components), built = window.__app.info().player.effect;
-    out.push({ id, est, built });
+    const card = await get(`/content/cards/${id}.json`), r = normalizeRecipe(card.effect, COMPONENT_LOOKS);
+    let est;
+    if (card.type === 'word') {                         // each taught kanji with its own card's recipe, kana plain (src/effects/plan.js)
+      const glyphs = await Promise.all([...card.word].map(async (ch) => { const d = await get(`/data/kanji-${hex(ch)}.json`), taught = card.kanji.includes(hex(ch));
+        return { strokes: d.strokes.length, components: d.components, recipe: taught ? normalizeRecipe((await get(`/content/cards/${hex(ch)}.json`)).effect, COMPONENT_LOOKS) : null }; }));
+      est = estimateCost(r, 0, [], glyphs);
+    } else { const s = await get(`/data/kanji-${id}.json`); est = estimateCost(r, s.strokes.length, s.components); }
+    out.push({ id, est, built: window.__app.info().player.effect });
   }
   return out;
 }, deckIds);
@@ -150,10 +159,12 @@ const off = costs.filter((c) => c.est.drawCalls !== c.built.drawCalls || c.est.p
 check(!off.length, `built draw calls / particle slots / lights equal the catalog estimate for all ${costs.length} cards ${JSON.stringify(off)}`);
 await page.evaluate(() => window.__app.app.screen.jump('706b')); await page.waitForFunction(() => window.__app.info().player?.id === '706b');
 await page.evaluate(() => window.__app.seek(2.4)); await page.waitForTimeout(200); await shot(page, '14-preview');
+await page.evaluate(() => window.__app.app.screen.jump('w1443530')); await page.waitForFunction(() => window.__app.info().player?.id === 'w1443530');
+await page.evaluate(() => window.__app.seek(7)); await page.waitForTimeout(200); await shot(page, '15-word-card');   // 電車: 電 and 車 keep their looks
 await page.close();
 page = await open(`?preview=1&card=6c34&t=2&recipe=${encodeURIComponent(JSON.stringify({ material: 'heat', reveal: 'ignite', particles: ['flames'], backdrop: 'halo' }))}`);
 st = await info(page);
-check(st.player.id === '6c34' && st.player.paused && st.player.effect.drawCalls === 3 * 4 + 1 + 1, 'a URL recipe is tried on 水 (heat material: 3 draw calls per stroke) and t= freezes the time');
+check(st.player.id === '6c34' && st.player.paused && st.player.effect.drawCalls === 2 + 1 + 1, `a URL recipe is tried on 水 (heat material: 2 draw calls for the whole kanji, + flames + halo) and t= freezes the time (${st.player.effect.drawCalls})`);
 await page.close();
 
 // ---------- 5. voice clips: when the manifest has clips, Sound button + VOICEVOX credit ----------

@@ -8,6 +8,10 @@ const variantOf = (slot, s) => { const k = PIECES[slot]?.[s.type]?.variant; retu
 function specSim(slot, a, b) {
   if (!a && !b) return 1;
   if (!a || !b || a.type !== b.type) return 0;
+  if (a.type === 'word') {                                     // word cards: their "material" is their kanji, compared by overlap
+    const A = new Set(String(a.preset).split('+')), B = new Set(String(b.preset).split('+'));
+    return [...A].filter((k) => B.has(k)).length / new Set([...A, ...B]).size;
+  }
   return variantOf(slot, a) === variantOf(slot, b) ? 1 : 0.4;
 }
 function layersSim(a, b, slot = 'particles') {

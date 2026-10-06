@@ -1,0 +1,25 @@
+{
+  "id": "5e74",
+  "kanji": "年",
+  "meaning": "year; counter for years",
+  "primaryReading": "とし",
+  "readings": { "kun": ["とし"], "on": ["ネン"] },
+  "mnemonic": "A farmer carries the rice harvest home once every year.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["leaves"],
+    "backdrop": "sky:golden",
+    "emblem": "calendar"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "年", "reading": "とし" }, { "text": "がわかりますか。" } ],
+      "en": "Can you tell my age?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [162950, 251563] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1468060"] }
+}

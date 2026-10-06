@@ -1,0 +1,29 @@
+{
+  "id": "w1413660",
+  "type": "word",
+  "word": "大好き",
+  "primaryReading": "だいすき",
+  "furigana": [{ "text": "大", "reading": "だい" }, { "text": "好", "reading": "す" }, { "text": "き" }],
+  "meaning": "liking very much; loving",
+  "pos": ["adj-na"],
+  "kanji": ["5927", "597d"],
+  "builtFrom": [{ "k": "大", "m": "large" }, { "k": "好", "m": "fond" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["hearts"],
+    "emblem": "heart",
+    "motion": "grow",
+    "backdrop": "sky:deep"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はオペラが" }, { "text": "大好", "reading": "だいす" }, { "text": "きだ。" } ],
+      "en": "I adore the opera.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [161271, 253247] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 大好き" },
+  "source": { "jmdict": 1413660, "jlpt": 5 }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "96fb",
+  "kanji": "電",
+  "meaning": "electricity",
+  "primaryReading": "でん",
+  "readings": { "kun": [], "on": ["デン"] },
+  "mnemonic": "Rain (雨) and a bolt striking the field: electricity.",
+  "effect": {
+    "material": "neon",
+    "reveal": "draw:sparks",
+    "particles": ["sparks"],
+    "backdrop": "sky:storm",
+    "motion": "shake",
+    "emblem": "bolt",
+    "parts": { "雨": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "またいつか" }, { "text": "電話", "reading": "でんわ" }, { "text": "します。" } ],
+      "en": "I'll call you some other time.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195523, 32697] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "7236",
+  "kanji": "父",
+  "meaning": "father",
+  "primaryReading": "ちち",
+  "readings": { "kun": ["ちち"], "on": ["フ"] },
+  "mnemonic": "Father with two crossed sticks (乂) to chop firewood.",
+  "effect": { "material": "wood", "reveal": "draw", "scene": ["room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "父", "reading": "ちち" }, { "text": "はビジネスマンです。" } ],
+      "en": "My father is a businessman.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84669, 319045] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1497610"] }
+}

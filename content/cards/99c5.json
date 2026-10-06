@@ -1,0 +1,26 @@
+{
+  "id": "99c5",
+  "kanji": "駅",
+  "meaning": "station",
+  "primaryReading": "えき",
+  "readings": { "kun": [], "on": ["エキ"] },
+  "mnemonic": "A stop where the horses (馬) rest: station.",
+  "effect": {
+    "material": "silver",
+    "reveal": "draw",
+    "scene": ["road"],
+    "backdrop": "sky:snow",
+    "emblem": "train",
+    "parts": { "馬": {}, "尺": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "駅", "reading": "えき" }, { "text": "まで" }, { "text": "歩", "reading": "ある" }, { "text": "いていこうか。" } ],
+      "en": "Shall we walk to the station?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [188833, 25980] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1175140"] }
+}

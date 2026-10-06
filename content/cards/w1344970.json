@@ -1,0 +1,29 @@
+{
+  "id": "w1344970",
+  "type": "word",
+  "word": "女の子",
+  "primaryReading": "おんなのこ",
+  "furigana": [{ "text": "女", "reading": "おんな" }, { "text": "の" }, { "text": "子", "reading": "こ" }],
+  "meaning": "girl; daughter",
+  "pos": ["exp", "n"],
+  "kanji": ["5973", "5b50"],
+  "builtFrom": [{ "k": "女", "m": "woman" }, { "k": "子", "m": "child" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "person",
+    "motion": "bounce",
+    "backdrop": "sky:dawn",
+    "particles": ["petals"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "男の子", "reading": "おとこのこ" }, { "text": "ですか" }, { "text": "女の子", "reading": "おんなのこ" }, { "text": "ですか。" } ],
+      "en": "Is it a boy or a girl?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [127254, 276835] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 女の子" },
+  "source": { "jmdict": 1344970, "jlpt": 5 }
+}

@@ -69,6 +69,11 @@ export const THINGS = {
   sun: (spec, mat) => ({ meshes: [mesh(merge([G.sphere(0.24), ...[...Array(8).keys()].map((i) => { const a = (i / 8) * Math.PI * 2; return G.cone(0.06, 0.16, Math.cos(a) * 0.38, Math.sin(a) * 0.38, 0, a - Math.PI / 2); })]), mat)], idle(o, s) { o.rotation.z = s * 0.4; } }),
   cloud: (spec, mat) => ({ meshes: [mesh(merge([G.sphere(0.2, -0.22, -0.05), G.sphere(0.27, 0, 0.06), G.sphere(0.19, 0.24, -0.04), G.sphere(0.15, 0.08, -0.13, 1.8, 0.6, 1)]), mat)], idle(o, s) { o.position.x += 0.05 * Math.sin(s * 0.7); } }),
   target: (spec, mat) => ({ meshes: [mesh(merge([G.torus(0.42, 0.04), G.torus(0.27, 0.04), G.sphere(0.11)]), mat)], idle(o, s) { o.scale.multiplyScalar(1 + 0.1 * bump(s, 1.5, 0.3)); } }),
+  pen: (spec, mat) => {                                     // a pencil writing small loops
+    const pen = new THREE.Group(); pen.add(mesh(merge([G.cyl(0.07, 0.07, 0.62, 0, 0.12), G.cyl(0.072, 0.072, 0.09, 0, 0.47)]), mat), mesh(merge([G.cone(0.07, 0.18, 0, -0.28, 0, Math.PI), G.cone(0.025, 0.06, 0, -0.36, 0, Math.PI)]), solid(0xe8c898, 0.1)));
+    pen.rotation.z = -0.5;
+    return { meshes: [pen], idle(o, s) { pen.position.set(0.06 * Math.sin(s * 7), 0.03 * Math.sin(s * 14), 0); } };
+  },
   house: (spec, mat) => ({ meshes: [mesh(merge([G.box(0.66, 0.46, 0.4, 0, -0.18, 0), new THREE.ConeGeometry(0.56, 0.36, 4).rotateY(Math.PI / 4).translate(0, 0.23, 0)]), mat), mesh(G.box(0.16, 0.26, 0.02, 0, -0.28, 0.21), solid(DARK, 0.05))], idle() {} }),
 };
-export const THINGS_COST = { book: 3, yen: 2, crescent: 1, compass: 3, plus: 1, calendar: 4, stars: 1, window: 2, bowl: 3, cup: 2, phone: 3, train: 2, car: 2, bolt: 1, sun: 1, cloud: 1, target: 1, house: 2 };
+export const THINGS_COST = { book: 3, yen: 2, crescent: 1, compass: 3, plus: 1, calendar: 4, stars: 1, window: 2, bowl: 3, cup: 2, phone: 3, train: 2, car: 2, bolt: 1, sun: 1, cloud: 1, target: 1, house: 2, pen: 2 };

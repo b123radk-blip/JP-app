@@ -1,0 +1,29 @@
+{
+  "id": "w1387870",
+  "type": "word",
+  "word": "先週",
+  "primaryReading": "せんしゅう",
+  "furigana": [{ "text": "先", "reading": "せん" }, { "text": "週", "reading": "しゅう" }],
+  "meaning": "last week; the week before",
+  "pos": ["n", "adv"],
+  "kanji": ["5148", "9031"],
+  "builtFrom": [{ "k": "先", "m": "before" }, { "k": "週", "m": "week" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:left",
+    "motion": "float",
+    "backdrop": "sky:dusk",
+    "scene": ["road"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "先週", "reading": "せんしゅう" }, { "text": "、" }, { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "本", "reading": "ほん" }, { "text": "を" }, { "text": "読", "reading": "よ" }, { "text": "んだ。" } ],
+      "en": "I read a few books last week.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141862, 272708] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 先週" },
+  "source": { "jmdict": 1387870, "jlpt": 5 }
+}

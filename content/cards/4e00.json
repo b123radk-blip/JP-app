@@ -1,0 +1,26 @@
+{
+  "id": "4e00",
+  "kanji": "一",
+  "meaning": "one",
+  "primaryReading": "いち",
+  "readings": { "kun": ["ひと", "ひと(つ)"], "on": ["イチ", "イツ"] },
+  "mnemonic": "One finger laid flat: a single line on the horizon.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw",
+    "particles": ["motes:still"],
+    "backdrop": "sky:dawn",
+    "motion": "count:1",
+    "emblem": "dots:1"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "一時", "reading": "いちじ" }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
+      "en": "Let's meet at one o'clock.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1160790"] }
+}

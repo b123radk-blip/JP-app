@@ -1,0 +1,25 @@
+{
+  "id": "91d1",
+  "kanji": "金",
+  "meaning": "gold",
+  "primaryReading": "きん",
+  "readings": { "kun": ["かね", "かな", "がね"], "on": ["キン", "コン", "ゴン"] },
+  "mnemonic": "A roof over nuggets of gold glinting in the ground.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw:sparks",
+    "particles": ["coins"],
+    "backdrop": "sky:dusk",
+    "motion": "pulse"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それを" }, { "text": "買", "reading": "か" }, { "text": "うお" }, { "text": "金", "reading": "かね" }, { "text": "がない。" } ],
+      "en": "I have no money to buy it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204536, 41777] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "7530",
+  "kanji": "田",
+  "meaning": "rice field; rice paddy",
+  "primaryReading": "た",
+  "readings": { "kun": ["た"], "on": ["デン"] },
+  "mnemonic": "A rice field seen from above, split into four paddies.",
+  "effect": { "material": "jade", "reveal": "draw", "scene": ["field"], "backdrop": "sky:day", "particles": ["motes"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "ここは" }, { "text": "田", "reading": "た" }, { "text": "んぼです。" } ],
+      "en": "This is a rice paddy.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

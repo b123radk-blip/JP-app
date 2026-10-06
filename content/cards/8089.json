@@ -1,0 +1,19 @@
+{
+  "id": "8089",
+  "kanji": "肉",
+  "meaning": "meat",
+  "primaryReading": "にく",
+  "readings": { "kun": ["しし"], "on": ["ニク"] },
+  "mnemonic": "A slab of meat with its marbling, cut at the butcher's.",
+  "effect": { "material": "rose", "reveal": "draw:dust", "particles": ["embers", "steam"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "肉", "reading": "にく" }, { "text": "は" }, { "text": "食", "reading": "た" }, { "text": "べられません。" } ],
+      "en": "I can't eat meat.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226787, 64134] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1463520"] }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "884c",
+  "kanji": "行",
+  "meaning": "going; journey",
+  "primaryReading": "こう",
+  "readings": { "kun": ["い(く)", "ゆ(く)", "ゆ(き)", "ゆき"], "on": ["コウ", "ギョウ", "アン"] },
+  "mnemonic": "A crossroads seen from above: go.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw",
+    "particles": ["dust", "motes"],
+    "scene": ["road"],
+    "backdrop": "sky:golden",
+    "motion": "drift:right",
+    "emblem": "arrow:right",
+    "parts": { "彳": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ビーチに" }, { "text": "行", "reading": "い" }, { "text": "きましょう。" } ],
+      "en": "Let's go to the beach.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [197681, 34867] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

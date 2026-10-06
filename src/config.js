@@ -57,8 +57,9 @@ export const EFFECTS = {
   emblem: { delay: 0.35, pop: 0.45, size: 0.135, at: [0.25, 0.08] },   // after the last stroke; size and default place in metres (glyph space)
   idleRamp: 1.5,                      // idle motions fade in over this many seconds after the last stroke
   word: { glyphBox: 0.3, maxWidth: 0.6, maxReveal: 4.2 },   // word cards: glyph box size (m), widest row (m), longest stroke reveal (s)
-  // Recipe similarity (scripts/check-recipes.mjs): 0 = nothing shared, 1 = identical. Slot weights below.
-  similarity: { warn: 0.72, fail: 0.9, weights: { material: 2, reveal: 1, particles: 2, scene: 2.5, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5 } },
+  // Recipe similarity (scripts/check-recipes.mjs): 0 = nothing shared, 1 = identical. Slot weights below. Kanji that look
+  // alike (scripts/lib/lookalike.mjs: 人/入, 日/目) must stay below `lookalike`.
+  similarity: { warn: 0.72, fail: 0.9, lookalike: 0.5, weights: { material: 2, reveal: 1, particles: 2, scene: 2.5, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5 } },
 };
 
 // Glyph materials of the "glow" family: a recipe names one ("wood", or { "type": "glow", "preset": "wood" }) and may override fields.

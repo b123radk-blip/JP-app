@@ -1,0 +1,28 @@
+{
+  "id": "w1319220",
+  "type": "word",
+  "word": "七つ",
+  "primaryReading": "ななつ",
+  "furigana": [{ "text": "七", "reading": "なな" }, { "text": "つ" }],
+  "meaning": "seven",
+  "pos": ["num"],
+  "kanji": ["4e03"],
+  "builtFrom": [{ "k": "七", "m": "seven" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "dots:7",
+    "particles": ["motes"],
+    "backdrop": "sky:sunset"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "りんごが" }, { "text": "七", "reading": "なな" }, { "text": "つあります。" } ],
+      "en": "There are seven apples.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "source": { "jmdict": 1319220, "jlpt": 5 }
+}

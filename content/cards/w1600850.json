@@ -1,0 +1,22 @@
+{
+  "id": "w1600850",
+  "type": "word",
+  "word": "二十日",
+  "primaryReading": "はつか",
+  "furigana": [{ "text": "二十日", "reading": "はつか" }],
+  "meaning": "20th day of the month",
+  "pos": ["n"],
+  "kanji": ["4e8c", "5341", "65e5"],
+  "builtFrom": [{ "k": "二", "m": "two" }, { "k": "十", "m": "ten" }, { "k": "日", "m": "sun" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "calendar", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "二十日", "reading": "はつか", "base": null, "dict": true }, { "text": "は" }, { "text": "休", "reading": "やす" }, { "text": "みです。" } ],
+      "en": "The 20th is a day off.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1600850, "jlpt": 5 }
+}

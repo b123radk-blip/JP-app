@@ -1,0 +1,22 @@
+{
+  "id": "w1153670",
+  "type": "word",
+  "word": "安い",
+  "primaryReading": "やすい",
+  "furigana": [{ "text": "安", "reading": "やす" }, { "text": "い" }],
+  "meaning": "cheap; inexpensive",
+  "pos": ["adj-i"],
+  "kanji": ["5b89"],
+  "builtFrom": [{ "k": "安", "m": "relax" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "yen", "motion": "shrink", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "もっと" }, { "text": "安", "reading": "やす" }, { "text": "い" }, { "text": "本", "reading": "ほん" }, { "text": "はないですか。" } ],
+      "en": "Haven't you got a cheaper edition?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [193307, 30471] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 安い" },
+  "source": { "jmdict": 1153670, "jlpt": 5 }
+}

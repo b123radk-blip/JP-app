@@ -1,0 +1,26 @@
+{
+  "id": "516b",
+  "kanji": "八",
+  "meaning": "eight",
+  "primaryReading": "はち",
+  "readings": { "kun": ["や", "や(つ)", "やっ(つ)", "よう"], "on": ["ハチ", "ハツ"] },
+  "mnemonic": "Two strokes leaning apart like a tent that opens eight ways.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["motes"],
+    "backdrop": "sky:dusk",
+    "motion": "stretch",
+    "emblem": "compass"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "そのハイキングは" }, { "text": "八", "reading": "はち" }, { "text": "時間", "reading": "じかん" }, { "text": "もかかるでしょう。" } ],
+      "en": "The hike will take no less than eight hours.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [212749, 50032] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1583090"] }
+}

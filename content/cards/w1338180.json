@@ -1,0 +1,22 @@
+{
+  "id": "w1338180",
+  "type": "word",
+  "word": "出す",
+  "primaryReading": "だす",
+  "furigana": [{ "text": "出", "reading": "だ" }, { "text": "す" }],
+  "meaning": "to take out; to get out",
+  "pos": ["v5s", "vt"],
+  "kanji": ["51fa"],
+  "builtFrom": [{ "k": "出", "m": "exit" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "drift:toward", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "そんなに" }, { "text": "金", "reading": "かね" }, { "text": "は" }, { "text": "出", "reading": "だ" }, { "text": "せない。" } ],
+      "en": "I can't afford to pay so much.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [164675, 33570] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 出す" },
+  "source": { "jmdict": 1338180, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1465590",
+  "type": "word",
+  "word": "入る",
+  "primaryReading": "はいる",
+  "furigana": [{ "text": "入", "reading": "はい" }, { "text": "る" }],
+  "meaning": "to enter; to come in",
+  "pos": ["v5r", "vi"],
+  "kanji": ["5165"],
+  "builtFrom": [{ "k": "入", "m": "enter" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "motion": "drift:away", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "クラブに" }, { "text": "入", "reading": "はい" }, { "text": "りませんか。" } ],
+      "en": "Will you join our club?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225551, 62887] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 入る" },
+  "source": { "jmdict": 1465590, "jlpt": 5 }
+}

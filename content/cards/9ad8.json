@@ -1,0 +1,26 @@
+{
+  "id": "9ad8",
+  "kanji": "高",
+  "meaning": "tall; high",
+  "primaryReading": "こう",
+  "readings": { "kun": ["たか(い)", "たか", "だか", "たか(まる)"], "on": ["コウ"] },
+  "mnemonic": "A tall tower with two windows (口): tall, expensive.",
+  "effect": {
+    "material": "stone",
+    "reveal": "draw",
+    "particles": ["mist"],
+    "backdrop": "sky:day",
+    "motion": "stretch:y",
+    "parts": { "口": { "material": "gold" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このドレスは" }, { "text": "高", "reading": "たか" }, { "text": "そうだ。" } ],
+      "en": "That dress seems to be very expensive.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223442, 60777] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

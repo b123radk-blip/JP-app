@@ -1,0 +1,27 @@
+{
+  "id": "51fa",
+  "kanji": "出",
+  "meaning": "exit; leave",
+  "primaryReading": "で",
+  "readings": { "kun": ["で(る)", "で", "だ(す)", "だ(す)"], "on": ["シュツ", "スイ"] },
+  "mnemonic": "A sprout climbing out of a pot: go out.",
+  "effect": {
+    "material": "stone",
+    "reveal": "draw",
+    "scene": ["mountains"],
+    "backdrop": "sky:day",
+    "motion": "drift:up",
+    "emblem": "arrow:up",
+    "parts": { "山": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "どこから" }, { "text": "出", "reading": "で" }, { "text": "るんですか。" } ],
+      "en": "Where does it leave from?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201017, 38222] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

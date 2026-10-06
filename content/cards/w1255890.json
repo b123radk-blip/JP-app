@@ -1,0 +1,28 @@
+{
+  "id": "w1255890",
+  "type": "word",
+  "word": "月曜日",
+  "primaryReading": "げつようび",
+  "furigana": [{ "text": "月", "reading": "げつ" }, { "text": "曜", "reading": "よう" }, { "text": "日", "reading": "び" }],
+  "meaning": "Monday",
+  "pos": ["n", "adv"],
+  "kanji": ["6708", "66dc", "65e5"],
+  "builtFrom": [{ "k": "月", "m": "month" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "crescent",
+    "backdrop": "sky:night",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "月曜日", "reading": "げつようび" }, { "text": "です。" } ],
+      "en": "It is Monday today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171638, 242836] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 月曜日" },
+  "source": { "jmdict": 1255890, "jlpt": 5 }
+}

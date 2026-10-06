@@ -94,6 +94,7 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
     for (const a of anchors) { const prop = PROPS[p.type](ctx, p, a); a.inner.add(prop.group); props.push(prop); }
   }
   motions.push(motion.create(ctx, r.motion, glyphPivot));
+  ctx.widthScale = motion.widthScale(r.motion);
   const layers = r.particles.map((p) => createLayer(ctx, p));
   const emblem = r.emblem ? emblems.create(ctx, r.emblem) : null;
   if (emblem) group.add(emblem.group);

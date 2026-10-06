@@ -1,0 +1,22 @@
+{
+  "id": "w1307040",
+  "type": "word",
+  "word": "四つ",
+  "primaryReading": "よっつ",
+  "furigana": [{ "text": "四", "reading": "よっ" }, { "text": "つ" }],
+  "meaning": "four; 4",
+  "pos": ["num"],
+  "kanji": ["56db"],
+  "builtFrom": [{ "k": "四", "m": "four" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:4", "particles": ["motes"], "backdrop": "sky:lake" },
+  "sentences": [
+    {
+      "segments": [ { "text": "りんごを" }, { "text": "四", "reading": "よっ", "base": "よっ", "dict": true }, { "text": "つ" }, { "text": "買", "reading": "か" }, { "text": "いました。" } ],
+      "en": "I bought four apples.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "source": { "jmdict": 1307040, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1413240",
+  "type": "word",
+  "word": "大学",
+  "primaryReading": "だいがく",
+  "furigana": [{ "text": "大", "reading": "だい" }, { "text": "学", "reading": "がく" }],
+  "meaning": "university; college",
+  "pos": ["n"],
+  "kanji": ["5927", "5b66"],
+  "builtFrom": [{ "k": "大", "m": "large" }, { "k": "学", "m": "study" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["gate"],
+    "emblem": "lightbulb",
+    "backdrop": "sky:golden",
+    "motion": "grow"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "大学", "reading": "だいがく" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きたい。" } ],
+      "en": "I want to go to college.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [155210, 259326] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 大学" },
+  "source": { "jmdict": 1413240, "jlpt": 5 }
+}

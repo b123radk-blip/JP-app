@@ -1,60 +1,49 @@
 {
+ "_note": "Written example sentences for cards Tatoeba cannot serve (counters and dates there use digits). Same checks as Tatoeba sentences (scripts/pick-sentences.py), and needsNativeReview like every sentence. \"surface\": how the word appears in the sentence when conjugated (知っ for 知る).",
+ "4e00": {
+  "text": "一時に会いましょう。",
+  "en": "Let's meet at one o'clock."
+ },
+ "4eba": {
+  "text": "あの人はだれですか。",
+  "en": "Who is that person?"
+ },
+ "5929": {
+  "text": "あしたの天気はどうですか。",
+  "en": "What will the weather be like tomorrow?"
+ },
  "5973": {
   "text": "あの女の人は先生です。",
   "en": "That woman is a teacher."
+ },
+ "624b": {
+  "text": "手を洗ってください。",
+  "en": "Please wash your hands."
+ },
+ "7530": {
+  "text": "ここは田んぼです。",
+  "en": "This is a rice paddy."
+ },
+ "767e": {
+  "text": "このりんごは百円です。",
+  "en": "This apple is 100 yen."
+ },
+ "79c1": {
+  "text": "私は学生です。",
+  "en": "I am a student."
  },
  "8033": {
   "text": "うさぎは耳が長い。",
   "en": "Rabbits have long ears."
  },
- "_note": "Written example sentences for cards Tatoeba cannot serve (counters and dates there use digits). Same checks as Tatoeba sentences (scripts/pick-sentences.py), and needsNativeReview like every sentence. \"surface\": how the word appears in the sentence when conjugated (知っ for 知る).",
- "w1462900": {
-  "text": "二日に会いましょう。",
-  "en": "Let's meet on the 2nd."
+ "8eca": {
+  "text": "車で学校へ行きます。",
+  "en": "I go to school by car."
  },
- "w2225040": {
-  "text": "十月一日です。",
-  "en": "It's October 1st."
- },
- "w1307040": {
-  "text": "りんごを四つ買いました。",
-  "en": "I bought four apples."
- },
- "w1307320": {
-  "text": "四日に行きます。",
-  "en": "I'll go on the 4th."
- },
- "w1335000": {
-  "text": "十日は日曜日です。",
-  "en": "The 10th is a Sunday."
- },
- "w1600850": {
-  "text": "二十日は休みです。",
-  "en": "The 20th is a day off."
- },
- "w1319220": {
-  "text": "りんごが七つあります。",
-  "en": "There are seven apples."
- },
- "w1579630": {
-  "text": "七日に帰ります。",
-  "en": "I'll come back on the 7th."
- },
- "w1476920": {
-  "text": "八日は雨でした。",
-  "en": "It rained on the 8th."
- },
- "w1583095": {
-  "text": "卵を八つください。",
-  "en": "Eight eggs, please."
- },
- "w1561470": {
-  "text": "六日は土曜日です。",
-  "en": "The 6th is a Saturday."
- },
- "w1585315": {
-  "text": "いすが六つあります。",
-  "en": "There are six chairs."
+ "w1169870": {
+  "text": "毎日お茶を飲みます。",
+  "en": "I drink tea every day.",
+  "surface": "飲み"
  },
  "w1243600": {
   "text": "卵が九つあります。",
@@ -64,13 +53,69 @@
   "text": "九日は月曜日です。",
   "en": "The 9th is a Monday."
  },
+ "w1289220": {
+  "text": "今週、友だちに会います。",
+  "en": "I'll meet a friend this week."
+ },
+ "w1307040": {
+  "text": "りんごを四つ買いました。",
+  "en": "I bought four apples."
+ },
+ "w1307320": {
+  "text": "四日に行きます。",
+  "en": "I'll go on the 4th."
+ },
+ "w1319220": {
+  "text": "りんごが七つあります。",
+  "en": "There are seven apples."
+ },
+ "w1335000": {
+  "text": "十日は日曜日です。",
+  "en": "The 10th is a Sunday."
+ },
  "w1420470": {
   "text": "その人を知っていますか。",
   "en": "Do you know that person?",
   "surface": "知っ"
  },
- "767e": {
-  "text": "このりんごは百円です。",
-  "en": "This apple is 100 yen."
+ "w1443530": {
+  "text": "電車で会社へ行きます。",
+  "en": "I go to work by train."
+ },
+ "w1462900": {
+  "text": "二日に会いましょう。",
+  "en": "Let's meet on the 2nd."
+ },
+ "w1476920": {
+  "text": "八日は雨でした。",
+  "en": "It rained on the 8th."
+ },
+ "w1561470": {
+  "text": "六日は土曜日です。",
+  "en": "The 6th is a Saturday."
+ },
+ "w1579110": {
+  "text": "今日は何日ですか。",
+  "en": "What's the date today?"
+ },
+ "w1579630": {
+  "text": "七日に帰ります。",
+  "en": "I'll come back on the 7th."
+ },
+ "w1583095": {
+  "text": "卵を八つください。",
+  "en": "Eight eggs, please."
+ },
+ "w1585315": {
+  "text": "いすが六つあります。",
+  "en": "There are six chairs."
+ },
+ "w1600850": {
+  "text": "二十日は休みです。",
+  "en": "The 20th is a day off."
+ },
+ "w2225040": {
+  "text": "十月一日です。",
+  "en": "It's October 1st."
  }
 }

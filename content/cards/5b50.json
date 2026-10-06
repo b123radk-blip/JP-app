@@ -1,0 +1,19 @@
+{
+  "id": "5b50",
+  "kanji": "子",
+  "meaning": "child; sign of the rat",
+  "primaryReading": "し",
+  "readings": { "kun": ["こ", "こ", "ね"], "on": ["シ", "ス", "ツ"] },
+  "mnemonic": "A baby wrapped up, arms out: child.",
+  "effect": { "material": "skin", "reveal": "draw", "backdrop": "sky:day", "motion": "bounce", "particles": ["sparks"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "あのハンサムな" }, { "text": "男の子", "reading": "おとこのこ" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "て。" } ],
+      "en": "Look at that good-looking boy.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231277, 68642] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

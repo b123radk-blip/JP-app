@@ -1,0 +1,28 @@
+{
+  "id": "w1562350",
+  "type": "word",
+  "word": "話す",
+  "primaryReading": "はなす",
+  "furigana": [{ "text": "話", "reading": "はな" }, { "text": "す" }],
+  "meaning": "to talk; to speak",
+  "pos": ["v5s", "vt"],
+  "kanji": ["8a71"],
+  "builtFrom": [{ "k": "話", "m": "tale" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "speech",
+    "particles": ["notes"],
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ドイツ" }, { "text": "語", "reading": "ご" }, { "text": "を" }, { "text": "話", "reading": "はな" }, { "text": "せますか？" } ],
+      "en": "Can you speak German?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [232510, 69879] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 話す" },
+  "source": { "jmdict": 1562350, "jlpt": 5 }
+}

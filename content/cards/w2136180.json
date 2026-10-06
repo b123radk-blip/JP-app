@@ -1,0 +1,28 @@
+{
+  "id": "w2136180",
+  "type": "word",
+  "word": "小さな",
+  "primaryReading": "ちいさな",
+  "furigana": [{ "text": "小", "reading": "ちい" }, { "text": "さな" }],
+  "meaning": "small; little",
+  "pos": ["adj-pn"],
+  "kanji": ["5c0f"],
+  "builtFrom": [{ "k": "小", "m": "little" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "backdrop": "sky:twilight",
+    "motion": "shrink:0.6",
+    "emblem": "house"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "小", "reading": "ちい" }, { "text": "さなことでくよくよするな。" } ],
+      "en": "Don't trouble about small things.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [147022, 267539] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 小さな" },
+  "source": { "jmdict": 2136180, "jlpt": 5 }
+}

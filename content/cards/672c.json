@@ -1,0 +1,26 @@
+{
+  "id": "672c",
+  "kanji": "本",
+  "meaning": "book; present",
+  "primaryReading": "ほん",
+  "readings": { "kun": ["もと"], "on": ["ホン"] },
+  "mnemonic": "A tree (木) with a mark at its root: origin; also book.",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw",
+    "scene": ["tree:木"],
+    "backdrop": "plain",
+    "emblem": "book",
+    "parts": { "木": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "そっちの" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "のです。" } ],
+      "en": "Those books are mine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204732, 41972] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1522150"] }
+}

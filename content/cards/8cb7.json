@@ -1,0 +1,27 @@
+{
+  "id": "8cb7",
+  "kanji": "買",
+  "meaning": "buy",
+  "primaryReading": "か",
+  "readings": { "kun": ["か(う)"], "on": ["バイ"] },
+  "mnemonic": "A net (罒) scooping up shiny shells to pay with: buy.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["coins"],
+    "scene": ["room"],
+    "backdrop": "sky:indoor",
+    "emblem": "yen",
+    "parts": { "貝": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はテープを" }, { "text": "買", "reading": "か" }, { "text": "います。" } ],
+      "en": "I buy a tape.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159466, 255057] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

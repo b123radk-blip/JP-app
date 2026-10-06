@@ -1,0 +1,28 @@
+{
+  "id": "w1269410",
+  "type": "word",
+  "word": "後ろ",
+  "primaryReading": "うしろ",
+  "furigana": [{ "text": "後", "reading": "うし" }, { "text": "ろ" }],
+  "meaning": "back; behind",
+  "pos": ["n", "adj-no"],
+  "kanji": ["5f8c"],
+  "builtFrom": [{ "k": "後", "m": "behind" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:down",
+    "motion": "drift:away",
+    "backdrop": "sky:dusk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "後", "reading": "うし" }, { "text": "ろに" }, { "text": "下", "reading": "さ" }, { "text": "がってください。" } ],
+      "en": "Stand back, please.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201275, 38482] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 後ろ" },
+  "source": { "jmdict": 1269410, "jlpt": 5 }
+}

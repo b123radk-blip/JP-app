@@ -1,0 +1,22 @@
+{
+  "id": "w1598680",
+  "type": "word",
+  "word": "時々",
+  "primaryReading": "ときどき",
+  "furigana": [{ "text": "時", "reading": "とき" }, { "text": "々", "reading": "どき" }],
+  "meaning": "sometimes; occasionally",
+  "pos": ["adv", "adj-no"],
+  "kanji": ["6642"],
+  "builtFrom": [{ "k": "時", "m": "time" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "motion": "blink", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "時々", "reading": "ときどき" }, { "text": "テレビを" }, { "text": "見", "reading": "み" }, { "text": "る。" } ],
+      "en": "I watch TV off and on.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [150451, 264106] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 時々" },
+  "source": { "jmdict": 1598680, "jlpt": 5 }
+}

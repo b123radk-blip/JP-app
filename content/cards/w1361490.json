@@ -1,0 +1,28 @@
+{
+  "id": "w1361490",
+  "type": "word",
+  "word": "新しい",
+  "primaryReading": "あたらしい",
+  "furigana": [{ "text": "新", "reading": "あたら" }, { "text": "しい" }],
+  "meaning": "new; novel",
+  "pos": ["adj-i"],
+  "kanji": ["65b0"],
+  "builtFrom": [{ "k": "新", "m": "new" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["sparks"],
+    "motion": "pulse",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "車", "reading": "くるま" }, { "text": "、" }, { "text": "見", "reading": "み" }, { "text": "た？" } ],
+      "en": "Have you seen my new car?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [163261, 251251] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 新しい" },
+  "source": { "jmdict": 1361490, "jlpt": 5 }
+}

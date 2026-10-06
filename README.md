@@ -1,22 +1,27 @@
 # Kanji Memory (JP-app)
 
-A spaced-repetition kanji app (like Anki) for the **Samsung Galaxy XR**, where each kanji has a memorable 3D animation while
-you are learning it. Runs as a WebXR web app in the headset's Chrome.
+A spaced-repetition kanji and vocabulary app (like Anki) for the **Samsung Galaxy XR**, where each kanji and each word has
+a memorable 3D animation while you are learning it. Runs as a WebXR web app in the headset's Chrome.
 
 **Open:** https://b123radk-blip.github.io/JP-app/ (GitHub Pages, branch `claude/kanji-3d-galaxy-xr-uoi522`; after a push allow
 1-2 minutes, then reload or reopen the tab). Press **Enter VR** or **Enter AR**, then point at a deck and pinch.
 
 ## What it does now
-- Home: deck tiles N5 to N1 (N5 has 15 pilot cards: 日 火 水 山 川 木 雨 休 明 林 上 下 何 三 時; the rest say "coming soon").
-- Study: new and due cards. While a card's animation is active you see the 3D kanji and its animation (each one built from
-  a recipe of reusable pieces: material, reveal, particles, backdrop, motion, emblem), then the reading, the meaning with a
-  short memory story, an example sentence with furigana and its English, then Again / Hard / Good / Easy.
-  **Skip** jumps straight to the ratings.
+- Home: deck tiles N5 to N1. N5 has 225 cards: 112 kanji and 113 words (学生, 電車, 来週 ...); the others say "coming soon".
+- Study: new and due cards, 10 new a day. Each kanji comes first, then the words it unlocks: a word is new only once all
+  its kanji have been introduced.
+- Kanji card: while its animation is active you see the 3D kanji and its animation (built from a recipe of reusable
+  pieces: material, reveal, particles, scene, backdrop, motion, emblem), then the reading, the meaning with a short memory
+  story, an example sentence with furigana and its English, then Again / Hard / Good / Easy. **Skip** jumps to the ratings.
+- Word card: the word draws in with each kanji in its own card's look (the 学 of 学生 looks like the 学 card), then the
+  word's own scene; a "Built from" panel shows its kanji and their meanings.
 - After Good/Easy on 2 different days the animation retires: the card shows the plain kanji and "Show answer".
   Again or Hard brings the animation back.
 - Progress is saved in the browser; **Export / Import progress** on the 2D page keeps a copy.
 - **Preview**: [?preview=1](https://b123radk-blip.github.io/JP-app/?preview=1) plays one card's animation on its own, looping;
-  Prev / Next flip through the cards (also in the headset). Contact sheet of all cards: `docs/screenshots/preview-sheet.jpg`.
+  Prev / Next flip through the cards (also in the headset). Contact sheets of all cards: `docs/screenshots/preview-sheet-1.jpg` to `-7.jpg`.
+- Readings and sentences come from dictionaries and Tatoeba and are checked by two analysers, but no native speaker has
+  confirmed them yet: [docs/REVIEW.md](docs/REVIEW.md) lists them for review.
 - Voice: none yet. You generate it with VOICEVOX on your PC: [docs/VOICEVOX.md](docs/VOICEVOX.md).
 - Testing aids: add `?debug=1` (panel: add days, reset, force animation, jump to card) and `?today=2026-10-06` (fake date).
 - Old prototypes: [prototypes/sun.html](prototypes/sun.html), [prototypes/fire.html](prototypes/fire.html) (moved from `/` and `/fire.html`). WebXR check: [status.html](status.html).
@@ -27,10 +32,20 @@ you are learning it. Runs as a WebXR web app in the headset's Chrome.
 3. Frame rate on 火 and 雨 (the heaviest effects), and on 時 (most strokes).
 4. Enter AR: are the sentence panels readable over your room? Skies hide in AR; do the effects still read?
 5. Flip through `?preview=1`: does every card look clearly different? Are the emblems (arrow, ?, Zzz, clock, dots) big enough?
+6. Word cards (e.g. 電車, 学生, 来週): do the kanji read as the same characters you learned on their own cards? Is a row
+   of 3-4 glyphs still sharp and comfortable to read?
 
 ## Credits
-Stroke data: [KanjiVG](https://kanjivg.org) © Ulrich Apel, CC BY-SA 3.0 (derived `data/*.json` same licence) ·
-Font: Noto Sans JP, SIL Open Font License 1.1 (`assets/fonts/OFL.txt`) · [three.js](https://threejs.org) (MIT).
+- Stroke data: [KanjiVG](https://kanjivg.org) © Ulrich Apel, CC BY-SA 3.0 (derived `data/kanji-*.json` same licence).
+- Dictionaries: [JMdict](https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project) and
+  [KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project), property of the Electronic Dictionary Research and
+  Development Group, used under [CC BY-SA 4.0](https://www.edrdg.org/edrdg/licence.html). Derived `data/lexicon/` and the
+  meanings and readings on the cards are under the same licence.
+- Example sentences: [Tatoeba](https://tatoeba.org), CC BY 2.0 FR (each card lists its sentence ids).
+- JLPT levels: Jonathan Waller's lists ([tanos.co.uk](https://www.tanos.co.uk/jlpt/)), via
+  [open-anki-jlpt-decks](https://github.com/jamsinclair/open-anki-jlpt-decks) and
+  [kanji-data](https://github.com/davidluzgouveia/kanji-data) (MIT); only the level assignment is used.
+- Font: Noto Sans JP, SIL Open Font License 1.1 (`assets/fonts/OFL.txt`) · [three.js](https://threejs.org) (MIT).
 Voice clips, once generated, credit "VOICEVOX: <character>" in the app footer.
 
-Developers (and Claude sessions): see [CLAUDE.md](CLAUDE.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), the effects audit [docs/EFFECTS-PLAN.md](docs/EFFECTS-PLAN.md) and the plan to 2000-3000 cards [docs/ROADMAP.md](docs/ROADMAP.md).
+Developers (and Claude sessions): see [CLAUDE.md](CLAUDE.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), the effects audit [docs/EFFECTS-PLAN.md](docs/EFFECTS-PLAN.md), the plan to about 3,000 words [docs/ROADMAP.md](docs/ROADMAP.md), what each batch made [docs/BATCH-LOG.md](docs/BATCH-LOG.md) and the prompt for the next step ([docs/prompts/](docs/prompts/)).

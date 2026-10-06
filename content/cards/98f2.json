@@ -1,0 +1,26 @@
+{
+  "id": "98f2",
+  "kanji": "飲",
+  "meaning": "drink; smoke",
+  "primaryReading": "の",
+  "readings": { "kun": ["の(む)", "の(み)"], "on": ["イン", "オン"] },
+  "mnemonic": "Someone opening wide (欠) over a drink: drink.",
+  "effect": {
+    "material": "water",
+    "reveal": "draw:drops",
+    "particles": ["bubbles"],
+    "scene": ["room", "ripples"],
+    "backdrop": "sky:indoor",
+    "parts": { "欠": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "コーヒーを" }, { "text": "飲", "reading": "の" }, { "text": "みますか。" } ],
+      "en": "Will you have some coffee?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224861, 62196] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

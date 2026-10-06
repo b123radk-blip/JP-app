@@ -1,0 +1,22 @@
+{
+  "id": "w1372190",
+  "type": "word",
+  "word": "水曜日",
+  "primaryReading": "すいようび",
+  "furigana": [{ "text": "水", "reading": "すい" }, { "text": "曜", "reading": "よう" }, { "text": "日", "reading": "び" }],
+  "meaning": "Wednesday",
+  "pos": ["n", "adv"],
+  "kanji": ["6c34", "66dc", "65e5"],
+  "builtFrom": [{ "k": "水", "m": "water" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["ripples"], "backdrop": "sky:lake", "emblem": "calendar" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今度", "reading": "こんど" }, { "text": "の" }, { "text": "水曜日", "reading": "すいようび" }, { "text": "ならいいですよ。" } ],
+      "en": "Next Wednesday will be fine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [172151, 242323] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 水曜日" },
+  "source": { "jmdict": 1372190, "jlpt": 5 }
+}

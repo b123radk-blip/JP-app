@@ -1,0 +1,26 @@
+{
+  "id": "8a00",
+  "kanji": "言",
+  "meaning": "say; word",
+  "primaryReading": "い",
+  "readings": { "kun": ["い(う)", "こと"], "on": ["ゲン", "ゴン"] },
+  "mnemonic": "Lines of words coming out of a mouth (口): say.",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw",
+    "particles": ["notes"],
+    "backdrop": "sky:twilight",
+    "emblem": "speech",
+    "parts": { "口": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "本気", "reading": "ほんき" }, { "text": "で" }, { "text": "言", "reading": "い" }, { "text": "ってるんです。" } ],
+      "en": "I mean it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [163707, 250804] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

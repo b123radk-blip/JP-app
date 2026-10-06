@@ -1,0 +1,25 @@
+{
+  "id": "53cb",
+  "kanji": "友",
+  "meaning": "friend",
+  "primaryReading": "ゆう",
+  "readings": { "kun": ["とも"], "on": ["ユウ"] },
+  "mnemonic": "Two hands (one shaped like ナ, one like 又) reaching to shake: friend.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw:sparks",
+    "particles": ["hearts"],
+    "backdrop": "sky:golden",
+    "emblem": "hand"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "友人", "reading": "ゆうじん" }, { "text": "は" }, { "text": "少", "reading": "すこ" }, { "text": "ししかいない。" } ],
+      "en": "I have few friends.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [79351, 324366] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

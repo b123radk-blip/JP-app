@@ -1,0 +1,26 @@
+{
+  "id": "5343",
+  "kanji": "千",
+  "meaning": "thousand",
+  "primaryReading": "せん",
+  "readings": { "kun": ["ち"], "on": ["セン"] },
+  "mnemonic": "A thousand footsteps crossing at the crossroads (十).",
+  "effect": {
+    "material": "clay",
+    "reveal": "draw:dust",
+    "scene": ["road"],
+    "backdrop": "sky:golden",
+    "motion": "float",
+    "parts": { "十": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "千", "reading": "せん" }, { "text": "人", "reading": "にん" }, { "text": "もの" }, { "text": "人", "reading": "ひと" }, { "text": "がそこにいた。" } ],
+      "en": "As many as a thousand people were there.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141432, 273139] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1388740"] }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "6bce",
+  "kanji": "毎",
+  "meaning": "every",
+  "primaryReading": "まい",
+  "readings": { "kun": ["ごと", "ごと(に)"], "on": ["マイ"] },
+  "mnemonic": "Every morning the same person in the same hat comes by: every.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "backdrop": "sky:morning",
+    "motion": "count:3",
+    "emblem": "sun",
+    "parts": { "毋": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "毎日", "reading": "まいにち" }, { "text": "森", "reading": "もり" }, { "text": "の" }, { "text": "中", "reading": "なか" }, { "text": "を" }, { "text": "歩", "reading": "ある" }, { "text": "く。" } ],
+      "en": "I walk in the forest every day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [152704, 261845] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

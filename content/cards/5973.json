@@ -1,0 +1,25 @@
+{
+  "id": "5973",
+  "kanji": "女",
+  "meaning": "woman; female",
+  "primaryReading": "おんな",
+  "readings": { "kun": ["おんな", "め"], "on": ["ジョ", "ニョ", "ニョウ"] },
+  "mnemonic": "A woman kneeling gracefully.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "backdrop": "sky:dusk",
+    "motion": "sway",
+    "emblem": { "type": "person", "color": "#ff6a8a" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "女", "reading": "おんな" }, { "text": "の" }, { "text": "人", "reading": "ひと" }, { "text": "は" }, { "text": "先生", "reading": "せんせい" }, { "text": "です。" } ],
+      "en": "That woman is a teacher.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1344930"] }
+}

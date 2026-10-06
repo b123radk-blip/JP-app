@@ -1,0 +1,22 @@
+{
+  "id": "w1352320",
+  "type": "word",
+  "word": "上げる",
+  "primaryReading": "あげる",
+  "furigana": [{ "text": "上", "reading": "あ" }, { "text": "げる" }],
+  "meaning": "to raise; to elevate",
+  "pos": ["v1", "vt"],
+  "kanji": ["4e0a"],
+  "builtFrom": [{ "k": "上", "m": "up" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "arrow:up", "motion": "drift:up", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "左手", "reading": "ひだりて" }, { "text": "を" }, { "text": "上", "reading": "あ" }, { "text": "げなさい。" } ],
+      "en": "Raise your left hand.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [170915, 243565] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 上げる" },
+  "source": { "jmdict": 1352320, "jlpt": 5 }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "w1268570",
+  "type": "word",
+  "word": "五日",
+  "primaryReading": "いつか",
+  "furigana": [{ "text": "五", "reading": "いつ" }, { "text": "日", "reading": "か" }],
+  "meaning": "5th day of the month",
+  "pos": ["n"],
+  "kanji": ["4e94", "65e5"],
+  "builtFrom": [{ "k": "五", "m": "five" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:5"],
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "五", "reading": "いつ" }, { "text": "日", "reading": "か" }, { "text": "待", "reading": "ま" }, { "text": "ってくれ。" } ],
+      "en": "Give me five days.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [235115, 72493] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1268570, "jlpt": 5 }
+}

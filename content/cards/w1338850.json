@@ -1,0 +1,22 @@
+{
+  "id": "w1338850",
+  "type": "word",
+  "word": "出口",
+  "primaryReading": "でぐち",
+  "furigana": [{ "text": "出", "reading": "で" }, { "text": "口", "reading": "ぐち" }],
+  "meaning": "exit; way out",
+  "pos": ["n"],
+  "kanji": ["51fa", "53e3"],
+  "builtFrom": [{ "k": "出", "m": "exit" }, { "k": "口", "m": "mouth" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "emblem": "arrow:down", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "出口", "reading": "でぐち" }, { "text": "はどちらですか。" } ],
+      "en": "Where is the way out?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [147749, 266811] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 出口" },
+  "source": { "jmdict": 1338850, "jlpt": 5 }
+}

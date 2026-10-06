@@ -1,0 +1,25 @@
+{
+  "id": "597d",
+  "kanji": "好",
+  "meaning": "fond; pleasing",
+  "primaryReading": "す",
+  "readings": { "kun": ["この(む)", "す(く)", "よ(い)", "い(い)"], "on": ["コウ"] },
+  "mnemonic": "A woman (女) with a child (子): someone you like.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw:sparks",
+    "particles": ["hearts"],
+    "backdrop": "plain",
+    "parts": { "女": {}, "子": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "好", "reading": "す" }, { "text": "きではない。" } ],
+      "en": "I don't like dogs.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157289, 257244] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

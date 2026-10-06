@@ -1,0 +1,22 @@
+{
+  "id": "w1243600",
+  "type": "word",
+  "word": "九つ",
+  "primaryReading": "ここのつ",
+  "furigana": [{ "text": "九", "reading": "ここの" }, { "text": "つ" }],
+  "meaning": "nine",
+  "pos": ["num"],
+  "kanji": ["4e5d"],
+  "builtFrom": [{ "k": "九", "m": "nine" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:9", "particles": ["motes"], "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "卵", "reading": "たまご" }, { "text": "が" }, { "text": "九", "reading": "ここの" }, { "text": "つあります。" } ],
+      "en": "There are nine eggs.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "source": { "jmdict": 1243600, "jlpt": 5 }
+}

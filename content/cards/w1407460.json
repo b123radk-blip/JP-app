@@ -1,0 +1,22 @@
+{
+  "id": "w1407460",
+  "type": "word",
+  "word": "多い",
+  "primaryReading": "おおい",
+  "furigana": [{ "text": "多", "reading": "おお" }, { "text": "い" }],
+  "meaning": "many; numerous",
+  "pos": ["adj-i"],
+  "kanji": ["591a"],
+  "builtFrom": [{ "k": "多", "m": "many" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["motes"], "emblem": "stars", "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "川", "reading": "かわ" }, { "text": "にはマスが" }, { "text": "多", "reading": "おお" }, { "text": "い。" } ],
+      "en": "This river abounds in trout.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [220830, 58152] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 多い" },
+  "source": { "jmdict": 1407460, "jlpt": 5 }
+}

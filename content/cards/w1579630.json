@@ -1,0 +1,29 @@
+{
+  "id": "w1579630",
+  "type": "word",
+  "word": "七日",
+  "primaryReading": "なのか",
+  "furigana": [{ "text": "七", "reading": "なの" }, { "text": "日", "reading": "か" }],
+  "meaning": "7th day of the month",
+  "pos": ["n"],
+  "kanji": ["4e03", "65e5"],
+  "builtFrom": [{ "k": "七", "m": "seven" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:7"],
+    "backdrop": "sky:indoor",
+    "motion": "bounce"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "七", "reading": "なの", "base": "なの", "dict": true }, { "text": "日", "reading": "か", "base": "か", "dict": true }, { "text": "に" }, { "text": "帰", "reading": "かえ" }, { "text": "ります。" } ],
+      "en": "I'll come back on the 7th.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1579630, "jlpt": 5 }
+}

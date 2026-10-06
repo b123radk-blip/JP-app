@@ -1,0 +1,26 @@
+{
+  "id": "793e",
+  "kanji": "社",
+  "meaning": "company; firm",
+  "primaryReading": "しゃ",
+  "readings": { "kun": ["やしろ"], "on": ["シャ"] },
+  "mnemonic": "An altar (礻) on the ground (土): shrine, company.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["petals"],
+    "scene": ["gate"],
+    "backdrop": "sky:day",
+    "parts": { "礻": {}, "土": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "金", "reading": "きん" }, { "text": "は" }, { "text": "会社", "reading": "かいしゃ" }, { "text": "のものだ。" } ],
+      "en": "The money belongs to the company.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [211369, 48644] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

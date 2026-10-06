@@ -1,0 +1,29 @@
+{
+  "id": "w1307320",
+  "type": "word",
+  "word": "四日",
+  "primaryReading": "よっか",
+  "furigana": [{ "text": "四", "reading": "よっ" }, { "text": "日", "reading": "か" }],
+  "meaning": "4th day of the month",
+  "pos": ["n"],
+  "kanji": ["56db", "65e5"],
+  "builtFrom": [{ "k": "四", "m": "four" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:4"],
+    "backdrop": "sky:indoor",
+    "motion": "tilt"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "四", "reading": "よっ", "base": "よっ", "dict": true }, { "text": "日", "reading": "か", "base": "か", "dict": true }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],
+      "en": "I'll go on the 4th.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1307320, "jlpt": 5 }
+}

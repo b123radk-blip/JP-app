@@ -5,11 +5,15 @@
 // Cards without an "effect" all share the default recipe; they are counted as "no recipe yet", not compared.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { EFFECTS, COMPONENT_LOOKS, MATERIALS, SKIES } from '../src/config.js';
-import { normalizeRecipe, describeRecipe, PIECES, PARTICLE_KINDS, SLOTS } from '../src/effects/catalog.js';
+import { normalizeRecipe, describeRecipe, parseSpec, PIECES, PARTICLE_KINDS, SLOTS } from '../src/effects/catalog.js';
 import { recipeSimilarity } from '../src/effects/similarity.js';
+import { readPlan } from './lib/plan-table.mjs';
+import { cardRecipe } from './lib/similar-cards.mjs';
+import { lookalikePairs } from './lib/lookalike.mjs';
+import { isDark, LIGHT_SKIES, DARK_SCENES } from './lib/draft-recipe.mjs';
 
 const { warn, fail } = EFFECTS.similarity;
-const args = process.argv.slice(2);
+const args = process.argv.slice(2), verbose = args.includes('--verbose');
 
 function pairs(items) {                                    // items: [{ name, recipe }] -> pairs at or above `warn`, most alike first
   const out = [];
@@ -21,25 +25,13 @@ function pairs(items) {                                    // items: [{ name, re
 }
 const shared = (p) => Object.entries(p.slots).filter(([, v]) => v === 1).map(([k]) => k).join(', ');
 
-// ---- the audit plan: a markdown table | kanji | group | material | reveal | particles | backdrop (+ scene props) | motion | emblem | parts | mnemonic |
-function readPlan(path) {
-  const rows = [];
-  for (const line of readFileSync(path, 'utf8').split('\n')) {
-    const c = line.split('|').slice(1, -1).map((x) => x.trim());
-    if (c.length < 10 || [...c[0]].length !== 1 || !/[一-鿿]/.test(c[0])) continue;
-    const none = (x) => (!x || x === '—' ? null : x);
-    const effect = { material: none(c[2]) ?? 'glow', reveal: none(c[3]) ?? 'draw', particles: (none(c[4]) ?? '').split(',').map((x) => x.trim()).filter(Boolean), backdrop: (none(c[5]) ?? 'plain').split('+')[0].trim(), scene: (none(c[5]) ?? '').split('+').slice(1).map((x) => x.trim()).filter(Boolean), motion: none(c[6]) ?? 'none', emblem: none(c[7]), parts: Object.fromEntries((none(c[8]) ?? '').split(/\s+/).filter(Boolean).map((p) => { const [el, m] = p.split('='); return [el, m ? { material: m } : {}]; })) };
-    rows.push({ name: c[0], group: c[1], effect, recipe: normalizeRecipe(effect, COMPONENT_LOOKS) });
-  }
-  return rows;
-}
 // pieces (or presets) a plan row names that do not exist yet
 function missing(rows) {
   const need = new Map(), note = (key, k) => { if (!need.has(key)) need.set(key, []); need.get(key).push(k); };
   for (const r of rows) {
     const specs = [...SLOTS.filter((s) => !['particles', 'scene'].includes(s)).map((s) => [s, r.recipe[s]]), ...r.recipe.particles.map((p) => ['particles', p]), ...r.recipe.scene.map((p) => ['scene', p]), ...Object.values(r.recipe.parts).flatMap((p) => [['material', p.material], ['motion', p.motion]])];
     for (const [slot, s] of specs) {
-      if (!s) continue;
+      if (!s || (slot === 'backdrop' && PIECES.scene[s.type])) continue;     // a place named as backdrop is a scene prop now
       if (!PIECES[slot][s.type]) note(slot === 'material' ? `material preset (data only): ${s.type}` : PARTICLE_KINDS[s.type]?.tip ? `particles: ${s.type} as a layer (the tip kind exists; needs an emitter)` : `${slot}: ${s.type}`, r.name);
       else if (slot === 'material' && s.preset && !MATERIALS[s.preset]) note(`material preset (data only): ${s.preset}`, r.name);
       else if (slot === 'backdrop' && s.type === 'sky' && !SKIES[s.preset]) note(`sky preset (data only): ${s.preset}`, r.name);
@@ -72,15 +64,28 @@ for (const d of index.decks.filter((x) => x.enabled)) {
   const ids = JSON.parse(readFileSync(`content/decks/${d.file}`, 'utf8')).cards;
   const cards = ids.map((id) => JSON.parse(readFileSync(`content/cards/${id}.json`, 'utf8')));
   const withRecipe = cards.filter((c) => c.effect && typeof c.effect === 'object');
-  const items = withRecipe.map((c) => ({ name: `${c.kanji} ${c.id}`, recipe: normalizeRecipe(c.effect, COMPONENT_LOOKS) }));
+  const items = withRecipe.map((c) => ({ id: c.id, name: `${c.word ?? c.kanji} ${c.id}`, recipe: cardRecipe(c) }));
   const sim = pairs(items);
-  console.log(`deck ${d.id}: ${withRecipe.length} recipes, ${cards.length - withRecipe.length} cards with no recipe yet (default animation)`);
+  console.log(`deck ${d.id}: ${withRecipe.length} recipes (${withRecipe.filter((c) => c.type === 'word').length} words), ${cards.length - withRecipe.length} cards with no recipe yet (default animation)`);
   for (const p of sim) {
     const bad = p.score >= fail; failed += bad;
-    console.log(`  ${bad ? 'TOO SIMILAR' : 'similar    '} ${p.a.name} ~ ${p.b.name}: ${p.score.toFixed(2)} (same: ${shared(p)})`);
+    if (bad || verbose) console.log(`  ${bad ? 'TOO SIMILAR' : 'similar    '} ${p.a.name} ~ ${p.b.name}: ${p.score.toFixed(2)} (same: ${shared(p)})`);
     if (bad) console.log(`      ${describeRecipe(p.a.recipe)}\n      ${describeRecipe(p.b.recipe)}`);
   }
-  if (!sim.length) console.log(`  no pair at or above ${warn}`);
+  console.log(`  ${sim.length} pair(s) at or above ${warn}${sim.length && !verbose ? ' (list them with --verbose)' : ''}`);
+  // kanji that look alike must animate very differently
+  const byId = Object.fromEntries(items.map((x) => [x.id, x]));
+  for (const [a, b] of lookalikePairs(withRecipe.filter((c) => c.type !== 'word').map((c) => c.id))) {
+    const s = recipeSimilarity(byId[a].recipe, byId[b].recipe).score;
+    if (s >= EFFECTS.similarity.lookalike) { failed++; console.log(`  LOOK-ALIKE KANJI TOO SIMILAR ${byId[a].name} ~ ${byId[b].name}: ${s.toFixed(2)} (must be < ${EFFECTS.similarity.lookalike})`); }
+  }
+  // dark materials (ink, metal) need a light sky behind them, also in words (a kanji keeps its card's look there)
+  const byCard = Object.fromEntries(cards.map((c) => [c.id, c]));
+  for (const c of withRecipe) {
+    const sky = parseSpec('backdrop', c.effect.backdrop), light = sky?.type === 'sky' && LIGHT_SKIES.includes(`sky:${sky.preset}`);
+    const darkProp = (c.effect.scene ?? []).map((p) => parseSpec('scene', p)?.type).find((t) => DARK_SCENES.has(t));
+    if ((!light || darkProp) && [c.effect, ...(c.type === 'word' ? c.kanji.map((k) => byCard[k]?.effect) : [])].some(isDark)) { failed++; console.log(`  DARK ON DARK ${c.word ?? c.kanji} ${c.id}: ink or metal in front of ${darkProp ? `a ${darkProp}` : `"${c.effect.backdrop ?? 'plain'}"`} (use ${LIGHT_SKIES.join(', ')} and no ${[...DARK_SCENES].join(' / ')}, or silver / chalk)`); }
+  }
 }
-if (failed) { console.error(`recipe check FAILED: ${failed} pair(s) at or above ${fail}. Change a slot (backdrop, particles, emblem ...) so they look different.`); process.exit(1); }
+if (failed) { console.error(`recipe check FAILED: ${failed} problem(s), listed above. Change a slot (backdrop, particles, emblem, material ...) until they pass.`); process.exit(1); }
 console.log('recipe check ok');

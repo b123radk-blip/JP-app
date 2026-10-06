@@ -1,0 +1,26 @@
+{
+  "id": "76ee",
+  "kanji": "目",
+  "meaning": "eye; class",
+  "primaryReading": "もく",
+  "readings": { "kun": ["め", "め", "ま"], "on": ["モク", "ボク"] },
+  "mnemonic": "An eye stood on its side.",
+  "effect": {
+    "material": "silver",
+    "reveal": "draw",
+    "particles": ["motes"],
+    "backdrop": "sky:twilight",
+    "motion": "blink",
+    "emblem": "eye"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "目", "reading": "め" }, { "text": "がヒリヒリします。" } ],
+      "en": "My eyes smart.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [80019, 323698] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

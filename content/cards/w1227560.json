@@ -1,0 +1,22 @@
+{
+  "id": "w1227560",
+  "type": "word",
+  "word": "休む",
+  "primaryReading": "やすむ",
+  "furigana": [{ "text": "休", "reading": "やす" }, { "text": "む" }],
+  "meaning": "to be absent; to take a day off",
+  "pos": ["v5m", "vi"],
+  "kanji": ["4f11"],
+  "builtFrom": [{ "k": "休", "m": "rest" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "zzz", "backdrop": "sky:night", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "父", "reading": "ちち" }, { "text": "はまだ" }, { "text": "休", "reading": "やす" }, { "text": "んでいる。" } ],
+      "en": "Father is still in bed.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84662, 319052] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 休む" },
+  "source": { "jmdict": 1227560, "jlpt": 5 }
+}

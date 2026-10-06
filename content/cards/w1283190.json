@@ -1,0 +1,22 @@
+{
+  "id": "w1283190",
+  "type": "word",
+  "word": "高い",
+  "primaryReading": "たかい",
+  "furigana": [{ "text": "高", "reading": "たか" }, { "text": "い" }],
+  "meaning": "high; tall",
+  "pos": ["adj-i"],
+  "kanji": ["9ad8"],
+  "builtFrom": [{ "k": "高", "m": "tall" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:golden", "motion": "stretch:y", "emblem": "yen" },
+  "sentences": [
+    {
+      "segments": [ { "text": "なんて" }, { "text": "高", "reading": "たか" }, { "text": "い" }, { "text": "木", "reading": "き" }, { "text": "でしょう。" } ],
+      "en": "What a tall tree it is!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198888, 36085] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 高い" },
+  "source": { "jmdict": 1283190, "jlpt": 5 }
+}

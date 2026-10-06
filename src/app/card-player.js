@@ -99,7 +99,7 @@ export async function createCardPlayer(app, { card, assets, active, index, total
   return {
     group, update, seek, restart, reveal, skip,
     setPassthrough: (b) => effect?.setPassthrough(b),
-    info: () => ({ id: card.id, active, t, revealed: revealT !== null, ratingsVisible: ratingGroup.visible, times: S, hasEffect: !!effect, effectId: typeof card.effect === 'string' ? card.effect : card.effect ? 'recipe' : 'default', effect: effect?.stats?.() ?? null }),
+    info: () => ({ id: card.id, type: card.type ?? 'kanji', active, t, revealed: revealT !== null, ratingsVisible: ratingGroup.visible, times: S, hasEffect: !!effect, effectId: typeof card.effect === 'string' ? card.effect : card.effect ? 'recipe' : 'default', effect: effect?.stats?.() ?? null }),
     dispose() { audio.stop(); effect?.dispose(); buttons.forEach((b) => b.dispose()); texts.forEach((x) => x.dispose()); group.removeFromParent(); },
   };
 }

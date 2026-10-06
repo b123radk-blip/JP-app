@@ -1,0 +1,22 @@
+{
+  "id": "w1420470",
+  "type": "word",
+  "word": "知る",
+  "primaryReading": "しる",
+  "furigana": [{ "text": "知", "reading": "し" }, { "text": "る" }],
+  "meaning": "to know; to be aware (of)",
+  "pos": ["v5r", "vt"],
+  "kanji": ["77e5"],
+  "builtFrom": [{ "k": "知", "m": "know" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "lightbulb", "motion": "tilt", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "人", "reading": "ひと" }, { "text": "を" }, { "text": "知", "reading": "し" }, { "text": "っていますか。" } ],
+      "en": "Do you know that person?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 知る" },
+  "source": { "jmdict": 1420470, "jlpt": 5 }
+}

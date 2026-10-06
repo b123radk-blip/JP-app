@@ -1,0 +1,26 @@
+{
+  "id": "4e94",
+  "kanji": "五",
+  "meaning": "five",
+  "primaryReading": "いつ",
+  "readings": { "kun": ["いつ", "いつ(つ)"], "on": ["ゴ"] },
+  "mnemonic": "One hand, five fingers, pressed down like a stamp.",
+  "effect": {
+    "material": "metal",
+    "reveal": "draw:dust",
+    "particles": ["sparks"],
+    "backdrop": "sky:morning",
+    "motion": "count:5",
+    "emblem": "hand"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "三", "reading": "さん" }, { "text": "に" }, { "text": "二", "reading": "に" }, { "text": "を" }, { "text": "足", "reading": "た" }, { "text": "すと" }, { "text": "五", "reading": "ご" }, { "text": "になる。" } ],
+      "en": "Add two to three, and you get five.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [169510, 244976] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

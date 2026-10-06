@@ -1,0 +1,26 @@
+{
+  "id": "53e3",
+  "kanji": "口",
+  "meaning": "mouth",
+  "primaryReading": "くち",
+  "readings": { "kun": ["くち"], "on": ["コウ", "ク"] },
+  "mnemonic": "An open mouth: a square.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "particles": ["notes"],
+    "backdrop": "sky:dusk",
+    "motion": "pulse",
+    "emblem": "speech"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "口", "reading": "くち" }, { "text": "をゆすいでください。" } ],
+      "en": "Please rinse out your mouth.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [173915, 240555] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1275640"] }
+}

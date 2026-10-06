@@ -1,0 +1,22 @@
+{
+  "id": "w1169870",
+  "type": "word",
+  "word": "飲む",
+  "primaryReading": "のむ",
+  "furigana": [{ "text": "飲", "reading": "の" }, { "text": "む" }],
+  "meaning": "to drink; to swallow",
+  "pos": ["v5m", "vt"],
+  "kanji": ["98f2"],
+  "builtFrom": [{ "k": "飲", "m": "drink" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "particles": ["steam"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "毎日", "reading": "まいにち" }, { "text": "お" }, { "text": "茶", "reading": "ちゃ" }, { "text": "を" }, { "text": "飲", "reading": "の" }, { "text": "みます。" } ],
+      "en": "I drink tea every day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 飲む" },
+  "source": { "jmdict": 1169870, "jlpt": 5 }
+}

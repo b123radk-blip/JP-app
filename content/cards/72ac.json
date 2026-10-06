@@ -1,0 +1,19 @@
+{
+  "id": "72ac",
+  "kanji": "犬",
+  "meaning": "dog",
+  "primaryReading": "いぬ",
+  "readings": { "kun": ["いぬ", "いぬ"], "on": ["ケン"] },
+  "mnemonic": "A big (大) dog with one floppy ear (丶).",
+  "effect": { "material": "fur", "reveal": "draw", "backdrop": "sky:day", "motion": "wag", "parts": { "大": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "犬", "reading": "いぬ" }, { "text": "はしっぽが" }, { "text": "長", "reading": "なが" }, { "text": "い。" } ],
+      "en": "My dog has a long tail.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [163746, 250765] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1258330"] }
+}

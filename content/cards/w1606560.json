@@ -1,0 +1,29 @@
+{
+  "id": "w1606560",
+  "type": "word",
+  "word": "分かる",
+  "primaryReading": "わかる",
+  "furigana": [{ "text": "分", "reading": "わ" }, { "text": "かる" }],
+  "meaning": "to understand; to comprehend",
+  "pos": ["v5r", "vi"],
+  "kanji": ["5206"],
+  "builtFrom": [{ "k": "分", "m": "part" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "lightbulb",
+    "motion": "pulse",
+    "backdrop": "sky:dawn",
+    "particles": ["sparks"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "分", "reading": "わ" }, { "text": "かるような" }, { "text": "気", "reading": "き" }, { "text": "がする。" } ],
+      "en": "I think I understand.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [83713, 320004] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 分かる" },
+  "source": { "jmdict": 1606560, "jlpt": 5 }
+}

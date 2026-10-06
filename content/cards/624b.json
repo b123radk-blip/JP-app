@@ -1,0 +1,19 @@
+{
+  "id": "624b",
+  "kanji": "手",
+  "meaning": "hand",
+  "primaryReading": "て",
+  "readings": { "kun": ["て", "て", "て", "た"], "on": ["シュ", "ズ"] },
+  "mnemonic": "A hand with the fingers spread.",
+  "effect": { "material": "skin", "reveal": "draw", "backdrop": "sky:day", "motion": "wave", "emblem": "hand" },
+  "sentences": [
+    {
+      "segments": [ { "text": "手", "reading": "て" }, { "text": "を" }, { "text": "洗", "reading": "あら" }, { "text": "ってください。" } ],
+      "en": "Please wash your hands.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1327190"] }
+}

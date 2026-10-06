@@ -1,0 +1,29 @@
+{
+  "id": "w1547720",
+  "type": "word",
+  "word": "来る",
+  "primaryReading": "くる",
+  "furigana": [{ "text": "来", "reading": "く" }, { "text": "る" }],
+  "meaning": "to come; to approach",
+  "pos": ["vk", "vi"],
+  "kanji": ["6765"],
+  "builtFrom": [{ "k": "来", "m": "come" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["road"],
+    "emblem": "arrow:down",
+    "motion": "drift:toward",
+    "backdrop": "sky:forest"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "バスはすぐ" }, { "text": "来", "reading": "く" }, { "text": "るはずです。" } ],
+      "en": "The bus should be coming soon.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198131, 35321] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 来る" },
+  "source": { "jmdict": 1547720, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1464900",
+  "type": "word",
+  "word": "日曜日",
+  "primaryReading": "にちようび",
+  "furigana": [{ "text": "日", "reading": "にち" }, { "text": "曜", "reading": "よう" }, { "text": "日", "reading": "び" }],
+  "meaning": "Sunday",
+  "pos": ["n", "adv"],
+  "kanji": ["65e5", "66dc"],
+  "builtFrom": [{ "k": "日", "m": "sun" }, { "k": "曜", "m": "weekday" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sunrise", "emblem": "sun" },
+  "sentences": [
+    {
+      "segments": [ { "text": "日曜日", "reading": "にちようび" }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
+      "en": "We'll meet on Sunday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [122158, 281845] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 日曜日" },
+  "source": { "jmdict": 1464900, "jlpt": 5 }
+}

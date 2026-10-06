@@ -1,0 +1,26 @@
+{
+  "id": "8a71",
+  "kanji": "話",
+  "meaning": "tale; talk",
+  "primaryReading": "はなし",
+  "readings": { "kun": ["はな(す)", "はなし"], "on": ["ワ"] },
+  "mnemonic": "Words (言) rolling off the tongue (舌): talk.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "particles": ["notes"],
+    "backdrop": "plain",
+    "emblem": "speech",
+    "parts": { "言": {}, "舌": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それはたいへんな" }, { "text": "話", "reading": "はなし" }, { "text": "だ。" } ],
+      "en": "That's quite a story.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205472, 42716] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1600900"] }
+}

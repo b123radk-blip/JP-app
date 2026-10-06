@@ -1,0 +1,28 @@
+{
+  "id": "6b69",
+  "kanji": "歩",
+  "meaning": "walk; counter for steps",
+  "primaryReading": "ほ",
+  "readings": { "kun": ["ある(く)", "あゆ(む)"], "on": ["ホ", "ブ", "フ"] },
+  "mnemonic": "Stop (止) a little (少), then step again: walk.",
+  "effect": {
+    "material": "clay",
+    "reveal": "draw",
+    "particles": ["dust"],
+    "scene": ["road"],
+    "backdrop": "sky:day",
+    "motion": "float",
+    "emblem": "foot",
+    "parts": { "止": {}, "少": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ほとんど" }, { "text": "歩", "reading": "ある" }, { "text": "けないんだ。" } ],
+      "en": "I can hardly walk.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196100, 33280] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

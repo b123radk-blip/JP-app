@@ -69,7 +69,7 @@ export const PIECES = {
     dial: { impl: 'dial', space: 'world', opts: { color: 0xfff0d0 }, cost: () => cost(7), desc: 'a big clock face behind the kanji, hands sweeping, a small sun arcing over it' },
     road: { impl: 'road', space: 'world', opts: { color: 0x3a3a40, verge: 0x2a4a28, line: 0xf0e8c0, dashes: true }, cost: () => cost(1), desc: 'a road (or a path: dashes false, earth colour) winding towards you' },
     field: { impl: 'field', space: 'world', opts: { color: 0x5aa040, water: 0x3a6a8a, ridge: 0x6a5030 }, cost: () => cost(1), desc: 'rice paddies seen from above, water glinting' },
-    room: { impl: 'room', space: 'world', opts: { wall: 0x8a6a50, floor: 0x5a3a24, frame: 0xe8dcc8, window: 0x9fd0ff }, cost: () => cost(7), desc: 'inside a room: wall, floor, a window with daylight, a hanging lamp' },
+    room: { impl: 'room', space: 'world', opts: { wall: 0x8a6a50, floor: 0x5a3a24, frame: 0xe8dcc8, window: 0x9fd0ff }, cost: () => cost(6), desc: 'inside a room: wall, floor, a window with daylight, a hanging lamp' },
     gate: { impl: 'gate', space: 'world', opts: { color: 0xc03028, door: 0xe8dcc0, light: 0xfff0c0 }, cost: () => cost(4), desc: 'a gate whose doors slide open after the strokes, light behind' },
   },
   backdrop: {
@@ -114,7 +114,7 @@ export const PIECES = {
       plus: [1, 0xff7060, 'a plus sign'], calendar: [4, 0xe04848, 'calendar, a page flipping'], stars: [1, 0xfff6c0, 'n stars twinkling (the Big Dipper)', { n: 7 }],
       window: [2, 0x9a6438, 'window frame with glass'], bowl: [3, 0x3a5aa0, 'rice bowl with chopsticks'], cup: [2, 0xf0e8d8, 'cup tipping to drink', { drink: null }],
       phone: [3, 0x30a080, 'telephone receiver ringing'], train: [2, 0x40a060, 'train rolling'], car: [2, 0xd84040, 'car bouncing along'], bolt: [1, 0xffe040, 'lightning bolt flashing'],
-      sun: [1, 0xffb030, 'sun with turning rays'], cloud: [1, 0xf0f4ff, 'cloud drifting'], target: [1, 0xff5050, 'target rings (the middle)'], house: [2, 0xe8c890, 'a house'],
+      sun: [1, 0xffb030, 'sun with turning rays'], cloud: [1, 0xf0f4ff, 'cloud drifting'], target: [1, 0xff5050, 'target rings (the middle)'], house: [2, 0xe8c890, 'a house'], pen: [2, 0xffcc30, 'a pencil writing'],
     }),
   },
 };

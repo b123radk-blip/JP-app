@@ -1,0 +1,28 @@
+{
+  "id": "w1534890",
+  "type": "word",
+  "word": "木曜日",
+  "primaryReading": "もくようび",
+  "furigana": [{ "text": "木", "reading": "もく" }, { "text": "曜", "reading": "よう" }, { "text": "日", "reading": "び" }],
+  "meaning": "Thursday",
+  "pos": ["n", "adv"],
+  "kanji": ["6728", "66dc", "65e5"],
+  "builtFrom": [{ "k": "木", "m": "tree" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["tree"],
+    "backdrop": "sky:sunset",
+    "particles": ["leaves"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "週刊誌", "reading": "しゅうかんし" }, { "text": "は" }, { "text": "木曜日", "reading": "もくようび" }, { "text": "に" }, { "text": "出", "reading": "で" }, { "text": "る。" } ],
+      "en": "The weekly appears on Thursday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [209437, 46698] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 木曜日" },
+  "source": { "jmdict": 1534890, "jlpt": 5 }
+}

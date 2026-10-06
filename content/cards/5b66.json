@@ -1,0 +1,26 @@
+{
+  "id": "5b66",
+  "kanji": "学",
+  "meaning": "study; learning",
+  "primaryReading": "がく",
+  "readings": { "kun": ["まな(ぶ)"], "on": ["ガク"] },
+  "mnemonic": "A child (子) under a roof, sparks of ideas (⺍) above: study.",
+  "effect": {
+    "material": "chalk",
+    "reveal": "draw",
+    "scene": ["room"],
+    "backdrop": "sky:indoor",
+    "emblem": "book",
+    "parts": { "子": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "学校", "reading": "がっこう" }, { "text": "へ" }, { "text": "歩", "reading": "ある" }, { "text": "いていく。" } ],
+      "en": "I walk to school.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157850, 437011] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

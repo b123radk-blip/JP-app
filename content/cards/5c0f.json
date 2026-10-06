@@ -1,0 +1,25 @@
+{
+  "id": "5c0f",
+  "kanji": "小",
+  "meaning": "little; small",
+  "primaryReading": "こ",
+  "readings": { "kun": ["ちい(さい)", "こ", "お", "さ"], "on": ["ショウ"] },
+  "mnemonic": "A tiny stick with two drops beside it: small.",
+  "effect": {
+    "material": "ice",
+    "reveal": "draw:drops",
+    "scene": ["ripples"],
+    "backdrop": "sky:twilight",
+    "motion": "shrink"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "小", "reading": "ちい" }, { "text": "さな" }, { "text": "円", "reading": "えん" }, { "text": "を" }, { "text": "書", "reading": "か" }, { "text": "きなさい。" } ],
+      "en": "Draw a small circle.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [147020, 267541] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

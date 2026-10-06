@@ -1,0 +1,19 @@
+{
+  "id": "4e03",
+  "kanji": "七",
+  "meaning": "seven",
+  "primaryReading": "しち",
+  "readings": { "kun": ["なな", "なな(つ)", "なの"], "on": ["シチ"] },
+  "mnemonic": "A cross with a bent tail: the seven stars of the Big Dipper.",
+  "effect": { "material": "silver", "reveal": "draw", "backdrop": "sky:night", "motion": "count:7", "emblem": "stars" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ちょうど" }, { "text": "七", "reading": "なな" }, { "text": "時半", "reading": "じはん" }, { "text": "です。" } ],
+      "en": "It is just half past seven.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202909, 40144] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1319210"] }
+}

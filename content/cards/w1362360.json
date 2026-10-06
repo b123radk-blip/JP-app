@@ -1,0 +1,22 @@
+{
+  "id": "w1362360",
+  "type": "word",
+  "word": "新聞",
+  "primaryReading": "しんぶん",
+  "furigana": [{ "text": "新", "reading": "しん" }, { "text": "聞", "reading": "ぶん" }],
+  "meaning": "newspaper",
+  "pos": ["n"],
+  "kanji": ["65b0", "805e"],
+  "builtFrom": [{ "k": "新", "m": "new" }, { "k": "聞", "m": "hear" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "backdrop": "sky:morning", "particles": ["dust"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "新聞", "reading": "しんぶん" }, { "text": "で" }, { "text": "読", "reading": "よ" }, { "text": "みましたよ。" } ],
+      "en": "I read about it in the newspaper.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [10303545, 254832] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 新聞" },
+  "source": { "jmdict": 1362360, "jlpt": 5 }
+}

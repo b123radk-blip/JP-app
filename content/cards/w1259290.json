@@ -1,0 +1,22 @@
+{
+  "id": "w1259290",
+  "type": "word",
+  "word": "見る",
+  "primaryReading": "みる",
+  "furigana": [{ "text": "見", "reading": "み" }, { "text": "る" }],
+  "meaning": "to see; to look",
+  "pos": ["v1", "vt"],
+  "kanji": ["898b"],
+  "builtFrom": [{ "k": "見", "m": "see" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "eye", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それを" }, { "text": "見", "reading": "み" }, { "text": "たいものです。" } ],
+      "en": "I would like to see it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204606, 41846] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 見る" },
+  "source": { "jmdict": 1259290, "jlpt": 5 }
+}

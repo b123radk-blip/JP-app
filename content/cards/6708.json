@@ -1,0 +1,26 @@
+{
+  "id": "6708",
+  "kanji": "月",
+  "meaning": "month; moon",
+  "primaryReading": "げつ",
+  "readings": { "kun": ["つき"], "on": ["ゲツ", "ガツ"] },
+  "mnemonic": "A crescent moon hanging in the dark; the two short lines are its craters.",
+  "effect": {
+    "material": "silver",
+    "reveal": "draw",
+    "particles": ["motes:still"],
+    "backdrop": "sky:night",
+    "motion": "float",
+    "emblem": "crescent"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "来月", "reading": "らいげつ" }, { "text": "お" }, { "text": "会", "reading": "あ" }, { "text": "いしましょう。" } ],
+      "en": "I'll see you next month.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78691, 325025] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

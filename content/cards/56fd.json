@@ -1,0 +1,25 @@
+{
+  "id": "56fd",
+  "kanji": "国",
+  "meaning": "country",
+  "primaryReading": "くに",
+  "readings": { "kun": ["くに"], "on": ["コク"] },
+  "mnemonic": "A jewel (玉) inside the border (囗): country.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw",
+    "scene": ["mountains", "river"],
+    "backdrop": "sky:day",
+    "parts": { "囗": {}, "玉": { "material": "gold", "motion": "pulse" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "国", "reading": "くに" }, { "text": "では" }, { "text": "何語", "reading": "なにご" }, { "text": "を" }, { "text": "話", "reading": "はな" }, { "text": "すのですか。" } ],
+      "en": "What language do you speak in your country?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227142, 64492] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1592250"] }
+}

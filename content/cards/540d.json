@@ -1,0 +1,25 @@
+{
+  "id": "540d",
+  "kanji": "名",
+  "meaning": "name; noted",
+  "primaryReading": "めい",
+  "readings": { "kun": ["な", "な"], "on": ["メイ", "ミョウ"] },
+  "mnemonic": "In the dark evening (夕) you call out your name with your mouth (口).",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw:dust",
+    "backdrop": "sky:night",
+    "emblem": "speech",
+    "parts": { "夕": {}, "口": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それに" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "名前", "reading": "なまえ" }, { "text": "があります。" } ],
+      "en": "It has my name on it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205658, 42902] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

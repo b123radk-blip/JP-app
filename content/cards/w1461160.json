@@ -1,0 +1,28 @@
+{
+  "id": "w1461160",
+  "type": "word",
+  "word": "二つ",
+  "primaryReading": "ふたつ",
+  "furigana": [{ "text": "二", "reading": "ふた" }, { "text": "つ" }],
+  "meaning": "two",
+  "pos": ["num"],
+  "kanji": ["4e8c"],
+  "builtFrom": [{ "k": "二", "m": "two" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "dots:2",
+    "particles": ["motes"],
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "道", "reading": "みち" }, { "text": "はここで" }, { "text": "二", "reading": "ふた" }, { "text": "つに" }, { "text": "分", "reading": "わ" }, { "text": "かれている。" } ],
+      "en": "The road divides here into two.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [123592, 280405] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "source": { "jmdict": 1461160, "jlpt": 5 }
+}

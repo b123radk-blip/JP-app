@@ -1,0 +1,29 @@
+{
+  "id": "w1243320",
+  "type": "word",
+  "word": "金曜日",
+  "primaryReading": "きんようび",
+  "furigana": [{ "text": "金", "reading": "きん" }, { "text": "曜", "reading": "よう" }, { "text": "日", "reading": "び" }],
+  "meaning": "Friday",
+  "pos": ["n", "adv"],
+  "kanji": ["91d1", "66dc", "65e5"],
+  "builtFrom": [{ "k": "金", "m": "gold" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["coins"],
+    "emblem": "calendar",
+    "backdrop": "sky:golden",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "やっと" }, { "text": "金曜日", "reading": "きんようび" }, { "text": "だ。" } ],
+      "en": "Thank God it's Friday!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [193069, 30234] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 金曜日" },
+  "source": { "jmdict": 1243320, "jlpt": 5 }
+}

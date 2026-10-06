@@ -1,0 +1,19 @@
+{
+  "id": "6c17",
+  "kanji": "気",
+  "meaning": "spirit; mind",
+  "primaryReading": "き",
+  "readings": { "kun": ["いき", "き"], "on": ["キ", "ケ"] },
+  "mnemonic": "Steam curling up from a pot of rice: air, and your mood.",
+  "effect": { "material": "cloud", "reveal": "draw", "particles": ["steam"], "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "が" }, { "text": "天気", "reading": "てんき" }, { "text": "ならいいのに。" } ],
+      "en": "I wish it were fine today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171537, 242939] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "897f",
+  "kanji": "西",
+  "meaning": "west; Spain",
+  "primaryReading": "にし",
+  "readings": { "kun": ["にし"], "on": ["セイ", "サイ", "ス"] },
+  "mnemonic": "A window where the evening sun sinks: west.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "backdrop": "sky:sunset",
+    "motion": "drift:down",
+    "emblem": "compass:W"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "列車", "reading": "れっしゃ" }, { "text": "は" }, { "text": "西", "reading": "にし" }, { "text": "へ" }, { "text": "走", "reading": "はし" }, { "text": "っていた。" } ],
+      "en": "The train was hurrying west.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [77480, 326239] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1380840"] }
+}

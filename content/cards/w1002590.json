@@ -1,0 +1,22 @@
+{
+  "id": "w1002590",
+  "type": "word",
+  "word": "お父さん",
+  "primaryReading": "おとうさん",
+  "furigana": [{ "text": "お" }, { "text": "父", "reading": "とう" }, { "text": "さん" }],
+  "meaning": "father; dad",
+  "pos": ["n"],
+  "kanji": ["7236"],
+  "builtFrom": [{ "k": "父", "m": "father" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "scene": ["room"], "backdrop": "sky:lake" },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "父", "reading": "とう" }, { "text": "さんはどこですか。" } ],
+      "en": "Where is Father?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226727, 64072] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お父さん" },
+  "source": { "jmdict": 1002590, "jlpt": 5 }
+}

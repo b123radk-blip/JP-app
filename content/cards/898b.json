@@ -1,0 +1,19 @@
+{
+  "id": "898b",
+  "kanji": "見",
+  "meaning": "see; hopes",
+  "primaryReading": "み",
+  "readings": { "kun": ["み(る)", "み(える)", "み(せる)"], "on": ["ケン"] },
+  "mnemonic": "An eye (目) on legs (儿): see.",
+  "effect": { "material": "cyan", "reveal": "draw", "backdrop": "plain", "emblem": "eye", "parts": { "目": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はテレビを" }, { "text": "見", "reading": "み" }, { "text": "ません。" } ],
+      "en": "I do not watch television.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159402, 255121] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

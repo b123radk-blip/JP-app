@@ -1,0 +1,27 @@
+{
+  "id": "5f8c",
+  "kanji": "後",
+  "meaning": "behind; back",
+  "primaryReading": "あと",
+  "readings": { "kun": ["のち", "うし(ろ)", "うしろ", "あと"], "on": ["ゴ", "コウ"] },
+  "mnemonic": "Slow steps (彳 夂) trailing behind: behind, after.",
+  "effect": {
+    "material": "chalk",
+    "reveal": "draw:dust",
+    "scene": ["road"],
+    "backdrop": "sky:dusk",
+    "motion": "drift:away",
+    "emblem": "foot",
+    "parts": { "彳": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "いぬが" }, { "text": "後", "reading": "あと" }, { "text": "についてきた。" } ],
+      "en": "The dog followed me.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [228576, 65934] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1269320"] }
+}

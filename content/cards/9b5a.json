@@ -1,0 +1,27 @@
+{
+  "id": "9b5a",
+  "kanji": "魚",
+  "meaning": "fish",
+  "primaryReading": "さかな",
+  "readings": { "kun": ["うお", "さかな", "ざかな"], "on": ["ギョ"] },
+  "mnemonic": "A fish: head on top, scaly body (田) and a fanned tail (灬) below.",
+  "effect": {
+    "material": "silver",
+    "reveal": "draw",
+    "particles": ["bubbles"],
+    "scene": ["ripples"],
+    "backdrop": "sky:deep",
+    "motion": "swim",
+    "parts": { "灬": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "魚", "reading": "さかな" }, { "text": "はまだ" }, { "text": "生", "reading": "い" }, { "text": "きているの。" } ],
+      "en": "Is the fish still alive?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [182106, 19354] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1578010"] }
+}

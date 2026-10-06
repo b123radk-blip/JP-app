@@ -1,0 +1,28 @@
+{
+  "id": "8db3",
+  "kanji": "足",
+  "meaning": "leg; foot",
+  "primaryReading": "あし",
+  "readings": { "kun": ["あし", "た(りる)", "た(る)", "た(す)"], "on": ["ソク"] },
+  "mnemonic": "A knee (口) above a foot: foot, leg; also enough.",
+  "effect": {
+    "material": "skin",
+    "reveal": "draw",
+    "particles": ["dust"],
+    "scene": ["road"],
+    "backdrop": "sky:day",
+    "motion": "walk",
+    "emblem": "foot",
+    "parts": { "口": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "また" }, { "text": "足", "reading": "あし" }, { "text": "がしびれた。" } ],
+      "en": "My foot's asleep again!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195414, 32588] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1404630"] }
+}

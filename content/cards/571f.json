@@ -1,0 +1,26 @@
+{
+  "id": "571f",
+  "kanji": "土",
+  "meaning": "soil; earth",
+  "primaryReading": "ど",
+  "readings": { "kun": ["つち"], "on": ["ド", "ト"] },
+  "mnemonic": "A sprout pushing up out of the flat ground: soil.",
+  "effect": {
+    "material": "clay",
+    "reveal": "draw:dust",
+    "particles": ["dust"],
+    "scene": [{ "type": "field", "color": "#7a5a3a" }],
+    "backdrop": "sky:golden",
+    "motion": "grow:1.1"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "土曜日", "reading": "どようび" }, { "text": "は" }, { "text": "日曜日", "reading": "にちようび" }, { "text": "の" }, { "text": "前", "reading": "まえ" }, { "text": "に" }, { "text": "来", "reading": "く" }, { "text": "る。" } ],
+      "en": "Saturday comes before Sunday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [124453, 279541] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

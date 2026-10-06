@@ -1,0 +1,29 @@
+{
+  "id": "w1259210",
+  "type": "word",
+  "word": "見せる",
+  "primaryReading": "みせる",
+  "furigana": [{ "text": "見", "reading": "み" }, { "text": "せる" }],
+  "meaning": "to show; to display",
+  "pos": ["v1", "vt"],
+  "kanji": ["898b"],
+  "builtFrom": [{ "k": "見", "m": "see" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "eye",
+    "motion": "drift:toward",
+    "backdrop": "sky:noon",
+    "particles": ["sparks"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ちょっと" }, { "text": "見", "reading": "み" }, { "text": "せて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Let me see it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202785, 40019] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 見せる" },
+  "source": { "jmdict": 1259210, "jlpt": 5 }
+}

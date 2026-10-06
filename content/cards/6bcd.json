@@ -1,0 +1,26 @@
+{
+  "id": "6bcd",
+  "kanji": "母",
+  "meaning": "mother",
+  "primaryReading": "はは",
+  "readings": { "kun": ["はは", "も"], "on": ["ボ"] },
+  "mnemonic": "Mother's arms around two little ones.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "scene": ["room"],
+    "backdrop": "sky:indoor",
+    "motion": "pulse",
+    "emblem": "heart"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "毎日", "reading": "まいにち" }, { "text": "うちにいます。" } ],
+      "en": "Mother stays at home every day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [82855, 320861] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1514990"] }
+}

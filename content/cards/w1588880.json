@@ -1,0 +1,28 @@
+{
+  "id": "w1588880",
+  "type": "word",
+  "word": "大きい",
+  "primaryReading": "おおきい",
+  "furigana": [{ "text": "大", "reading": "おお" }, { "text": "きい" }],
+  "meaning": "big; large",
+  "pos": ["adj-i"],
+  "kanji": ["5927"],
+  "builtFrom": [{ "k": "大", "m": "large" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["mountains"],
+    "backdrop": "sky:day",
+    "motion": "grow:1.45"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これらのイヌは" }, { "text": "大", "reading": "おお" }, { "text": "きい。" } ],
+      "en": "These dogs are big.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [217997, 55306] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 大きい" },
+  "source": { "jmdict": 1588880, "jlpt": 5 }
+}

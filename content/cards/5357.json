@@ -1,0 +1,26 @@
+{
+  "id": "5357",
+  "kanji": "南",
+  "meaning": "south",
+  "primaryReading": "みなみ",
+  "readings": { "kun": ["みなみ"], "on": ["ナン", "ナ"] },
+  "mnemonic": "A tent with a warm fire inside: the sunny south.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["sparks"],
+    "backdrop": "sky:golden",
+    "emblem": "compass:S",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "南", "reading": "みなみ" }, { "text": "ターミナルはどこですか。" } ],
+      "en": "Where is the south terminal?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [123204, 280796] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1459870"] }
+}

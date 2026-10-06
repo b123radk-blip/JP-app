@@ -1,0 +1,26 @@
+{
+  "id": "5348",
+  "kanji": "午",
+  "meaning": "noon; sign of the horse",
+  "primaryReading": "ご",
+  "readings": { "kun": ["うま"], "on": ["ゴ"] },
+  "mnemonic": "The post of a sundial at high noon.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "particles": ["motes:still"],
+    "scene": ["dial"],
+    "backdrop": "sky:noon",
+    "emblem": "clock"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "午後", "reading": "ごご" }, { "text": "は" }, { "text": "外", "reading": "そと" }, { "text": "へ" }, { "text": "出", "reading": "で" }, { "text": "たくない。" } ],
+      "en": "I don't want to go outside this afternoon.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [174391, 240078] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

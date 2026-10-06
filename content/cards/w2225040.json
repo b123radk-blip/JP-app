@@ -1,0 +1,29 @@
+{
+  "id": "w2225040",
+  "type": "word",
+  "word": "一日",
+  "primaryReading": "ついたち",
+  "furigana": [{ "text": "一日", "reading": "ついたち" }],
+  "meaning": "first day of the month",
+  "pos": ["n"],
+  "kanji": ["4e00", "65e5"],
+  "builtFrom": [{ "k": "一", "m": "one" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:1"],
+    "backdrop": "sky:indoor",
+    "motion": "pulse"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "十", "reading": "じゅう" }, { "text": "月", "reading": "がつ" }, { "text": "一日", "reading": "ついたち" }, { "text": "です。" } ],
+      "en": "It's October 1st.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 2225040, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1524720",
+  "type": "word",
+  "word": "毎日",
+  "primaryReading": "まいにち",
+  "furigana": [{ "text": "毎", "reading": "まい" }, { "text": "日", "reading": "にち" }],
+  "meaning": "every day; daily",
+  "pos": ["n", "adv"],
+  "kanji": ["6bce", "65e5"],
+  "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "motion": "count:3",
+    "backdrop": "sky:morning",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "テレビは" }, { "text": "毎日", "reading": "まいにち" }, { "text": "見", "reading": "み" }, { "text": "ますよ。" } ],
+      "en": "I watch television every day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159389, 255134] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 毎日" },
+  "source": { "jmdict": 1524720, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1462900",
+  "type": "word",
+  "word": "二日",
+  "primaryReading": "ふつか",
+  "furigana": [{ "text": "二日", "reading": "ふつか" }],
+  "meaning": "2nd day of the month",
+  "pos": ["n"],
+  "kanji": ["4e8c", "65e5"],
+  "builtFrom": [{ "k": "二", "m": "two" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:2"],
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "二日", "reading": "ふつか", "base": null, "dict": true }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
+      "en": "Let's meet on the 2nd.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1462900, "jlpt": 5 }
+}

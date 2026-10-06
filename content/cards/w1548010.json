@@ -1,0 +1,29 @@
+{
+  "id": "w1548010",
+  "type": "word",
+  "word": "来週",
+  "primaryReading": "らいしゅう",
+  "furigana": [{ "text": "来", "reading": "らい" }, { "text": "週", "reading": "しゅう" }],
+  "meaning": "next week",
+  "pos": ["n", "adv"],
+  "kanji": ["6765", "9031"],
+  "builtFrom": [{ "k": "来", "m": "come" }, { "k": "週", "m": "week" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:right",
+    "motion": "drift:right",
+    "backdrop": "sky:twilight",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "来週", "reading": "らいしゅう" }, { "text": "の" }, { "text": "今日", "reading": "きょう" }, { "text": "お" }, { "text": "会", "reading": "あ" }, { "text": "いします。" } ],
+      "en": "I'll see you a week from today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78649, 325067] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 来週" },
+  "source": { "jmdict": 1548010, "jlpt": 5 }
+}

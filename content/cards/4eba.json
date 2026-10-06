@@ -1,0 +1,26 @@
+{
+  "id": "4eba",
+  "kanji": "人",
+  "meaning": "person",
+  "primaryReading": "ひと",
+  "readings": { "kun": ["ひと", "り", "と"], "on": ["ジン", "ニン"] },
+  "mnemonic": "A person walking: two legs.",
+  "effect": {
+    "material": "skin",
+    "reveal": "draw",
+    "scene": ["road"],
+    "backdrop": "sky:morning",
+    "motion": "walk",
+    "emblem": "person"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "人", "reading": "ひと" }, { "text": "はだれですか。" } ],
+      "en": "Who is that person?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1580640"] }
+}

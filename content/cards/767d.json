@@ -1,0 +1,26 @@
+{
+  "id": "767d",
+  "kanji": "白",
+  "meaning": "white",
+  "primaryReading": "しろ",
+  "readings": { "kun": ["しろ", "しら", "しろ(い)"], "on": ["ハク", "ビャク"] },
+  "mnemonic": "A ray of light (丿) on the sun (日): bright white.",
+  "effect": {
+    "material": "pearl",
+    "reveal": "draw",
+    "particles": ["snow"],
+    "backdrop": "sky:day",
+    "motion": "pulse",
+    "parts": { "日": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "白", "reading": "しろ" }, { "text": "いドレスはありますか。" } ],
+      "en": "Do you have a dress in white?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [121439, 282568] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1474900"] }
+}

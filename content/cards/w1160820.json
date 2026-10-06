@@ -1,0 +1,28 @@
+{
+  "id": "w1160820",
+  "type": "word",
+  "word": "一つ",
+  "primaryReading": "ひとつ",
+  "furigana": [{ "text": "一", "reading": "ひと" }, { "text": "つ" }],
+  "meaning": "one",
+  "pos": ["num"],
+  "kanji": ["4e00"],
+  "builtFrom": [{ "k": "一", "m": "one" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "dots:1",
+    "particles": ["motes"],
+    "backdrop": "sky:forest"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "バッグが" }, { "text": "一", "reading": "ひと" }, { "text": "つ" }, { "text": "見", "reading": "み" }, { "text": "あたらない。" } ],
+      "en": "One of my bags is missing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [197975, 35164] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "source": { "jmdict": 1160820, "jlpt": 5 }
+}

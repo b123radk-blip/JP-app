@@ -1,0 +1,22 @@
+{
+  "id": "w1443840",
+  "type": "word",
+  "word": "電話",
+  "primaryReading": "でんわ",
+  "furigana": [{ "text": "電", "reading": "でん" }, { "text": "話", "reading": "わ" }],
+  "meaning": "telephone call; phone call",
+  "pos": ["n", "vs", "vt", "vi"],
+  "kanji": ["96fb", "8a71"],
+  "builtFrom": [{ "k": "電", "m": "electricity" }, { "k": "話", "m": "tale" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "phone", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "のちほどお" }, { "text": "電話", "reading": "でんわ" }, { "text": "します。" } ],
+      "en": "I'll phone you later.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198578, 443658] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 電話" },
+  "source": { "jmdict": 1443840, "jlpt": 5 }
+}

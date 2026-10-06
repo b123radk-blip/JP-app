@@ -1,0 +1,25 @@
+{
+  "id": "66f8",
+  "kanji": "書",
+  "meaning": "write",
+  "primaryReading": "しょ",
+  "readings": { "kun": ["か(く)", "が(き)", "がき"], "on": ["ショ"] },
+  "mnemonic": "A brush (聿) over a sheet (曰): write.",
+  "effect": {
+    "material": "ink",
+    "reveal": "draw",
+    "backdrop": "sky:snow",
+    "emblem": "book",
+    "parts": { "聿": { "motion": "wave" }, "日": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "はい、もう" }, { "text": "書", "reading": "か" }, { "text": "きました。" } ],
+      "en": "Yes, he has already written it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198385, 35578] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

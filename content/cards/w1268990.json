@@ -1,0 +1,22 @@
+{
+  "id": "w1268990",
+  "type": "word",
+  "word": "午後",
+  "primaryReading": "ごご",
+  "furigana": [{ "text": "午", "reading": "ご" }, { "text": "後", "reading": "ご" }],
+  "meaning": "afternoon; p.m.",
+  "pos": ["n", "adv"],
+  "kanji": ["5348", "5f8c"],
+  "builtFrom": [{ "k": "午", "m": "noon" }, { "k": "後", "m": "behind" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:golden", "emblem": "sun", "motion": "drift:down" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "の" }, { "text": "午後", "reading": "ごご" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
+      "en": "Let's meet this afternoon.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171920, 424861] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 午後" },
+  "source": { "jmdict": 1268990, "jlpt": 5 }
+}

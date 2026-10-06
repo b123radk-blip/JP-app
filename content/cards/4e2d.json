@@ -1,0 +1,26 @@
+{
+  "id": "4e2d",
+  "kanji": "中",
+  "meaning": "in; inside",
+  "primaryReading": "なか",
+  "readings": { "kun": ["なか", "うち", "あた(る)"], "on": ["チュウ"] },
+  "mnemonic": "A line straight through the middle of a box: inside, centre.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw",
+    "backdrop": "sky:sunset",
+    "motion": "pulse",
+    "emblem": "target",
+    "parts": { "口": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "水", "reading": "みず" }, { "text": "の" }, { "text": "中", "reading": "なか" }, { "text": "をのぞいた。" } ],
+      "en": "The dog looked into the water.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [175253, 239213] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1423310"] }
+}

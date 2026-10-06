@@ -1,0 +1,29 @@
+{
+  "id": "w1561470",
+  "type": "word",
+  "word": "六日",
+  "primaryReading": "むいか",
+  "furigana": [{ "text": "六", "reading": "むい" }, { "text": "日", "reading": "か" }],
+  "meaning": "6th day of the month",
+  "pos": ["n"],
+  "kanji": ["516d", "65e5"],
+  "builtFrom": [{ "k": "六", "m": "six" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "scene": ["lanterns:6"],
+    "backdrop": "sky:day",
+    "particles": ["sparks"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "六", "reading": "むい" }, { "text": "日", "reading": "か" }, { "text": "は" }, { "text": "土曜日", "reading": "どようび" }, { "text": "です。" } ],
+      "en": "The 6th is a Saturday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "source": { "jmdict": 1561470, "jlpt": 5 }
+}

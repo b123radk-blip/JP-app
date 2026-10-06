@@ -1,0 +1,19 @@
+{
+  "id": "4e8c",
+  "kanji": "二",
+  "meaning": "two",
+  "primaryReading": "に",
+  "readings": { "kun": ["ふた", "ふた(つ)", "ふたたび"], "on": ["ニ", "ジ"] },
+  "mnemonic": "Two chopsticks lying one above the other.",
+  "effect": { "material": "wood", "reveal": "draw", "backdrop": "sky:day", "motion": "count:2", "emblem": "dots:2" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "二", "reading": "に" }, { "text": "時間", "reading": "じかん" }, { "text": "ここにいます。" } ],
+      "en": "I have been here for two hours.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [154768, 259772] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1461140"] }
+}

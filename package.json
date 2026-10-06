@@ -15,6 +15,7 @@
     "e2e": "node scripts/e2e-app.mjs",
     "check:recipes": "node scripts/check-recipes.mjs",
     "voice:list": "node scripts/voice-list.mjs",
+    "review:list": "node scripts/review-list.mjs",
     "voice": "node scripts/voicevox.mjs",
     "preview-shots": "node scripts/preview-shots.mjs",
     "data:fetch": "node scripts/data/fetch.mjs",

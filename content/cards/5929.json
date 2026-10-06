@@ -1,0 +1,27 @@
+{
+  "id": "5929",
+  "kanji": "天",
+  "meaning": "heavens; sky",
+  "primaryReading": "てん",
+  "readings": { "kun": ["あまつ", "あめ", "あま"], "on": ["テン"] },
+  "mnemonic": "A big person (大) with the sky (一) resting on their head.",
+  "effect": {
+    "material": "ice",
+    "reveal": "draw",
+    "particles": ["motes:up"],
+    "backdrop": "sky:day",
+    "motion": "drift:up",
+    "emblem": "cloud",
+    "parts": { "大": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あしたの" }, { "text": "天気", "reading": "てんき" }, { "text": "はどうですか。" } ],
+      "en": "What will the weather be like tomorrow?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

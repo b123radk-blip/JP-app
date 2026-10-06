@@ -1,0 +1,22 @@
+{
+  "id": "w1407980",
+  "type": "word",
+  "word": "多分",
+  "primaryReading": "たぶん",
+  "furigana": [{ "text": "多", "reading": "た" }, { "text": "分", "reading": "ぶん" }],
+  "meaning": "probably; likely",
+  "pos": ["adv"],
+  "kanji": ["591a", "5206"],
+  "builtFrom": [{ "k": "多", "m": "many" }, { "k": "分", "m": "part" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "motion": "tilt", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "多分", "reading": "たぶん" }, { "text": "うまく" }, { "text": "行", "reading": "い" }, { "text": "くさ。" } ],
+      "en": "Maybe you'll succeed.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227675, 65028] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 多分" },
+  "source": { "jmdict": 1407980, "jlpt": 5 }
+}

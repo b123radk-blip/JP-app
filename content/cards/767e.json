@@ -1,0 +1,26 @@
+{
+  "id": "767e",
+  "kanji": "百",
+  "meaning": "hundred",
+  "primaryReading": "もも",
+  "readings": { "kun": ["もも"], "on": ["ヒャク", "ビャク"] },
+  "mnemonic": "One (一) white (白) sheet, stacked a hundred times.",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw",
+    "backdrop": "sky:indoor",
+    "motion": "count:3",
+    "emblem": { "type": "yen", "color": "#d0d4dc" },
+    "parts": { "白": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このりんごは" }, { "text": "百", "reading": "ひゃく" }, { "text": "円", "reading": "えん" }, { "text": "です。" } ],
+      "en": "This apple is 100 yen.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "5b89",
+  "kanji": "安",
+  "meaning": "relax; cheap",
+  "primaryReading": "あん",
+  "readings": { "kun": ["やす(い)", "やす(まる)", "やす", "やす(らか)"], "on": ["アン"] },
+  "mnemonic": "A woman (女) safe under a roof (宀): calm; also cheap.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw",
+    "scene": ["room"],
+    "backdrop": "sky:twilight",
+    "motion": "float",
+    "parts": { "宀": {}, "女": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "とても" }, { "text": "安", "reading": "やす" }, { "text": "かったのよ。" } ],
+      "en": "It was really cheap.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [200639, 37840] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

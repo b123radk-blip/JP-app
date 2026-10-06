@@ -1,0 +1,29 @@
+{
+  "id": "w1348910",
+  "type": "word",
+  "word": "少ない",
+  "primaryReading": "すくない",
+  "furigana": [{ "text": "少", "reading": "すく" }, { "text": "ない" }],
+  "meaning": "few; little",
+  "pos": ["adj-i"],
+  "kanji": ["5c11"],
+  "builtFrom": [{ "k": "少", "m": "few" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["dust"],
+    "backdrop": "sky:dusk",
+    "motion": "shrink",
+    "emblem": "dots:2"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "そう" }, { "text": "思", "reading": "おも" }, { "text": "っている" }, { "text": "人", "reading": "ひと" }, { "text": "が" }, { "text": "少", "reading": "すく" }, { "text": "ない。" } ],
+      "en": "Few people think so.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [213773, 51060] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 少ない" },
+  "source": { "jmdict": 1348910, "jlpt": 5 }
+}

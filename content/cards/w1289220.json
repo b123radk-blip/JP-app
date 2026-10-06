@@ -1,0 +1,29 @@
+{
+  "id": "w1289220",
+  "type": "word",
+  "word": "今週",
+  "primaryReading": "こんしゅう",
+  "furigana": [{ "text": "今", "reading": "こん" }, { "text": "週", "reading": "しゅう" }],
+  "meaning": "this week",
+  "pos": ["n", "adv"],
+  "kanji": ["4eca", "9031"],
+  "builtFrom": [{ "k": "今", "m": "now" }, { "k": "週", "m": "week" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "calendar",
+    "backdrop": "sky:day",
+    "motion": "pulse",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今週", "reading": "こんしゅう" }, { "text": "、" }, { "text": "友", "reading": "とも" }, { "text": "だちに" }, { "text": "会", "reading": "あ" }, { "text": "います。" } ],
+      "en": "I'll meet a friend this week.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 今週" },
+  "source": { "jmdict": 1289220, "jlpt": 5 }
+}

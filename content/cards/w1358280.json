@@ -1,0 +1,22 @@
+{
+  "id": "w1358280",
+  "type": "word",
+  "word": "食べる",
+  "primaryReading": "たべる",
+  "furigana": [{ "text": "食", "reading": "た" }, { "text": "べる" }],
+  "meaning": "to eat",
+  "pos": ["v1", "vt"],
+  "kanji": ["98df"],
+  "builtFrom": [{ "k": "食", "m": "eat" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "particles": ["steam"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "りんごを" }, { "text": "食", "reading": "た" }, { "text": "べています。" } ],
+      "en": "I am eating an apple.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [192448, 29612] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 食べる" },
+  "source": { "jmdict": 1358280, "jlpt": 5 }
+}

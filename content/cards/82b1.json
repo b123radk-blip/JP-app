@@ -1,0 +1,26 @@
+{
+  "id": "82b1",
+  "kanji": "花",
+  "meaning": "flower",
+  "primaryReading": "はな",
+  "readings": { "kun": ["はな"], "on": ["カ", "ケ"] },
+  "mnemonic": "Grass (艹) on top, and below someone changing (化) into a flower.",
+  "effect": {
+    "material": "rose",
+    "reveal": "draw:sparks",
+    "particles": ["petals"],
+    "backdrop": "sky:day",
+    "motion": "sway",
+    "parts": { "艹": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "花", "reading": "はな" }, { "text": "は" }, { "text": "何", "reading": "なん" }, { "text": "と" }, { "text": "言", "reading": "い" }, { "text": "いますか。" } ],
+      "en": "What do you call this flower?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222732, 60062] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1194500"] }
+}

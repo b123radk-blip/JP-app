@@ -1,0 +1,29 @@
+{
+  "id": "w1473740",
+  "type": "word",
+  "word": "買う",
+  "primaryReading": "かう",
+  "furigana": [{ "text": "買", "reading": "か" }, { "text": "う" }],
+  "meaning": "to buy; to purchase",
+  "pos": ["v5u", "vt"],
+  "kanji": ["8cb7"],
+  "builtFrom": [{ "k": "買", "m": "buy" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "yen",
+    "particles": ["coins"],
+    "backdrop": "sky:day",
+    "motion": "pulse"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "どこで" }, { "text": "本", "reading": "ほん" }, { "text": "が" }, { "text": "買", "reading": "か" }, { "text": "えますか。" } ],
+      "en": "Where would I find books?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [200944, 38148] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 買う" },
+  "source": { "jmdict": 1473740, "jlpt": 5 }
+}

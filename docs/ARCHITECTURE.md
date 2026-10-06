@@ -4,19 +4,20 @@
 `index.html` -> `src/main.js` -> `app/app.js` builds the shared services and shows a screen:
 **home** (deck tiles N5-N1; only enabled decks are pressable) -> **study** (session over due + new cards) -> **done**
 (summary, or "all caught up" with Study ahead). `?preview=1` shows **preview** instead (one card's animation, looping, with
-its recipe and real cost; Prev / Replay / Pause / Next). A screen is `create(app, props) -> { name, group, update(dt), dispose(), onPlaced?, onEnvironment? }`.
+its recipe and real cost; Prev / Replay / Pause / Next). Kanji cards and word cards go through the same player. A screen is `create(app, props) -> { name, group, update(dt), dispose(), onPlaced?, onEnvironment? }`.
 
 | Folder | Responsibility |
 |---|---|
 | `src/config.js` | every tunable: SRS numbers, retirement rule, layout (metres), card timeline, text resolution, colours |
 | `src/core/` | `scene` (renderer, camera, root/card groups, frame loop), `xr` (Enter VR/AR, placement, passthrough), `input` + `pick` (mouse, controller and hand rays), `audio` (clips by id), `text` (canvas text, furigana), `clock` (fake days) |
-| `src/srs/` | pure logic, unit-tested: `scheduler`, `retirement`, `storage`, `session`, `dates` |
-| `src/kanji/tube.js` | KanjiVG centre-lines -> 3D tubes, stroke timing |
-| `src/effects/` | composable effects: `catalog` (pure: pieces, options, costs, recipe parsing / validation), `similarity` (pure), `compose` (builds one card's effect), `pieces/` (materials, reveal, particles, backdrops, motion, emblems) |
+| `src/srs/` | pure logic, unit-tested: `scheduler`, `retirement`, `storage`, `session` (unlock rule for words), `dates` |
+| `src/kanji/tube.js` | KanjiVG centre-lines -> merged 3D tubes per part, stroke timing, the glyph row of a word |
+| `src/effects/` | composable effects: `catalog` (pure: pieces, options, costs, recipe parsing / validation), `plan` (pure: which strokes form which part, for a kanji or a word), `similarity` (pure), `compose` (builds one card's effect), `pieces/` (materials + the reveal shader, particles, scene props, backdrops, motion, emblems) |
 | `src/ui/` | 3D `button`, 2D `debug-panel` |
 | `src/app/` | app wiring, `card-player` (also the mnemonic panel), screens (home, study, done, preview) |
-| `content/` | cards, decks (data only); `src/content/clips.js` derives voice clip ids; `audio/clips.json` lists every clip the content needs, `audio/manifest.json` the ones that exist; `data/` holds stroke data + KanjiVG components |
-| `scripts/` | build (kanji, font), checks (content, recipes, sentences), e2e and screenshots, `voice-list` + `voicevox` (run on the user's PC) |
+| `content/` | cards (kanji `<hex>.json`, words `w<JMdict seq>.json`), decks (card order + `requires`: the kanji each word needs); `src/content/clips.js` derives voice clip ids; `audio/clips.json` lists every clip the content needs, `audio/manifest.json` the ones that exist |
+| `data/` | stroke data + KanjiVG components per glyph (kanji and kana), `lexicon/` (words and kanji derived from JMdict, KANJIDIC2 and the JLPT lists) |
+| `scripts/` | `data/` (fetch + build the lexicon), `curriculum`, `pick-sentences.py`, `draft-cards` + `lib/` (drafter, word rules, look-alikes), `set-recipes`; build (kanji, font); checks (content, recipes, sentences); e2e, contact sheets; `voice-list` + `voicevox` (run on the user's PC), `review-list` |
 
 ## Decisions and why
 - **WebXR, not native.** Fast loop: everything except the headset itself can be built and checked here. Content carries over if we port later.
@@ -37,6 +38,22 @@ its recipe and real cost; Prev / Replay / Pause / Next). A screen is `create(app
   All particles of one blend mode and space share one instanced mesh (one draw call); all randomness is one seeded generator.
 - **Components** come from KanjiVG's `kvg:element` groups (`scripts/lib/kanjivg.mjs`): each part gets its own material
   instance and pivot group, so a component keeps one look across kanji (`COMPONENT_LOOKS`) and can move on its own.
+- **Strokes reveal on the GPU.** All strokes of one part are one merged tube mesh with per-vertex `aStroke` (stroke index)
+  and `aT` (position along the stroke); the shader discards what is past that stroke's progress (`uProg[stroke]`), and the
+  round caps are instanced. A material costs a fixed number of draw calls per part (glow 4, heat 2), whatever the stroke
+  count, which is what lets word cards with many glyphs fit the budget.
+- **Words are built from their kanji.** A word card lays its glyphs out in a row (`layoutWord`); each kanji that has its
+  own card is drawn with that card's material and parts, kana and other kanji in ivory, so the cue learned on 学 is the
+  one seen in 学生. The word's own recipe adds the scene, backdrop, emblem and motion; its stroke reveal is compressed to
+  at most `EFFECTS.word.maxReveal` seconds. The left panel shows "Built from: 学 study + 生 life".
+- **Kanji unlock words.** `scripts/curriculum.mjs` orders a level: each kanji, then the words it unlocks, most useful first
+  (JMdict priority + Tatoeba frequency). The deck lists each word's kanji (`requires`); the session builder holds a word
+  back until all of them were introduced, and allows it the same day, right after its kanji. Words written with one kanji
+  are taught by the kanji card. Existing cards keep their ids and place, so progress is never lost.
+- **Content is generated, then reviewed.** Meanings and readings come from KANJIDIC2 / JMdict; sentences from Tatoeba,
+  kept only when SudachiPy's segmentation and Open JTalk's reading agree; recipes are drafted from rule tables and varied
+  until no other card looks alike. The contact sheet review fixes the weak ones (`review.recipe`), and every sentence keeps
+  `needsNativeReview` until a person confirms it (docs/REVIEW.md lists them).
 - **Cost is declared and checked.** Each piece declares draw calls / particle slots / lights; the content check rejects a
   recipe over `EFFECTS.budget`, and e2e checks that what is built equals the declaration.
 - **Mnemonic** (optional, one line): shown left of the kanji with the meaning, under the label "Memory aid (a story, not
@@ -49,5 +66,6 @@ its recipe and real cost; Prev / Replay / Pause / Next). A screen is `create(app
 ## Known limits / next steps
 - Headset behaviour (pinch accuracy, comfort, text sharpness, frame rate with the fire and rain effects) is untested here.
 - No voice until the user renders it (docs/VOICEVOX.md). Slow clips (`--slow-too`) are not used by the app yet.
-- Pieces for most of N5 are still missing: see docs/EFFECTS-PLAN.md (generated list).
-- One sentence per card (the first); no card editing; no stats screen; no cloud sync.
+- Kana-only words and N5 words that need higher-level kanji have no cards yet (docs/BATCH-LOG.md, docs/ROADMAP.md).
+- Pieces the drafter still wants (footprints, stamp / brush / grow reveals, split motion, room variants ...): docs/BATCH-LOG.md.
+- One sentence per card (the first); recognition cards only (no English -> word yet); no stats screen; no cloud sync.

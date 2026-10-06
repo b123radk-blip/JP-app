@@ -20,6 +20,9 @@ brings a kanji card for them.
 1. **Kanji unlock words.** The teaching order is generated: a kanji card comes first, then the words written with it
    follow soon after (学 → 学生, 学校; 日 + 本 → 日本). Every new kanji is reused right away, which is what makes it stick.
    A word becomes "new" only after all its taught kanji have been introduced.
+   From Step 2 on, kanji are chosen by **how many target words they unlock**, not by JLPT kanji level: the two do not
+   line up. The N5 words still missing after Step 1 need 330 other kanji spread over N4 to N1; all N4 kanji would unlock
+   only 127 of those 354 words, while the 150 kanji with the most unlocks complete 202 of them.
 2. **Layered visual identity.**
    - Component look: 氵 water, 木 wood, 日 gold, 亻 skin.
    - Kanji look: its own recipe.
@@ -64,10 +67,10 @@ The app's footer credits all of them.
 
 | Step | Content | Cards after |
 |---|---|---|
-| **1. Foundation** (next) | Pipeline, word cards in the app, unlock order, recipe drafter, look-alike check; the rest of the N5 kanji (~97) and the 196 N5 words writable with them | ~310 |
-| 2. N5 complete | The props and emblems the drafter asked for most; N5 words with higher-level kanji (neutral style); kana-only N5 words | ~830 |
-| 3. N4 | ~170 kanji + ~670 words, in 1-2 sessions | ~1,670 |
-| 4-8. N3 | ~370 kanji + ~2,100 words, in ~5 sessions of ~500 cards | ~3,650 |
+| **1. Foundation** (done) | Pipeline, word cards in the app, unlock order, recipe drafter, look-alike check; the other 97 N5 kanji and the 113 N5 words written with N5 kanji only (54 more one-kanji words are taught by their kanji card) | 225 |
+| **2. N5 complete** (next) | The pieces the drafts wanted most; ~150 kanji chosen by unlock value; every remaining N5 word (354 with other kanji, those outside the plan in neutral style; 146 kana-only) | ~875 |
+| 3. N4 | the next kanji by unlock value over the N4 words (~150) + ~620 N4 words, in 1-2 sessions | ~1,650 |
+| 4-8. N3 | ~350 kanji + ~2,100 words, in ~5 sessions of ~500 cards | ~4,100 |
 | Then | Tune the learning with your review history (new cards per day, intervals), production cards, stats screen, cloud sync; N2 if wanted | |
 
 Each step follows the same loop: generate → verify sentences → contact sheets → fix the weakest cards and every look-alike

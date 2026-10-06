@@ -1,0 +1,26 @@
+{
+  "id": "9031",
+  "kanji": "週",
+  "meaning": "week",
+  "primaryReading": "しゅう",
+  "readings": { "kun": [], "on": ["シュウ"] },
+  "mnemonic": "A loop (周) you walk (⻌) every seven days: a week.",
+  "effect": {
+    "material": "paper",
+    "reveal": "draw",
+    "scene": ["road"],
+    "backdrop": "sky:morning",
+    "emblem": "dots:7",
+    "parts": { "⻌": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "先生", "reading": "せんせい" }, { "text": "に" }, { "text": "今週", "reading": "こんしゅう" }, { "text": "会", "reading": "あ" }, { "text": "えますか。" } ],
+      "en": "Can the doctor see me this week?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141743, 272827] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

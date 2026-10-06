@@ -1,0 +1,25 @@
+{
+  "id": "751f",
+  "kanji": "生",
+  "meaning": "life; genuine",
+  "primaryReading": "せい",
+  "readings": { "kun": ["い(きる)", "い(かす)", "い(ける)", "う(まれる)"], "on": ["セイ", "ショウ"] },
+  "mnemonic": "A plant sprouting from the ground: life, to be born.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw:sparks",
+    "particles": ["leaves"],
+    "backdrop": "sky:morning",
+    "motion": "grow:1.2"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "先生", "reading": "せんせい" }, { "text": "はいすにすわった。" } ],
+      "en": "The teacher sat on the chair.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141707, 272863] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

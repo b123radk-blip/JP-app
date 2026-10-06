@@ -1,0 +1,22 @@
+{
+  "id": "w1343950",
+  "type": "word",
+  "word": "書く",
+  "primaryReading": "かく",
+  "furigana": [{ "text": "書", "reading": "か" }, { "text": "く" }],
+  "meaning": "to write; to compose",
+  "pos": ["v5k", "vt"],
+  "kanji": ["66f8"],
+  "builtFrom": [{ "k": "書", "m": "write" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "一行", "reading": "いっこう" }, { "text": "おきに" }, { "text": "書", "reading": "か" }, { "text": "きなさい。" } ],
+      "en": "Write on alternate lines.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [190636, 27797] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 書く" },
+  "source": { "jmdict": 1343950, "jlpt": 5 }
+}

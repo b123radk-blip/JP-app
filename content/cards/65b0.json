@@ -1,0 +1,25 @@
+{
+  "id": "65b0",
+  "kanji": "新",
+  "meaning": "new",
+  "primaryReading": "しん",
+  "readings": { "kun": ["あたら(しい)", "あら(た)", "あら", "にい"], "on": ["シン"] },
+  "mnemonic": "Stand (立) by a tree (木) with an axe (斤): freshly cut, new.",
+  "effect": {
+    "material": "wood",
+    "reveal": "draw:dust",
+    "particles": ["sparks"],
+    "backdrop": "sky:morning",
+    "parts": { "立": {}, "木": {}, "斤": { "material": "metal", "motion": "wave" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "本", "reading": "ほん" }, { "text": "です。" } ],
+      "en": "That book is a new book.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230454, 67821] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

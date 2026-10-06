@@ -1,0 +1,22 @@
+{
+  "id": "w1479890",
+  "type": "word",
+  "word": "半分",
+  "primaryReading": "はんぶん",
+  "furigana": [{ "text": "半", "reading": "はん" }, { "text": "分", "reading": "ぶん" }],
+  "meaning": "half",
+  "pos": ["adv", "n"],
+  "kanji": ["534a", "5206"],
+  "builtFrom": [{ "k": "半", "m": "half" }, { "k": "分", "m": "part" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:2", "motion": "pulse", "backdrop": "sky:snow" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それを" }, { "text": "半分", "reading": "はんぶん" }, { "text": "にきりなさい。" } ],
+      "en": "Cut it in half.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204534, 41774] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 半分" },
+  "source": { "jmdict": 1479890, "jlpt": 5 }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "524d",
+  "kanji": "前",
+  "meaning": "in front; before",
+  "primaryReading": "まえ",
+  "readings": { "kun": ["まえ", "まえ"], "on": ["ゼン"] },
+  "mnemonic": "A boat (月) pushed forward with oars (刂): in front, before.",
+  "effect": {
+    "material": "cyan",
+    "reveal": "draw",
+    "scene": ["road"],
+    "backdrop": "sky:day",
+    "motion": "drift:toward",
+    "emblem": "arrow:down",
+    "parts": { "月": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "まっすぐ" }, { "text": "前", "reading": "まえ" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "てください。" } ],
+      "en": "Look forward, please.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195363, 32537] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1392580"] }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "534a",
+  "kanji": "半",
+  "meaning": "half; middle",
+  "primaryReading": "はん",
+  "readings": { "kun": ["なか(ば)"], "on": ["ハン"] },
+  "mnemonic": "A thing cut straight down the middle into halves.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw",
+    "particles": ["motes"],
+    "backdrop": "sky:forest",
+    "motion": "pulse",
+    "emblem": "clock"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "車", "reading": "くるま" }, { "text": "でそこへ" }, { "text": "行", "reading": "い" }, { "text": "くのに" }, { "text": "一", "reading": "いち" }, { "text": "時間", "reading": "じかん" }, { "text": "半", "reading": "はん" }, { "text": "かかった。" } ],
+      "en": "It took me an hour and a half to get there by car.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [149106, 265452] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1478750"] }
+}

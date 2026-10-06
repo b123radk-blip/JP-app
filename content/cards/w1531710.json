@@ -1,0 +1,22 @@
+{
+  "id": "w1531710",
+  "type": "word",
+  "word": "名前",
+  "primaryReading": "なまえ",
+  "furigana": [{ "text": "名", "reading": "な" }, { "text": "前", "reading": "まえ" }],
+  "meaning": "name",
+  "pos": ["n"],
+  "kanji": ["540d", "524d"],
+  "builtFrom": [{ "k": "名", "m": "name" }, { "k": "前", "m": "in front" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:morning", "motion": "pulse", "emblem": "pen" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたのお" }, { "text": "名前", "reading": "なまえ" }, { "text": "は？" } ],
+      "en": "What's your name?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233570, 408293] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "rule": "word 名前" },
+  "source": { "jmdict": 1531710, "jlpt": 5 }
+}

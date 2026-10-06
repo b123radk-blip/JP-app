@@ -1,0 +1,26 @@
+{
+  "id": "4e5d",
+  "kanji": "九",
+  "meaning": "nine",
+  "primaryReading": "きゅう",
+  "readings": { "kun": ["ここの", "ここの(つ)"], "on": ["キュウ", "ク"] },
+  "mnemonic": "An arm hooking round a corner to catch the ninth ball.",
+  "effect": {
+    "material": "chalk",
+    "reveal": "draw",
+    "particles": ["sparks"],
+    "backdrop": "sky:dusk",
+    "motion": "count:9",
+    "emblem": "target"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "九", "reading": "きゅう" }, { "text": "ページを" }, { "text": "開", "reading": "ひら" }, { "text": "きなさい。" } ],
+      "en": "Open your book to page nine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [179548, 18406] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1578150"] }
+}

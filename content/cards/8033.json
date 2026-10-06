@@ -1,0 +1,19 @@
+{
+  "id": "8033",
+  "kanji": "耳",
+  "meaning": "ear",
+  "primaryReading": "みみ",
+  "readings": { "kun": ["みみ"], "on": ["ジ"] },
+  "mnemonic": "An ear with its folds.",
+  "effect": { "material": "skin", "reveal": "draw", "particles": ["notes"], "backdrop": "plain", "emblem": "ear" },
+  "sentences": [
+    {
+      "segments": [ { "text": "うさぎは" }, { "text": "耳", "reading": "みみ" }, { "text": "が" }, { "text": "長", "reading": "なが" }, { "text": "い。" } ],
+      "en": "Rabbits have long ears.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1317170"] }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1289100",
+  "type": "word",
+  "word": "今月",
+  "primaryReading": "こんげつ",
+  "furigana": [{ "text": "今", "reading": "こん" }, { "text": "月", "reading": "げつ" }],
+  "meaning": "this month",
+  "pos": ["n", "adv"],
+  "kanji": ["4eca", "6708"],
+  "builtFrom": [{ "k": "今", "m": "now" }, { "k": "月", "m": "month" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "crescent", "backdrop": "sky:twilight", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今月", "reading": "こんげつ" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "多", "reading": "おお" }, { "text": "かった。" } ],
+      "en": "We've had a lot of rain this month.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [172456, 242019] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 今月" },
+  "source": { "jmdict": 1289100, "jlpt": 5 }
+}
