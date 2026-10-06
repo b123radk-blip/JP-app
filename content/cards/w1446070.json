@@ -8,7 +8,13 @@
   "pos": ["n", "adv"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["snow"], "backdrop": "sky:snow", "motion": "pulse" },
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["snow"],
+    "backdrop": "sky:twilight",
+    "motion": "pulse"
+  },
   "sentences": [
     {
       "segments": [ { "text": "まもなく" }, { "text": "冬", "reading": "ふゆ" }, { "text": "だ。" } ],
@@ -17,6 +23,6 @@
       "source": { "tatoeba": [195261, 32435] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 冬" },
+  "review": { "recipe": "reviewed", "rule": "word 冬" },
   "source": { "jmdict": 1446070, "jlpt": 5 }
 }

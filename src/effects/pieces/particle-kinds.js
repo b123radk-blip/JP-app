@@ -136,7 +136,7 @@ const EMIT = {
     while (acc.take()) { const [x, y, z] = box(r, [-0.62, -0.5], [-0.2, 0.28], [-0.25, 0.12]); spawn(k, x, y, z, 0.6 + r() * 0.35, 0.03 * (r() - 0.5), 0, 1.6 + r() * 0.5, 0.07 + r() * 0.06, r()); } } }; },
   kana: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; ctx.pools[PARTICLE_KINDS.kana.pool].setAtlas(kanaAtlas()); return { acc, step(t, dt) {
     acc.add(3.2 * n * dt);
-    while (acc.take()) { const [x, y, z] = box(r, [-0.34, 0.34], [-0.12, 0.08], [-0.06, 0.1]); spawn(k, x, y, z, (r() - 0.5) * 0.03, 0.04 + r() * 0.02, 0, 3.4 + r(), 0.05 + r() * 0.016, r()); } } }; },
+    while (acc.take()) { const side = r() < 0.5 ? -1 : 1, [x, y, z] = box(r, [0.3, 0.48], [-0.14, 0.04], [-0.06, 0.1]); spawn(k, side * x, y, z, side * (0.005 + r() * 0.02), 0.04 + r() * 0.02, 0, 3.4 + r(), 0.05 + r() * 0.016, r()); } } }; },   // from both sides, clear of the glyphs
 };
 
 // as a layer, dust drifts in the light instead of falling like chips from the pen

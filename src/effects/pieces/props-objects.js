@@ -14,7 +14,8 @@ export function tree(ctx, spec, anchor) {
   const blobs = Array.from({ length: N }, (_, i) => {
     const a = (i / N) * Math.PI * 2 + rnd() * 0.5, r = i === 0 ? 0 : 0.35 + rnd() * 0.65;
     mesh.setColorAt(i, base.clone().offsetHSL((rnd() - 0.5) * 0.06, 0, (rnd() - 0.5) * 0.18));
-    return { x: cx + Math.cos(a) * r * 0.42 * w, y: box.min.y + 0.8 * h + Math.sin(a) * r * 0.26 * h, z: -ctx.rz * 2.6 - 0.02 - rnd() * 0.04, r: (0.2 + rnd() * 0.12) * k, delay: 0.05 * i + rnd() * 0.1 };
+    const br = (0.2 + rnd() * 0.12) * k;
+    return { x: cx + Math.cos(a) * r * 0.42 * w, y: box.min.y + 0.8 * h + Math.sin(a) * r * 0.26 * h, z: -ctx.rz * 2.6 - 0.02 - rnd() * 0.04 - Math.max(0, br - 0.03), r: br, delay: 0.05 * i + rnd() * 0.1 };   // big crowns (a word) stay behind the strokes
   });
   mesh.frustumCulled = false; mesh.instanceColor.needsUpdate = true;
   const m = new THREE.Matrix4(), q = new THREE.Quaternion(), e = new THREE.Euler(), v = new THREE.Vector3(), s = new THREE.Vector3();

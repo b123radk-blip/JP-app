@@ -36,8 +36,9 @@ brings a kanji card for them.
    - Retired cards (once known) show plain text, as kanji cards do.
 4. **Recognition first** (see the word → recall reading and meaning). Production cards (English → word) come later, as an
    option per card.
-5. **Kana-only words** (about 20 %) get word cards too: kana glyphs + the word's scene. They come after the kanji words
-   of each level.
+5. **Kana-only words** (about 20 %) get word cards too: kana glyphs (hiragana ivory, katakana violet: the script is a cue)
+   + the word's scene. They are spread through each new section by usefulness (the most frequent words of all).
+6. **Kanji outside the plan** (椅子's 椅) are drawn plain grey with furigana over them; they never hold a word back.
 
 ## Production pipeline (built in Step 1)
 
@@ -68,8 +69,8 @@ The app's footer credits all of them.
 | Step | Content | Cards after |
 |---|---|---|
 | **1. Foundation** (done) | Pipeline, word cards in the app, unlock order, recipe drafter, look-alike check; the other 97 N5 kanji and the 113 N5 words written with N5 kanji only (54 more one-kanji words are taught by their kanji card) | 225 |
-| **2. N5 complete** (next) | The pieces the drafts wanted most; ~150 kanji chosen by unlock value; every remaining N5 word (354 with other kanji, those outside the plan in neutral style; 146 kana-only) | ~875 |
-| 3. N4 | the next kanji by unlock value over the N4 words (~150) + ~620 N4 words, in 1-2 sessions | ~1,650 |
+| **2. N5 complete** (done) | ~60 new pieces (emblems, reveals, stroke motions, footprints / wind / kana); 150 kanji chosen by unlock value, each designed by hand; 460 words: 154 with taught kanji, 167 with kanji drawn plain, 139 kana-only. 5 words wait for a native check (both analysers read the other reading) | 835 |
+| **3. N4** (next) | the next kanji by unlock value over the N4 words + the N4 words they unlock, kana words and words with plain kanji; see docs/prompts/step-3-n4.md | ~1,600 |
 | 4-8. N3 | ~350 kanji + ~2,100 words, in ~5 sessions of ~500 cards | ~4,100 |
 | Then | Tune the learning with your review history (new cards per day, intervals), production cards, stats screen, cloud sync; N2 if wanted | |
 

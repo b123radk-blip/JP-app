@@ -42,14 +42,28 @@ its recipe and real cost; Prev / Replay / Pause / Next). Kanji cards and word ca
   and `aT` (position along the stroke); the shader discards what is past that stroke's progress (`uProg[stroke]`), and the
   round caps are instanced. A material costs a fixed number of draw calls per part (glow 4, heat 2), whatever the stroke
   count, which is what lets word cards with many glyphs fit the budget.
+- **Single strokes can move.** Every glyph material reads a per-stroke offset (`uOff`, from `ctx.so`) in its vertex shader
+  and offsets its round caps the same way, so reveals and motions can move strokes without new meshes: `assemble` (strokes
+  fly in), `split` (the two sides part), `jiggle`, and the `stamp` / `grow` reveals pose the whole glyph on a pivot at its base.
+- **Glyph kinds in words.** The loader tags each character of a word: `kanji` (has its own card: its look), `plain` (a kanji
+  outside the plan: neutral grey with furigana over it, from the card's furigana), `hiragana` (the word's material, ivory),
+  `katakana` (its own violet preset, so a loanword reads as one). Long kana-only words get a wider row. The furigana labels
+  are card text, not effect meshes (the draw-call budget covers the effect only).
 - **Words are built from their kanji.** A word card lays its glyphs out in a row (`layoutWord`); each kanji that has its
   own card is drawn with that card's material and parts, kana and other kanji in ivory, so the cue learned on 学 is the
   one seen in 学生. The word's own recipe adds the scene, backdrop, emblem and motion; its stroke reveal is compressed to
   at most `EFFECTS.word.maxReveal` seconds. The left panel shows "Built from: 学 study + 生 life".
+- **Kanji chosen by the words they unlock.** From Step 2 the curriculum picks the next kanji greedily: a word still missing
+  m kanji gives each 1/m of its level weight (N5 1, N4 0.3, N3 0.1), frequency breaks ties (`scripts/lib/order.mjs`). The
+  chosen list is saved (`scripts/data/kanji-plan.json`). Kana-only words and words with kanji outside the plan are spread
+  through the new section by usefulness; a kanji outside the plan never holds a word back.
 - **Kanji unlock words.** `scripts/curriculum.mjs` orders a level: each kanji, then the words it unlocks, most useful first
   (JMdict priority + Tatoeba frequency). The deck lists each word's kanji (`requires`); the session builder holds a word
   back until all of them were introduced, and allows it the same day, right after its kanji. Words written with one kanji
   are taught by the kanji card. Existing cards keep their ids and place, so progress is never lost.
+- **Similarity ignores what neither card uses.** Slots neither recipe uses (particles, scene, emblem, parts) are left out
+  of the score; material, reveal, backdrop and motion always count. Before Step 2 "both empty" counted as a match, which made
+  any two sparse cards with one shared sky score 0.72.
 - **Content is generated, then reviewed.** Meanings and readings come from KANJIDIC2 / JMdict; sentences from Tatoeba,
   kept only when SudachiPy's segmentation and Open JTalk's reading agree; recipes are drafted from rule tables and varied
   until no other card looks alike. The contact sheet review fixes the weak ones (`review.recipe`), and every sentence keeps
@@ -66,6 +80,5 @@ its recipe and real cost; Prev / Replay / Pause / Next). Kanji cards and word ca
 ## Known limits / next steps
 - Headset behaviour (pinch accuracy, comfort, text sharpness, frame rate with the fire and rain effects) is untested here.
 - No voice until the user renders it (docs/VOICEVOX.md). Slow clips (`--slow-too`) are not used by the app yet.
-- Kana-only words and N5 words that need higher-level kanji have no cards yet (docs/BATCH-LOG.md, docs/ROADMAP.md).
-- Pieces the drafter still wants (footprints, stamp / brush / grow reveals, split motion, room variants ...): docs/BATCH-LOG.md.
+- Pieces still wanted: docs/BATCH-LOG.md.
 - One sentence per card (the first); recognition cards only (no English -> word yet); no stats screen; no cloud sync.

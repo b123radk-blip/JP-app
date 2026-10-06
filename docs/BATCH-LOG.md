@@ -3,6 +3,75 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## N5 part 2 (Step 2), 2026-10-06
+
+**Made:** 610 cards on top of Step 1's 225, so the N5 deck has 835 cards (262 kanji, 573 words):
+- 150 kanji, chosen greedily by how many words they complete (N5 words weight 1, N4 0.3, N3 0.1; `scripts/lib/order.mjs`,
+  saved in `scripts/data/kanji-plan.json`): 物 切 朝 着 色 茶 晩 事 家 動 自 洗 昨 夜 兄 赤 当 近 始 温 ...
+- 460 words: 154 written with taught kanji only, 167 with a kanji outside the plan (drawn plain with furigana), 139 kana-only.
+- Left out, 5: 昨夜 (ゆうべ) and 開く (あく): both analysers read the other reading (さくや, ひらく) in every candidate, so
+  they wait for a native check; 明後日 (both read みょうごにち); 伯父 (the list's reading おじさん belongs to 伯父さん);
+  一月 (ひとつき, "one month": the analysers read いちがつ, as in Step 1).
+
+**Pieces built first** (about 60, all costed and checked by `scripts/check-piece-costs.mjs`): per-stroke offsets in the
+glyph shaders (strokes can move without new meshes), reveals `grow` `stamp` `brush` `assemble` and `draw` + `erase`,
+stroke motions `split` `jiggle`, glyph motions `fly sink roll stand bow hang turn flip shove vanish slide`, particles
+`footprints` `wind` `kana`, the `rainbow` material, ~60 emblems (stop sign with 止まれ, umbrella, gears, camera, pin,
+signpost, globe, scale, thermometer, bird, cow, snail, stairs, puzzle ...), room kinds (classroom, kitchen, shop,
+station), `bridge`, a gate that closes, a tree on one glyph of a word. Step 1 cards got what their review asked for:
+footprints (後 先 足 歩 千), grow (生 花 土), split (八 半 分), a flag (国), kana (語), room kinds (学 食 買 先生).
+
+**Kanji designed by hand.** Every recipe, mnemonic and the KANJIDIC meanings to show were written per kanji in
+`scripts/data/kanji-designs.json`, asking "what on screen *is* the meaning?" (the drafter checks meanings and readings against
+KANJIDIC2 / JMdict; it caught 8 meanings and 1 reading I had paraphrased). Where the obvious object was taken, the kanji's own parts or a
+motion carry it: 閉 the gate slides shut, 立 lies back and springs up, 返 flips over, 消 rubs itself out, 無 shrinks to
+nothing, 合 flies together, 切 / 両 split apart, 降 sinks with rain and stairs, 止 a Japanese stop sign (止まれ).
+13 kanji have neither emblem nor scene and read through motion / reveal / particles (動 消 楽 風 文 字 御 無 点 立 筆 悪 太).
+
+**Contact-sheet review** (one idle frame per card, plus frame strips for the motion cards):
+- Kanji: **18 of 150 changed (12 %)**, under the 20 % target (Step 1: 32 %). Most fixes were contrast or a weak cue,
+  not a missing piece: clay / jade / gold on a field or sunrise (地 場 広 黄), dark parts on a storm (嫌 悪), a cue that
+  read as something else (映's film reel as a second moon, 全's whole pie as an orange sun, 自's mirror as a magnifier),
+  nothing saying the meaning (晩 → lanterns, 初 → one big bead, 仕 → a cup served with a bow), the emblem matching the
+  N5 word instead of the card's meaning (丈 shield → ruler), a split too small to see (切).
+- Words: WORDFIX
+- Meanings: 14 kanji show other KANJIDIC meanings than the first two ("morning", not "morning; dynasty"); 早い shows its
+  entry's second sense ("early; soon": 早い and 速い share one JMdict entry).
+
+**Sentences:** 610 / 610 have one: 556 from Tatoeba, 54 written. All pass `verify-sentences.py`; all keep
+`needsNativeReview`. Every pick was read: **104 Tatoeba sentences rejected** with a reason (proverbs, insults, slang,
+the wrong sense: 角 read つの "horn", かぶる matched かぶれる, 遊ぶ for an idle machine; grammar words mistaken for the
+card's word: 〜そうだ for そう, どっちでも for でも, これじゃ for じゃ, まず for まずい).
+Fixed in the tools, so later batches do not repeat them:
+- Kana words were matched to the wrong JMdict homonym (はい "lung", あれ "I", じゃ "snake", どう "copper", その "garden"):
+  the JLPT list's meaning now picks the entry (`scripts/data/match.mjs`), with a unit test. N3 has a few the list itself
+  words oddly (ちょうだい, ロケット); check them in the N3 step.
+- The display form could swap in another spelling of the entry (跳ぶ for the list's 飛ぶ, so the card said "to fly"):
+  the list's own spelling now wins when JMdict has it with priority.
+- A sentence could use another spelling of the same entry (速い for 早い, 夕べ for 昨夜, 空いて for 開く, ご飯 for 御飯):
+  every kanji of the card's word must now appear in it.
+- Kana-only words found no candidates (Tatoeba's index files them under kanji lemmas: 珈琲 for コーヒー): they are now
+  matched by what is written, a conjugated one only when the lemma agrees (まず is not まずい).
+- Readings with "(する)" (勉強 べんきょう (する)) broke the furigana; stripped. Conjugated words keep the dictionary
+  furigana of their stem when Sudachi misreads it (辛くて: Open JTalk からくて, Sudachi つらくて).
+
+**Similarity check changed.** Slots that neither card uses (no particles, no scene, no emblem, no parts) no longer count
+as a match. With 460 words, any two sparse cards sharing one sky scored 0.72 (543 pairs), whatever their emblems and
+glyphs. Identical recipes still score 1; same material + sky + emblem is still flagged. On the Step 1 deck the one pair
+(三日 ~ 五日) drops under the line and all 26 look-alike kanji pairs still pass. The drafter also varies drafts more
+gently (an idle motion, the emblem's colour, a light particle layer, and the sky last; never the sky of a design marked
+`keepSky`), in two passes. Result: **0 pairs at or above 0.72**, no look-alike pair at or above 0.5.
+
+**Checks:** `npm test` (58 unit tests, content check, recipe check) and `npm run e2e` pass; e2e builds every one of the
+835 cards and its cost equals the catalog estimate; it also opens a word with a plain kanji (荷物), a katakana word
+(パーティー) and a hiragana word (なる).
+
+**Piece use in the new cards:** 98 different emblems; most used hand 27, person 23, arrow 16, book 16, shirt 15,
+question 14. Scenes: room 41, road 22, gate 11. Motions: float 61, drift 50.
+
+**Still wanted:** a toothbrush / smile for 歯, a map (図 and 所 share the pin), a projector beam for 映, a tray for 仕,
+a station backdrop for 駅 and electric arcs for 電 (from Step 1). Arrows toward / away read only in motion.
+
 ## N5 part 1 (Step 1), 2026-10-06
 
 **Made:** 210 cards (97 kanji + 113 words) on top of the 15 pilot kanji, so the N5 deck has 225 cards (112 kanji, 113 words).
