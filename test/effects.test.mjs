@@ -33,9 +33,9 @@ test('component looks are shared, and a recipe can override them', () => {
 
 test('validation catches typos and impossible recipes', () => {
   const comps = strokes('6797').components;
-  const p = validateRecipe({ materal: 'wood', reveal: 'grow', particles: ['rain', 'snow', 'mist'], backdrop: 'sky:sea', motion: { type: 'sway', ampp: 1 }, parts: { '日': {} } }, { components: comps });
+  const p = validateRecipe({ materal: 'wood', reveal: 'melt', particles: ['rain', 'snow', 'mist'], backdrop: 'sky:sea', motion: { type: 'sway', ampp: 1 }, parts: { '日': {} } }, { components: comps });
   const has = (re) => assert.ok(p.some((x) => re.test(x)), `expected a problem matching ${re}: ${p.join(' | ')}`);
-  has(/unknown recipe key "materal"/); has(/unknown reveal "grow"/); has(/at most 2 particle layers/);
+  has(/unknown recipe key "materal"/); has(/unknown reveal "melt"/); has(/at most 2 particle layers/);
   has(/unknown sky preset "sea"/); has(/unknown option "ampp" for sway/); has(/"日" is not a component/);
   assert.deepEqual(validateRecipe(card('706b').effect), []);
   assert.deepEqual(validateRecipe('fire', { bespokeIds: [] }).length, 1);

@@ -3,14 +3,14 @@
 import * as THREE from 'three';
 import { buildMergedTubes, pointAt, RADIAL, WIDTH_UNITS } from '../../kanji/tube.js';
 import { clamp01 } from './util.js';
-import { progressUniform, capInstances, CLIP_VERT_DECL, CLIP_VERT_MAIN, CLIP_FRAG_DECL, CLIP_FRAG_MAIN, INSTANCE_VERT } from './glyph-shader.js';
+import { progressUniform, offsetUniform, syncOffsets, capInstances, CLIP_VERT_DECL, CLIP_VERT_MAIN, CLIP_FRAG_DECL, CLIP_FRAG_MAIN, INSTANCE_VERT } from './glyph-shader.js';
 
 const DEPTH_RATIO = 1.6;
 
 // cap = the instanced round caps (heat per instance), otherwise the merged stroke body (heat per vertex, clipped per stroke)
-function glyphMaterial(cap, K, uProg) {
+function glyphMaterial(cap, K, uProg, uOff) {
   return new THREE.ShaderMaterial({
-    uniforms: { uTime: { value: 0 }, uBase: { value: new THREE.Color(0x1b1512) }, uProg },
+    uniforms: { uTime: { value: 0 }, uBase: { value: new THREE.Color(0x1b1512) }, uProg, uOff },
     vertexShader: `${cap ? 'attribute float aCapHeat;' : `attribute float aHeat; ${CLIP_VERT_DECL}`} varying vec3 vN; varying vec3 vV; varying float vHeat; varying vec3 vP;
       void main(){ ${INSTANCE_VERT} ${cap ? 'vHeat = aCapHeat;' : `vHeat = aHeat; ${CLIP_VERT_MAIN}`}
         vec4 mv = modelViewMatrix * p0; vN = normalize(normalMatrix * n0); vV = normalize(-mv.xyz); vP = p0.xyz; gl_Position = projectionMatrix * mv; }`,
@@ -35,26 +35,27 @@ function ringHeat(age, i, si, t) {
 }
 
 export function create(ctx, spec, strokeIdx) {
-  const K = ctx.K, radius = (WIDTH_UNITS * ctx.S) / 2, rz = radius * DEPTH_RATIO, uProg = progressUniform();
+  const K = ctx.K, radius = (WIDTH_UNITS * ctx.S) / 2, rz = radius * DEPTH_RATIO, uProg = progressUniform(), uOff = offsetUniform();
   const pts = strokeIdx.map((si) => ctx.strokes[si].pts);
   const geo = buildMergedTubes(pts, radius, rz), heat = new Float32Array(geo.attributes.position.count);
   geo.setAttribute('aHeat', new THREE.BufferAttribute(heat, 1).setUsage(THREE.DynamicDrawUsage));
-  const bodyMat = glyphMaterial(false, K, uProg), capMat = glyphMaterial(true, K, uProg);
+  const bodyMat = glyphMaterial(false, K, uProg, uOff), capMat = glyphMaterial(true, K, uProg, uOff);
   const body = new THREE.Mesh(geo, bodyMat);
   const capGeo = new THREE.SphereGeometry(radius, 20, 14), caps = capInstances(capGeo, capMat, pts.length);
   const capHeat = new THREE.InstancedBufferAttribute(new Float32Array(Math.max(2, 2 * pts.length)), 1).setUsage(THREE.DynamicDrawUsage);
   capGeo.setAttribute('aCapHeat', capHeat);
   const offsets = []; let o = 0; for (const p of pts) { offsets.push(o); o += p.length * RADIAL; }
   const group = new THREE.Group(); group.add(body, caps.mesh);
-  const scale = new THREE.Vector3(1, 1, DEPTH_RATIO), tip = new THREE.Vector3();
+  const scale = new THREE.Vector3(1, 1, DEPTH_RATIO), tip = new THREE.Vector3(), first = new THREE.Vector3();
 
   function step(t) {
     bodyMat.uniforms.uTime.value = capMat.uniforms.uTime.value = t;
+    syncOffsets(uOff, ctx.so, strokeIdx);
     strokeIdx.forEach((si, j) => {
       const reach = ctx.rv.ringTimes[si], p = ctx.rv.progress[si], segs = pts[j].length - 1, on = p > 0;
       for (let i = 0; i <= segs; i++) heat.fill(ringHeat(t - reach[i], i, si, t), offsets[j] + i * RADIAL, offsets[j] + (i + 1) * RADIAL);
       uProg.value[j] = on ? p : -1;
-      caps.set(j, 0, pts[j][0], scale, on); caps.set(j, 1, pointAt(pts[j], p, tip), scale, on);
+      caps.set(j, 0, first.copy(pts[j][0]).add(uOff.value[j]), scale, on); caps.set(j, 1, pointAt(pts[j], p, tip).add(uOff.value[j]), scale, on);
       capHeat.array[2 * j] = ringHeat(t - reach[0], 0, si, t);
       capHeat.array[2 * j + 1] = p < 1 ? 1.0 : ringHeat(t - reach[segs], segs, si, t);
     });

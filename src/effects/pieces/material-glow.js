@@ -5,7 +5,7 @@ import * as THREE from 'three';
 import { MATERIALS } from '../../config.js';
 import { buildMergedTubes, pointAt, WIDTH_UNITS } from '../../kanji/tube.js';
 import { smooth } from './util.js';
-import { progressUniform, clipStrokes, capInstances, CLIP_VERT_DECL, CLIP_VERT_MAIN, CLIP_FRAG_DECL, CLIP_FRAG_MAIN, INSTANCE_VERT } from './glyph-shader.js';
+import { progressUniform, offsetUniform, syncOffsets, clipStrokes, capInstances, CLIP_VERT_DECL, CLIP_VERT_MAIN, CLIP_FRAG_DECL, CLIP_FRAG_MAIN, INSTANCE_VERT } from './glyph-shader.js';
 
 const DEPTH_RATIO = 2.0, GLOW_SHELL = 2.6;
 export const depthRatio = DEPTH_RATIO;
@@ -27,8 +27,8 @@ export function create(ctx, spec, strokeIdx) {
   for (const k of Object.keys(look)) if (spec[k] !== null && spec[k] !== undefined) look[k] = spec[k];
   const radius = (WIDTH_UNITS * ctx.S) / 2, rz = radius * DEPTH_RATIO;
   const params = { color: look.body, roughness: look.rough, metalness: look.metal, emissive: look.emissive, emissiveIntensity: 0 };
-  const uProg = progressUniform(), glowU = { color: { value: new THREE.Color(look.glow) }, strength: { value: 0 }, uProg };
-  const bodyMat = clipStrokes(new THREE.MeshStandardMaterial(params), uProg), capMat = new THREE.MeshStandardMaterial(params);
+  const uProg = progressUniform(), uOff = offsetUniform(), glowU = { color: { value: new THREE.Color(look.glow) }, strength: { value: 0 }, uProg, uOff };
+  const bodyMat = clipStrokes(new THREE.MeshStandardMaterial(params), uProg, uOff), capMat = new THREE.MeshStandardMaterial(params);
   const shellMat = shellMaterial(glowU, true), capShellMat = shellMaterial(glowU, false);
   const pts = strokeIdx.map((si) => ctx.strokes[si].pts);
   const body = new THREE.Mesh(buildMergedTubes(pts, radius, rz), bodyMat);
@@ -37,17 +37,23 @@ export function create(ctx, spec, strokeIdx) {
   const caps = capInstances(capGeo, capMat, pts.length), glows = capInstances(capGeo, capShellMat, pts.length);
   shell.renderOrder = glows.mesh.renderOrder = 5;
   const group = new THREE.Group(); group.add(body, shell, caps.mesh, glows.mesh);
-  const capScale = new THREE.Vector3(1, 1, DEPTH_RATIO), glowScale = new THREE.Vector3(GLOW_SHELL, GLOW_SHELL, GLOW_SHELL * DEPTH_RATIO), tip = new THREE.Vector3();
+  const capScale = new THREE.Vector3(1, 1, DEPTH_RATIO), glowScale = new THREE.Vector3(GLOW_SHELL, GLOW_SHELL, GLOW_SHELL * DEPTH_RATIO), tip = new THREE.Vector3(), first = new THREE.Vector3();
+  const hsl = { h: 0, s: 0, l: 0 }, base = { body: new THREE.Color(look.body), emissive: new THREE.Color(look.emissive), glow: new THREE.Color(look.glow) };
 
-  function step() {
+  function step(t) {
+    syncOffsets(uOff, ctx.so, strokeIdx);
     strokeIdx.forEach((si, j) => {
-      const p = ctx.rv.progress[si], on = p > 0;
+      const p = ctx.rv.progress[si], on = p > 0, o = uOff.value[j];
       uProg.value[j] = on ? p : -1;
-      pointAt(pts[j], p, tip);
-      caps.set(j, 0, pts[j][0], capScale, on); caps.set(j, 1, tip, capScale, on);
-      glows.set(j, 0, pts[j][0], glowScale, on); glows.set(j, 1, tip, glowScale, on);
+      pointAt(pts[j], p, tip).add(o); first.copy(pts[j][0]).add(o);
+      caps.set(j, 0, first, capScale, on); caps.set(j, 1, tip, capScale, on);
+      glows.set(j, 0, first, glowScale, on); glows.set(j, 1, tip, glowScale, on);
     });
     caps.commit(); glows.commit();
+    if (spec.cycle) {                                       // "rainbow": the colours walk round the hue circle
+      const shift = (c, out) => { c.getHSL(hsl); out.setHSL((hsl.h + t * spec.cycle) % 1, Math.max(hsl.s, 0.85), Math.min(hsl.l, 0.62)); };
+      shift(base.body, bodyMat.color); capMat.color.copy(bodyMat.color); shift(base.emissive, bodyMat.emissive); capMat.emissive.copy(bodyMat.emissive); shift(base.glow, glowU.color.value);
+    }
     const pulse = Math.sin(ctx.idle * 1.6) * smooth(ctx.idle);
     bodyMat.emissiveIntensity = capMat.emissiveIntensity = look.emissiveK * ctx.light;
     glowU.strength.value = look.glowK * ctx.light * (1 + look.breath * pulse);

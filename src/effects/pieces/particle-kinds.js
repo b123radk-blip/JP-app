@@ -40,7 +40,24 @@ const KINDS = {
       look: (P, i, a, t, o) => set(o, rgb(c ?? 0xd8f4ff), 0.85 * hump(a), P.size0[i]) };
   },
 };
+Object.assign(KINDS, {
+  sprouts: (c) => ({ shape: 4, move: physics({ rise: 0.02, drag: 2.0 }), look: (P, i, a, t, o) => { const s = P.seed[i]; set(o, rgb(c ?? [0x7ad04a, 0x9ae05a, 0x5ab83a][Math.floor(s * 3)]), Math.min(1, a * 5, (1 - a) * 3), P.size0[i] * Math.min(1, a * 4) * 0.6, P.size0[i] * Math.min(1, a * 4), (s - 0.5) * 1.6); } }),
+  ink: (c) => ({ shape: 1, move: physics({ rise: -0.7, drag: 0.6, dragY: false }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0x15151e), (1 - a) * 0.9, P.size0[i] * (1 - 0.3 * a)) }),
+  footprints: (c) => ({ shape: 8, move: () => {}, look: (P, i, a, t, o) => set(o, rgb(c ?? 0xf2e2c8), 0.85 * Math.min(1, a * 10) * Math.min(1, (1 - a) * 2.5), P.size0[i] * 0.62, P.size0[i], P.aux[i]) }),
+  wind: (c) => ({ shape: 3, move: physics({ w: [0.04, 2.2, 13, 0], drag: 0 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xf0f6ff), 0.4 * hump(a), P.size0[i] * 0.05, P.size0[i], Math.atan2(P.vel[i * 3 + 1], P.vel[i * 3]) - Math.PI / 2) }),
+  kana: (c) => ({ shape: (P, i) => 9 + Math.floor(P.seed[i] * 16), move: physics({ w: [0.03, 1.4, 11, 0], drag: 0 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xfff2d8), 0.95 * Math.min(1, a * 5, (1 - a) * 3), P.size0[i], P.size0[i], 0.25 * Math.sin(t * 1.5 + P.seed[i] * 9)) }),
+});
 KINDS.front = KINDS.flames;
+// the kana a "kana" layer floats (from the bundled Noto Sans JP, already loaded for the app's text)
+const KANA = 'あいうえおかきくけこさしすせその';
+let atlas = null;
+function kanaAtlas() {
+  if (atlas) return atlas;
+  const c = document.createElement('canvas'); c.width = c.height = 512;
+  const g = c.getContext('2d'); g.fillStyle = '#fff'; g.font = '700 100px "NSJ", sans-serif'; g.textAlign = 'center'; g.textBaseline = 'middle';
+  [...KANA].forEach((ch, i) => g.fillText(ch, (i % 4) * 128 + 64, Math.floor(i / 4) * 128 + 70));
+  return (atlas = new THREE.CanvasTexture(c));
+}
 
 // ---- emitters ----
 function accumulate() { let acc = 0; return { add(x) { acc += x; }, take() { if (acc >= 1) { acc--; return true; } return false; }, reset() { acc = 0; } }; }
@@ -105,6 +122,21 @@ const EMIT = {
   bubbles: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
     acc.add(8 * n * dt);
     while (acc.take()) { const [x, y, z] = box(r, [-0.32, 0.32], [-0.2, 0.0], [-0.15, 0.1]); spawn(k, x, y, z, 0, 0.02, 0, 3 + r(), 0.012 + r() * 0.018, r()); } } }; },
+  // a trail of footprints walking across the lower half of the kanji (dir right / left / away / toward)
+  footprints: (ctx, k, spawn, n, spec) => { const r = ctx.rnd, pool = ctx.pools[PARTICLE_KINDS.footprints.pool]; let acc = 0, step = 0;
+    const d = { right: [1, 0], left: [-1, 0], away: [0, 1], toward: [0, -1] }[spec.dir] ?? [1, 0];
+    return { acc: { reset() { acc = 0; step = 0; } }, step(t, dt) {
+      acc += dt * 3.2 * n;
+      while (acc >= 1) { acc--; const u = (step % 14) / 13, side = step % 2 ? 1 : -1; step++;
+        const along = -0.36 + 0.72 * u, x = d[0] ? along * d[0] : side * 0.035, y = d[1] ? -0.1 + along * 0.3 * d[1] : -0.1 + side * 0.03;
+        const i = spawn(k, x, y, 0.02, 0, 0, 0, 2.8, (d[1] ? 0.08 - 0.022 * along * d[1] : 0.075) + r() * 0.004, r());
+        pool.setAux(i, Math.atan2(d[0], d[1]) * -1 + side * 0.12); } } }; },
+  wind: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
+    acc.add(26 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.62, -0.5], [-0.2, 0.28], [-0.25, 0.12]); spawn(k, x, y, z, 0.6 + r() * 0.35, 0.03 * (r() - 0.5), 0, 1.6 + r() * 0.5, 0.07 + r() * 0.06, r()); } } }; },
+  kana: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; ctx.pools[PARTICLE_KINDS.kana.pool].setAtlas(kanaAtlas()); return { acc, step(t, dt) {
+    acc.add(3.2 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.34, 0.34], [-0.12, 0.08], [-0.06, 0.1]); spawn(k, x, y, z, (r() - 0.5) * 0.03, 0.04 + r() * 0.02, 0, 3.4 + r(), 0.05 + r() * 0.016, r()); } } }; },
 };
 
 // as a layer, dust drifts in the light instead of falling like chips from the pen
@@ -123,7 +155,9 @@ const TIP = {
   front: { rate: 90, fire: (ctx, k, sp, tip, r) => sp(k, tip.x + (r() - 0.5) * ctx.radius, tip.y, tip.z + (r() - 0.5) * ctx.rz, (r() - 0.5) * 0.06, 0.14 + r() * 0.18, (r() - 0.5) * 0.05, 0.6 + r() * 0.5, 0.045 + r() * 0.03, r()) },
   sparks: { rate: 60, fire: (ctx, k, sp, tip, r) => { const a = r() * Math.PI * 2, s = 0.15 + r() * 0.35; sp(k, tip.x, tip.y, tip.z, Math.cos(a) * s, 0.1 + r() * s, (r() - 0.5) * s, 0.35 + r() * 0.45, 0.006, r()); } },
   drops: { rate: 40, fire: (ctx, k, sp, tip, r) => { const a = r() * Math.PI * 2, s = 0.1 + r() * 0.2; sp(k, tip.x, tip.y, tip.z + ctx.rz * 0.5, Math.cos(a) * s, 0.12 + r() * 0.2, (r() - 0.3) * s, 0.5 + r() * 0.3, 0.007 + r() * 0.006, r()); } },
-  dust: { rate: 35, fire: (ctx, k, sp, tip, r) => sp(k, tip.x + (r() - 0.5) * ctx.radius * 2, tip.y, tip.z + (r() - 0.5) * ctx.rz, (r() - 0.5) * 0.12, 0.03 + r() * 0.05, (r() - 0.5) * 0.08, 0.6 + r() * 0.4, 0.006 + r() * 0.007, r()) },
+  sprouts: { rate: 22, fire: (ctx, k, sp, tip, r) => sp(k, tip.x + (r() - 0.5) * ctx.radius * 2, tip.y + ctx.radius, tip.z + ctx.rz * (r() - 0.3), (r() - 0.5) * 0.06, 0.04 + r() * 0.04, 0.02, 0.9 + r() * 0.5, 0.016 + r() * 0.01, r()) },
+  ink: { rate: 30, fire: (ctx, k, sp, tip, r) => { const a = r() * Math.PI * 2, s = 0.08 + r() * 0.16; sp(k, tip.x, tip.y, tip.z + ctx.rz, Math.cos(a) * s, 0.05 + Math.abs(Math.sin(a)) * s, 0.05 + r() * 0.05, 0.4 + r() * 0.4, 0.004 + r() * 0.005, r()); } },
+  dust: { rate: 35, burst: (ctx, k, sp, p, r) => { const a = Math.atan2(p.y, p.x) + (r() - 0.5) * 0.8, s = 0.1 + r() * 0.18; sp(k, p.x, p.y, p.z + ctx.rz, Math.cos(a) * s, Math.sin(a) * s, 0.05 + r() * 0.1, 0.5 + r() * 0.4, 0.008 + r() * 0.008, r()); }, fire: (ctx, k, sp, tip, r) => sp(k, tip.x + (r() - 0.5) * ctx.radius * 2, tip.y, tip.z + (r() - 0.5) * ctx.rz, (r() - 0.5) * 0.12, 0.03 + r() * 0.05, (r() - 0.5) * 0.08, 0.6 + r() * 0.4, 0.006 + r() * 0.007, r()) },
 };
 export function createTipEmitter(ctx, name, rate = 1) {
   const pool = ctx.pools[PARTICLE_KINDS[name].pool], k = pool.addKind(KINDS[name](null, ctx)), T = TIP[name];
@@ -131,6 +165,7 @@ export function createTipEmitter(ctx, name, rate = 1) {
   return {
     add(dt) { acc += dt * T.rate * rate; },
     fire(tip) { for (let n = acc; n >= 1; n--) T.fire(ctx, k, pool.spawn, tip, ctx.rnd); },
+    burst(p) { (T.burst ?? T.fire)(ctx, k, pool.spawn, p, ctx.rnd); },
     settle() { if (acc >= 1) acc -= Math.floor(acc); },
     reset() { acc = 0; },
   };

@@ -9,7 +9,7 @@
 // Deterministic: all randomness is one seeded generator, reset by reset(), so seek(t) always gives the same picture.
 import * as THREE from 'three';
 import { EFFECTS } from '../config.js';
-import { PIECES, PARTICLE_KINDS } from './catalog.js';
+import { PIECES, PARTICLE_KINDS, REVEAL_TIPS } from './catalog.js';
 import { normalizeStrokes, layoutWord, strokeSchedule, WIDTH_UNITS } from '../kanji/tube.js';
 import { planKanji, planWord } from './plan.js';
 import { disposeObject } from '../core/dispose.js';
@@ -23,6 +23,7 @@ import { plain, halo } from './pieces/backdrop-simple.js';
 import * as sunrise from './pieces/backdrop-sunrise.js';
 import * as sky from './pieces/backdrop-sky.js';
 import * as motion from './pieces/motion.js';
+import * as strokeMotion from './pieces/motion-strokes.js';
 import * as emblems from './pieces/emblems.js';
 import * as land from './pieces/props-land.js';
 import * as objects from './pieces/props-objects.js';
@@ -35,7 +36,7 @@ const PROPS = { ...land, ...objects, ...places };
 
 function pivotGroup(content, pts, kind) {
   const box = new THREE.Box3().setFromPoints(pts), c = box.getCenter(new THREE.Vector3());
-  const pivot = new THREE.Vector3(c.x, kind === 'base' ? box.min.y : c.y, 0);
+  const pivot = new THREE.Vector3(c.x, kind === 'base' ? box.min.y : kind === 'top' ? box.max.y : c.y, 0);
   const outer = new THREE.Group(), inner = new THREE.Group();
   outer.position.copy(pivot); inner.position.copy(pivot).negate();
   inner.add(content); outer.add(inner);
@@ -56,12 +57,13 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
 
   // particle pools, sized from the catalog's per-kind maximum
   const need = {}, want = (kind, count = 1) => { const k = PARTICLE_KINDS[kind]; need[k.pool] = (need[k.pool] || 0) + Math.round(k.max * count); };
-  if (r.reveal.type === 'ignite') { want('front'); want('sparks'); } else if (r.reveal.tip) want(r.reveal.tip, r.reveal.rate);
+  for (const k of REVEAL_TIPS[r.reveal.type] ?? (r.reveal.tip ? [r.reveal.tip] : [])) want(k, r.reveal.rate ?? 1);
   r.particles.forEach((p) => want(p.type, p.count));
   const glyphPivotSpec = pivotOf(r.motion);
   const allPts = strokes.flatMap((s) => s.pts);
   const glyphSpace = new THREE.Group();
-  const { outer: glyphPivot } = pivotGroup(glyphSpace, allPts, glyphPivotSpec);
+  const { outer: revealPivot } = pivotGroup(glyphSpace, allPts, 'base');       // the reveal's own pose (grow, stamp)
+  const { outer: glyphPivot } = pivotGroup(revealPivot, allPts, glyphPivotSpec);
   group.add(glyphPivot);
   for (const [name, max] of Object.entries(need)) {
     const [blend, space] = name.split('-');
@@ -75,6 +77,7 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   const base = strokeSchedule(strokes, { start: 0, speed: 1, gap: 0 }).end;
   const revealSpec = word ? { ...r.reveal, speed: Math.min(r.reveal.speed, W.maxReveal / base), gap: Math.min(r.reveal.gap, 0.03) } : r.reveal;
   const rev = reveal.create(ctx, revealSpec, start);
+  if (rev.group) glyphSpace.add(rev.group);
   const backdrop = BACKDROPS[r.backdrop.type](ctx, r.backdrop);
   group.add(backdrop.group);
 
@@ -90,10 +93,11 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   const props = [];
   for (const p of r.scene) {
     if (PIECES.scene[p.type].space !== 'glyph') { const prop = PROPS[p.type](ctx, p); group.add(prop.group); props.push(prop); continue; }
-    const anchors = p.on ? built.filter((b) => b.element === p.on) : [{ strokes: strokes.map((s) => s.index), inner: glyphSpace, index: 0 }];
+    const anchors = p.on ? built.filter((b) => b.element === p.on) : [{ strokes: strokes.filter((s) => p.glyph == null || s.glyph === p.glyph).map((s) => s.index), inner: glyphSpace, index: 0 }];
     for (const a of anchors) { const prop = PROPS[p.type](ctx, p, a); a.inner.add(prop.group); props.push(prop); }
   }
-  motions.push(motion.create(ctx, r.motion, glyphPivot));
+  const mover = strokeMotion.MOVES[r.motion.type] ? strokeMotion.create(ctx, r.motion) : null;   // moves single strokes (split ...)
+  if (!mover) motions.push(motion.create(ctx, r.motion, glyphPivot));
   ctx.widthScale = motion.widthScale(r.motion);
   const layers = r.particles.map((p) => createLayer(ctx, p));
   const emblem = r.emblem ? emblems.create(ctx, r.emblem) : null;
@@ -101,7 +105,8 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   const pools = Object.values(ctx.pools);
 
   function step(t, dt) {
-    rev.step(t); ctx.idle = Math.max(0, t - rev.end);
+    rev.step(t); rev.pose(t, revealPivot); ctx.idle = Math.max(0, t - rev.end);
+    mover?.step(t);                                          // adds to the reveal's per-stroke offsets (ctx.so) before the materials read them
     backdrop.step(t);
     for (const m of mats) m.step(t);
     for (const p of props) p.step(t);

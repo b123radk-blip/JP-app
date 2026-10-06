@@ -6,21 +6,25 @@ import { EFFECTS } from '../../config.js';
 import { pop } from './util.js';
 import { BODY } from './emblem-body.js';
 import { THINGS } from './emblem-things.js';
+import { SIGNS } from './emblem-signs.js';
+import { TOOLS } from './emblem-tools.js';
+import { LIFE } from './emblem-life.js';
 
 const tube = (pts, r, closed = false) => new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map(([x, y]) => new THREE.Vector3(x, y, 0)), closed, 'catmullrom', 0.2), 48, r, 10, closed);
 const poly = (pts, r) => { const path = new THREE.CurvePath(); for (let i = 1; i < pts.length; i++) path.add(new THREE.LineCurve3(new THREE.Vector3(...pts[i - 1], 0), new THREE.Vector3(...pts[i], 0))); return new THREE.TubeGeometry(path, 24 * (pts.length - 1), r, 8, false); };
 const DIR_ROT = { up: 0, left: Math.PI / 2, down: Math.PI, right: -Math.PI / 2 };
-const DIR_VEC = { up: [0, 1], down: [0, -1], left: [-1, 0], right: [1, 0] };
+const DIR_VEC = { up: [0, 1], down: [0, -1], left: [-1, 0], right: [1, 0], toward: [-0.15, -0.3, 1], away: [0.15, 0.3, -1] };
 
 // Each builder: (spec, mat) -> { meshes: Object3D[], idle(o, t, s) } where o = the emblem group, s = seconds since it popped.
 const SHAPES = {
   arrow: (spec, mat) => {
     const g = new THREE.Group(); g.rotation.z = DIR_ROT[spec.dir] ?? 0;
+    if (spec.dir === 'toward') g.rotation.set(0.75, 0, Math.PI * 0.85); else if (spec.dir === 'away') g.rotation.set(-0.5, 0, -Math.PI * 0.2);   // tip at you (and down) / away (and up)
     const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 0.55, 16), mat); shaft.position.y = -0.2;
     const head = new THREE.Mesh(new THREE.ConeGeometry(0.22, 0.45, 24), mat); head.position.y = 0.27;
     g.add(shaft, head);
     const d = DIR_VEC[spec.dir] ?? DIR_VEC.up;
-    return { meshes: [g], idle(o, s) { const b = 0.35 * Math.abs(Math.sin(s * 3.2)); o.position.x += d[0] * b; o.position.y += d[1] * b; } };
+    return { meshes: [g], idle(o, s) { const b = 0.35 * Math.abs(Math.sin(s * 3.2)); o.position.x += d[0] * b; o.position.y += d[1] * b; if (d[2]) { o.position.z += d[2] * b * 1.6; o.scale.multiplyScalar(1 + d[2] * b * 0.6); } } };
   },
   question: (spec, mat) => {
     const pts = []; for (let i = 0; i <= 12; i++) { const a = (150 - (240 * i) / 12) * Math.PI / 180; pts.push([0.2 * Math.cos(a), 0.22 + 0.2 * Math.sin(a)]); }
@@ -46,7 +50,7 @@ const SHAPES = {
   },
 };
 
-Object.assign(SHAPES, BODY, THINGS);
+Object.assign(SHAPES, BODY, THINGS, SIGNS, TOOLS, LIFE);
 
 export function create(ctx, spec) {
   const E = EFFECTS.emblem, group = new THREE.Group(), inner = new THREE.Group();
@@ -54,7 +58,7 @@ export function create(ctx, spec) {
   const shape = SHAPES[spec.type](spec, mat);
   inner.add(...shape.meshes); group.add(inner);
   const [ax, ay] = spec.at ?? [Math.max(E.at[0], ctx.halfWidth * (ctx.widthScale ?? 1) + 0.08), E.at[1]];   // beside the kanji (or the whole word), clear of its motion
-  group.scale.setScalar(E.size); group.visible = false;
+  group.scale.setScalar(E.size * (spec.size ?? 1)); group.visible = false;
   return {
     group,
     step(t) {

@@ -3,8 +3,9 @@
 // Spawning goes round a ring buffer, so a full pool overwrites its oldest particle.
 import * as THREE from 'three';
 
-// Shapes (aShape.w): 0 soft dot, 1 disc, 2 ring (bubble), 3 streak (rain), 4 leaf, 5 puff (mist), 6 heart, 7 music note
-const FRAG = `varying vec2 vUv; varying vec4 vColor; varying float vShape;
+// Shapes (aShape.w): 0 soft dot, 1 disc, 2 ring (bubble), 3 streak (rain), 4 leaf, 5 puff (mist), 6 heart, 7 music note,
+// 8 footprint, 9 + i: cell i of the pool's glyph atlas (kana, see setAtlas)
+const FRAG = `varying vec2 vUv; varying vec4 vColor; varying float vShape; uniform sampler2D uAtlas;
   void main(){
     vec2 u = vUv; float d = length(u), a;
     if (vShape < 0.5) { if (d > 1.0) discard; a = pow(1.0 - d, 2.0); }
@@ -14,8 +15,11 @@ const FRAG = `varying vec2 vUv; varying vec4 vColor; varying float vShape;
     else if (vShape < 4.5) { float w = 0.55 * (1.0 - u.y * u.y); a = smoothstep(w, w - 0.12, abs(u.x)) * (0.75 + 0.25 * smoothstep(0.0, 0.12, abs(u.x))); }
     else if (vShape < 5.5) { a = exp(-3.0 * d * d) * smoothstep(1.0, 0.7, d); }
     else if (vShape < 6.5) { vec2 q = vec2(u.x, u.y * 1.15 + 0.3 - sqrt(abs(u.x)) * 0.6); a = smoothstep(0.72, 0.6, length(q)); }
-    else { a = max(smoothstep(0.36, 0.28, length((u - vec2(-0.3, -0.55)) * vec2(1.0, 1.4))), step(abs(u.x - 0.02), 0.07) * step(-0.55, u.y) * step(u.y, 0.75));
+    else if (vShape < 7.5) { a = max(smoothstep(0.36, 0.28, length((u - vec2(-0.3, -0.55)) * vec2(1.0, 1.4))), step(abs(u.x - 0.02), 0.07) * step(-0.55, u.y) * step(u.y, 0.75));
            a = max(a, step(0.0, u.x) * step(u.x, 0.45) * step(0.5, u.y + u.x * 0.3) * step(u.y + u.x * 0.3, 0.75)); }
+    else if (vShape < 8.5) { a = smoothstep(1.0, 0.85, length((u - vec2(0.0, -0.22)) / vec2(0.36, 0.6)));
+           for (int k = 0; k < 4; k++) { float x = -0.24 + 0.16 * float(k); a = max(a, smoothstep(0.14, 0.1, length(u - vec2(x, 0.56 - 0.06 * abs(float(k) - 1.0))))); } }
+    else { float c = floor(vShape - 9.0 + 0.5); vec2 cell = vec2(mod(c, 4.0), 3.0 - floor(c / 4.0)); a = texture2D(uAtlas, (cell + u * 0.5 + 0.5) / 4.0).a; }
     if (a <= 0.0) discard;
     gl_FragColor = vec4(vColor.rgb, vColor.a * a);
   }`;
@@ -35,7 +39,7 @@ export function createPool(max, K, blend) {
   const attr = (n) => new THREE.InstancedBufferAttribute(new Float32Array(max * n), n).setUsage(THREE.DynamicDrawUsage);
   const aOffset = attr(3), aShape = attr(4), aColor = attr(4);
   geo.setAttribute('aOffset', aOffset); geo.setAttribute('aShape', aShape); geo.setAttribute('aColor', aColor); geo.instanceCount = max;
-  const mat = new THREE.ShaderMaterial({ transparent: true, depthWrite: false, blending: blend === 'add' ? THREE.AdditiveBlending : THREE.NormalBlending, vertexShader: VERT, fragmentShader: FRAG });
+  const mat = new THREE.ShaderMaterial({ uniforms: { uAtlas: { value: null } }, transparent: true, depthWrite: false, blending: blend === 'add' ? THREE.AdditiveBlending : THREE.NormalBlending, vertexShader: VERT, fragmentShader: FRAG });
   const mesh = new THREE.Mesh(geo, mat); mesh.frustumCulled = false; mesh.renderOrder = 10;
   // per-particle state. aux: free slot for a kind (e.g. which stroke a flow droplet runs along)
   const P = { pos: aOffset.array, vel: new Float32Array(max * 3), age: new Float32Array(max), life: new Float32Array(max), size0: new Float32Array(max), kind: new Uint8Array(max), seed: new Float32Array(max), aux: new Float32Array(max), next: 0, K, alive: 0 };
@@ -63,14 +67,14 @@ export function createPool(max, K, blend) {
       const kind = kinds[P.kind[i]];
       kind.move(P, i, a, t, dt);
       kind.look(P, i, a, t, out);
-      sh[i * 4] = out.w; sh[i * 4 + 1] = out.h; sh[i * 4 + 2] = out.rot; sh[i * 4 + 3] = kind.shape;
+      sh[i * 4] = out.w; sh[i * 4 + 1] = out.h; sh[i * 4 + 2] = out.rot; sh[i * 4 + 3] = typeof kind.shape === 'function' ? kind.shape(P, i) : kind.shape;
       col[i * 4] = out.r; col[i * 4 + 1] = out.g; col[i * 4 + 2] = out.b; col[i * 4 + 3] = out.a;
       alive++;
     }
     P.alive = alive;
     aOffset.needsUpdate = aShape.needsUpdate = aColor.needsUpdate = true;
   }
-  return { mesh, max, reset, spawn, update, addKind: (k) => kinds.push(k) - 1, setAux: (i, v) => { P.aux[i] = v; }, get alive() { return P.alive; } };
+  return { mesh, max, reset, spawn, update, setAtlas: (tex) => { mat.uniforms.uAtlas.value = tex; }, addKind: (k) => kinds.push(k) - 1, setAux: (i, v) => { P.aux[i] = v; }, get alive() { return P.alive; } };
 }
 
 // Generic motion most kinds share: buoyancy / gravity (rise), side-to-side wobble, drag, then integrate.
