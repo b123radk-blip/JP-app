@@ -8,7 +8,7 @@ follow them.
 An N4 deck: the next ~150 kanji by unlock value over the N4 words, the N4 words they unlock, the N4 kana-only words, and the
 N4 words whose other kanji lie outside the plan (drawn plain). Same quality bar as Step 2: **the main priority is that
 every kanji's animation shows its meaning** (something on screen *is* the meaning); build a new piece when nothing fits.
-Keep the hand-fix rate under 20 % (Step 2: 12 % of kanji).
+Keep the hand-fix rate under 20 % (Step 2: 12 % of kanji, 2 % of words).
 
 ## What Step 2 measured (docs/BATCH-LOG.md)
 - The N5 deck has 835 cards (262 kanji, 573 words). 5 N5 words wait for a native check (昨夜 開く 明後日 伯父 一月).

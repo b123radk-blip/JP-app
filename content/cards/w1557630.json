@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pie:0", "motion": "vanish", "backdrop": "sky:night" },
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "vanish", "backdrop": "sky:twilight" },
   "sentences": [
     {
       "segments": [ { "text": "外", "reading": "そと" }, { "text": "は" }, { "text": "零", "reading": "れい" }, { "text": "度", "reading": "ど" }, { "text": "です。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 零" },
+  "review": { "recipe": "reviewed", "rule": "word 零" },
   "source": { "jmdict": 1557630, "jlpt": 5 }
 }

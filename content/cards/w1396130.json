@@ -8,7 +8,12 @@
   "pos": ["n", "adj-no", "adv"],
   "kanji": ["5168", "90e8"],
   "builtFrom": [{ "k": "全", "m": "whole" }, { "k": "部", "m": "section" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pie:0", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "dots", "n": 5, "color": "#ffc040" },
+    "backdrop": "sky:day"
+  },
   "sentences": [
     {
       "segments": [ { "text": "所持金", "reading": "しょじきん" }, { "text": "を" }, { "text": "全部", "reading": "ぜんぶ" }, { "text": "あげよう。" } ],
@@ -17,6 +22,6 @@
       "source": { "tatoeba": [147494, 267066] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 全部" },
+  "review": { "recipe": "reviewed", "rule": "word 全部" },
   "source": { "jmdict": 1396130, "jlpt": 5 }
 }

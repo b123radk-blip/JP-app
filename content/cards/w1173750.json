@@ -12,7 +12,7 @@
     "material": "ivory",
     "reveal": "draw",
     "emblem": "film",
-    "backdrop": "sky:night",
+    "backdrop": "sky:indoor",
     "particles": ["motes"],
     "motion": "float"
   },
@@ -24,6 +24,6 @@
       "source": { "tatoeba": [189288, 26437] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 映画館" },
+  "review": { "recipe": "reviewed", "rule": "word 映画館" },
   "source": { "jmdict": 1173750, "jlpt": 5 }
 }

@@ -11,9 +11,9 @@
   "effect": {
     "material": "ivory",
     "reveal": "draw",
-    "emblem": { "type": "pie", "part": 0, "color": "#f0f0f0" },
     "motion": "vanish",
-    "backdrop": "sky:snow"
+    "backdrop": "sky:snow",
+    "particles": [{ "type": "snow", "count": 0.5 }]
   },
   "sentences": [
     {
@@ -23,6 +23,6 @@
       "source": { "tatoeba": [165629, 22909] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word ゼロ" },
+  "review": { "recipe": "reviewed", "rule": "word ゼロ" },
   "source": { "jmdict": 2839962, "jlpt": 5 }
 }

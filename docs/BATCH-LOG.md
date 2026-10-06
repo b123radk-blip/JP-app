@@ -34,9 +34,15 @@ nothing, 合 flies together, 切 / 両 split apart, 降 sinks with rain and stai
   read as something else (映's film reel as a second moon, 全's whole pie as an orange sun, 自's mirror as a magnifier),
   nothing saying the meaning (晩 → lanterns, 初 → one big bead, 仕 → a cup served with a bow), the emblem matching the
   N5 word instead of the card's meaning (丈 shield → ruler), a split too small to see (切).
-- Words: WORDFIX
+- Words: **10 of 460 changed (2 %)**, all looked at in 19 sheets. The word rules mostly reuse the kanji's own look, so
+  fewer cues go wrong: a sky that fought the emblem (映画 映画館 レコード テープ: the reel next to the moon → indoor / dusk),
+  公園's tree moved onto 園 (garden), 冬 on a twilight sky, 全部 five dots, テレビ a bigger frame, 零 / ゼロ now show
+  "nothing" (no emblem, the word vanishes). Three piece fixes came out of the word sheets: big tree crowns
+  sat over the strokes (now behind them), the kana particles covered short words (now they come in from both sides),
+  and the film reel was a grey disc at card size (now light with dark holes and a strip of film, 3 draw calls).
 - Meanings: 14 kanji show other KANJIDIC meanings than the first two ("morning", not "morning; dynasty"); 早い shows its
-  entry's second sense ("early; soon": 早い and 速い share one JMdict entry).
+  entry's second sense ("early; soon": 早い and 速い share one JMdict entry); 差す shows "to hold up (an umbrella, etc.)",
+  the sense its sentences use, not JMdict's first ("to shine").
 
 **Sentences:** 610 / 610 have one: 556 from Tatoeba, 54 written. All pass `verify-sentences.py`; all keep
 `needsNativeReview`. Every pick was read: **104 Tatoeba sentences rejected** with a reason (proverbs, insults, slang,

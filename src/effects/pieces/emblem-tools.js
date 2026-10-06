@@ -85,7 +85,12 @@ export const TOOLS = {
     const pic = new THREE.Group(); pic.add(mesh(new THREE.PlaneGeometry(0.66, 0.46), solid(0x8ac8f0, 0.5)), mesh(merge([G.sphere(0.3, -0.12, -0.3, 0.01, 1.2, 0.6, 0.02), G.sphere(0.25, 0.2, -0.3, 0.01, 1.2, 0.5, 0.02)]), solid(0x4a9a40, 0.4)), mesh(G.sphere(0.06, 0.2, 0.12, 0.01, 1, 1, 0.1), solid(0xffc030, 0.7)));
     return { meshes: [mesh(merge([G.box(0.8, 0.07, 0.06, 0, 0.27, 0), G.box(0.8, 0.07, 0.06, 0, -0.27, 0), G.box(0.07, 0.6, 0.06, -0.37, 0, 0), G.box(0.07, 0.6, 0.06, 0.37, 0, 0)]), mat), pic], idle(o, s) { o.rotation.z = 0.04 * Math.sin(s * 1.6); } };
   },
-  film: (spec, mat) => ({ meshes: [mesh(merge([G.cyl(0.36, 0.36, 0.06, 0, 0, 0, Math.PI / 2), ...[0, 1, 2, 3, 4].map((i) => G.cyl(0.07, 0.07, 0.08, 0.2 * Math.cos(i * 1.257), 0.2 * Math.sin(i * 1.257), 0.01, Math.PI / 2))]), mat)], idle(o, s) { o.rotation.z = -s * 2; } }),
+  film: (spec, mat) => {                                   // a reel (spec colour) with dark holes and a strip of film unrolling
+    const reel = new THREE.Group();
+    reel.add(mesh(G.cyl(0.36, 0.36, 0.06, 0, 0, 0, Math.PI / 2), mat), mesh(merge([G.cyl(0.03, 0.03, 0.08, 0, 0, 0.01, Math.PI / 2), ...[0, 1, 2, 3, 4].map((i) => G.cyl(0.08, 0.08, 0.08, 0.2 * Math.cos(i * 1.257), 0.2 * Math.sin(i * 1.257), 0.01, Math.PI / 2))]), solid(DARK, 0.1)));
+    const strip = mesh(G.box(0.5, 0.11, 0.02, 0.25, -0.33, -0.02), solid(DARK, 0.1));
+    return { meshes: [reel, strip], idle(o, s) { reel.rotation.z = -s * 2; } };
+  },
   mic: (spec, mat) => ({ meshes: [mesh(G.sphere(0.17, 0, 0.26), solid(0x505860, 0.2)), mesh(merge([G.cyl(0.06, 0.05, 0.5, 0, -0.08), G.torus(0.2, 0.025, Math.PI, 0, 0.18, 0, Math.PI)]), mat)], idle(o, s) { o.rotation.z = 0.2 * Math.sin(s * 3); } }),
   speaker: (spec, mat) => {                                // a loudspeaker with sound rings going out (sound)
     const waves = [0, 1, 2].map(() => new THREE.MeshBasicMaterial({ color: spec.color, transparent: true, opacity: 0 }));
@@ -112,4 +117,4 @@ export const TOOLS = {
     return { meshes: [b], idle(o, s) { const u = (s % 2.6) / 2.6, a = u * Math.PI * 2; b.position.set(0.5 * Math.sin(a), 0.2 * Math.sin(a * 2) * 0.5, -0.3 * (1 - Math.cos(a))); b.rotation.z = s * 12; } };
   },
 };
-export const TOOLS_COST = { knife: 2, umbrella: 2, gears: 2, camera: 3, hammer: 2, wrench: 1, scale: 2, dumbbell: 1, weight: 1, thermometer: 3, ruler: 2, suitcase: 2, briefcase: 2, bag: 1, box: 3, mirror: 3, glasses: 1, shirt: 1, shoe: 2, bed: 3, pot: 2, spoon: 1, plate: 1, frame: 4, film: 1, mic: 2, speaker: 4, sheet: 2, ring: 2, mask: 3, alarm: 3, bow: 3, boomerang: 1 };
+export const TOOLS_COST = { knife: 2, umbrella: 2, gears: 2, camera: 3, hammer: 2, wrench: 1, scale: 2, dumbbell: 1, weight: 1, thermometer: 3, ruler: 2, suitcase: 2, briefcase: 2, bag: 1, box: 3, mirror: 3, glasses: 1, shirt: 1, shoe: 2, bed: 3, pot: 2, spoon: 1, plate: 1, frame: 4, film: 3, mic: 2, speaker: 4, sheet: 2, ring: 2, mask: 3, alarm: 3, bow: 3, boomerang: 1 };

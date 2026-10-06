@@ -8,7 +8,13 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:indoor", "particles": ["motes"] },
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "frame", "size": 1.2 },
+    "backdrop": "sky:indoor",
+    "particles": ["motes"]
+  },
   "sentences": [
     {
       "segments": [ { "text": "テレビは" }, { "text": "毎日", "reading": "まいにち" }, { "text": "見", "reading": "み" }, { "text": "ますよ。" } ],
@@ -17,6 +23,6 @@
       "source": { "tatoeba": [159389, 255134] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word テレビ" },
+  "review": { "recipe": "reviewed", "rule": "word テレビ" },
   "source": { "jmdict": 1080510, "jlpt": 5 }
 }

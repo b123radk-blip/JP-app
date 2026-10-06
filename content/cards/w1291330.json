@@ -4,7 +4,7 @@
   "word": "差す",
   "primaryReading": "さす",
   "furigana": [{ "text": "差", "reading": "さ" }, { "text": "す" }],
-  "meaning": "to shine",
+  "meaning": "to hold up (an umbrella, etc.)",
   "pos": ["v5s", "vi"],
   "kanji": ["5dee"],
   "builtFrom": [{ "k": "差", "m": "difference" }],

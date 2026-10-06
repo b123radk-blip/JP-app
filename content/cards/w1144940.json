@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "particles": ["notes"], "backdrop": "sky:night" },
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "particles": ["notes"], "backdrop": "sky:indoor" },
   "sentences": [
     {
       "segments": [ { "text": "あのレコードはこの" }, { "text": "店", "reading": "みせ" }, { "text": "で" }, { "text": "買", "reading": "か" }, { "text": "ったんだ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [231234, 68600] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word レコード" },
+  "review": { "recipe": "reviewed", "rule": "word レコード" },
   "source": { "jmdict": 1144940, "jlpt": 5 }
 }

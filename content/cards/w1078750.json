@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "reveal": "ignite", "emblem": "film", "backdrop": "sky:dusk" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はテープを" }, { "text": "買", "reading": "か" }, { "text": "います。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [159466, 255057] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word テープ" },
+  "review": { "recipe": "reviewed", "rule": "word テープ" },
   "source": { "jmdict": 1078750, "jlpt": 5 }
 }

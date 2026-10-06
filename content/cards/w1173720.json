@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["6620", "753b"],
   "builtFrom": [{ "k": "映", "m": "reflect" }, { "k": "画", "m": "picture" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:night" },
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:indoor" },
   "sentences": [
     {
       "segments": [ { "text": "兄", "reading": "あに" }, { "text": "と" }, { "text": "映画", "reading": "えいが" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きました。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [157385, 257148] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 映画" },
+  "review": { "recipe": "reviewed", "rule": "word 映画" },
   "source": { "jmdict": 1173720, "jlpt": 5 }
 }
