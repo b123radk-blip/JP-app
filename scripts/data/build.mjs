@@ -36,8 +36,12 @@ const numerals = (s) => s.replace(/[０-９]+/g, (d) => { const n = +[...d].map(
 for (const level of LEVELS) {
   for (const row of parseJlptCsv(readFileSync(`${CACHE}/jlpt-${level}.csv`, 'utf8'), +level[1])) {
     const affix = /[～~]/.test(row.expression);
-    const expr = numerals(row.expression.split(/[;；]/)[0].replace(/[～~]/g, '').trim()), reading = row.reading.split(/[;；]/)[0].replace(/[～~]/g, '').trim();
-    const e = pickEntry(byText.get(expr) ?? [], expr, reading);
+    const expr = numerals(row.expression.split(/[;；]/)[0].replace(/[～~]/g, '').trim());
+    const options = row.reading.split(/[;；]/).map((r) => r.replace(/[～~]/g, '').trim()).filter(Boolean);
+    const e = pickEntry(byText.get(expr) ?? [], expr, options[0]);
+    // several readings listed (毎年 まいねん; まいとし): teach the one JMdict lists first, keep the others as alternatives
+    const rank = (r) => { const i = e?.r.findIndex((x) => x.text === r) ?? -1; return i < 0 ? 99 : i - (e.r[i].pri.length ? 10 : 0); };
+    const [reading, ...others] = [...options].sort((a, b) => rank(a) - rank(b));
     if (!e) { problems.push(`${level} ${row.expression} (${row.reading}): no JMdict entry`); continue; }
     const id = `w${e.seq}`;
     if (seen.has(id)) { const o = seen.get(id); if (reading !== o.reading && !o.alsoReadings.includes(reading)) o.alsoReadings.push(reading); continue; }   // 九 きゅう / く
@@ -48,7 +52,7 @@ for (const level of LEVELS) {
       kanji: [...new Set([...word].filter(isKanji))], furigana: kana ? [{ text: word }] : alignFurigana(word, reading, (c) => kd.get(c)),
       forms: [...new Set([word, reading, ...e.k.filter((k) => k.pri.length).map((k) => k.text), ...e.r.filter((r) => r.pri.length).map((r) => r.text)])],
       use: Math.round(10 * (Math.log1p(Math.max(...[...e.k, ...e.r].map((f) => count.get(f.text) || 0))) + priScore(e))) / 10,
-      alsoReadings: [],
+      alsoReadings: others,
     };
     if (!w.furigana) problems.push(`${level} ${word} (${reading}): furigana did not align`);
     seen.set(id, w); words.push(w);
