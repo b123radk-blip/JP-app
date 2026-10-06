@@ -5,7 +5,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { normalizeRecipe, validateRecipe, estimateCost, describeRecipe, parseSpec } from '../src/effects/catalog.js';
 import { recipeSimilarity } from '../src/effects/similarity.js';
-import { assignParts } from '../src/effects/compose.js';
+import { assignParts } from '../src/effects/plan.js';
 import { parseKanjiVG } from '../scripts/lib/kanjivg.mjs';
 import { COMPONENT_LOOKS } from '../src/config.js';
 
@@ -42,8 +42,8 @@ test('validation catches typos and impossible recipes', () => {
 });
 
 test('cost estimates match what the pieces build (checked in the browser by npm run e2e as well)', () => {
-  assert.deepEqual(estimateCost(norm(card('706b').effect), 4), { drawCalls: 14, particles: 1220, pointLights: 2 });
-  assert.equal(estimateCost(norm(card('65e5').effect), 4).drawCalls, 38);
+  assert.deepEqual(estimateCost(norm(card('706b').effect), 4), { drawCalls: 4, particles: 1280, pointLights: 2 }, 'heat body + caps, halo, one particle pool');
+  assert.equal(estimateCost(norm(card('65e5').effect), 4).drawCalls, 18, 'glow 4 + sunrise 14');
 });
 
 test('similarity: identical recipes score 1, the pilot cards stay apart, one changed slot lowers the score', () => {
@@ -77,7 +77,7 @@ test('parts: both 木 of 林 are styled, the rest of 時 keeps the recipe materi
 test('scene props: shorthand, validation, cost of a prop placed on a repeated component', () => {
   const rin = norm(card('6797').effect);
   assert.deepEqual(rin.scene.map((p) => [p.type, p.on]), [['tree', '木']]);
-  assert.equal(estimateCost(rin, 8, strokes('6797').components).drawCalls, 6 * 8 + 2 + 1 + 1, 'one crown per 木, 8 glow strokes, sky, leaves pool');
+  assert.equal(estimateCost(rin, 8, strokes('6797').components).drawCalls, 4 * 2 + 2 + 1 + 1, 'two 木 parts (4 each), one crown per 木, sky, leaves pool');
   const p = validateRecipe({ scene: ['tree:日', 'volcano', 'river', 'dial'] }, { components: strokes('6797').components });
   assert.ok(p.some((x) => /at most 2 scene props/.test(x)), p.join(' | '));
   assert.ok(validateRecipe({ scene: ['tree:日'] }, { components: strokes('6797').components }).some((x) => /"日" is not a component/.test(x)));

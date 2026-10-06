@@ -53,3 +53,12 @@ test('fake clock: ?today= sets the day, addDays crosses month ends', () => {
   assert.equal(createClock({ search: '', realNow: () => real }).today(), '2026-01-01');
   assert.equal(createClock({ search: '?today=garbage', realNow: () => real }).today(), '2026-01-01');
 });
+
+test('kanji unlock words: a word is new only after its kanji (or right after it in the same day)', () => {
+  const deckIds = ['5b66', 'w1206900', 'w9', '751f'], requires = { w1206900: ['5b66', '751f'], w9: ['5b66'] };
+  const now = new Date(2026, 9, 6, 12).getTime();
+  assert.deepEqual(buildQueue({ deckIds, requires, cards: {}, now, cfg: { ...cfgLike(), newPerDay: 10 } }), ['5b66', 'w9', '751f'], '学生 waits for 生, which comes later in the deck');
+  const cards = { '5b66': { firstDay: '2026-10-01', due: now + 1e9 }, '751f': { firstDay: '2026-10-01', due: now + 1e9 } };
+  assert.deepEqual(buildQueue({ deckIds, requires, cards, now, cfg: { ...cfgLike(), newPerDay: 10 } }), ['w1206900', 'w9']);
+});
+function cfgLike() { return { newPerDay: 10, maxSessionCards: 20, againRequeueGap: 3 }; }

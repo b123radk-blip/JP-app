@@ -3,13 +3,14 @@
 // Input:  data/source/0XXXX.svg   (KanjiVG, CC BY-SA 3.0, https://kanjivg.org; the file name is the code point padded to 5 hex digits)
 // Output: data/kanji-XXXX.json    { character, strokes: [{ id, length, points }], components: [{ element, original?, position?, depth, strokes }] }
 //         Recipes style components by element ("parts": { "木": ... }); see src/effects/compose.js.
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
+import { pathToFileURL } from 'node:url';
 import { svgPathProperties } from 'svg-path-properties';
 import { parseKanjiVG } from './lib/kanjivg.mjs';
 
 const STEP = 0.6; // sample spacing in KanjiVG units (the glyph box is 109 x 109)
 
-function build(hex) {
+export function build(hex, { quiet = false } = {}) {
   hex = hex.toLowerCase().replace(/^0+(?=[0-9a-f]{4})/, '');
   const id = hex.padStart(5, '0'), SRC = `data/source/${id}.svg`, OUT = `data/kanji-${hex}.json`;
   const { strokes, components } = parseKanjiVG(readFileSync(SRC, 'utf8'), id);
@@ -32,9 +33,27 @@ function build(hex) {
     viewBox: [0, 0, 109, 109], strokeWidth: 3, bbox, components, strokes: out,
   };
   writeFileSync(OUT, JSON.stringify(data));
-  console.log(`${data.character} ${out.length} strokes, ${out.reduce((s, k) => s + k.points.length, 0)} points, components ${components.map((c) => `${'  '.repeat(c.depth - 1)}${c.element}[${c.strokes}]`).join(' ') || 'none'} -> ${OUT}`);
+  if (!quiet) console.log(`${data.character} ${out.length} strokes, ${out.reduce((s, k) => s + k.points.length, 0)} points, components ${components.map((c) => `${'  '.repeat(c.depth - 1)}${c.element}[${c.strokes}]`).join(' ') || 'none'} -> ${OUT}`);
 }
-const args = process.argv.slice(2);
-const list = args[0] === '--all' ? readdirSync('data/source').filter((f) => f.endsWith('.svg')).map((f) => f.slice(0, -4)) : args;
-if (!list.length) { console.error('usage: node scripts/build-kanji.mjs <hex ...> | --all'); process.exit(1); }
-for (const hex of list) build(hex);
+// Stroke data for every character in `chars` (kanji or kana): downloads missing KanjiVG files, builds missing JSON.
+export async function ensureGlyphs(chars) {
+  const made = [];
+  for (const ch of new Set(chars)) {
+    const hex = ch.codePointAt(0).toString(16), src = `data/source/${hex.padStart(5, '0')}.svg`;
+    if (existsSync(`data/kanji-${hex}.json`)) continue;
+    if (!existsSync(src)) {
+      const r = await fetch(`https://raw.githubusercontent.com/KanjiVG/kanjivg/master/kanji/${hex.padStart(5, '0')}.svg`);
+      if (!r.ok) throw new Error(`KanjiVG has no ${ch} (${hex}): HTTP ${r.status}`);
+      writeFileSync(src, await r.text());
+    }
+    build(hex, { quiet: true }); made.push(ch);
+  }
+  return made;
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  const args = process.argv.slice(2);
+  const list = args[0] === '--all' ? readdirSync('data/source').filter((f) => f.endsWith('.svg')).map((f) => f.slice(0, -4)) : args;
+  if (!list.length) { console.error('usage: node scripts/build-kanji.mjs <hex ...> | --all'); process.exit(1); }
+  for (const hex of list) build(hex);
+}

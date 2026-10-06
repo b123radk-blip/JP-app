@@ -56,6 +56,7 @@ export const EFFECTS = {
   budget: { particles: 2000, drawCalls: 160, pointLights: 3 },
   emblem: { delay: 0.35, pop: 0.45, size: 0.135, at: [0.25, 0.08] },   // after the last stroke; size and default place in metres (glyph space)
   idleRamp: 1.5,                      // idle motions fade in over this many seconds after the last stroke
+  word: { glyphBox: 0.3, maxWidth: 0.6, maxReveal: 4.2 },   // word cards: glyph box size (m), widest row (m), longest stroke reveal (s)
   // Recipe similarity (scripts/check-recipes.mjs): 0 = nothing shared, 1 = identical. Slot weights below.
   similarity: { warn: 0.72, fail: 0.9, weights: { material: 2, reveal: 1, particles: 2, scene: 2.5, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5 } },
 };
@@ -72,6 +73,18 @@ export const MATERIALS = {
   ice:    { body: 0xeefcff, emissive: 0x9be7ff, glow: 0xbfeeff, rough: 0.12, metal: 0.05, emissiveK: 0.12, glowK: 0.9, breath: 0.1 },
   wood:   { body: 0x9a6438, emissive: 0x4a2a10, glow: 0x7a5a20, rough: 0.85, metal: 0.0, emissiveK: 0.1, glowK: 0.35, breath: 0.05 },
   stone:  { body: 0x9a958e, emissive: 0x2a2620, glow: 0x6a7080, rough: 0.95, metal: 0.0, emissiveK: 0.05, glowK: 0.25, breath: 0.0 },
+  ivory:  { body: 0xf3ede0, emissive: 0xc8bfa8, glow: 0xd8cfb8, rough: 0.5, metal: 0.0, emissiveK: 0.1, glowK: 0.45, breath: 0.08 },   // kana in words
+  rose:   { body: 0xffc8d2, emissive: 0xff5a7a, glow: 0xff6f8f, rough: 0.35, metal: 0.05, emissiveK: 0.16, glowK: 1.1, breath: 0.18 },
+  paper:  { body: 0xfaf3e3, emissive: 0x9a8c70, glow: 0xe8dcc0, rough: 0.9, metal: 0.0, emissiveK: 0.06, glowK: 0.35, breath: 0.04 },
+  ink:    { body: 0x1c1d26, emissive: 0x3a3f70, glow: 0x5a64c8, rough: 0.6, metal: 0.1, emissiveK: 0.25, glowK: 0.8, breath: 0.1 },
+  metal:  { body: 0xc8ccd4, emissive: 0x2a3040, glow: 0x9aa8c0, rough: 0.18, metal: 0.95, emissiveK: 0.05, glowK: 0.45, breath: 0.06 },
+  clay:   { body: 0xc07850, emissive: 0x5a2410, glow: 0xd08860, rough: 0.9, metal: 0.0, emissiveK: 0.08, glowK: 0.4, breath: 0.04 },
+  cloud:  { body: 0xf4f8ff, emissive: 0xbfd0f0, glow: 0xe0ecff, rough: 0.7, metal: 0.0, emissiveK: 0.14, glowK: 1.0, breath: 0.25 },
+  chalk:  { body: 0xf0f0e8, emissive: 0x808070, glow: 0xb8c8b0, rough: 1.0, metal: 0.0, emissiveK: 0.08, glowK: 0.4, breath: 0.03 },
+  pearl:  { body: 0xfbf8ff, emissive: 0xd8c8ff, glow: 0xf0e8ff, rough: 0.2, metal: 0.25, emissiveK: 0.18, glowK: 1.2, breath: 0.15 },
+  fur:    { body: 0xd8a868, emissive: 0x6a4020, glow: 0xe8c088, rough: 1.0, metal: 0.0, emissiveK: 0.08, glowK: 0.5, breath: 0.06 },
+  neon:   { body: 0xe8fbff, emissive: 0x3ff0ff, glow: 0x8a5cff, rough: 0.2, metal: 0.1, emissiveK: 0.6, glowK: 1.8, breath: 0.35 },
+  lacquer: { body: 0xd0302a, emissive: 0x6a0a08, glow: 0xff5040, rough: 0.15, metal: 0.2, emissiveK: 0.12, glowK: 0.8, breath: 0.08 },
 };
 
 // Skies for the "sky" backdrop ("sky:night"). top/horizon: gradient (band: view heights it spans, default [-0.05, 0.75]);
@@ -87,6 +100,11 @@ export const SKIES = {
   lake:   { top: 0x02070c, horizon: 0x0b2532, rim: 0x7fd8ff, fill: [0xcfefff, 0x0a2030], fillK: 0.9 },
   morning: { top: 0x1c2c58, horizon: 0xd99a68, rim: 0xffe0b0, fill: [0xfff0dd, 0x405048], fillK: 1.0, band: [-0.15, 0.5] },
   golden: { top: 0x261a44, horizon: 0xd88a40, rim: 0xffd090, fill: [0xffe8c8, 0x403020], fillK: 0.95, band: [-0.15, 0.45] },
+  noon:   { top: 0x2a6ad8, horizon: 0x9fc8f0, rim: 0xfff4d0, fill: [0xffffff, 0x607050], fillK: 1.1, band: [-0.1, 0.6] },
+  dawn:   { top: 0x1a2650, horizon: 0xf0a8a0, rim: 0xffd0c0, fill: [0xffe8e8, 0x3a3048], fillK: 0.9, band: [-0.15, 0.4] },
+  sunset: { top: 0x2a1438, horizon: 0xf06a30, rim: 0xffa060, fill: [0xffd8b8, 0x402028], fillK: 0.9, band: [-0.15, 0.35] },
+  snow:   { top: 0x2a3448, horizon: 0xc8d4e4, rim: 0xe8f4ff, fill: [0xf0f8ff, 0x606878], fillK: 1.0, band: [-0.1, 0.5] },
+  indoor: { top: 0x1a1410, horizon: 0x3a2a1c, rim: 0xffd8a0, fill: [0xfff0d8, 0x302418], fillK: 1.0, band: [-0.2, 0.5] },
 };
 
 // Components keep one look across kanji: a recipe that lists a component under "parts" gets this look unless it overrides it.

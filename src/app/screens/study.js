@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { makeLabel } from '../../core/text.js';
 import { buildQueue, StudySession } from '../../srs/session.js';
 import { animationActive } from '../../srs/retirement.js';
-import { loadCard, loadStrokes } from '../../content/loader.js';
+import { loadCardAssets } from '../../content/loader.js';
 import { createCardPlayer } from '../card-player.js';
 import { COLORS } from '../../config.js';
 
@@ -16,12 +16,12 @@ export function create(app, { deckId, ahead = false }) {
     const id = session.current, my = ++gen;
     if (!loading) { loading = makeLabel('Loading…', { size: 0.05, weight: 400, color: COLORS.textDim, glow: null }); group.add(loading.mesh); }
     try {
-      const [card, kanjiData] = await Promise.all([loadCard(id), loadStrokes(id)]);
+      const { card, assets } = await loadCardAssets(id);
       const state = app.progress.cards[id], now = app.clock.now();
       const active = animationActive(state, app.debug.forceAnimation);
       const labels = Object.fromEntries(['again', 'hard', 'good', 'easy'].map((r) => [r, app.scheduler.label(state, r, now)]));
       const p = await createCardPlayer(app, {
-        card, kanjiData, active, labels,
+        card, assets, active, labels,
         index: Math.min(session.reviewed, session.total - 1), total: session.total,
         onRate: (rating) => rate(id, rating), onExit: () => app.show('home'),
       });
@@ -38,7 +38,7 @@ export function create(app, { deckId, ahead = false }) {
     else showCard();
   }
 
-  const queue = buildQueue({ deckIds: deck.cards, cards: app.progress.cards, now: app.clock.now(), cfg: app.srsConfig, ahead });
+  const queue = buildQueue({ deckIds: deck.cards, requires: deck.requires, cards: app.progress.cards, now: app.clock.now(), cfg: app.srsConfig, ahead });
   if (!queue.length) queueMicrotask(() => app.show('done', { deckId, nothingDue: true }));
   else { session = new StudySession(queue, app.srsConfig); showCard(); }
 

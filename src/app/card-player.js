@@ -12,16 +12,24 @@ const smooth = (x) => { x = Math.min(1, Math.max(0, x)); return x * x * (3 - 2 *
 const cap = (s) => s[0].toUpperCase() + s.slice(1);
 const PANEL = { pad: 0.016, radius: 0.022 };
 
-// The optional memory story, to the left of the kanji. Labelled as a memory aid: it is never presented as the kanji's origin.
-export function addMnemonic(text, addText, M = LAYOUT.mnemonic) {
-  const head = addText(makeLabel('Memory aid (a story, not the origin)', { size: M.headSize, weight: 400, color: COLORS.textDim, glow: null, maxWidth: M.width }), M.x, M.top);
-  const body = makeLabel(text, { size: M.size, weight: 400, color: '#ffe9c9', glow: null, outline: false, maxWidth: M.width, panel: PANEL });
-  addText(body, M.x, M.top - head.height / 2 - body.height / 2 - 0.006);
-  return [head, body];
+// The left panel: for a word, what it is built from (学 study · 生 life); then the optional memory story, labelled as a
+// memory aid (it is never presented as the character's origin).
+export function addMnemonic(card, addText, M = LAYOUT.mnemonic) {
+  const out = []; let top = M.top;
+  const block = (heading, text) => {
+    const head = addText(makeLabel(heading, { size: M.headSize, weight: 400, color: COLORS.textDim, glow: null, maxWidth: M.width }), M.x, top);
+    const body = makeLabel(text, { size: M.size, weight: 400, color: '#ffe9c9', glow: null, outline: false, maxWidth: M.width, panel: PANEL });
+    addText(body, M.x, top - head.height / 2 - body.height / 2 - 0.006);
+    top -= head.height + body.height + 0.03; out.push(head, body);
+  };
+  if (card.builtFrom?.length) block('Built from', card.builtFrom.map((b) => `${b.k} ${b.m}`).join('  ·  '));
+  if (card.mnemonic) block('Memory aid (a story, not the origin)', card.mnemonic);
+  return out;
 }
+export const cardText = (card) => card.word ?? card.kanji;
 
-// opts: card, kanjiData, active, index, total, labels { again, hard, good, easy } (interval text), onRate(rating), onExit()
-export async function createCardPlayer(app, { card, kanjiData, active, index, total, labels, onRate, onExit }) {
+// opts: card, assets (loader.loadCardAssets), active, index, total, labels { again, hard, good, easy } (interval text), onRate(rating), onExit()
+export async function createCardPlayer(app, { card, assets, active, index, total, labels, onRate, onExit }) {
   const { kit, input, audio } = app, Y = LAYOUT.y;
   const sentence = card.sentences[0];
   const sayId = sentenceClipId(card, 0), len = await audio.duration(sayId, T.fallbackAudioLen);
@@ -34,16 +42,16 @@ export async function createCardPlayer(app, { card, kanjiData, active, index, to
 
   let effect = null, plain = null;
   if (active) {
-    effect = createEffect(card.effect, { kanji: kanjiData, glyphHeight: LAYOUT.glyphHeight });
+    effect = createEffect(card.effect, { ...assets, glyphHeight: LAYOUT.glyphHeight });
     effect.setPassthrough(app.passthrough);
     effect.group.position.y = Y.kanji; group.add(effect.group);
-  } else plain = addText(makeLabel(card.kanji, { size: 0.22, outline: false, glow: 'rgba(255,150,60,0.6)' }), 0, Y.kanji);
+  } else plain = addText(makeLabel(cardText(card), { size: Math.min(0.22, 0.62 / [...cardText(card)].length), outline: false, glow: 'rgba(255,150,60,0.6)' }), 0, Y.kanji);
 
   const furi = addText(makeLabel(card.primaryReading, { size: 0.075 }), 0, Y.furigana);
   const meaning = addText(makeLabel(card.meaning, { size: 0.05, color: '#ffe9c9', panel: PANEL }), 0, Y.meaning);
   const jp = addText(makeRubyLine(sentence.segments, { size: 0.075, panel: PANEL }), 0, Y.sentence);
   const en = addText(makeLabel(sentence.en, { size: 0.045, weight: 400, color: '#ffe9c9', maxWidth: 1.0, panel: PANEL }), 0, Y.english);
-  const aid = card.mnemonic ? addMnemonic(card.mnemonic, addText) : [];
+  const aid = addMnemonic(card, addText);
 
   const ratings = ['again', 'hard', 'good', 'easy'], bw = LAYOUT.buttonW, gap = LAYOUT.buttonGap, rowW = 4 * bw + 3 * gap;
   const ratingGroup = new THREE.Group(); ratingGroup.position.y = Y.buttons; group.add(ratingGroup);

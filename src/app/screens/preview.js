@@ -10,8 +10,8 @@ import { makeLabel } from '../../core/text.js';
 import { createButton } from '../../ui/button.js';
 import { createEffect } from '../../effects/index.js';
 import { normalizeRecipe, describeRecipe } from '../../effects/catalog.js';
-import { loadCard, loadStrokes } from '../../content/loader.js';
-import { addMnemonic } from '../card-player.js';
+import { loadCardAssets } from '../../content/loader.js';
+import { addMnemonic, cardText } from '../card-player.js';
 
 const LOOP_AFTER = 7;                    // seconds after the last stroke before the animation replays
 
@@ -29,28 +29,28 @@ export function create(app, { ids, index = 0, recipe = null, freeze = null }) {
 
   async function show() {
     const my = ++gen, id = ids[i];
-    let card, kanji;
-    try { [card, kanji] = await Promise.all([loadCard(id), loadStrokes(id)]); } catch (e) { app.note(`Could not load card ${id}: ${e.message}`); return; }
+    let card, assets;
+    try { ({ card, assets } = await loadCardAssets(id)); } catch (e) { app.note(`Could not load card ${id}: ${e.message}`); return; }
     if (my !== gen || disposed) return;
     view?.dispose();
-    view = buildView(card, kanji, recipe ?? card.effect);
+    view = buildView(card, assets, recipe ?? card.effect);
     group.add(view.group);
     view.seek(freeze ?? 0);
   }
 
-  function buildView(card, kanji, effectSpec) {
+  function buildView(card, assets, effectSpec) {
     const g = new THREE.Group(), texts = [];
     const addText = (t, x, y) => { t.mesh.position.set(x, y, 0); g.add(t.mesh); texts.push(t); return t; };
-    const effect = createEffect(effectSpec, { kanji, glyphHeight: LAYOUT.glyphHeight });
+    const effect = createEffect(effectSpec, { ...assets, glyphHeight: LAYOUT.glyphHeight });
     effect.setPassthrough(app.passthrough); effect.group.position.y = Y.kanji; g.add(effect.group);
     const r = normalizeRecipe(effectSpec, COMPONENT_LOOKS), st = effect.stats?.() ?? {}, B = EFFECTS.budget;
-    addText(makeLabel(`${card.kanji}  ${card.id}  ·  ${i + 1} / ${ids.length}${recipe ? '  ·  trying a URL recipe' : ''}`, { size: 0.04, weight: 400, color: COLORS.textDim, glow: null }), 0, Y.top);
+    addText(makeLabel(`${cardText(card)}  ${card.id}  ·  ${i + 1} / ${ids.length}${recipe ? '  ·  trying a URL recipe' : ''}`, { size: 0.04, weight: 400, color: COLORS.textDim, glow: null }), 0, Y.top);
     addText(makeLabel(`${card.meaning}  ·  ${card.primaryReading}`, { size: 0.045, panel: { pad: 0.012, radius: 0.018 } }), 0, Y.meaning);
     addText(makeLabel(describeRecipe(r), { size: 0.026, weight: 400, color: '#ffe9c9', glow: null, maxWidth: 1.1, panel: { pad: 0.012, radius: 0.018 } }), 0, Y.sentence + 0.02);
     addText(makeLabel(`built: ${st.drawCalls ?? '?'} draw calls (budget ${B.drawCalls}) · ${st.particles ?? 0} particle slots (${B.particles}) · ${st.pointLights ?? '?'} point lights (${B.pointLights})`, { size: 0.022, weight: 400, color: COLORS.textDim, glow: null }), 0, Y.english);
-    if (card.mnemonic) addMnemonic(card.mnemonic, addText);
+    addMnemonic(card, addText);
     let t = 0;
-    app.say(`Preview ${card.kanji} (${card.id}): ${describeRecipe(r)}\n${JSON.stringify(effectSpec ?? '(no effect: default recipe)', null, 1)}`);
+    app.say(`Preview ${cardText(card)} (${card.id}): ${describeRecipe(r)}\n${JSON.stringify(effectSpec ?? '(no effect: default recipe)', null, 1)}`);
     return {
       group: g, card, effect,
       get t() { return t; },

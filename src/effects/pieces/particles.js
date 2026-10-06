@@ -3,7 +3,7 @@
 // Spawning goes round a ring buffer, so a full pool overwrites its oldest particle.
 import * as THREE from 'three';
 
-// Shapes (aShape.w): 0 soft dot, 1 disc, 2 ring (bubble), 3 streak (rain), 4 leaf, 5 puff (mist)
+// Shapes (aShape.w): 0 soft dot, 1 disc, 2 ring (bubble), 3 streak (rain), 4 leaf, 5 puff (mist), 6 heart, 7 music note
 const FRAG = `varying vec2 vUv; varying vec4 vColor; varying float vShape;
   void main(){
     vec2 u = vUv; float d = length(u), a;
@@ -12,7 +12,10 @@ const FRAG = `varying vec2 vUv; varying vec4 vColor; varying float vShape;
     else if (vShape < 2.5) { a = smoothstep(0.6, 0.85, d) * smoothstep(1.0, 0.88, d) + 0.5 * smoothstep(0.35, 0.0, length(u - vec2(-0.35, 0.35))); }
     else if (vShape < 3.5) { a = smoothstep(1.0, 0.0, abs(u.x)) * (1.0 - abs(u.y)); }
     else if (vShape < 4.5) { float w = 0.55 * (1.0 - u.y * u.y); a = smoothstep(w, w - 0.12, abs(u.x)) * (0.75 + 0.25 * smoothstep(0.0, 0.12, abs(u.x))); }
-    else { a = exp(-3.0 * d * d) * smoothstep(1.0, 0.7, d); }
+    else if (vShape < 5.5) { a = exp(-3.0 * d * d) * smoothstep(1.0, 0.7, d); }
+    else if (vShape < 6.5) { vec2 q = vec2(u.x, u.y * 1.15 + 0.3 - sqrt(abs(u.x)) * 0.6); a = smoothstep(0.72, 0.6, length(q)); }
+    else { a = max(smoothstep(0.36, 0.28, length((u - vec2(-0.3, -0.55)) * vec2(1.0, 1.4))), step(abs(u.x - 0.02), 0.07) * step(-0.55, u.y) * step(u.y, 0.75));
+           a = max(a, step(0.0, u.x) * step(u.x, 0.45) * step(0.5, u.y + u.x * 0.3) * step(u.y + u.x * 0.3, 0.75)); }
     if (a <= 0.0) discard;
     gl_FragColor = vec4(vColor.rgb, vColor.a * a);
   }`;

@@ -4,6 +4,8 @@
 import * as THREE from 'three';
 import { EFFECTS } from '../../config.js';
 import { pop } from './util.js';
+import { BODY } from './emblem-body.js';
+import { THINGS } from './emblem-things.js';
 
 const tube = (pts, r, closed = false) => new THREE.TubeGeometry(new THREE.CatmullRomCurve3(pts.map(([x, y]) => new THREE.Vector3(x, y, 0)), closed, 'catmullrom', 0.2), 48, r, 10, closed);
 const poly = (pts, r) => { const path = new THREE.CurvePath(); for (let i = 1; i < pts.length; i++) path.add(new THREE.LineCurve3(new THREE.Vector3(...pts[i - 1], 0), new THREE.Vector3(...pts[i], 0))); return new THREE.TubeGeometry(path, 24 * (pts.length - 1), r, 8, false); };
@@ -44,12 +46,14 @@ const SHAPES = {
   },
 };
 
+Object.assign(SHAPES, BODY, THINGS);
+
 export function create(ctx, spec) {
   const E = EFFECTS.emblem, group = new THREE.Group(), inner = new THREE.Group();
   const mat = new THREE.MeshStandardMaterial({ color: spec.color, emissive: spec.color, emissiveIntensity: 0.45, roughness: 0.35, metalness: 0.1 });
   const shape = SHAPES[spec.type](spec, mat);
   inner.add(...shape.meshes); group.add(inner);
-  const [ax, ay] = spec.at ?? E.at;
+  const [ax, ay] = spec.at ?? [Math.max(E.at[0], ctx.halfWidth + 0.08), E.at[1]];   // beside the kanji (or the whole word)
   group.scale.setScalar(E.size); group.visible = false;
   return {
     group,

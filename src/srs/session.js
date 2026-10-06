@@ -3,12 +3,17 @@ import { SRS } from '../config.js';
 import { localDay } from './dates.js';
 
 // deckIds: ordered card ids. cards: { id: state }. Due cards first (oldest due first), then new cards up to the daily limit.
+// requires: { wordId: [kanji ids] }: a word is new only once all its kanji have been introduced (kanji unlock words).
 // If nothing is due and `ahead` is set, returns the cards due soonest instead (studying ahead of schedule).
-export function buildQueue({ deckIds, cards, now, cfg = SRS, ahead = false }) {
+export function buildQueue({ deckIds, cards, now, cfg = SRS, ahead = false, requires = {} }) {
   const today = localDay(now);
   const introducedToday = Object.values(cards).filter((c) => c.firstDay === today).length;
   const due = deckIds.filter((id) => cards[id] && cards[id].due <= now).sort((a, b) => cards[a].due - cards[b].due);
-  const fresh = deckIds.filter((id) => !cards[id]).slice(0, Math.max(0, cfg.newPerDay - introducedToday));
+  const limit = Math.max(0, cfg.newPerDay - introducedToday), fresh = [], soon = new Set();
+  for (const id of deckIds) {                                   // a kanji earlier in today's new cards also unlocks its words
+    if (fresh.length >= limit) break;
+    if (!cards[id] && (requires[id] ?? []).every((k) => cards[k] || soon.has(k))) { fresh.push(id); soon.add(id); }
+  }
   let queue = [...due, ...fresh];
   if (!queue.length && ahead) queue = deckIds.filter((id) => cards[id]).sort((a, b) => cards[a].due - cards[b].due);
   return queue.slice(0, cfg.maxSessionCards);

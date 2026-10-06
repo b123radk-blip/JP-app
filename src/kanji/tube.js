@@ -11,6 +11,18 @@ export function normalizeStrokes(kanji, glyphHeight) {
   return { S, strokes: kanji.strokes.map((s) => ({ length: s.length, pts: s.points.map(([x, y]) => new THREE.Vector3((x - cx) * S, -(y - cy) * S, 0)) })) };
 }
 
+// A word: glyphs side by side, each scaled from KanjiVG's 109-unit box (so kana stay smaller than kanji, as in print), the
+// row centred on the origin. Component stroke indices are shifted to the combined stroke list.
+export function layoutWord(glyphs, height, pitch = 1.0) {
+  const n = glyphs.length, S = height / 109, strokes = [], components = [];
+  glyphs.forEach((d, gi) => {
+    const cx = (gi - (n - 1) / 2) * height * pitch, off = strokes.length;
+    for (const s of d.strokes) strokes.push({ length: s.length, glyph: gi, pts: s.points.map(([x, y]) => new THREE.Vector3((x - 54.5) * S + cx, -(y - 54.5) * S, 0)) });
+    for (const c of d.components ?? []) components.push({ ...c, strokes: c.strokes.map((i) => i + off) });
+  });
+  return { S, strokes, components };
+}
+
 // When each stroke is drawn: longer strokes take longer. Returns [{ start, dur }] and the time the last one ends.
 export function strokeSchedule(strokes, { start = 0.5, speed = 0.6, gap = 0.06 } = {}) {
   let t = start;
@@ -56,4 +68,26 @@ export function drawProgress(geometry, pts, p, out = new THREE.Vector3()) {
 export function pointAt(pts, p, out = new THREE.Vector3()) {
   const segs = pts.length - 1, f = Math.min(1, Math.max(0, p)) * segs, k = Math.min(segs, Math.floor(f));
   return out.lerpVectors(pts[k], pts[Math.min(segs, k + 1)], f - k);
+}
+
+// All strokes of one material in ONE geometry (one draw call): per vertex aStroke (which stroke) and aT (0..1 along it),
+// so a shader can show each stroke up to its own progress (see effects/pieces/glyph-shader.js).
+export function buildMergedTubes(strokeList, rw, rd) {
+  const parts = strokeList.map((pts) => buildTube(pts, rw, rd));
+  const nV = parts.reduce((s, g) => s + g.attributes.position.count, 0), nI = parts.reduce((s, g) => s + g.index.count, 0);
+  const pos = new Float32Array(nV * 3), nor = new Float32Array(nV * 3), st = new Float32Array(nV), tt = new Float32Array(nV);
+  const idx = new (nV > 65535 ? Uint32Array : Uint16Array)(nI);
+  let v = 0, i = 0;
+  parts.forEach((g, s) => {
+    const n = g.attributes.position.count, segs = strokeList[s].length - 1;
+    pos.set(g.attributes.position.array, v * 3); nor.set(g.attributes.normal.array, v * 3);
+    for (let k = 0; k < n; k++) { st[v + k] = s; tt[v + k] = Math.floor(k / RADIAL) / Math.max(1, segs); }
+    const src = g.index.array; for (let k = 0; k < src.length; k++) idx[i + k] = src[k] + v;
+    v += n; i += src.length; g.dispose();
+  });
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('normal', new THREE.BufferAttribute(nor, 3));
+  g.setAttribute('aStroke', new THREE.BufferAttribute(st, 1)); g.setAttribute('aT', new THREE.BufferAttribute(tt, 1));
+  g.setIndex(new THREE.BufferAttribute(idx, 1));
+  return g;
 }

@@ -1,4 +1,6 @@
 // Builds a card's animation from a normalized recipe (catalog.js): one piece per slot, plus per-component styling ("parts").
+// A word card passes `word.glyphs` ([{ data, recipe }]): its glyphs are laid out side by side, each kanji in its own card's
+// materials (plan.js), and the word recipe adds the scene, backdrop, particles, motion and emblem.
 // Scene graph: group (effect space, centred on the kanji)
 //   ├ backdrop (sky, lights ...), world-space scene props (mountains, river ...), emblem, world-space particle pools
 //   └ glyphPivot (whole-kanji motion) └ glyphSpace └ one pivot group per part (part motion) └ that part's material meshes
@@ -8,7 +10,8 @@
 import * as THREE from 'three';
 import { EFFECTS } from '../config.js';
 import { PIECES, PARTICLE_KINDS } from './catalog.js';
-import { normalizeStrokes, WIDTH_UNITS } from '../kanji/tube.js';
+import { normalizeStrokes, layoutWord, strokeSchedule, WIDTH_UNITS } from '../kanji/tube.js';
+import { planKanji, planWord } from './plan.js';
 import { disposeObject } from '../core/dispose.js';
 import { mulberry32 } from './pieces/util.js';
 import { createPool } from './pieces/particles.js';
@@ -23,31 +26,12 @@ import * as motion from './pieces/motion.js';
 import * as emblems from './pieces/emblems.js';
 import * as land from './pieces/props-land.js';
 import * as objects from './pieces/props-objects.js';
+import * as places from './pieces/props-places.js';
 
 const MATERIALS = { glow: glow.create, heat: heat.create };
 const BACKDROPS = { plain, halo, sunrise: sunrise.create, sky: sky.create };
 const DEPTH = { glow: 2.0, heat: 1.6 };
-const PROPS = { ...land, ...objects };
-
-// Which strokes each styled part owns. A component listed in recipe.parts claims its strokes (every instance at the shallowest
-// depth it occurs, so both 木 of 林); strokes nobody claims form the "rest", drawn with the recipe's own material.
-export function assignParts(recipe, components = [], n) {
-  const owner = new Array(n).fill(-1), parts = [];
-  for (const [el, p] of Object.entries(recipe.parts)) {
-    const all = components.filter((c) => c.element === el);
-    if (!all.length) continue;
-    const depth = Math.min(...all.map((c) => c.depth));
-    all.filter((c) => c.depth === depth).forEach((c, index) => {
-      const strokes = c.strokes.filter((i) => owner[i] === -1);
-      if (!strokes.length) return;
-      strokes.forEach((i) => { owner[i] = parts.length; });
-      parts.push({ element: el, strokes, material: p.material, motion: p.motion, index });
-    });
-  }
-  const rest = owner.map((o, i) => (o === -1 ? i : -1)).filter((i) => i >= 0);
-  if (rest.length) parts.push({ element: null, strokes: rest, material: null, motion: null, index: 0 });
-  return parts;
-}
+const PROPS = { ...land, ...objects, ...places };
 
 function pivotGroup(content, pts, kind) {
   const box = new THREE.Box3().setFromPoints(pts), c = box.getCenter(new THREE.Vector3());
@@ -59,13 +43,16 @@ function pivotGroup(content, pts, kind) {
 }
 const pivotOf = (spec) => (spec ? motion.PIVOT[spec.type]?.(spec) ?? 'center' : 'center');
 
-export function composeEffect({ kanji, glyphHeight, recipe: r }) {
-  const group = new THREE.Group();
-  const { S, strokes } = normalizeStrokes(kanji, glyphHeight);
+export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
+  const group = new THREE.Group(), W = EFFECTS.word;
+  const H = word ? Math.min(W.glyphBox, W.maxWidth / word.glyphs.length) : glyphHeight;
+  const laid = word ? layoutWord(word.glyphs.map((g) => g.data), H) : { ...normalizeStrokes(kanji, glyphHeight), components: kanji.components };
+  const { S, strokes } = laid;
   strokes.forEach((s, i) => { s.index = i; });
   const radius = (WIDTH_UNITS * S) / 2;
   let gen = mulberry32(1);
-  const ctx = { K: glyphHeight / 0.30, S, glyphHeight, strokes, radius, rz: radius * (DEPTH[r.material.type] ?? 2), light: 0, idle: 0, rnd: () => gen(), pools: {} };
+  const ctx = { K: H / 0.30, S, glyphHeight: H, strokes, radius, rz: radius * (DEPTH[r.material.type] ?? 2), light: 0, idle: 0, rnd: () => gen(), pools: {},
+    halfWidth: Math.max(...strokes.flatMap((s) => s.pts.map((p) => Math.abs(p.x)))) };
 
   // particle pools, sized from the catalog's per-kind maximum
   const need = {}, want = (kind, count = 1) => { const k = PARTICLE_KINDS[kind]; need[k.pool] = (need[k.pool] || 0) + Math.round(k.max * count); };
@@ -84,15 +71,17 @@ export function composeEffect({ kanji, glyphHeight, recipe: r }) {
 
   const backdropSpec = PIECES.backdrop[r.backdrop.type];
   const start = r.options.start ?? backdropSpec.lead ?? EFFECTS.defaultStart;
-  const rev = reveal.create(ctx, r.reveal, start);
+  // a long word reveals faster, so its strokes fit in W.maxReveal seconds
+  const base = strokeSchedule(strokes, { start: 0, speed: 1, gap: 0 }).end;
+  const revealSpec = word ? { ...r.reveal, speed: Math.min(r.reveal.speed, W.maxReveal / base), gap: Math.min(r.reveal.gap, 0.03) } : r.reveal;
+  const rev = reveal.create(ctx, revealSpec, start);
   const backdrop = BACKDROPS[r.backdrop.type](ctx, r.backdrop);
   group.add(backdrop.group);
 
   const mats = [], motions = [], built = [];
-  const parts = { ...r.parts };                                    // a prop placed on a component makes that component a part
-  for (const p of r.scene) if (p.on && !parts[p.on]) parts[p.on] = { material: null, motion: null };
-  for (const part of assignParts({ ...r, parts }, kanji.components, strokes.length)) {
-    const spec = part.material ?? r.material;
+  const plan = word ? planWord(r, word.glyphs.map((g) => ({ strokes: g.data.strokes.length, components: g.data.components, recipe: g.recipe }))) : planKanji(r, laid.components, strokes.length);
+  for (const part of plan) {
+    const spec = part.material;
     const mat = MATERIALS[spec.type](ctx, spec, part.strokes);
     const { outer, inner } = pivotGroup(mat.group, part.strokes.flatMap((i) => strokes[i].pts), pivotOf(part.motion));
     glyphSpace.add(outer); mats.push(mat); built.push({ ...part, inner });

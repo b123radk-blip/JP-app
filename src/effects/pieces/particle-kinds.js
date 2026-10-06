@@ -27,6 +27,13 @@ const KINDS = {
     look: (P, i, a, t, o) => { const s = P.seed[i]; set(o, rgb(c ?? [0x6bbf4a, 0x9acd3a, 0x4f9a3a, 0xe0a030][Math.floor(s * 4)]), Math.min(1, a * 6, (1 - a) * 4) * 0.95, P.size0[i] * 0.55, P.size0[i], s * 6.3 + t * (s - 0.5) * 3); } }),
   mist: (c) => ({ shape: 5, move: physics({ drag: 0 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xd0dae6), 0.11 * hump(a), P.size0[i] * (0.85 + 0.3 * a)) }),
   motes: (c) => ({ shape: 0, move: physics({ w: [0.01, 1.3, 11, 0], drag: 0 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xffe2a0), 0.9 * hump(a) * (0.55 + 0.45 * Math.sin(t * 6 + P.seed[i] * 30)), P.size0[i]) }),
+  snow: (c) => ({ shape: 1, move: physics({ w: [0.03, 1.3, 20, 0, 0.02, 0.9, 7, 0], drag: 0.5, dragY: false }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xf6faff), 0.9 * Math.min(1, a * 6, (1 - a) * 5), P.size0[i]) }),
+  petals: (c) => ({ shape: 4, move: physics({ w: [0.2, 1.4, 20, 0, 0.08, 1.0, 9, 0], drag: 1.0, dragY: false }),
+    look: (P, i, a, t, o) => { const s = P.seed[i]; set(o, rgb(c ?? [0xffc0d0, 0xff9ab8, 0xfff0f4][Math.floor(s * 3)]), Math.min(1, a * 6, (1 - a) * 4) * 0.95, P.size0[i] * 0.6, P.size0[i] * 0.8, s * 6.3 + t * (s - 0.5) * 4); } }),
+  steam: (c) => ({ shape: 5, move: physics({ rise: 0.012, w: [0.02, 1.2, 9, 0], drag: 0.4 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xf0f0f0), 0.16 * Math.sin(Math.PI * a), P.size0[i] * (0.6 + 1.2 * a)) }),
+  coins: (c) => ({ shape: 1, move: physics({ drag: 0, dragY: false }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xffc84a), Math.min(1, a * 8, (1 - a) * 5), P.size0[i], P.size0[i] * Math.abs(Math.cos(t * 5 + P.seed[i] * 9))) }),
+  hearts: (c) => ({ shape: 6, move: physics({ w: [0.03, 1.5, 11, 0], drag: 0 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xff6a8a), 0.85 * Math.sin(Math.PI * a), P.size0[i]) }),
+  notes: (c) => ({ shape: 7, move: physics({ w: [0.04, 2, 13, 0], drag: 0 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xffe08a), 0.9 * Math.sin(Math.PI * a), P.size0[i], P.size0[i], 0.3 * Math.sin(t * 3 + P.seed[i] * 6)) }),
   flow: (c, ctx) => {                                            // runs along stroke P.aux[i] from its start to its end, on the front surface
     const v = new THREE.Vector3();
     return { shape: 0, move(P, i, a) { const s = ctx.strokes[P.aux[i]]; pointAt(s.pts, a, v); const j = i * 3, sd = P.seed[i]; P.pos[j] = v.x + (sd - 0.5) * ctx.radius; P.pos[j + 1] = v.y + (sd * 7 % 1 - 0.5) * ctx.radius; P.pos[j + 2] = ctx.rz * 0.95; },
@@ -70,15 +77,43 @@ const EMIT = {
   motes: (ctx, k, spawn, n, spec) => { const acc = accumulate(), r = ctx.rnd, vy = { up: 0.05, down: -0.05 }[spec.dir] ?? 0; return { acc, step(t, dt) {
     acc.add(14 * n * dt);
     while (acc.take()) { const [x, y, z] = box(r, [-0.35, 0.35], [-0.2, 0.2], [-0.15, 0.15]); spawn(k, x, y, z, 0, vy * (0.6 + r() * 0.8), 0, 3 + r() * 2, 0.006 + r() * 0.007, r()); } } }; },
+  snow: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
+    acc.add(14 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.55, 0.55], [0.36, 0.44], [-0.3, 0.15]); spawn(k, x, y, z, 0, -(0.04 + r() * 0.03), 0, 7 + r() * 2, 0.008 + r() * 0.008, r()); } } }; },
+  petals: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
+    acc.add(7 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.45, 0.45], [0.36, 0.42], [-0.2, 0.15]); spawn(k, x, y, z, 0, -(0.05 + r() * 0.03), 0, 5 + r() * 2, 0.03 + r() * 0.012, r()); } } }; },
+  steam: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
+    acc.add(3.5 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.1, 0.1], [-0.16, -0.1], [-0.05, 0.08]); spawn(k, x, y, z, 0, 0.02, 0, 3 + r(), 0.06 + r() * 0.04, r()); } } }; },
+  coins: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
+    acc.add(7 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.45, 0.45], [0.36, 0.42], [-0.2, 0.1]); const vy = -(0.3 + r() * 0.2); spawn(k, x, y, z, 0, vy, 0, (y + 0.25) / (-vy * ctx.K), 0.03 + r() * 0.01, r()); } } }; },
+  hearts: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
+    acc.add(4.5 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.32, 0.32], [-0.15, 0.05], [-0.1, 0.12]); spawn(k, x, y, z, 0, 0.05 + r() * 0.03, 0, 3 + r() * 1.5, 0.03 + r() * 0.015, r()); } } }; },
+  notes: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
+    acc.add(3.5 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.35, 0.35], [-0.12, 0.1], [-0.1, 0.12]); spawn(k, x, y, z, (r() - 0.5) * 0.04, 0.045 + r() * 0.02, 0, 3.5 + r(), 0.036 + r() * 0.014, r()); } } }; },
+  sparks: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {     // sparkling off the drawn strokes
+    const burned = ctx.rv.burned; acc.add(burned * 0.05 * n * dt);
+    while (acc.take()) { const g = ctx.rv.rings[Math.floor(r() * burned)], [x, y, z] = surfacePoint(ctx, ctx.strokes[g.si], g.i, 1.2); const a = r() * Math.PI * 2, sp = 0.05 + r() * 0.1;
+      spawn(k, x, y, z, Math.cos(a) * sp, Math.sin(a) * sp + 0.05, (r() - 0.5) * sp, 0.5 + r() * 0.5, 0.006 + r() * 0.004, r()); } } }; },
+  dust: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {      // motes drifting in the light
+    acc.add(6 * n * dt);
+    while (acc.take()) { const [x, y, z] = box(r, [-0.4, 0.4], [-0.2, 0.25], [-0.15, 0.1]); spawn(k, x, y, z, (r() - 0.5) * 0.02, -0.004, 0, 6 + r() * 3, 0.004 + r() * 0.004, r()); } } }; },
   bubbles: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
     acc.add(8 * n * dt);
     while (acc.take()) { const [x, y, z] = box(r, [-0.32, 0.32], [-0.2, 0.0], [-0.15, 0.1]); spawn(k, x, y, z, 0, 0.02, 0, 3 + r(), 0.012 + r() * 0.018, r()); } } }; },
 };
 
+// as a layer, dust drifts in the light instead of falling like chips from the pen
+const LAYER_KINDS = { dust: (c) => ({ shape: 1, move: physics({ w: [0.01, 1.1, 9, 0], drag: 0.2 }), look: (P, i, a, t, o) => set(o, rgb(c ?? 0xe8d8b8), 0.6 * hump(a), P.size0[i]) }) };
+
 // A recipe particle layer: { step(t, dt), reset() }.
 export function createLayer(ctx, spec) {
   const pool = ctx.pools[PARTICLE_KINDS[spec.type].pool];
-  const k = pool.addKind(KINDS[spec.type](spec.color, ctx));
+  const k = pool.addKind((LAYER_KINDS[spec.type] ?? KINDS[spec.type])(spec.color, ctx));
   const em = EMIT[spec.type](ctx, k, pool.spawn, spec.count ?? 1, spec);
   return { step: em.step, reset: () => em.acc.reset() };
 }

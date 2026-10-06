@@ -8,8 +8,14 @@ import { composeEffect } from './compose.js';
 
 const BESPOKE = {};                                    // id -> module with create({ kanji, glyphHeight }); ids also in ids.js
 
+// opts: { kanji: strokeData, glyphHeight } for a kanji card, or { word: { glyphs: [{ data, taught, effect }] }, glyphHeight }
 export function createEffect(effect, opts) {
+  if (opts.word) {                                    // each taught kanji brings its own card's recipe (its materials and parts)
+    const glyphs = opts.word.glyphs.map((g) => ({ data: g.data, recipe: g.taught && typeof g.effect !== 'string' ? normalizeRecipe(g.effect, COMPONENT_LOOKS) : null }));
+    opts = { ...opts, word: { glyphs } };
+  }
   const recipe = normalizeRecipe(effect, COMPONENT_LOOKS);
   if (recipe.bespoke) return BESPOKE[recipe.bespoke] ? BESPOKE[recipe.bespoke].create(opts) : composeEffect({ ...opts, recipe: normalizeRecipe(undefined) });
+  if (opts.word && effect === undefined) recipe.material = normalizeRecipe({ material: 'ivory' }).material;   // kana default
   return composeEffect({ ...opts, recipe });
 }

@@ -86,7 +86,7 @@ export async function startApp() {
     if (audio.credit) $('voice-credit').textContent = ` · Voice: ${audio.credit}`;   // VOICEVOX requires the credit "VOICEVOX: <character>"
   }
   const index = await loadDeckIndex();
-  app.decks = await Promise.all(index.decks.map(async (d) => ({ ...d, cards: d.enabled ? (await loadDeck(d.file)).cards : [] })));
+  app.decks = await Promise.all(index.decks.map(async (d) => { const deck = d.enabled ? await loadDeck(d.file) : { cards: [] }; return { ...d, cards: deck.cards, requires: deck.requires ?? {} }; }));
   const q = new URLSearchParams(location.search);
   if (q.has('preview')) app.show('preview', previewProps(q, app.decks));
   else app.show('home');

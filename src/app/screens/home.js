@@ -15,7 +15,7 @@ export function create(app) {
   app.decks.forEach((d, i) => {
     let sub = 'coming soon';
     if (d.enabled) {
-      const queue = buildQueue({ deckIds: d.cards, cards: app.progress.cards, now: app.clock.now(), cfg: { ...app.srsConfig, maxSessionCards: 9999 } });
+      const queue = buildQueue({ deckIds: d.cards, requires: d.requires, cards: app.progress.cards, now: app.clock.now(), cfg: { ...app.srsConfig, maxSessionCards: 9999 } });
       const due = queue.filter((id) => app.progress.cards[id]).length;
       sub = `${due} due · ${queue.length - due} new`;
     }
