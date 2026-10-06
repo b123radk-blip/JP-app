@@ -6,12 +6,13 @@
   "readings": { "kun": ["まな(ぶ)"], "on": ["ガク"] },
   "mnemonic": "A child (子) under a roof, sparks of ideas (⺍) above: study.",
   "effect": {
-    "material": "chalk",
+    "material": "pearl",
     "reveal": "draw",
-    "scene": ["room"],
+    "scene": ["room:classroom"],
     "backdrop": "sky:indoor",
     "emblem": "book",
-    "parts": { "子": {} }
+    "parts": { "子": {} },
+    "particles": [{ "type": "sparks", "count": 0.6 }]
   },
   "sentences": [
     {
@@ -21,6 +22,6 @@
       "source": { "tatoeba": [157850, 437011] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

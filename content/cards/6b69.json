@@ -8,11 +8,10 @@
   "effect": {
     "material": "clay",
     "reveal": "draw",
-    "particles": ["dust"],
+    "particles": [{ "type": "footprints", "dir": "right", "color": "#e8d0a8" }],
     "scene": ["road"],
     "backdrop": "sky:day",
-    "motion": "float",
-    "emblem": "foot",
+    "motion": "walk",
     "parts": { "止": {}, "少": {} }
   },
   "sentences": [
@@ -23,6 +22,6 @@
       "source": { "tatoeba": [196100, 33280] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

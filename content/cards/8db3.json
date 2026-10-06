@@ -8,7 +8,7 @@
   "effect": {
     "material": "skin",
     "reveal": "draw",
-    "particles": ["dust"],
+    "particles": [{ "type": "footprints", "dir": "right" }],
     "scene": ["road"],
     "backdrop": "sky:day",
     "motion": "walk",
@@ -23,6 +23,6 @@
       "source": { "tatoeba": [195414, 32588] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1404630"] }
 }

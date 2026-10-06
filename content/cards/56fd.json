@@ -10,7 +10,8 @@
     "reveal": "draw",
     "scene": ["mountains", "river"],
     "backdrop": "sky:day",
-    "parts": { "囗": {}, "玉": { "material": "gold", "motion": "pulse" } }
+    "parts": { "囗": {}, "玉": { "material": "gold", "motion": "pulse" } },
+    "emblem": { "type": "flag", "color": "#d83040" }
   },
   "sentences": [
     {

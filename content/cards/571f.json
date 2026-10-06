@@ -7,7 +7,7 @@
   "mnemonic": "A sprout pushing up out of the flat ground: soil.",
   "effect": {
     "material": "clay",
-    "reveal": "draw:dust",
+    "reveal": "grow",
     "particles": ["dust"],
     "scene": [{ "type": "field", "color": "#7a5a3a" }],
     "backdrop": "sky:golden",

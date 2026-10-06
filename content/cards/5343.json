@@ -7,11 +7,12 @@
   "mnemonic": "A thousand footsteps crossing at the crossroads (十).",
   "effect": {
     "material": "clay",
-    "reveal": "draw:dust",
+    "reveal": "draw",
     "scene": ["road"],
     "backdrop": "sky:golden",
     "motion": "float",
-    "parts": { "十": {} }
+    "parts": { "十": {} },
+    "particles": [{ "type": "footprints", "dir": "away", "count": 1.4 }]
   },
   "sentences": [
     {

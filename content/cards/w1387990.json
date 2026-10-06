@@ -8,7 +8,13 @@
   "pos": ["n"],
   "kanji": ["5148", "751f"],
   "builtFrom": [{ "k": "先", "m": "before" }, { "k": "生", "m": "life" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "emblem": "speech", "backdrop": "sky:forest" },
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["room:classroom"],
+    "emblem": "speech",
+    "backdrop": "sky:forest"
+  },
   "sentences": [
     {
       "segments": [ { "text": "あれはきっと" }, { "text": "校長", "reading": "こうちょう" }, { "text": "先生", "reading": "せんせい" }, { "text": "だ。" } ],
@@ -17,6 +23,6 @@
       "source": { "tatoeba": [229741, 67102] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 先生" },
+  "review": { "recipe": "reviewed", "rule": "word 先生" },
   "source": { "jmdict": 1387990, "jlpt": 5 }
 }

@@ -9,7 +9,7 @@
     "material": "rose",
     "reveal": "draw",
     "particles": ["steam"],
-    "scene": ["room"],
+    "scene": ["room:kitchen"],
     "backdrop": "sky:indoor",
     "motion": "float"
   },
@@ -21,6 +21,6 @@
       "source": { "tatoeba": [225314, 62650] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

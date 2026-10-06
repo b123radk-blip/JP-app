@@ -7,7 +7,7 @@
   "mnemonic": "Grass (艹) on top, and below someone changing (化) into a flower.",
   "effect": {
     "material": "rose",
-    "reveal": "draw:sparks",
+    "reveal": "grow",
     "particles": ["petals"],
     "backdrop": "sky:day",
     "motion": "sway",
@@ -21,6 +21,6 @@
       "source": { "tatoeba": [222732, 60062] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1194500"] }
 }

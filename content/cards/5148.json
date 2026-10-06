@@ -10,8 +10,8 @@
     "reveal": "draw:dust",
     "backdrop": "sky:dawn",
     "motion": "drift:right",
-    "emblem": "foot",
-    "parts": { "儿": {} }
+    "parts": { "儿": {} },
+    "particles": [{ "type": "footprints", "dir": "right" }]
   },
   "sentences": [
     {

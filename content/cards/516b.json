@@ -10,7 +10,7 @@
     "reveal": "draw",
     "particles": ["motes"],
     "backdrop": "sky:dusk",
-    "motion": "stretch",
+    "motion": { "type": "split", "dist": 0.07 },
     "emblem": "compass"
   },
   "sentences": [

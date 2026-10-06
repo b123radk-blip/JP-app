@@ -10,7 +10,7 @@
     "reveal": "draw",
     "particles": ["motes"],
     "backdrop": "sky:forest",
-    "motion": "pulse",
+    "motion": { "type": "split", "dist": 0.07 },
     "emblem": "clock"
   },
   "sentences": [

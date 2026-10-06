@@ -7,12 +7,12 @@
   "mnemonic": "Slow steps (彳 夂) trailing behind: behind, after.",
   "effect": {
     "material": "chalk",
-    "reveal": "draw:dust",
+    "reveal": "draw",
     "scene": ["road"],
     "backdrop": "sky:dusk",
     "motion": "drift:away",
-    "emblem": "foot",
-    "parts": { "彳": {} }
+    "parts": { "彳": {} },
+    "particles": [{ "type": "footprints", "dir": "away" }]
   },
   "sentences": [
     {

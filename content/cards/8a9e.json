@@ -8,10 +8,11 @@
   "effect": {
     "material": "paper",
     "reveal": "draw",
-    "backdrop": "plain",
+    "backdrop": "sky:morning",
     "motion": "wave",
-    "emblem": "compass",
-    "parts": { "言": {}, "吾": {} }
+    "emblem": "speech",
+    "parts": { "言": {}, "吾": {} },
+    "particles": [{ "type": "kana", "color": "#3a3040" }]
   },
   "sentences": [
     {

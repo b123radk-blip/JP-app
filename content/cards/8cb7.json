@@ -9,7 +9,7 @@
     "material": "gold",
     "reveal": "draw",
     "particles": ["coins"],
-    "scene": ["room"],
+    "scene": ["room:shop"],
     "backdrop": "sky:indoor",
     "emblem": "yen",
     "parts": { "貝": {} }
@@ -22,6 +22,6 @@
       "source": { "tatoeba": [159466, 255057] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }
