@@ -16,7 +16,9 @@
     "check:recipes": "node scripts/check-recipes.mjs",
     "voice:list": "node scripts/voice-list.mjs",
     "voice": "node scripts/voicevox.mjs",
-    "preview-shots": "node scripts/preview-shots.mjs"
+    "preview-shots": "node scripts/preview-shots.mjs",
+    "data:fetch": "node scripts/data/fetch.mjs",
+    "data:build": "node scripts/data/build.mjs"
   },
   "devDependencies": {
     "@expo-google-fonts/noto-sans-jp": "^0.4.2",
