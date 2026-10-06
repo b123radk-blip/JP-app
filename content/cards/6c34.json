@@ -4,12 +4,11 @@
   "meaning": "water",
   "primaryReading": "みず",
   "readings": { "kun": ["みず"], "on": ["スイ"] },
+  "mnemonic": "One stream runs down the middle and splashes out to both sides.",
+  "effect": {"material": "water", "reveal": "draw:drops", "particles": ["bubbles"], "backdrop": "sky:deep", "motion": "float"},
   "sentences": [
     {
-      "segments": [
-        { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "飲", "reading": "の" },
-        { "text": "み" }, { "text": "ます" }, { "text": "。" }
-      ],
+      "segments": [ { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "飲", "reading": "の" }, { "text": "み" }, { "text": "ます" }, { "text": "。" } ],
       "en": "I drink water.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }

@@ -1,0 +1,24 @@
+{
+  "id": "6642",
+  "kanji": "時",
+  "meaning": "time; o'clock",
+  "primaryReading": "じ",
+  "readings": { "kun": ["とき"], "on": ["ジ"] },
+  "mnemonic": "The sun (日) crosses the sky over a temple whose bell rings the hours.",
+  "effect": {
+    "material": "stone",
+    "reveal": "draw",
+    "particles": [{"type": "motes", "dir": "still", "color": "#ffd9a0", "count": 0.6}],
+    "backdrop": "sky:dusk",
+    "motion": "none",
+    "emblem": "clock",
+    "parts": {"日": {}}
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今", "reading": "いま" }, { "text": "、" }, { "text": "三", "reading": "さん" }, { "text": "時", "reading": "じ" }, { "text": "です" }, { "text": "。" } ],
+      "en": "It's three o'clock now.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

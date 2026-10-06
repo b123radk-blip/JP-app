@@ -15,14 +15,24 @@ import { createDebugPanel } from '../ui/debug-panel.js';
 import * as home from './screens/home.js';
 import * as study from './screens/study.js';
 import * as done from './screens/done.js';
+import * as preview from './screens/preview.js';
 
-const screens = { home, study, done };
+const screens = { home, study, done, preview };
 const $ = (id) => document.getElementById(id);
 
 function download(name, text) {
   const a = document.createElement('a');
   a.href = URL.createObjectURL(new Blob([text], { type: 'application/json' })); a.download = name;
   document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+}
+
+// ?preview=1 options -> props for the preview screen (see screens/preview.js)
+function previewProps(q, decks) {
+  const ids = q.get('cards') ? q.get('cards').split(',') : (q.get('deck') ? decks.filter((d) => d.id === q.get('deck')) : decks.filter((d) => d.enabled)).flatMap((d) => d.cards);
+  let recipe = null;
+  if (q.get('recipe')) try { recipe = JSON.parse(q.get('recipe')); } catch (e) { $('msg').textContent = `recipe= is not valid JSON (${e.message})`; }
+  const t = q.get('t');
+  return { ids, index: Math.max(0, ids.indexOf(q.get('card'))), recipe, freeze: t === null ? null : Number(t) };
 }
 
 export async function startApp() {
@@ -58,9 +68,8 @@ export async function startApp() {
   if (loaded.status === 'recovered' || loaded.status === 'future') xr.note(`Saved progress could not be read (${loaded.error}); a backup was kept and you are starting fresh.`);
   if (!persistent) app.say('This browser cannot store progress (private mode?): it will be lost when you close the page.');
 
-  // 2D page controls: sound, and progress export / import (a safety net: browsers can clear site data)
+  // 2D page controls: progress export / import (a safety net: browsers can clear site data); Sound only once voice clips exist
   const hudButton = (label, fn) => { const b = document.createElement('button'); b.textContent = label; b.onclick = fn; $('buttons').append(b); return b; };
-  const soundBtn = hudButton('Sound: on', () => { audio.setEnabled(!audio.enabled); soundBtn.textContent = `Sound: ${audio.enabled ? 'on' : 'off'}`; xr.note(''); });
   hudButton('Export progress', () => download(`jp-app-progress-${clock.today()}.json`, storage.exportJSON(app.progress)));
   const file = Object.assign(document.createElement('input'), { type: 'file', accept: 'application/json,.json' });
   file.onchange = async () => {
@@ -71,9 +80,16 @@ export async function startApp() {
   hudButton('Import progress', () => file.click());
 
   await Promise.all([loadFonts(), audio.init()]);
+  if (audio.count() > 0) {
+    const soundBtn = hudButton('Sound: on', () => { audio.setEnabled(!audio.enabled); soundBtn.textContent = `Sound: ${audio.enabled ? 'on' : 'off'}`; xr.note(''); });
+    $('buttons').prepend(soundBtn);
+    if (audio.credit) $('voice-credit').textContent = ` · Voice: ${audio.credit}`;   // VOICEVOX requires the credit "VOICEVOX: <character>"
+  }
   const index = await loadDeckIndex();
   app.decks = await Promise.all(index.decks.map(async (d) => ({ ...d, cards: d.enabled ? (await loadDeck(d.file)).cards : [] })));
-  app.show('home');
+  const q = new URLSearchParams(location.search);
+  if (q.has('preview')) app.show('preview', previewProps(q, app.decks));
+  else app.show('home');
   createDebugPanel(app);
 
   // Test hook (also handy in the console): press buttons by id, find where one is on screen, jump the card timeline.

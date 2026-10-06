@@ -51,3 +51,9 @@ export function drawProgress(geometry, pts, p, out = new THREE.Vector3()) {
   geometry.setDrawRange(0, k * RADIAL * 6);
   return out.lerpVectors(pts[k], pts[Math.min(segs, k + 1)], f - k);
 }
+
+// The point a fraction p (0..1) along a centre-line, by sample index (matches drawProgress).
+export function pointAt(pts, p, out = new THREE.Vector3()) {
+  const segs = pts.length - 1, f = Math.min(1, Math.max(0, p)) * segs, k = Math.min(segs, Math.floor(f));
+  return out.lerpVectors(pts[k], pts[Math.min(segs, k + 1)], f - k);
+}

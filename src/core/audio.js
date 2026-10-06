@@ -1,12 +1,15 @@
-// Clip playback by id through audio/manifest.json. Missing clips are skipped silently (not every card has audio yet).
+// Clip playback by id through audio/manifest.json (written by scripts/voicevox.mjs). Clips that do not exist are skipped
+// silently: with an empty manifest the app is simply silent (no Sound button, no voice credit).
 import { appUrl } from './urls.js';
 
 export function createAudio({ onNote = () => {} } = {}) {
-  let clips = {};
+  let clips = {}, credit = null;
   const els = new Map();
   let enabled = true, current = null;
   const api = {
-    async init() { try { clips = (await (await fetch(appUrl('audio/manifest.json'))).json()).clips || {}; } catch { clips = {}; } },
+    async init() { try { const m = await (await fetch(appUrl('audio/manifest.json'))).json(); clips = m.clips || {}; credit = m.voice?.credit || null; } catch { clips = {}; } },
+    count: () => Object.keys(clips).length,
+    get credit() { return credit; },
     has: (id) => !!(id && clips[id]),
     get enabled() { return enabled; },
     setEnabled(b) { enabled = b; if (!b) api.stop(); },

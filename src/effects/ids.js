@@ -1,3 +1,3 @@
-// Effect ids a card may name in its "effect" field. A card with no effect uses the default one.
-export const EFFECT_IDS = ['sun', 'fire'];
-export const DEFAULT_EFFECT = 'default';
+// Bespoke effect ids a card may name as a string ("effect": "my-effect") instead of a recipe object. Register the module in
+// src/effects/index.js too. None are needed today: every card is a recipe (catalog.js), cards without one get DEFAULT_RECIPE.
+export const BESPOKE_IDS = [];

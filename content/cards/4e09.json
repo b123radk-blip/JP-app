@@ -1,0 +1,22 @@
+{
+  "id": "4e09",
+  "kanji": "三",
+  "meaning": "three",
+  "primaryReading": "さん",
+  "readings": { "kun": ["み", "みっ(つ)"], "on": ["サン"] },
+  "mnemonic": "Three lines, like three fingers: count them, one, two, three.",
+  "effect": {
+    "material": "gold",
+    "reveal": "draw:sparks",
+    "backdrop": {"type": "halo", "color": "#ffc860", "flicker": false},
+    "motion": "count:3",
+    "emblem": "dots:3"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "りんご" }, { "text": "が" }, { "text": "三", "reading": "みっ" }, { "text": "つ" }, { "text": "あります" }, { "text": "。" } ],
+      "en": "There are three apples.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

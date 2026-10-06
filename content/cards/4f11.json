@@ -1,0 +1,24 @@
+{
+  "id": "4f11",
+  "kanji": "休",
+  "meaning": "rest; day off",
+  "primaryReading": "やす",
+  "readings": { "kun": ["やす(む)", "やす(まる)", "やす(める)"], "on": ["キュウ"] },
+  "mnemonic": "A person (亻) leans against a tree (木) to rest.",
+  "effect": {
+    "material": "wood",
+    "reveal": "draw",
+    "particles": [{"type": "leaves", "count": 0.5}],
+    "backdrop": "sky:night",
+    "motion": "none",
+    "emblem": {"type": "zzz", "at": [-0.2, 0.1]},
+    "parts": {"亻": {"motion": {"type": "lean", "toward": "right", "angle": 0.2}}, "木": {}}
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "休", "reading": "やす" }, { "text": "み" }, { "text": "です" }, { "text": "。" } ],
+      "en": "Today is a day off.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

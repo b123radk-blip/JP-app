@@ -1,0 +1,22 @@
+{
+  "id": "5c71",
+  "kanji": "山",
+  "meaning": "mountain",
+  "primaryReading": "やま",
+  "readings": { "kun": ["やま"], "on": ["サン"] },
+  "mnemonic": "Three peaks side by side, the middle one the tallest.",
+  "effect": {
+    "material": "stone",
+    "reveal": "draw:dust",
+    "particles": ["mist"],
+    "backdrop": "sky:dusk",
+    "motion": {"type": "drift", "dir": "up", "dist": 0.03}
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "山", "reading": "やま" }, { "text": "は" }, { "text": "高", "reading": "たか" }, { "text": "い" }, { "text": "です" }, { "text": "。" } ],
+      "en": "The mountain is high.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

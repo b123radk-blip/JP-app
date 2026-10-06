@@ -1,5 +1,5 @@
-065e5.svg is taken unmodified from KanjiVG (https://kanjivg.org, kanji/065e5.svg).
+The *.svg files in this folder are taken unmodified from KanjiVG (https://kanjivg.org, kanji/0XXXX.svg).
 Copyright (C) 2009-2011 Ulrich Apel and contributors.
 Licensed under Creative Commons Attribution-Share Alike 3.0
-(https://creativecommons.org/licenses/by-sa/3.0/). Derived data (data/kanji-65e5.json)
-and anything built from it must carry the same attribution and licence.
+(https://creativecommons.org/licenses/by-sa/3.0/). Derived data (data/kanji-*.json: sampled stroke centre-lines and the
+component groups) and anything built from it must carry the same attribution and licence.

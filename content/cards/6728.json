@@ -1,0 +1,22 @@
+{
+  "id": "6728",
+  "kanji": "木",
+  "meaning": "tree; wood",
+  "primaryReading": "き",
+  "readings": { "kun": ["き", "こ"], "on": ["ボク", "モク"] },
+  "mnemonic": "A tree: a trunk, one branch across, and roots spreading below.",
+  "effect": {
+    "material": "wood",
+    "reveal": "draw",
+    "particles": ["leaves"],
+    "backdrop": "sky:day",
+    "motion": {"type": "sway", "axis": "z", "amp": 0.06, "speed": 0.9}
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "庭", "reading": "にわ" }, { "text": "に" }, { "text": "木", "reading": "き" }, { "text": "が" }, { "text": "あります" }, { "text": "。" } ],
+      "en": "There is a tree in the garden.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

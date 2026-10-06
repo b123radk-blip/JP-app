@@ -1,0 +1,23 @@
+{
+  "id": "6797",
+  "kanji": "林",
+  "meaning": "woods; grove",
+  "primaryReading": "はやし",
+  "readings": { "kun": ["はやし"], "on": ["リン"] },
+  "mnemonic": "Two trees (木 木) side by side make a small wood.",
+  "effect": {
+    "material": "wood",
+    "reveal": "draw",
+    "particles": ["leaves", "mist"],
+    "backdrop": "sky:forest",
+    "motion": "none",
+    "parts": {"木": {"motion": {"type": "sway", "axis": "z", "amp": 0.07, "speed": 0.9}}}
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "林", "reading": "はやし" }, { "text": "の" }, { "text": "中", "reading": "なか" }, { "text": "を" }, { "text": "歩", "reading": "ある" }, { "text": "きます" }, { "text": "。" } ],
+      "en": "I walk through the woods.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

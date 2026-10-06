@@ -1,7 +1,5 @@
 {
-  "note": "Clip ids referenced by cards. Voice is a placeholder (Open JTalk Mei, see scripts/make-audio.py); replace the files, keep the ids.",
-  "clips": {
-    "hi": { "src": "audio/hi.mp3", "text": "ひ" },
-    "fire-is-hot": { "src": "audio/fire-is-hot.mp3", "text": "火は熱い。" }
-  }
+  "note": "Written by scripts/voicevox.mjs (see docs/VOICEVOX.md). Empty = no voice yet: the app stays silent and shows no voice credit.",
+  "voice": null,
+  "clips": {}
 }

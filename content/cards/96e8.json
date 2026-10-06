@@ -1,0 +1,16 @@
+{
+  "id": "96e8",
+  "kanji": "雨",
+  "meaning": "rain",
+  "primaryReading": "あめ",
+  "readings": { "kun": ["あめ", "あま"], "on": ["ウ"] },
+  "mnemonic": "A cloud hangs from the sky and four raindrops fall beneath it.",
+  "effect": {"material": "ice", "reveal": "draw", "particles": ["rain"], "backdrop": "sky:storm", "motion": "none"},
+  "sentences": [
+    {
+      "segments": [ { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "降", "reading": "ふ" }, { "text": "って" }, { "text": "います" }, { "text": "。" } ],
+      "en": "It is raining.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}

@@ -6,16 +6,25 @@ import { LAYOUT, TIMELINE as T, COLORS } from '../config.js';
 import { makeLabel, makeRubyLine } from '../core/text.js';
 import { createButton } from '../ui/button.js';
 import { createEffect } from '../effects/index.js';
+import { readingClipId, sentenceClipId } from '../content/clips.js';
 
 const smooth = (x) => { x = Math.min(1, Math.max(0, x)); return x * x * (3 - 2 * x); };
 const cap = (s) => s[0].toUpperCase() + s.slice(1);
 const PANEL = { pad: 0.016, radius: 0.022 };
 
+// The optional memory story, to the left of the kanji. Labelled as a memory aid: it is never presented as the kanji's origin.
+export function addMnemonic(text, addText, M = LAYOUT.mnemonic) {
+  const head = addText(makeLabel('Memory aid (a story, not the origin)', { size: M.headSize, weight: 400, color: COLORS.textDim, glow: null, maxWidth: M.width }), M.x, M.top);
+  const body = makeLabel(text, { size: M.size, weight: 400, color: '#ffe9c9', glow: null, outline: false, maxWidth: M.width, panel: PANEL });
+  addText(body, M.x, M.top - head.height / 2 - body.height / 2 - 0.006);
+  return [head, body];
+}
+
 // opts: card, kanjiData, active, index, total, labels { again, hard, good, easy } (interval text), onRate(rating), onExit()
 export async function createCardPlayer(app, { card, kanjiData, active, index, total, labels, onRate, onExit }) {
   const { kit, input, audio } = app, Y = LAYOUT.y;
   const sentence = card.sentences[0];
-  const len = await audio.duration(sentence.audio, T.fallbackAudioLen);
+  const sayId = sentenceClipId(card, 0), len = await audio.duration(sayId, T.fallbackAudioLen);
   const group = new THREE.Group(), texts = [], buttons = [];
   const addText = (t, x, y) => { t.mesh.position.set(x, y, 0); group.add(t.mesh); texts.push(t); return t; };
   const addButton = (opts, x, y, parent = group) => { const b = createButton(input, opts); b.group.position.set(x, y, 0.004); parent.add(b.group); buttons.push(b); return b; };
@@ -34,6 +43,7 @@ export async function createCardPlayer(app, { card, kanjiData, active, index, to
   const meaning = addText(makeLabel(card.meaning, { size: 0.05, color: '#ffe9c9', panel: PANEL }), 0, Y.meaning);
   const jp = addText(makeRubyLine(sentence.segments, { size: 0.075, panel: PANEL }), 0, Y.sentence);
   const en = addText(makeLabel(sentence.en, { size: 0.045, weight: 400, color: '#ffe9c9', maxWidth: 1.0, panel: PANEL }), 0, Y.english);
+  const aid = card.mnemonic ? addMnemonic(card.mnemonic, addText) : [];
 
   const ratings = ['again', 'hard', 'good', 'easy'], bw = LAYOUT.buttonW, gap = LAYOUT.buttonGap, rowW = 4 * bw + 3 * gap;
   const ratingGroup = new THREE.Group(); ratingGroup.position.y = Y.buttons; group.add(ratingGroup);
@@ -68,9 +78,9 @@ export async function createCardPlayer(app, { card, kanjiData, active, index, to
     effect?.step(t, dt);
     const rt = revealT === null ? -1 : t - revealT;
     const f = (at) => (rt < 0 ? 0 : smooth((rt - at) / T.fade));
-    furi.setOpacity(f(S.reading)); meaning.setOpacity(f(S.meaning)); jp.setOpacity(f(S.sentence)); en.setOpacity(f(S.english));
-    if (rt >= 0 && !saidReading && rt >= S.reading) { saidReading = true; if (active) audio.play(card.audio?.reading); }
-    if (rt >= 0 && !saidSentence && rt >= S.say) { saidSentence = true; audio.play(sentence.audio); }
+    furi.setOpacity(f(S.reading)); meaning.setOpacity(f(S.meaning)); aid.forEach((x) => x.setOpacity(f(S.meaning))); jp.setOpacity(f(S.sentence)); en.setOpacity(f(S.english));
+    if (rt >= 0 && !saidReading && rt >= S.reading) { saidReading = true; if (active) audio.play(readingClipId(card)); }
+    if (rt >= 0 && !saidSentence && rt >= S.say) { saidSentence = true; audio.play(sayId); }
     const rf = f(S.rating);
     ratingGroup.visible = rf > 0; rateBtns.forEach((b) => { b.setOpacity(rf); b.setEnabled(rf > 0.6); });
     const showOn = !active && revealT === null, skipOn = active && rf === 0;
@@ -81,7 +91,7 @@ export async function createCardPlayer(app, { card, kanjiData, active, index, to
   return {
     group, update, seek, restart, reveal, skip,
     setPassthrough: (b) => effect?.setPassthrough(b),
-    info: () => ({ id: card.id, active, t, revealed: revealT !== null, ratingsVisible: ratingGroup.visible, times: S, hasEffect: !!effect, effectId: card.effect || 'default' }),
+    info: () => ({ id: card.id, active, t, revealed: revealT !== null, ratingsVisible: ratingGroup.visible, times: S, hasEffect: !!effect, effectId: typeof card.effect === 'string' ? card.effect : card.effect ? 'recipe' : 'default', effect: effect?.stats?.() ?? null }),
     dispose() { audio.stop(); effect?.dispose(); buttons.forEach((b) => b.dispose()); texts.forEach((x) => x.dispose()); group.removeFromParent(); },
   };
 }

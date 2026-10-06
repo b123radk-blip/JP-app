@@ -1,0 +1,23 @@
+{
+  "id": "4e0a",
+  "kanji": "上",
+  "meaning": "up; above",
+  "primaryReading": "うえ",
+  "readings": { "kun": ["うえ", "うわ", "かみ", "あ(がる)", "のぼ(る)"], "on": ["ジョウ"] },
+  "mnemonic": "A line for the ground, and a stalk pointing up above it.",
+  "effect": {
+    "material": "jade",
+    "reveal": "draw",
+    "particles": [{"type": "motes", "dir": "up"}],
+    "backdrop": "sky:day",
+    "motion": {"type": "drift", "dir": "up"},
+    "emblem": "arrow:up"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "テーブル" }, { "text": "の" }, { "text": "上", "reading": "うえ" }, { "text": "に" }, { "text": "あります" }, { "text": "。" } ],
+      "en": "The book is on the table.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
+    }
+  ]
+}
