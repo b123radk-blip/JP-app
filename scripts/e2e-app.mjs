@@ -4,6 +4,7 @@
 import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
 import { mkdirSync, readFileSync } from 'node:fs';
+import { EFFECTS } from '../src/config.js';
 const { chromium } = createRequire('/opt/node22/lib/node_modules/_')('playwright');
 
 const BASE = process.env.BASE || 'http://localhost:8080/', OUT = process.env.OUT || 'docs/screenshots';
@@ -42,7 +43,7 @@ const setDay = (page, n) => page.evaluate((k) => { window.__app.app.clock.addDay
 const close = (page, y) => page.evaluate((cy) => { const { kit } = window.__app.app; kit.camera.position.set(0, 1.4 + cy, -0.62); kit.controls.target.set(0, 1.4 + cy, -1.2); kit.controls.update(); }, y);
 
 const deckIds = JSON.parse(readFileSync('content/decks/n5.json', 'utf8')).cards;
-const budget = (st) => st && st.drawCalls <= 160 && st.particles <= 2000 && st.pointLights <= 3;
+const budget = (st) => st && Object.keys(EFFECTS.budget).every((k) => st[k] <= EFFECTS.budget[k]);
 // rate every card of the current session Good until the session ends; returns the card ids seen, in order
 async function rateAll(page, onCard = async () => {}) {
   const seen = [];
