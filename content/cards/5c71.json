@@ -9,8 +9,9 @@
     "material": "stone",
     "reveal": "draw:dust",
     "particles": ["mist"],
+    "scene": ["mountains"],
     "backdrop": "sky:dusk",
-    "motion": {"type": "drift", "dir": "up", "dist": 0.03}
+    "motion": "none"
   },
   "sentences": [
     {

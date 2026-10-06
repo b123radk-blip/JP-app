@@ -9,7 +9,7 @@ import { smooth, mulberry32, radialTexture, beamTexture } from './util.js';
 const FLASH = new THREE.Color(0x9aa8c8), DARK = new THREE.Color(0x000000);
 
 export function create(ctx, spec) {
-  const P = SKIES[spec.preset] || SKIES.night, group = new THREE.Group(), hide = [];
+  const P = { ...(SKIES[spec.preset] || SKIES.night), ...(spec.moon !== null && spec.moon !== undefined ? { moon: spec.moon } : {}), ...(spec.stars !== null && spec.stars !== undefined ? { stars: spec.stars } : {}) }, group = new THREE.Group(), hide = [];
   const top = new THREE.Color(P.top), horizon = new THREE.Color(P.horizon);
   const skyU = { top: { value: new THREE.Color() }, horizon: { value: new THREE.Color() } };
   const dome = skyDome(skyU, P.band); group.add(dome); hide.push(dome);

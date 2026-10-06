@@ -49,7 +49,7 @@ test('cost estimates match what the pieces build (checked in the browser by npm 
 test('similarity: identical recipes score 1, the pilot cards stay apart, one changed slot lowers the score', () => {
   const fire = norm(card('706b').effect), sun = norm(card('65e5').effect);
   assert.equal(recipeSimilarity(fire, fire).score, 1);
-  assert.ok(recipeSimilarity(fire, sun).score < 0.4);
+  assert.ok(recipeSimilarity(fire, sun).score < 0.5);
   const up = norm(card('4e0a').effect), down = norm(card('4e0b').effect);
   assert.ok(recipeSimilarity(up, down).score < 0.72, 'the 上 / 下 pair must not look alike');
   const sameButEmblem = norm({ ...card('4e0a').effect, emblem: 'question' });
@@ -72,4 +72,14 @@ test('parts: both 木 of 林 are styled, the rest of 時 keeps the recipe materi
   assert.deepEqual(rin.map((p) => [p.element, p.index, p.strokes.join()]), [['木', 0, '0,1,2,3'], ['木', 1, '4,5,6,7']]);
   const ji = assignParts(norm(card('6642').effect), strokes('6642').components, 10);
   assert.deepEqual(ji.map((p) => [p.element, p.strokes.length, p.material?.preset ?? null]), [['日', 4, 'gold'], [null, 6, null]]);
+});
+
+test('scene props: shorthand, validation, cost of a prop placed on a repeated component', () => {
+  const rin = norm(card('6797').effect);
+  assert.deepEqual(rin.scene.map((p) => [p.type, p.on]), [['tree', '木']]);
+  assert.equal(estimateCost(rin, 8, strokes('6797').components).drawCalls, 6 * 8 + 2 + 1 + 1, 'one crown per 木, 8 glow strokes, sky, leaves pool');
+  const p = validateRecipe({ scene: ['tree:日', 'volcano', 'river', 'dial'] }, { components: strokes('6797').components });
+  assert.ok(p.some((x) => /at most 2 scene props/.test(x)), p.join(' | '));
+  assert.ok(validateRecipe({ scene: ['tree:日'] }, { components: strokes('6797').components }).some((x) => /"日" is not a component/.test(x)));
+  assert.ok(validateRecipe({ scene: ['volcano'] }).some((x) => /unknown scene "volcano"/.test(x)));
 });

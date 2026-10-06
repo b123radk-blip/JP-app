@@ -54,10 +54,10 @@ export const EFFECTS = {
   // Per-card performance budget. Every piece declares its own cost (src/effects/catalog.js); `npm test` fails a recipe over budget,
   // the preview page and e2e also count what was really built. Draw calls: glow strokes cost 6 each, heat strokes 3.
   budget: { particles: 2000, drawCalls: 160, pointLights: 3 },
-  emblem: { delay: 0.35, pop: 0.45, size: 0.09, at: [0.21, 0.07] },   // after the last stroke; size and default place in metres (glyph space)
+  emblem: { delay: 0.35, pop: 0.45, size: 0.135, at: [0.25, 0.08] },   // after the last stroke; size and default place in metres (glyph space)
   idleRamp: 1.5,                      // idle motions fade in over this many seconds after the last stroke
   // Recipe similarity (scripts/check-recipes.mjs): 0 = nothing shared, 1 = identical. Slot weights below.
-  similarity: { warn: 0.72, fail: 0.9, weights: { material: 2, reveal: 1, particles: 2, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5 } },
+  similarity: { warn: 0.72, fail: 0.9, weights: { material: 2, reveal: 1, particles: 2, scene: 2.5, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5 } },
 };
 
 // Glyph materials of the "glow" family: a recipe names one ("wood", or { "type": "glow", "preset": "wood" }) and may override fields.
@@ -84,6 +84,9 @@ export const SKIES = {
   storm:  { top: 0x0d1016, horizon: 0x3a4250, rim: 0xb8d0ff, fill: [0xc8d4e8, 0x20242c], fillK: 0.8, lightning: { every: 3.4, first: 1.2 } },
   forest: { top: 0x061a10, horizon: 0x2c5428, rim: 0xfff0b0, fill: [0xe8ffd8, 0x203a20], fillK: 0.9, shafts: 5, band: [-0.1, 0.45] },
   deep:   { top: 0x02142a, horizon: 0x0a4a7a, rim: 0x7fd0ff, fill: [0xbfe8ff, 0x0a2030], fillK: 0.9, shafts: 4 },
+  lake:   { top: 0x02070c, horizon: 0x0b2532, rim: 0x7fd8ff, fill: [0xcfefff, 0x0a2030], fillK: 0.9 },
+  morning: { top: 0x1c2c58, horizon: 0xd99a68, rim: 0xffe0b0, fill: [0xfff0dd, 0x405048], fillK: 1.0, band: [-0.15, 0.5] },
+  golden: { top: 0x261a44, horizon: 0xd88a40, rim: 0xffd090, fill: [0xffe8c8, 0x403020], fillK: 0.95, band: [-0.15, 0.45] },
 };
 
 // Components keep one look across kanji: a recipe that lists a component under "parts" gets this look unless it overrides it.

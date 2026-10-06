@@ -42,13 +42,16 @@ real-time loop moves things between the seek and the screenshot.
    `npm run voice:list`, `npm run build:font` if new characters, `npm test`, then look at it with `?preview=1&card=xxxx`.
 
 ## Write a recipe
-`"effect": { "material", "reveal", "particles": [ ≤ 2 ], "backdrop", "motion", "emblem", "parts", "options" }`. Each slot is
+`"effect": { "material", "reveal", "particles": [ ≤ 2 ], "scene": [ ≤ 2 ], "backdrop", "motion", "emblem", "parts", "options" }`. Each slot is
 `"type"`, `"type:variant"` or `{ "type": ..., options }`; colours may be `"#rrggbb"`. Omitted: `glow` (cyan), `draw`, no
 particles, `plain`, `none`, no emblem. A card with no `effect` gets the default (cyan glow that sways). `parts` styles
 KanjiVG components: `"parts": { "木": {} }` gives every 木 its shared look (`COMPONENT_LOOKS` in config: 日 gold, 月 silver,
 木 wood, 亻/人 skin); `{ "material": ..., "motion": ... }` overrides it (repeated parts, like the two 木 of 林, are staggered).
 `options`: `start` (first stroke time), `seed`. Example (休):
 `{ "material": "wood", "particles": [{ "type": "leaves", "count": 0.5 }], "backdrop": "sky:night", "emblem": { "type": "zzz", "at": [-0.2, 0.1] }, "parts": { "亻": { "motion": { "type": "lean", "toward": "right" } }, "木": {} } }`
+**Clarity first:** a card reads instantly when something on screen *is* the meaning (a scene prop or emblem: the sun,
+the fire, the mountains, the river, the lanterns). Material + sky alone is too weak. Keep the kanji contrasting with its
+backdrop (no blue water on a blue sky). Check every new card on the preview sheet.
 The content check validates recipes (unknown pieces / options / components are errors) and their cost; the similarity check
 fails a deck pair at >= 0.9 and lists pairs >= 0.72. Pieces, options (defaults) and costs (draw calls dc, particle slots p,
 point lights): `src/effects/catalog.js`. Budget per card (config `EFFECTS.budget`): 160 dc, 2000 p, 3 lights.
@@ -58,13 +61,14 @@ point lights): `src/effects/catalog.js`. Budget per card (config `EFFECTS.budget
 | material | `glow` (`preset`, plus `body emissive glow emissiveK glowK breath`); presets as names: `cyan gold silver jade skin water ice wood stone` (config `MATERIALS`); `heat` (charcoal lit by the reveal front) | glow 6 dc / stroke, heat 3 |
 | reveal | `draw` (`tip`: `drops dust sparks`; `speed gap rate`), `ignite` (flame front + sparks) | tip particles 60-170 p |
 | particles | `flames embers` (from drawn strokes), `flow` (along strokes), `bubbles mist motes` (`dir up/down/still`, `color`), `rain leaves` (from above); option `count` scales | max 36-900 p each, +1 dc per pool |
-| backdrop | `plain` (`rim`), `halo` (`color size flicker`; grows with the reveal), `sunrise` (first stroke at 1.6 s), `sky` (`preset`: `day dusk night twilight storm forest deep`, config `SKIES`) | 0 / 1 / 14 / 1-6 dc, 2 lights |
+| scene | `mountains` (peaks behind the stroke tops, snow caps), `river` (valley panel, fills then flows), `ripples` (a ring where each stroke lands), `tree` (`on`: a component, e.g. `tree:木`; leafy crown behind the strokes), `lanterns` (`n`; one lights per stroke when n = stroke count), `dial` (clock face + sun arc); colour options per prop | 1-7 dc (lanterns 5 n, tree 1 per instance) |
+| backdrop | `plain` (`rim`), `halo` (`color size flicker`; grows with the reveal), `sunrise` (first stroke at 1.6 s), `sky` (`preset`: `day dusk night twilight storm forest deep lake morning golden`, config `SKIES`; `moon`, `stars` override) | 0 / 1 / 14 / 1-6 dc, 2 lights |
 | motion | `none sway` (`amp speed bob axis phase`; axis `z` rocks from the base) `float pulse drift` (`dir up down left right toward away`, `dist dur`) `lean` (`toward angle`) `tilt count` (`n every amp rest`) | 0 |
 | emblem | `arrow` (`dir`) `question zzz clock dots` (`n`); all take `color at` | 2-4 dc (dots n) |
 
 ## Add a piece
 Implementation in `src/effects/pieces/`, registered in `catalog.js` (options with defaults, `cost`, `desc`) and wired in
-`compose.js` (materials, backdrops) or the piece's own table (`MOTIONS`, `SHAPES`, `KINDS` + `EMIT`). Read the reveal state
+`compose.js` (materials, backdrops, scene props) or the piece's own table (`MOTIONS`, `SHAPES`, `KINDS` + `EMIT`). Read the reveal state
 from `ctx.rv` (progress, tips, ring times), the light level from `ctx.light`, idle time from `ctx.idle`; draw randomness only
 from `ctx.rnd` (seeded, reset by `reset()`) so `seek(t)` is deterministic. Keep the catalog cost equal to what is built
 (`npm run e2e` compares them). A truly one-off effect can still be bespoke: a module in `src/effects/index.js` + `ids.js`.

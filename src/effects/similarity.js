@@ -10,9 +10,9 @@ function specSim(slot, a, b) {
   if (!a || !b || a.type !== b.type) return 0;
   return variantOf(slot, a) === variantOf(slot, b) ? 1 : 0.4;
 }
-function layersSim(a, b) {
+function layersSim(a, b, slot = 'particles') {
   if (!a.length && !b.length) return 1;
-  const best = (x, ys) => Math.max(0, ...ys.map((y) => specSim('particles', x, y)));
+  const best = (x, ys) => Math.max(0, ...ys.map((y) => specSim(slot, x, y)));
   return (a.reduce((s, x) => s + best(x, b), 0) + b.reduce((s, y) => s + best(y, a), 0)) / (a.length + b.length);
 }
 function partsSim(a, b) {
@@ -28,6 +28,7 @@ export function recipeSimilarity(a, b, weights = EFFECTS.similarity.weights) {
     material: specSim('material', a.material, b.material),
     reveal: a.reveal.type === b.reveal.type ? (a.reveal.tip === b.reveal.tip ? 1 : 0.5) : 0,
     particles: layersSim(a.particles, b.particles),
+    scene: layersSim(a.scene ?? [], b.scene ?? [], 'scene'),
     backdrop: specSim('backdrop', a.backdrop, b.backdrop),
     motion: specSim('motion', a.motion, b.motion),
     emblem: specSim('emblem', a.emblem, b.emblem),

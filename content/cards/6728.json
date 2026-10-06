@@ -9,6 +9,7 @@
     "material": "wood",
     "reveal": "draw",
     "particles": ["leaves"],
+    "scene": ["tree"],
     "backdrop": "sky:day",
     "motion": {"type": "sway", "axis": "z", "amp": 0.06, "speed": 0.9}
   },

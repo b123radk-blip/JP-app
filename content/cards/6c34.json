@@ -5,7 +5,14 @@
   "primaryReading": "みず",
   "readings": { "kun": ["みず"], "on": ["スイ"] },
   "mnemonic": "One stream runs down the middle and splashes out to both sides.",
-  "effect": {"material": "water", "reveal": "draw:drops", "particles": ["bubbles"], "backdrop": "sky:deep", "motion": "float"},
+  "effect": {
+    "material": "water",
+    "reveal": "draw:drops",
+    "particles": [{"type": "bubbles", "count": 0.5}],
+    "scene": ["ripples"],
+    "backdrop": "sky:lake",
+    "motion": "float"
+  },
   "sentences": [
     {
       "segments": [ { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "飲", "reading": "の" }, { "text": "み" }, { "text": "ます" }, { "text": "。" } ],

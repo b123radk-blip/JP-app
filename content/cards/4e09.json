@@ -8,9 +8,9 @@
   "effect": {
     "material": "gold",
     "reveal": "draw:sparks",
-    "backdrop": {"type": "halo", "color": "#ffc860", "flicker": false},
-    "motion": "count:3",
-    "emblem": "dots:3"
+    "scene": ["lanterns:3"],
+    "backdrop": {"type": "sky", "preset": "night", "moon": false},
+    "motion": "count:3"
   },
   "sentences": [
     {

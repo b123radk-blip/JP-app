@@ -35,7 +35,7 @@ for (const id of cardIds) {
   if (strokes && !Array.isArray(strokes.components)) bad(`data/kanji-${id}.json`, 'no component list: rebuild it with node scripts/build-kanji.mjs ' + id);
   for (const p of validateRecipe(c.effect, { bespokeIds: BESPOKE_IDS, components: strokes?.components ?? null })) bad(path, `effect: ${p}`);
   if (strokes?.strokes && typeof c.effect !== 'string' && !validateRecipe(c.effect, { bespokeIds: BESPOKE_IDS }).length) {
-    const cost = estimateCost(normalizeRecipe(c.effect, COMPONENT_LOOKS), strokes.strokes.length);
+    const cost = estimateCost(normalizeRecipe(c.effect, COMPONENT_LOOKS), strokes.strokes.length, strokes.components);
     for (const k of Object.keys(EFFECTS.budget)) if (cost[k] > EFFECTS.budget[k]) bad(path, `effect over budget: ${k} ${cost[k]} > ${EFFECTS.budget[k]} (src/config.js EFFECTS.budget)`);
   }
   if (!Array.isArray(c.sentences) || !c.sentences.length) bad(path, 'needs at least one sentence');

@@ -6,12 +6,12 @@
   "readings": { "kun": ["とき"], "on": ["ジ"] },
   "mnemonic": "The sun (日) crosses the sky over a temple whose bell rings the hours.",
   "effect": {
-    "material": "stone",
+    "material": "silver",
     "reveal": "draw",
     "particles": [{"type": "motes", "dir": "still", "color": "#ffd9a0", "count": 0.6}],
+    "scene": ["dial"],
     "backdrop": "sky:dusk",
     "motion": "none",
-    "emblem": "clock",
     "parts": {"日": {}}
   },
   "sentences": [

@@ -1,9 +1,9 @@
 // Builds a card's animation from a normalized recipe (catalog.js): one piece per slot, plus per-component styling ("parts").
 // Scene graph: group (effect space, centred on the kanji)
-//   ├ backdrop (sky, lights ...), emblem, world-space particle pools
+//   ├ backdrop (sky, lights ...), world-space scene props (mountains, river ...), emblem, world-space particle pools
 //   └ glyphPivot (whole-kanji motion) └ glyphSpace └ one pivot group per part (part motion) └ that part's material meshes
 //                                                └ glyph-space particle pools (flames ride along with the kanji)
-// Every frame: reveal -> backdrop -> materials -> particle layers -> tip particles -> pools -> motions -> emblem.
+// Every frame: reveal -> backdrop -> materials -> scene props -> particle layers -> tip particles -> pools -> motions -> emblem.
 // Deterministic: all randomness is one seeded generator, reset by reset(), so seek(t) always gives the same picture.
 import * as THREE from 'three';
 import { EFFECTS } from '../config.js';
@@ -21,10 +21,13 @@ import * as sunrise from './pieces/backdrop-sunrise.js';
 import * as sky from './pieces/backdrop-sky.js';
 import * as motion from './pieces/motion.js';
 import * as emblems from './pieces/emblems.js';
+import * as land from './pieces/props-land.js';
+import * as objects from './pieces/props-objects.js';
 
 const MATERIALS = { glow: glow.create, heat: heat.create };
 const BACKDROPS = { plain, halo, sunrise: sunrise.create, sky: sky.create };
 const DEPTH = { glow: 2.0, heat: 1.6 };
+const PROPS = { ...land, ...objects };
 
 // Which strokes each styled part owns. A component listed in recipe.parts claims its strokes (every instance at the shallowest
 // depth it occurs, so both 木 of 林); strokes nobody claims form the "rest", drawn with the recipe's own material.
@@ -85,13 +88,21 @@ export function composeEffect({ kanji, glyphHeight, recipe: r }) {
   const backdrop = BACKDROPS[r.backdrop.type](ctx, r.backdrop);
   group.add(backdrop.group);
 
-  const mats = [], motions = [];
-  for (const part of assignParts(r, kanji.components, strokes.length)) {
+  const mats = [], motions = [], built = [];
+  const parts = { ...r.parts };                                    // a prop placed on a component makes that component a part
+  for (const p of r.scene) if (p.on && !parts[p.on]) parts[p.on] = { material: null, motion: null };
+  for (const part of assignParts({ ...r, parts }, kanji.components, strokes.length)) {
     const spec = part.material ?? r.material;
     const mat = MATERIALS[spec.type](ctx, spec, part.strokes);
-    const { outer } = pivotGroup(mat.group, part.strokes.flatMap((i) => strokes[i].pts), pivotOf(part.motion));
-    glyphSpace.add(outer); mats.push(mat);
+    const { outer, inner } = pivotGroup(mat.group, part.strokes.flatMap((i) => strokes[i].pts), pivotOf(part.motion));
+    glyphSpace.add(outer); mats.push(mat); built.push({ ...part, inner });
     if (part.motion) motions.push(motion.create(ctx, part.motion, outer, part.index));
+  }
+  const props = [];
+  for (const p of r.scene) {
+    if (PIECES.scene[p.type].space !== 'glyph') { const prop = PROPS[p.type](ctx, p); group.add(prop.group); props.push(prop); continue; }
+    const anchors = p.on ? built.filter((b) => b.element === p.on) : [{ strokes: strokes.map((s) => s.index), inner: glyphSpace, index: 0 }];
+    for (const a of anchors) { const prop = PROPS[p.type](ctx, p, a); a.inner.add(prop.group); props.push(prop); }
   }
   motions.push(motion.create(ctx, r.motion, glyphPivot));
   const layers = r.particles.map((p) => createLayer(ctx, p));
@@ -103,6 +114,7 @@ export function composeEffect({ kanji, glyphHeight, recipe: r }) {
     rev.step(t); ctx.idle = Math.max(0, t - rev.end);
     backdrop.step(t);
     for (const m of mats) m.step(t);
+    for (const p of props) p.step(t);
     for (const l of layers) l.step(t, dt);
     rev.emit(t, dt);
     for (const p of pools) p.update(t, dt);

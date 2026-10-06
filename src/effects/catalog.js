@@ -2,8 +2,9 @@
 // no three.js, so Node scripts (content check, similarity check, audit) can import it. Implementations: src/effects/pieces/.
 import { MATERIALS, SKIES } from '../config.js';
 
-export const SLOTS = ['material', 'reveal', 'particles', 'backdrop', 'motion', 'emblem'];
-export const MAX_PARTICLE_LAYERS = 2;
+export const SLOTS = ['material', 'reveal', 'particles', 'scene', 'backdrop', 'motion', 'emblem'];
+export const LIST_SLOTS = ['particles', 'scene'];             // these take a list
+export const MAX_PARTICLE_LAYERS = 2, MAX_SCENE_PROPS = 2;
 
 // Particle kinds. pool = which shared instanced mesh draws them (blend + space: 'glyph' moves with the kanji, 'world' does not).
 // max = most alive at once at count 1 (sets the budget). Behaviour: pieces/particle-kinds.js.
@@ -24,6 +25,11 @@ export const PARTICLE_KINDS = {
 };
 
 const cost = (drawCalls = 0, particles = 0, pointLights = 0) => ({ drawCalls, particles, pointLights });
+// how many instances of a component a kanji has at the shallowest depth it occurs (see compose.js assignParts)
+export function instancesOf(components = [], el) {
+  const all = components.filter((c) => c.element === el);
+  return all.length ? all.filter((c) => c.depth === Math.min(...all.map((x) => x.depth))).length : 0;
+}
 const glowMaterial = { impl: 'glow', variant: 'preset', opts: { preset: 'cyan', body: null, emissive: null, glow: null, emissiveK: null, glowK: null, breath: null }, cost: (o, n) => cost(6 * n), desc: 'solid glowing glyph with a soft halo (presets in config MATERIALS)' };
 
 export const PIECES = {
@@ -42,10 +48,19 @@ export const PIECES = {
     opts: { count: 1, color: null, ...(name === 'motes' ? { dir: 'up' } : {}) },
     cost: (o) => cost(0, Math.round(k.max * (o.count ?? 1))), desc: k.desc,
   }])),
+  // scene props: the thing itself, shown with the kanji (pieces/props-*.js). space 'glyph' = moves with the kanji or a part.
+  scene: {
+    mountains: { impl: 'mountains', space: 'world', opts: { color: 0x1a2238, far: 0x34406a, snow: true }, cost: () => cost(3), desc: 'a range whose peaks sit behind the tops of the strokes; rises while drawing, snow caps after' },
+    river: { impl: 'river', space: 'world', opts: { water: 0x1f6fc0, light: 0xd6f2ff, bank: 0x1f3a24 }, cost: () => cost(1), desc: 'a winding river on a valley panel; fills from the far end while drawing, then flows towards you' },
+    ripples: { impl: 'ripples', space: 'world', opts: { water: 0x0b3552, light: 0xc8eeff }, cost: () => cost(1), desc: 'a water surface: a ring where each stroke lands, then rings keep coming' },
+    tree: { impl: 'tree', space: 'glyph', variant: 'on', opts: { on: null, color: 0x4f9a3a }, cost: (o, n, info) => cost(o.on ? Math.max(1, instancesOf(info.components, o.on)) : 1), desc: 'a leafy crown bursting out behind the strokes; on: a component (each instance gets one and sways with it)' },
+    lanterns: { impl: 'lanterns', space: 'world', variant: 'n', opts: { n: 3, color: 0xff6a3a }, cost: (o) => cost(5 * (o.n ?? 3)), desc: 'n paper lanterns lighting one by one (one per stroke when n = the stroke count)' },
+    dial: { impl: 'dial', space: 'world', opts: { color: 0xfff0d0 }, cost: () => cost(7), desc: 'a big clock face behind the kanji, hands sweeping, a small sun arcing over it' },
+  },
   backdrop: {
     plain: { impl: 'plain', opts: { rim: 0x58d8ff }, cost: () => cost(0, 0, 2), desc: 'nothing behind the kanji; key + rim light' },
     sunrise: { impl: 'sunrise', opts: { dawn: 2.0 }, lead: 1.6, cost: () => cost(14, 0, 2), desc: 'dawn sky, a sun rising from behind a hill, slow rays' },
-    sky: { impl: 'sky', variant: 'preset', opts: { preset: 'night' }, cost: (o) => { const s = SKIES[o.preset] || {}; return cost(1 + (s.stars ? 1 : 0) + (s.moon ? 2 : 0) + (s.shafts || 0), 0, 2); }, desc: 'gradient sky sphere; presets in config SKIES (moon, stars, lightning, light shafts)' },
+    sky: { impl: 'sky', variant: 'preset', opts: { preset: 'night', moon: null, stars: null }, cost: (o) => { const s = SKIES[o.preset] || {}, moon = o.moon ?? s.moon, stars = o.stars ?? s.stars; return cost(1 + (stars ? 1 : 0) + (moon ? 2 : 0) + (s.shafts || 0), 0, 2); }, desc: 'gradient sky sphere; presets in config SKIES (moon, stars, lightning, light shafts); moon / stars override the preset' },
     halo: { impl: 'halo', opts: { color: 0xff6a1a, size: 1.5, flicker: true }, lead: 0.5, cost: () => cost(1, 0, 2), desc: 'a glow behind the kanji that grows as it is revealed (firelight)' },
   },
   motion: {
@@ -86,7 +101,7 @@ export function normalizeRecipe(effect, looks = {}) {
   if (typeof effect === 'string') return { bespoke: effect };
   const r = effect ?? DEFAULT_RECIPE, out = { options: { ...(r.options || {}) }, parts: {} };
   for (const slot of SLOTS) {
-    if (slot === 'particles') { out.particles = (r.particles || []).map((p) => withDefaults('particles', parseSpec('particles', p))); continue; }
+    if (LIST_SLOTS.includes(slot)) { out[slot] = (r[slot] || []).map((p) => withDefaults(slot, parseSpec(slot, p))); continue; }
     out[slot] = withDefaults(slot, parseSpec(slot, r[slot] === undefined ? SLOT_DEFAULTS[slot] : r[slot]));
   }
   for (const [el, p] of Object.entries(r.parts || {})) {
@@ -120,10 +135,13 @@ export function validateRecipe(effect, { bespokeIds = [], components = null } = 
     if (spec.preset && slot === 'backdrop' && !SKIES[spec.preset]) out.push(`${where}: unknown sky preset "${spec.preset}"`);
     if (spec.tip && !PARTICLE_KINDS[spec.tip]?.tip) out.push(`${where}: unknown tip particles "${spec.tip}"`);
   };
-  for (const slot of SLOTS) if (slot !== 'particles' && effect[slot] !== undefined) check(slot, effect[slot]);
-  if (effect.particles !== undefined && !Array.isArray(effect.particles)) out.push('particles must be a list');
-  else if ((effect.particles || []).length > MAX_PARTICLE_LAYERS) out.push(`at most ${MAX_PARTICLE_LAYERS} particle layers`);
-  else (effect.particles || []).forEach((p, i) => check('particles', p, `particles[${i}]`));
+  for (const slot of SLOTS) if (!LIST_SLOTS.includes(slot) && effect[slot] !== undefined) check(slot, effect[slot]);
+  for (const [slot, max, what] of [['particles', MAX_PARTICLE_LAYERS, 'particle layers'], ['scene', MAX_SCENE_PROPS, 'scene props']]) {
+    if (effect[slot] !== undefined && !Array.isArray(effect[slot])) out.push(`${slot} must be a list`);
+    else if ((effect[slot] || []).length > max) out.push(`at most ${max} ${what}`);
+    else (effect[slot] || []).forEach((p, i) => check(slot, p, `${slot}[${i}]`));
+  }
+  (effect.scene || []).forEach((p, i) => { const sp = parseSpec('scene', p); if (sp?.on && components && !components.some((c) => c.element === sp.on)) out.push(`scene[${i}]: "${sp.on}" is not a component of this kanji`); });
   for (const [el, p] of Object.entries(effect.parts || {})) {
     if (components && !components.some((c) => c.element === el)) out.push(`parts: "${el}" is not a component of this kanji (KanjiVG has: ${[...new Set(components.map((c) => c.element))].join(' ') || 'none'})`);
     for (const k of Object.keys(p || {})) if (!['material', 'motion'].includes(k)) out.push(`parts.${el}: only material and motion can be set`);
@@ -134,7 +152,8 @@ export function validateRecipe(effect, { bespokeIds = [], components = null } = 
 }
 
 // Static cost estimate of a normalized recipe for a kanji with n strokes (the content check compares it with EFFECTS.budget).
-export function estimateCost(r, n) {
+// components (KanjiVG, data/kanji-*.json) are needed for props placed on components.
+export function estimateCost(r, n, components = []) {
   const sum = cost(), add = (c) => { sum.drawCalls += c.drawCalls; sum.particles += c.particles; sum.pointLights += c.pointLights; };
   const pools = new Set();
   add(PIECES.material[r.material.type].cost(r.material, n));
@@ -142,6 +161,7 @@ export function estimateCost(r, n) {
   if (r.reveal.type === 'ignite') pools.add('add-glyph');
   if (r.reveal.tip) pools.add(PARTICLE_KINDS[r.reveal.tip].pool);
   for (const p of r.particles) { add(PIECES.particles[p.type].cost(p)); pools.add(PARTICLE_KINDS[p.type].pool); }
+  for (const p of r.scene) add(PIECES.scene[p.type].cost(p, n, { components }));
   add(PIECES.backdrop[r.backdrop.type].cost(r.backdrop));
   if (r.emblem) add(PIECES.emblem[r.emblem.type].cost(r.emblem));
   sum.drawCalls += pools.size;
@@ -153,5 +173,5 @@ export function describeRecipe(r) {
   if (r.bespoke) return `bespoke: ${r.bespoke}`;
   const v = (slot, s) => { if (!s) return '—'; const k = PIECES[slot]?.[s.type]?.variant; return k && s[k] !== null && s[k] !== undefined ? `${s.type}:${s[k]}` : s.type; };
   const parts = Object.entries(r.parts).map(([el, p]) => `${el}=${[p.material && v('material', p.material), p.motion && v('motion', p.motion)].filter(Boolean).join('/')}`);
-  return [v('material', r.material), v('reveal', r.reveal), r.particles.map((p) => v('particles', p)).join('+') || '—', v('backdrop', r.backdrop), v('motion', r.motion), v('emblem', r.emblem)].join(' · ') + (parts.length ? ` · parts ${parts.join(' ')}` : '');
+  return [v('material', r.material), v('reveal', r.reveal), r.particles.map((p) => v('particles', p)).join('+') || '—', ...(r.scene.length ? [r.scene.map((p) => v('scene', p)).join('+')] : []), v('backdrop', r.backdrop), v('motion', r.motion), v('emblem', r.emblem)].join(' · ') + (parts.length ? ` · parts ${parts.join(' ')}` : '');
 }

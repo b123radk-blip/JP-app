@@ -33,4 +33,4 @@ Stroke data: [KanjiVG](https://kanjivg.org) © Ulrich Apel, CC BY-SA 3.0 (derive
 Font: Noto Sans JP, SIL Open Font License 1.1 (`assets/fonts/OFL.txt`) · [three.js](https://threejs.org) (MIT).
 Voice clips, once generated, credit "VOICEVOX: <character>" in the app footer.
 
-Developers (and Claude sessions): see [CLAUDE.md](CLAUDE.md) and [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
+Developers (and Claude sessions): see [CLAUDE.md](CLAUDE.md), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), the effects audit [docs/EFFECTS-PLAN.md](docs/EFFECTS-PLAN.md) and the plan to 2000-3000 cards [docs/ROADMAP.md](docs/ROADMAP.md).

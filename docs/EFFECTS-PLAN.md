@@ -7,7 +7,8 @@ needs. The table is **machine-read**: `node scripts/check-recipes.mjs --plan --w
 **Scope.** The project's N5 set (`N5_KANJI` in `scripts/build-font.py`, 110 kanji) plus 明 and 林 from the pilot (often
 listed as N4): 112 kanji. The 15 pilot cards (marked *pilot*) are built and in the deck; every other row is a draft.
 
-**Notation.** One cell per slot, `type` or `type:variant` (`sky:storm`, `arrow:up`, `count:3`). Material presets
+**Notation.** One cell per slot, `type` or `type:variant` (`sky:storm`, `arrow:up`, `count:3`). Scene props ride in the
+backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Material presets
 (`wood`, `gold` ...) are materials of the glow family. `—` = none. Parts lists components that get their shared look
 (`config.js COMPONENT_LOOKS`), `木=wood` overrides it. A name that does not exist yet (`stamp`, `road`, `eye` ...) is a
 *missing piece*; it shows up in the generated list with the kanji that need it.
@@ -24,31 +25,31 @@ listed as N4): 112 kanji. The 15 pilot cards (marked *pilot*) are built and in t
 | 日 | nature | cyan | draw | — | sunrise | sway | — | — | *pilot* The sun climbs over the hill: a bright window in the sky that starts each day. |
 | 月 | nature | silver | draw | motes:still | sky:night | float | crescent | — | A crescent moon hanging in the dark; the two short lines are its craters. |
 | 火 | nature | heat | ignite | flames, embers | halo | none | — | — | *pilot* A campfire: flames leap up the middle and two sparks jump out at the sides. |
-| 水 | nature | water | draw:drops | bubbles | sky:deep | float | — | — | *pilot* One stream runs down the middle and splashes out to both sides. |
-| 木 | nature | wood | draw | leaves | sky:day | sway | — | — | *pilot* A tree: a trunk, one branch across, and roots spreading below. |
+| 水 | nature | water | draw:drops | bubbles | sky:lake + ripples | float | — | — | *pilot* One stream runs down the middle and splashes out to both sides. |
+| 木 | nature | wood | draw | leaves | sky:day + tree | sway | — | — | *pilot* A tree: a trunk, one branch across, and roots spreading below. |
 | 金 | nature | gold | draw:sparks | coins | halo | pulse | — | — | A roof over nuggets of gold glinting in the ground. |
 | 土 | nature | clay | grow | dust | ground | none | — | — | A sprout pushing up out of the flat ground: soil. |
-| 山 | nature | stone | draw:dust | mist | sky:dusk | drift:up | — | — | *pilot* Three peaks side by side, the middle one the tallest. |
-| 川 | nature | water | draw:drops | flow | sky:day | none | — | — | *pilot* Three streams of water running down side by side. |
+| 山 | nature | stone | draw:dust | mist | sky:dusk + mountains | none | — | — | *pilot* Three peaks side by side, the middle one the tallest. |
+| 川 | nature | water | draw:drops | flow | sky:morning + river | none | — | — | *pilot* Three streams of water running down side by side. |
 | 田 | nature | jade | draw | — | field | none | — | — | A rice field seen from above, split into four paddies. |
 | 天 | nature | ice | draw | motes:up | sky:day | drift:up | — | 大 | A big person (大) with the sky (一) resting on their head. |
 | 気 | nature | cloud | draw | steam | sky:day | float | — | — | Steam curling up from a pot of rice: air, and your mood. |
 | 雨 | nature | ice | draw | rain | sky:storm | none | — | — | *pilot* A cloud hangs from the sky and four raindrops fall beneath it. |
 | 花 | nature | rose | grow | petals | sky:day | sway | — | 艹 | Grass (艹) on top, and below someone changing (化) into a flower. |
-| 森 | nature | wood | grow | motes:still, mist | sky:night | none | — | 木 | Three trees (木) crowd together: a deep forest where fireflies glow at night. |
-| 林 | nature | wood | draw | leaves, mist | sky:forest | none | — | 木 | *pilot* Two trees (木 木) side by side make a small wood. |
+| 森 | nature | wood | grow | motes:still, mist | sky:night + tree:木 | none | — | 木 | Three trees (木) crowd together: a deep forest where fireflies glow at night. |
+| 林 | nature | wood | draw | leaves | sky:golden + tree:木 | none | — | 木 | *pilot* Two trees (木 木) side by side make a small wood. |
 | 犬 | nature | fur | draw | — | sky:day | wag | — | 大 | A big (大) dog with one floppy ear (丶). |
-| 魚 | nature | silver | draw | bubbles | sky:deep | swim | — | 灬 | A fish: head on top, scaly body (田) and a fanned tail (灬) below. |
+| 魚 | nature | silver | draw | bubbles | sky:deep + ripples | swim | — | 灬 | A fish: head on top, scaly body (田) and a fanned tail (灬) below. |
 
 ### Time
 
 | Kanji | Group | Material | Reveal | Particles | Backdrop | Motion | Emblem | Parts | Mnemonic idea |
 |---|---|---|---|---|---|---|---|---|---|
 | 年 | time | gold | draw | leaves | seasons | none | calendar | — | A farmer carries the rice harvest home once every year. |
-| 時 | time | stone | draw | motes:still | sky:dusk | none | clock | 日 | *pilot* The sun (日) crosses the sky over a temple whose bell rings the hours. |
+| 時 | time | silver | draw | motes:still | sky:dusk + dial | none | — | 日 | *pilot* The sun (日) crosses the sky over a temple whose bell rings the hours. |
 | 分 | time | metal | split | sparks | plain | split | — | 刀 | A knife (刀) cuts something in two (八): divide; also minutes. |
 | 半 | time | jade | split | — | plain | split | — | — | A thing cut straight down the middle into halves. |
-| 午 | time | gold | draw | motes:still | sky:noon | none | sundial | — | The post of a sundial at high noon. |
+| 午 | time | gold | draw | motes:still | sky:noon + dial | none | sundial | — | The post of a sundial at high noon. |
 | 前 | time | cyan | draw | — | road | drift:toward | arrow:toward | 月 | A boat (月) pushed forward with oars (刂): in front, before. |
 | 後 | time | ink | draw | footprints | road | drift:away | arrow:away | 彳 | Slow steps (彳 夂) trailing behind: behind, after. |
 | 今 | time | cyan | stamp | — | plain | pulse | clock | 人 | A roof (人) over one single tick of the clock: now. |
@@ -79,7 +80,7 @@ listed as N4): 112 kanji. The 15 pilot cards (marked *pilot*) are built and in t
 |---|---|---|---|---|---|---|---|---|---|
 | 一 | numbers | jade | draw | motes:still | sky:dawn | count:1 | dots:1 | — | One finger laid flat: a single line on the horizon. |
 | 二 | numbers | wood | draw | — | sky:day | count:2 | chopsticks | — | Two chopsticks lying one above the other. |
-| 三 | numbers | gold | draw:sparks | — | halo | count:3 | dots:3 | — | *pilot* Three lines, like three fingers: count them, one, two, three. |
+| 三 | numbers | gold | draw:sparks | — | sky:night + lanterns:3 | count:3 | — | — | *pilot* Three lines, like three fingers: count them, one, two, three. |
 | 四 | numbers | paper | draw | — | room | count:4 | window | — | A window (囗) with its curtains drawn: four panes. |
 | 五 | numbers | metal | stamp | sparks | plain | count:5 | hand | — | One hand, five fingers, pressed down like a stamp. |
 | 六 | numbers | clay | draw | — | sky:dusk | count:6 | dice | — | A lamp with a lid on top and two legs: roll a six. |
@@ -135,10 +136,10 @@ listed as N4): 112 kanji. The 15 pilot cards (marked *pilot*) are built and in t
 |---|---|---|---|---|---|---|---|---|---|
 | 行 | actions | jade | draw | footprints | road | drift:right | arrow:right | 彳 | A crossroads seen from above: go. |
 | 来 | actions | gold | draw | leaves | road | drift:toward | arrow:toward | — | A rice plant (米) walking towards you: come. |
-| 出 | actions | stone | draw | — | ground | drift:up | arrow:up | 山 | A sprout climbing out of a pot: go out. |
+| 出 | actions | stone | draw | — | ground + mountains | drift:up | arrow:up | 山 | A sprout climbing out of a pot: go out. |
 | 入 | actions | metal | draw | — | gate | drift:away | arrow:away | — | A tent flap pulled aside: go in. |
 | 食 | actions | rose | draw | steam | kitchen | none | — | — | A lid over a bowl of steaming food: eat. |
-| 飲 | actions | water | pour | bubbles | kitchen | none | — | 食 欠 | Someone opening wide (欠) over a drink: drink. |
+| 飲 | actions | water | pour | bubbles | kitchen + ripples | none | — | 食 欠 | Someone opening wide (欠) over a drink: drink. |
 | 見 | actions | cyan | draw | — | plain | none | eye | 目 | An eye (目) on legs (儿): see. |
 | 聞 | actions | silver | draw | notes | gate | none | ear | 門 耳 | An ear (耳) pressed to the gate (門): listen, hear. |
 | 読 | actions | paper | brush | kana | room | none | book | 言 | Words (言) you buy (売) in a shop and take home: read. |
@@ -158,7 +159,7 @@ listed as N4): 112 kanji. The 15 pilot cards (marked *pilot*) are built and in t
 | 思 | abstract | rose | draw | — | plain | pulse | heart | 田 心 | A field (田) on top of a heart (心): think, feel. |
 | 知 | abstract | gold | draw | — | plain | none | lightbulb | 矢 口 | The answer flies from the mouth (口) like an arrow (矢): know. |
 | 語 | abstract | paper | brush | kana | plain | none | speech | 言 吾 | Words (言) of my (吾) people: language. |
-| 本 | abstract | paper | draw | — | plain | none | book | 木 | A tree (木) with a mark at its root: origin; also book. |
+| 本 | abstract | paper | draw | — | plain + tree:木 | none | book | 木 | A tree (木) with a mark at its root: origin; also book. |
 
 ### Things and places
 
@@ -177,25 +178,53 @@ listed as N4): 112 kanji. The 15 pilot cards (marked *pilot*) are built and in t
 ## Too alike
 
 <!-- generated:similar -->
-17 pairs at or above 0.72 (bold: at or above 0.9, which `npm test` would reject in a deck):
+45 pairs at or above 0.72 (bold: at or above 0.9, which `npm test` would reject in a deck):
 
-- 先 ~ 行 0.88 (same: material, reveal, particles, backdrop, motion, emblem)
-- 千 ~ 道 0.88 (same: material, reveal, particles, backdrop, motion, emblem)
-- 大 ~ 人 0.88 (same: material, reveal, particles, backdrop, emblem, parts)
-- 大 ~ 子 0.88 (same: material, reveal, particles, backdrop, emblem, parts)
-- 人 ~ 子 0.88 (same: material, reveal, particles, backdrop, emblem, parts)
-- 半 ~ 八 0.83 (same: material, reveal, particles, motion, emblem, parts)
-- 言 ~ 語 0.79 (same: material, particles, backdrop, motion, emblem)
-- 大 ~ 長 0.78 (same: reveal, particles, backdrop, emblem, parts)
-- 小 ~ 少 0.78 (same: material, reveal, backdrop, motion, emblem)
-- 長 ~ 人 0.78 (same: reveal, particles, backdrop, emblem, parts)
-- 長 ~ 子 0.78 (same: reveal, particles, backdrop, emblem, parts)
-- 九 ~ 書 0.75 (same: material, reveal, particles, backdrop, emblem)
-- 目 ~ 見 0.75 (same: material, reveal, particles, backdrop, emblem)
-- 食 ~ 肉 0.75 (same: material, particles, motion, emblem, parts)
-- 山 ~ 高 0.73 (same: material, particles, motion, emblem)
-- 田 ~ 父 0.73 (same: reveal, particles, motion, emblem, parts)
-- 森 ~ 林 0.73 (same: material, motion, emblem, parts)
+- 先 ~ 行 0.90 (same: material, reveal, particles, scene, backdrop, motion, emblem)
+- 千 ~ 道 0.90 (same: material, reveal, particles, scene, backdrop, motion, emblem)
+- 大 ~ 人 0.90 (same: material, reveal, particles, scene, backdrop, emblem, parts)
+- 大 ~ 子 0.90 (same: material, reveal, particles, scene, backdrop, emblem, parts)
+- 人 ~ 子 0.90 (same: material, reveal, particles, scene, backdrop, emblem, parts)
+- 半 ~ 八 0.86 (same: material, reveal, particles, scene, motion, emblem, parts)
+- 言 ~ 語 0.83 (same: material, particles, scene, backdrop, motion, emblem)
+- 大 ~ 長 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 小 ~ 少 0.81 (same: material, reveal, scene, backdrop, motion, emblem)
+- 長 ~ 人 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 長 ~ 子 0.81 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 九 ~ 書 0.79 (same: material, reveal, particles, scene, backdrop, emblem)
+- 目 ~ 見 0.79 (same: material, reveal, particles, scene, backdrop, emblem)
+- 食 ~ 肉 0.79 (same: material, particles, scene, motion, emblem, parts)
+- 田 ~ 父 0.78 (same: reveal, particles, scene, motion, emblem, parts)
+- 田 ~ 男 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 田 ~ 国 0.76 (same: material, reveal, particles, scene, motion, emblem)
+- 週 ~ 曜 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 中 ~ 私 0.76 (same: material, reveal, particles, scene, backdrop, motion)
+- 南 ~ 東 0.76 (same: material, reveal, particles, scene, motion, emblem)
+- 万 ~ 買 0.76 (same: material, reveal, particles, scene, motion, emblem)
+- 大 ~ 女 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 大 ~ 手 0.76 (same: material, reveal, particles, scene, backdrop, parts)
+- 長 ~ 女 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 人 ~ 女 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 人 ~ 手 0.76 (same: material, reveal, particles, scene, backdrop, parts)
+- 女 ~ 子 0.76 (same: reveal, particles, scene, backdrop, emblem, parts)
+- 女 ~ 口 0.76 (same: material, reveal, particles, scene, backdrop, parts)
+- 子 ~ 手 0.76 (same: material, reveal, particles, scene, backdrop, parts)
+- 父 ~ 校 0.76 (same: material, reveal, particles, scene, motion, emblem)
+- 母 ~ 思 0.76 (same: material, reveal, particles, scene, motion, emblem)
+- 友 ~ 会 0.76 (same: material, reveal, particles, scene, motion, emblem)
+- 口 ~ 思 0.76 (same: material, reveal, particles, scene, backdrop, motion)
+- 足 ~ 歩 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 話 ~ 言 0.76 (same: reveal, particles, scene, backdrop, motion, emblem)
+- 半 ~ 大 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 半 ~ 長 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 半 ~ 人 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 半 ~ 子 0.74 (same: particles, scene, backdrop, emblem, parts)
+- 父 ~ 会 0.74 (same: particles, scene, backdrop, motion, emblem)
+- 日 ~ 女 0.72 (same: reveal, particles, scene, motion, emblem, parts)
+- 金 ~ 万 0.72 (same: material, particles, scene, backdrop, parts)
+- 半 ~ 友 0.72 (same: material, particles, scene, backdrop, emblem)
+- 母 ~ 口 0.72 (same: material, reveal, particles, scene, motion, parts)
+- 話 ~ 語 0.72 (same: particles, scene, backdrop, motion, emblem)
 <!-- /generated:similar -->
 
 What to do about the groups the check and a read-through flag:
@@ -303,7 +332,12 @@ What to do about the groups the check and a read-through flag:
 - material preset (data only): lacquer — 1: 社
 <!-- /generated:missing -->
 
-Build order suggested by that list (most kanji unlocked per piece, cheapest first):
+Build order suggested by that list (most kanji unlocked per piece, cheapest first). Lesson from the pilot: the cards that
+read instantly have a **scene prop that is the meaning** (sun, fire, rain, mountains, river, tree, lanterns, clock); the
+weak ones only had a material and a sky. So scene props come first wherever a kanji is a thing or a place.
+
+0. **Scene props** (new slot, `pieces/props-*.js`): `road`, `room`, `field`, `gate`, `book`, `bowl` (食 飲 肉), `calendar`,
+   `window`, `crossroads`, `house`, `train`/`car`, `coins`. Several backdrops below are better built as props.
 
 1. **Data only** (no code): sky presets `noon`, `dawn`, `sunset`, `snow`; material presets `paper`, `ink`, `metal`, `rose`,
    `clay`, `cloud`, `chalk`, `pearl`, `fur`, `neon`, `lacquer`.
@@ -339,9 +373,9 @@ KanjiVG component groups (`data/kanji-*.json` → `components`) let a recipe sty
 
 Pieces (see CLAUDE.md for options and costs): materials `glow` (presets cyan, gold, silver, jade, skin, water, ice, wood,
 stone) and `heat`; reveals `draw` (tips drops, dust, sparks) and `ignite`; particles `flames`, `embers`, `bubbles`, `flow`,
-`rain`, `leaves`, `mist`, `motes`; backdrops `plain`, `halo`, `sunrise`, `sky` (day, dusk, night, twilight, storm, forest,
-deep); motions `none`, `sway`, `float`, `pulse`, `drift`, `lean`, `tilt`, `count`; emblems `arrow`, `question`, `zzz`,
-`clock`, `dots`.
+`rain`, `leaves`, `mist`, `motes`; scene props `mountains`, `river`, `ripples`, `tree`, `lanterns`, `dial`; backdrops
+`plain`, `halo`, `sunrise`, `sky` (day, dusk, night, twilight, storm, forest, deep, lake, morning, golden); motions `none`, `sway`, `float`, `pulse`, `drift`, `lean`, `tilt`, `count`; emblems `arrow`, `question`, `zzz`,
+`clock`, `dots`. Round 2 added the scene props and three high-contrast skies, and rebuilt 山 川 水 木 林 三 時 with them.
 
 Why these: they cover the 15 pilot cards (literal nature, compounds with components, abstract words via emblem + motion,
 and the two hardest groups, numbers 三 and time 時), and the generated list above shows they are also the pieces the rest

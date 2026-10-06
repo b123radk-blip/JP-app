@@ -8,8 +8,9 @@
   "effect": {
     "material": "wood",
     "reveal": "draw",
-    "particles": ["leaves", "mist"],
-    "backdrop": "sky:forest",
+    "particles": ["leaves"],
+    "scene": ["tree:木"],
+    "backdrop": "sky:golden",
     "motion": "none",
     "parts": {"木": {"motion": {"type": "sway", "axis": "z", "amp": 0.07, "speed": 0.9}}}
   },

@@ -21,14 +21,14 @@ function pairs(items) {                                    // items: [{ name, re
 }
 const shared = (p) => Object.entries(p.slots).filter(([, v]) => v === 1).map(([k]) => k).join(', ');
 
-// ---- the audit plan: a markdown table | kanji | group | material | reveal | particles | backdrop | motion | emblem | parts | mnemonic |
+// ---- the audit plan: a markdown table | kanji | group | material | reveal | particles | backdrop (+ scene props) | motion | emblem | parts | mnemonic |
 function readPlan(path) {
   const rows = [];
   for (const line of readFileSync(path, 'utf8').split('\n')) {
     const c = line.split('|').slice(1, -1).map((x) => x.trim());
     if (c.length < 10 || [...c[0]].length !== 1 || !/[一-鿿]/.test(c[0])) continue;
     const none = (x) => (!x || x === '—' ? null : x);
-    const effect = { material: none(c[2]) ?? 'glow', reveal: none(c[3]) ?? 'draw', particles: (none(c[4]) ?? '').split(',').map((x) => x.trim()).filter(Boolean), backdrop: none(c[5]) ?? 'plain', motion: none(c[6]) ?? 'none', emblem: none(c[7]), parts: Object.fromEntries((none(c[8]) ?? '').split(/\s+/).filter(Boolean).map((p) => { const [el, m] = p.split('='); return [el, m ? { material: m } : {}]; })) };
+    const effect = { material: none(c[2]) ?? 'glow', reveal: none(c[3]) ?? 'draw', particles: (none(c[4]) ?? '').split(',').map((x) => x.trim()).filter(Boolean), backdrop: (none(c[5]) ?? 'plain').split('+')[0].trim(), scene: (none(c[5]) ?? '').split('+').slice(1).map((x) => x.trim()).filter(Boolean), motion: none(c[6]) ?? 'none', emblem: none(c[7]), parts: Object.fromEntries((none(c[8]) ?? '').split(/\s+/).filter(Boolean).map((p) => { const [el, m] = p.split('='); return [el, m ? { material: m } : {}]; })) };
     rows.push({ name: c[0], group: c[1], effect, recipe: normalizeRecipe(effect, COMPONENT_LOOKS) });
   }
   return rows;
@@ -37,7 +37,7 @@ function readPlan(path) {
 function missing(rows) {
   const need = new Map(), note = (key, k) => { if (!need.has(key)) need.set(key, []); need.get(key).push(k); };
   for (const r of rows) {
-    const specs = [...SLOTS.filter((s) => s !== 'particles').map((s) => [s, r.recipe[s]]), ...r.recipe.particles.map((p) => ['particles', p]), ...Object.values(r.recipe.parts).flatMap((p) => [['material', p.material], ['motion', p.motion]])];
+    const specs = [...SLOTS.filter((s) => !['particles', 'scene'].includes(s)).map((s) => [s, r.recipe[s]]), ...r.recipe.particles.map((p) => ['particles', p]), ...r.recipe.scene.map((p) => ['scene', p]), ...Object.values(r.recipe.parts).flatMap((p) => [['material', p.material], ['motion', p.motion]])];
     for (const [slot, s] of specs) {
       if (!s) continue;
       if (!PIECES[slot][s.type]) note(slot === 'material' ? `material preset (data only): ${s.type}` : PARTICLE_KINDS[s.type]?.tip ? `particles: ${s.type} as a layer (the tip kind exists; needs an emitter)` : `${slot}: ${s.type}`, r.name);

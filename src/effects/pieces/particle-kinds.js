@@ -55,8 +55,8 @@ const EMIT = {
       spawn(k, x, y, z, (r() - 0.5) * 0.10, 0.06 + r() * 0.08, (r() - 0.5) * 0.06, 2.5 + r() * 2.0, 0.006 + r() * 0.004, r()); } } }; },
   flow: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
     const done = ctx.strokes.filter((s, si) => ctx.rv.progress[si] >= 1);
-    acc.add(done.length * 14 * n * dt);
-    while (acc.take()) { const s = done[Math.floor(r() * done.length)]; const i = spawn(k, 0, 0, 0, 0, 0, 0, 0.7 + s.length * 0.012 + r() * 0.3, 0.012 + r() * 0.01, r()); ctx.pools[PARTICLE_KINDS.flow.pool].setAux(i, s.index); } } }; },
+    acc.add(done.length * 22 * n * dt);
+    while (acc.take()) { const s = done[Math.floor(r() * done.length)]; const i = spawn(k, 0, 0, 0, 0, 0, 0, 0.7 + s.length * 0.012 + r() * 0.3, 0.018 + r() * 0.014, r()); ctx.pools[PARTICLE_KINDS.flow.pool].setAux(i, s.index); } } }; },
   rain: (ctx, k, spawn, n) => { const acc = accumulate(), r = ctx.rnd; return { acc, step(t, dt) {
     acc.add(320 * n * dt);
     while (acc.take()) { const [x, y, z] = box(r, [-0.5, 0.5], [0.34, 0.42], [-0.35, 0.12]), vy = -(1.15 + r() * 0.35);

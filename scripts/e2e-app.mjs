@@ -141,7 +141,7 @@ const costs = await page.evaluate(async (ids) => {
     window.__app.app.screen.jump(id);
     for (let k = 0; k < 100 && window.__app.info().player?.id !== id; k++) await new Promise((r) => setTimeout(r, 50));
     const card = await (await fetch(`/content/cards/${id}.json`)).json(), strokes = await (await fetch(`/data/kanji-${id}.json`)).json();
-    const est = estimateCost(normalizeRecipe(card.effect, COMPONENT_LOOKS), strokes.strokes.length), built = window.__app.info().player.effect;
+    const est = estimateCost(normalizeRecipe(card.effect, COMPONENT_LOOKS), strokes.strokes.length, strokes.components), built = window.__app.info().player.effect;
     out.push({ id, est, built });
   }
   return out;
