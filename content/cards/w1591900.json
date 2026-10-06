@@ -1,0 +1,22 @@
+{
+  "id": "w1591900",
+  "type": "word",
+  "word": "綺麗",
+  "primaryReading": "きれい",
+  "furigana": [{ "text": "綺", "reading": "き" }, { "text": "麗", "reading": "れい" }],
+  "meaning": "pretty; lovely",
+  "pos": ["adj-na"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["sparks"], "emblem": "flower", "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "部屋", "reading": "へや" }, { "text": "は" }, { "text": "綺麗", "reading": "きれい" }, { "text": "ですね。" } ],
+      "en": "This room is clean, isn't it?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 綺麗" },
+  "source": { "jmdict": 1591900, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1174420",
+  "type": "word",
+  "word": "英語",
+  "primaryReading": "えいご",
+  "furigana": [{ "text": "英", "reading": "えい" }, { "text": "語", "reading": "ご" }],
+  "meaning": "English (language)",
+  "pos": ["n"],
+  "kanji": ["8a9e"],
+  "builtFrom": [{ "k": "語", "m": "word" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "globe", "particles": ["kana"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "英語", "reading": "えいご" }, { "text": "を" }, { "text": "教", "reading": "おし" }, { "text": "えてください。" } ],
+      "en": "Please teach me English.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [164468, 250040] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 英語" },
+  "source": { "jmdict": 1174420, "jlpt": 5 }
+}

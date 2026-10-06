@@ -1,0 +1,22 @@
+{
+  "id": "w1195430",
+  "type": "word",
+  "word": "荷物",
+  "primaryReading": "にもつ",
+  "furigana": [{ "text": "荷", "reading": "に" }, { "text": "物", "reading": "もつ" }],
+  "meaning": "luggage; baggage",
+  "pos": ["n"],
+  "kanji": ["7269"],
+  "builtFrom": [{ "k": "物", "m": "thing" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "suitcase", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "荷物", "reading": "にもつ" }, { "text": "を" }, { "text": "運", "reading": "はこ" }, { "text": "びましょうか？" } ],
+      "en": "Shall I carry your baggage?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233414, 64739] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 荷物" },
+  "source": { "jmdict": 1195430, "jlpt": 5 }
+}

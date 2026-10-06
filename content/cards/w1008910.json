@@ -1,0 +1,22 @@
+{
+  "id": "w1008910",
+  "type": "word",
+  "word": "どう",
+  "primaryReading": "どう",
+  "furigana": [{ "text": "どう" }],
+  "meaning": "how; in what way",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "再来週", "reading": "さらいしゅう" }, { "text": "の" }, { "text": "木曜日", "reading": "もくようび" }, { "text": "はどう？" } ],
+      "en": "How about two weeks from Thursday?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [170804, 243676] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word どう" },
+  "source": { "jmdict": 1008910, "jlpt": 5 }
+}

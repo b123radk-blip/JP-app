@@ -1,0 +1,19 @@
+{
+  "id": "9762",
+  "kanji": "面",
+  "meaning": "mask; face",
+  "primaryReading": "めん",
+  "readings": { "kun": ["おも", "おもて", "つら"], "on": ["メン", "ベン"] },
+  "mnemonic": "A face framed with its nose in the middle: face, mask, surface.",
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "motion": "turn", "emblem": "mask" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "面白", "reading": "おもしろ" }, { "text": "い" }, { "text": "読み物", "reading": "よみもの" }, { "text": "です。" } ],
+      "en": "This book makes pleasant reading.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219537, 56858] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

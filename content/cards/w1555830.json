@@ -1,0 +1,22 @@
+{
+  "id": "w1555830",
+  "type": "word",
+  "word": "隣",
+  "primaryReading": "となり",
+  "furigana": [{ "text": "隣", "reading": "となり" }],
+  "meaning": "next (to); adjoining",
+  "pos": ["adj-no", "n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "motion": "drift:right", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "隣", "reading": "となり" }, { "text": "の" }, { "text": "部屋", "reading": "へや" }, { "text": "の" }, { "text": "中", "reading": "なか" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "た。" } ],
+      "en": "I looked into the next room.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [152305, 262245] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 隣" },
+  "source": { "jmdict": 1555830, "jlpt": 5 }
+}

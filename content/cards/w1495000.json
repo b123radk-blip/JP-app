@@ -1,0 +1,28 @@
+{
+  "id": "w1495000",
+  "type": "word",
+  "word": "まずい",
+  "primaryReading": "まずい",
+  "furigana": [{ "text": "まずい" }],
+  "meaning": "bad(-tasting); unpalatable",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "frown", "color": "#ffd27a" },
+    "backdrop": "sky:storm",
+    "motion": "shake"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このパンはまずいです。" } ],
+      "en": "This bread tastes bad.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word まずい" },
+  "source": { "jmdict": 1495000, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1210360",
+  "type": "word",
+  "word": "寒い",
+  "primaryReading": "さむい",
+  "furigana": [{ "text": "寒", "reading": "さむ" }, { "text": "い" }],
+  "meaning": "cold",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["snow"], "motion": "shake", "backdrop": "sky:snow" },
+  "sentences": [
+    {
+      "segments": [ { "text": "寒", "reading": "さむ" }, { "text": "いからコートを" }, { "text": "着", "reading": "き" }, { "text": "るべきだ。" } ],
+      "en": "It's cold so you should wear a coat.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [184049, 21177] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 寒い" },
+  "source": { "jmdict": 1210360, "jlpt": 5 }
+}

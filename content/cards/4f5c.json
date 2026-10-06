@@ -1,0 +1,25 @@
+{
+  "id": "4f5c",
+  "kanji": "作",
+  "meaning": "make; production",
+  "primaryReading": "つく",
+  "readings": { "kun": ["つく(る)", "つく(り)", "づく(り)"], "on": ["サク", "サ"] },
+  "mnemonic": "A person (亻) hammering away in a moment (乍): make.",
+  "effect": {
+    "material": "wood",
+    "reveal": "draw:sparks",
+    "backdrop": "sky:indoor",
+    "emblem": "hammer",
+    "parts": { "亻": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "に" }, { "text": "服", "reading": "ふく" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "ってくれた。" } ],
+      "en": "He made me a suit.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [164334, 250175] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

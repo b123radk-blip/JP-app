@@ -1,0 +1,22 @@
+{
+  "id": "w1219960",
+  "type": "word",
+  "word": "いくつ",
+  "primaryReading": "いくつ",
+  "furigana": [{ "text": "いくつ" }],
+  "meaning": "how many",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:3", "motion": "tilt", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたのお" }, { "text": "父", "reading": "とう" }, { "text": "さんはおいくつですか。" } ],
+      "en": "How old is your father?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233594, 70960] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word いくつ" },
+  "source": { "jmdict": 1219960, "jlpt": 5 }
+}

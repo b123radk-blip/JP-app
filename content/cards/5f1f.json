@@ -1,0 +1,25 @@
+{
+  "id": "5f1f",
+  "kanji": "弟",
+  "meaning": "younger brother",
+  "primaryReading": "おとうと",
+  "readings": { "kun": ["おとうと"], "on": ["テイ", "ダイ", "デ"] },
+  "mnemonic": "A little boy bouncing along behind: younger brother.",
+  "effect": {
+    "material": "skin",
+    "backdrop": "sky:day",
+    "motion": "bounce",
+    "emblem": { "type": "person", "color": "#5a9ae8", "size": 0.8 },
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "弟", "reading": "おとうと" }, { "text": "を" }, { "text": "駅", "reading": "えき" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "かせた。" } ],
+      "en": "I made my brother go to the station.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [154958, 259581] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1581930"] }
+}

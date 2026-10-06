@@ -1,0 +1,25 @@
+{
+  "id": "6e21",
+  "kanji": "渡",
+  "meaning": "cross; ferry",
+  "primaryReading": "わた",
+  "readings": { "kun": ["わた(る)", "わた(る)", "わた(す)"], "on": ["ト"] },
+  "mnemonic": "Crossing the water (氵) step by step (度): cross over, hand over.",
+  "effect": {
+    "material": "lacquer",
+    "backdrop": "sky:day",
+    "scene": ["river", "bridge"],
+    "motion": { "type": "drift", "dir": "right" },
+    "parts": { "氵": { "material": "water" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はやっと" }, { "text": "川", "reading": "かわ" }, { "text": "を" }, { "text": "渡", "reading": "わた" }, { "text": "った。" } ],
+      "en": "I finally got across the river.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158694, 255834] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

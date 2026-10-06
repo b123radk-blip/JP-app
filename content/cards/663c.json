@@ -1,0 +1,19 @@
+{
+  "id": "663c",
+  "kanji": "昼",
+  "meaning": "daytime; noon",
+  "primaryReading": "ひる",
+  "readings": { "kun": ["ひる"], "on": ["チュウ"] },
+  "mnemonic": "The sun (日) stands highest over the horizon line (一): noon, daytime.",
+  "effect": { "material": "gold", "backdrop": "sky:noon", "scene": ["dial"], "parts": { "日": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "昼", "reading": "ひる" }, { "text": "はホットドッグを" }, { "text": "食", "reading": "た" }, { "text": "べたんだ。" } ],
+      "en": "I ate a hot dog for lunch.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [155091, 259448] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1426250"] }
+}

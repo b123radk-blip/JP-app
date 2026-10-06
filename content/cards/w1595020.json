@@ -1,0 +1,22 @@
+{
+  "id": "w1595020",
+  "type": "word",
+  "word": "醤油",
+  "primaryReading": "しょうゆ",
+  "furigana": [{ "text": "醤", "reading": "しょう" }, { "text": "油", "reading": "ゆ" }],
+  "meaning": "soy sauce; soya sauce",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pot", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "醤油", "reading": "しょうゆ" }, { "text": "を" }, { "text": "取", "reading": "と" }, { "text": "ってください。" } ],
+      "en": "Please pass the soy sauce.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 醤油" },
+  "source": { "jmdict": 1595020, "jlpt": 5 }
+}

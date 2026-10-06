@@ -1,0 +1,28 @@
+{
+  "id": "w1005110",
+  "type": "word",
+  "word": "さあ",
+  "primaryReading": "さあ",
+  "furigana": [{ "text": "さあ" }],
+  "meaning": "come (on); come now",
+  "pos": ["int"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "hand",
+    "motion": "shove:right",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "さあ" }, { "text": "歌", "reading": "うた" }, { "text": "を" }, { "text": "歌", "reading": "うた" }, { "text": "いましょう。" } ],
+      "en": "Let's sing a song.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [216886, 54191] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word さあ" },
+  "source": { "jmdict": 1005110, "jlpt": 5 }
+}

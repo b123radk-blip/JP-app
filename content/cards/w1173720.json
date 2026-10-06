@@ -1,0 +1,22 @@
+{
+  "id": "w1173720",
+  "type": "word",
+  "word": "映画",
+  "primaryReading": "えいが",
+  "furigana": [{ "text": "映", "reading": "えい" }, { "text": "画", "reading": "が" }],
+  "meaning": "movie; film",
+  "pos": ["n"],
+  "kanji": ["6620", "753b"],
+  "builtFrom": [{ "k": "映", "m": "reflect" }, { "k": "画", "m": "picture" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "兄", "reading": "あに" }, { "text": "と" }, { "text": "映画", "reading": "えいが" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きました。" } ],
+      "en": "I went to the movies with my brother.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157385, 257148] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 映画" },
+  "source": { "jmdict": 1173720, "jlpt": 5 }
+}

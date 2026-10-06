@@ -1,0 +1,28 @@
+{
+  "id": "w1182030",
+  "type": "word",
+  "word": "黄色い",
+  "primaryReading": "きいろい",
+  "furigana": [{ "text": "黄", "reading": "き" }, { "text": "色", "reading": "いろ" }, { "text": "い" }],
+  "meaning": "yellow",
+  "pos": ["adj-i"],
+  "kanji": ["9ec4", "8272"],
+  "builtFrom": [{ "k": "黄", "m": "yellow" }, { "k": "色", "m": "color" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "flower", "color": "#ffd800" },
+    "backdrop": "sky:day",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "黄色", "reading": "きいろ" }, { "text": "いバラがあります。" } ],
+      "en": "There is a yellow rose.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [188459, 25602] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 黄色い" },
+  "source": { "jmdict": 1182030, "jlpt": 5 }
+}

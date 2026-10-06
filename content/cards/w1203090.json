@@ -1,0 +1,22 @@
+{
+  "id": "w1203090",
+  "type": "word",
+  "word": "階段",
+  "primaryReading": "かいだん",
+  "furigana": [{ "text": "階", "reading": "かい" }, { "text": "段", "reading": "だん" }],
+  "meaning": "stairs; stairway",
+  "pos": ["n"],
+  "kanji": ["6bb5"],
+  "builtFrom": [{ "k": "段", "m": "steps" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stairs", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "先生", "reading": "せんせい" }, { "text": "は" }, { "text": "階段", "reading": "かいだん" }, { "text": "をかけ" }, { "text": "上", "reading": "あ" }, { "text": "がった。" } ],
+      "en": "The teacher ran up the stairs.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141655, 272915] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 階段" },
+  "source": { "jmdict": 1203090, "jlpt": 5 }
+}

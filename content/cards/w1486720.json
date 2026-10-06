@@ -1,0 +1,22 @@
+{
+  "id": "w1486720",
+  "type": "word",
+  "word": "鼻",
+  "primaryReading": "はな",
+  "furigana": [{ "text": "鼻", "reading": "はな" }],
+  "meaning": "nose",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "mask", "motion": "pulse", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "鼻", "reading": "はな" }, { "text": "が" }, { "text": "出", "reading": "で" }, { "text": "ているよ。かみなさい。" } ],
+      "en": "Your nose is running. Blow it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [85518, 35123] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 鼻" },
+  "source": { "jmdict": 1486720, "jlpt": 5 }
+}

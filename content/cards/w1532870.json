@@ -1,0 +1,22 @@
+{
+  "id": "w1532870",
+  "type": "word",
+  "word": "鳴く",
+  "primaryReading": "なく",
+  "furigana": [{ "text": "鳴", "reading": "な" }, { "text": "く" }],
+  "meaning": "to make sound (of an animal)",
+  "pos": ["v5k", "vi"],
+  "kanji": ["9cf4"],
+  "builtFrom": [{ "k": "鳴", "m": "chirp" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bird", "particles": ["notes"], "backdrop": "sky:forest" },
+  "sentences": [
+    {
+      "segments": [ { "text": "カエルが" }, { "text": "鳴", "reading": "な" }, { "text": "いたら" }, { "text": "帰", "reading": "かえ" }, { "text": "ろう。" } ],
+      "en": "Let's return when the frog croaks.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226439, 63784] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 鳴く" },
+  "source": { "jmdict": 1532870, "jlpt": 5 }
+}

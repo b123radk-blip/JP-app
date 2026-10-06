@@ -1,0 +1,25 @@
+{
+  "id": "590f",
+  "kanji": "夏",
+  "meaning": "summer",
+  "primaryReading": "なつ",
+  "readings": { "kun": ["なつ"], "on": ["カ", "ガ", "ゲ"] },
+  "mnemonic": "A head (自) dragging its feet (夂) in the heat: summer.",
+  "effect": {
+    "material": "gold",
+    "particles": [{ "type": "motes", "dir": "up", "color": "#ffd060" }],
+    "backdrop": "sky:noon",
+    "scene": ["ripples"],
+    "emblem": { "type": "flower", "size": 1.2 }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "夏", "reading": "なつ" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "多", "reading": "おお" }, { "text": "かった。" } ],
+      "en": "We have had much rain this summer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222861, 60192] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1191320"] }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1096420",
+  "type": "word",
+  "word": "ハンカチ",
+  "primaryReading": "ハンカチ",
+  "furigana": [{ "text": "ハンカチ" }],
+  "meaning": "handkerchief",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このハンカチはいくらですか。" } ],
+      "en": "How much is this handkerchief?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223306, 60638] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ハンカチ" },
+  "source": { "jmdict": 1096420, "jlpt": 5 }
+}

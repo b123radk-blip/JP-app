@@ -1,0 +1,22 @@
+{
+  "id": "w1299685",
+  "type": "word",
+  "word": "お皿",
+  "primaryReading": "おさら",
+  "furigana": [{ "text": "お" }, { "text": "皿", "reading": "さら" }],
+  "meaning": "plate; dish",
+  "pos": ["n"],
+  "kanji": ["76bf"],
+  "builtFrom": [{ "k": "皿", "m": "dish" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "backdrop": "sky:indoor", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "給仕", "reading": "きゅうじ" }, { "text": "は" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "お" }, { "text": "皿", "reading": "さら", "base": "さら", "dict": true }, { "text": "を" }, { "text": "持", "reading": "も" }, { "text": "ってきた。" } ],
+      "en": "The waiter brought a new plate.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [182363, 19540] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お皿" },
+  "source": { "jmdict": 1299685, "jlpt": 5 }
+}

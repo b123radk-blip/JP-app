@@ -1,0 +1,22 @@
+{
+  "id": "w1587850",
+  "type": "word",
+  "word": "色々",
+  "primaryReading": "いろいろ",
+  "furigana": [{ "text": "色", "reading": "いろ" }, { "text": "々", "reading": "いろ" }],
+  "meaning": "various; a variety of",
+  "pos": ["adj-na", "adj-no"],
+  "kanji": ["8272"],
+  "builtFrom": [{ "k": "色", "m": "color" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "rainbow", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "色々", "reading": "いろいろ" }, { "text": "ありがとう。" } ],
+      "en": "Thanks for everything.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [145951, 2107841] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 色々" },
+  "source": { "jmdict": 1587850, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1434180",
+  "type": "word",
+  "word": "低い",
+  "primaryReading": "ひくい",
+  "furigana": [{ "text": "低", "reading": "ひく" }, { "text": "い" }],
+  "meaning": "low",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "shrink", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "机", "reading": "つくえ" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "にはちょっと" }, { "text": "低", "reading": "ひく" }, { "text": "い。" } ],
+      "en": "This desk is a little low for me.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222523, 59852] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 低い" },
+  "source": { "jmdict": 1434180, "jlpt": 5 }
+}

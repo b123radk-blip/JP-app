@@ -1,0 +1,29 @@
+{
+  "id": "w1280770",
+  "type": "word",
+  "word": "紅茶",
+  "primaryReading": "こうちゃ",
+  "furigana": [{ "text": "紅", "reading": "こう" }, { "text": "茶", "reading": "ちゃ" }],
+  "meaning": "black tea",
+  "pos": ["n"],
+  "kanji": ["8336"],
+  "builtFrom": [{ "k": "茶", "m": "tea" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "cup", "drink": "#8a2a10" },
+    "backdrop": "sky:golden",
+    "particles": ["steam", "motes"],
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "紅茶", "reading": "こうちゃ" }, { "text": "をいただけますか。" } ],
+      "en": "Could you get me some tea?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [173489, 240981] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 紅茶" },
+  "source": { "jmdict": 1280770, "jlpt": 5 }
+}

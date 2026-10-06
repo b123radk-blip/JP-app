@@ -1,0 +1,22 @@
+{
+  "id": "w1451470",
+  "type": "word",
+  "word": "動物",
+  "primaryReading": "どうぶつ",
+  "furigana": [{ "text": "動", "reading": "どう" }, { "text": "物", "reading": "ぶつ" }],
+  "meaning": "animal",
+  "pos": ["n"],
+  "kanji": ["52d5", "7269"],
+  "builtFrom": [{ "k": "動", "m": "move" }, { "k": "物", "m": "thing" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cow", "backdrop": "sky:forest" },
+  "sentences": [
+    {
+      "segments": [ { "text": "牛", "reading": "うし" }, { "text": "は" }, { "text": "有用", "reading": "ゆうよう" }, { "text": "な" }, { "text": "動物", "reading": "どうぶつ" }, { "text": "である。" } ],
+      "en": "A cow is a useful animal.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [182309, 19488] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 動物" },
+  "source": { "jmdict": 1451470, "jlpt": 5 }
+}

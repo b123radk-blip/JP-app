@@ -1,0 +1,25 @@
+{
+  "id": "75c5",
+  "kanji": "病",
+  "meaning": "ill; sick",
+  "primaryReading": "びょう",
+  "readings": { "kun": ["や(む)", "や(み)", "やまい"], "on": ["ビョウ", "ヘイ"] },
+  "mnemonic": "Someone lying on the sickbed (疒) with a fever (丙): ill.",
+  "effect": {
+    "material": "chalk",
+    "backdrop": "sky:storm",
+    "motion": "shake",
+    "emblem": "pill",
+    "parts": { "疒": { "material": "clay" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "近", "reading": "ちか" }, { "text": "くに" }, { "text": "病院", "reading": "びょういん" }, { "text": "はありますか。" } ],
+      "en": "Is there a hospital near here?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222301, 59628] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

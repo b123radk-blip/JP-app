@@ -1,0 +1,22 @@
+{
+  "id": "w1180470",
+  "type": "word",
+  "word": "押す",
+  "primaryReading": "おす",
+  "furigana": [{ "text": "押", "reading": "お" }, { "text": "す" }],
+  "meaning": "to push; to thrust",
+  "pos": ["v5s", "vt"],
+  "kanji": ["62bc"],
+  "builtFrom": [{ "k": "押", "m": "push" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "shove:right", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ボタンを" }, { "text": "押", "reading": "お" }, { "text": "しましたか。" } ],
+      "en": "Did you push the button?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196246, 33423] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 押す" },
+  "source": { "jmdict": 1180470, "jlpt": 5 }
+}

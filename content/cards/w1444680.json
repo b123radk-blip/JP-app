@@ -1,0 +1,28 @@
+{
+  "id": "w1444680",
+  "type": "word",
+  "word": "渡る",
+  "primaryReading": "わたる",
+  "furigana": [{ "text": "渡", "reading": "わた" }, { "text": "る" }],
+  "meaning": "to cross over; to go across",
+  "pos": ["v5r", "vi"],
+  "kanji": ["6e21"],
+  "builtFrom": [{ "k": "渡", "m": "transit" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["river", "bridge"],
+    "motion": "drift:right",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ここを" }, { "text": "渡", "reading": "わた" }, { "text": "りましょう。" } ],
+      "en": "Let's cross here.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224241, 61576] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 渡る" },
+  "source": { "jmdict": 1444680, "jlpt": 5 }
+}

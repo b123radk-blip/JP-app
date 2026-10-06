@@ -1,0 +1,22 @@
+{
+  "id": "w1237150",
+  "type": "word",
+  "word": "教室",
+  "primaryReading": "きょうしつ",
+  "furigana": [{ "text": "教", "reading": "きょう" }, { "text": "室", "reading": "しつ" }],
+  "meaning": "classroom; lecture room",
+  "pos": ["n"],
+  "kanji": ["6559"],
+  "builtFrom": [{ "k": "教", "m": "teach" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room:classroom"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "教室", "reading": "きょうしつ" }, { "text": "は" }, { "text": "生徒", "reading": "せいと" }, { "text": "でいっぱいだった。" } ],
+      "en": "The classroom was full of pupils.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [180166, 19027] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 教室" },
+  "source": { "jmdict": 1237150, "jlpt": 5 }
+}

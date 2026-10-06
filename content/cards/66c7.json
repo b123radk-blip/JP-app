@@ -1,0 +1,25 @@
+{
+  "id": "66c7",
+  "kanji": "曇",
+  "meaning": "cloudy weather; cloud up",
+  "primaryReading": "くも",
+  "readings": { "kun": ["くも(る)"], "on": ["ドン"] },
+  "mnemonic": "Clouds (雲) drift over the sun (日): cloudy.",
+  "effect": {
+    "material": "cloud",
+    "particles": ["mist"],
+    "backdrop": "sky:snow",
+    "emblem": "cloud",
+    "parts": { "日": { "material": "gold", "motion": "pulse" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "曇", "reading": "くも" }, { "text": "っている。" } ],
+      "en": "It is cloudy today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171528, 242947] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

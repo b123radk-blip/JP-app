@@ -1,0 +1,29 @@
+{
+  "id": "w1042820",
+  "type": "word",
+  "word": "ギター",
+  "primaryReading": "ギター",
+  "furigana": [{ "text": "ギター" }],
+  "meaning": "guitar",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "note",
+    "particles": ["notes"],
+    "backdrop": "sky:golden",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はギターをひきたい。" } ],
+      "en": "I want to play the guitar.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [161148, 253369] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ギター" },
+  "source": { "jmdict": 1042820, "jlpt": 5 }
+}

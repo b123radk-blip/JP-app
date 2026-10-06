@@ -1,0 +1,22 @@
+{
+  "id": "w1546640",
+  "type": "word",
+  "word": "要る",
+  "primaryReading": "いる",
+  "furigana": [{ "text": "要", "reading": "い" }, { "text": "る" }],
+  "meaning": "to be needed; to be necessary",
+  "pos": ["v5r", "vi"],
+  "kanji": ["8981"],
+  "builtFrom": [{ "k": "要", "m": "need" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "exclaim", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "バターが" }, { "text": "要", "reading": "い" }, { "text": "るんだけど、いくらかありますか。" } ],
+      "en": "I need some butter. Do you have any?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198027, 35217] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 要る" },
+  "source": { "jmdict": 1546640, "jlpt": 5 }
+}

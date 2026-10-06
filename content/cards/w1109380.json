@@ -1,0 +1,22 @@
+{
+  "id": "w1109380",
+  "type": "word",
+  "word": "フィルム",
+  "primaryReading": "フィルム",
+  "furigana": [{ "text": "フィルム" }],
+  "meaning": "film",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "camera", "backdrop": "sky:day", "motion": "tilt" },
+  "sentences": [
+    {
+      "segments": [ { "text": "フィルムがなくなった。" } ],
+      "en": "My film has run out.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [197224, 34406] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word フィルム" },
+  "source": { "jmdict": 1109380, "jlpt": 5 }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "8a08",
+  "kanji": "計",
+  "meaning": "plan; plot",
+  "primaryReading": "けい",
+  "readings": { "kun": ["はか(る)", "はか(らう)"], "on": ["ケイ"] },
+  "mnemonic": "Words (言) counting up to ten (十): measure, plan; a clock (時計).",
+  "effect": { "material": "silver", "backdrop": "sky:day", "emblem": "clock", "parts": { "言": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "旅行", "reading": "りょこう" }, { "text": "の" }, { "text": "計画", "reading": "けいかく" }, { "text": "を" }, { "text": "立", "reading": "た" }, { "text": "てましょう。" } ],
+      "en": "Let's make a plan for the trip.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "7269",
+  "kanji": "物",
+  "meaning": "thing; object",
+  "primaryReading": "もの",
+  "readings": { "kun": ["もの", "もの"], "on": ["ブツ", "モツ"] },
+  "mnemonic": "A cow (牛) and all kinds of things (勿) packed into a box: thing, object.",
+  "effect": { "material": "clay", "backdrop": "sky:indoor", "emblem": "box", "parts": { "牛": { "material": "fur" } } },
+  "sentences": [
+    {
+      "segments": [ { "text": "それは" }, { "text": "私", "reading": "わたし" }, { "text": "が" }, { "text": "使", "reading": "つか" }, { "text": "う" }, { "text": "物", "reading": "もの" }, { "text": "です。" } ],
+      "en": "It's for my personal use.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205167, 42370] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1502390"] }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "97f3",
+  "kanji": "音",
+  "meaning": "sound; noise",
+  "primaryReading": "おん",
+  "readings": { "kun": ["おと", "ね"], "on": ["オン", "イン", "-ノン"] },
+  "mnemonic": "Stand (立) under the sun (日) and listen: sound.",
+  "effect": {
+    "material": "gold",
+    "particles": ["notes"],
+    "backdrop": "sky:twilight",
+    "emblem": "speaker",
+    "parts": { "日": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "音楽", "reading": "おんがく" }, { "text": "がない" }, { "text": "人生", "reading": "じんせい" }, { "text": "は" }, { "text": "無", "reading": "な" }, { "text": "い。" } ],
+      "en": "No music, no life.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [188305, 25448] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

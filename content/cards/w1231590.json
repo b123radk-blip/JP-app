@@ -1,0 +1,27 @@
+{
+  "id": "w1231590",
+  "type": "word",
+  "word": "牛乳",
+  "primaryReading": "ぎゅうにゅう",
+  "furigana": [{ "text": "牛", "reading": "ぎゅう" }, { "text": "乳", "reading": "にゅう" }],
+  "meaning": "(cow's) milk",
+  "pos": ["n"],
+  "kanji": ["725b"],
+  "builtFrom": [{ "k": "牛", "m": "cow" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "cup", "drink": "#f4f4f0" },
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "牛乳", "reading": "ぎゅうにゅう" }, { "text": "が" }, { "text": "飲", "reading": "の" }, { "text": "みたいな。" } ],
+      "en": "I want to drink milk.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157660, 256870] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 牛乳" },
+  "source": { "jmdict": 1231590, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1449540",
+  "type": "word",
+  "word": "答える",
+  "primaryReading": "こたえる",
+  "furigana": [{ "text": "答", "reading": "こた" }, { "text": "える" }],
+  "meaning": "to answer; to reply",
+  "pos": ["v1", "vi"],
+  "kanji": ["7b54"],
+  "builtFrom": [{ "k": "答", "m": "answer" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "speech", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "質問", "reading": "しつもん" }, { "text": "に" }, { "text": "答", "reading": "こた" }, { "text": "えてください。" } ],
+      "en": "Please answer the question.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 答える" },
+  "source": { "jmdict": 1449540, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1263400",
+  "type": "word",
+  "word": "玄関",
+  "primaryReading": "げんかん",
+  "furigana": [{ "text": "玄", "reading": "げん" }, { "text": "関", "reading": "かん" }],
+  "meaning": "entrance; front door",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate", "room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "だれか" }, { "text": "玄関", "reading": "げんかん" }, { "text": "に" }, { "text": "来", "reading": "き" }, { "text": "てるよ。" } ],
+      "en": "Somebody's on the porch!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203196, 40432] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 玄関" },
+  "source": { "jmdict": 1263400, "jlpt": 5 }
+}

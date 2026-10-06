@@ -1,0 +1,22 @@
+{
+  "id": "w1237410",
+  "type": "word",
+  "word": "橋",
+  "primaryReading": "はし",
+  "furigana": [{ "text": "橋", "reading": "はし" }],
+  "meaning": "bridge",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["river", "bridge"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "橋", "reading": "はし" }, { "text": "は" }, { "text": "大変", "reading": "たいへん" }, { "text": "美", "reading": "うつく" }, { "text": "しい。" } ],
+      "en": "That bridge is very beautiful.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231083, 68450] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 橋" },
+  "source": { "jmdict": 1237410, "jlpt": 5 }
+}

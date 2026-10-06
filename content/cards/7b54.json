@@ -1,0 +1,19 @@
+{
+  "id": "7b54",
+  "kanji": "答",
+  "meaning": "answer; solution",
+  "primaryReading": "こた",
+  "readings": { "kun": ["こた(える)", "こた(え)"], "on": ["トウ"] },
+  "mnemonic": "Bamboo slips (竹) fitted together (合): the answer.",
+  "effect": { "material": "jade", "backdrop": "sky:day", "emblem": "check", "parts": { "竹": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "手", "reading": "て" }, { "text": "をあげてから" }, { "text": "答", "reading": "こた" }, { "text": "えなさい。" } ],
+      "en": "Raise your hand before you answer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [148633, 265925] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

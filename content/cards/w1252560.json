@@ -1,0 +1,22 @@
+{
+  "id": "w1252560",
+  "type": "word",
+  "word": "軽い",
+  "primaryReading": "かるい",
+  "furigana": [{ "text": "軽", "reading": "かる" }, { "text": "い" }],
+  "meaning": "light; feeling light",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "float", "particles": ["motes"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "軽", "reading": "かる" }, { "text": "い" }, { "text": "昼食", "reading": "ちゅうしょく" }, { "text": "をとった。" } ],
+      "en": "I ate a light lunch.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157366, 257167] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 軽い" },
+  "source": { "jmdict": 1252560, "jlpt": 5 }
+}

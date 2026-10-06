@@ -1,0 +1,22 @@
+{
+  "id": "w1121380",
+  "type": "word",
+  "word": "ペン",
+  "primaryReading": "ペン",
+  "furigana": [{ "text": "ペン" }],
+  "meaning": "pen",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ペンは" }, { "text": "持", "reading": "も" }, { "text": "っていますか？" } ],
+      "en": "Do you have a pen?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196592, 33771] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ペン" },
+  "source": { "jmdict": 1121380, "jlpt": 5 }
+}

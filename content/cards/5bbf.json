@@ -1,0 +1,19 @@
+{
+  "id": "5bbf",
+  "kanji": "宿",
+  "meaning": "inn; lodging",
+  "primaryReading": "しゅく",
+  "readings": { "kun": ["やど", "やど(る)", "やど(す)"], "on": ["シュク"] },
+  "mnemonic": "A hundred (百) people (亻) sleeping under one roof (宀): an inn.",
+  "effect": { "material": "wood", "backdrop": "sky:night", "emblem": "bed", "parts": { "宀": { "material": "lacquer" } } },
+  "sentences": [
+    {
+      "segments": [ { "text": "先", "reading": "さき" }, { "text": "に" }, { "text": "宿題", "reading": "しゅくだい" }, { "text": "をやりなさい。" } ],
+      "en": "Do your homework first of all.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141909, 272661] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "5e97",
+  "kanji": "店",
+  "meaning": "store; shop",
+  "primaryReading": "みせ",
+  "readings": { "kun": ["みせ", "たな"], "on": ["テン"] },
+  "mnemonic": "A stall under the eaves (广) where a fortune-teller (占) sells: shop.",
+  "effect": { "material": "wood", "backdrop": "sky:indoor", "scene": ["room:shop"], "emblem": "tag" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "店", "reading": "みせ" }, { "text": "は" }, { "text": "年中", "reading": "ねんじゅう" }, { "text": "無休", "reading": "むきゅう" }, { "text": "です。" } ],
+      "en": "The store is open all the year round.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [207607, 44860] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1582120"] }
+}

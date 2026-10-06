@@ -1,0 +1,28 @@
+{
+  "id": "w1002320",
+  "type": "word",
+  "word": "おじいさん",
+  "primaryReading": "おじいさん",
+  "furigana": [{ "text": "おじいさん" }],
+  "meaning": "grandfather",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "person", "color": "#a0b0c0" },
+    "backdrop": "sky:golden",
+    "motion": "walk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "おじいさんは" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "耳", "reading": "みみ" }, { "text": "が" }, { "text": "遠", "reading": "とお" }, { "text": "いんだ。" } ],
+      "en": "My grandfather is a bit hard of hearing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227742, 65095] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word おじいさん" },
+  "source": { "jmdict": 1002320, "jlpt": 5 }
+}

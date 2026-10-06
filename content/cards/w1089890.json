@@ -1,0 +1,22 @@
+{
+  "id": "w1089890",
+  "type": "word",
+  "word": "ナイフ",
+  "primaryReading": "ナイフ",
+  "furigana": [{ "text": "ナイフ" }],
+  "meaning": "knife",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "knife", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ナイフが" }, { "text": "切", "reading": "き" }, { "text": "れなくなった。" } ],
+      "en": "My knife has lost its edge.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [199352, 36553] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ナイフ" },
+  "source": { "jmdict": 1089890, "jlpt": 5 }
+}

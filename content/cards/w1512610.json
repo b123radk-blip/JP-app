@@ -1,0 +1,22 @@
+{
+  "id": "w1512610",
+  "type": "word",
+  "word": "便利",
+  "primaryReading": "べんり",
+  "furigana": [{ "text": "便", "reading": "べん" }, { "text": "利", "reading": "り" }],
+  "meaning": "convenient; handy",
+  "pos": ["adj-na"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "wrench", "particles": ["sparks"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "電話", "reading": "でんわ" }, { "text": "は" }, { "text": "便利", "reading": "べんり" }, { "text": "なものである。" } ],
+      "en": "The telephone is a convenience.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [124682, 279312] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 便利" },
+  "source": { "jmdict": 1512610, "jlpt": 5 }
+}

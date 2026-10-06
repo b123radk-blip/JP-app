@@ -1,0 +1,22 @@
+{
+  "id": "w1084810",
+  "type": "word",
+  "word": "トイレ",
+  "primaryReading": "トイレ",
+  "furigana": [{ "text": "トイレ" }],
+  "meaning": "toilet; restroom",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "backdrop": "sky:indoor", "emblem": "pin" },
+  "sentences": [
+    {
+      "segments": [ { "text": "トイレの" }, { "text": "水", "reading": "みず" }, { "text": "が" }, { "text": "止", "reading": "と" }, { "text": "まりません。" } ],
+      "en": "The toilet won't stop running.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201731, 38943] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word トイレ" },
+  "source": { "jmdict": 1084810, "jlpt": 5 }
+}

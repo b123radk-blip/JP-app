@@ -2,6 +2,8 @@
 // BY_WORD: exact words (most N5 words; add N4 / N3 words here as batches arrive). BY_MEANING: patterns on the English
 // meaning for words not listed. A rule gives part of a recipe; draft-recipe.mjs fills the rest and keeps cards distinct.
 // Only new cards are drafted: once a card exists its JSON is the truth (hand fixes: scripts/set-recipes.mjs).
+import { BY_WORD_N5B } from './word-rules-n5b.mjs';
+
 const N = { 一: 1, 二: 2, 三: 3, 四: 4, 五: 5, 六: 6, 七: 7, 八: 8, 九: 9, 十: 10 };
 const num = (w) => (w.startsWith('二十') ? 20 : N[[...w][0]] ?? null);
 
@@ -84,6 +86,7 @@ export const BY_MEANING = [
 export function wordRule(w) {
   if (BY_READING[w.reading] && !BY_WORD[`${w.word}:${w.reading}`]) return { rule: `reading ${w.reading}`, recipe: BY_READING[w.reading] };
   if (BY_WORD[w.word]) return { rule: `word ${w.word}`, recipe: BY_WORD[w.word] };
+  if (BY_WORD_N5B[w.word]) return { rule: `word ${w.word}`, recipe: BY_WORD_N5B[w.word] };
   for (const [re, fn] of BY_MEANING) if (re.test(w.meaning)) return { rule: `meaning ${re}`, recipe: fn(w) };
   return { rule: 'default', recipe: {} };
 }

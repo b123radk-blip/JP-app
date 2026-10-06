@@ -1,0 +1,24 @@
+{
+  "id": "5411",
+  "kanji": "向",
+  "meaning": "facing; yonder",
+  "primaryReading": "む",
+  "readings": { "kun": ["む(く)", "む(い)", "む(き)", "む(ける)"], "on": ["コウ"] },
+  "mnemonic": "A window (口) in the house (冂) turned to face you: face towards, over there.",
+  "effect": {
+    "material": "jade",
+    "backdrop": "sky:morning",
+    "motion": "turn",
+    "emblem": { "type": "arrow", "dir": "toward" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "男の子", "reading": "おとこのこ" }, { "text": "は" }, { "text": "向", "reading": "む" }, { "text": "こうにいます。" } ],
+      "en": "The boy is over there.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [208147, 45404] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

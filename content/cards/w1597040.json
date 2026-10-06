@@ -1,0 +1,22 @@
+{
+  "id": "w1597040",
+  "type": "word",
+  "word": "立つ",
+  "primaryReading": "たつ",
+  "furigana": [{ "text": "立", "reading": "た" }, { "text": "つ" }],
+  "meaning": "to stand (up); to rise",
+  "pos": ["v5t", "vi"],
+  "kanji": ["7acb"],
+  "builtFrom": [{ "k": "立", "m": "stand up" }],
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "stand", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "時", "reading": "とき" }, { "text": "、" }, { "text": "立", "reading": "た" }, { "text": "てなかった。" } ],
+      "en": "My legs failed me then.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [209766, 47029] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 立つ" },
+  "source": { "jmdict": 1597040, "jlpt": 5 }
+}

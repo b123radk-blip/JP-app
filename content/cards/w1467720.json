@@ -1,0 +1,22 @@
+{
+  "id": "w1467720",
+  "type": "word",
+  "word": "熱い",
+  "primaryReading": "あつい",
+  "furigana": [{ "text": "熱", "reading": "あつ" }, { "text": "い" }],
+  "meaning": "hot (to the touch)",
+  "pos": ["adj-i"],
+  "kanji": ["71b1"],
+  "builtFrom": [{ "k": "熱", "m": "heat" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["steam"], "emblem": "cup", "backdrop": "halo" },
+  "sentences": [
+    {
+      "segments": [ { "text": "熱", "reading": "あつ" }, { "text": "いココアを" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "I'd like to have some hot chocolate.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [121917, 282085] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 熱い" },
+  "source": { "jmdict": 1467720, "jlpt": 5 }
+}

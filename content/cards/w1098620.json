@@ -1,0 +1,22 @@
+{
+  "id": "w1098620",
+  "type": "word",
+  "word": "バター",
+  "primaryReading": "バター",
+  "furigana": [{ "text": "バター" }],
+  "meaning": "butter",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "knife", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "バターを" }, { "text": "取", "reading": "と" }, { "text": "ってください。" } ],
+      "en": "Please pass me the butter.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198004, 35194] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word バター" },
+  "source": { "jmdict": 1098620, "jlpt": 5 }
+}

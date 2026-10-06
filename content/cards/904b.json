@@ -1,0 +1,26 @@
+{
+  "id": "904b",
+  "kanji": "運",
+  "meaning": "carry; luck",
+  "primaryReading": "うん",
+  "readings": { "kun": ["はこ(ぶ)"], "on": ["ウン"] },
+  "mnemonic": "An army (軍) on the march (⻌) carrying its supplies: carry, transport; luck.",
+  "effect": {
+    "material": "silver",
+    "backdrop": "sky:day",
+    "scene": ["road"],
+    "motion": { "type": "drift", "dir": "right" },
+    "emblem": { "type": "car", "color": "#ffd27a" },
+    "parts": { "軍": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "運", "reading": "うん" }, { "text": "が" }, { "text": "私", "reading": "わたし" }, { "text": "に" }, { "text": "向", "reading": "む" }, { "text": "いてきた。" } ],
+      "en": "Luck turned in my favor.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [189479, 26630] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

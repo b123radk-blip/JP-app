@@ -1,0 +1,22 @@
+{
+  "id": "w1316140",
+  "type": "word",
+  "word": "時計",
+  "primaryReading": "とけい",
+  "furigana": [{ "text": "時計", "reading": "とけい" }],
+  "meaning": "clock; watch",
+  "pos": ["n"],
+  "kanji": ["6642", "8a08"],
+  "builtFrom": [{ "k": "時", "m": "time" }, { "k": "計", "m": "plan" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "時計", "reading": "とけい" }, { "text": "は" }, { "text": "電気", "reading": "でんき" }, { "text": "で" }, { "text": "動", "reading": "うご" }, { "text": "く。" } ],
+      "en": "This clock is electric.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [221591, 58915] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 時計" },
+  "source": { "jmdict": 1316140, "jlpt": 5 }
+}

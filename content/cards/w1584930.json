@@ -1,0 +1,22 @@
+{
+  "id": "w1584930",
+  "type": "word",
+  "word": "余り",
+  "primaryReading": "あまり",
+  "furigana": [{ "text": "余", "reading": "あま" }, { "text": "り" }],
+  "meaning": "remainder; remnant",
+  "pos": ["n", "adj-no"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pie", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "余", "reading": "あま" }, { "text": "りのケーキを" }, { "text": "食", "reading": "た" }, { "text": "べました。" } ],
+      "en": "I ate the leftover cake.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 余り" },
+  "source": { "jmdict": 1584930, "jlpt": 5 }
+}

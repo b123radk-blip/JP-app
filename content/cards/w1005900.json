@@ -1,0 +1,28 @@
+{
+  "id": "w1005900",
+  "type": "word",
+  "word": "じゃ",
+  "primaryReading": "じゃ",
+  "furigana": [{ "text": "じゃ" }],
+  "meaning": "then; well",
+  "pos": ["conj"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "hand", "color": "#ffd27a" },
+    "motion": "wave",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "じゃ、" }, { "text": "行", "reading": "い" }, { "text": "きましょう。" } ],
+      "en": "Well then, let's go.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word じゃ" },
+  "source": { "jmdict": 1005900, "jlpt": 5 }
+}

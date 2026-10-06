@@ -1,0 +1,24 @@
+{
+  "id": "4f4f",
+  "kanji": "住",
+  "meaning": "dwell; live",
+  "primaryReading": "す",
+  "readings": { "kun": ["す(む)", "す(まう)", "ず(まい)"], "on": ["ジュウ", "ヂュウ", "チュウ"] },
+  "mnemonic": "A person (亻) beside the master's lamp (主): live, dwell.",
+  "effect": {
+    "material": "skin",
+    "backdrop": "sky:night",
+    "scene": [{ "type": "room", "window": "#1a2a50" }],
+    "parts": { "亻": {}, "主": { "material": "gold" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "魚", "reading": "さかな" }, { "text": "は" }, { "text": "水中", "reading": "すいちゅう" }, { "text": "に" }, { "text": "住", "reading": "す" }, { "text": "んでいる。" } ],
+      "en": "Fish live in the water.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [182096, 19346] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1421700",
+  "type": "word",
+  "word": "池",
+  "primaryReading": "いけ",
+  "furigana": [{ "text": "池", "reading": "いけ" }],
+  "meaning": "pond",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["ripples"], "backdrop": "sky:forest" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "前", "reading": "まえ" }, { "text": "の" }, { "text": "夏", "reading": "なつ" }, { "text": "にこの" }, { "text": "池", "reading": "いけ" }, { "text": "は" }, { "text": "水", "reading": "みず" }, { "text": "がなくなりました。" } ],
+      "en": "The pond dried up last summer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [220757, 58079] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 池" },
+  "source": { "jmdict": 1421700, "jlpt": 5 }
+}

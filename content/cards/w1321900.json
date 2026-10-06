@@ -1,0 +1,22 @@
+{
+  "id": "w1321900",
+  "type": "word",
+  "word": "写真",
+  "primaryReading": "しゃしん",
+  "furigana": [{ "text": "写", "reading": "しゃ" }, { "text": "真", "reading": "しん" }],
+  "meaning": "photograph; photo",
+  "pos": ["n"],
+  "kanji": ["5199", "771f"],
+  "builtFrom": [{ "k": "写", "m": "copy" }, { "k": "真", "m": "true" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "camera", "backdrop": "sky:day", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "写真", "reading": "しゃしん" }, { "text": "が" }, { "text": "多", "reading": "おお" }, { "text": "い。" } ],
+      "en": "This book has a lot of pictures.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219604, 56925] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 写真" },
+  "source": { "jmdict": 1321900, "jlpt": 5 }
+}

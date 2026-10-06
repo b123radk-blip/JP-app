@@ -1,0 +1,22 @@
+{
+  "id": "w1231580",
+  "type": "word",
+  "word": "牛肉",
+  "primaryReading": "ぎゅうにく",
+  "furigana": [{ "text": "牛", "reading": "ぎゅう" }, { "text": "肉", "reading": "にく" }],
+  "meaning": "beef",
+  "pos": ["n"],
+  "kanji": ["725b", "8089"],
+  "builtFrom": [{ "k": "牛", "m": "cow" }, { "k": "肉", "m": "meat" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cow", "backdrop": "sky:indoor", "particles": ["steam"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "好", "reading": "この" }, { "text": "みはどちらかというと" }, { "text": "牛肉", "reading": "ぎゅうにく" }, { "text": "ですね。" } ],
+      "en": "I have a predilection for beef.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [163655, 250857] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 牛肉" },
+  "source": { "jmdict": 1231580, "jlpt": 5 }
+}

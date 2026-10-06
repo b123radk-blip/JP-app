@@ -1,0 +1,25 @@
+{
+  "id": "8f9e",
+  "kanji": "辞",
+  "meaning": "word; resign",
+  "primaryReading": "じ",
+  "readings": { "kun": ["や(める)", "いな(む)"], "on": ["ジ"] },
+  "mnemonic": "A tongue (舌) and a spicy (辛) word: words; a dictionary (辞書).",
+  "effect": {
+    "material": "paper",
+    "particles": [{ "type": "kana", "color": "#ffe6b0" }],
+    "backdrop": "sky:indoor",
+    "emblem": "speech",
+    "parts": { "舌": { "material": "rose" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "誰", "reading": "だれ" }, { "text": "の" }, { "text": "辞書", "reading": "じしょ" }, { "text": "ですか。" } ],
+      "en": "Whose dictionary is this?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [218204, 55516] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

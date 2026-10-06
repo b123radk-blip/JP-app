@@ -1,0 +1,29 @@
+{
+  "id": "w1098390",
+  "type": "word",
+  "word": "バス",
+  "primaryReading": "バス",
+  "furigana": [{ "text": "バス" }],
+  "meaning": "bus",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "car",
+    "scene": ["road"],
+    "backdrop": "sky:morning",
+    "motion": "bounce"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "バスに" }, { "text": "乗", "reading": "の" }, { "text": "り" }, { "text": "遅", "reading": "おく" }, { "text": "れるなよ。" } ],
+      "en": "Don't miss the bus.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198171, 35363] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word バス" },
+  "source": { "jmdict": 1098390, "jlpt": 5 }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "w1001990",
+  "type": "word",
+  "word": "お姉さん",
+  "primaryReading": "おねえさん",
+  "furigana": [{ "text": "お" }, { "text": "姉", "reading": "ねえ" }, { "text": "さん" }],
+  "meaning": "older sister; elder sister",
+  "pos": ["n"],
+  "kanji": ["59c9"],
+  "builtFrom": [{ "k": "姉", "m": "elder sister" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "person", "color": "#ff7aa8", "size": 1.3 },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたの" }, { "text": "お" }, { "text": "姉", "reading": "ねえ", "base": null, "dict": true }, { "text": "さん" }, { "text": "は" }, { "text": "上手", "reading": "じょうず" }, { "text": "に" }, { "text": "泳", "reading": "およ" }, { "text": "げないのですか。" } ],
+      "en": "Your sister cannot swim well, can she?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233604, 70974] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お姉さん" },
+  "source": { "jmdict": 1001990, "jlpt": 5 }
+}

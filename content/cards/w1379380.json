@@ -1,0 +1,28 @@
+{
+  "id": "w1379380",
+  "type": "word",
+  "word": "生徒",
+  "primaryReading": "せいと",
+  "furigana": [{ "text": "生", "reading": "せい" }, { "text": "徒", "reading": "と" }],
+  "meaning": "pupil; student",
+  "pos": ["n"],
+  "kanji": ["751f"],
+  "builtFrom": [{ "k": "生", "m": "life" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "book",
+    "scene": ["room:classroom"],
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "生徒", "reading": "せいと" }, { "text": "ではありません。" } ],
+      "en": "I'm not a student.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [155544, 258994] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 生徒" },
+  "source": { "jmdict": 1379380, "jlpt": 5 }
+}

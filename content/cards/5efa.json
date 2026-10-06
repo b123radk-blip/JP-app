@@ -1,0 +1,25 @@
+{
+  "id": "5efa",
+  "kanji": "建",
+  "meaning": "build",
+  "primaryReading": "た",
+  "readings": { "kun": ["た(てる)", "た(て)", "だ(て)", "た(つ)"], "on": ["ケン", "コン"] },
+  "mnemonic": "A brush (聿) drafts the plan, a long stride (廴) builds it: build.",
+  "effect": {
+    "material": "wood",
+    "reveal": "assemble",
+    "particles": [{ "type": "dust", "count": 0.6 }],
+    "backdrop": "sky:day",
+    "emblem": "blocks"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "白", "reading": "しろ" }, { "text": "い" }, { "text": "建物", "reading": "たてもの" }, { "text": "は" }, { "text": "病院", "reading": "びょういん" }, { "text": "です。" } ],
+      "en": "That white building is a hospital.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230492, 67860] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

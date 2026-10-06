@@ -1,0 +1,22 @@
+{
+  "id": "w1416840",
+  "type": "word",
+  "word": "誰か",
+  "primaryReading": "だれか",
+  "furigana": [{ "text": "誰", "reading": "だれ" }, { "text": "か" }],
+  "meaning": "someone; somebody",
+  "pos": ["pn"],
+  "kanji": ["8ab0"],
+  "builtFrom": [{ "k": "誰", "m": "who" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "motion": "tilt", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "誰", "reading": "だれ" }, { "text": "かほかの" }, { "text": "人", "reading": "ひと" }, { "text": "がほしい。" } ],
+      "en": "I want somebody else.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [136965, 276271] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 誰か" },
+  "source": { "jmdict": 1416840, "jlpt": 5 }
+}

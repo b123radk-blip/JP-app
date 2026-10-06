@@ -1,0 +1,22 @@
+{
+  "id": "w1202270",
+  "type": "word",
+  "word": "絵",
+  "primaryReading": "え",
+  "furigana": [{ "text": "絵", "reading": "え" }],
+  "meaning": "picture; drawing",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "frame", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "絵", "reading": "え" }, { "text": "をごらんなさい。" } ],
+      "en": "Look at the picture.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222638, 22070] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 絵" },
+  "source": { "jmdict": 1202270, "jlpt": 5 }
+}

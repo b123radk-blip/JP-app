@@ -1,0 +1,27 @@
+{
+  "id": "6d17",
+  "kanji": "洗",
+  "meaning": "wash",
+  "primaryReading": "あら",
+  "readings": { "kun": ["あら(う)"], "on": ["セン"] },
+  "mnemonic": "Water (氵) first (先): wash, scrubbing up the suds.",
+  "effect": {
+    "material": "water",
+    "reveal": "draw:drops",
+    "particles": ["bubbles"],
+    "backdrop": "sky:morning",
+    "motion": "shake",
+    "parts": { "氵": {} },
+    "emblem": "hand"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "手", "reading": "て" }, { "text": "を" }, { "text": "洗", "reading": "あら" }, { "text": "ってください。" } ],
+      "en": "Please wash your hands.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

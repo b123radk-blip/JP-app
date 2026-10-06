@@ -1,0 +1,22 @@
+{
+  "id": "w1421290",
+  "type": "word",
+  "word": "地図",
+  "primaryReading": "ちず",
+  "furigana": [{ "text": "地", "reading": "ち" }, { "text": "図", "reading": "ず" }],
+  "meaning": "map; atlas",
+  "pos": ["n"],
+  "kanji": ["5730", "56f3"],
+  "builtFrom": [{ "k": "地", "m": "ground" }, { "k": "図", "m": "map" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["field"], "emblem": "pin", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ちょっとこの" }, { "text": "地図", "reading": "ちず" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "なさい。" } ],
+      "en": "Take a look at this map.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202836, 40071] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 地図" },
+  "source": { "jmdict": 1421290, "jlpt": 5 }
+}

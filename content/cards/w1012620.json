@@ -1,0 +1,22 @@
+{
+  "id": "w1012620",
+  "type": "word",
+  "word": "もっと",
+  "primaryReading": "もっと",
+  "furigana": [{ "text": "もっと" }],
+  "meaning": "(some) more; even more",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plus", "motion": "grow", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "もっと" }, { "text": "上", "reading": "うえ" }, { "text": "を" }, { "text": "向", "reading": "む" }, { "text": "きなさい。" } ],
+      "en": "Look up more.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [193265, 30430] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word もっと" },
+  "source": { "jmdict": 1012620, "jlpt": 5 }
+}

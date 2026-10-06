@@ -1,0 +1,22 @@
+{
+  "id": "w1403830",
+  "type": "word",
+  "word": "そば",
+  "primaryReading": "そば",
+  "furigana": [{ "text": "そば" }],
+  "meaning": "(place) near by; (place) close by",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pin", "motion": "drift:toward", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "教会", "reading": "きょうかい" }, { "text": "のそばを" }, { "text": "通", "reading": "とお" }, { "text": "ろう。" } ],
+      "en": "Let's pass by the church.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [180298, 19094] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word そば" },
+  "source": { "jmdict": 1403830, "jlpt": 5 }
+}

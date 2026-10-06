@@ -1,0 +1,28 @@
+{
+  "id": "w1076190",
+  "type": "word",
+  "word": "タクシー",
+  "primaryReading": "タクシー",
+  "furigana": [{ "text": "タクシー" }],
+  "meaning": "taxi",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "car", "color": "#ffd030" },
+    "scene": ["road"],
+    "backdrop": "sky:night"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "タクシーで" }, { "text": "行", "reading": "い" }, { "text": "きませんか。" } ],
+      "en": "Let's go by taxi, shall we?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [236801, 40967] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word タクシー" },
+  "source": { "jmdict": 1076190, "jlpt": 5 }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "554f",
+  "kanji": "問",
+  "meaning": "question; ask",
+  "primaryReading": "もん",
+  "readings": { "kun": ["と(う)", "と(い)", "とん"], "on": ["モン"] },
+  "mnemonic": "A mouth (口) at the gate (門) asking: a question.",
+  "effect": {
+    "material": "chalk",
+    "backdrop": "sky:dusk",
+    "scene": ["gate"],
+    "emblem": "question",
+    "parts": { "口": { "material": "rose" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それらは" }, { "text": "重要", "reading": "じゅうよう" }, { "text": "な" }, { "text": "問題", "reading": "もんだい" }, { "text": "だ。" } ],
+      "en": "They are important matters.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204705, 41946] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

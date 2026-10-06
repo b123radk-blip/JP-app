@@ -1,0 +1,19 @@
+{
+  "id": "6240",
+  "kanji": "所",
+  "meaning": "place",
+  "primaryReading": "ところ",
+  "readings": { "kun": ["ところ", "ところ", "どころ", "とこ"], "on": ["ショ"] },
+  "mnemonic": "An axe (斤) hung by the door (戸): this is the place.",
+  "effect": { "material": "stone", "backdrop": "sky:day", "emblem": "pin", "parts": { "戸": { "material": "wood" } } },
+  "sentences": [
+    {
+      "segments": [ { "text": "どこでも" }, { "text": "好", "reading": "す" }, { "text": "きな" }, { "text": "所", "reading": "ところ" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "け。" } ],
+      "en": "You can go anywhere you like.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [200976, 38106] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1343100"] }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "w1412640",
+  "type": "word",
+  "word": "台所",
+  "primaryReading": "だいどころ",
+  "furigana": [{ "text": "台", "reading": "だい" }, { "text": "所", "reading": "どころ" }],
+  "meaning": "kitchen",
+  "pos": ["n"],
+  "kanji": ["53f0", "6240"],
+  "builtFrom": [{ "k": "台", "m": "pedestal" }, { "k": "所", "m": "place" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["room:kitchen"],
+    "backdrop": "sky:indoor",
+    "emblem": "pot"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "父", "reading": "とう" }, { "text": "さんは" }, { "text": "台所", "reading": "だいどころ" }, { "text": "ですか。" } ],
+      "en": "Is Father in the kitchen?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226715, 64058] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 台所" },
+  "source": { "jmdict": 1412640, "jlpt": 5 }
+}

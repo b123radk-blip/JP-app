@@ -1,0 +1,25 @@
+{
+  "id": "8fd1",
+  "kanji": "近",
+  "meaning": "near",
+  "primaryReading": "ちか",
+  "readings": { "kun": ["ちか(い)"], "on": ["キン", "コン"] },
+  "mnemonic": "Walk (⻌) up to the axe (斤) close by: near.",
+  "effect": {
+    "material": "jade",
+    "backdrop": "sky:golden",
+    "scene": ["road"],
+    "motion": { "type": "drift", "dir": "toward" },
+    "emblem": "arrow:toward"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "クリスマスが" }, { "text": "近", "reading": "ちか" }, { "text": "くなってきた。" } ],
+      "en": "Christmas is fast approaching.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225480, 62816] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

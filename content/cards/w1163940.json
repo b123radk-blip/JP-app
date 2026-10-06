@@ -1,0 +1,22 @@
+{
+  "id": "w1163940",
+  "type": "word",
+  "word": "ちょっと",
+  "primaryReading": "ちょっと",
+  "furigana": [{ "text": "ちょっと" }],
+  "meaning": "a little; a bit",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:1", "motion": "shrink", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ちょっと" }, { "text": "話", "reading": "はなし" }, { "text": "があります。" } ],
+      "en": "I have something to tell you.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202705, 17430] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ちょっと" },
+  "source": { "jmdict": 1163940, "jlpt": 5 }
+}

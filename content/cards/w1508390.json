@@ -1,0 +1,22 @@
+{
+  "id": "w1508390",
+  "type": "word",
+  "word": "並べる",
+  "primaryReading": "ならべる",
+  "furigana": [{ "text": "並", "reading": "なら" }, { "text": "べる" }],
+  "meaning": "to line up; to set up",
+  "pos": ["v1", "vt"],
+  "kanji": ["4e26"],
+  "builtFrom": [{ "k": "並", "m": "row" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["lanterns:5"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "メイドはテーブルにナイフとフォークを" }, { "text": "並", "reading": "なら" }, { "text": "べた。" } ],
+      "en": "The maid arranged the knives and forks on the table.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [194690, 31863] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 並べる" },
+  "source": { "jmdict": 1508390, "jlpt": 5 }
+}

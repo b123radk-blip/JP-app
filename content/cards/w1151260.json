@@ -1,0 +1,28 @@
+{
+  "id": "w1151260",
+  "type": "word",
+  "word": "悪い",
+  "primaryReading": "わるい",
+  "furigana": [{ "text": "悪", "reading": "わる" }, { "text": "い" }],
+  "meaning": "bad; poor",
+  "pos": ["adj-i"],
+  "kanji": ["60aa"],
+  "builtFrom": [{ "k": "悪", "m": "bad" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "frown", "color": "#8ad0ff" },
+    "backdrop": "sky:storm",
+    "motion": "shake"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "すいません。あなたに" }, { "text": "悪", "reading": "わる" }, { "text": "いことをしました。" } ],
+      "en": "I'm sorry. I did you wrong.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [215129, 52426] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 悪い" },
+  "source": { "jmdict": 1151260, "jlpt": 5 }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "w1422720",
+  "type": "word",
+  "word": "茶色",
+  "primaryReading": "ちゃいろ",
+  "furigana": [{ "text": "茶", "reading": "ちゃ" }, { "text": "色", "reading": "いろ" }],
+  "meaning": "brown; light brown",
+  "pos": ["n", "adj-no"],
+  "kanji": ["8336", "8272"],
+  "builtFrom": [{ "k": "茶", "m": "tea" }, { "k": "色", "m": "color" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "splash", "color": "#8a5020" },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "茶色", "reading": "ちゃいろ" }, { "text": "で" }, { "text": "小", "reading": "ちい" }, { "text": "さくて、やせています。" } ],
+      "en": "The dog is brown, small and thin.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [210959, 48230] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 茶色" },
+  "source": { "jmdict": 1422720, "jlpt": 5 }
+}

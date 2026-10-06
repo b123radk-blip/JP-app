@@ -1,0 +1,29 @@
+{
+  "id": "w1083590",
+  "type": "word",
+  "word": "デパート",
+  "primaryReading": "デパート",
+  "furigana": [{ "text": "デパート" }],
+  "meaning": "department store",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "bag",
+    "scene": ["room:shop"],
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あのデパートで" }, { "text": "新", "reading": "あたら" }, { "text": "しいコートを" }, { "text": "買", "reading": "か" }, { "text": "いたい。" } ],
+      "en": "I would like to buy a new coat at that department store.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [155750, 258787] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word デパート" },
+  "source": { "jmdict": 1083590, "jlpt": 5 }
+}

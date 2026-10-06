@@ -1,0 +1,22 @@
+{
+  "id": "w1370420",
+  "type": "word",
+  "word": "図書館",
+  "primaryReading": "としょかん",
+  "furigana": [{ "text": "図", "reading": "と" }, { "text": "書", "reading": "しょ" }, { "text": "館", "reading": "かん" }],
+  "meaning": "library",
+  "pos": ["n"],
+  "kanji": ["56f3", "66f8", "9928"],
+  "builtFrom": [{ "k": "図", "m": "map" }, { "k": "書", "m": "write" }, { "k": "館", "m": "building" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "scene": ["room"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "図書館", "reading": "としょかん" }, { "text": "のものです。" } ],
+      "en": "This book belongs to the library.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219587, 56908] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 図書館" },
+  "source": { "jmdict": 1370420, "jlpt": 5 }
+}

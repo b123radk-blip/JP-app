@@ -1,0 +1,22 @@
+{
+  "id": "w1297960",
+  "type": "word",
+  "word": "作文",
+  "primaryReading": "さくぶん",
+  "furigana": [{ "text": "作", "reading": "さく" }, { "text": "文", "reading": "ぶん" }],
+  "meaning": "writing; composition",
+  "pos": ["n", "vs", "vi"],
+  "kanji": ["4f5c", "6587"],
+  "builtFrom": [{ "k": "作", "m": "make" }, { "k": "文", "m": "sentence" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "作文", "reading": "さくぶん" }, { "text": "は" }, { "text": "書", "reading": "か" }, { "text": "いてしまいましたか。" } ],
+      "en": "Have you finished writing your composition?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [170165, 244319] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 作文" },
+  "source": { "jmdict": 1297960, "jlpt": 5 }
+}

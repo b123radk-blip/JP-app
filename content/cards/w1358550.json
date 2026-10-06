@@ -1,0 +1,22 @@
+{
+  "id": "w1358550",
+  "type": "word",
+  "word": "食堂",
+  "primaryReading": "しょくどう",
+  "furigana": [{ "text": "食", "reading": "しょく" }, { "text": "堂", "reading": "どう" }],
+  "meaning": "dining room; dining hall",
+  "pos": ["n"],
+  "kanji": ["98df"],
+  "builtFrom": [{ "k": "食", "m": "eat" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "scene": ["room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "食堂", "reading": "しょくどう" }, { "text": "はもう" }, { "text": "開", "reading": "ひら" }, { "text": "いてますか。" } ],
+      "en": "Is the dining room open now?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [145794, 268770] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 食堂" },
+  "source": { "jmdict": 1358550, "jlpt": 5 }
+}

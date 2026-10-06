@@ -1,0 +1,29 @@
+{
+  "id": "w1242160",
+  "type": "word",
+  "word": "近く",
+  "primaryReading": "ちかく",
+  "furigana": [{ "text": "近", "reading": "ちか" }, { "text": "く" }],
+  "meaning": "near; neighbourhood",
+  "pos": ["n", "adj-no", "adv"],
+  "kanji": ["8fd1"],
+  "builtFrom": [{ "k": "近", "m": "near" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "pin",
+    "motion": "drift:toward",
+    "backdrop": "sky:day",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "駅", "reading": "えき" }, { "text": "の" }, { "text": "近", "reading": "ちか" }, { "text": "くにいます。" } ],
+      "en": "I am near the station.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158262, 256268] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 近く" },
+  "source": { "jmdict": 1242160, "jlpt": 5 }
+}

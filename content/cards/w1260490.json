@@ -1,0 +1,22 @@
+{
+  "id": "w1260490",
+  "type": "word",
+  "word": "鍵",
+  "primaryReading": "かぎ",
+  "furigana": [{ "text": "鍵", "reading": "かぎ" }],
+  "meaning": "key",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "backdrop": "sky:night", "particles": ["sparks"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "こちらがあなたの" }, { "text": "鍵", "reading": "かぎ" }, { "text": "だ。" } ],
+      "en": "Here is your key.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224198, 61534] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 鍵" },
+  "source": { "jmdict": 1260490, "jlpt": 5 }
+}

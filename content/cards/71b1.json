@@ -1,0 +1,26 @@
+{
+  "id": "71b1",
+  "kanji": "熱",
+  "meaning": "heat; fever",
+  "primaryReading": "あつ",
+  "readings": { "kun": ["あつ(い)"], "on": ["ネツ"] },
+  "mnemonic": "Fire (灬) under the plant (埶): heat, a fever.",
+  "effect": {
+    "material": "lacquer",
+    "particles": ["embers"],
+    "backdrop": { "type": "halo", "color": "#ff5020" },
+    "motion": "shake",
+    "emblem": { "type": "thermometer", "level": 0.95 },
+    "parts": { "灬": { "material": "heat" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このお" }, { "text": "茶", "reading": "ちゃ" }, { "text": "はとても" }, { "text": "熱", "reading": "あつ" }, { "text": "い。" } ],
+      "en": "This tea is very hot.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223931, 61267] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

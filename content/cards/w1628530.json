@@ -1,0 +1,28 @@
+{
+  "id": "w1628530",
+  "type": "word",
+  "word": "これ",
+  "primaryReading": "これ",
+  "furigana": [{ "text": "これ" }],
+  "meaning": "this; this one",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "box",
+    "motion": "drift:toward",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "面白", "reading": "おもしろ" }, { "text": "い" }, { "text": "本", "reading": "ほん" }, { "text": "だよ。" } ],
+      "en": "This is an interesting book.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [218077, 372417] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word これ" },
+  "source": { "jmdict": 1628530, "jlpt": 5 }
+}

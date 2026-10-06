@@ -1,0 +1,22 @@
+{
+  "id": "w1266970",
+  "type": "word",
+  "word": "戸",
+  "primaryReading": "と",
+  "furigana": [{ "text": "戸", "reading": "と" }],
+  "meaning": "door",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "戸", "reading": "と" }, { "text": "を" }, { "text": "開", "reading": "あ" }, { "text": "けてください。" } ],
+      "en": "Please open the door.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 戸" },
+  "source": { "jmdict": 1266970, "jlpt": 5 }
+}

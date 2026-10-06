@@ -1,0 +1,22 @@
+{
+  "id": "w1523940",
+  "type": "word",
+  "word": "磨く",
+  "primaryReading": "みがく",
+  "furigana": [{ "text": "磨", "reading": "みが" }, { "text": "く" }],
+  "meaning": "to polish; to shine",
+  "pos": ["v5k", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["sparks"], "emblem": "shoe", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "靴", "reading": "くつ" }, { "text": "をよく" }, { "text": "磨", "reading": "みが" }, { "text": "いてくれ。" } ],
+      "en": "Give my shoes a good shine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [179243, 18100] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 磨く" },
+  "source": { "jmdict": 1523940, "jlpt": 5 }
+}

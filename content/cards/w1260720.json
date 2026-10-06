@@ -1,0 +1,22 @@
+{
+  "id": "w1260720",
+  "type": "word",
+  "word": "元気",
+  "primaryReading": "げんき",
+  "furigana": [{ "text": "元", "reading": "げん" }, { "text": "気", "reading": "き" }],
+  "meaning": "lively; full of spirit",
+  "pos": ["adj-na", "n"],
+  "kanji": ["6c17"],
+  "builtFrom": [{ "k": "気", "m": "spirit" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sun", "motion": "bounce", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "元気", "reading": "げんき" }, { "text": "ですよ。あなたは？" } ],
+      "en": "Fine, thank you. And you?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [175037, 239430] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 元気" },
+  "source": { "jmdict": 1260720, "jlpt": 5 }
+}

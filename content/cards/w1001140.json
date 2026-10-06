@@ -1,0 +1,22 @@
+{
+  "id": "w1001140",
+  "type": "word",
+  "word": "ええ",
+  "primaryReading": "ええ",
+  "furigana": [{ "text": "ええ" }],
+  "meaning": "yes; that is correct",
+  "pos": ["int"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ええ、どうぞ" }, { "text": "来", "reading": "き" }, { "text": "てね。" } ],
+      "en": "Yes, please come.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [228011, 65364] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ええ" },
+  "source": { "jmdict": 1001140, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1555300",
+  "type": "word",
+  "word": "緑",
+  "primaryReading": "みどり",
+  "furigana": [{ "text": "緑", "reading": "みどり" }],
+  "meaning": "green",
+  "pos": ["n", "adj-no"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "leaf", "backdrop": "sky:forest" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたは" }, { "text": "緑", "reading": "みどり" }, { "text": "と" }, { "text": "青", "reading": "あお" }, { "text": "を" }, { "text": "見分", "reading": "みわ" }, { "text": "けることができますか。" } ],
+      "en": "Can you tell green from blue?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231486, 68853] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 緑" },
+  "source": { "jmdict": 1555300, "jlpt": 5 }
+}

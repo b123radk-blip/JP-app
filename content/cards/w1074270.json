@@ -1,0 +1,28 @@
+{
+  "id": "w1074270",
+  "type": "word",
+  "word": "セーター",
+  "primaryReading": "セーター",
+  "furigana": [{ "text": "セーター" }],
+  "meaning": "sweater; jumper",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "shirt", "color": "#d06030" },
+    "backdrop": "sky:snow",
+    "particles": ["snow"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このセーターは" }, { "text": "洗", "reading": "あら" }, { "text": "っても" }, { "text": "大丈夫", "reading": "だいじょうぶ" }, { "text": "です。" } ],
+      "en": "This sweater will stand washing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223605, 60941] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word セーター" },
+  "source": { "jmdict": 1074270, "jlpt": 5 }
+}

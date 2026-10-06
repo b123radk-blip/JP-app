@@ -1,0 +1,25 @@
+{
+  "id": "5bb6",
+  "kanji": "家",
+  "meaning": "house; home",
+  "primaryReading": "いえ",
+  "readings": { "kun": ["いえ", "や", "うち"], "on": ["カ", "ケ"] },
+  "mnemonic": "A pig (豕) snug under the roof (宀): home.",
+  "effect": {
+    "material": "wood",
+    "particles": [{ "type": "steam", "count": 0.6 }],
+    "backdrop": "sky:dusk",
+    "emblem": "house",
+    "parts": { "宀": { "material": "lacquer" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "家", "reading": "いえ" }, { "text": "へついたら" }, { "text": "電話", "reading": "でんわ" }, { "text": "が" }, { "text": "鳴", "reading": "な" }, { "text": "っていた。" } ],
+      "en": "The telephone was ringing when I got home.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [187003, 24140] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1191730"] }
+}

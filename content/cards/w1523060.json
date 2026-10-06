@@ -1,0 +1,22 @@
+{
+  "id": "w1523060",
+  "type": "word",
+  "word": "本当",
+  "primaryReading": "ほんとう",
+  "furigana": [{ "text": "本", "reading": "ほん" }, { "text": "当", "reading": "とう" }],
+  "meaning": "truth; reality",
+  "pos": ["n", "adj-no", "adj-na"],
+  "kanji": ["672c", "5f53"],
+  "builtFrom": [{ "k": "本", "m": "book" }, { "k": "当", "m": "hit" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "本当", "reading": "ほんとう" }, { "text": "だと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],
+      "en": "I think it true.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159771, 254751] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 本当" },
+  "source": { "jmdict": 1523060, "jlpt": 5 }
+}

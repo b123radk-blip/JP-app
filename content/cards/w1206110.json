@@ -1,0 +1,22 @@
+{
+  "id": "w1206110",
+  "type": "word",
+  "word": "角",
+  "primaryReading": "かど",
+  "furigana": [{ "text": "角", "reading": "かど" }],
+  "meaning": "corner; edge",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["road"], "motion": "turn", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "角", "reading": "かど" }, { "text": "の" }, { "text": "家", "reading": "いえ" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "たちの" }, { "text": "家", "reading": "いえ" }, { "text": "です。" } ],
+      "en": "The house on the corner is ours.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [184543, 21672] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 角" },
+  "source": { "jmdict": 1206110, "jlpt": 5 }
+}

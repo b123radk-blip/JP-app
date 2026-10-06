@@ -1,0 +1,22 @@
+{
+  "id": "w2845606",
+  "type": "word",
+  "word": "いかが",
+  "primaryReading": "いかが",
+  "furigana": [{ "text": "いかが" }],
+  "meaning": "how; in what way",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "backdrop": "sky:indoor", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "コンタクトを" }, { "text": "入", "reading": "い" }, { "text": "れるというのはいかがでしょう？" } ],
+      "en": "How about wearing contact lenses?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [74894, 328826] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word いかが" },
+  "source": { "jmdict": 2845606, "jlpt": 5 }
+}

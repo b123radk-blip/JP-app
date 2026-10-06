@@ -1,0 +1,22 @@
+{
+  "id": "w1327720",
+  "type": "word",
+  "word": "手紙",
+  "primaryReading": "てがみ",
+  "furigana": [{ "text": "手", "reading": "て" }, { "text": "紙", "reading": "がみ" }],
+  "meaning": "letter; note",
+  "pos": ["n"],
+  "kanji": ["624b", "7d19"],
+  "builtFrom": [{ "k": "手", "m": "hand" }, { "k": "紙", "m": "paper" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "手紙", "reading": "てがみ" }, { "text": "を" }, { "text": "書", "reading": "か" }, { "text": "き" }, { "text": "終", "reading": "お" }, { "text": "えました。" } ],
+      "en": "I've finished writing the letter.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [148558, 266001] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 手紙" },
+  "source": { "jmdict": 1327720, "jlpt": 5 }
+}

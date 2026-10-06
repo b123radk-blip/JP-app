@@ -1,0 +1,22 @@
+{
+  "id": "w1061520",
+  "type": "word",
+  "word": "シャツ",
+  "primaryReading": "シャツ",
+  "furigana": [{ "text": "シャツ" }],
+  "meaning": "shirt (undergarment); undershirt",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shirt", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "白", "reading": "しろ" }, { "text": "いシャツはありますか。" } ],
+      "en": "Do you have any shirt in white?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [121441, 282565] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word シャツ" },
+  "source": { "jmdict": 1061520, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1557110",
+  "type": "word",
+  "word": "冷蔵庫",
+  "primaryReading": "れいぞうこ",
+  "furigana": [{ "text": "冷", "reading": "れい" }, { "text": "蔵", "reading": "ぞう" }, { "text": "庫", "reading": "こ" }],
+  "meaning": "refrigerator; fridge",
+  "pos": ["n"],
+  "kanji": ["51b7"],
+  "builtFrom": [{ "k": "冷", "m": "cool" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["snow"],
+    "scene": ["room:kitchen"],
+    "backdrop": "sky:indoor",
+    "emblem": "box"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "冷蔵庫", "reading": "れいぞうこ" }, { "text": "にバターはありますか。" } ],
+      "en": "Is there any butter in the refrigerator?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [77648, 326070] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 冷蔵庫" },
+  "source": { "jmdict": 1557110, "jlpt": 5 }
+}

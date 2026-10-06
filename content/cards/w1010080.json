@@ -1,0 +1,22 @@
+{
+  "id": "w1010080",
+  "type": "word",
+  "word": "はい",
+  "primaryReading": "はい",
+  "furigana": [{ "text": "はい" }],
+  "meaning": "yes; that is correct",
+  "pos": ["int"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:day", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "はい、とても" }, { "text": "好", "reading": "す" }, { "text": "きです。" } ],
+      "en": "Yes, I like it very much.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198336, 35528] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word はい" },
+  "source": { "jmdict": 1010080, "jlpt": 5 }
+}

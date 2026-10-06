@@ -1,0 +1,22 @@
+{
+  "id": "w1476960",
+  "type": "word",
+  "word": "八百屋",
+  "primaryReading": "やおや",
+  "furigana": [{ "text": "八百屋", "reading": "やおや" }],
+  "meaning": "greengrocer",
+  "pos": ["n"],
+  "kanji": ["516b", "767e", "5c4b"],
+  "builtFrom": [{ "k": "八", "m": "eight" }, { "k": "百", "m": "hundred" }, { "k": "屋", "m": "roof" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "leaf", "scene": ["room:shop"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "八百屋", "reading": "やおや" }, { "text": "は" }, { "text": "客", "reading": "きゃく" }, { "text": "にとても" }, { "text": "親切", "reading": "しんせつ" }, { "text": "だ。" } ],
+      "en": "The greengrocer is very kind to his customers.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [207193, 44444] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 八百屋" },
+  "source": { "jmdict": 1476960, "jlpt": 5 }
+}

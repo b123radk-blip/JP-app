@@ -1,0 +1,29 @@
+{
+  "id": "w1296970",
+  "type": "word",
+  "word": "財布",
+  "primaryReading": "さいふ",
+  "furigana": [{ "text": "財", "reading": "さい" }, { "text": "布", "reading": "ふ" }],
+  "meaning": "wallet; purse",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "yen",
+    "particles": ["coins"],
+    "backdrop": "sky:day",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたの" }, { "text": "財布", "reading": "さいふ" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "のに" }, { "text": "似", "reading": "に" }, { "text": "ている。" } ],
+      "en": "Your purse is similar to mine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233280, 70650] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 財布" },
+  "source": { "jmdict": 1296970, "jlpt": 5 }
+}

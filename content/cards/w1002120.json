@@ -1,0 +1,22 @@
+{
+  "id": "w1002120",
+  "type": "word",
+  "word": "おまわりさん",
+  "primaryReading": "おまわりさん",
+  "furigana": [{ "text": "おまわりさん" }],
+  "meaning": "police officer",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stop", "backdrop": "sky:dusk", "motion": "walk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "すみません、おまわりさん。ここはどこですか。" } ],
+      "en": "Excuse me, officer, where are we now?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214211, 51502] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word おまわりさん" },
+  "source": { "jmdict": 1002120, "jlpt": 5 }
+}

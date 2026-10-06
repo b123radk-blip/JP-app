@@ -1,0 +1,28 @@
+{
+  "id": "w1203260",
+  "type": "word",
+  "word": "他",
+  "primaryReading": "ほか",
+  "furigana": [{ "text": "他", "reading": "ほか" }],
+  "meaning": "another place; some other place",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "signpost",
+    "motion": "drift:right",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "他", "reading": "ほか" }, { "text": "の" }, { "text": "誰", "reading": "だれ" }, { "text": "もだめなのです。" } ],
+      "en": "Nobody else can.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [138584, 274651] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 他" },
+  "source": { "jmdict": 1203260, "jlpt": 5 }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "w1074260",
+  "type": "word",
+  "word": "ズボン",
+  "primaryReading": "ズボン",
+  "furigana": [{ "text": "ズボン" }],
+  "meaning": "trousers; pants",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "shirt", "color": "#405080" },
+    "backdrop": "sky:day",
+    "motion": "walk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたは" }, { "text": "私", "reading": "わたし" }, { "text": "のズボンをどうしたのですか。" } ],
+      "en": "What did you do with my pants?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231957, 69325] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ズボン" },
+  "source": { "jmdict": 1074260, "jlpt": 5 }
+}

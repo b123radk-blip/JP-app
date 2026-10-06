@@ -1,0 +1,24 @@
+{
+  "id": "9ec4",
+  "kanji": "黄",
+  "meaning": "yellow",
+  "primaryReading": "き",
+  "readings": { "kun": ["き", "こ"], "on": ["コウ", "オウ"] },
+  "mnemonic": "Ripe rice fields glowing at harvest: yellow.",
+  "effect": {
+    "material": { "type": "glow", "preset": "gold", "body": "#fff07a", "emissive": "#ffd400", "glow": "#ffe040" },
+    "backdrop": "sky:day",
+    "emblem": { "type": "splash", "color": "#ffd800" },
+    "particles": [{ "type": "motes", "dir": "up", "color": "#ffe040" }]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "庭", "reading": "にわ" }, { "text": "の" }, { "text": "花", "reading": "はな" }, { "text": "はすべて" }, { "text": "黄色", "reading": "きいろ" }, { "text": "だ。" } ],
+      "en": "All the flowers in the garden are yellow.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [125502, 278490] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

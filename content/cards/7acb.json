@@ -1,0 +1,19 @@
+{
+  "id": "7acb",
+  "kanji": "立",
+  "meaning": "stand up; rise",
+  "primaryReading": "た",
+  "readings": { "kun": ["た(つ)", "た(つ)", "た(ち)", "た(てる)"], "on": ["リツ", "リュウ", "リットル"] },
+  "mnemonic": "A person standing on the ground, arms out: stand.",
+  "effect": { "material": "skin", "backdrop": "sky:morning", "motion": "stand" },
+  "sentences": [
+    {
+      "segments": [ { "text": "誰", "reading": "だれ" }, { "text": "かが" }, { "text": "入り口", "reading": "いりぐち" }, { "text": "に" }, { "text": "立", "reading": "た" }, { "text": "っています。" } ],
+      "en": "Someone is standing at the door.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [137064, 276172] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

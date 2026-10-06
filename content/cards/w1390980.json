@@ -1,0 +1,29 @@
+{
+  "id": "w1390980",
+  "type": "word",
+  "word": "洗濯",
+  "primaryReading": "せんたく",
+  "furigana": [{ "text": "洗", "reading": "せん" }, { "text": "濯", "reading": "たく" }],
+  "meaning": "washing; laundry",
+  "pos": ["n", "vs", "vt"],
+  "kanji": ["6d17"],
+  "builtFrom": [{ "k": "洗", "m": "wash" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["bubbles"],
+    "emblem": "shirt",
+    "backdrop": "sky:day",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "日曜日", "reading": "にちようび" }, { "text": "には" }, { "text": "洗濯", "reading": "せんたく" }, { "text": "をする。" } ],
+      "en": "I do the laundry on Sundays.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [122161, 281842] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 洗濯" },
+  "source": { "jmdict": 1390980, "jlpt": 5 }
+}

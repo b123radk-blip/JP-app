@@ -1,0 +1,22 @@
+{
+  "id": "w1610400",
+  "type": "word",
+  "word": "つける",
+  "primaryReading": "つける",
+  "furigana": [{ "text": "つける" }],
+  "meaning": "to turn on; to switch on",
+  "pos": ["v1", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "lightbulb", "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "テレビをつけて。" } ],
+      "en": "Please turn on the television.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201970, 38525] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word つける" },
+  "source": { "jmdict": 1610400, "jlpt": 5 }
+}

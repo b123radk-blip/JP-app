@@ -1,0 +1,24 @@
+{
+  "id": "9589",
+  "kanji": "閉",
+  "meaning": "closed; shut",
+  "primaryReading": "し",
+  "readings": { "kun": ["と(じる)", "と(ざす)", "し(める)", "し(まる)"], "on": ["ヘイ"] },
+  "mnemonic": "The gate (門) barred shut (才): close.",
+  "effect": {
+    "material": "lacquer",
+    "backdrop": "sky:night",
+    "scene": [{ "type": "gate", "close": true }],
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あいにく" }, { "text": "店", "reading": "みせ" }, { "text": "は" }, { "text": "閉", "reading": "し" }, { "text": "まっていた。" } ],
+      "en": "Unfortunately, the store was closed.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [234558, 71935] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

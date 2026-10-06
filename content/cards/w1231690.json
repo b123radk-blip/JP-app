@@ -1,0 +1,28 @@
+{
+  "id": "w1231690",
+  "type": "word",
+  "word": "去年",
+  "primaryReading": "きょねん",
+  "furigana": [{ "text": "去", "reading": "きょ" }, { "text": "年", "reading": "ねん" }],
+  "meaning": "last year",
+  "pos": ["n", "adv"],
+  "kanji": ["5e74"],
+  "builtFrom": [{ "k": "年", "m": "year" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:left",
+    "particles": ["leaves"],
+    "backdrop": "sky:golden"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "去年", "reading": "きょねん" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "多", "reading": "おお" }, { "text": "かった。" } ],
+      "en": "We had a lot of rain last year.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [182213, 19422] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 去年" },
+  "source": { "jmdict": 1231690, "jlpt": 5 }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "w1376470",
+  "type": "word",
+  "word": "晴れる",
+  "primaryReading": "はれる",
+  "furigana": [{ "text": "晴", "reading": "は" }, { "text": "れる" }],
+  "meaning": "to clear up; to clear away",
+  "pos": ["v1", "vi"],
+  "kanji": ["6674"],
+  "builtFrom": [{ "k": "晴", "m": "clear up" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "sun", "color": "#ffd27a" },
+    "motion": "drift:up",
+    "backdrop": "sky:noon"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "晴", "reading": "は" }, { "text": "れてきたようですね。" } ],
+      "en": "It seems to be clearing up.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [143010, 271558] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 晴れる" },
+  "source": { "jmdict": 1376470, "jlpt": 5 }
+}

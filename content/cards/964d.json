@@ -1,0 +1,25 @@
+{
+  "id": "964d",
+  "kanji": "降",
+  "meaning": "descend; fall",
+  "primaryReading": "お",
+  "readings": { "kun": ["お(りる)", "お(ろす)", "ふ(る)", "ふ(り)"], "on": ["コウ", "ゴ"] },
+  "mnemonic": "Feet (夅) going down the hill steps (⻖): get off, come down; rain falls.",
+  "effect": {
+    "material": "ice",
+    "particles": [{ "type": "rain", "count": 0.6 }],
+    "backdrop": "sky:storm",
+    "motion": { "type": "drift", "dir": "down" },
+    "emblem": "stairs"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ここで" }, { "text": "降", "reading": "お" }, { "text": "りましょう。" } ],
+      "en": "Let's get off here.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224559, 61894] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "7d19",
+  "kanji": "紙",
+  "meaning": "paper",
+  "primaryReading": "かみ",
+  "readings": { "kun": ["かみ"], "on": ["シ"] },
+  "mnemonic": "Threads (糸) pressed flat by the family (氏): paper, folded into a letter.",
+  "effect": {
+    "material": "paper",
+    "backdrop": "sky:day",
+    "motion": "sway",
+    "emblem": { "type": "plane", "size": 1.4 },
+    "parts": { "糸": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "紙", "reading": "かみ" }, { "text": "は" }, { "text": "木", "reading": "き" }, { "text": "から" }, { "text": "作", "reading": "つく" }, { "text": "られる。" } ],
+      "en": "Paper is made from wood.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [151205, 263352] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1311530"] }
+}

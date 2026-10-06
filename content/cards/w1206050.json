@@ -1,0 +1,28 @@
+{
+  "id": "w1206050",
+  "type": "word",
+  "word": "覚える",
+  "primaryReading": "おぼえる",
+  "furigana": [{ "text": "覚", "reading": "おぼ" }, { "text": "える" }],
+  "meaning": "to memorize; to memorise",
+  "pos": ["v1", "vt"],
+  "kanji": ["899a"],
+  "builtFrom": [{ "k": "覚", "m": "memorize" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "lightbulb",
+    "backdrop": "sky:twilight",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "のこと" }, { "text": "覚", "reading": "おぼ" }, { "text": "えてますか。" } ],
+      "en": "Do you remember me?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [164183, 250327] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 覚える" },
+  "source": { "jmdict": 1206050, "jlpt": 5 }
+}

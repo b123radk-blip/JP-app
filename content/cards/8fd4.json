@@ -1,0 +1,19 @@
+{
+  "id": "8fd4",
+  "kanji": "返",
+  "meaning": "return; answer",
+  "primaryReading": "かえ",
+  "readings": { "kun": ["かえ(す)", "かえ(す)", "かえ(る)", "かえ(る)"], "on": ["ヘン"] },
+  "mnemonic": "Walking (⻌) it back the other way (反): return, give back.",
+  "effect": { "material": "gold", "backdrop": "sky:day", "motion": "flip", "emblem": "boomerang" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "本", "reading": "ほん" }, { "text": "を" }, { "text": "返", "reading": "かえ" }, { "text": "してくれ。" } ],
+      "en": "Give that book back to me.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230448, 67815] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

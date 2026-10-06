@@ -1,0 +1,19 @@
+{
+  "id": "4e8b",
+  "kanji": "事",
+  "meaning": "matter; thing",
+  "primaryReading": "こと",
+  "readings": { "kun": ["こと", "つか(う)", "つか(える)"], "on": ["ジ", "ズ"] },
+  "mnemonic": "A hand (⺕) gripping a stick with papers stuck on it: a matter, business to deal with.",
+  "effect": { "material": "chalk", "backdrop": "sky:indoor", "emblem": "briefcase" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "仕事", "reading": "しごと" }, { "text": "がない。" } ],
+      "en": "I am free from work today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [156944, 257590] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

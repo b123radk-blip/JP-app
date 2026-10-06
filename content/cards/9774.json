@@ -1,0 +1,25 @@
+{
+  "id": "9774",
+  "kanji": "靴",
+  "meaning": "shoes",
+  "primaryReading": "くつ",
+  "readings": { "kun": ["くつ"], "on": ["カ"] },
+  "mnemonic": "Leather (革) that changes (化) into shoes.",
+  "effect": {
+    "material": "fur",
+    "particles": [{ "type": "footprints", "color": "#7a5030" }],
+    "backdrop": "sky:day",
+    "emblem": "shoe",
+    "parts": { "革": { "material": "clay" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "どこで" }, { "text": "靴", "reading": "くつ" }, { "text": "が" }, { "text": "買", "reading": "か" }, { "text": "えますか。" } ],
+      "en": "Where would I find shoes?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [200967, 38172] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1246700"] }
+}

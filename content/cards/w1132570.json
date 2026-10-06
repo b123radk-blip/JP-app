@@ -1,0 +1,22 @@
+{
+  "id": "w1132570",
+  "type": "word",
+  "word": "メートル",
+  "primaryReading": "メートル",
+  "furigana": [{ "text": "メートル" }],
+  "meaning": "metre (unit of length); meter",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "ruler", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "彼女", "reading": "かのじょ" }, { "text": "が" }, { "text": "二", "reading": "に" }, { "text": "メートルリードしている。" } ],
+      "en": "She is leading by two meters.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [95264, 307969] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word メートル" },
+  "source": { "jmdict": 1132570, "jlpt": 5 }
+}

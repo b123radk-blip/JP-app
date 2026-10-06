@@ -1,0 +1,28 @@
+{
+  "id": "w1584660",
+  "type": "word",
+  "word": "明日",
+  "primaryReading": "あした",
+  "furigana": [{ "text": "明日", "reading": "あした" }],
+  "meaning": "tomorrow",
+  "pos": ["n", "adv"],
+  "kanji": ["660e", "65e5"],
+  "builtFrom": [{ "k": "明", "m": "bright" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:right",
+    "backdrop": "sky:dawn",
+    "motion": "drift:right"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "明日", "reading": "あした", "base": null, "dict": true }, { "text": "出", "reading": "で" }, { "text": "かけるんですか？" } ],
+      "en": "Will you go out tomorrow?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231541, 68907] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 明日" },
+  "source": { "jmdict": 1584660, "jlpt": 5 }
+}

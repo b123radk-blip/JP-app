@@ -1,0 +1,22 @@
+{
+  "id": "w1046810",
+  "type": "word",
+  "word": "グラム",
+  "primaryReading": "グラム",
+  "furigana": [{ "text": "グラム" }],
+  "meaning": "gram; gramme",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "scale", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "肉", "reading": "にく" }, { "text": "を" }, { "text": "二百", "reading": "にひゃく" }, { "text": "グラム" }, { "text": "買", "reading": "か" }, { "text": "いました。" } ],
+      "en": "I bought two hundred grams of meat.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word グラム" },
+  "source": { "jmdict": 1046810, "jlpt": 5 }
+}

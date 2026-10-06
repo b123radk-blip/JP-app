@@ -1,0 +1,22 @@
+{
+  "id": "w1192150",
+  "type": "word",
+  "word": "家族",
+  "primaryReading": "かぞく",
+  "furigana": [{ "text": "家", "reading": "か" }, { "text": "族", "reading": "ぞく" }],
+  "meaning": "family",
+  "pos": ["n"],
+  "kanji": ["5bb6"],
+  "builtFrom": [{ "k": "家", "m": "house" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "particles": ["hearts"], "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたの" }, { "text": "家族", "reading": "かぞく" }, { "text": "はきっと" }, { "text": "親切", "reading": "しんせつ" }, { "text": "でしょう。" } ],
+      "en": "Your family must be very nice.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233420, 70790] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 家族" },
+  "source": { "jmdict": 1192150, "jlpt": 5 }
+}

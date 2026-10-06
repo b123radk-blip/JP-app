@@ -1,0 +1,22 @@
+{
+  "id": "w1297210",
+  "type": "word",
+  "word": "咲く",
+  "primaryReading": "さく",
+  "furigana": [{ "text": "咲", "reading": "さ" }, { "text": "く" }],
+  "meaning": "to bloom; to flower",
+  "pos": ["v5k", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flower", "particles": ["petals"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "これらの" }, { "text": "花", "reading": "はな" }, { "text": "は" }, { "text": "春", "reading": "はる" }, { "text": "に" }, { "text": "咲", "reading": "さ" }, { "text": "く。" } ],
+      "en": "These flowers bloom in spring.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [217953, 55262] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 咲く" },
+  "source": { "jmdict": 1297210, "jlpt": 5 }
+}

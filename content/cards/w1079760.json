@@ -1,0 +1,22 @@
+{
+  "id": "w1079760",
+  "type": "word",
+  "word": "テスト",
+  "primaryReading": "テスト",
+  "furigana": [{ "text": "テスト" }],
+  "meaning": "test; exam",
+  "pos": ["n", "vs", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sheet", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "来週", "reading": "らいしゅう" }, { "text": "からテストが" }, { "text": "始", "reading": "はじ" }, { "text": "まる。" } ],
+      "en": "Tests start next week.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78665, 325051] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word テスト" },
+  "source": { "jmdict": 1079760, "jlpt": 5 }
+}

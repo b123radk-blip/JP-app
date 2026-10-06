@@ -1,0 +1,22 @@
+{
+  "id": "w1008450",
+  "type": "word",
+  "word": "では",
+  "primaryReading": "では",
+  "furigana": [{ "text": "では" }],
+  "meaning": "then; well",
+  "pos": ["conj"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "では" }, { "text": "今晩", "reading": "こんばん" }, { "text": "またね、さようなら。" } ],
+      "en": "See you tonight, then. Cheers!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202137, 39349] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word では" },
+  "source": { "jmdict": 1008450, "jlpt": 5 }
+}

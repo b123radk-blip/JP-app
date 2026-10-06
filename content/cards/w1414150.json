@@ -1,0 +1,22 @@
+{
+  "id": "w1414150",
+  "type": "word",
+  "word": "大丈夫",
+  "primaryReading": "だいじょうぶ",
+  "furigana": [{ "text": "大", "reading": "だい" }, { "text": "丈", "reading": "じょう" }, { "text": "夫", "reading": "ぶ" }],
+  "meaning": "safe; secure",
+  "pos": ["adj-na"],
+  "kanji": ["5927", "4e08", "592b"],
+  "builtFrom": [{ "k": "大", "m": "large" }, { "k": "丈", "m": "length" }, { "k": "夫", "m": "husband" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "大丈夫", "reading": "だいじょうぶ" }, { "text": "、" }, { "text": "気", "reading": "き" }, { "text": "にしないで。" } ],
+      "en": "It's nothing to get upset about.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [137502, 275734] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 大丈夫" },
+  "source": { "jmdict": 1414150, "jlpt": 5 }
+}

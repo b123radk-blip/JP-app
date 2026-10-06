@@ -1,0 +1,22 @@
+{
+  "id": "w1505990",
+  "type": "word",
+  "word": "しかし",
+  "primaryReading": "しかし",
+  "furigana": [{ "text": "しかし" }],
+  "meaning": "however; but",
+  "pos": ["conj"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "swap", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "しかし、" }, { "text": "人間", "reading": "にんげん" }, { "text": "はちがっている。" } ],
+      "en": "But human beings are different.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [216307, 53611] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word しかし" },
+  "source": { "jmdict": 1505990, "jlpt": 5 }
+}

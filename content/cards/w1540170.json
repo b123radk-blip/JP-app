@@ -1,0 +1,22 @@
+{
+  "id": "w1540170",
+  "type": "word",
+  "word": "友達",
+  "primaryReading": "ともだち",
+  "furigana": [{ "text": "友", "reading": "とも" }, { "text": "達", "reading": "だち" }],
+  "meaning": "friend; companion",
+  "pos": ["n"],
+  "kanji": ["53cb"],
+  "builtFrom": [{ "k": "友", "m": "friend" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "particles": ["hearts"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "人間", "reading": "にんげん" }, { "text": "の" }, { "text": "最", "reading": "もっと" }, { "text": "も" }, { "text": "親", "reading": "した" }, { "text": "しい" }, { "text": "友達", "reading": "ともだち" }, { "text": "である。" } ],
+      "en": "Dogs are man's closest friends.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [175256, 239210] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 友達" },
+  "source": { "jmdict": 1540170, "jlpt": 5 }
+}

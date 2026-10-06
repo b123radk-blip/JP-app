@@ -1,0 +1,24 @@
+{
+  "id": "60aa",
+  "kanji": "悪",
+  "meaning": "bad; vice",
+  "primaryReading": "わる",
+  "readings": { "kun": ["わる(い)", "わる", "あ(し)", "にく(い)"], "on": ["アク", "オ"] },
+  "mnemonic": "A heart (心) under a crooked lid (亜): bad.",
+  "effect": {
+    "material": "lacquer",
+    "backdrop": "sky:storm",
+    "motion": "shake",
+    "parts": { "心": { "material": "heat" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "男", "reading": "おとこ" }, { "text": "は" }, { "text": "目", "reading": "め" }, { "text": "つきが" }, { "text": "悪", "reading": "わる" }, { "text": "い。" } ],
+      "en": "He has an unpleasant look in his eyes.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230593, 67960] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1485470",
+  "type": "word",
+  "word": "飛行機",
+  "primaryReading": "ひこうき",
+  "furigana": [{ "text": "飛", "reading": "ひ" }, { "text": "行", "reading": "こう" }, { "text": "機", "reading": "き" }],
+  "meaning": "airplane; aeroplane",
+  "pos": ["n"],
+  "kanji": ["98db", "884c", "6a5f"],
+  "builtFrom": [{ "k": "飛", "m": "fly" }, { "k": "行", "m": "going" }, { "k": "機", "m": "machine" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "plane",
+    "backdrop": "sky:noon",
+    "motion": "fly",
+    "particles": ["wind"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたは" }, { "text": "飛行機", "reading": "ひこうき" }, { "text": "で" }, { "text": "旅行", "reading": "りょこう" }, { "text": "したことがありますか。" } ],
+      "en": "Have you ever traveled by air?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231608, 68975] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 飛行機" },
+  "source": { "jmdict": 1485470, "jlpt": 5 }
+}

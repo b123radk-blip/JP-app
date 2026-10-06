@@ -1,0 +1,22 @@
+{
+  "id": "w1006670",
+  "type": "word",
+  "word": "そこ",
+  "primaryReading": "そこ",
+  "furigana": [{ "text": "そこ" }],
+  "meaning": "there",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pin", "motion": "drift:right", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今", "reading": "いま" }, { "text": "すぐそこに" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],
+      "en": "I will be there right now.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [172834, 241639] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word そこ" },
+  "source": { "jmdict": 1006670, "jlpt": 5 }
+}

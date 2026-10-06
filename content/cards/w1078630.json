@@ -1,0 +1,22 @@
+{
+  "id": "w1078630",
+  "type": "word",
+  "word": "テーブル",
+  "primaryReading": "テーブル",
+  "furigana": [{ "text": "テーブル" }],
+  "meaning": "table",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "scene": ["room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このテーブルはぐらつく。" } ],
+      "en": "This table isn't steady.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223535, 60870] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word テーブル" },
+  "source": { "jmdict": 1078630, "jlpt": 5 }
+}

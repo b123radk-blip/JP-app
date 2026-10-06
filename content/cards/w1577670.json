@@ -1,0 +1,22 @@
+{
+  "id": "w1577670",
+  "type": "word",
+  "word": "眼鏡",
+  "primaryReading": "めがね",
+  "furigana": [{ "text": "眼鏡", "reading": "めがね" }],
+  "meaning": "glasses; eyeglasses",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "glasses", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ぼくの" }, { "text": "眼鏡", "reading": "めがね" }, { "text": "をどうしたの。" } ],
+      "en": "What did you do with my glasses?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196379, 33556] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 眼鏡" },
+  "source": { "jmdict": 1577670, "jlpt": 5 }
+}

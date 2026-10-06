@@ -1,0 +1,27 @@
+{
+  "id": "w2261500",
+  "type": "word",
+  "word": "おばさん",
+  "primaryReading": "おばさん",
+  "furigana": [{ "text": "おばさん" }],
+  "meaning": "aunt",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "person", "color": "#e090a0" },
+    "backdrop": "sky:dusk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "おばさんは" }, { "text": "先生", "reading": "せんせい" }, { "text": "です。" } ],
+      "en": "My aunt is a teacher.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word おばさん" },
+  "source": { "jmdict": 2261500, "jlpt": 5 }
+}

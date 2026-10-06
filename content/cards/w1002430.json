@@ -1,0 +1,28 @@
+{
+  "id": "w1002430",
+  "type": "word",
+  "word": "お茶",
+  "primaryReading": "おちゃ",
+  "furigana": [{ "text": "お" }, { "text": "茶", "reading": "ちゃ" }],
+  "meaning": "tea",
+  "pos": ["n"],
+  "kanji": ["8336"],
+  "builtFrom": [{ "k": "茶", "m": "tea" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "cup", "drink": "#7aa63a" },
+    "backdrop": "sky:indoor",
+    "particles": ["steam"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "まだ" }, { "text": "お" }, { "text": "茶", "reading": "ちゃ", "base": "ちゃ", "dict": true }, { "text": "が" }, { "text": "要", "reading": "い" }, { "text": "りますか。" } ],
+      "en": "Do you still need tea?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195510, 32684] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お茶" },
+  "source": { "jmdict": 1002430, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1600430",
+  "type": "word",
+  "word": "飲み物",
+  "primaryReading": "のみもの",
+  "furigana": [{ "text": "飲", "reading": "の" }, { "text": "み" }, { "text": "物", "reading": "もの" }],
+  "meaning": "drink; beverage",
+  "pos": ["n"],
+  "kanji": ["98f2", "7269"],
+  "builtFrom": [{ "k": "飲", "m": "drink" }, { "k": "物", "m": "thing" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "飲み物", "reading": "のみもの" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "りましょう。" } ],
+      "en": "I'll fix a drink.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [189952, 27109] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 飲み物" },
+  "source": { "jmdict": 1600430, "jlpt": 5 }
+}

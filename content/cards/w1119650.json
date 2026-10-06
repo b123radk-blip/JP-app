@@ -1,0 +1,22 @@
+{
+  "id": "w1119650",
+  "type": "word",
+  "word": "ベッド",
+  "primaryReading": "ベッド",
+  "furigana": [{ "text": "ベッド" }],
+  "meaning": "bed",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bed", "backdrop": "sky:night", "particles": ["motes"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "どんなベッドでもないよりはよい。" } ],
+      "en": "Any bed is better than no bed.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [199480, 36682] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ベッド" },
+  "source": { "jmdict": 1119650, "jlpt": 5 }
+}

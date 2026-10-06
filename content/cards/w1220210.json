@@ -1,0 +1,29 @@
+{
+  "id": "w1220210",
+  "type": "word",
+  "word": "机",
+  "primaryReading": "つくえ",
+  "furigana": [{ "text": "机", "reading": "つくえ" }],
+  "meaning": "desk",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "book",
+    "scene": ["room"],
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "弟", "reading": "おとうと" }, { "text": "は" }, { "text": "机", "reading": "つくえ" }, { "text": "に" }, { "text": "向", "reading": "む" }, { "text": "かっている。" } ],
+      "en": "My brother is at his desk.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [125437, 278556] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 机" },
+  "source": { "jmdict": 1220210, "jlpt": 5 }
+}

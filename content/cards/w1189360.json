@@ -1,0 +1,22 @@
+{
+  "id": "w1189360",
+  "type": "word",
+  "word": "どちら",
+  "primaryReading": "どちら",
+  "furigana": [{ "text": "どちら" }],
+  "meaning": "which way; which direction",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "signpost", "motion": "tilt", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はどちらも" }, { "text": "好", "reading": "す" }, { "text": "きです。" } ],
+      "en": "I like both.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159295, 255228] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word どちら" },
+  "source": { "jmdict": 1189360, "jlpt": 5 }
+}

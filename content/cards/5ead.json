@@ -1,0 +1,25 @@
+{
+  "id": "5ead",
+  "kanji": "庭",
+  "meaning": "garden; courtyard",
+  "primaryReading": "にわ",
+  "readings": { "kun": ["にわ"], "on": ["テイ"] },
+  "mnemonic": "A courtyard (廷) under the eaves (广), trees in bloom: garden.",
+  "effect": {
+    "material": "jade",
+    "particles": ["petals"],
+    "backdrop": "sky:day",
+    "scene": [{ "type": "tree", "color": "#e890b0" }],
+    "parts": { "广": { "material": "wood" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "なんと" }, { "text": "美", "reading": "うつく" }, { "text": "しい" }, { "text": "庭", "reading": "にわ" }, { "text": "だこと。" } ],
+      "en": "What a beautiful garden!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198807, 36003] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1436130"] }
+}

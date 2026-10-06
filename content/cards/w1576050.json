@@ -1,0 +1,29 @@
+{
+  "id": "w1576050",
+  "type": "word",
+  "word": "一昨日",
+  "primaryReading": "おととい",
+  "furigana": [{ "text": "一昨日", "reading": "おととい" }],
+  "meaning": "day before yesterday",
+  "pos": ["n", "adv"],
+  "kanji": ["4e00", "6628", "65e5"],
+  "builtFrom": [{ "k": "一", "m": "one" }, { "k": "昨", "m": "yesterday" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:left",
+    "motion": "drift:left",
+    "backdrop": "sky:twilight",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "一昨日", "reading": "おととい", "base": null, "dict": true }, { "text": "から、" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "降", "reading": "ふ" }, { "text": "ったりやんだりしている。" } ],
+      "en": "It has been raining on and off since the day before yesterday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [190604, 27764] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 一昨日" },
+  "source": { "jmdict": 1576050, "jlpt": 5 }
+}

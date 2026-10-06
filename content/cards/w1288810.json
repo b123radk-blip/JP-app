@@ -1,0 +1,28 @@
+{
+  "id": "w1288810",
+  "type": "word",
+  "word": "ここ",
+  "primaryReading": "ここ",
+  "furigana": [{ "text": "ここ" }],
+  "meaning": "here; this place",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "pin",
+    "motion": "drift:toward",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "すぐにここへ" }, { "text": "来", "reading": "き" }, { "text": "なさい。" } ],
+      "en": "Come here at once.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214956, 52251] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ここ" },
+  "source": { "jmdict": 1288810, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1415000",
+  "type": "word",
+  "word": "大変",
+  "primaryReading": "たいへん",
+  "furigana": [{ "text": "大", "reading": "たい" }, { "text": "変", "reading": "へん" }],
+  "meaning": "very; greatly",
+  "pos": ["adv"],
+  "kanji": ["5927", "5909"],
+  "builtFrom": [{ "k": "大", "m": "large" }, { "k": "変", "m": "change" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "exclaim", "motion": "shake", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "仕事", "reading": "しごと" }, { "text": "は" }, { "text": "大変", "reading": "たいへん" }, { "text": "面白", "reading": "おもしろ" }, { "text": "いです。" } ],
+      "en": "The job is a lot of fun.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [169096, 245391] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 大変" },
+  "source": { "jmdict": 1415000, "jlpt": 5 }
+}

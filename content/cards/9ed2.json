@@ -1,0 +1,24 @@
+{
+  "id": "9ed2",
+  "kanji": "黒",
+  "meaning": "black",
+  "primaryReading": "くろ",
+  "readings": { "kun": ["くろ", "くろ(ずむ)", "くろ(い)"], "on": ["コク"] },
+  "mnemonic": "Soot from the fire (灬) under the village (里): black.",
+  "effect": {
+    "material": "ink",
+    "backdrop": "sky:snow",
+    "emblem": { "type": "splash", "color": "#16161e" },
+    "parts": { "灬": { "material": "heat" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "黒", "reading": "くろ" }, { "text": "と" }, { "text": "白", "reading": "しろ" }, { "text": "の" }, { "text": "見分", "reading": "みわ" }, { "text": "けがつく。" } ],
+      "en": "Dogs see in black and white.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [175272, 239194] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1287410"] }
+}

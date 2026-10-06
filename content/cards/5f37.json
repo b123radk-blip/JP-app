@@ -1,0 +1,25 @@
+{
+  "id": "5f37",
+  "kanji": "強",
+  "meaning": "strong",
+  "primaryReading": "きょう",
+  "readings": { "kun": ["つよ(い)", "つよ(まる)", "つよ(める)", "し(いる)"], "on": ["キョウ", "ゴウ"] },
+  "mnemonic": "A bow (弓) only the strong can bend: strong.",
+  "effect": {
+    "material": "metal",
+    "backdrop": "sky:noon",
+    "motion": "pulse",
+    "emblem": "dumbbell",
+    "parts": { "弓": { "material": "wood" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "風", "reading": "かぜ" }, { "text": "が" }, { "text": "強", "reading": "つよ" }, { "text": "いですね。" } ],
+      "en": "It is windy today, isn't it?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171502, 242971] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

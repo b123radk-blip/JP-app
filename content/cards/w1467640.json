@@ -1,0 +1,22 @@
+{
+  "id": "w1467640",
+  "type": "word",
+  "word": "猫",
+  "primaryReading": "ねこ",
+  "furigana": [{ "text": "猫", "reading": "ねこ" }],
+  "meaning": "cat; feline",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "wag", "backdrop": "sky:day", "emblem": "heart" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ほら！" }, { "text": "台所", "reading": "だいどころ" }, { "text": "に" }, { "text": "猫", "reading": "ねこ" }, { "text": "がいる。" } ],
+      "en": "Look! There's a cat in the kitchen.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195971, 33146] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 猫" },
+  "source": { "jmdict": 1467640, "jlpt": 5 }
+}

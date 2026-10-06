@@ -1,0 +1,24 @@
+{
+  "id": "756a",
+  "kanji": "番",
+  "meaning": "turn; number in a series",
+  "primaryReading": "ばん",
+  "readings": { "kun": ["つが(い)"], "on": ["バン"] },
+  "mnemonic": "Seeds (釆) sown field (田) by field, in turn: your turn, your number.",
+  "effect": {
+    "material": "paper",
+    "backdrop": "sky:indoor",
+    "emblem": "ticket",
+    "parts": { "田": { "material": "jade" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "次", "reading": "つぎ" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "番", "reading": "ばん" }, { "text": "です。" } ],
+      "en": "It's my turn next.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

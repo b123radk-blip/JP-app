@@ -1,0 +1,28 @@
+{
+  "id": "w1519210",
+  "type": "word",
+  "word": "忘れる",
+  "primaryReading": "わすれる",
+  "furigana": [{ "text": "忘", "reading": "わす" }, { "text": "れる" }],
+  "meaning": "to forget; to leave carelessly",
+  "pos": ["v1", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": "vanish",
+    "emblem": { "type": "question", "color": "#ffd27a" },
+    "backdrop": "sky:dusk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "火", "reading": "ひ" }, { "text": "を" }, { "text": "消", "reading": "け" }, { "text": "すのを" }, { "text": "忘", "reading": "わす" }, { "text": "れるな。" } ],
+      "en": "Don't forget to put out the fire.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [186724, 23860] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 忘れる" },
+  "source": { "jmdict": 1519210, "jlpt": 5 }
+}

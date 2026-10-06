@@ -1,0 +1,22 @@
+{
+  "id": "w1254790",
+  "type": "word",
+  "word": "結婚",
+  "primaryReading": "けっこん",
+  "furigana": [{ "text": "結", "reading": "けっ" }, { "text": "婚", "reading": "こん" }],
+  "meaning": "marriage",
+  "pos": ["n", "vs", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "ring", "particles": ["petals"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "結婚", "reading": "けっこん" }, { "text": "してくれませんか。" } ],
+      "en": "Will you marry me?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [175775, 35835] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 結婚" },
+  "source": { "jmdict": 1254790, "jlpt": 5 }
+}

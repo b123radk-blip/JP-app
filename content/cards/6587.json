@@ -1,0 +1,19 @@
+{
+  "id": "6587",
+  "kanji": "文",
+  "meaning": "sentence; literature",
+  "primaryReading": "ぶん",
+  "readings": { "kun": ["ふみ", "あや"], "on": ["ブン", "モン"] },
+  "mnemonic": "Brush strokes crossing on the page: writing, a sentence.",
+  "effect": { "material": "ink", "reveal": "brush", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "先生", "reading": "せんせい" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "作文", "reading": "さくぶん" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "てくれた。" } ],
+      "en": "My teacher looked over my composition.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [141590, 272980] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

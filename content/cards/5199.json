@@ -1,0 +1,19 @@
+{
+  "id": "5199",
+  "kanji": "写",
+  "meaning": "copy; be photographed",
+  "primaryReading": "しゃ",
+  "readings": { "kun": ["うつ(す)", "うつ(る)", "うつ", "うつ(し)"], "on": ["シャ", "ジャ"] },
+  "mnemonic": "A cover (冖) over the camera: copy, take a photo.",
+  "effect": { "material": "silver", "backdrop": "sky:day", "emblem": "camera", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "これらの" }, { "text": "写真", "reading": "しゃしん" }, { "text": "は" }, { "text": "美", "reading": "うつく" }, { "text": "しい。" } ],
+      "en": "These pictures are beautiful.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [217886, 55196] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1334040",
+  "type": "word",
+  "word": "住む",
+  "primaryReading": "すむ",
+  "furigana": [{ "text": "住", "reading": "す" }, { "text": "む" }],
+  "meaning": "to live (of humans); to reside",
+  "pos": ["v5m", "vi"],
+  "kanji": ["4f4f"],
+  "builtFrom": [{ "k": "住", "m": "dwell" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "scene": ["room"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "どこに" }, { "text": "住", "reading": "す" }, { "text": "んでいますか？" } ],
+      "en": "Where do you live?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [48302, 370708] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 住む" },
+  "source": { "jmdict": 1334040, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1559160",
+  "type": "word",
+  "word": "練習",
+  "primaryReading": "れんしゅう",
+  "furigana": [{ "text": "練", "reading": "れん" }, { "text": "習", "reading": "しゅう" }],
+  "meaning": "practice; training",
+  "pos": ["n", "vs", "vt"],
+  "kanji": ["7fd2"],
+  "builtFrom": [{ "k": "習", "m": "learn" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "repeat", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたはいつピアノの" }, { "text": "練習", "reading": "れんしゅう" }, { "text": "をしますか。" } ],
+      "en": "When do you practice the piano?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [232827, 70199] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 練習" },
+  "source": { "jmdict": 1559160, "jlpt": 5 }
+}

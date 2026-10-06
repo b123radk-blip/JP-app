@@ -1,0 +1,22 @@
+{
+  "id": "w1546590",
+  "type": "word",
+  "word": "葉書",
+  "primaryReading": "はがき",
+  "furigana": [{ "text": "葉", "reading": "は" }, { "text": "書", "reading": "がき" }],
+  "meaning": "postcard",
+  "pos": ["n"],
+  "kanji": ["8449", "66f8"],
+  "builtFrom": [{ "k": "葉", "m": "leaf" }, { "k": "書", "m": "write" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "particles": ["leaves"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "店", "reading": "みせ" }, { "text": "に" }, { "text": "葉書", "reading": "はがき" }, { "text": "がたくさんある。" } ],
+      "en": "There are many postcards in this store.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [220432, 57755] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 葉書" },
+  "source": { "jmdict": 1546590, "jlpt": 5 }
+}

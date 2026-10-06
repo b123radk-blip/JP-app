@@ -1,0 +1,22 @@
+{
+  "id": "w1123590",
+  "type": "word",
+  "word": "ボールペン",
+  "primaryReading": "ボールペン",
+  "furigana": [{ "text": "ボールペン" }],
+  "meaning": "ball-point pen",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ボールペンで" }, { "text": "名前", "reading": "なまえ" }, { "text": "を" }, { "text": "書", "reading": "か" }, { "text": "いてください。" } ],
+      "en": "Please write your name with a ballpoint pen.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ボールペン" },
+  "source": { "jmdict": 1123590, "jlpt": 5 }
+}

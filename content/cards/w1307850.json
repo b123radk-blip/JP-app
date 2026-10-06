@@ -1,0 +1,28 @@
+{
+  "id": "w1307850",
+  "type": "word",
+  "word": "子供",
+  "primaryReading": "こども",
+  "furigana": [{ "text": "子", "reading": "こ" }, { "text": "供", "reading": "ども" }],
+  "meaning": "child; children",
+  "pos": ["n"],
+  "kanji": ["5b50"],
+  "builtFrom": [{ "k": "子", "m": "child" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "person", "color": "#ffd27a" },
+    "motion": "bounce",
+    "backdrop": "sky:noon"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "子供", "reading": "こども" }, { "text": "は" }, { "text": "入場", "reading": "にゅうじょう" }, { "text": "できません。" } ],
+      "en": "Children are not admitted.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [168517, 245975] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 子供" },
+  "source": { "jmdict": 1307850, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1483740",
+  "type": "word",
+  "word": "疲れる",
+  "primaryReading": "つかれる",
+  "furigana": [{ "text": "疲", "reading": "つか" }, { "text": "れる" }],
+  "meaning": "to get tired; to tire",
+  "pos": ["v1", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "zzz", "motion": "sink", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "疲", "reading": "つか" }, { "text": "れているので" }, { "text": "休", "reading": "やす" }, { "text": "んだ。" } ],
+      "en": "As I was tired, I took a rest.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [85890, 317821] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 疲れる" },
+  "source": { "jmdict": 1483740, "jlpt": 5 }
+}

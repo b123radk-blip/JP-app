@@ -1,0 +1,22 @@
+{
+  "id": "w1542790",
+  "type": "word",
+  "word": "夕方",
+  "primaryReading": "ゆうがた",
+  "furigana": [{ "text": "夕", "reading": "ゆう" }, { "text": "方", "reading": "がた" }],
+  "meaning": "early evening; dusk",
+  "pos": ["n", "adv"],
+  "kanji": ["5915", "65b9"],
+  "builtFrom": [{ "k": "夕", "m": "evening" }, { "k": "方", "m": "direction" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:sunset", "emblem": "crescent" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ひょっとすると" }, { "text": "夕方", "reading": "ゆうがた" }, { "text": "前", "reading": "まえ" }, { "text": "に" }, { "text": "雨", "reading": "あめ" }, { "text": "になるかもしれない。" } ],
+      "en": "It might rain before evening.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [197417, 31050] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 夕方" },
+  "source": { "jmdict": 1542790, "jlpt": 5 }
+}

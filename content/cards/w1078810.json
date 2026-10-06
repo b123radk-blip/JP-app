@@ -1,0 +1,29 @@
+{
+  "id": "w1078810",
+  "type": "word",
+  "word": "テープレコーダー",
+  "primaryReading": "テープレコーダー",
+  "furigana": [{ "text": "テープレコーダー" }],
+  "meaning": "tape recorder",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "speaker",
+    "backdrop": "sky:indoor",
+    "particles": ["notes"],
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このテープレコーダーは" }, { "text": "新", "reading": "あたら" }, { "text": "しくない。" } ],
+      "en": "This tape recorder is not new.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223518, 60853] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word テープレコーダー" },
+  "source": { "jmdict": 1078810, "jlpt": 5 }
+}

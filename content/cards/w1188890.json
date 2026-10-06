@@ -1,0 +1,22 @@
+{
+  "id": "w1188890",
+  "type": "word",
+  "word": "いつも",
+  "primaryReading": "いつも",
+  "furigana": [{ "text": "いつも" }],
+  "meaning": "always; all the time",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "repeat", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "日曜日", "reading": "にちようび" }, { "text": "にはいつも" }, { "text": "家", "reading": "いえ" }, { "text": "にいない。" } ],
+      "en": "I'm never at home on Sundays.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [154689, 259851] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word いつも" },
+  "source": { "jmdict": 1188890, "jlpt": 5 }
+}

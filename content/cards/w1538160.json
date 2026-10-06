@@ -1,0 +1,22 @@
+{
+  "id": "w1538160",
+  "type": "word",
+  "word": "薬",
+  "primaryReading": "くすり",
+  "furigana": [{ "text": "薬", "reading": "くすり" }],
+  "meaning": "medicine; pharmaceuticals",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pill", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "もう" }, { "text": "薬", "reading": "くすり" }, { "text": "を" }, { "text": "飲", "reading": "の" }, { "text": "みましたか？" } ],
+      "en": "Have you taken your medicine yet?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [177528, 16380] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 薬" },
+  "source": { "jmdict": 1538160, "jlpt": 5 }
+}

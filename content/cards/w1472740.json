@@ -1,0 +1,27 @@
+{
+  "id": "w1472740",
+  "type": "word",
+  "word": "背広",
+  "primaryReading": "せびろ",
+  "furigana": [{ "text": "背", "reading": "せ" }, { "text": "広", "reading": "びろ" }],
+  "meaning": "business suit",
+  "pos": ["n"],
+  "kanji": ["80cc", "5e83"],
+  "builtFrom": [{ "k": "背", "m": "stature" }, { "k": "広", "m": "wide" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "shirt", "color": "#3a3a50" },
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "背広", "reading": "せびろ" }, { "text": "を" }, { "text": "買", "reading": "か" }, { "text": "った。" } ],
+      "en": "I bought a new suit of clothes.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [155725, 258812] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 背広" },
+  "source": { "jmdict": 1472740, "jlpt": 5 }
+}

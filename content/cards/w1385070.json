@@ -1,0 +1,22 @@
+{
+  "id": "w1385070",
+  "type": "word",
+  "word": "切手",
+  "primaryReading": "きって",
+  "furigana": [{ "text": "切手", "reading": "きって" }],
+  "meaning": "stamp (postage)",
+  "pos": ["n"],
+  "kanji": ["5207", "624b"],
+  "builtFrom": [{ "k": "切", "m": "cut" }, { "k": "手", "m": "hand" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "particles": ["sparks"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "切手", "reading": "きって" }, { "text": "はどこで" }, { "text": "買", "reading": "か" }, { "text": "えますか。" } ],
+      "en": "Where can I buy stamps?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [142110, 272460] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 切手" },
+  "source": { "jmdict": 1385070, "jlpt": 5 }
+}

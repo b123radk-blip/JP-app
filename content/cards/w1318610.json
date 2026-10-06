@@ -1,0 +1,22 @@
+{
+  "id": "w1318610",
+  "type": "word",
+  "word": "自分",
+  "primaryReading": "じぶん",
+  "furigana": [{ "text": "自", "reading": "じ" }, { "text": "分", "reading": "ぶん" }],
+  "meaning": "myself; yourself",
+  "pos": ["pn"],
+  "kanji": ["81ea", "5206"],
+  "builtFrom": [{ "k": "自", "m": "oneself" }, { "k": "分", "m": "part" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "mirror", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "自分", "reading": "じぶん" }, { "text": "の" }, { "text": "仕事", "reading": "しごと" }, { "text": "をしなさい。" } ],
+      "en": "Do your own work.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [149835, 264584] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 自分" },
+  "source": { "jmdict": 1318610, "jlpt": 5 }
+}

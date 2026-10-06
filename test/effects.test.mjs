@@ -83,3 +83,11 @@ test('scene props: shorthand, validation, cost of a prop placed on a repeated co
   assert.ok(validateRecipe({ scene: ['tree:日'] }, { components: strokes('6797').components }).some((x) => /"日" is not a component/.test(x)));
   assert.ok(validateRecipe({ scene: ['volcano'] }).some((x) => /unknown scene "volcano"/.test(x)));
 });
+
+test('similarity: slots neither card uses do not count; sparse cards with the same sky are not look-alikes by default', () => {
+  const a = norm({ material: 'ivory', backdrop: 'sky:day', emblem: 'stairs' }), b = norm({ material: 'jade', backdrop: 'sky:day', emblem: 'eye' });
+  assert.equal(recipeSimilarity(a, a).score, 1, 'identical recipes still score 1');
+  assert.ok(recipeSimilarity(a, b).score < 0.72, 'other material and emblem, only the sky shared: not alike (it scored 0.72 when empty slots counted)');
+  assert.equal(recipeSimilarity(a, b).slots.scene, undefined, 'a slot neither uses is left out');
+  assert.ok(recipeSimilarity(a, norm({ material: 'ivory', backdrop: 'sky:day', emblem: 'stairs', motion: 'float' })).score >= 0.72, 'same material, sky and emblem: still alike');
+});

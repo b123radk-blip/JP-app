@@ -1,0 +1,19 @@
+{
+  "id": "98db",
+  "kanji": "飛",
+  "meaning": "fly",
+  "primaryReading": "ひ",
+  "readings": { "kun": ["と(ぶ)", "と(ばす)", "と(ばす)"], "on": ["ヒ"] },
+  "mnemonic": "Two wings beating as it lifts off: fly.",
+  "effect": { "material": "cloud", "particles": ["wind"], "backdrop": "sky:day", "motion": "fly", "emblem": "bird" },
+  "sentences": [
+    {
+      "segments": [ { "text": "飛行機", "reading": "ひこうき" }, { "text": "は" }, { "text": "山", "reading": "やま" }, { "text": "の" }, { "text": "上", "reading": "うえ" }, { "text": "を" }, { "text": "飛", "reading": "と" }, { "text": "んだ。" } ],
+      "en": "The plane flew over the mountain.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [85643, 318070] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

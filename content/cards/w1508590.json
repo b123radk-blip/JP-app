@@ -1,0 +1,27 @@
+{
+  "id": "w1508590",
+  "type": "word",
+  "word": "閉める",
+  "primaryReading": "しめる",
+  "furigana": [{ "text": "閉", "reading": "し" }, { "text": "める" }],
+  "meaning": "to close; to shut",
+  "pos": ["v1", "vt"],
+  "kanji": ["9589"],
+  "builtFrom": [{ "k": "閉", "m": "closed" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": [{ "type": "gate", "close": true }],
+    "backdrop": "sky:night"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "どうかドアを" }, { "text": "閉", "reading": "し" }, { "text": "めてくれませんか。" } ],
+      "en": "Will you please shut the door?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201657, 38867] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 閉める" },
+  "source": { "jmdict": 1508590, "jlpt": 5 }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "98a8",
+  "kanji": "風",
+  "meaning": "wind; style",
+  "primaryReading": "かぜ",
+  "readings": { "kun": ["かぜ", "かざ"], "on": ["フウ", "フ"] },
+  "mnemonic": "An insect (虫) blown about under a sail (几): wind.",
+  "effect": {
+    "material": "cloud",
+    "particles": [{ "type": "wind", "count": 1.6 }, { "type": "leaves", "count": 0.6 }],
+    "backdrop": "sky:day",
+    "motion": { "type": "lean", "toward": "right", "angle": 0.12 }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "カーテンが" }, { "text": "風", "reading": "かぜ" }, { "text": "になびいた。" } ],
+      "en": "The curtains blew in the wind.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226491, 63836] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1499720"] }
+}

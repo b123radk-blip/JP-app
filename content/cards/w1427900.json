@@ -1,0 +1,22 @@
+{
+  "id": "w1427900",
+  "type": "word",
+  "word": "貼る",
+  "primaryReading": "はる",
+  "furigana": [{ "text": "貼", "reading": "は" }, { "text": "る" }],
+  "meaning": "to stick; to paste",
+  "pos": ["v5r", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "stamp", "emblem": "letter", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "手紙", "reading": "てがみ" }, { "text": "に" }, { "text": "切手", "reading": "きって" }, { "text": "を" }, { "text": "貼", "reading": "は" }, { "text": "って" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Will you stamp this letter for me?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [221343, 58667] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 貼る" },
+  "source": { "jmdict": 1427900, "jlpt": 5 }
+}

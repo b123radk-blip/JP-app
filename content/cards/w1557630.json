@@ -1,0 +1,22 @@
+{
+  "id": "w1557630",
+  "type": "word",
+  "word": "零",
+  "primaryReading": "れい",
+  "furigana": [{ "text": "零", "reading": "れい" }],
+  "meaning": "zero; nought",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pie:0", "motion": "vanish", "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "外", "reading": "そと" }, { "text": "は" }, { "text": "零", "reading": "れい" }, { "text": "度", "reading": "ど" }, { "text": "です。" } ],
+      "en": "It's zero degrees outside.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 零" },
+  "source": { "jmdict": 1557630, "jlpt": 5 }
+}

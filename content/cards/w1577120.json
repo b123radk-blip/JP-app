@@ -1,0 +1,22 @@
+{
+  "id": "w1577120",
+  "type": "word",
+  "word": "なぜ",
+  "primaryReading": "なぜ",
+  "furigana": [{ "text": "なぜ" }],
+  "meaning": "why; how",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "なぜそんな" }, { "text": "事", "reading": "こと" }, { "text": "を" }, { "text": "言", "reading": "い" }, { "text": "うの？" } ],
+      "en": "Why do you say that?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [199240, 36442] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word なぜ" },
+  "source": { "jmdict": 1577120, "jlpt": 5 }
+}

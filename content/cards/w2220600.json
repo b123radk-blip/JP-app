@@ -1,0 +1,22 @@
+{
+  "id": "w2220600",
+  "type": "word",
+  "word": "お風呂",
+  "primaryReading": "おふろ",
+  "furigana": [{ "text": "お" }, { "text": "風", "reading": "ふ" }, { "text": "呂", "reading": "ろ" }],
+  "meaning": "bath",
+  "pos": ["n"],
+  "kanji": ["98a8"],
+  "builtFrom": [{ "k": "風", "m": "wind" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["steam"], "emblem": "onsen", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はほとんど" }, { "text": "毎日", "reading": "まいにち" }, { "text": "お" }, { "text": "風呂", "reading": "ふろ" }, { "text": "に" }, { "text": "入", "reading": "はい" }, { "text": "ります。" } ],
+      "en": "I take a bath almost every day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158918, 255608] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お風呂" },
+  "source": { "jmdict": 2220600, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1451750",
+  "type": "word",
+  "word": "同じ",
+  "primaryReading": "おなじ",
+  "furigana": [{ "text": "同", "reading": "おな" }, { "text": "じ" }],
+  "meaning": "same; identical",
+  "pos": ["adj-f", "adj-na"],
+  "kanji": ["540c"],
+  "builtFrom": [{ "k": "同", "m": "same" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "equals", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それらはみな" }, { "text": "同", "reading": "おな" }, { "text": "じ" }, { "text": "大", "reading": "おお" }, { "text": "きさだ。" } ],
+      "en": "They are all of a size.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204721, 41962] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 同じ" },
+  "source": { "jmdict": 1451750, "jlpt": 5 }
+}

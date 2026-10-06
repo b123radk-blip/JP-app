@@ -1,0 +1,22 @@
+{
+  "id": "w1243490",
+  "type": "word",
+  "word": "銀行",
+  "primaryReading": "ぎんこう",
+  "furigana": [{ "text": "銀", "reading": "ぎん" }, { "text": "行", "reading": "こう" }],
+  "meaning": "bank; banking institution",
+  "pos": ["n"],
+  "kanji": ["884c"],
+  "builtFrom": [{ "k": "行", "m": "going" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "yen", "particles": ["coins"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "銀行", "reading": "ぎんこう" }, { "text": "は" }, { "text": "開", "reading": "ひら" }, { "text": "いていますか。" } ],
+      "en": "Is the bank open?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [179574, 18432] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 銀行" },
+  "source": { "jmdict": 1243490, "jlpt": 5 }
+}

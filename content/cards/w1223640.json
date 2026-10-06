@@ -1,0 +1,22 @@
+{
+  "id": "w1223640",
+  "type": "word",
+  "word": "起きる",
+  "primaryReading": "おきる",
+  "furigana": [{ "text": "起", "reading": "お" }, { "text": "きる" }],
+  "meaning": "to get up; to rise",
+  "pos": ["v1", "vi"],
+  "kanji": ["8d77"],
+  "builtFrom": [{ "k": "起", "m": "wake up" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "alarm", "motion": "stand", "backdrop": "sunrise" },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "子", "reading": "こ" }, { "text": "さんはまだ" }, { "text": "起", "reading": "お" }, { "text": "きているのですか。" } ],
+      "en": "Is the kid still up?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227112, 64461] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 起きる" },
+  "source": { "jmdict": 1223640, "jlpt": 5 }
+}

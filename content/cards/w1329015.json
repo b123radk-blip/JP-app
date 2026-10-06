@@ -1,0 +1,28 @@
+{
+  "id": "w1329015",
+  "type": "word",
+  "word": "お酒",
+  "primaryReading": "おさけ",
+  "furigana": [{ "text": "お" }, { "text": "酒", "reading": "さけ" }],
+  "meaning": "alcohol; sake",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "cup", "drink": "#f0e8c0" },
+    "backdrop": "sky:night",
+    "particles": ["bubbles"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "お" }, { "text": "酒", "reading": "さけ", "base": "さけ", "dict": true }, { "text": "が" }, { "text": "嫌", "reading": "きら" }, { "text": "いです。" } ],
+      "en": "I don't like drinking.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158403, 256127] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お酒" },
+  "source": { "jmdict": 1329015, "jlpt": 5 }
+}

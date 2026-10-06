@@ -1,0 +1,22 @@
+{
+  "id": "w1103090",
+  "type": "word",
+  "word": "パン",
+  "primaryReading": "パン",
+  "furigana": [{ "text": "パン" }],
+  "meaning": "bread; (sweet) pastry",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今朝", "reading": "けさ" }, { "text": "バターつきのパンを" }, { "text": "食", "reading": "た" }, { "text": "べた。" } ],
+      "en": "I ate bread and butter this morning.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [156999, 257535] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word パン" },
+  "source": { "jmdict": 1103090, "jlpt": 5 }
+}

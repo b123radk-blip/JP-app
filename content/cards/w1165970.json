@@ -1,0 +1,22 @@
+{
+  "id": "w1165970",
+  "type": "word",
+  "word": "一番",
+  "primaryReading": "いちばん",
+  "furigana": [{ "text": "一", "reading": "いち" }, { "text": "番", "reading": "ばん" }],
+  "meaning": "number one; first",
+  "pos": ["n", "adj-no"],
+  "kanji": ["4e00", "756a"],
+  "builtFrom": [{ "k": "一", "m": "one" }, { "k": "番", "m": "turn" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "trophy", "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このネクタイにしましょう、" }, { "text": "一番", "reading": "いちばん" }, { "text": "よさそうだから。" } ],
+      "en": "I will take this tie, as it seems to be the best.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223406, 60739] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 一番" },
+  "source": { "jmdict": 1165970, "jlpt": 5 }
+}

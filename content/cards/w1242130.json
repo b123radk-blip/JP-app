@@ -1,0 +1,28 @@
+{
+  "id": "w1242130",
+  "type": "word",
+  "word": "近い",
+  "primaryReading": "ちかい",
+  "furigana": [{ "text": "近", "reading": "ちか" }, { "text": "い" }],
+  "meaning": "near; close",
+  "pos": ["adj-i"],
+  "kanji": ["8fd1"],
+  "builtFrom": [{ "k": "近", "m": "near" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": "drift:toward",
+    "emblem": "arrow:toward",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "病院", "reading": "びょういん" }, { "text": "はここから" }, { "text": "近", "reading": "ちか" }, { "text": "い。" } ],
+      "en": "The hospital is near here.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [85333, 318380] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 近い" },
+  "source": { "jmdict": 1242130, "jlpt": 5 }
+}

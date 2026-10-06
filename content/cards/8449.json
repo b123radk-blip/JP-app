@@ -1,0 +1,27 @@
+{
+  "id": "8449",
+  "kanji": "葉",
+  "meaning": "leaf",
+  "primaryReading": "は",
+  "readings": { "kun": ["は"], "on": ["ヨウ"] },
+  "mnemonic": "Grass (艹) over a generation (世) of trees (木): leaf.",
+  "effect": {
+    "material": "jade",
+    "reveal": "grow",
+    "particles": ["leaves"],
+    "backdrop": "sky:forest",
+    "motion": { "type": "sway", "axis": "z", "amp": 0.06 },
+    "emblem": "leaf",
+    "parts": { "木": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "葉", "reading": "は" }, { "text": "が" }, { "text": "赤", "reading": "あか" }, { "text": "くなりました。" } ],
+      "en": "The leaves turned red.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

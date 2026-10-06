@@ -1,0 +1,22 @@
+{
+  "id": "w1008630",
+  "type": "word",
+  "word": "とても",
+  "primaryReading": "とても",
+  "furigana": [{ "text": "とても" }],
+  "meaning": "very; awfully",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "exclaim", "motion": "grow", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "花", "reading": "はな" }, { "text": "はとても" }, { "text": "美", "reading": "うつく" }, { "text": "しい。" } ],
+      "en": "This flower is very beautiful.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222740, 60054] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word とても" },
+  "source": { "jmdict": 1008630, "jlpt": 5 }
+}

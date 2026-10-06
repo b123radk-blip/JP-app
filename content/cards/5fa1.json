@@ -1,0 +1,19 @@
+{
+  "id": "5fa1",
+  "kanji": "御",
+  "meaning": "honorable",
+  "primaryReading": "ご",
+  "readings": { "kun": ["おん", "お", "み"], "on": ["ギョ", "ゴ"] },
+  "mnemonic": "Stepping (彳) up to bow (卸) politely: the honourable prefix (御飯).",
+  "effect": { "material": "gold", "backdrop": { "type": "halo", "color": "#ffd070" }, "motion": "bow" },
+  "sentences": [
+    {
+      "segments": [ { "text": "おいしい" }, { "text": "晩御飯", "reading": "ばんごはん" }, { "text": "をありがとうございました。" } ],
+      "en": "Thank you for the wonderful dinner.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227833, 65186] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

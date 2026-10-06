@@ -1,0 +1,22 @@
+{
+  "id": "w1603990",
+  "type": "word",
+  "word": "町",
+  "primaryReading": "まち",
+  "furigana": [{ "text": "町", "reading": "まち" }],
+  "meaning": "town; block",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["road"], "emblem": "house", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あれがこの" }, { "text": "町", "reading": "まち" }, { "text": "の" }, { "text": "大通", "reading": "おおどお" }, { "text": "りだ。" } ],
+      "en": "That is the main street of this city.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [229770, 67132] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 町" },
+  "source": { "jmdict": 1603990, "jlpt": 5 }
+}

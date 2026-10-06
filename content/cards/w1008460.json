@@ -1,0 +1,22 @@
+{
+  "id": "w1008460",
+  "type": "word",
+  "word": "でも",
+  "primaryReading": "でも",
+  "furigana": [{ "text": "でも" }],
+  "meaning": "but; however",
+  "pos": ["conj"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "swap", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "高", "reading": "たか" }, { "text": "いです。でも、" }, { "text": "買", "reading": "か" }, { "text": "います。" } ],
+      "en": "It's expensive. But I'll buy it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word でも" },
+  "source": { "jmdict": 1008460, "jlpt": 5 }
+}

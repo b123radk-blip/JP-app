@@ -1,0 +1,22 @@
+{
+  "id": "w1299400",
+  "type": "word",
+  "word": "雑誌",
+  "primaryReading": "ざっし",
+  "furigana": [{ "text": "雑", "reading": "ざっ" }, { "text": "誌", "reading": "し" }],
+  "meaning": "magazine; journal",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "雑誌", "reading": "ざっし" }, { "text": "はどこで" }, { "text": "買", "reading": "か" }, { "text": "えますか。" } ],
+      "en": "Where can I buy that magazine?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [210481, 47747] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 雑誌" },
+  "source": { "jmdict": 1299400, "jlpt": 5 }
+}

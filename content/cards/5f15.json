@@ -1,0 +1,25 @@
+{
+  "id": "5f15",
+  "kanji": "引",
+  "meaning": "pull; tug",
+  "primaryReading": "ひ",
+  "readings": { "kun": ["ひ(く)", "ひ(ける)"], "on": ["イン"] },
+  "mnemonic": "A bow (弓) and its string (丨) drawn back: pull.",
+  "effect": {
+    "material": "wood",
+    "backdrop": "sky:day",
+    "motion": { "type": "shove", "dir": "left" },
+    "emblem": "bow",
+    "parts": { "弓": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "カーテンがゆっくり" }, { "text": "引", "reading": "ひ" }, { "text": "かれた。" } ],
+      "en": "The curtains were drawn slowly.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226492, 63837] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

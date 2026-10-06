@@ -1,0 +1,25 @@
+{
+  "id": "4f53",
+  "kanji": "体",
+  "meaning": "body",
+  "primaryReading": "からだ",
+  "readings": { "kun": ["からだ", "かたち"], "on": ["タイ", "テイ"] },
+  "mnemonic": "A person (亻) and their trunk (本): body.",
+  "effect": {
+    "material": "skin",
+    "backdrop": "sky:day",
+    "motion": { "type": "stretch", "axis": "y", "to": 1.2 },
+    "emblem": { "type": "person", "color": "#ffb070" },
+    "parts": { "亻": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "体", "reading": "たい" }, { "text": "全体", "reading": "ぜんたい" }, { "text": "がだるいです。" } ],
+      "en": "My whole body feels heavy.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [138014, 275221] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1409140"] }
+}

@@ -1,0 +1,2602 @@
+{
+ "物": {
+  "group": "things",
+  "mnemonic": "A cow (牛) and all kinds of things (勿) packed into a box: thing, object.",
+  "effect": {
+   "material": "clay",
+   "backdrop": "sky:indoor",
+   "emblem": "box",
+   "parts": {
+    "牛": {
+     "material": "fur"
+    }
+   }
+  }
+ },
+ "切": {
+  "group": "actions",
+  "reading": "き",
+  "meaning": "cut; be sharp",
+  "mnemonic": "Seven (七) chops of a sword (刀) and the kanji falls in two: cut.",
+  "effect": {
+   "material": "silver",
+   "reveal": "draw:sparks",
+   "backdrop": "sky:noon",
+   "motion": {
+    "type": "split",
+    "dist": 0.09
+   },
+   "emblem": "knife"
+  }
+ },
+ "朝": {
+  "group": "time",
+  "mnemonic": "The sun rises through the grass (𠦝) while the moon (月) still hangs there: morning.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sunrise",
+   "emblem": {
+    "type": "crescent",
+    "at": [
+     -0.3,
+     0.1
+    ]
+   },
+   "parts": {
+    "月": {}
+   }
+  },
+  "keepSky": true,
+  "meaning": "morning"
+ },
+ "着": {
+  "group": "actions",
+  "meaning": "wear; arrive",
+  "mnemonic": "A sheep (羊) arrives and puts on its woolly coat, eyes (目) shining: wear, arrive.",
+  "effect": {
+   "material": "fur",
+   "reveal": "stamp",
+   "backdrop": "sky:morning",
+   "emblem": {
+    "type": "shirt",
+    "color": "#e07a3a"
+   },
+   "parts": {
+    "羊": {}
+   }
+  }
+ },
+ "色": {
+  "group": "quality",
+  "mnemonic": "A painter (⺈) bent over a curled-up palette (巴), cycling through every colour: colour.",
+  "effect": {
+   "material": "rainbow",
+   "backdrop": "sky:night",
+   "emblem": "rainbow"
+  },
+  "keepSky": true
+ },
+ "茶": {
+  "group": "things",
+  "mnemonic": "Leaves (艹) picked by a person (人) from a tea bush (木), brewed green: tea.",
+  "effect": {
+   "material": "jade",
+   "particles": [
+    "steam"
+   ],
+   "backdrop": "sky:indoor",
+   "emblem": {
+    "type": "cup",
+    "drink": "#7aa63a"
+   },
+   "parts": {
+    "艹": {
+     "material": "jade"
+    },
+    "木": {}
+   }
+  },
+  "keepSky": true
+ },
+ "晩": {
+  "group": "time",
+  "mnemonic": "The sun (日) slips down, excused (免) for the day: evening, night.",
+  "effect": {
+   "material": "pearl",
+   "particles": [
+    {
+     "type": "motes",
+     "dir": "still"
+    }
+   ],
+   "backdrop": "sky:twilight",
+   "parts": {
+    "日": {
+     "motion": {
+      "type": "drift",
+      "dir": "down",
+      "dist": 0.035
+     }
+    }
+   },
+   "scene": [
+    {
+     "type": "lanterns",
+     "n": 3,
+     "color": "#ffb050"
+    }
+   ]
+  },
+  "keepSky": true
+ },
+ "事": {
+  "group": "abstract",
+  "reading": "こと",
+  "mnemonic": "A hand (⺕) gripping a stick with papers stuck on it: a matter, business to deal with.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:indoor",
+   "emblem": "briefcase"
+  }
+ },
+ "家": {
+  "group": "places",
+  "meaning": "house; home",
+  "mnemonic": "A pig (豕) snug under the roof (宀): home.",
+  "effect": {
+   "material": "wood",
+   "particles": [
+    {
+     "type": "steam",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:dusk",
+   "emblem": "house",
+   "parts": {
+    "宀": {
+     "material": "lacquer"
+    }
+   }
+  }
+ },
+ "動": {
+  "group": "actions",
+  "mnemonic": "Heavy (重) things only move with power (力): move.",
+  "effect": {
+   "material": "clay",
+   "reveal": "draw:dust",
+   "particles": [
+    "wind"
+   ],
+   "backdrop": "sky:day",
+   "motion": "slide",
+   "parts": {
+    "力": {
+     "material": "lacquer"
+    }
+   }
+  }
+ },
+ "自": {
+  "group": "people",
+  "mnemonic": "A long nose (point at your nose to say \"me\"), seen in the mirror: oneself.",
+  "effect": {
+   "material": "pearl",
+   "backdrop": "sky:morning",
+   "motion": "turn",
+   "emblem": {
+    "type": "mirror",
+    "size": 1.3
+   }
+  }
+ },
+ "洗": {
+  "group": "actions",
+  "mnemonic": "Water (氵) first (先): wash, scrubbing up the suds.",
+  "effect": {
+   "material": "water",
+   "reveal": "draw:drops",
+   "particles": [
+    "bubbles"
+   ],
+   "backdrop": "sky:morning",
+   "motion": "shake",
+   "parts": {
+    "氵": {}
+   },
+   "emblem": "hand"
+  },
+  "keepSky": true,
+  "meaning": "wash"
+ },
+ "昨": {
+  "group": "time",
+  "mnemonic": "The sun (日) of a moment ago (乍), sliding back to the left: yesterday.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:sunset",
+   "motion": {
+    "type": "drift",
+    "dir": "left"
+   },
+   "emblem": "arrow:left",
+   "parts": {
+    "日": {}
+   }
+  },
+  "keepSky": true
+ },
+ "夜": {
+  "group": "time",
+  "mnemonic": "A person (亻) under a roof (亠) as the evening moon (夕) rises: night.",
+  "effect": {
+   "material": "neon",
+   "particles": [
+    {
+     "type": "motes",
+     "dir": "still"
+    }
+   ],
+   "backdrop": "sky:night",
+   "emblem": "zzz",
+   "parts": {
+    "亻": {}
+   }
+  },
+  "keepSky": true
+ },
+ "兄": {
+  "group": "people",
+  "mnemonic": "A big mouth (口) on long legs (儿): the older brother, tallest and loudest.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "grow",
+    "to": 1.2
+   },
+   "emblem": {
+    "type": "person",
+    "color": "#5a9ae8",
+    "size": 1.3
+   }
+  }
+ },
+ "赤": {
+  "group": "quality",
+  "mnemonic": "A fire glowing on the ground (土): red.",
+  "effect": {
+   "material": "lacquer",
+   "particles": [
+    "embers"
+   ],
+   "backdrop": {
+    "type": "halo",
+    "color": "#ff2010"
+   },
+   "motion": "pulse",
+   "emblem": {
+    "type": "splash",
+    "color": "#e02020"
+   }
+  },
+  "keepSky": true
+ },
+ "当": {
+  "group": "abstract",
+  "meaning": "hit; right",
+  "mnemonic": "Little sparks (⺌) above a hand (⺕) that hits the mark: hit, right.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    "sparks"
+   ],
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "target",
+    "color": "#ff4040"
+   }
+  }
+ },
+ "近": {
+  "group": "position",
+  "mnemonic": "Walk (⻌) up to the axe (斤) close by: near.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:golden",
+   "scene": [
+    "road"
+   ],
+   "motion": {
+    "type": "drift",
+    "dir": "toward"
+   },
+   "emblem": "arrow:toward"
+  },
+  "keepSky": true,
+  "meaning": "near"
+ },
+ "始": {
+  "group": "time",
+  "mnemonic": "A woman (女) at the platform (台) waves the start flag: begin.",
+  "effect": {
+   "material": "rose",
+   "backdrop": "sky:dawn",
+   "emblem": "flag",
+   "parts": {
+    "女": {}
+   }
+  },
+  "keepSky": true
+ },
+ "温": {
+  "group": "quality",
+  "reading": "あたた",
+  "mnemonic": "Water (氵) warmed by the sun (日) in a basin (皿): a warm bath.",
+  "effect": {
+   "material": "clay",
+   "particles": [
+    "steam"
+   ],
+   "backdrop": {
+    "type": "halo",
+    "color": "#ff9040"
+   },
+   "emblem": "onsen",
+   "parts": {
+    "氵": {}
+   }
+  },
+  "keepSky": true
+ },
+ "方": {
+  "group": "position",
+  "meaning": "direction; person",
+  "mnemonic": "A signpost on the hilltop (亠) pointing every way: direction, way.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sky:golden",
+   "emblem": "signpost"
+  }
+ },
+ "開": {
+  "group": "actions",
+  "mnemonic": "Two hands (开) push the gate (門) open and light pours in: open.",
+  "effect": {
+   "material": "lacquer",
+   "backdrop": "sky:dusk",
+   "scene": [
+    "gate"
+   ],
+   "parts": {
+    "开": {
+     "material": "skin"
+    }
+   }
+  }
+ },
+ "消": {
+  "group": "actions",
+  "mnemonic": "Water (氵) on a little (肖) flame: it goes out; the strokes rub away: erase, put out.",
+  "effect": {
+   "material": "water",
+   "reveal": {
+    "type": "draw",
+    "erase": true
+   },
+   "particles": [
+    {
+     "type": "steam",
+     "count": 0.8
+    }
+   ],
+   "backdrop": "sky:night",
+   "parts": {
+    "氵": {}
+   }
+  },
+  "keepSky": true,
+  "meaning": "extinguish; turn off"
+ },
+ "教": {
+  "group": "actions",
+  "mnemonic": "A teacher's hand (攵) taps the blackboard for the child (孝): teach.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:indoor",
+   "scene": [
+    "room:classroom"
+   ],
+   "parts": {
+    "攵": {
+     "motion": "wave"
+    }
+   }
+  },
+  "keepSky": true,
+  "meaning": "teach"
+ },
+ "葉": {
+  "group": "nature",
+  "reading": "は",
+  "mnemonic": "Grass (艹) over a generation (世) of trees (木): leaf.",
+  "effect": {
+   "material": "jade",
+   "reveal": "grow",
+   "particles": [
+    "leaves"
+   ],
+   "backdrop": "sky:forest",
+   "motion": {
+    "type": "sway",
+    "axis": "z",
+    "amp": 0.06
+   },
+   "emblem": "leaf",
+   "parts": {
+    "木": {}
+   }
+  },
+  "keepSky": true,
+  "meaning": "leaf"
+ },
+ "昼": {
+  "group": "time",
+  "mnemonic": "The sun (日) stands highest over the horizon line (一): noon, daytime.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sky:noon",
+   "scene": [
+    "dial"
+   ],
+   "parts": {
+    "日": {}
+   }
+  },
+  "keepSky": true
+ },
+ "飯": {
+  "group": "things",
+  "meaning": "meal; boiled rice",
+  "mnemonic": "Food (飠) you go back (反) for every day: rice, a meal.",
+  "effect": {
+   "material": "ivory",
+   "particles": [
+    "steam"
+   ],
+   "backdrop": "sky:indoor",
+   "emblem": "bowl",
+   "parts": {
+    "飠": {
+     "material": "gold"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "所": {
+  "group": "places",
+  "mnemonic": "An axe (斤) hung by the door (戸): this is the place.",
+  "effect": {
+   "material": "stone",
+   "backdrop": "sky:day",
+   "emblem": "pin",
+   "parts": {
+    "戸": {
+     "material": "wood"
+    }
+   }
+  },
+  "meaning": "place"
+ },
+ "有": {
+  "group": "abstract",
+  "meaning": "possess; have",
+  "mnemonic": "A hand (ナ) holding a piece of meat (月): have, possess.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    {
+     "type": "coins",
+     "count": 0.6
+    }
+   ],
+   "backdrop": {
+    "type": "halo",
+    "color": "#ffc040"
+   },
+   "emblem": "hand",
+   "parts": {
+    "月": {}
+   }
+  },
+  "keepSky": true
+ },
+ "楽": {
+  "group": "abstract",
+  "reading": "たの",
+  "meaning": "music; comfort",
+  "mnemonic": "Bells (白) ring on a wooden (木) stand: music, fun.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    "notes"
+   ],
+   "backdrop": "sky:golden",
+   "motion": "bounce",
+   "parts": {
+    "木": {}
+   }
+  }
+ },
+ "番": {
+  "group": "abstract",
+  "mnemonic": "Seeds (釆) sown field (田) by field, in turn: your turn, your number.",
+  "effect": {
+   "material": "paper",
+   "backdrop": "sky:indoor",
+   "emblem": "ticket",
+   "parts": {
+    "田": {
+     "material": "jade"
+    }
+   }
+  }
+ },
+ "風": {
+  "group": "nature",
+  "meaning": "wind; style",
+  "mnemonic": "An insect (虫) blown about under a sail (几): wind.",
+  "effect": {
+   "material": "cloud",
+   "particles": [
+    {
+     "type": "wind",
+     "count": 1.6
+    },
+    {
+     "type": "leaves",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "lean",
+    "toward": "right",
+    "angle": 0.12
+   }
+  }
+ },
+ "屋": {
+  "group": "places",
+  "meaning": "roof; house; shop",
+  "mnemonic": "A body (尸) reaching (至) the shelter of a roof: house, room, shop.",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:indoor",
+   "scene": [
+    "room"
+   ],
+   "emblem": "window"
+  },
+  "keepSky": true
+ },
+ "地": {
+  "group": "nature",
+  "mnemonic": "Soil (土) spread over the whole land: ground, the earth.",
+  "effect": {
+   "material": "clay",
+   "reveal": "draw:dust",
+   "backdrop": "sky:day",
+   "emblem": "globe",
+   "parts": {
+    "土": {}
+   }
+  }
+ },
+ "引": {
+  "group": "actions",
+  "mnemonic": "A bow (弓) and its string (丨) drawn back: pull.",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "shove",
+    "dir": "left"
+   },
+   "emblem": "bow",
+   "parts": {
+    "弓": {}
+   }
+  }
+ },
+ "止": {
+  "group": "actions",
+  "meaning": "stop; halt",
+  "mnemonic": "A foot planted firmly on the ground: stop. (Japan's stop sign says 止まれ.)",
+  "effect": {
+   "material": "lacquer",
+   "reveal": "stamp",
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "stop",
+    "size": 1.25
+   }
+  }
+ },
+ "歌": {
+  "group": "actions",
+  "mnemonic": "Two mouths (哥) and a wide-open yawn (欠): singing a song.",
+  "effect": {
+   "material": "rose",
+   "particles": [
+    "notes"
+   ],
+   "backdrop": "sky:golden",
+   "motion": "sway",
+   "emblem": "mic",
+   "parts": {
+    "欠": {}
+   }
+  }
+ },
+ "晴": {
+  "group": "nature",
+  "meaning": "clear up",
+  "mnemonic": "The sun (日) in a blue (青) sky: clear weather.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    {
+     "type": "motes",
+     "dir": "up"
+    }
+   ],
+   "backdrop": "sky:noon",
+   "emblem": {
+    "type": "sun",
+    "size": 1.3
+   },
+   "parts": {
+    "日": {},
+    "青": {
+     "material": "water"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "御": {
+  "group": "abstract",
+  "meaning": "honorable",
+  "mnemonic": "Stepping (彳) up to bow (卸) politely: the honourable prefix (御飯).",
+  "effect": {
+   "material": "gold",
+   "backdrop": {
+    "type": "halo",
+    "color": "#ffd070"
+   },
+   "motion": "bow"
+  },
+  "keepSky": true
+ },
+ "嫌": {
+  "group": "abstract",
+  "meaning": "dislike; hate",
+  "mnemonic": "A woman (女) handed two of something (兼) she doesn't want: dislike.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:storm",
+   "motion": "shake",
+   "emblem": "frown",
+   "parts": {
+    "女": {}
+   }
+  },
+  "keepSky": true
+ },
+ "冷": {
+  "group": "quality",
+  "meaning": "cool; chill",
+  "mnemonic": "Ice (冫) by order (令): cold.",
+  "effect": {
+   "material": "ice",
+   "particles": [
+    "snow"
+   ],
+   "backdrop": "sky:snow",
+   "motion": "shake",
+   "emblem": {
+    "type": "thermometer",
+    "level": 0.15,
+    "color": "#40a0ff"
+   },
+   "parts": {
+    "冫": {}
+   }
+  },
+  "keepSky": true
+ },
+ "合": {
+  "group": "actions",
+  "meaning": "fit; join",
+  "mnemonic": "A lid (人一) drops onto a box (口): they fit together.",
+  "effect": {
+   "material": "jade",
+   "reveal": "assemble",
+   "backdrop": "sky:day",
+   "emblem": "puzzle"
+  }
+ },
+ "味": {
+  "group": "quality",
+  "meaning": "flavor; taste",
+  "mnemonic": "A mouth (口) trying something not yet (未) tasted: flavour, taste.",
+  "effect": {
+   "material": "rose",
+   "particles": [
+    {
+     "type": "steam",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:indoor",
+   "emblem": "spoon",
+   "parts": {
+    "口": {}
+   }
+  },
+  "keepSky": true
+ },
+ "意": {
+  "group": "abstract",
+  "meaning": "idea; mind",
+  "mnemonic": "The sound (音) of your heart (心) lights up an idea: meaning, mind.",
+  "effect": {
+   "material": "pearl",
+   "particles": [
+    {
+     "type": "hearts",
+     "count": 0.5
+    }
+   ],
+   "backdrop": "sky:twilight",
+   "motion": "pulse",
+   "emblem": "lightbulb",
+   "parts": {
+    "心": {
+     "material": "rose"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "青": {
+  "group": "quality",
+  "meaning": "blue; green",
+  "mnemonic": "Young plants sprouting on top of a moonlit (月) field: blue, green.",
+  "effect": {
+   "material": "water",
+   "backdrop": "sky:day",
+   "scene": [
+    "ripples"
+   ],
+   "emblem": {
+    "type": "splash",
+    "color": "#2a7aff"
+   }
+  }
+ },
+ "並": {
+  "group": "position",
+  "meaning": "row; line up",
+  "mnemonic": "People standing side by side on one line: line up, in a row.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:dusk",
+   "scene": [
+    {
+     "type": "lanterns",
+     "n": 4,
+     "color": "#40c0ff"
+    }
+   ],
+   "motion": {
+    "type": "count",
+    "n": 4
+   }
+  }
+ },
+ "閉": {
+  "group": "actions",
+  "meaning": "closed; shut",
+  "mnemonic": "The gate (門) barred shut (才): close.",
+  "effect": {
+   "material": "lacquer",
+   "backdrop": "sky:night",
+   "scene": [
+    {
+     "type": "gate",
+     "close": true
+    }
+   ]
+  },
+  "keepSky": true
+ },
+ "掛": {
+  "group": "actions",
+  "meaning": "hang",
+  "mnemonic": "A hand (扌) hangs a lucky charm (卦) on a nail: hang.",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:indoor",
+   "scene": [
+    "room"
+   ],
+   "motion": "hang",
+   "parts": {
+    "扌": {}
+   }
+  },
+  "keepSky": true
+ },
+ "姉": {
+  "group": "people",
+  "mnemonic": "A woman (女) who goes to the market (市) for the family: older sister.",
+  "effect": {
+   "material": "rose",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "grow",
+    "to": 1.2
+   },
+   "emblem": {
+    "type": "person",
+    "color": "#ff7aa8",
+    "size": 1.3
+   },
+   "parts": {
+    "女": {}
+   }
+  }
+ },
+ "場": {
+  "group": "places",
+  "meaning": "location; place",
+  "mnemonic": "The sun rising (昜) over open ground (土): a place, a venue.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sunrise",
+   "scene": [
+    "field"
+   ],
+   "parts": {
+    "土": {}
+   }
+  },
+  "keepSky": true
+ },
+ "体": {
+  "group": "people",
+  "meaning": "body",
+  "mnemonic": "A person (亻) and their trunk (本): body.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "stretch",
+    "axis": "y",
+    "to": 1.2
+   },
+   "emblem": {
+    "type": "person",
+    "color": "#ffb070"
+   },
+   "parts": {
+    "亻": {}
+   }
+  }
+ },
+ "作": {
+  "group": "actions",
+  "meaning": "make; production",
+  "mnemonic": "A person (亻) hammering away in a moment (乍): make.",
+  "effect": {
+   "material": "wood",
+   "reveal": "draw:sparks",
+   "backdrop": "sky:indoor",
+   "emblem": "hammer",
+   "parts": {
+    "亻": {}
+   }
+  }
+ },
+ "文": {
+  "group": "abstract",
+  "meaning": "sentence; literature",
+  "mnemonic": "Brush strokes crossing on the page: writing, a sentence.",
+  "effect": {
+   "material": "ink",
+   "reveal": "brush",
+   "backdrop": "sky:morning"
+  },
+  "keepSky": true
+ },
+ "変": {
+  "group": "abstract",
+  "meaning": "change; unusual",
+  "mnemonic": "Red (亦) feet (夂) wobbling like jelly: strange, change.",
+  "effect": {
+   "material": "neon",
+   "backdrop": "sky:twilight",
+   "motion": "jiggle",
+   "emblem": "question"
+  },
+  "keepSky": true
+ },
+ "字": {
+  "group": "abstract",
+  "meaning": "character; letter",
+  "mnemonic": "A child (子) under the roof (宀) learning letters: character.",
+  "effect": {
+   "material": "paper",
+   "reveal": "brush",
+   "particles": [
+    {
+     "type": "kana",
+     "count": 1.4
+    }
+   ],
+   "backdrop": "sky:day",
+   "parts": {
+    "子": {}
+   }
+  }
+ },
+ "黒": {
+  "group": "quality",
+  "mnemonic": "Soot from the fire (灬) under the village (里): black.",
+  "effect": {
+   "material": "ink",
+   "backdrop": "sky:snow",
+   "emblem": {
+    "type": "splash",
+    "color": "#16161e"
+   },
+   "parts": {
+    "灬": {
+     "material": "heat"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "降": {
+  "group": "actions",
+  "meaning": "descend; fall",
+  "reading": "お",
+  "mnemonic": "Feet (夅) going down the hill steps (⻖): get off, come down; rain falls.",
+  "effect": {
+   "material": "ice",
+   "particles": [
+    {
+     "type": "rain",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:storm",
+   "motion": {
+    "type": "drift",
+    "dir": "down"
+   },
+   "emblem": "stairs"
+  },
+  "keepSky": true
+ },
+ "習": {
+  "group": "actions",
+  "mnemonic": "A fledgling flaps its wings (羽) a hundred (白) times, like practising with a pen: learn.",
+  "effect": {
+   "material": "paper",
+   "backdrop": "sky:morning",
+   "emblem": "pen",
+   "parts": {
+    "羽": {
+     "material": "cloud",
+     "motion": {
+      "type": "wave",
+      "amp": 0.18,
+      "speed": 7
+     }
+    }
+   }
+  }
+ },
+ "弟": {
+  "group": "people",
+  "mnemonic": "A little boy bouncing along behind: younger brother.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "motion": "bounce",
+   "emblem": {
+    "type": "person",
+    "color": "#5a9ae8",
+    "size": 0.8
+   }
+  },
+  "meaning": "younger brother"
+ },
+ "部": {
+  "group": "abstract",
+  "meaning": "section; part",
+  "mnemonic": "A village (⻏) divided into sections: part, section.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "pie",
+    "part": 0.25
+   },
+   "parts": {
+    "⻏": {
+     "material": "jade"
+    }
+   }
+  }
+ },
+ "全": {
+  "group": "abstract",
+  "meaning": "whole; all",
+  "mnemonic": "A king (王) under one roof (人) owns it all: whole, all.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    {
+     "type": "sparks",
+     "count": 0.6
+    }
+   ],
+   "backdrop": {
+    "type": "halo",
+    "color": "#ffd060"
+   },
+   "motion": "pulse",
+   "emblem": {
+    "type": "dots",
+    "n": 5,
+    "color": "#ffc040"
+   }
+  },
+  "keepSky": true
+ },
+ "通": {
+  "group": "actions",
+  "meaning": "pass through; commute",
+  "mnemonic": "Walking (⻌) straight through the tunnel (甬): pass through, commute.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:dusk",
+   "scene": [
+    "road",
+    "gate"
+   ],
+   "motion": {
+    "type": "drift",
+    "dir": "away"
+   }
+  }
+ },
+ "無": {
+  "group": "abstract",
+  "meaning": "nothingness; none",
+  "mnemonic": "Everything burned away in the fire (灬): nothing left.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:night",
+   "motion": "vanish",
+   "parts": {
+    "灬": {
+     "material": "heat"
+    }
+   }
+  }
+ },
+ "空": {
+  "group": "nature",
+  "meaning": "sky; empty",
+  "mnemonic": "A hole (穴) in the roof over the workbench (工): the empty sky above.",
+  "effect": {
+   "material": "cloud",
+   "backdrop": "sky:noon",
+   "motion": "float",
+   "emblem": {
+    "type": "cloud",
+    "size": 1.4
+   }
+  },
+  "keepSky": true
+ },
+ "渡": {
+  "group": "actions",
+  "meaning": "cross; ferry",
+  "mnemonic": "Crossing the water (氵) step by step (度): cross over, hand over.",
+  "effect": {
+   "material": "lacquer",
+   "backdrop": "sky:day",
+   "scene": [
+    "river",
+    "bridge"
+   ],
+   "motion": {
+    "type": "drift",
+    "dir": "right"
+   },
+   "parts": {
+    "氵": {
+     "material": "water"
+    }
+   }
+  }
+ },
+ "紙": {
+  "group": "things",
+  "mnemonic": "Threads (糸) pressed flat by the family (氏): paper, folded into a letter.",
+  "effect": {
+   "material": "paper",
+   "backdrop": "sky:day",
+   "motion": "sway",
+   "emblem": {
+    "type": "plane",
+    "size": 1.4
+   },
+   "parts": {
+    "糸": {}
+   }
+  }
+ },
+ "夏": {
+  "group": "time",
+  "mnemonic": "A head (自) dragging its feet (夂) in the heat: summer.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    {
+     "type": "motes",
+     "dir": "up",
+     "color": "#ffd060"
+    }
+   ],
+   "backdrop": "sky:noon",
+   "scene": [
+    "ripples"
+   ],
+   "emblem": {
+    "type": "flower",
+    "size": 1.2
+   }
+  },
+  "keepSky": true
+ },
+ "庭": {
+  "group": "places",
+  "meaning": "garden; courtyard",
+  "mnemonic": "A courtyard (廷) under the eaves (广), trees in bloom: garden.",
+  "effect": {
+   "material": "jade",
+   "particles": [
+    "petals"
+   ],
+   "backdrop": "sky:day",
+   "scene": [
+    {
+     "type": "tree",
+     "color": "#e890b0"
+    }
+   ],
+   "parts": {
+    "广": {
+     "material": "wood"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "夕": {
+  "group": "time",
+  "mnemonic": "Half a moon (月) rising at dusk: evening.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sky:sunset",
+   "motion": {
+    "type": "drift",
+    "dir": "up",
+    "dist": 0.03
+   },
+   "emblem": {
+    "type": "crescent",
+    "color": "#ffd890"
+   }
+  },
+  "keepSky": true
+ },
+ "黄": {
+  "group": "quality",
+  "mnemonic": "Ripe rice fields glowing at harvest: yellow.",
+  "effect": {
+   "material": {
+    "type": "glow",
+    "preset": "gold",
+    "body": "#fff07a",
+    "emissive": "#ffd400",
+    "glow": "#ffe040"
+   },
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "splash",
+    "color": "#ffd800"
+   },
+   "particles": [
+    {
+     "type": "motes",
+     "dir": "up",
+     "color": "#ffe040"
+    }
+   ]
+  }
+ },
+ "靴": {
+  "group": "things",
+  "mnemonic": "Leather (革) that changes (化) into shoes.",
+  "effect": {
+   "material": "fur",
+   "particles": [
+    {
+     "type": "footprints",
+     "color": "#7a5030"
+    }
+   ],
+   "backdrop": "sky:day",
+   "emblem": "shoe",
+   "parts": {
+    "革": {
+     "material": "clay"
+    }
+   }
+  }
+ },
+ "曇": {
+  "group": "nature",
+  "meaning": "cloudy weather; cloud up",
+  "mnemonic": "Clouds (雲) drift over the sun (日): cloudy.",
+  "effect": {
+   "material": "cloud",
+   "particles": [
+    "mist"
+   ],
+   "backdrop": "sky:snow",
+   "emblem": "cloud",
+   "parts": {
+    "日": {
+     "material": "gold",
+     "motion": "pulse"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "誰": {
+  "group": "people",
+  "meaning": "who; someone",
+  "mnemonic": "A bird (隹) asking (言), \"Who? Who?\": who.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:dusk",
+   "motion": "tilt",
+   "emblem": {
+    "type": "question",
+    "color": "#c0a0ff"
+   }
+  }
+ },
+ "広": {
+  "group": "size",
+  "meaning": "wide; broad",
+  "mnemonic": "A wide hall under the eaves (广) stretching out: wide.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:day",
+   "scene": [
+    "field"
+   ],
+   "motion": {
+    "type": "stretch",
+    "axis": "x",
+    "to": 1.4
+   }
+  }
+ },
+ "背": {
+  "group": "people",
+  "meaning": "stature; height; back",
+  "mnemonic": "Two people back to back (北) over a body (月): your back, your height.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:morning",
+   "motion": {
+    "type": "stretch",
+    "axis": "y",
+    "to": 1.3
+   },
+   "emblem": {
+    "type": "person",
+    "color": "#c8a0ff",
+    "size": 1.4
+   }
+  }
+ },
+ "段": {
+  "group": "places",
+  "meaning": "steps; grade",
+  "mnemonic": "Steps cut out with a hammer (殳): stairs, step by step.",
+  "effect": {
+   "material": "stone",
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "stairs",
+    "size": 1.3
+   }
+  }
+ },
+ "図": {
+  "group": "things",
+  "reading": "ず",
+  "meaning": "map; drawing",
+  "mnemonic": "A drawing inside a frame (囗): a map, a plan.",
+  "effect": {
+   "material": "paper",
+   "backdrop": "sky:day",
+   "scene": [
+    "field"
+   ],
+   "emblem": {
+    "type": "pin",
+    "color": "#3a7ad0"
+   }
+  }
+ },
+ "館": {
+  "group": "places",
+  "meaning": "building; large building",
+  "mnemonic": "A large official (官) hall where meals (飠) are served: building, hall.",
+  "effect": {
+   "material": "stone",
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "museum",
+    "size": 1.3
+   }
+  }
+ },
+ "使": {
+  "group": "actions",
+  "meaning": "use; order",
+  "mnemonic": "A person (亻) put to work by an official (吏): use.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "emblem": "wrench",
+   "parts": {
+    "亻": {}
+   }
+  }
+ },
+ "理": {
+  "group": "abstract",
+  "meaning": "logic; reason",
+  "mnemonic": "Jade (王) cut along its grain in the village (里): reason, logic.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:twilight",
+   "emblem": "scale",
+   "parts": {
+    "王": {}
+   }
+  },
+  "keepSky": true
+ },
+ "度": {
+  "group": "abstract",
+  "meaning": "degrees; time",
+  "mnemonic": "A hand (又) under the eaves (广) reading the degrees: degrees, times.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:snow",
+   "emblem": {
+    "type": "thermometer",
+    "level": 0.5
+   }
+  }
+ },
+ "強": {
+  "group": "quality",
+  "mnemonic": "A bow (弓) only the strong can bend: strong.",
+  "effect": {
+   "material": "metal",
+   "backdrop": "sky:noon",
+   "motion": "pulse",
+   "emblem": "dumbbell",
+   "parts": {
+    "弓": {
+     "material": "wood"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "交": {
+  "group": "actions",
+  "meaning": "mingle; mixing",
+  "mnemonic": "Legs crossed (父) under a lid: cross, exchange.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:day",
+   "scene": [
+    "road"
+   ],
+   "emblem": "swap"
+  }
+ },
+ "差": {
+  "group": "actions",
+  "meaning": "difference; distinction",
+  "mnemonic": "A sheep (羊) holds up an umbrella against the rain: hold up; difference.",
+  "effect": {
+   "material": "water",
+   "particles": [
+    "rain"
+   ],
+   "backdrop": "sky:storm",
+   "emblem": {
+    "type": "umbrella",
+    "size": 1.3
+   },
+   "parts": {
+    "羊": {
+     "material": "fur"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "建": {
+  "group": "actions",
+  "reading": "た",
+  "mnemonic": "A brush (聿) drafts the plan, a long stride (廴) builds it: build.",
+  "effect": {
+   "material": "wood",
+   "reveal": "assemble",
+   "particles": [
+    {
+     "type": "dust",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:day",
+   "emblem": "blocks"
+  }
+ },
+ "音": {
+  "group": "abstract",
+  "meaning": "sound; noise",
+  "mnemonic": "Stand (立) under the sun (日) and listen: sound.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    "notes"
+   ],
+   "backdrop": "sky:twilight",
+   "emblem": "speaker",
+   "parts": {
+    "日": {}
+   }
+  }
+ },
+ "用": {
+  "group": "abstract",
+  "meaning": "utilize; business",
+  "mnemonic": "A frame for hanging things ready to use: use, business, an errand.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:morning",
+   "emblem": "letter"
+  }
+ },
+ "持": {
+  "group": "actions",
+  "meaning": "hold; have",
+  "mnemonic": "A hand (扌) at the temple (寺) holding the bag: hold, have, carry.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:dusk",
+   "emblem": "bag",
+   "parts": {
+    "扌": {}
+   }
+  }
+ },
+ "点": {
+  "group": "abstract",
+  "meaning": "spot; point; mark",
+  "mnemonic": "Four dots of fire (灬) under a fortune (占): a point, a mark.",
+  "effect": {
+   "material": "neon",
+   "reveal": "stamp",
+   "particles": [
+    {
+     "type": "sparks",
+     "count": 0.8
+    }
+   ],
+   "backdrop": "sky:night",
+   "parts": {
+    "灬": {
+     "material": "gold"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "向": {
+  "group": "position",
+  "meaning": "facing; yonder",
+  "mnemonic": "A window (口) in the house (冂) turned to face you: face towards, over there.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:morning",
+   "motion": "turn",
+   "emblem": {
+    "type": "arrow",
+    "dir": "toward"
+   }
+  }
+ },
+ "重": {
+  "group": "quality",
+  "meaning": "heavy; important",
+  "mnemonic": "A thousand (千) villages (里) piled up: heavy.",
+  "effect": {
+   "material": "stone",
+   "particles": [
+    {
+     "type": "dust",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:day",
+   "motion": "sink",
+   "emblem": "weight"
+  }
+ },
+ "違": {
+  "group": "abstract",
+  "meaning": "differ; difference",
+  "mnemonic": "Walking (⻌) the wrong way round the leather (韋): different, wrong.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:dusk",
+   "motion": "shake",
+   "emblem": "cross"
+  }
+ },
+ "立": {
+  "group": "actions",
+  "meaning": "stand up; rise",
+  "mnemonic": "A person standing on the ground, arms out: stand.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:morning",
+   "motion": "stand"
+  }
+ },
+ "再": {
+  "group": "abstract",
+  "meaning": "again; twice",
+  "mnemonic": "The same frame built once more: again.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:day",
+   "emblem": "repeat"
+  }
+ },
+ "店": {
+  "group": "places",
+  "meaning": "store; shop",
+  "mnemonic": "A stall under the eaves (广) where a fortune-teller (占) sells: shop.",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:indoor",
+   "scene": [
+    "room:shop"
+   ],
+   "emblem": "tag"
+  },
+  "keepSky": true
+ },
+ "要": {
+  "group": "abstract",
+  "meaning": "need; main point",
+  "mnemonic": "A woman (女) carrying a basket (覀) she can't do without: need, essential.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sky:day",
+   "motion": "pulse",
+   "emblem": "exclaim",
+   "parts": {
+    "女": {}
+   }
+  }
+ },
+ "服": {
+  "group": "things",
+  "meaning": "clothing",
+  "mnemonic": "Clothes for the body (月) hung up by a hand (又): clothing.",
+  "effect": {
+   "material": "pearl",
+   "backdrop": "sky:indoor",
+   "scene": [
+    "room:shop"
+   ],
+   "motion": "sway",
+   "emblem": "shirt"
+  },
+  "keepSky": true
+ },
+ "計": {
+  "group": "abstract",
+  "meaning": "plan; plot",
+  "mnemonic": "Words (言) counting up to ten (十): measure, plan; a clock (時計).",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:day",
+   "emblem": "clock",
+   "parts": {
+    "言": {}
+   }
+  }
+ },
+ "画": {
+  "group": "things",
+  "meaning": "picture; brush-stroke",
+  "mnemonic": "Fields (由) inside a frame (凵): a picture.",
+  "effect": {
+   "material": "paper",
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "frame",
+    "size": 1.3
+   }
+  }
+ },
+ "映": {
+  "group": "things",
+  "meaning": "reflect; projection",
+  "mnemonic": "The sun (日) right in the centre (央) of the screen: project, reflect.",
+  "effect": {
+   "material": "pearl",
+   "particles": [
+    {
+     "type": "motes",
+     "dir": "still"
+    }
+   ],
+   "backdrop": "sky:indoor",
+   "emblem": "film",
+   "parts": {
+    "日": {}
+   }
+  },
+  "keepSky": true
+ },
+ "料": {
+  "group": "things",
+  "meaning": "fee; materials",
+  "mnemonic": "Rice (米) measured with a ladle (斗): ingredients, a fee.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    {
+     "type": "steam",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:indoor",
+   "emblem": "pot",
+   "parts": {
+    "米": {
+     "material": "ivory"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "乗": {
+  "group": "actions",
+  "meaning": "ride",
+  "mnemonic": "Someone perched on top of a tree (木), riding high: ride.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:day",
+   "scene": [
+    "road"
+   ],
+   "motion": "bounce",
+   "emblem": "train"
+  }
+ },
+ "熱": {
+  "group": "quality",
+  "meaning": "heat; fever",
+  "reading": "あつ",
+  "mnemonic": "Fire (灬) under the plant (埶): heat, a fever.",
+  "effect": {
+   "material": "lacquer",
+   "particles": [
+    "embers"
+   ],
+   "backdrop": {
+    "type": "halo",
+    "color": "#ff5020"
+   },
+   "motion": "shake",
+   "emblem": {
+    "type": "thermometer",
+    "level": 0.95
+   },
+   "parts": {
+    "灬": {
+     "material": "heat"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "筆": {
+  "group": "things",
+  "reading": "ひつ",
+  "meaning": "writing brush; writing",
+  "mnemonic": "A bamboo (竹) handle holding the brush tip (聿): writing brush.",
+  "effect": {
+   "material": "ink",
+   "reveal": "brush",
+   "backdrop": "sky:snow",
+   "parts": {
+    "竹": {
+     "material": "jade"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "牛": {
+  "group": "nature",
+  "meaning": "cow",
+  "mnemonic": "A cow's head with its horns: cow.",
+  "effect": {
+   "material": "fur",
+   "backdrop": "sky:day",
+   "scene": [
+    "field"
+   ],
+   "motion": "tilt",
+   "emblem": "cow"
+  }
+ },
+ "皿": {
+  "group": "things",
+  "reading": "さら",
+  "meaning": "dish; plate",
+  "mnemonic": "A plate on its stand, seen from the side: dish.",
+  "effect": {
+   "material": "pearl",
+   "backdrop": "sky:indoor",
+   "emblem": {
+    "type": "plate",
+    "size": 1.3
+   }
+  },
+  "keepSky": true
+ },
+ "心": {
+  "group": "people",
+  "meaning": "heart; mind",
+  "mnemonic": "A heart with drops of feeling around it: heart, mind.",
+  "effect": {
+   "material": "rose",
+   "particles": [
+    "hearts"
+   ],
+   "backdrop": "sky:dusk",
+   "motion": "pulse",
+   "emblem": "heart"
+  }
+ },
+ "親": {
+  "group": "people",
+  "meaning": "parent; relative",
+  "mnemonic": "Standing (立) on a tree (木) to watch (見) over the children: parent.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "scene": [
+    "tree:木"
+   ],
+   "emblem": "eye",
+   "parts": {
+    "見": {}
+   }
+  }
+ },
+ "美": {
+  "group": "quality",
+  "meaning": "beauty; beautiful",
+  "mnemonic": "A big (大) sheep (羊), the finest of the flock: beautiful.",
+  "effect": {
+   "material": "pearl",
+   "particles": [
+    "petals"
+   ],
+   "backdrop": "sky:dawn",
+   "emblem": {
+    "type": "flower",
+    "color": "#ff7aa8"
+   }
+  }
+ },
+ "面": {
+  "group": "people",
+  "reading": "めん",
+  "meaning": "mask; face",
+  "mnemonic": "A face framed with its nose in the middle: face, mask, surface.",
+  "effect": {
+   "material": "ivory",
+   "backdrop": "sky:dusk",
+   "motion": "turn",
+   "emblem": "mask"
+  }
+ },
+ "売": {
+  "group": "actions",
+  "meaning": "sell",
+  "mnemonic": "A samurai (士) on long legs (儿) under a roof (冖) calling out his wares: sell.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    {
+     "type": "coins",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:golden",
+   "emblem": "tag"
+  }
+ },
+ "住": {
+  "group": "places",
+  "meaning": "dwell; live",
+  "mnemonic": "A person (亻) beside the master's lamp (主): live, dwell.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:night",
+   "scene": [
+    {
+     "type": "room",
+     "window": "#1a2a50"
+    }
+   ],
+   "parts": {
+    "亻": {},
+    "主": {
+     "material": "gold"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "転": {
+  "group": "actions",
+  "meaning": "revolve; turn around",
+  "mnemonic": "A cart (車) whose wheels go round and round (云): roll, turn over.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:day",
+   "scene": [
+    "road"
+   ],
+   "motion": "roll",
+   "emblem": "bike",
+   "parts": {
+    "車": {}
+   }
+  }
+ },
+ "病": {
+  "group": "people",
+  "meaning": "ill; sick",
+  "mnemonic": "Someone lying on the sickbed (疒) with a fever (丙): ill.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:storm",
+   "motion": "shake",
+   "emblem": "pill",
+   "parts": {
+    "疒": {
+     "material": "clay"
+    }
+   }
+  }
+ },
+ "院": {
+  "group": "places",
+  "meaning": "institution; temple",
+  "mnemonic": "A complete (完) building up on the hill (⻖): an institution, the hospital (病院).",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "hospital",
+    "size": 1.3
+   }
+  }
+ },
+ "遠": {
+  "group": "position",
+  "meaning": "distant; far",
+  "mnemonic": "Walking (⻌) off in a long robe (袁), smaller and smaller: far.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:golden",
+   "scene": [
+    "road"
+   ],
+   "motion": {
+    "type": "shrink",
+    "to": 0.65,
+    "dur": 2
+   },
+   "emblem": "arrow:away"
+  },
+  "keepSky": true
+ },
+ "眼": {
+  "group": "people",
+  "reading": "め",
+  "meaning": "eyeball",
+  "mnemonic": "An eye (目) that stops (艮) to stare: eyeball; glasses (眼鏡).",
+  "effect": {
+   "material": "cyan",
+   "backdrop": "sky:day",
+   "motion": "blink",
+   "emblem": "glasses",
+   "parts": {
+    "目": {}
+   }
+  }
+ },
+ "同": {
+  "group": "abstract",
+  "meaning": "same; agree",
+  "mnemonic": "One mouth (口) under the same roof (冂): the same.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "count",
+    "n": 2
+   },
+   "emblem": "equals"
+  }
+ },
+ "終": {
+  "group": "time",
+  "meaning": "end; finish",
+  "mnemonic": "The thread (糸) runs out in winter (冬): the end.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:sunset",
+   "emblem": {
+    "type": "flag",
+    "kind": "finish"
+   },
+   "parts": {
+    "糸": {}
+   }
+  },
+  "keepSky": true
+ },
+ "夫": {
+  "group": "people",
+  "reading": "おっと",
+  "meaning": "husband; man",
+  "mnemonic": "A big (大) man with a hairpin (一) on his wedding day: husband; also sturdy (丈夫).",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "emblem": "ring"
+  }
+ },
+ "丈": {
+  "group": "abstract",
+  "meaning": "length; height",
+  "mnemonic": "Ten (十) measures, crossed (乂): length; sturdy (丈夫).",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:golden",
+   "motion": {
+    "type": "stretch",
+    "axis": "y",
+    "to": 1.25
+   },
+   "emblem": "ruler"
+  }
+ },
+ "起": {
+  "group": "actions",
+  "meaning": "wake up; rouse",
+  "mnemonic": "Run (走) as soon as you (己) are up: wake up, get up.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sunrise",
+   "motion": "stand",
+   "emblem": "alarm",
+   "parts": {
+    "走": {}
+   }
+  },
+  "keepSky": true
+ },
+ "帰": {
+  "group": "actions",
+  "meaning": "homecoming",
+  "mnemonic": "Sweeping (帚) the path back home: go home, return.",
+  "effect": {
+   "material": "wood",
+   "particles": [
+    {
+     "type": "footprints",
+     "dir": "left"
+    }
+   ],
+   "backdrop": "sky:dusk",
+   "motion": {
+    "type": "drift",
+    "dir": "left"
+   },
+   "emblem": "house"
+  }
+ },
+ "返": {
+  "group": "actions",
+  "meaning": "return; answer",
+  "mnemonic": "Walking (⻌) it back the other way (反): return, give back.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sky:day",
+   "motion": "flip",
+   "emblem": "boomerang"
+  }
+ },
+ "遅": {
+  "group": "time",
+  "meaning": "slow; late",
+  "mnemonic": "A sheep (羊) dawdling along the road (⻌): slow, late.",
+  "effect": {
+   "material": "clay",
+   "backdrop": "sky:golden",
+   "scene": [
+    "road"
+   ],
+   "motion": {
+    "type": "slide",
+    "speed": 0.4,
+    "dist": 0.02
+   },
+   "emblem": "snail"
+  }
+ },
+ "汚": {
+  "group": "quality",
+  "reading": "きたな",
+  "meaning": "dirty; pollute",
+  "mnemonic": "Muddy water (氵) splashed everywhere: dirty.",
+  "effect": {
+   "material": "clay",
+   "particles": [
+    "dust"
+   ],
+   "backdrop": "sky:day",
+   "emblem": {
+    "type": "splash",
+    "color": "#6a4a28"
+   },
+   "parts": {
+    "氵": {
+     "material": "clay"
+    }
+   }
+  }
+ },
+ "問": {
+  "group": "actions",
+  "meaning": "question; ask",
+  "mnemonic": "A mouth (口) at the gate (門) asking: a question.",
+  "effect": {
+   "material": "chalk",
+   "backdrop": "sky:dusk",
+   "scene": [
+    "gate"
+   ],
+   "emblem": "question",
+   "parts": {
+    "口": {
+     "material": "rose"
+    }
+   }
+  }
+ },
+ "題": {
+  "group": "abstract",
+  "meaning": "topic; subject",
+  "mnemonic": "The head (頁) of the page: the title, the topic; homework (宿題).",
+  "effect": {
+   "material": "paper",
+   "backdrop": "sky:indoor",
+   "emblem": "sheet",
+   "parts": {
+    "頁": {}
+   }
+  }
+ },
+ "宿": {
+  "group": "places",
+  "meaning": "inn; lodging",
+  "mnemonic": "A hundred (百) people (亻) sleeping under one roof (宀): an inn.",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:night",
+   "emblem": "bed",
+   "parts": {
+    "宀": {
+     "material": "lacquer"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "最": {
+  "group": "quality",
+  "meaning": "utmost; most",
+  "mnemonic": "Taking (取) the sun (日) itself: the most, the best.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    "sparks"
+   ],
+   "backdrop": "sky:golden",
+   "motion": {
+    "type": "grow",
+    "to": 1.15
+   },
+   "emblem": "trophy",
+   "parts": {
+    "日": {}
+   }
+  }
+ },
+ "取": {
+  "group": "actions",
+  "meaning": "take; fetch",
+  "mnemonic": "A hand (又) grabbing an ear (耳): take.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "shove",
+    "dir": "left",
+    "dist": 0.02
+   },
+   "emblem": "hand",
+   "parts": {
+    "又": {
+     "material": "lacquer"
+    }
+   }
+  }
+ },
+ "真": {
+  "group": "abstract",
+  "meaning": "true; reality",
+  "mnemonic": "Ten (十) eyes (目) checking the gem on its stand: true, genuine.",
+  "effect": {
+   "material": "pearl",
+   "particles": [
+    {
+     "type": "sparks",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:day",
+   "emblem": "gem",
+   "parts": {
+    "目": {}
+   }
+  }
+ },
+ "写": {
+  "group": "actions",
+  "meaning": "copy; be photographed",
+  "mnemonic": "A cover (冖) over the camera: copy, take a photo.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:day",
+   "emblem": "camera"
+  }
+ },
+ "洋": {
+  "group": "nature",
+  "meaning": "ocean; foreign",
+  "mnemonic": "Water (氵) as wide as a flock of sheep (羊): the ocean; Western.",
+  "effect": {
+   "material": "water",
+   "backdrop": "sky:day",
+   "scene": [
+    "ripples"
+   ],
+   "motion": {
+    "type": "sway",
+    "axis": "z",
+    "amp": 0.05
+   },
+   "emblem": "boat",
+   "parts": {
+    "氵": {}
+   }
+  }
+ },
+ "旅": {
+  "group": "actions",
+  "meaning": "trip; travel",
+  "mnemonic": "People (亻) under a banner (方) setting off: travel.",
+  "effect": {
+   "material": "clay",
+   "backdrop": "sky:morning",
+   "scene": [
+    "road"
+   ],
+   "motion": "walk",
+   "emblem": "suitcase"
+  }
+ },
+ "押": {
+  "group": "actions",
+  "meaning": "push",
+  "mnemonic": "A hand (扌) pushing on armour (甲): push.",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "shove",
+    "dir": "right",
+    "dist": 0.04
+   },
+   "emblem": {
+    "type": "hand",
+    "at": [
+     -0.3,
+     0.05
+    ]
+   },
+   "parts": {
+    "扌": {}
+   }
+  }
+ },
+ "泳": {
+  "group": "actions",
+  "meaning": "swim",
+  "mnemonic": "Water (氵) that goes on forever (永): swim.",
+  "effect": {
+   "material": "water",
+   "particles": [
+    "bubbles"
+   ],
+   "backdrop": "sky:lake",
+   "scene": [
+    "ripples"
+   ],
+   "motion": "swim",
+   "parts": {
+    "氵": {}
+   }
+  },
+  "keepSky": true
+ },
+ "鳴": {
+  "group": "nature",
+  "meaning": "chirp; cry",
+  "mnemonic": "A bird (鳥) opening its mouth (口): chirp, sing, ring.",
+  "effect": {
+   "material": "jade",
+   "particles": [
+    "notes"
+   ],
+   "backdrop": "sky:forest",
+   "emblem": "bird",
+   "parts": {
+    "口": {
+     "material": "rose"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "機": {
+  "group": "things",
+  "meaning": "machine; mechanism",
+  "mnemonic": "A wooden (木) loom full of tiny (幾) moving parts: machine.",
+  "effect": {
+   "material": "metal",
+   "reveal": "draw:sparks",
+   "backdrop": "sky:noon",
+   "motion": "shake",
+   "emblem": "gears",
+   "parts": {
+    "木": {}
+   }
+  },
+  "keepSky": true
+ },
+ "飛": {
+  "group": "actions",
+  "meaning": "fly",
+  "mnemonic": "Two wings beating as it lifts off: fly.",
+  "effect": {
+   "material": "cloud",
+   "particles": [
+    "wind"
+   ],
+   "backdrop": "sky:day",
+   "motion": "fly",
+   "emblem": "bird"
+  }
+ },
+ "両": {
+  "group": "abstract",
+  "meaning": "both",
+  "mnemonic": "Two equal pans hung from one beam: both.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sky:day",
+   "motion": "split",
+   "emblem": {
+    "type": "dots",
+    "n": 2,
+    "color": "#ffd060"
+   }
+  }
+ },
+ "台": {
+  "group": "things",
+  "meaning": "pedestal; a stand",
+  "mnemonic": "A mouth (口) under a nose (厶) at the counter: a stand, a platform; the kitchen (台所).",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:indoor",
+   "scene": [
+    "room:kitchen"
+   ]
+  },
+  "keepSky": true
+ },
+ "張": {
+  "group": "actions",
+  "meaning": "stretch; spread",
+  "mnemonic": "A bowstring (弓) pulled long (長): stretch, try hard (頑張る).",
+  "effect": {
+   "material": "rose",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "stretch",
+    "axis": "x",
+    "to": 1.3
+   },
+   "parts": {
+    "弓": {
+     "material": "wood"
+    }
+   }
+  }
+ },
+ "仕": {
+  "group": "people",
+  "meaning": "serve; attend",
+  "mnemonic": "A person (亻) serving the samurai (士): serve, work (仕事).",
+  "effect": {
+   "material": "skin",
+   "backdrop": "sky:indoor",
+   "motion": "bow",
+   "parts": {
+    "亻": {}
+   },
+   "emblem": "cup"
+  }
+ },
+ "答": {
+  "group": "abstract",
+  "meaning": "answer; solution",
+  "mnemonic": "Bamboo slips (竹) fitted together (合): the answer.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:day",
+   "emblem": "check",
+   "parts": {
+    "竹": {}
+   }
+  }
+ },
+ "悪": {
+  "group": "quality",
+  "meaning": "bad; vice",
+  "mnemonic": "A heart (心) under a crooked lid (亜): bad.",
+  "effect": {
+   "material": "lacquer",
+   "backdrop": "sky:storm",
+   "motion": "shake",
+   "parts": {
+    "心": {
+     "material": "heat"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "太": {
+  "group": "size",
+  "meaning": "plump; thick",
+  "mnemonic": "Big (大) with an extra dot (丶) of belly: fat, thick.",
+  "effect": {
+   "material": "clay",
+   "backdrop": "sky:day",
+   "motion": {
+    "type": "stretch",
+    "axis": "x",
+    "to": 1.35
+   }
+  }
+ },
+ "辞": {
+  "group": "abstract",
+  "meaning": "word; resign",
+  "mnemonic": "A tongue (舌) and a spicy (辛) word: words; a dictionary (辞書).",
+  "effect": {
+   "material": "paper",
+   "particles": [
+    {
+     "type": "kana",
+     "color": "#ffe6b0"
+    }
+   ],
+   "backdrop": "sky:indoor",
+   "emblem": "speech",
+   "parts": {
+    "舌": {
+     "material": "rose"
+    }
+   }
+  }
+ },
+ "覚": {
+  "group": "abstract",
+  "meaning": "memorize; learn; remember",
+  "mnemonic": "Seeing (見) the book with sparks (⺍) over your head: memorize, remember.",
+  "effect": {
+   "material": "pearl",
+   "particles": [
+    {
+     "type": "sparks",
+     "count": 0.6
+    }
+   ],
+   "backdrop": "sky:twilight",
+   "emblem": "book",
+   "parts": {
+    "見": {}
+   }
+  },
+  "keepSky": true
+ },
+ "業": {
+  "group": "abstract",
+  "meaning": "business; vocation",
+  "mnemonic": "A wooden (木) frame hung with tools: work, business, a class (授業).",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:morning",
+   "emblem": "gears",
+   "parts": {
+    "木": {
+     "material": "wood"
+    }
+   }
+  }
+ },
+ "初": {
+  "group": "time",
+  "meaning": "first time; beginning",
+  "mnemonic": "Scissors (刀) cutting new cloth (衤) for the very first time: first, beginning.",
+  "effect": {
+   "material": "pearl",
+   "reveal": "draw:sparks",
+   "backdrop": "sky:dawn",
+   "parts": {
+    "衤": {
+     "material": "paper"
+    },
+    "刀": {
+     "material": "silver",
+     "motion": "wave"
+    }
+   },
+   "emblem": {
+    "type": "dots",
+    "n": 1,
+    "size": 1.6,
+    "color": "#ffd060"
+   }
+  },
+  "keepSky": true
+ },
+ "暖": {
+  "group": "quality",
+  "meaning": "warmth",
+  "mnemonic": "The sun (日) lending a warm hand (爰) to the spring: warm weather.",
+  "effect": {
+   "material": "gold",
+   "particles": [
+    "petals"
+   ],
+   "backdrop": "sky:golden",
+   "emblem": {
+    "type": "sun",
+    "color": "#ff9a40"
+   },
+   "parts": {
+    "日": {
+     "motion": "pulse"
+    }
+   }
+  },
+  "keepSky": true
+ },
+ "運": {
+  "group": "actions",
+  "meaning": "carry; luck",
+  "mnemonic": "An army (軍) on the march (⻌) carrying its supplies: carry, transport; luck.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:day",
+   "scene": [
+    "road"
+   ],
+   "motion": {
+    "type": "drift",
+    "dir": "right"
+   },
+   "emblem": "car",
+   "parts": {
+    "軍": {}
+   }
+  }
+ }
+}

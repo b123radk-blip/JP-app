@@ -1,0 +1,22 @@
+{
+  "id": "w1580480",
+  "type": "word",
+  "word": "丈夫",
+  "primaryReading": "じょうぶ",
+  "furigana": [{ "text": "丈", "reading": "じょう" }, { "text": "夫", "reading": "ぶ" }],
+  "meaning": "healthy; robust",
+  "pos": ["adj-na"],
+  "kanji": ["4e08", "592b"],
+  "builtFrom": [{ "k": "丈", "m": "length" }, { "k": "夫", "m": "husband" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shield", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ロバは" }, { "text": "丈夫", "reading": "じょうぶ" }, { "text": "な" }, { "text": "動物", "reading": "どうぶつ" }, { "text": "だ。" } ],
+      "en": "Donkeys are tough animals.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [192170, 29333] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 丈夫" },
+  "source": { "jmdict": 1580480, "jlpt": 5 }
+}

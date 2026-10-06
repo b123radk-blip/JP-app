@@ -1,0 +1,19 @@
+{
+  "id": "592a",
+  "kanji": "太",
+  "meaning": "plump; thick",
+  "primaryReading": "ふと",
+  "readings": { "kun": ["ふと(い)", "ふと(る)"], "on": ["タイ", "タ"] },
+  "mnemonic": "Big (大) with an extra dot (丶) of belly: fat, thick.",
+  "effect": { "material": "clay", "backdrop": "sky:day", "motion": { "type": "stretch", "axis": "x", "to": 1.35 } },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "木", "reading": "き" }, { "text": "は" }, { "text": "太", "reading": "ふと" }, { "text": "いです。" } ],
+      "en": "This tree is thick.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1584910",
+  "type": "word",
+  "word": "夕飯",
+  "primaryReading": "ゆうはん",
+  "furigana": [{ "text": "夕", "reading": "ゆう" }, { "text": "飯", "reading": "はん" }],
+  "meaning": "evening meal; dinner",
+  "pos": ["n"],
+  "kanji": ["5915", "98ef"],
+  "builtFrom": [{ "k": "夕", "m": "evening" }, { "k": "飯", "m": "meal" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "backdrop": "sky:sunset", "particles": ["steam"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "夕飯", "reading": "ゆうはん" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "った。" } ],
+      "en": "I cooked supper last night.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [156721, 257813] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 夕飯" },
+  "source": { "jmdict": 1584910, "jlpt": 5 }
+}

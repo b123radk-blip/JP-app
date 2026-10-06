@@ -1,0 +1,25 @@
+{
+  "id": "62bc",
+  "kanji": "押",
+  "meaning": "push",
+  "primaryReading": "お",
+  "readings": { "kun": ["お(す)", "お(し)", "お(っ)", "お(さえる)"], "on": ["オウ"] },
+  "mnemonic": "A hand (扌) pushing on armour (甲): push.",
+  "effect": {
+    "material": "skin",
+    "backdrop": "sky:day",
+    "motion": { "type": "shove", "dir": "right", "dist": 0.04 },
+    "emblem": { "type": "hand", "at": [-0.3, 0.05], "color": "#ffd27a" },
+    "parts": { "扌": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "シャッターを" }, { "text": "押", "reading": "お" }, { "text": "してくれますか。" } ],
+      "en": "Could you press this button?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [215785, 53086] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "5207",
+  "kanji": "切",
+  "meaning": "cut; be sharp",
+  "primaryReading": "き",
+  "readings": { "kun": ["き(る)", "き(る)", "き(り)", "き(り)"], "on": ["セツ", "サイ"] },
+  "mnemonic": "Seven (七) chops of a sword (刀) and the kanji falls in two: cut.",
+  "effect": {
+    "material": "silver",
+    "reveal": "draw:sparks",
+    "backdrop": "sky:noon",
+    "motion": { "type": "split", "dist": 0.09 },
+    "emblem": "knife"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "パンは" }, { "text": "切", "reading": "き" }, { "text": "ってください。" } ],
+      "en": "Please slice a loaf of bread for me.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [197737, 34924] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1178590",
+  "type": "word",
+  "word": "鉛筆",
+  "primaryReading": "えんぴつ",
+  "furigana": [{ "text": "鉛", "reading": "えん" }, { "text": "筆", "reading": "ぴつ" }],
+  "meaning": "(wooden) pencil",
+  "pos": ["n"],
+  "kanji": ["7b46"],
+  "builtFrom": [{ "k": "筆", "m": "writing brush" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ペンか" }, { "text": "鉛筆", "reading": "えんぴつ" }, { "text": "を" }, { "text": "持", "reading": "も" }, { "text": "っていますか。" } ],
+      "en": "Do you have a pen or a pencil?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196645, 33824] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 鉛筆" },
+  "source": { "jmdict": 1178590, "jlpt": 5 }
+}

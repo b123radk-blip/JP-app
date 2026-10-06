@@ -1,0 +1,22 @@
+{
+  "id": "w1560670",
+  "type": "word",
+  "word": "廊下",
+  "primaryReading": "ろうか",
+  "furigana": [{ "text": "廊", "reading": "ろう" }, { "text": "下", "reading": "か" }],
+  "meaning": "corridor; hallway",
+  "pos": ["n"],
+  "kanji": ["4e0b"],
+  "builtFrom": [{ "k": "下", "m": "down" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room", "road"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "廊下", "reading": "ろうか" }, { "text": "の" }, { "text": "突き当", "reading": "つきあ" }, { "text": "たりで" }, { "text": "火事", "reading": "かじ" }, { "text": "が" }, { "text": "起", "reading": "お" }, { "text": "きました。" } ],
+      "en": "There's a fire down the hall.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [77345, 326374] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 廊下" },
+  "source": { "jmdict": 1560670, "jlpt": 5 }
+}

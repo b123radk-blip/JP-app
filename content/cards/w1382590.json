@@ -1,0 +1,29 @@
+{
+  "id": "w1382590",
+  "type": "word",
+  "word": "石鹸",
+  "primaryReading": "せっけん",
+  "furigana": [{ "text": "石", "reading": "せっ" }, { "text": "鹸", "reading": "けん" }],
+  "meaning": "soap",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["bubbles"],
+    "backdrop": "sky:day",
+    "emblem": "hand",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "石鹸", "reading": "せっけん" }, { "text": "がありません。" } ],
+      "en": "There's no soap.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [142339, 272231] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 石鹸" },
+  "source": { "jmdict": 1382590, "jlpt": 5 }
+}

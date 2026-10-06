@@ -1,0 +1,24 @@
+{
+  "id": "5915",
+  "kanji": "夕",
+  "meaning": "evening",
+  "primaryReading": "ゆう",
+  "readings": { "kun": ["ゆう"], "on": ["セキ"] },
+  "mnemonic": "Half a moon (月) rising at dusk: evening.",
+  "effect": {
+    "material": "gold",
+    "backdrop": "sky:sunset",
+    "motion": { "type": "drift", "dir": "up", "dist": 0.03 },
+    "emblem": { "type": "crescent", "color": "#ffd890" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "夕飯", "reading": "ゆうはん" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "った。" } ],
+      "en": "I cooked supper last night.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [156721, 257813] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

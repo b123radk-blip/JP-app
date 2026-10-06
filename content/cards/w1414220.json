@@ -1,0 +1,29 @@
+{
+  "id": "w1414220",
+  "type": "word",
+  "word": "大勢",
+  "primaryReading": "おおぜい",
+  "furigana": [{ "text": "大", "reading": "おお" }, { "text": "勢", "reading": "ぜい" }],
+  "meaning": "crowd of people",
+  "pos": ["n", "adj-no"],
+  "kanji": ["5927"],
+  "builtFrom": [{ "k": "大", "m": "large" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["footprints"],
+    "emblem": "person",
+    "motion": "count:5",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "そこには" }, { "text": "大勢", "reading": "おおぜい" }, { "text": "の" }, { "text": "人", "reading": "ひと" }, { "text": "がいた。" } ],
+      "en": "There was a large crowd there.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [213674, 50962] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 大勢" },
+  "source": { "jmdict": 1414220, "jlpt": 5 }
+}

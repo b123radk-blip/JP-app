@@ -1,0 +1,22 @@
+{
+  "id": "w1159980",
+  "type": "word",
+  "word": "医者",
+  "primaryReading": "いしゃ",
+  "furigana": [{ "text": "医", "reading": "い" }, { "text": "者", "reading": "しゃ" }],
+  "meaning": "doctor; physician",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hospital", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "医者", "reading": "いしゃ" }, { "text": "はなんて" }, { "text": "言", "reading": "い" }, { "text": "ったの？" } ],
+      "en": "What did the doctor say?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [190845, 416946] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 医者" },
+  "source": { "jmdict": 1159980, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1415870",
+  "type": "word",
+  "word": "沢山",
+  "primaryReading": "たくさん",
+  "furigana": [{ "text": "沢", "reading": "たく" }, { "text": "山", "reading": "さん" }],
+  "meaning": "a lot; lots",
+  "pos": ["adj-no", "adj-na", "n", "adv"],
+  "kanji": ["5c71"],
+  "builtFrom": [{ "k": "山", "m": "mountain" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:6", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "公園", "reading": "こうえん" }, { "text": "に" }, { "text": "人", "reading": "ひと" }, { "text": "が" }, { "text": "沢山", "reading": "たくさん" }, { "text": "います。" } ],
+      "en": "There are a lot of people in the park.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 沢山" },
+  "source": { "jmdict": 1415870, "jlpt": 5 }
+}

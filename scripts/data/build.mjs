@@ -37,8 +37,8 @@ for (const level of LEVELS) {
   for (const row of parseJlptCsv(readFileSync(`${CACHE}/jlpt-${level}.csv`, 'utf8'), +level[1])) {
     const affix = /[～~]/.test(row.expression);
     const expr = numerals(row.expression.split(/[;；]/)[0].replace(/[～~]/g, '').trim());
-    const options = row.reading.split(/[;；]/).map((r) => r.replace(/[～~]/g, '').trim()).filter(Boolean);
-    const e = pickEntry(byText.get(expr) ?? [], expr, options[0]);
+    const options = /* "べんきょう (する)": the suru is not part of the word */ row.reading.split(/[;；]/).map((r) => r.replace(/[～~]/g, '').replace(/[(（][^)）]*[)）]/g, '').trim()).filter(Boolean);
+    const e = pickEntry(byText.get(expr) ?? [], expr, options[0], /[㐀-鿿]/.test(expr) ? '' : row.meaning);   // kana words: the JLPT meaning picks between homonyms
     // several readings listed (毎年 まいねん; まいとし): teach the one JMdict lists first, keep the others as alternatives
     const rank = (r) => { const i = e?.r.findIndex((x) => x.text === r) ?? -1; return i < 0 ? 99 : i - (e.r[i].pri.length ? 10 : 0); };
     const [reading, ...others] = [...options].sort((a, b) => rank(a) - rank(b));

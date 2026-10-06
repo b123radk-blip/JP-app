@@ -1,0 +1,22 @@
+{
+  "id": "w1580340",
+  "type": "word",
+  "word": "上着",
+  "primaryReading": "うわぎ",
+  "furigana": [{ "text": "上", "reading": "うわ" }, { "text": "着", "reading": "ぎ" }],
+  "meaning": "coat; jacket",
+  "pos": ["n"],
+  "kanji": ["4e0a", "7740"],
+  "builtFrom": [{ "k": "上", "m": "up" }, { "k": "着", "m": "wear" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shirt", "backdrop": "sky:snow" },
+  "sentences": [
+    {
+      "segments": [ { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "上着", "reading": "うわぎ" }, { "text": "を" }, { "text": "着", "reading": "き" }, { "text": "ている。" } ],
+      "en": "He's wearing a new coat.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [145375, 269188] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 上着" },
+  "source": { "jmdict": 1580340, "jlpt": 5 }
+}

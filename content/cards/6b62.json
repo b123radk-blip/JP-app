@@ -1,0 +1,24 @@
+{
+  "id": "6b62",
+  "kanji": "止",
+  "meaning": "stop; halt",
+  "primaryReading": "と",
+  "readings": { "kun": ["と(まる)", "ど(まり)", "と(める)", "と(める)"], "on": ["シ"] },
+  "mnemonic": "A foot planted firmly on the ground: stop. (Japan's stop sign says 止まれ.)",
+  "effect": {
+    "material": "lacquer",
+    "reveal": "stamp",
+    "backdrop": "sky:day",
+    "emblem": { "type": "stop", "size": 1.25 }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "男", "reading": "おとこ" }, { "text": "はぴたりと" }, { "text": "止", "reading": "と" }, { "text": "まった。" } ],
+      "en": "The man came to a dead stop.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [127212, 276877] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

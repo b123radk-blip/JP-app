@@ -1,0 +1,22 @@
+{
+  "id": "w1547450",
+  "type": "word",
+  "word": "浴びる",
+  "primaryReading": "あびる",
+  "furigana": [{ "text": "浴", "reading": "あ" }, { "text": "びる" }],
+  "meaning": "to dash over oneself; to take",
+  "pos": ["v1", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["rain", "bubbles"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "さっとシャワーを" }, { "text": "浴", "reading": "あ" }, { "text": "びた。" } ],
+      "en": "She grabbed a shower.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [216783, 54089] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 浴びる" },
+  "source": { "jmdict": 1547450, "jlpt": 5 }
+}

@@ -40,8 +40,8 @@ export function addPlainFurigana(card, assets, effect, addText) {
     const n = [...seg.text].length, span = boxes.slice(i, i + n);
     if (seg.reading && kinds.slice(i, i + n).includes('plain') && span.length) {
       const x = (span[0].x + span.at(-1).x) / 2, size = Math.min(0.045, span[0].size * 0.24);
-      const label = addText(makeLabel(seg.reading, { size, weight: 700, color: '#fff4de', glow: null, panel: { pad: 0.006, radius: 0.01 } }), x, span[0].top + size * 0.9);
-      effect.group.add(label.mesh); out.push(label);
+      // card text, like the reading line: in the card's group (not the effect's, whose meshes are its draw-call budget)
+      out.push(addText(makeLabel(seg.reading, { size, weight: 700, color: '#fff4de', glow: null, panel: { pad: 0.006, radius: 0.01 } }), x, effect.group.position.y + span[0].top + size * 0.9));
     }
     i += n;
   }

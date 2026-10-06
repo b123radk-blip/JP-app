@@ -1,0 +1,28 @@
+{
+  "id": "w1008190",
+  "type": "word",
+  "word": "つまらない",
+  "primaryReading": "つまらない",
+  "furigana": [{ "text": "つまらない" }],
+  "meaning": "dull; uninteresting",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "zzz", "color": "#ffd27a" },
+    "backdrop": "sky:dusk",
+    "motion": "sink"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このビデオはつまらないよ。" } ],
+      "en": "This video is boring.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223276, 60608] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word つまらない" },
+  "source": { "jmdict": 1008190, "jlpt": 5 }
+}

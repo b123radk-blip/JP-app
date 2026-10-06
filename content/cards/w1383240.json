@@ -1,0 +1,27 @@
+{
+  "id": "w1383240",
+  "type": "word",
+  "word": "赤い",
+  "primaryReading": "あかい",
+  "furigana": [{ "text": "赤", "reading": "あか" }, { "text": "い" }],
+  "meaning": "red; crimson",
+  "pos": ["adj-i"],
+  "kanji": ["8d64"],
+  "builtFrom": [{ "k": "赤", "m": "red" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "splash", "color": "#e02020" },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "前方", "reading": "ぜんぽう" }, { "text": "に" }, { "text": "赤", "reading": "あか" }, { "text": "い" }, { "text": "車", "reading": "くるま" }, { "text": "が" }, { "text": "見", "reading": "み" }, { "text": "える。" } ],
+      "en": "I see a red car ahead.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [140930, 273642] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 赤い" },
+  "source": { "jmdict": 1383240, "jlpt": 5 }
+}

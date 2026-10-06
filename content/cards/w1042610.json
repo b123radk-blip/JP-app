@@ -1,0 +1,22 @@
+{
+  "id": "w1042610",
+  "type": "word",
+  "word": "キロ",
+  "primaryReading": "キロ",
+  "furigana": [{ "text": "キロ" }],
+  "meaning": "kilo-; 1000",
+  "pos": ["pref"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "weight", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "荷物", "reading": "にもつ" }, { "text": "は" }, { "text": "五", "reading": "ご" }, { "text": "キロです。" } ],
+      "en": "This bag weighs five kilos.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word キロ" },
+  "source": { "jmdict": 1042610, "jlpt": 5 }
+}

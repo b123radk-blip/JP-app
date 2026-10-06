@@ -1,0 +1,22 @@
+{
+  "id": "w1006970",
+  "type": "word",
+  "word": "それ",
+  "primaryReading": "それ",
+  "furigana": [{ "text": "それ" }],
+  "meaning": "that; it",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "box", "motion": "drift:right", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それを" }, { "text": "見", "reading": "み" }, { "text": "たいものです。" } ],
+      "en": "I would like to see it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204606, 41846] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word それ" },
+  "source": { "jmdict": 1006970, "jlpt": 5 }
+}

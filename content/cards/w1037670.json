@@ -1,0 +1,22 @@
+{
+  "id": "w1037670",
+  "type": "word",
+  "word": "カップ",
+  "primaryReading": "カップ",
+  "furigana": [{ "text": "カップ" }],
+  "meaning": "cup",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "backdrop": "sky:morning", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "カップの" }, { "text": "取っ手", "reading": "とって" }, { "text": "がこわれている。" } ],
+      "en": "The handle of the cup is broken.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226318, 63658] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word カップ" },
+  "source": { "jmdict": 1037670, "jlpt": 5 }
+}

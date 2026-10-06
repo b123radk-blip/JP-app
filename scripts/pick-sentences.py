@@ -24,10 +24,11 @@ BAD = re.compile(r"[A-Za-z0-9０-９Ａ-Ｚａ-ｚ「」『』（）()…〜～]
 NAMES = re.compile(r"トム|メアリー|マイク|ジョン|ケン|ボブ|ジェーン|ナンシー|ジャック|ベティー|ルーシー|ジム|ビル|ポール|メアリ|クミ|マユコ")
 
 sentences = [json.loads(l) for l in open(".cache/derived/sentences.jsonl", encoding="utf-8")]
-by_word, by_char = {}, {}
+by_word, by_char, by_surface = {}, {}, {}
 for i, s in enumerate(sentences):
     for w in s["words"]:
         by_word.setdefault(w[0], []).append(i)
+        by_surface.setdefault(w[2], []).append(i)
     for c in set(s["text"]):
         if is_kanji(c):
             by_char.setdefault(c, []).append(i)
@@ -82,11 +83,25 @@ def span_reading(segs, start, end):
         out += s.get("reading", hira(s["text"]))
     return out
 
+def kana_stem(item):
+    """A kana-only word as it may appear in a sentence: the word, or for a verb / i-adjective of 3+ kana its stem (かかり)."""
+    w = item["word"]
+    return w[:-1] if len(w) > 2 and item["pos"] and re.match(r"^(v|adj-i)", item["pos"][0]) else None
+
+def kana_hit(item, w):
+    """The token is the card's kana word: written exactly so, or conjugated (then its dictionary lemma must agree: まず is not まずい)."""
+    stem = kana_stem(item)
+    if any(is_kanji(c) for c in w[2]):
+        return False
+    return w[2] == item["word"] or (stem is not None and w[2].startswith(stem) and len(w[2]) <= len(item["word"]) + 3 and w[0] in item["forms"])
+
 def target_ok(item, s, segs):
     """The card's word (or kanji) is read in this sentence the way the card teaches it."""
     if item["type"] == "kanji":
         return True
     furi = item["furigana"]
+    if not any("reading" in f for f in furi):                 # a kana-only word: it must be there, written in kana as on the card
+        return any(kana_hit(item, w) for w in s["words"])
     last = max(i for i, f in enumerate(furi) if "reading" in f)
     expect = "".join(f.get("reading", hira(f["text"])) for f in furi[:last + 1])
     n = sum(len(f["text"]) for f in furi[:last + 1])
@@ -95,6 +110,8 @@ def target_ok(item, s, segs):
             at = s["text"].find(w[2])
             if not any(is_kanji(c) for c in w[2]):
                 return False                                  # written in kana here (たぶん for 多分): the learner would not see the kanji
+            if not all(c in w[2] for c in item["word"] if is_kanji(c)):
+                return False                                  # another spelling of the same entry (速い for 早い, ご飯 for 御飯, 夕べ for 昨夜)
             if at >= 0:
                 got = span_reading(segs, at, at + n)
                 return got is not None and hira(got).startswith(hira(expect))
@@ -109,7 +126,7 @@ def score(item, s):
     unknown = sum(1 for c in set(text) if is_kanji(c) and c not in known)
     sc = -abs(len(text) - 11) * 0.35 - unknown * 2.5 + (2 if not unknown else 0) - 4 * used.get(s["jpn"], 0)
     if item["type"] == "word":
-        good = any(w[0] in item["forms"] and w[3] for w in s["words"])
+        good = any((w[0] in item["forms"] or (item.get("kanaOnly") and kana_hit(item, w))) and w[3] for w in s["words"])
         return sc + (4 if good else 0)
     k = item["kanji"]
     own = [x["id"] for x in item["words"]]
@@ -130,14 +147,21 @@ TOPICS = re.compile(r"殺|死|血|銃|爆|葬|おりもの|戦争|自殺|酔")  
 used = {}                                                           # jpn id -> times used, so cards get different sentences
 
 def with_dict_word(item, text):
-    """Segments where the card's own word keeps its dictionary furigana (marked "dict"), the rest from Sudachi."""
-    at = text.find(item["word"])
+    """Segments where the card's own word keeps its dictionary furigana (marked "dict"), the rest from Sudachi. A conjugated
+    word (辛くて for 辛い) keeps the furigana of its kanji stem."""
+    furi, at = item["furigana"], text.find(item["word"])
     if at < 0:
-        return None
-    before, after = segment(text[:at]) if at else [], segment(text[at + len(item["word"]):])
+        last = max((i for i, f in enumerate(furi) if "reading" in f), default=-1)
+        furi = furi[:last + 1]
+        stem = "".join(f["text"] for f in furi)
+        at = text.find(stem) if stem else -1
+        if at < 0 or last < 0:
+            return None
+    n = sum(len(f["text"]) for f in furi)
+    before, after = segment(text[:at]) if at else [], segment(text[at + n:])
     if before is None or after is None:
         return None
-    word = [dict(f, dict=True) if "reading" in f else {"text": f["text"]} for f in item["furigana"]]
+    word = [dict(f, dict=True) if "reading" in f else {"text": f["text"]} for f in furi]
     return [*before, *word, *after]
 
 def try_sentence(item, s):
@@ -160,6 +184,11 @@ results, missing = {}, []
 for item in work["items"]:
     if item["type"] == "word":
         cand = {i for f in item["forms"] for i in by_word.get(f, [])}
+        if item.get("kanaOnly"):                                 # the index files kana words under kanji lemmas (珈琲, 彼の): match what is written
+            stem = kana_stem(item)
+            for surf, ids in by_surface.items():
+                if surf == item["word"] or (stem and surf.startswith(stem) and len(surf) <= len(item["word"]) + 3):
+                    cand.update(ids)
     else:
         cand = set(by_char.get(item["kanji"], []))
     scored = sorted(((score(item, sentences[i]), i) for i in cand), key=lambda x: -(x[0] if x[0] is not None else -1e9))

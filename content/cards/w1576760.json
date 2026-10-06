@@ -1,0 +1,27 @@
+{
+  "id": "w1576760",
+  "type": "word",
+  "word": "黄色",
+  "primaryReading": "きいろ",
+  "furigana": [{ "text": "黄", "reading": "き" }, { "text": "色", "reading": "いろ" }],
+  "meaning": "yellow; amber",
+  "pos": ["n", "adj-no", "adj-na"],
+  "kanji": ["9ec4", "8272"],
+  "builtFrom": [{ "k": "黄", "m": "yellow" }, { "k": "色", "m": "color" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "splash", "color": "#ffd800" },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "花", "reading": "はな" }, { "text": "は" }, { "text": "黄色", "reading": "きいろ" }, { "text": "だが、ほかの" }, { "text": "花", "reading": "はな" }, { "text": "はみな" }, { "text": "青", "reading": "あお" }, { "text": "い。" } ],
+      "en": "This flower is yellow, but all the others are blue.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222733, 60063] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 黄色" },
+  "source": { "jmdict": 1576760, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1583720",
+  "type": "word",
+  "word": "風邪",
+  "primaryReading": "かぜ",
+  "furigana": [{ "text": "風邪", "reading": "かぜ" }],
+  "meaning": "(common) cold; influenza",
+  "pos": ["n"],
+  "kanji": ["98a8"],
+  "builtFrom": [{ "k": "風", "m": "wind" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "thermometer", "motion": "shake", "backdrop": "sky:snow" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ただの" }, { "text": "風邪", "reading": "かぜ" }, { "text": "でしょう。" } ],
+      "en": "You probably just have a cold.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203635, 40873] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 風邪" },
+  "source": { "jmdict": 1583720, "jlpt": 5 }
+}

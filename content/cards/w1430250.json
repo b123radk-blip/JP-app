@@ -1,0 +1,22 @@
+{
+  "id": "w1430250",
+  "type": "word",
+  "word": "鳥",
+  "primaryReading": "とり",
+  "furigana": [{ "text": "鳥", "reading": "とり" }],
+  "meaning": "bird",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bird", "backdrop": "sky:forest" },
+  "sentences": [
+    {
+      "segments": [ { "text": "鳥", "reading": "とり" }, { "text": "は" }, { "text": "南", "reading": "みなみ" }, { "text": "へ" }, { "text": "飛", "reading": "と" }, { "text": "んで" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],
+      "en": "The birds flew to the south.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [125781, 278211] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 鳥" },
+  "source": { "jmdict": 1430250, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1404975",
+  "type": "word",
+  "word": "早い",
+  "primaryReading": "はやい",
+  "furigana": [{ "text": "早", "reading": "はや" }, { "text": "い" }],
+  "meaning": "fast; quick",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "alarm", "backdrop": "sunrise" },
+  "sentences": [
+    {
+      "segments": [ { "text": "早", "reading": "はや" }, { "text": "ければ" }, { "text": "早", "reading": "はや" }, { "text": "いほどいい。" } ],
+      "en": "The sooner, the better.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [139697, 2308] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 早い" },
+  "source": { "jmdict": 1404975, "jlpt": 5 }
+}

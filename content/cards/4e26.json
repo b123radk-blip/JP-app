@@ -1,0 +1,24 @@
+{
+  "id": "4e26",
+  "kanji": "並",
+  "meaning": "row; line up",
+  "primaryReading": "なら",
+  "readings": { "kun": ["な(み)", "なみ", "なら(べる)", "なら(ぶ)"], "on": ["ヘイ", "ホウ"] },
+  "mnemonic": "People standing side by side on one line: line up, in a row.",
+  "effect": {
+    "material": "chalk",
+    "backdrop": "sky:dusk",
+    "scene": [{ "type": "lanterns", "n": 4, "color": "#40c0ff" }],
+    "motion": { "type": "count", "n": 4 }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "人", "reading": "ひと" }, { "text": "が" }, { "text": "並", "reading": "なら" }, { "text": "んでいます。" } ],
+      "en": "People are standing in a line.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

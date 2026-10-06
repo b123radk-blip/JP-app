@@ -1,0 +1,22 @@
+{
+  "id": "w1585650",
+  "type": "word",
+  "word": "箱",
+  "primaryReading": "はこ",
+  "furigana": [{ "text": "箱", "reading": "はこ" }],
+  "meaning": "box; case",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "box", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "箱", "reading": "はこ", "base": "はこ", "dict": true }, { "text": "は" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "重", "reading": "おも" }, { "text": "すぎる。" } ],
+      "en": "This box is a trifle too heavy.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [220179, 57499] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 箱" },
+  "source": { "jmdict": 1585650, "jlpt": 5 }
+}

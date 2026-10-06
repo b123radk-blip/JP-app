@@ -38,3 +38,10 @@ test('KANJIDIC2 / JMdict parsing and matching a JLPT row to its entry', () => {
   assert.equal(shortMeaning(jm[0].senses), 'student');
   assert.deepEqual(displayForm(jm[2], '在る', 'ある'), { word: 'ある', kana: true }, 'usually-kana words are shown in kana');
 });
+
+test('homonyms: a kana word takes the entry whose glosses match the JLPT meaning (はい "yes", not 肺 "lung")', () => {
+  const e = (seq, gloss, pri = []) => ({ seq, k: [], r: [{ text: 'はい', pri, restr: [] }], senses: [{ gloss, pos: [], misc: [] }] });
+  const lung = e(1, ['lung'], ['ichi1']), yes = e(2, ['yes', 'that is correct']);
+  assert.equal(pickEntry([lung, yes], 'はい', 'はい', 'yes').seq, 2);
+  assert.equal(pickEntry([lung, yes], 'はい', 'はい').seq, 1, 'without a meaning, JMdict priority decides as before');
+});

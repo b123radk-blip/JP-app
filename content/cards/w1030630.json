@@ -1,0 +1,29 @@
+{
+  "id": "w1030630",
+  "type": "word",
+  "word": "エレベーター",
+  "primaryReading": "エレベーター",
+  "furigana": [{ "text": "エレベーター" }],
+  "meaning": "elevator; lift",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": "drift:up",
+    "emblem": "arrow:up",
+    "scene": ["room"],
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "エレベーターはどこですか。" } ],
+      "en": "Where is the elevator?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227886, 65239] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word エレベーター" },
+  "source": { "jmdict": 1030630, "jlpt": 5 }
+}

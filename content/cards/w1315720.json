@@ -1,0 +1,22 @@
+{
+  "id": "w1315720",
+  "type": "word",
+  "word": "持つ",
+  "primaryReading": "もつ",
+  "furigana": [{ "text": "持", "reading": "も" }, { "text": "つ" }],
+  "meaning": "to hold (in one's hand); to take",
+  "pos": ["v5t", "vt"],
+  "kanji": ["6301"],
+  "builtFrom": [{ "k": "持", "m": "hold" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bag", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "住所", "reading": "じゅうしょ" }, { "text": "は" }, { "text": "今", "reading": "いま" }, { "text": "持", "reading": "も" }, { "text": "っていない。" } ],
+      "en": "I don't have the address with me.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [148097, 266463] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 持つ" },
+  "source": { "jmdict": 1315720, "jlpt": 5 }
+}

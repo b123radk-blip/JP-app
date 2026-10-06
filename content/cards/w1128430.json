@@ -1,0 +1,22 @@
+{
+  "id": "w1128430",
+  "type": "word",
+  "word": "マッチ",
+  "primaryReading": "マッチ",
+  "furigana": [{ "text": "マッチ" }],
+  "meaning": "match",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["flames"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "マッチを" }, { "text": "持", "reading": "も" }, { "text": "っていますか。" } ],
+      "en": "Have you got a match?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195348, 32522] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word マッチ" },
+  "source": { "jmdict": 1128430, "jlpt": 5 }
+}

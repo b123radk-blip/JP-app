@@ -1,0 +1,19 @@
+{
+  "id": "6301",
+  "kanji": "持",
+  "meaning": "hold; have",
+  "primaryReading": "も",
+  "readings": { "kun": ["も(つ)", "も(ち)", "も(てる)"], "on": ["ジ"] },
+  "mnemonic": "A hand (扌) at the temple (寺) holding the bag: hold, have, carry.",
+  "effect": { "material": "skin", "backdrop": "sky:dusk", "emblem": "bag", "parts": { "扌": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "コートを" }, { "text": "持", "reading": "も" }, { "text": "ちましょうか。" } ],
+      "en": "Shall I carry your coat?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224958, 62293] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

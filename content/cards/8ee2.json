@@ -1,0 +1,26 @@
+{
+  "id": "8ee2",
+  "kanji": "転",
+  "meaning": "revolve; turn around",
+  "primaryReading": "てん",
+  "readings": { "kun": ["ころ(がる)", "ころ(げる)", "ころ(がす)", "ころ(ぶ)"], "on": ["テン"] },
+  "mnemonic": "A cart (車) whose wheels go round and round (云): roll, turn over.",
+  "effect": {
+    "material": "silver",
+    "backdrop": "sky:day",
+    "scene": ["road"],
+    "motion": "roll",
+    "emblem": "bike",
+    "parts": { "車": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "自転車", "reading": "じてんしゃ" }, { "text": "です。" } ],
+      "en": "This is my bicycle.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [2879676, 55617] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,26 @@
+{
+  "id": "610f",
+  "kanji": "意",
+  "meaning": "idea; mind",
+  "primaryReading": "い",
+  "readings": { "kun": [], "on": ["イ"] },
+  "mnemonic": "The sound (音) of your heart (心) lights up an idea: meaning, mind.",
+  "effect": {
+    "material": "pearl",
+    "particles": [{ "type": "hearts", "count": 0.5 }],
+    "backdrop": "sky:twilight",
+    "motion": "pulse",
+    "emblem": "lightbulb",
+    "parts": { "心": { "material": "rose" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "意味", "reading": "いみ" }, { "text": "がわからなかった。" } ],
+      "en": "I didn't catch the meaning.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [191038, 28198] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

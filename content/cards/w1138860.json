@@ -1,0 +1,28 @@
+{
+  "id": "w1138860",
+  "type": "word",
+  "word": "ラジオ",
+  "primaryReading": "ラジオ",
+  "furigana": [{ "text": "ラジオ" }],
+  "meaning": "radio",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "speaker",
+    "backdrop": "sky:indoor",
+    "particles": ["notes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "そのニュースはラジオで" }, { "text": "聞", "reading": "き" }, { "text": "いたよ。" } ],
+      "en": "I heard the news on the radio.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [212803, 50087] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ラジオ" },
+  "source": { "jmdict": 1138860, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1390930",
+  "type": "word",
+  "word": "洗う",
+  "primaryReading": "あらう",
+  "furigana": [{ "text": "洗", "reading": "あら" }, { "text": "う" }],
+  "meaning": "to wash; to cleanse",
+  "pos": ["v5u", "vt"],
+  "kanji": ["6d17"],
+  "builtFrom": [{ "k": "洗", "m": "wash" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["bubbles"], "emblem": "hand", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "手", "reading": "て" }, { "text": "をよく" }, { "text": "洗", "reading": "あら" }, { "text": "いなさいよ。" } ],
+      "en": "Wash your hands well.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [148628, 265931] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 洗う" },
+  "source": { "jmdict": 1390930, "jlpt": 5 }
+}

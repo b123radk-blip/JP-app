@@ -1,0 +1,22 @@
+{
+  "id": "w1457440",
+  "type": "word",
+  "word": "豚肉",
+  "primaryReading": "ぶたにく",
+  "furigana": [{ "text": "豚", "reading": "ぶた" }, { "text": "肉", "reading": "にく" }],
+  "meaning": "pork",
+  "pos": ["n"],
+  "kanji": ["8089"],
+  "builtFrom": [{ "k": "肉", "m": "meat" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "backdrop": "sky:indoor", "particles": ["steam"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "豚肉", "reading": "ぶたにく" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "には" }, { "text": "合", "reading": "あ" }, { "text": "わない。" } ],
+      "en": "Pork doesn't agree with me.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [123261, 280737] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 豚肉" },
+  "source": { "jmdict": 1457440, "jlpt": 5 }
+}

@@ -26,7 +26,12 @@ function partsSim(a, b) {
   return [...A].filter((k) => B.has(k)).length / new Set([...A, ...B]).size;
 }
 
-// Returns { score, slots: { slot: 0..1 } }.
+// Slots that neither recipe uses (no particles, no scene prop, no emblem, no styled parts) say nothing about whether two
+// cards look alike, so they are left out of the score; material, reveal, backdrop and motion always count. Identical
+// recipes still score 1. (Counting "both empty" as a match made any two sparse cards with the same sky look alike.)
+const OPTIONAL = { particles: (r) => r.particles.length > 0, scene: (r) => (r.scene ?? []).length > 0, emblem: (r) => !!r.emblem, parts: (r) => Object.keys(r.parts).length > 0 };
+
+// Returns { score, slots: { slot: 0..1 } } (slots used by neither recipe are left out).
 export function recipeSimilarity(a, b, weights = EFFECTS.similarity.weights) {
   const slots = {
     material: specSim('material', a.material, b.material),
@@ -38,6 +43,7 @@ export function recipeSimilarity(a, b, weights = EFFECTS.similarity.weights) {
     emblem: specSim('emblem', a.emblem, b.emblem),
     parts: partsSim(a.parts, b.parts),
   };
+  for (const [k, used] of Object.entries(OPTIONAL)) if (!used(a) && !used(b)) delete slots[k];
   let s = 0, w = 0;
   for (const [k, v] of Object.entries(slots)) { s += v * weights[k]; w += weights[k]; }
   return { score: s / w, slots };

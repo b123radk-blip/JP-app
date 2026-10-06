@@ -1,0 +1,22 @@
+{
+  "id": "w1416400",
+  "type": "word",
+  "word": "脱ぐ",
+  "primaryReading": "ぬぐ",
+  "furigana": [{ "text": "脱", "reading": "ぬ" }, { "text": "ぐ" }],
+  "meaning": "to take off; to undress",
+  "pos": ["v5g", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shirt", "motion": "drift:up", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ここで" }, { "text": "靴", "reading": "くつ" }, { "text": "を" }, { "text": "脱", "reading": "ぬ" }, { "text": "がなければなりませんか。" } ],
+      "en": "Do I have to take off my shoes here?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224569, 61905] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 脱ぐ" },
+  "source": { "jmdict": 1416400, "jlpt": 5 }
+}

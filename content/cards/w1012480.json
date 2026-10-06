@@ -1,0 +1,22 @@
+{
+  "id": "w1012480",
+  "type": "word",
+  "word": "もう",
+  "primaryReading": "もう",
+  "furigana": [{ "text": "もう" }],
+  "meaning": "already; yet",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "もうそろそろ" }, { "text": "帰", "reading": "かえ" }, { "text": "る" }, { "text": "時間", "reading": "じかん" }, { "text": "だ。" } ],
+      "en": "It is about time we were leaving.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [194403, 31576] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word もう" },
+  "source": { "jmdict": 1012480, "jlpt": 5 }
+}

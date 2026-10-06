@@ -1,0 +1,22 @@
+{
+  "id": "w1352570",
+  "type": "word",
+  "word": "登る",
+  "primaryReading": "のぼる",
+  "furigana": [{ "text": "登", "reading": "のぼ" }, { "text": "る" }],
+  "meaning": "to ascend; to go up",
+  "pos": ["v5r", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["mountains"], "motion": "drift:up", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "そのサルは" }, { "text": "木", "reading": "き" }, { "text": "に" }, { "text": "登", "reading": "のぼ" }, { "text": "った。" } ],
+      "en": "The monkey climbed up a tree.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [213063, 50347] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 登る" },
+  "source": { "jmdict": 1352570, "jlpt": 5 }
+}

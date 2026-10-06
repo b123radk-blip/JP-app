@@ -1,0 +1,29 @@
+{
+  "id": "w1381820",
+  "type": "word",
+  "word": "静か",
+  "primaryReading": "しずか",
+  "furigana": [{ "text": "静", "reading": "しず" }, { "text": "か" }],
+  "meaning": "quiet; silent",
+  "pos": ["adj-na"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "zzz",
+    "particles": ["motes"],
+    "backdrop": "sky:night",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "静", "reading": "しず" }, { "text": "かに" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "降", "reading": "ふ" }, { "text": "っていた。" } ],
+      "en": "It was raining quietly.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [142507, 272063] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 静か" },
+  "source": { "jmdict": 1381820, "jlpt": 5 }
+}

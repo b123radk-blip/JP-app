@@ -1,0 +1,22 @@
+{
+  "id": "w1370760",
+  "type": "word",
+  "word": "吹く",
+  "primaryReading": "ふく",
+  "furigana": [{ "text": "吹", "reading": "ふ" }, { "text": "く" }],
+  "meaning": "to blow (of the wind)",
+  "pos": ["v5k", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["wind", "leaves"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "日", "reading": "ひ" }, { "text": "は" }, { "text": "強", "reading": "つよ" }, { "text": "い" }, { "text": "風", "reading": "かぜ" }, { "text": "が" }, { "text": "吹", "reading": "ふ" }, { "text": "いていました。" } ],
+      "en": "There was a strong wind that day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230511, 67878] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 吹く" },
+  "source": { "jmdict": 1370760, "jlpt": 5 }
+}

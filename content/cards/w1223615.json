@@ -1,0 +1,22 @@
+{
+  "id": "w1223615",
+  "type": "word",
+  "word": "あなた",
+  "primaryReading": "あなた",
+  "furigana": [{ "text": "あなた" }],
+  "meaning": "you",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "drift:toward", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたは" }, { "text": "間違", "reading": "まちが" }, { "text": "えました。" } ],
+      "en": "You made an error.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [232146, 69515] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word あなた" },
+  "source": { "jmdict": 1223615, "jlpt": 5 }
+}

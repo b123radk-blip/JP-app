@@ -1,0 +1,24 @@
+{
+  "id": "671d",
+  "kanji": "朝",
+  "meaning": "morning",
+  "primaryReading": "あさ",
+  "readings": { "kun": ["あさ"], "on": ["チョウ"] },
+  "mnemonic": "The sun rises through the grass (𠦝) while the moon (月) still hangs there: morning.",
+  "effect": {
+    "material": "gold",
+    "backdrop": "sunrise",
+    "emblem": { "type": "crescent", "at": [-0.3, 0.1] },
+    "parts": { "月": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "朝", "reading": "あさ" }, { "text": "から" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "降", "reading": "ふ" }, { "text": "っている。" } ],
+      "en": "It's been raining since morning.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [4419555, 277736] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1428280"] }
+}

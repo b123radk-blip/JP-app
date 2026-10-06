@@ -1,0 +1,22 @@
+{
+  "id": "w1580600",
+  "type": "word",
+  "word": "まっすぐ",
+  "primaryReading": "まっすぐ",
+  "furigana": [{ "text": "まっすぐ" }],
+  "meaning": "straight (ahead); direct",
+  "pos": ["adj-na", "adv", "n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["road"], "motion": "drift:away", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "まっすぐ" }, { "text": "前方", "reading": "ぜんぽう" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "なさい。" } ],
+      "en": "Look straight ahead.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195362, 32535] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word まっすぐ" },
+  "source": { "jmdict": 1580600, "jlpt": 5 }
+}

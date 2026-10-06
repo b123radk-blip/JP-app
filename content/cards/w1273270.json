@@ -1,0 +1,22 @@
+{
+  "id": "w1273270",
+  "type": "word",
+  "word": "公園",
+  "primaryReading": "こうえん",
+  "furigana": [{ "text": "公", "reading": "こう" }, { "text": "園", "reading": "えん" }],
+  "meaning": "(public) park",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["tree"], "backdrop": "sky:day", "particles": ["leaves"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "今朝", "reading": "けさ" }, { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "公園", "reading": "こうえん" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],
+      "en": "I went to a park this morning.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [172226, 242249] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 公園" },
+  "source": { "jmdict": 1273270, "jlpt": 5 }
+}

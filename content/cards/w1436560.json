@@ -1,0 +1,28 @@
+{
+  "id": "w1436560",
+  "type": "word",
+  "word": "閉まる",
+  "primaryReading": "しまる",
+  "furigana": [{ "text": "閉", "reading": "し" }, { "text": "まる" }],
+  "meaning": "to be shut; to close",
+  "pos": ["v5r", "vi"],
+  "kanji": ["9589"],
+  "builtFrom": [{ "k": "閉", "m": "closed" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": [{ "type": "gate", "close": true }],
+    "backdrop": "sky:dusk",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ドアが" }, { "text": "閉", "reading": "し" }, { "text": "まる" }, { "text": "音", "reading": "おと" }, { "text": "を" }, { "text": "聞", "reading": "き" }, { "text": "いた。" } ],
+      "en": "I heard the door close.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201892, 39100] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 閉まる" },
+  "source": { "jmdict": 1436560, "jlpt": 5 }
+}

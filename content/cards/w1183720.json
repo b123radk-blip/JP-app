@@ -1,0 +1,22 @@
+{
+  "id": "w1183720",
+  "type": "word",
+  "word": "音楽",
+  "primaryReading": "おんがく",
+  "furigana": [{ "text": "音", "reading": "おん" }, { "text": "楽", "reading": "がく" }],
+  "meaning": "music",
+  "pos": ["n"],
+  "kanji": ["97f3", "697d"],
+  "builtFrom": [{ "k": "音", "m": "sound" }, { "k": "楽", "m": "music" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "note", "particles": ["notes"], "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "音楽", "reading": "おんがく" }, { "text": "が" }, { "text": "分", "reading": "わ" }, { "text": "からない。" } ],
+      "en": "I have no ear for music.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158204, 256326] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 音楽" },
+  "source": { "jmdict": 1183720, "jlpt": 5 }
+}

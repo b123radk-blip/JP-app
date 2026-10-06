@@ -1,0 +1,22 @@
+{
+  "id": "w1536010",
+  "type": "word",
+  "word": "問題",
+  "primaryReading": "もんだい",
+  "furigana": [{ "text": "問", "reading": "もん" }, { "text": "題", "reading": "だい" }],
+  "meaning": "question; problem",
+  "pos": ["n"],
+  "kanji": ["554f", "984c"],
+  "builtFrom": [{ "k": "問", "m": "question" }, { "k": "題", "m": "topic" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "問題", "reading": "もんだい" }, { "text": "はほっておけ。" } ],
+      "en": "Let the problem alone.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [206455, 43703] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 問題" },
+  "source": { "jmdict": 1536010, "jlpt": 5 }
+}

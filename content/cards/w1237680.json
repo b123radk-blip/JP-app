@@ -1,0 +1,28 @@
+{
+  "id": "w1237680",
+  "type": "word",
+  "word": "狭い",
+  "primaryReading": "せまい",
+  "furigana": [{ "text": "狭", "reading": "せま" }, { "text": "い" }],
+  "meaning": "narrow; confined",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": { "type": "stretch", "axis": "x", "to": 0.7 },
+    "scene": ["room"],
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "部屋", "reading": "へや" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "たちにとって" }, { "text": "狭", "reading": "せま" }, { "text": "すぎる。" } ],
+      "en": "This room is too small for us.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219999, 57319] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 狭い" },
+  "source": { "jmdict": 1237680, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w2137720",
+  "type": "word",
+  "word": "そう",
+  "primaryReading": "そう",
+  "furigana": [{ "text": "そう" }],
+  "meaning": "in that way; thus",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "motion": "bow", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "もそう" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],
+      "en": "I think so too.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word そう" },
+  "source": { "jmdict": 2137720, "jlpt": 5 }
+}

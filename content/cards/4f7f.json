@@ -1,0 +1,19 @@
+{
+  "id": "4f7f",
+  "kanji": "使",
+  "meaning": "use; order",
+  "primaryReading": "つか",
+  "readings": { "kun": ["つか(う)", "つか(い)", "つか(い)", "づか(い)"], "on": ["シ"] },
+  "mnemonic": "A person (亻) put to work by an official (吏): use.",
+  "effect": { "material": "skin", "backdrop": "sky:day", "emblem": "wrench", "parts": { "亻": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "のカメラを" }, { "text": "使", "reading": "つか" }, { "text": "ったの？" } ],
+      "en": "Did you use my camera?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [9679094, 70290] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

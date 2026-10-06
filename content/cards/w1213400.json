@@ -1,0 +1,22 @@
+{
+  "id": "w1213400",
+  "type": "word",
+  "word": "甘い",
+  "primaryReading": "あまい",
+  "furigana": [{ "text": "甘", "reading": "あま" }, { "text": "い" }],
+  "meaning": "sweet-tasting; sweet",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "gem", "particles": ["hearts"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このチョコレートはとっても" }, { "text": "甘", "reading": "あま" }, { "text": "くておいしい。" } ],
+      "en": "This chocolate is very sweet and tasty.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223560, 60895] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 甘い" },
+  "source": { "jmdict": 1213400, "jlpt": 5 }
+}

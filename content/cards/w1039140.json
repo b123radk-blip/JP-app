@@ -1,0 +1,22 @@
+{
+  "id": "w1039140",
+  "type": "word",
+  "word": "カレー",
+  "primaryReading": "カレー",
+  "furigana": [{ "text": "カレー" }],
+  "meaning": "curry",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "particles": ["steam"], "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "カレーはまあまあでした。" } ],
+      "en": "The curry was nothing special.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [76792, 326928] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word カレー" },
+  "source": { "jmdict": 1039140, "jlpt": 5 }
+}

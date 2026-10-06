@@ -1,0 +1,22 @@
+{
+  "id": "w1419110",
+  "type": "word",
+  "word": "誕生日",
+  "primaryReading": "たんじょうび",
+  "furigana": [{ "text": "誕", "reading": "たん" }, { "text": "生", "reading": "じょう" }, { "text": "日", "reading": "び" }],
+  "meaning": "birthday",
+  "pos": ["n"],
+  "kanji": ["751f", "65e5"],
+  "builtFrom": [{ "k": "生", "m": "life" }, { "k": "日", "m": "sun" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["sparks"], "emblem": "gem", "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は、" }, { "text": "妹", "reading": "いもうと" }, { "text": "の" }, { "text": "誕生日", "reading": "たんじょうび" }, { "text": "です。" } ],
+      "en": "Today is my sister's birthday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171822, 242653] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 誕生日" },
+  "source": { "jmdict": 1419110, "jlpt": 5 }
+}

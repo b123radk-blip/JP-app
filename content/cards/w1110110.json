@@ -1,0 +1,22 @@
+{
+  "id": "w1110110",
+  "type": "word",
+  "word": "フォーク",
+  "primaryReading": "フォーク",
+  "furigana": [{ "text": "フォーク" }],
+  "meaning": "fork",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "子", "reading": "こ" }, { "text": "はナイフとフォークをうまく" }, { "text": "使", "reading": "つか" }, { "text": "う。" } ],
+      "en": "The child handles a knife and fork well.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [210248, 47513] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word フォーク" },
+  "source": { "jmdict": 1110110, "jlpt": 5 }
+}

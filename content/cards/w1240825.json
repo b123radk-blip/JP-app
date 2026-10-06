@@ -1,0 +1,22 @@
+{
+  "id": "w1240825",
+  "type": "word",
+  "word": "勤める",
+  "primaryReading": "つとめる",
+  "furigana": [{ "text": "勤", "reading": "つと" }, { "text": "める" }],
+  "meaning": "to work (for, at, in)",
+  "pos": ["v1", "vt", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "briefcase", "scene": ["room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "父", "reading": "ちち" }, { "text": "は" }, { "text": "銀行", "reading": "ぎんこう" }, { "text": "に" }, { "text": "勤", "reading": "つと" }, { "text": "めています。" } ],
+      "en": "My father works for a bank.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84602, 251672] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 勤める" },
+  "source": { "jmdict": 1240825, "jlpt": 5 }
+}

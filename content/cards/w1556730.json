@@ -1,0 +1,28 @@
+{
+  "id": "w1556730",
+  "type": "word",
+  "word": "冷たい",
+  "primaryReading": "つめたい",
+  "furigana": [{ "text": "冷", "reading": "つめ" }, { "text": "たい" }],
+  "meaning": "cold (to the touch); chilly",
+  "pos": ["adj-i"],
+  "kanji": ["51b7"],
+  "builtFrom": [{ "k": "冷", "m": "cool" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["snow"],
+    "emblem": "thermometer",
+    "backdrop": "sky:snow"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "外気", "reading": "がいき" }, { "text": "は" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "冷", "reading": "つめ" }, { "text": "たかった。" } ],
+      "en": "The air felt a little cold.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [184849, 21979] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 冷たい" },
+  "source": { "jmdict": 1556730, "jlpt": 5 }
+}

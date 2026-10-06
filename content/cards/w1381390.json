@@ -1,0 +1,27 @@
+{
+  "id": "w1381390",
+  "type": "word",
+  "word": "青い",
+  "primaryReading": "あおい",
+  "furigana": [{ "text": "青", "reading": "あお" }, { "text": "い" }],
+  "meaning": "blue; azure",
+  "pos": ["adj-i"],
+  "kanji": ["9752"],
+  "builtFrom": [{ "k": "青", "m": "blue" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "splash", "color": "#2a7aff" },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "青", "reading": "あお" }, { "text": "いのも" }, { "text": "私", "reading": "わたし" }, { "text": "のです。" } ],
+      "en": "That blue one is also mine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230674, 68042] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 青い" },
+  "source": { "jmdict": 1381390, "jlpt": 5 }
+}

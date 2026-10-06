@@ -1,0 +1,22 @@
+{
+  "id": "w1313000",
+  "type": "word",
+  "word": "歯",
+  "primaryReading": "は",
+  "furigana": [{ "text": "歯", "reading": "は" }],
+  "meaning": "tooth; teeth",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "gem", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "毎晩", "reading": "まいばん" }, { "text": "、" }, { "text": "歯", "reading": "は" }, { "text": "をみがきます。" } ],
+      "en": "I brush my teeth every night.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 歯" },
+  "source": { "jmdict": 1313000, "jlpt": 5 }
+}

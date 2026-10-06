@@ -1,0 +1,25 @@
+{
+  "id": "59c9",
+  "kanji": "姉",
+  "meaning": "elder sister",
+  "primaryReading": "あね",
+  "readings": { "kun": ["あね", "はは"], "on": ["シ"] },
+  "mnemonic": "A woman (女) who goes to the market (市) for the family: older sister.",
+  "effect": {
+    "material": "rose",
+    "backdrop": "sky:day",
+    "motion": { "type": "grow", "to": 1.2 },
+    "emblem": { "type": "person", "color": "#ff7aa8", "size": 1.3 },
+    "parts": { "女": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "姉", "reading": "あね" }, { "text": "はタイプが" }, { "text": "上手", "reading": "じょうず" }, { "text": "です。" } ],
+      "en": "My sister is a good typist.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [168917, 245573] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1307630"] }
+}

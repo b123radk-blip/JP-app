@@ -1,0 +1,22 @@
+{
+  "id": "w1257540",
+  "type": "word",
+  "word": "建物",
+  "primaryReading": "たてもの",
+  "furigana": [{ "text": "建", "reading": "たて" }, { "text": "物", "reading": "もの" }],
+  "meaning": "building",
+  "pos": ["n"],
+  "kanji": ["5efa", "7269"],
+  "builtFrom": [{ "k": "建", "m": "build" }, { "k": "物", "m": "thing" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "museum", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "高", "reading": "たか" }, { "text": "い" }, { "text": "建物", "reading": "たてもの" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "なさい。" } ],
+      "en": "Look at that tall building.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231029, 68396] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 建物" },
+  "source": { "jmdict": 1257540, "jlpt": 5 }
+}

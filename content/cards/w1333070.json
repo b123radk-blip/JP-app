@@ -1,0 +1,22 @@
+{
+  "id": "w1333070",
+  "type": "word",
+  "word": "習う",
+  "primaryReading": "ならう",
+  "furigana": [{ "text": "習", "reading": "なら" }, { "text": "う" }],
+  "meaning": "to take lessons in; to be taught",
+  "pos": ["v5u", "vt"],
+  "kanji": ["7fd2"],
+  "builtFrom": [{ "k": "習", "m": "learn" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はスキーを" }, { "text": "習", "reading": "なら" }, { "text": "いたい。" } ],
+      "en": "I want to learn how to ski.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [160560, 253961] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 習う" },
+  "source": { "jmdict": 1333070, "jlpt": 5 }
+}

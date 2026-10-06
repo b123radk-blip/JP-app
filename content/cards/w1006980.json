@@ -1,0 +1,22 @@
+{
+  "id": "w1006980",
+  "type": "word",
+  "word": "それから",
+  "primaryReading": "それから",
+  "furigana": [{ "text": "それから" }],
+  "meaning": "and then; after that",
+  "pos": ["exp"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "arrow:right", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それから" }, { "text": "先", "reading": "さき" }, { "text": "の" }, { "text": "話", "reading": "はなし" }, { "text": "を" }, { "text": "聞", "reading": "き" }, { "text": "きたい。" } ],
+      "en": "I'd like to know the rest of the story.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205916, 43163] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word それから" },
+  "source": { "jmdict": 1006980, "jlpt": 5 }
+}

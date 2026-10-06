@@ -1,0 +1,22 @@
+{
+  "id": "w1174340",
+  "type": "word",
+  "word": "泳ぐ",
+  "primaryReading": "およぐ",
+  "furigana": [{ "text": "泳", "reading": "およ" }, { "text": "ぐ" }],
+  "meaning": "to swim",
+  "pos": ["v5g", "vi"],
+  "kanji": ["6cf3"],
+  "builtFrom": [{ "k": "泳", "m": "swim" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["ripples"], "motion": "swim", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたは" }, { "text": "泳", "reading": "およ" }, { "text": "げますよね。" } ],
+      "en": "You can swim, can't you?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [232296, 16299] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 泳ぐ" },
+  "source": { "jmdict": 1174340, "jlpt": 5 }
+}

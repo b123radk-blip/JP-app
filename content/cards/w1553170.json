@@ -1,0 +1,22 @@
+{
+  "id": "w1553170",
+  "type": "word",
+  "word": "旅行",
+  "primaryReading": "りょこう",
+  "furigana": [{ "text": "旅", "reading": "りょ" }, { "text": "行", "reading": "こう" }],
+  "meaning": "travel; trip",
+  "pos": ["n", "vs", "vi"],
+  "kanji": ["65c5", "884c"],
+  "builtFrom": [{ "k": "旅", "m": "trip" }, { "k": "行", "m": "going" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "suitcase", "scene": ["road"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "どこか" }, { "text": "旅行", "reading": "りょこう" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きたい。" } ],
+      "en": "I want to go somewhere on a trip.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201005, 38210] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 旅行" },
+  "source": { "jmdict": 1553170, "jlpt": 5 }
+}

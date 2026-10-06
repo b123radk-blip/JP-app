@@ -1,0 +1,28 @@
+{
+  "id": "w1293660",
+  "type": "word",
+  "word": "再来年",
+  "primaryReading": "さらいねん",
+  "furigana": [{ "text": "再", "reading": "さ" }, { "text": "来", "reading": "らい" }, { "text": "年", "reading": "ねん" }],
+  "meaning": "year after next",
+  "pos": ["n", "adv"],
+  "kanji": ["518d", "6765", "5e74"],
+  "builtFrom": [{ "k": "再", "m": "again" }, { "k": "来", "m": "come" }, { "k": "年", "m": "year" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:right",
+    "motion": "count:2",
+    "backdrop": "sky:dawn"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "祖父", "reading": "そふ" }, { "text": "は、" }, { "text": "再来年", "reading": "さらいねん" }, { "text": "引退", "reading": "いんたい" }, { "text": "する" }, { "text": "予定", "reading": "よてい" }, { "text": "です。" } ],
+      "en": "My grandfather is planning to retire the year after next.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [140720, 273853] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 再来年" },
+  "source": { "jmdict": 1293660, "jlpt": 5 }
+}

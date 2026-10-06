@@ -1,0 +1,22 @@
+{
+  "id": "w1588120",
+  "type": "word",
+  "word": "歌う",
+  "primaryReading": "うたう",
+  "furigana": [{ "text": "歌", "reading": "うた" }, { "text": "う" }],
+  "meaning": "to sing",
+  "pos": ["v5u", "vt", "vi"],
+  "kanji": ["6b4c"],
+  "builtFrom": [{ "k": "歌", "m": "song" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "mic", "particles": ["notes"], "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はその" }, { "text": "歌", "reading": "うた" }, { "text": "を" }, { "text": "歌", "reading": "うた" }, { "text": "いたい。" } ],
+      "en": "I want to sing the song.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [160265, 254256] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 歌う" },
+  "source": { "jmdict": 1588120, "jlpt": 5 }
+}

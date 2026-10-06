@@ -1,0 +1,25 @@
+{
+  "id": "521d",
+  "kanji": "初",
+  "meaning": "first time; beginning",
+  "primaryReading": "はじ",
+  "readings": { "kun": ["はじ(め)", "はじ(めて)", "はつ", "はつ"], "on": ["ショ"] },
+  "mnemonic": "Scissors (刀) cutting new cloth (衤) for the very first time: first, beginning.",
+  "effect": {
+    "material": "pearl",
+    "reveal": "draw:sparks",
+    "backdrop": "sky:dawn",
+    "parts": { "衤": { "material": "paper" }, "刀": { "material": "silver", "motion": "wave" } },
+    "emblem": { "type": "dots", "n": 1, "size": 1.6, "color": "#ffd060" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "こういうの" }, { "text": "初", "reading": "はじ" }, { "text": "めてだろ。" } ],
+      "en": "I expect this is your first time for this.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225072, 62407] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

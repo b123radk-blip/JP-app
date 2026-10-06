@@ -1,0 +1,22 @@
+{
+  "id": "w1072590",
+  "type": "word",
+  "word": "スプーン",
+  "primaryReading": "スプーン",
+  "furigana": [{ "text": "スプーン" }],
+  "meaning": "spoon",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "spoon", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "スプーンがありません。" } ],
+      "en": "There is a spoon missing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214526, 51818] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word スプーン" },
+  "source": { "jmdict": 1072590, "jlpt": 5 }
+}

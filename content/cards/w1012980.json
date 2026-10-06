@@ -1,0 +1,22 @@
+{
+  "id": "w1012980",
+  "type": "word",
+  "word": "やる",
+  "primaryReading": "やる",
+  "furigana": [{ "text": "やる" }],
+  "meaning": "to do; to undertake",
+  "pos": ["v5r", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "shove:right", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それは" }, { "text": "私", "reading": "わたし" }, { "text": "のやることだ。" } ],
+      "en": "That is my own affair.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205134, 42376] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word やる" },
+  "source": { "jmdict": 1012980, "jlpt": 5 }
+}

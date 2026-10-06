@@ -1,0 +1,22 @@
+{
+  "id": "w1342540",
+  "type": "word",
+  "word": "初め",
+  "primaryReading": "はじめ",
+  "furigana": [{ "text": "初", "reading": "はじ" }, { "text": "め" }],
+  "meaning": "beginning; start",
+  "pos": ["n", "adv"],
+  "kanji": ["521d"],
+  "builtFrom": [{ "k": "初", "m": "first time" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag", "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "初", "reading": "はじ" }, { "text": "めは" }, { "text": "病気", "reading": "びょうき" }, { "text": "だと" }, { "text": "思", "reading": "おも" }, { "text": "った。" } ],
+      "en": "At first, I thought they were sick.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [75012, 328706] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 初め" },
+  "source": { "jmdict": 1342540, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1157000",
+  "type": "word",
+  "word": "易しい",
+  "primaryReading": "やさしい",
+  "furigana": [{ "text": "易", "reading": "やさ" }, { "text": "しい" }],
+  "meaning": "easy; plain",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "motion": "bounce", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "が" }, { "text": "読", "reading": "よ" }, { "text": "めるほど" }, { "text": "易", "reading": "やさ" }, { "text": "しい。" } ],
+      "en": "This book is easy enough for me to read.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219623, 56944] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 易しい" },
+  "source": { "jmdict": 1157000, "jlpt": 5 }
+}

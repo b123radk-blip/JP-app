@@ -1,0 +1,22 @@
+{
+  "id": "w1073210",
+  "type": "word",
+  "word": "スポーツ",
+  "primaryReading": "スポーツ",
+  "furigana": [{ "text": "スポーツ" }],
+  "meaning": "sport; sports",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dumbbell", "motion": "bounce", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ところであなたはどんなスポーツが" }, { "text": "好", "reading": "す" }, { "text": "きですか。" } ],
+      "en": "Well, what sports do you like?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [200846, 38049] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word スポーツ" },
+  "source": { "jmdict": 1073210, "jlpt": 5 }
+}

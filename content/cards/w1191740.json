@@ -1,0 +1,22 @@
+{
+  "id": "w1191740",
+  "type": "word",
+  "word": "うち",
+  "primaryReading": "うち",
+  "furigana": [{ "text": "うち" }],
+  "meaning": "one's house; one's home",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "scene": ["room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "毎日", "reading": "まいにち" }, { "text": "うちにいます。" } ],
+      "en": "Mother stays at home every day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [82855, 320861] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word うち" },
+  "source": { "jmdict": 1191740, "jlpt": 5 }
+}

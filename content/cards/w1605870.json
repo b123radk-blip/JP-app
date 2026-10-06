@@ -1,0 +1,22 @@
+{
+  "id": "w1605870",
+  "type": "word",
+  "word": "よく",
+  "primaryReading": "よく",
+  "furigana": [{ "text": "よく" }],
+  "meaning": "nicely; properly",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "motion": "count:2", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "食物", "reading": "しょくもつ" }, { "text": "をよくかみなさい。" } ],
+      "en": "Chew your food well.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [145777, 268787] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word よく" },
+  "source": { "jmdict": 1605870, "jlpt": 5 }
+}

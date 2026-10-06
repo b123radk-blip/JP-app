@@ -1,0 +1,22 @@
+{
+  "id": "w1002610",
+  "type": "word",
+  "word": "お腹",
+  "primaryReading": "おなか",
+  "furigana": [{ "text": "お" }, { "text": "腹", "reading": "なか" }],
+  "meaning": "belly; abdomen",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "motion": "pulse", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "腹", "reading": "なか" }, { "text": "がぺこぺこです。" } ],
+      "en": "I'm starved.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226688, 64032] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お腹" },
+  "source": { "jmdict": 1002610, "jlpt": 5 }
+}

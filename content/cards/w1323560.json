@@ -1,0 +1,22 @@
+{
+  "id": "w1323560",
+  "type": "word",
+  "word": "借りる",
+  "primaryReading": "かりる",
+  "furigana": [{ "text": "借", "reading": "か" }, { "text": "りる" }],
+  "meaning": "to borrow",
+  "pos": ["v1", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "motion": "drift:toward", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "をお" }, { "text": "借", "reading": "か" }, { "text": "りしてもよろしいですか。" } ],
+      "en": "May I borrow this book?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219525, 56836] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 借りる" },
+  "source": { "jmdict": 1323560, "jlpt": 5 }
+}

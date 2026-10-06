@@ -1,0 +1,22 @@
+{
+  "id": "w1201940",
+  "type": "word",
+  "word": "灰皿",
+  "primaryReading": "はいざら",
+  "furigana": [{ "text": "灰", "reading": "はい" }, { "text": "皿", "reading": "ざら" }],
+  "meaning": "ashtray",
+  "pos": ["n"],
+  "kanji": ["76bf"],
+  "builtFrom": [{ "k": "皿", "m": "dish" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "particles": ["steam"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "灰皿", "reading": "はいざら" }, { "text": "を" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "I need an ashtray.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [185012, 22144] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 灰皿" },
+  "source": { "jmdict": 1201940, "jlpt": 5 }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "w1316380",
+  "type": "word",
+  "word": "次",
+  "primaryReading": "つぎ",
+  "furigana": [{ "text": "次", "reading": "つぎ" }],
+  "meaning": "next; following",
+  "pos": ["n", "adj-no"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:right",
+    "motion": "drift:right",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "次", "reading": "つぎ" }, { "text": "来", "reading": "く" }, { "text": "るときは、" }, { "text": "花", "reading": "はな" }, { "text": "を" }, { "text": "持", "reading": "も" }, { "text": "ってきてあげよう。" } ],
+      "en": "Next time I come, I'll bring you some flowers.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [221566, 58890] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 次" },
+  "source": { "jmdict": 1316380, "jlpt": 5 }
+}

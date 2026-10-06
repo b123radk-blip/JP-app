@@ -1,0 +1,22 @@
+{
+  "id": "w1427340",
+  "type": "word",
+  "word": "丁度",
+  "primaryReading": "ちょうど",
+  "furigana": [{ "text": "丁", "reading": "ちょう" }, { "text": "度", "reading": "ど" }],
+  "meaning": "exactly; precisely",
+  "pos": ["adv"],
+  "kanji": ["5ea6"],
+  "builtFrom": [{ "k": "度", "m": "degrees" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "motion": "pulse", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今", "reading": "いま" }, { "text": "、" }, { "text": "丁度", "reading": "ちょうど" }, { "text": "三", "reading": "さん" }, { "text": "時", "reading": "じ" }, { "text": "です。" } ],
+      "en": "It's exactly three o'clock now.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 丁度" },
+  "source": { "jmdict": 1427340, "jlpt": 5 }
+}

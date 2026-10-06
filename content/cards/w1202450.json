@@ -1,0 +1,22 @@
+{
+  "id": "w1202450",
+  "type": "word",
+  "word": "開ける",
+  "primaryReading": "あける",
+  "furigana": [{ "text": "開", "reading": "あ" }, { "text": "ける" }],
+  "meaning": "to open (a door, etc.); to unwrap",
+  "pos": ["v1", "vt"],
+  "kanji": ["958b"],
+  "builtFrom": [{ "k": "開", "m": "open" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "押", "reading": "お" }, { "text": "して" }, { "text": "開", "reading": "あ" }, { "text": "けてください。" } ],
+      "en": "Push the door open.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [188527, 25673] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 開ける" },
+  "source": { "jmdict": 1202450, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1522980",
+  "type": "word",
+  "word": "本棚",
+  "primaryReading": "ほんだな",
+  "furigana": [{ "text": "本", "reading": "ほん" }, { "text": "棚", "reading": "だな" }],
+  "meaning": "bookshelves; bookshelf",
+  "pos": ["n"],
+  "kanji": ["672c"],
+  "builtFrom": [{ "k": "本", "m": "book" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "book",
+    "scene": ["room"],
+    "motion": "count:3",
+    "backdrop": "sky:sunset"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "本棚", "reading": "ほんだな" }, { "text": "は" }, { "text": "作", "reading": "つく" }, { "text": "りつけになっている。" } ],
+      "en": "The bookshelf is built in.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [206598, 43846] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 本棚" },
+  "source": { "jmdict": 1522980, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1217730",
+  "type": "word",
+  "word": "顔",
+  "primaryReading": "かお",
+  "furigana": [{ "text": "顔", "reading": "かお" }],
+  "meaning": "face; visage",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "mask", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "毎朝", "reading": "まいあさ" }, { "text": "顔", "reading": "かお" }, { "text": "を" }, { "text": "洗", "reading": "あら" }, { "text": "います。" } ],
+      "en": "I wash my face every morning.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [152712, 261837] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 顔" },
+  "source": { "jmdict": 1217730, "jlpt": 5 }
+}

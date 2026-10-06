@@ -1,0 +1,22 @@
+{
+  "id": "w1201190",
+  "type": "word",
+  "word": "海",
+  "primaryReading": "うみ",
+  "furigana": [{ "text": "海", "reading": "うみ" }],
+  "meaning": "sea; ocean",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["ripples"], "backdrop": "sky:day", "emblem": "boat" },
+  "sentences": [
+    {
+      "segments": [ { "text": "右手", "reading": "みぎて" }, { "text": "に" }, { "text": "海", "reading": "うみ" }, { "text": "が" }, { "text": "見", "reading": "み" }, { "text": "えますよ。" } ],
+      "en": "You can see the sea on your right.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [189907, 27063] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 海" },
+  "source": { "jmdict": 1201190, "jlpt": 5 }
+}

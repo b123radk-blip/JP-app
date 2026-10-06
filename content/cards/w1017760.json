@@ -1,0 +1,22 @@
+{
+  "id": "w1017760",
+  "type": "word",
+  "word": "アパート",
+  "primaryReading": "アパート",
+  "furigana": [{ "text": "アパート" }],
+  "meaning": "apartment building",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "motion": "count:3", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "いいアパートね。" } ],
+      "en": "This is a great apartment.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [229463, 66822] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word アパート" },
+  "source": { "jmdict": 1017760, "jlpt": 5 }
+}

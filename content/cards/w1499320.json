@@ -1,0 +1,22 @@
+{
+  "id": "w1499320",
+  "type": "word",
+  "word": "部屋",
+  "primaryReading": "へや",
+  "furigana": [{ "text": "部屋", "reading": "へや" }],
+  "meaning": "room; chamber",
+  "pos": ["n"],
+  "kanji": ["90e8", "5c4b"],
+  "builtFrom": [{ "k": "部", "m": "section" }, { "k": "屋", "m": "roof" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "backdrop": "sky:indoor", "emblem": "bed" },
+  "sentences": [
+    {
+      "segments": [ { "text": "部屋", "reading": "へや" }, { "text": "には" }, { "text": "誰", "reading": "だれ" }, { "text": "かいますか。" } ],
+      "en": "Is there anyone in the room?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84213, 319502] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 部屋" },
+  "source": { "jmdict": 1499320, "jlpt": 5 }
+}

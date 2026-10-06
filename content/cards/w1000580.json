@@ -1,0 +1,22 @@
+{
+  "id": "w1000580",
+  "type": "word",
+  "word": "あれ",
+  "primaryReading": "あれ",
+  "furigana": [{ "text": "あれ" }],
+  "meaning": "that; that thing",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "box", "motion": "drift:away", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あれを" }, { "text": "見", "reading": "み" }, { "text": "せてください。" } ],
+      "en": "Can I see that one?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [229635, 66995] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word あれ" },
+  "source": { "jmdict": 1000580, "jlpt": 5 }
+}

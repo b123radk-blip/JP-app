@@ -1,0 +1,22 @@
+{
+  "id": "w1318970",
+  "type": "word",
+  "word": "辞書",
+  "primaryReading": "じしょ",
+  "furigana": [{ "text": "辞", "reading": "じ" }, { "text": "書", "reading": "しょ" }],
+  "meaning": "dictionary; lexicon",
+  "pos": ["n"],
+  "kanji": ["8f9e", "66f8"],
+  "builtFrom": [{ "k": "辞", "m": "word" }, { "k": "書", "m": "write" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "particles": ["kana"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はよい" }, { "text": "辞書", "reading": "じしょ" }, { "text": "がほしい。" } ],
+      "en": "I want a good dictionary.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158674, 453183] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 辞書" },
+  "source": { "jmdict": 1318970, "jlpt": 5 }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "w1226440",
+  "type": "word",
+  "word": "喫茶店",
+  "primaryReading": "きっさてん",
+  "furigana": [{ "text": "喫", "reading": "きっ" }, { "text": "茶", "reading": "さ" }, { "text": "店", "reading": "てん" }],
+  "meaning": "coffee shop; tearoom",
+  "pos": ["n"],
+  "kanji": ["8336", "5e97"],
+  "builtFrom": [{ "k": "茶", "m": "tea" }, { "k": "店", "m": "store" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "cup", "drink": "#4a2a10" },
+    "scene": ["room:shop"],
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "たちは" }, { "text": "喫茶店", "reading": "きっさてん" }, { "text": "で" }, { "text": "昼食", "reading": "ちゅうしょく" }, { "text": "をとった。" } ],
+      "en": "We ate lunch in a coffee lounge.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [165940, 248564] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 喫茶店" },
+  "source": { "jmdict": 1226440, "jlpt": 5 }
+}

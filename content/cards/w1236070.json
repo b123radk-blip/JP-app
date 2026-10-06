@@ -1,0 +1,22 @@
+{
+  "id": "w1236070",
+  "type": "word",
+  "word": "強い",
+  "primaryReading": "つよい",
+  "furigana": [{ "text": "強", "reading": "つよ" }, { "text": "い" }],
+  "meaning": "strong; potent",
+  "pos": ["adj-i"],
+  "kanji": ["5f37"],
+  "builtFrom": [{ "k": "強", "m": "strong" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dumbbell", "motion": "pulse", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今朝", "reading": "けさ" }, { "text": "は" }, { "text": "風", "reading": "かぜ" }, { "text": "が" }, { "text": "強", "reading": "つよ" }, { "text": "いですね。" } ],
+      "en": "Windy this morning, isn't it?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [172249, 242226] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 強い" },
+  "source": { "jmdict": 1236070, "jlpt": 5 }
+}

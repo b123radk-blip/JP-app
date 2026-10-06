@@ -1,0 +1,22 @@
+{
+  "id": "w1524730",
+  "type": "word",
+  "word": "毎晩",
+  "primaryReading": "まいばん",
+  "furigana": [{ "text": "毎", "reading": "まい" }, { "text": "晩", "reading": "ばん" }],
+  "meaning": "every night",
+  "pos": ["n", "adv"],
+  "kanji": ["6bce", "6669"],
+  "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "晩", "m": "nightfall" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "crescent", "motion": "count:3", "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "毎晩", "reading": "まいばん" }, { "text": "ラジオを" }, { "text": "聞", "reading": "き" }, { "text": "きます。" } ],
+      "en": "I listen to the radio every night.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [152683, 261866] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 毎晩" },
+  "source": { "jmdict": 1524730, "jlpt": 5 }
+}

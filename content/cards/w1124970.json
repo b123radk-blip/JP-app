@@ -1,0 +1,22 @@
+{
+  "id": "w1124970",
+  "type": "word",
+  "word": "ポケット",
+  "primaryReading": "ポケット",
+  "furigana": [{ "text": "ポケット" }],
+  "meaning": "pocket",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このコートにはポケットがない。" } ],
+      "en": "The coat doesn't have any pockets.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223814, 898903] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ポケット" },
+  "source": { "jmdict": 1124970, "jlpt": 5 }
+}

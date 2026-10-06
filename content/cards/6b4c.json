@@ -1,0 +1,26 @@
+{
+  "id": "6b4c",
+  "kanji": "歌",
+  "meaning": "song; sing",
+  "primaryReading": "うた",
+  "readings": { "kun": ["うた", "うた(う)"], "on": ["カ"] },
+  "mnemonic": "Two mouths (哥) and a wide-open yawn (欠): singing a song.",
+  "effect": {
+    "material": "rose",
+    "particles": ["notes"],
+    "backdrop": "sky:golden",
+    "motion": "sway",
+    "emblem": "mic",
+    "parts": { "欠": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたは" }, { "text": "歌", "reading": "うた" }, { "text": "を" }, { "text": "歌", "reading": "うた" }, { "text": "えます。" } ],
+      "en": "You can sing a song.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [232172, 69541] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1193180"] }
+}

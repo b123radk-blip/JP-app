@@ -1,0 +1,22 @@
+{
+  "id": "w1612860",
+  "type": "word",
+  "word": "そうして",
+  "primaryReading": "そうして",
+  "furigana": [{ "text": "そうして" }],
+  "meaning": "and; like that",
+  "pos": ["conj"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "arrow:right", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "どうぞ、そうして" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Yes, please do.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201374, 38584] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word そうして" },
+  "source": { "jmdict": 1612860, "jlpt": 5 }
+}

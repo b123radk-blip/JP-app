@@ -1,0 +1,22 @@
+{
+  "id": "w1218380",
+  "type": "word",
+  "word": "危ない",
+  "primaryReading": "あぶない",
+  "furigana": [{ "text": "危", "reading": "あぶ" }, { "text": "ない" }],
+  "meaning": "dangerous; risky",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "exclaim", "motion": "shake", "backdrop": "sky:storm" },
+  "sentences": [
+    {
+      "segments": [ { "text": "間一髪", "reading": "かんいっぱつ" }, { "text": "！" }, { "text": "危", "reading": "あぶ" }, { "text": "ないところでした。" } ],
+      "en": "That was a close call.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [183713, 20836] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 危ない" },
+  "source": { "jmdict": 1218380, "jlpt": 5 }
+}

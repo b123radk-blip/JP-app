@@ -1,0 +1,22 @@
+{
+  "id": "w2820690",
+  "type": "word",
+  "word": "いい",
+  "primaryReading": "いい",
+  "furigana": [{ "text": "いい" }],
+  "meaning": "good; excellent",
+  "pos": ["adj-ix"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "までいい" }, { "text": "天気", "reading": "てんき" }, { "text": "でした。" } ],
+      "en": "The weather has been good until today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171478, 242998] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word いい" },
+  "source": { "jmdict": 2820690, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1253020",
+  "type": "word",
+  "word": "鶏肉",
+  "primaryReading": "とりにく",
+  "furigana": [{ "text": "鶏", "reading": "とり" }, { "text": "肉", "reading": "にく" }],
+  "meaning": "chicken meat",
+  "pos": ["n"],
+  "kanji": ["8089"],
+  "builtFrom": [{ "k": "肉", "m": "meat" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "bird",
+    "backdrop": "sky:indoor",
+    "particles": ["steam"],
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "鶏", "reading": "とり", "base": "とり", "dict": true }, { "text": "肉", "reading": "にく", "base": "にく", "dict": true }, { "text": "はよく" }, { "text": "揚", "reading": "あ" }, { "text": "げられている。" } ],
+      "en": "This chicken is fried well.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222186, 59511] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 鶏肉" },
+  "source": { "jmdict": 1253020, "jlpt": 5 }
+}

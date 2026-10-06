@@ -1,0 +1,29 @@
+{
+  "id": "w1554310",
+  "type": "word",
+  "word": "料理",
+  "primaryReading": "りょうり",
+  "furigana": [{ "text": "料", "reading": "りょう" }, { "text": "理", "reading": "り" }],
+  "meaning": "cooking; cookery",
+  "pos": ["n", "vs", "vt"],
+  "kanji": ["6599", "7406"],
+  "builtFrom": [{ "k": "料", "m": "fee" }, { "k": "理", "m": "logic" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "pot",
+    "scene": ["room:kitchen"],
+    "backdrop": "sky:indoor",
+    "particles": ["steam"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "おいしそうな" }, { "text": "料理", "reading": "りょうり" }, { "text": "ですね。" } ],
+      "en": "It looks appetizing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227830, 65183] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 料理" },
+  "source": { "jmdict": 1554310, "jlpt": 5 }
+}

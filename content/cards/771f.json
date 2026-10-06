@@ -1,0 +1,25 @@
+{
+  "id": "771f",
+  "kanji": "真",
+  "meaning": "true; reality",
+  "primaryReading": "しん",
+  "readings": { "kun": ["ま", "ま", "まこと"], "on": ["シン"] },
+  "mnemonic": "Ten (十) eyes (目) checking the gem on its stand: true, genuine.",
+  "effect": {
+    "material": "pearl",
+    "particles": [{ "type": "sparks", "count": 0.6 }],
+    "backdrop": "sky:day",
+    "emblem": "gem",
+    "parts": { "目": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "写真", "reading": "しゃしん" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "て" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Please take a look at this picture.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [221454, 58778] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

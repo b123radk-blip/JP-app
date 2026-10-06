@@ -1,0 +1,22 @@
+{
+  "id": "w1920240",
+  "type": "word",
+  "word": "どの",
+  "primaryReading": "どの",
+  "furigana": [{ "text": "どの" }],
+  "meaning": "which; what (way)",
+  "pos": ["adj-pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "tilt", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それはどのゲートですか。" } ],
+      "en": "Which gate is that?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205426, 42670] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word どの" },
+  "source": { "jmdict": 1920240, "jlpt": 5 }
+}

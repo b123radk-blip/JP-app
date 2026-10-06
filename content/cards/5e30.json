@@ -1,0 +1,25 @@
+{
+  "id": "5e30",
+  "kanji": "帰",
+  "meaning": "homecoming",
+  "primaryReading": "かえ",
+  "readings": { "kun": ["かえ(る)", "かえ(す)", "おく(る)", "とつ(ぐ)"], "on": ["キ"] },
+  "mnemonic": "Sweeping (帚) the path back home: go home, return.",
+  "effect": {
+    "material": "wood",
+    "particles": [{ "type": "footprints", "dir": "left" }],
+    "backdrop": "sky:dusk",
+    "motion": { "type": "drift", "dir": "left" },
+    "emblem": "house"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はすぐに" }, { "text": "帰", "reading": "かえ" }, { "text": "ってくる。" } ],
+      "en": "I'll come back soon.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [160545, 253976] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

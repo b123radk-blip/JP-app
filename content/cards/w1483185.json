@@ -1,0 +1,28 @@
+{
+  "id": "w1483185",
+  "type": "word",
+  "word": "あちら",
+  "primaryReading": "あちら",
+  "furigana": [{ "text": "あちら" }],
+  "meaning": "that way; that direction",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "signpost",
+    "motion": "drift:away",
+    "backdrop": "sky:dusk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あちらに" }, { "text": "着", "reading": "つ" }, { "text": "いたら" }, { "text": "手紙", "reading": "てがみ" }, { "text": "をください。" } ],
+      "en": "Please write to me when you get there.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [234350, 71725] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word あちら" },
+  "source": { "jmdict": 1483185, "jlpt": 5 }
+}

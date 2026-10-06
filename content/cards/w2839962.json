@@ -1,0 +1,28 @@
+{
+  "id": "w2839962",
+  "type": "word",
+  "word": "ゼロ",
+  "primaryReading": "ゼロ",
+  "furigana": [{ "text": "ゼロ" }],
+  "meaning": "zero; 0",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "pie", "part": 0, "color": "#f0f0f0" },
+    "motion": "vanish",
+    "backdrop": "sky:snow"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "たちは" }, { "text": "商売", "reading": "しょうばい" }, { "text": "をゼロから" }, { "text": "始", "reading": "はじ" }, { "text": "めなければならなかった。" } ],
+      "en": "We had to start our business from zero.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [165629, 22909] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ゼロ" },
+  "source": { "jmdict": 2839962, "jlpt": 5 }
+}

@@ -117,5 +117,236 @@
  "w2225040": {
   "text": "十月一日です。",
   "en": "It's October 1st."
+ },
+ "w1313000": {
+  "text": "毎晩、歯をみがきます。",
+  "en": "I brush my teeth every night."
+ },
+ "w1266970": {
+  "text": "戸を開けてください。",
+  "en": "Please open the door."
+ },
+ "w1183300": {
+  "text": "このお茶は温いです。",
+  "en": "This tea is lukewarm."
+ },
+ "w1547330": {
+  "text": "新しいかばんが欲しいです。",
+  "en": "I want a new bag."
+ },
+ "w1584930": {
+  "text": "余りのケーキを食べました。",
+  "en": "I ate the leftover cake."
+ },
+ "w1315140": {
+  "text": "この字引は古いです。",
+  "en": "This dictionary is old."
+ },
+ "w1415870": {
+  "text": "公園に人が沢山います。",
+  "en": "There are a lot of people in the park."
+ },
+ "w1365850": {
+  "text": "カレーが辛くて、水を飲みました。",
+  "en": "The curry was spicy, so I drank some water.",
+  "surface": "辛く"
+ },
+ "w1310730": {
+  "text": "庭の古い木が死にました。",
+  "en": "The old tree in the garden died.",
+  "surface": "死に"
+ },
+ "w1421850": {
+  "text": "かばんを机の上に置いてください。",
+  "en": "Please put your bag on the desk.",
+  "surface": "置い"
+ },
+ "w1427340": {
+  "text": "今、丁度三時です。",
+  "en": "It's exactly three o'clock now."
+ },
+ "w1189370": {
+  "text": "あの方はどなたですか。",
+  "en": "Who is that person?"
+ },
+ "w1577200": {
+  "text": "この猫はとても可愛いです。",
+  "en": "This cat is very cute."
+ },
+ "w1591900": {
+  "text": "この部屋は綺麗ですね。",
+  "en": "This room is clean, isn't it?"
+ },
+ "w1576060": {
+  "text": "おととしの夏は暑かったです。",
+  "en": "Summer the year before last was hot."
+ },
+ "w1557630": {
+  "text": "外は零度です。",
+  "en": "It's zero degrees outside."
+ },
+ "w1123590": {
+  "text": "ボールペンで名前を書いてください。",
+  "en": "Please write your name with a ballpoint pen."
+ },
+ "w1046810": {
+  "text": "肉を二百グラム買いました。",
+  "en": "I bought two hundred grams of meat."
+ },
+ "w1153520": {
+  "text": "子供に飴をあげました。",
+  "en": "I gave the child a sweet."
+ },
+ "w1511600": {
+  "text": "名前をかたかなで書きます。",
+  "en": "I write my name in katakana."
+ },
+ "w1507090": {
+  "text": "平仮名はやさしいです。",
+  "en": "Hiragana is easy."
+ },
+ "6d17": {
+  "text": "手を洗ってください。",
+  "en": "Please wash your hands.",
+  "surface": "洗っ"
+ },
+ "8449": {
+  "text": "葉が赤くなりました。",
+  "en": "The leaves turned red."
+ },
+ "w1270590": {
+  "text": "毎朝、御飯を食べます。",
+  "en": "I eat rice every morning."
+ },
+ "w1598550": {
+  "text": "母は買い物に出掛けました。",
+  "en": "My mother went out shopping.",
+  "surface": "出掛け"
+ },
+ "w1291330": {
+  "text": "雨なので、傘を差しました。",
+  "en": "It was raining, so I put up my umbrella.",
+  "surface": "差し"
+ },
+ "98ef": {
+  "text": "朝ご飯を食べました。",
+  "en": "I ate breakfast."
+ },
+ "5e83": {
+  "text": "この部屋は広いです。",
+  "en": "This room is spacious."
+ },
+ "4e26": {
+  "text": "人が並んでいます。",
+  "en": "People are standing in a line.",
+  "surface": "並ん"
+ },
+ "756a": {
+  "text": "次は私の番です。",
+  "en": "It's my turn next."
+ },
+ "7528": {
+  "text": "今日は用があります。",
+  "en": "I have something to do today."
+ },
+ "9cf4": {
+  "text": "鳥が鳴いています。",
+  "en": "The birds are singing.",
+  "surface": "鳴い"
+ },
+ "53f0": {
+  "text": "テレビは台の上にあります。",
+  "en": "The TV is on the stand."
+ },
+ "592a": {
+  "text": "この木は太いです。",
+  "en": "This tree is thick."
+ },
+ "w1542160": {
+  "text": "公園で遊びましょう。",
+  "en": "Let's play in the park.",
+  "surface": "遊び"
+ },
+ "5dee": {
+  "text": "大きな差があります。",
+  "en": "There is a big difference."
+ },
+ "w1008460": {
+  "text": "高いです。でも、買います。",
+  "en": "It's expensive. But I'll buy it."
+ },
+ "9055": {
+  "text": "答えが違います。",
+  "en": "The answer is wrong.",
+  "surface": "違い"
+ },
+ "8981": {
+  "text": "お金は要りません。",
+  "en": "No money is needed.",
+  "surface": "要り"
+ },
+ "8a08": {
+  "text": "旅行の計画を立てましょう。",
+  "en": "Let's make a plan for the trip."
+ },
+ "w1335640": {
+  "text": "たてに線を書いてください。",
+  "en": "Please draw a vertical line."
+ },
+ "w2137720": {
+  "text": "私もそう思います。",
+  "en": "I think so too."
+ },
+ "5fc3": {
+  "text": "心がやさしい人です。",
+  "en": "She is a kind-hearted person."
+ },
+ "6c5a": {
+  "text": "手が汚いです。",
+  "en": "My hands are dirty."
+ },
+ "w1005900": {
+  "text": "じゃ、行きましょう。",
+  "en": "Well then, let's go."
+ },
+ "w1449540": {
+  "text": "質問に答えてください。",
+  "en": "Please answer the question.",
+  "surface": "答え"
+ },
+ "w1042610": {
+  "text": "この荷物は五キロです。",
+  "en": "This bag weighs five kilos."
+ },
+ "w1595020": {
+  "text": "醤油を取ってください。",
+  "en": "Please pass the soy sauce."
+ },
+ "w1413890": {
+  "text": "大使館はどこですか。",
+  "en": "Where is the embassy?"
+ },
+ "w1495000": {
+  "text": "このパンはまずいです。",
+  "en": "This bread tastes bad."
+ },
+ "w1207590": {
+  "text": "学校まで十五分かかります。",
+  "en": "It takes fifteen minutes to get to school.",
+  "surface": "かかり"
+ },
+ "w2261500": {
+  "text": "おばさんは先生です。",
+  "en": "My aunt is a teacher."
+ },
+ "w1340450": {
+  "text": "日本語ができます。",
+  "en": "I can speak Japanese.",
+  "surface": "でき"
+ },
+ "w1296400": {
+  "text": "公園は駅の近くに在ります。",
+  "en": "The park is near the station.",
+  "surface": "在り"
  }
 }

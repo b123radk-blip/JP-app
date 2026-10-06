@@ -1,0 +1,19 @@
+{
+  "id": "53f0",
+  "kanji": "台",
+  "meaning": "pedestal; a stand",
+  "primaryReading": "だい",
+  "readings": { "kun": ["うてな", "われ", "つかさ"], "on": ["ダイ", "タイ"] },
+  "mnemonic": "A mouth (口) under a nose (厶) at the counter: a stand, a platform; the kitchen (台所).",
+  "effect": { "material": "wood", "backdrop": "sky:indoor", "scene": ["room:kitchen"], "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "テレビは" }, { "text": "台", "reading": "だい" }, { "text": "の" }, { "text": "上", "reading": "うえ" }, { "text": "にあります。" } ],
+      "en": "The TV is on the stand.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

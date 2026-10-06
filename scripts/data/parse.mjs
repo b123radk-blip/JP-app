@@ -51,7 +51,7 @@ export function csvRow(line) {
 }
 // JLPT list -> [{ expression, reading, level }] (open-anki-jlpt-decks: expression,reading,meaning,tags,guid)
 export function parseJlptCsv(text, level) {
-  return text.split('\n').slice(1).filter((l) => l.trim()).map(csvRow).map(([expression, reading]) => ({ expression: expression.trim(), reading: reading.trim(), level }));
+  return text.split('\n').slice(1).filter((l) => l.trim()).map(csvRow).map(([expression, reading, meaning = '']) => ({ expression: expression.trim(), reading: reading.trim(), meaning: meaning.trim(), level }));
 }
 
 // Tatoeba jpn_indices.csv: "jpnId \t engId \t headwords". A headword token: word(reading)[sense]{surface}~ ; "~" = checked good example.

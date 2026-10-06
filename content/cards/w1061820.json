@@ -1,0 +1,28 @@
+{
+  "id": "w1061820",
+  "type": "word",
+  "word": "シャワー",
+  "primaryReading": "シャワー",
+  "furigana": [{ "text": "シャワー" }],
+  "meaning": "shower",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["rain", "bubbles"],
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "シャワーの" }, { "text": "水", "reading": "みず" }, { "text": "が" }, { "text": "出", "reading": "で" }, { "text": "ません。" } ],
+      "en": "There's no water coming out of the shower.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [215745, 53047] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word シャワー" },
+  "source": { "jmdict": 1061820, "jlpt": 5 }
+}

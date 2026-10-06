@@ -1,0 +1,22 @@
+{
+  "id": "w1350110",
+  "type": "word",
+  "word": "消す",
+  "primaryReading": "けす",
+  "furigana": [{ "text": "消", "reading": "け" }, { "text": "す" }],
+  "meaning": "to erase; to rub out",
+  "pos": ["v5s", "vt"],
+  "kanji": ["6d88"],
+  "builtFrom": [{ "k": "消", "m": "extinguish" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:night", "motion": "vanish" },
+  "sentences": [
+    {
+      "segments": [ { "text": "テレビを" }, { "text": "消", "reading": "け" }, { "text": "しましょう。" } ],
+      "en": "Let's turn off the telly.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [201935, 528645] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 消す" },
+  "source": { "jmdict": 1350110, "jlpt": 5 }
+}

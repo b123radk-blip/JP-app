@@ -1,0 +1,24 @@
+{
+  "id": "696d",
+  "kanji": "業",
+  "meaning": "business; vocation",
+  "primaryReading": "ぎょう",
+  "readings": { "kun": ["わざ"], "on": ["ギョウ", "ゴウ"] },
+  "mnemonic": "A wooden (木) frame hung with tools: work, business, a class (授業).",
+  "effect": {
+    "material": "silver",
+    "backdrop": "sky:morning",
+    "emblem": "gears",
+    "parts": { "木": { "material": "wood" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それは" }, { "text": "授業", "reading": "じゅぎょう" }, { "text": "の" }, { "text": "終", "reading": "お" }, { "text": "わりだった。" } ],
+      "en": "That was the end of the class.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205089, 42331] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

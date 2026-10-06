@@ -1,0 +1,28 @@
+{
+  "id": "w1532350",
+  "type": "word",
+  "word": "明るい",
+  "primaryReading": "あかるい",
+  "furigana": [{ "text": "明", "reading": "あか" }, { "text": "るい" }],
+  "meaning": "light; bright",
+  "pos": ["adj-i"],
+  "kanji": ["660e"],
+  "builtFrom": [{ "k": "明", "m": "bright" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "lightbulb",
+    "particles": ["sparks"],
+    "backdrop": "sky:noon"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "明", "reading": "あか" }, { "text": "るい" }, { "text": "色", "reading": "いろ" }, { "text": "が" }, { "text": "私", "reading": "わたし" }, { "text": "たちの" }, { "text": "目", "reading": "め" }, { "text": "を" }, { "text": "引", "reading": "ひ" }, { "text": "いた。" } ],
+      "en": "The bright colors arrested our eyes.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [80710, 323005] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 明るい" },
+  "source": { "jmdict": 1532350, "jlpt": 5 }
+}

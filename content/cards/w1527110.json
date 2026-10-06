@@ -1,0 +1,22 @@
+{
+  "id": "w1527110",
+  "type": "word",
+  "word": "まだ",
+  "primaryReading": "まだ",
+  "furigana": [{ "text": "まだ" }],
+  "meaning": "still; as yet",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "snail", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "まだ" }, { "text": "電話", "reading": "でんわ" }, { "text": "は" }, { "text": "使", "reading": "つか" }, { "text": "えません。" } ],
+      "en": "But I'm not able to use the telephone.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195403, 32577] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word まだ" },
+  "source": { "jmdict": 1527110, "jlpt": 5 }
+}

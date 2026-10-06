@@ -1,0 +1,29 @@
+{
+  "id": "w1330290",
+  "type": "word",
+  "word": "授業",
+  "primaryReading": "じゅぎょう",
+  "furigana": [{ "text": "授", "reading": "じゅ" }, { "text": "業", "reading": "ぎょう" }],
+  "meaning": "lesson; class",
+  "pos": ["n", "vs", "vi"],
+  "kanji": ["696d"],
+  "builtFrom": [{ "k": "業", "m": "business" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["room:classroom"],
+    "emblem": "book",
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "の" }, { "text": "授業", "reading": "じゅぎょう" }, { "text": "はこれまで。" } ],
+      "en": "So much for today's lesson.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171894, 242581] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 授業" },
+  "source": { "jmdict": 1330290, "jlpt": 5 }
+}

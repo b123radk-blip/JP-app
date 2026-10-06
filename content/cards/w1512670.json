@@ -1,0 +1,22 @@
+{
+  "id": "w1512670",
+  "type": "word",
+  "word": "勉強",
+  "primaryReading": "べんきょう",
+  "furigana": [{ "text": "勉", "reading": "べん" }, { "text": "強", "reading": "きょう" }],
+  "meaning": "study",
+  "pos": ["n", "vs", "vt"],
+  "kanji": ["5f37"],
+  "builtFrom": [{ "k": "強", "m": "strong" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "backdrop": "sky:noon", "particles": ["motes"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "昨日", "reading": "きのう" }, { "text": "は" }, { "text": "勉強", "reading": "べんきょう" }, { "text": "しましたか？" } ],
+      "en": "Did you study yesterday?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [232015, 69383] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 勉強" },
+  "source": { "jmdict": 1512670, "jlpt": 5 }
+}

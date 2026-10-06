@@ -1,0 +1,22 @@
+{
+  "id": "w1296400",
+  "type": "word",
+  "word": "在る",
+  "primaryReading": "ある",
+  "furigana": [{ "text": "在", "reading": "あ" }, { "text": "る" }],
+  "meaning": "to be; to exist",
+  "pos": ["v5r-i", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "box", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "公園", "reading": "こうえん" }, { "text": "は" }, { "text": "駅", "reading": "えき" }, { "text": "の" }, { "text": "近", "reading": "ちか" }, { "text": "くに" }, { "text": "在", "reading": "あ" }, { "text": "ります。" } ],
+      "en": "The park is near the station.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 在る" },
+  "source": { "jmdict": 1296400, "jlpt": 5 }
+}

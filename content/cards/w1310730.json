@@ -1,0 +1,22 @@
+{
+  "id": "w1310730",
+  "type": "word",
+  "word": "死ぬ",
+  "primaryReading": "しぬ",
+  "furigana": [{ "text": "死", "reading": "し" }, { "text": "ぬ" }],
+  "meaning": "to die; to pass away",
+  "pos": ["v5n", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["leaves"], "backdrop": "sky:dusk", "motion": "sink" },
+  "sentences": [
+    {
+      "segments": [ { "text": "庭", "reading": "にわ" }, { "text": "の" }, { "text": "古", "reading": "ふる" }, { "text": "い" }, { "text": "木", "reading": "き" }, { "text": "が" }, { "text": "死", "reading": "し" }, { "text": "にました。" } ],
+      "en": "The old tree in the garden died.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 死ぬ" },
+  "source": { "jmdict": 1310730, "jlpt": 5 }
+}

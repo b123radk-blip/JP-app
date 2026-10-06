@@ -1,0 +1,24 @@
+{
+  "id": "5e83",
+  "kanji": "広",
+  "meaning": "wide; broad",
+  "primaryReading": "ひろ",
+  "readings": { "kun": ["ひろ(い)", "ひろ(まる)", "ひろ(める)", "ひろ(がる)"], "on": ["コウ"] },
+  "mnemonic": "A wide hall under the eaves (广) stretching out: wide.",
+  "effect": {
+    "material": "chalk",
+    "backdrop": "sky:day",
+    "scene": ["field"],
+    "motion": { "type": "stretch", "axis": "x", "to": 1.4 }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "部屋", "reading": "へや" }, { "text": "は" }, { "text": "広", "reading": "ひろ" }, { "text": "いです。" } ],
+      "en": "This room is spacious.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

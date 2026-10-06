@@ -1,0 +1,19 @@
+{
+  "id": "670d",
+  "kanji": "服",
+  "meaning": "clothing",
+  "primaryReading": "ふく",
+  "readings": { "kun": [], "on": ["フク"] },
+  "mnemonic": "Clothes for the body (月) hung up by a hand (又): clothing.",
+  "effect": { "material": "pearl", "backdrop": "sky:indoor", "scene": ["room:shop"], "motion": "sway", "emblem": "shirt" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "服", "reading": "ふく" }, { "text": "はいかが？" } ],
+      "en": "How do you like my new suit?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [163257, 251255] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1500940"] }
+}

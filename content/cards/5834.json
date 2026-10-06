@@ -1,0 +1,19 @@
+{
+  "id": "5834",
+  "kanji": "場",
+  "meaning": "location; place",
+  "primaryReading": "ば",
+  "readings": { "kun": ["ば"], "on": ["ジョウ", "チョウ"] },
+  "mnemonic": "The sun rising (昜) over open ground (土): a place, a venue.",
+  "effect": { "material": "chalk", "backdrop": "sunrise", "scene": ["field"], "parts": { "土": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "入場料", "reading": "にゅうじょうりょう" }, { "text": "はいくらですか。" } ],
+      "en": "How much is the entrance fee?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [122062, 281941] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

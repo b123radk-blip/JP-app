@@ -1,0 +1,22 @@
+{
+  "id": "w1341000",
+  "type": "word",
+  "word": "春",
+  "primaryReading": "はる",
+  "furigana": [{ "text": "春", "reading": "はる" }],
+  "meaning": "spring; springtime",
+  "pos": ["n", "adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["petals"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "多", "reading": "おお" }, { "text": "くの" }, { "text": "植物", "reading": "しょくぶつ" }, { "text": "は" }, { "text": "春", "reading": "はる" }, { "text": "に" }, { "text": "花", "reading": "はな" }, { "text": "をつける。" } ],
+      "en": "Many plants bloom in the spring.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [138359, 274876] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 春" },
+  "source": { "jmdict": 1341000, "jlpt": 5 }
+}

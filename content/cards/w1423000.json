@@ -1,0 +1,28 @@
+{
+  "id": "w1423000",
+  "type": "word",
+  "word": "着る",
+  "primaryReading": "きる",
+  "furigana": [{ "text": "着", "reading": "き" }, { "text": "る" }],
+  "meaning": "to wear; to put on",
+  "pos": ["v1", "vt"],
+  "kanji": ["7740"],
+  "builtFrom": [{ "k": "着", "m": "wear" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "shirt",
+    "motion": "drift:down",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "夏服", "reading": "なつふく" }, { "text": "を" }, { "text": "着", "reading": "き" }, { "text": "ればいいのに。" } ],
+      "en": "Why don't you wear summer clothes?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [187154, 24291] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 着る" },
+  "source": { "jmdict": 1423000, "jlpt": 5 }
+}

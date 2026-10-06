@@ -1,0 +1,19 @@
+{
+  "id": "7b46",
+  "kanji": "筆",
+  "meaning": "writing brush; writing",
+  "primaryReading": "ひつ",
+  "readings": { "kun": ["ふで"], "on": ["ヒツ"] },
+  "mnemonic": "A bamboo (竹) handle holding the brush tip (聿): writing brush.",
+  "effect": { "material": "ink", "reveal": "brush", "backdrop": "sky:snow", "parts": { "竹": { "material": "jade" } } },
+  "sentences": [
+    {
+      "segments": [ { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "万年筆", "reading": "まんねんひつ" }, { "text": "をなくしてしまった。" } ],
+      "en": "I have lost my new fountain pen.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [155723, 258814] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

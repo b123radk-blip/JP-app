@@ -1,0 +1,27 @@
+{
+  "id": "w1335640",
+  "type": "word",
+  "word": "たて",
+  "primaryReading": "たて",
+  "furigana": [{ "text": "たて" }],
+  "meaning": "the vertical; height",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": { "type": "stretch", "axis": "y", "to": 1.3 },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "たてに" }, { "text": "線", "reading": "せん" }, { "text": "を" }, { "text": "書", "reading": "か" }, { "text": "いてください。" } ],
+      "en": "Please draw a vertical line.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word たて" },
+  "source": { "jmdict": 1335640, "jlpt": 5 }
+}

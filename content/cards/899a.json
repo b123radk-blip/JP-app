@@ -1,0 +1,25 @@
+{
+  "id": "899a",
+  "kanji": "覚",
+  "meaning": "memorize; learn; remember",
+  "primaryReading": "おぼ",
+  "readings": { "kun": ["おぼ(える)", "さ(ます)", "さ(める)", "さと(る)"], "on": ["カク"] },
+  "mnemonic": "Seeing (見) the book with sparks (⺍) over your head: memorize, remember.",
+  "effect": {
+    "material": "pearl",
+    "particles": [{ "type": "sparks", "count": 0.6 }],
+    "backdrop": "sky:twilight",
+    "emblem": "book",
+    "parts": { "見": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "日本語", "reading": "にほんご" }, { "text": "は" }, { "text": "外人", "reading": "がいじん" }, { "text": "にとって" }, { "text": "覚", "reading": "おぼ" }, { "text": "えにくい。" } ],
+      "en": "It is hard for foreigners to learn Japanese.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [122337, 281665] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

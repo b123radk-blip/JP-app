@@ -1,0 +1,28 @@
+{
+  "id": "w1597350",
+  "type": "word",
+  "word": "段々",
+  "primaryReading": "だんだん",
+  "furigana": [{ "text": "段", "reading": "だん" }, { "text": "々", "reading": "だん" }],
+  "meaning": "gradually; by degrees",
+  "pos": ["adv", "adv-to"],
+  "kanji": ["6bb5"],
+  "builtFrom": [{ "k": "段", "m": "steps" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "stairs", "color": "#ffd27a" },
+    "motion": "grow",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "段々", "reading": "だんだん" }, { "text": "思い出", "reading": "おもいだ" }, { "text": "し" }, { "text": "始", "reading": "はじ" }, { "text": "めてきた。" } ],
+      "en": "I am beginning to remember it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159529, 254994] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 段々" },
+  "source": { "jmdict": 1597350, "jlpt": 5 }
+}

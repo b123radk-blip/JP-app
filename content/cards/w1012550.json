@@ -1,0 +1,22 @@
+{
+  "id": "w1012550",
+  "type": "word",
+  "word": "もしもし",
+  "primaryReading": "もしもし",
+  "furigana": [{ "text": "もしもし" }],
+  "meaning": "hello",
+  "pos": ["int"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "phone", "backdrop": "sky:indoor", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "もしもし、" }, { "text": "来", "reading": "き" }, { "text": "ていますか。" } ],
+      "en": "Are you there?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [193803, 30970] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word もしもし" },
+  "source": { "jmdict": 1012550, "jlpt": 5 }
+}

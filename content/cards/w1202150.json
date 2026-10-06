@@ -1,0 +1,22 @@
+{
+  "id": "w1202150",
+  "type": "word",
+  "word": "みんな",
+  "primaryReading": "みんな",
+  "furigana": [{ "text": "みんな" }],
+  "meaning": "everyone; everybody",
+  "pos": ["n", "pn", "adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "motion": "count:4", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "でも、みんな" }, { "text": "人間", "reading": "にんげん" }, { "text": "です。" } ],
+      "en": "But they are all people.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202115, 39327] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word みんな" },
+  "source": { "jmdict": 1202150, "jlpt": 5 }
+}

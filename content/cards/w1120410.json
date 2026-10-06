@@ -1,0 +1,22 @@
+{
+  "id": "w1120410",
+  "type": "word",
+  "word": "ページ",
+  "primaryReading": "ページ",
+  "furigana": [{ "text": "ページ" }],
+  "meaning": "page",
+  "pos": ["n", "ctr"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "九", "reading": "きゅう" }, { "text": "ページを" }, { "text": "開", "reading": "ひら" }, { "text": "きなさい。" } ],
+      "en": "Open your book to page nine.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [179548, 18406] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ページ" },
+  "source": { "jmdict": 1120410, "jlpt": 5 }
+}

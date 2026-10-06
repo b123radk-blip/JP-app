@@ -1,0 +1,25 @@
+{
+  "id": "8336",
+  "kanji": "茶",
+  "meaning": "tea",
+  "primaryReading": "ちゃ",
+  "readings": { "kun": [], "on": ["チャ", "サ"] },
+  "mnemonic": "Leaves (艹) picked by a person (人) from a tea bush (木), brewed green: tea.",
+  "effect": {
+    "material": "jade",
+    "particles": ["steam"],
+    "backdrop": "sky:indoor",
+    "emblem": { "type": "cup", "drink": "#7aa63a" },
+    "parts": { "艹": { "material": "jade" }, "木": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "茶", "reading": "ちゃ" }, { "text": "をもう" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Give me some more tea.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226855, 64203] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

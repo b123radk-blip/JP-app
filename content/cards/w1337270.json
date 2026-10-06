@@ -1,0 +1,22 @@
+{
+  "id": "w1337270",
+  "type": "word",
+  "word": "宿題",
+  "primaryReading": "しゅくだい",
+  "furigana": [{ "text": "宿", "reading": "しゅく" }, { "text": "題", "reading": "だい" }],
+  "meaning": "homework; assignment",
+  "pos": ["n"],
+  "kanji": ["5bbf", "984c"],
+  "builtFrom": [{ "k": "宿", "m": "inn" }, { "k": "題", "m": "topic" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sheet", "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "宿題", "reading": "しゅくだい" }, { "text": "は" }, { "text": "自分", "reading": "じぶん" }, { "text": "でやったの？" } ],
+      "en": "Did you do your homework by yourself?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [177150, 15999] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 宿題" },
+  "source": { "jmdict": 1337270, "jlpt": 5 }
+}

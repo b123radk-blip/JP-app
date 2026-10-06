@@ -1,0 +1,19 @@
+{
+  "id": "4e57",
+  "kanji": "乗",
+  "meaning": "ride",
+  "primaryReading": "の",
+  "readings": { "kun": ["の(る)", "の(り)", "の(せる)"], "on": ["ジョウ", "ショウ"] },
+  "mnemonic": "Someone perched on top of a tree (木), riding high: ride.",
+  "effect": { "material": "silver", "backdrop": "sky:day", "scene": ["road"], "motion": "bounce", "emblem": "train" },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "乗", "reading": "の" }, { "text": "りになりませんか。" } ],
+      "en": "Would you like a ride?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227019, 64367] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

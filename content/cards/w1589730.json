@@ -1,0 +1,22 @@
+{
+  "id": "w1589730",
+  "type": "word",
+  "word": "買い物",
+  "primaryReading": "かいもの",
+  "furigana": [{ "text": "買", "reading": "か" }, { "text": "い" }, { "text": "物", "reading": "もの" }],
+  "meaning": "shopping; purchased goods",
+  "pos": ["n", "vs", "vi"],
+  "kanji": ["8cb7", "7269"],
+  "builtFrom": [{ "k": "買", "m": "buy" }, { "k": "物", "m": "thing" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bag", "scene": ["room:shop"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "いつ" }, { "text": "買い物", "reading": "かいもの" }, { "text": "に" }, { "text": "出", "reading": "で" }, { "text": "かけるの？" } ],
+      "en": "How soon are you going shopping?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [228620, 65978] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 買い物" },
+  "source": { "jmdict": 1589730, "jlpt": 5 }
+}

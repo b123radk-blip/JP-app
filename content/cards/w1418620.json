@@ -1,0 +1,27 @@
+{
+  "id": "w1418620",
+  "type": "word",
+  "word": "短い",
+  "primaryReading": "みじかい",
+  "furigana": [{ "text": "短", "reading": "みじか" }, { "text": "い" }],
+  "meaning": "short",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": { "type": "stretch", "axis": "x", "to": 0.7 },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "犬", "reading": "いぬ" }, { "text": "はしっぽが" }, { "text": "短", "reading": "みじか" }, { "text": "い。" } ],
+      "en": "That dog has a short tail.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231055, 68422] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 短い" },
+  "source": { "jmdict": 1418620, "jlpt": 5 }
+}

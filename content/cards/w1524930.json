@@ -1,0 +1,22 @@
+{
+  "id": "w1524930",
+  "type": "word",
+  "word": "また",
+  "primaryReading": "また",
+  "furigana": [{ "text": "また" }],
+  "meaning": "again; once more",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "repeat", "motion": "count:2", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "またの" }, { "text": "機会", "reading": "きかい" }, { "text": "にしましょう。" } ],
+      "en": "Let's make it some other time.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195481, 32655] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word また" },
+  "source": { "jmdict": 1524930, "jlpt": 5 }
+}

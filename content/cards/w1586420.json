@@ -1,0 +1,29 @@
+{
+  "id": "w1586420",
+  "type": "word",
+  "word": "暖かい",
+  "primaryReading": "あたたかい",
+  "furigana": [{ "text": "暖", "reading": "あたた" }, { "text": "かい" }],
+  "meaning": "warm; mild",
+  "pos": ["adj-i"],
+  "kanji": ["6696"],
+  "builtFrom": [{ "k": "暖", "m": "warmth" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "sun",
+    "particles": ["petals"],
+    "backdrop": "sky:golden",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "より" }, { "text": "暖", "reading": "あたた" }, { "text": "かい。" } ],
+      "en": "It is warmer today than yesterday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171621, 242854] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 暖かい" },
+  "source": { "jmdict": 1586420, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1429700",
+  "type": "word",
+  "word": "飛ぶ",
+  "primaryReading": "とぶ",
+  "furigana": [{ "text": "飛", "reading": "と" }, { "text": "ぶ" }],
+  "meaning": "to fly; to soar",
+  "pos": ["v5b", "vi"],
+  "kanji": ["98db"],
+  "builtFrom": [{ "k": "飛", "m": "fly" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bird", "motion": "fly", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ワシが" }, { "text": "空", "reading": "そら" }, { "text": "を" }, { "text": "飛", "reading": "と" }, { "text": "んでいる。" } ],
+      "en": "An eagle is flying in the sky.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [191980, 29142] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 飛ぶ" },
+  "source": { "jmdict": 1429700, "jlpt": 5 }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "53d6",
+  "kanji": "取",
+  "meaning": "take; fetch",
+  "primaryReading": "と",
+  "readings": { "kun": ["と(る)", "と(り)", "と(り)", "とり"], "on": ["シュ"] },
+  "mnemonic": "A hand (又) grabbing an ear (耳): take.",
+  "effect": {
+    "material": "skin",
+    "backdrop": "sky:day",
+    "motion": { "type": "shove", "dir": "left", "dist": 0.02 },
+    "emblem": "hand",
+    "parts": { "又": { "material": "lacquer" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "水分", "reading": "すいぶん" }, { "text": "をたくさん" }, { "text": "取", "reading": "と" }, { "text": "ってください。" } ],
+      "en": "You should drink a lot of liquid.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [143632, 270935] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

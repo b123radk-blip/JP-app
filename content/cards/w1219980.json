@@ -1,0 +1,22 @@
+{
+  "id": "w1219980",
+  "type": "word",
+  "word": "いくら",
+  "primaryReading": "いくら",
+  "furigana": [{ "text": "いくら" }],
+  "meaning": "how much",
+  "pos": ["n", "adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "tag", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "所持金", "reading": "しょじきん" }, { "text": "はいくらありますか。" } ],
+      "en": "How much money do you have with you?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [147495, 64601] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word いくら" },
+  "source": { "jmdict": 1219980, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1318400",
+  "type": "word",
+  "word": "自動車",
+  "primaryReading": "じどうしゃ",
+  "furigana": [{ "text": "自", "reading": "じ" }, { "text": "動", "reading": "どう" }, { "text": "車", "reading": "しゃ" }],
+  "meaning": "car; automobile",
+  "pos": ["n"],
+  "kanji": ["81ea", "52d5", "8eca"],
+  "builtFrom": [{ "k": "自", "m": "oneself" }, { "k": "動", "m": "move" }, { "k": "車", "m": "car" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "car", "scene": ["road"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "誰", "reading": "だれ" }, { "text": "の" }, { "text": "自動車", "reading": "じどうしゃ" }, { "text": "ですか。" } ],
+      "en": "Whose car is this?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [218205, 55518] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 自動車" },
+  "source": { "jmdict": 1318400, "jlpt": 5 }
+}

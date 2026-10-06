@@ -1,0 +1,19 @@
+{
+  "id": "518d",
+  "kanji": "再",
+  "meaning": "again; twice",
+  "primaryReading": "さ",
+  "readings": { "kun": ["ふたた(び)"], "on": ["サイ", "サ"] },
+  "mnemonic": "The same frame built once more: again.",
+  "effect": { "material": "jade", "backdrop": "sky:day", "emblem": "repeat", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "すぐ" }, { "text": "再会", "reading": "さいかい" }, { "text": "できるだろう。" } ],
+      "en": "It will not be long before we meet again.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214788, 20894] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

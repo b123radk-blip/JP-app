@@ -1,0 +1,22 @@
+{
+  "id": "w1264540",
+  "type": "word",
+  "word": "言葉",
+  "primaryReading": "ことば",
+  "furigana": [{ "text": "言", "reading": "こと" }, { "text": "葉", "reading": "ば" }],
+  "meaning": "language; dialect",
+  "pos": ["n"],
+  "kanji": ["8a00", "8449"],
+  "builtFrom": [{ "k": "言", "m": "say" }, { "k": "葉", "m": "leaf" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["kana"], "emblem": "speech", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "言葉", "reading": "ことば" }, { "text": "が" }, { "text": "出", "reading": "で" }, { "text": "てこなかった。" } ],
+      "en": "Words failed me.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [174713, 239755] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 言葉" },
+  "source": { "jmdict": 1264540, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1430620",
+  "type": "word",
+  "word": "すぐに",
+  "primaryReading": "すぐに",
+  "furigana": [{ "text": "すぐに" }],
+  "meaning": "immediately; right away",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bolt", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "はい、すぐに" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],
+      "en": "Yes, I'm coming!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198393, 35584] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word すぐに" },
+  "source": { "jmdict": 1430620, "jlpt": 5 }
+}

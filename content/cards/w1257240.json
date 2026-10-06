@@ -1,0 +1,22 @@
+{
+  "id": "w1257240",
+  "type": "word",
+  "word": "嫌い",
+  "primaryReading": "きらい",
+  "furigana": [{ "text": "嫌", "reading": "きら" }, { "text": "い" }],
+  "meaning": "disliking; hating",
+  "pos": ["adj-na", "n"],
+  "kanji": ["5acc"],
+  "builtFrom": [{ "k": "嫌", "m": "dislike" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "frown", "motion": "shake", "backdrop": "sky:storm" },
+  "sentences": [
+    {
+      "segments": [ { "text": "気取", "reading": "きど" }, { "text": "る" }, { "text": "女の子", "reading": "おんなのこ" }, { "text": "は" }, { "text": "嫌", "reading": "きら" }, { "text": "いだ。" } ],
+      "en": "I don't like girls who put on airs.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [183189, 20311] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 嫌い" },
+  "source": { "jmdict": 1257240, "jlpt": 5 }
+}

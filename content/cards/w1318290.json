@@ -1,0 +1,22 @@
+{
+  "id": "w1318290",
+  "type": "word",
+  "word": "自転車",
+  "primaryReading": "じてんしゃ",
+  "furigana": [{ "text": "自", "reading": "じ" }, { "text": "転", "reading": "てん" }, { "text": "車", "reading": "しゃ" }],
+  "meaning": "bicycle; bike",
+  "pos": ["n"],
+  "kanji": ["81ea", "8ee2", "8eca"],
+  "builtFrom": [{ "k": "自", "m": "oneself" }, { "k": "転", "m": "revolve" }, { "k": "車", "m": "car" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bike", "scene": ["road"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "自転車", "reading": "じてんしゃ" }, { "text": "もらえるかしら。" } ],
+      "en": "Do you think I'll get the bike?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [150066, 264491] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 自転車" },
+  "source": { "jmdict": 1318290, "jlpt": 5 }
+}

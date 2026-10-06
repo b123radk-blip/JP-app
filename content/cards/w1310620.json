@@ -1,0 +1,22 @@
+{
+  "id": "w1310620",
+  "type": "word",
+  "word": "止まる",
+  "primaryReading": "とまる",
+  "furigana": [{ "text": "止", "reading": "と" }, { "text": "まる" }],
+  "meaning": "to stop (moving)",
+  "pos": ["v5r", "vi"],
+  "kanji": ["6b62"],
+  "builtFrom": [{ "k": "止", "m": "stop" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stop", "backdrop": "sky:day", "motion": "sink" },
+  "sentences": [
+    {
+      "segments": [ { "text": "くしゃみが" }, { "text": "止", "reading": "と" }, { "text": "まりません。" } ],
+      "en": "I can't stop sneezing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225705, 63043] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 止まる" },
+  "source": { "jmdict": 1310620, "jlpt": 5 }
+}

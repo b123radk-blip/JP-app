@@ -1,0 +1,22 @@
+{
+  "id": "w1549140",
+  "type": "word",
+  "word": "卵",
+  "primaryReading": "たまご",
+  "furigana": [{ "text": "卵", "reading": "たまご" }],
+  "meaning": "eggs; egg",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pot", "backdrop": "sky:indoor", "particles": ["steam"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "卵", "reading": "たまご" }, { "text": "は" }, { "text": "硬", "reading": "かた" }, { "text": "くゆでてください。" } ],
+      "en": "Boil the eggs hard.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78488, 325228] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 卵" },
+  "source": { "jmdict": 1549140, "jlpt": 5 }
+}

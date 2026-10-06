@@ -1,0 +1,25 @@
+{
+  "id": "6696",
+  "kanji": "暖",
+  "meaning": "warmth",
+  "primaryReading": "あたた",
+  "readings": { "kun": ["あたた(か)", "あたた(かい)", "あたた(まる)", "あたた(める)"], "on": ["ダン", "ノン"] },
+  "mnemonic": "The sun (日) lending a warm hand (爰) to the spring: warm weather.",
+  "effect": {
+    "material": "gold",
+    "particles": ["petals"],
+    "backdrop": "sky:golden",
+    "emblem": { "type": "sun", "color": "#ff9a40" },
+    "parts": { "日": { "motion": "pulse" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "だんだん" }, { "text": "暖", "reading": "あたた" }, { "text": "かくなります。" } ],
+      "en": "It will get warmer and warmer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203062, 40297] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

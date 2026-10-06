@@ -1,0 +1,29 @@
+{
+  "id": "w1512070",
+  "type": "word",
+  "word": "辺",
+  "primaryReading": "へん",
+  "furigana": [{ "text": "辺", "reading": "へん" }],
+  "meaning": "area; vicinity",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "pin",
+    "scene": ["field"],
+    "backdrop": "sky:day",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "辺", "reading": "へん" }, { "text": "だと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],
+      "en": "I think it's around here.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219889, 57209] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 辺" },
+  "source": { "jmdict": 1512070, "jlpt": 5 }
+}

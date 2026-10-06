@@ -1,0 +1,22 @@
+{
+  "id": "w1252330",
+  "type": "word",
+  "word": "警官",
+  "primaryReading": "けいかん",
+  "furigana": [{ "text": "警", "reading": "けい" }, { "text": "官", "reading": "かん" }],
+  "meaning": "police officer; policeman",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stop", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "警官", "reading": "けいかん" }, { "text": "は" }, { "text": "止", "reading": "と" }, { "text": "まれと" }, { "text": "言", "reading": "い" }, { "text": "った。" } ],
+      "en": "The policeman said to them, \"Stop.\"",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [176343, 238121] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 警官" },
+  "source": { "jmdict": 1252330, "jlpt": 5 }
+}

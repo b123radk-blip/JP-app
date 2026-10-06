@@ -1,0 +1,28 @@
+{
+  "id": "w1579260",
+  "type": "word",
+  "word": "昨日",
+  "primaryReading": "きのう",
+  "furigana": [{ "text": "昨日", "reading": "きのう" }],
+  "meaning": "yesterday",
+  "pos": ["n", "adv"],
+  "kanji": ["6628", "65e5"],
+  "builtFrom": [{ "k": "昨", "m": "yesterday" }, { "k": "日", "m": "sun" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:left",
+    "backdrop": "sky:dusk",
+    "motion": "drift:left"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "父", "reading": "ちち" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "入院", "reading": "にゅういん" }, { "text": "しました。" } ],
+      "en": "My father was hospitalized yesterday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84567, 10330690] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 昨日" },
+  "source": { "jmdict": 1579260, "jlpt": 5 }
+}

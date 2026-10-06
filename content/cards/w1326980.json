@@ -1,0 +1,22 @@
+{
+  "id": "w1326980",
+  "type": "word",
+  "word": "取る",
+  "primaryReading": "とる",
+  "furigana": [{ "text": "取", "reading": "と" }, { "text": "る" }],
+  "meaning": "to take; to pick up",
+  "pos": ["v5r", "vt"],
+  "kanji": ["53d6"],
+  "builtFrom": [{ "k": "取", "m": "take" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "shove:left", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このソファーは" }, { "text": "場所", "reading": "ばしょ" }, { "text": "を" }, { "text": "取", "reading": "と" }, { "text": "りすぎる。" } ],
+      "en": "This sofa takes too much room.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223590, 60925] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 取る" },
+  "source": { "jmdict": 1326980, "jlpt": 5 }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "w1148640",
+  "type": "word",
+  "word": "ワイシャツ",
+  "primaryReading": "ワイシャツ",
+  "furigana": [{ "text": "ワイシャツ" }],
+  "meaning": "(formal) shirt; dress shirt",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "shirt", "color": "#f0f0f4" },
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ワイシャツにボタンをつけて。" } ],
+      "en": "Would you sew a button on my shirt?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [192073, 29235] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ワイシャツ" },
+  "source": { "jmdict": 1148640, "jlpt": 5 }
+}

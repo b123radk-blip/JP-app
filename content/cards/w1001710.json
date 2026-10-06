@@ -1,0 +1,22 @@
+{
+  "id": "w1001710",
+  "type": "word",
+  "word": "お菓子",
+  "primaryReading": "おかし",
+  "furigana": [{ "text": "お" }, { "text": "菓", "reading": "か" }, { "text": "子", "reading": "し" }],
+  "meaning": "confections; sweets",
+  "pos": ["n"],
+  "kanji": ["5b50"],
+  "builtFrom": [{ "k": "子", "m": "child" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "box", "particles": ["hearts"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "いろいろな" }, { "text": "お" }, { "text": "菓", "reading": "か", "base": "か", "dict": true }, { "text": "子", "reading": "し", "base": "し", "dict": true }, { "text": "があった。" } ],
+      "en": "There were various kinds of sweets.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [228442, 65800] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お菓子" },
+  "source": { "jmdict": 1001710, "jlpt": 5 }
+}

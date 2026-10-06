@@ -1,0 +1,22 @@
+{
+  "id": "w1490220",
+  "type": "word",
+  "word": "病院",
+  "primaryReading": "びょういん",
+  "furigana": [{ "text": "病", "reading": "びょう" }, { "text": "院", "reading": "いん" }],
+  "meaning": "hospital; clinic",
+  "pos": ["n"],
+  "kanji": ["75c5", "9662"],
+  "builtFrom": [{ "k": "病", "m": "ill" }, { "k": "院", "m": "institution" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hospital", "backdrop": "sky:day", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "病院", "reading": "びょういん" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],
+      "en": "I go to the hospital today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171443, 243032] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 病院" },
+  "source": { "jmdict": 1490220, "jlpt": 5 }
+}

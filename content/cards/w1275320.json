@@ -1,0 +1,22 @@
+{
+  "id": "w1275320",
+  "type": "word",
+  "word": "厚い",
+  "primaryReading": "あつい",
+  "furigana": [{ "text": "厚", "reading": "あつ" }, { "text": "い" }],
+  "meaning": "thick; deep",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "motion": "grow", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "氷", "reading": "こおり" }, { "text": "はとても" }, { "text": "厚", "reading": "あつ" }, { "text": "い。" } ],
+      "en": "The ice is very thick.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [207077, 44327] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 厚い" },
+  "source": { "jmdict": 1275320, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1533580",
+  "type": "word",
+  "word": "面白い",
+  "primaryReading": "おもしろい",
+  "furigana": [{ "text": "面", "reading": "おも" }, { "text": "白", "reading": "しろ" }, { "text": "い" }],
+  "meaning": "interesting; fascinating",
+  "pos": ["adj-i"],
+  "kanji": ["9762", "767d"],
+  "builtFrom": [{ "k": "面", "m": "mask" }, { "k": "白", "m": "white" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "speech",
+    "particles": ["notes"],
+    "motion": "bounce",
+    "backdrop": "sky:golden"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "私", "reading": "わたし" }, { "text": "が" }, { "text": "読", "reading": "よ" }, { "text": "んだ" }, { "text": "中", "reading": "なか" }, { "text": "で" }, { "text": "一番", "reading": "いちばん" }, { "text": "面白", "reading": "おもしろ" }, { "text": "い" }, { "text": "本", "reading": "ほん" }, { "text": "です。" } ],
+      "en": "This is the funniest book in my reading.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [218336, 55647] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 面白い" },
+  "source": { "jmdict": 1533580, "jlpt": 5 }
+}

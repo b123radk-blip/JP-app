@@ -1,0 +1,28 @@
+{
+  "id": "w1541620",
+  "type": "word",
+  "word": "有名",
+  "primaryReading": "ゆうめい",
+  "furigana": [{ "text": "有", "reading": "ゆう" }, { "text": "名", "reading": "めい" }],
+  "meaning": "famous; well-known",
+  "pos": ["adj-na"],
+  "kanji": ["6709", "540d"],
+  "builtFrom": [{ "k": "有", "m": "possess" }, { "k": "名", "m": "name" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "trophy",
+    "particles": ["sparks"],
+    "backdrop": "sky:golden"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "家", "reading": "いえ" }, { "text": "は" }, { "text": "有名", "reading": "ゆうめい" }, { "text": "です。" } ],
+      "en": "That house is famous.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231166, 68534] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 有名" },
+  "source": { "jmdict": 1541620, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1460850",
+  "type": "word",
+  "word": "難しい",
+  "primaryReading": "むずかしい",
+  "furigana": [{ "text": "難", "reading": "むずか" }, { "text": "しい" }],
+  "meaning": "difficult; hard",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "motion": "shake", "backdrop": "sky:storm" },
+  "sentences": [
+    {
+      "segments": [ { "text": "初", "reading": "はじ" }, { "text": "めのうちは" }, { "text": "難", "reading": "むずか" }, { "text": "しいよ。" } ],
+      "en": "At first, it is difficult.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [147532, 267027] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 難しい" },
+  "source": { "jmdict": 1460850, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1410590",
+  "type": "word",
+  "word": "待つ",
+  "primaryReading": "まつ",
+  "furigana": [{ "text": "待", "reading": "ま" }, { "text": "つ" }],
+  "meaning": "to wait",
+  "pos": ["v5t", "vt", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "motion": "float", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "しばらく" }, { "text": "電話", "reading": "でんわ" }, { "text": "を" }, { "text": "切", "reading": "き" }, { "text": "らずにお" }, { "text": "待", "reading": "ま", "base": "ま", "dict": true }, { "text": "ちください。" } ],
+      "en": "Please hold the line a moment.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [216089, 53390] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 待つ" },
+  "source": { "jmdict": 1410590, "jlpt": 5 }
+}

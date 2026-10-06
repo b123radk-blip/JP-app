@@ -1,0 +1,27 @@
+{
+  "id": "w1295510",
+  "type": "word",
+  "word": "細い",
+  "primaryReading": "ほそい",
+  "furigana": [{ "text": "細", "reading": "ほそ" }, { "text": "い" }],
+  "meaning": "thin; slender",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "motion": { "type": "stretch", "axis": "x", "to": 0.75 },
+    "backdrop": "sky:dawn"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "彼", "reading": "かれ" }, { "text": "は" }, { "text": "太", "reading": "ふと" }, { "text": "っているくせに" }, { "text": "声", "reading": "こえ" }, { "text": "は" }, { "text": "細", "reading": "ほそ" }, { "text": "い。" } ],
+      "en": "His voice is thin even though he is fat.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [102553, 301141] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 細い" },
+  "source": { "jmdict": 1295510, "jlpt": 5 }
+}

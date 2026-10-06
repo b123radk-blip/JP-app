@@ -1,0 +1,22 @@
+{
+  "id": "w1598550",
+  "type": "word",
+  "word": "出かける",
+  "primaryReading": "でかける",
+  "furigana": [{ "text": "出", "reading": "で" }, { "text": "かける" }],
+  "meaning": "to go out; to leave",
+  "pos": ["v1", "vi"],
+  "kanji": ["51fa"],
+  "builtFrom": [{ "k": "出", "m": "exit" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bag", "motion": "drift:right", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "買い物", "reading": "かいもの" }, { "text": "に" }, { "text": "出掛", "reading": "でか" }, { "text": "けました。" } ],
+      "en": "My mother went out shopping.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 出かける" },
+  "source": { "jmdict": 1598550, "jlpt": 5 }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "7528",
+  "kanji": "用",
+  "meaning": "utilize; business",
+  "primaryReading": "よう",
+  "readings": { "kun": ["もち(いる)"], "on": ["ヨウ"] },
+  "mnemonic": "A frame for hanging things ready to use: use, business, an errand.",
+  "effect": { "material": "silver", "backdrop": "sky:morning", "emblem": "letter" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "用", "reading": "よう" }, { "text": "があります。" } ],
+      "en": "I have something to do today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

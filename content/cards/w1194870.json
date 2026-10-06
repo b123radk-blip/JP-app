@@ -1,0 +1,22 @@
+{
+  "id": "w1194870",
+  "type": "word",
+  "word": "花瓶",
+  "primaryReading": "かびん",
+  "furigana": [{ "text": "花", "reading": "か" }, { "text": "瓶", "reading": "びん" }],
+  "meaning": "(flower) vase",
+  "pos": ["n"],
+  "kanji": ["82b1"],
+  "builtFrom": [{ "k": "花", "m": "flower" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flower", "scene": ["room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "赤", "reading": "あか" }, { "text": "いバラが" }, { "text": "花瓶", "reading": "かびん" }, { "text": "にある。" } ],
+      "en": "There is a red rose in the vase.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [142286, 272284] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 花瓶" },
+  "source": { "jmdict": 1194870, "jlpt": 5 }
+}

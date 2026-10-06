@@ -1,0 +1,28 @@
+{
+  "id": "w1402540",
+  "type": "word",
+  "word": "走る",
+  "primaryReading": "はしる",
+  "furigana": [{ "text": "走", "reading": "はし" }, { "text": "る" }],
+  "meaning": "to run",
+  "pos": ["v5r", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["footprints", "wind"],
+    "motion": "walk",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "走", "reading": "はし" }, { "text": "ってる" }, { "text": "少年", "reading": "しょうねん" }, { "text": "をごらんなさい。" } ],
+      "en": "Look at that boy running.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230641, 68010] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 走る" },
+  "source": { "jmdict": 1402540, "jlpt": 5 }
+}

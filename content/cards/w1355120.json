@@ -1,0 +1,22 @@
+{
+  "id": "w1355120",
+  "type": "word",
+  "word": "乗る",
+  "primaryReading": "のる",
+  "furigana": [{ "text": "乗", "reading": "の" }, { "text": "る" }],
+  "meaning": "to get on; to get in",
+  "pos": ["v5r", "vi"],
+  "kanji": ["4e57"],
+  "builtFrom": [{ "k": "乗", "m": "ride" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "train", "motion": "bounce", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "自転車", "reading": "じてんしゃ" }, { "text": "に" }, { "text": "乗", "reading": "の" }, { "text": "れないのか。" } ],
+      "en": "Can't you ride a bicycle?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [150073, 264484] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 乗る" },
+  "source": { "jmdict": 1355120, "jlpt": 5 }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "6620",
+  "kanji": "映",
+  "meaning": "reflect; projection",
+  "primaryReading": "えい",
+  "readings": { "kun": ["うつ(る)", "うつ(す)", "は(える)", "ば(え)"], "on": ["エイ"] },
+  "mnemonic": "The sun (日) right in the centre (央) of the screen: project, reflect.",
+  "effect": {
+    "material": "pearl",
+    "particles": [{ "type": "motes", "dir": "still" }],
+    "backdrop": "sky:indoor",
+    "emblem": "film",
+    "parts": { "日": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "最近", "reading": "さいきん" }, { "text": "映画", "reading": "えいが" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "ましたか。" } ],
+      "en": "Have you seen any movies lately?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [170645, 243837] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

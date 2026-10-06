@@ -1,0 +1,29 @@
+{
+  "id": "w1303620",
+  "type": "word",
+  "word": "散歩",
+  "primaryReading": "さんぽ",
+  "furigana": [{ "text": "散", "reading": "さん" }, { "text": "歩", "reading": "ぽ" }],
+  "meaning": "walk; stroll",
+  "pos": ["n", "vs", "vi"],
+  "kanji": ["6b69"],
+  "builtFrom": [{ "k": "歩", "m": "walk" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["footprints"],
+    "scene": ["tree"],
+    "backdrop": "sky:day",
+    "motion": "walk"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "散歩", "reading": "さんぽ" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "く" }, { "text": "気", "reading": "き" }, { "text": "など" }, { "text": "無", "reading": "な" }, { "text": "い。" } ],
+      "en": "I don't feel like going for a walk.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [156645, 2720641] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 散歩" },
+  "source": { "jmdict": 1303620, "jlpt": 5 }
+}

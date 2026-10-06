@@ -1,0 +1,22 @@
+{
+  "id": "w1565440",
+  "type": "word",
+  "word": "ああ",
+  "primaryReading": "ああ",
+  "furigana": [{ "text": "ああ" }],
+  "meaning": "ah!; oh!",
+  "pos": ["int"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "exclaim", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ああ、なるほど！" } ],
+      "en": "Ah, gotcha!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [9611877, 9611880] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ああ" },
+  "source": { "jmdict": 1565440, "jlpt": 5 }
+}

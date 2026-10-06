@@ -1,0 +1,22 @@
+{
+  "id": "w1360010",
+  "type": "word",
+  "word": "寝る",
+  "primaryReading": "ねる",
+  "furigana": [{ "text": "寝", "reading": "ね" }, { "text": "る" }],
+  "meaning": "to sleep (lying down)",
+  "pos": ["v1", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "zzz", "particles": ["motes"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "赤", "reading": "あか" }, { "text": "ちゃんは" }, { "text": "寝", "reading": "ね" }, { "text": "ています。" } ],
+      "en": "The baby is sleeping.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [142241, 272329] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 寝る" },
+  "source": { "jmdict": 1360010, "jlpt": 5 }
+}

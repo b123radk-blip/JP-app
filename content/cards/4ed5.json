@@ -1,0 +1,19 @@
+{
+  "id": "4ed5",
+  "kanji": "仕",
+  "meaning": "serve; attend",
+  "primaryReading": "し",
+  "readings": { "kun": ["つか(える)"], "on": ["シ", "ジ"] },
+  "mnemonic": "A person (亻) serving the samurai (士): serve, work (仕事).",
+  "effect": { "material": "skin", "backdrop": "sky:indoor", "motion": "bow", "parts": { "亻": {} }, "emblem": "cup" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今", "reading": "いま" }, { "text": "の" }, { "text": "仕事", "reading": "しごと" }, { "text": "やめたいんだ。" } ],
+      "en": "I want to quit my current job.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [172712, 556712] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

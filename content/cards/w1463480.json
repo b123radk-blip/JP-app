@@ -1,0 +1,22 @@
+{
+  "id": "w1463480",
+  "type": "word",
+  "word": "にぎやか",
+  "primaryReading": "にぎやか",
+  "furigana": [{ "text": "にぎやか" }],
+  "meaning": "bustling; busy",
+  "pos": ["adj-na"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["notes"], "scene": ["road"], "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "家", "reading": "いえ" }, { "text": "は" }, { "text": "にぎやか" }, { "text": "な" }, { "text": "通", "reading": "とお" }, { "text": "りに" }, { "text": "面", "reading": "めん" }, { "text": "しています。" } ],
+      "en": "My house faces a busy street.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [163977, 250533] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word にぎやか" },
+  "source": { "jmdict": 1463480, "jlpt": 5 }
+}

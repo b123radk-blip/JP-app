@@ -1,0 +1,22 @@
+{
+  "id": "w1584800",
+  "type": "word",
+  "word": "門",
+  "primaryReading": "もん",
+  "furigana": [{ "text": "門", "reading": "もん" }],
+  "meaning": "gate",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "門", "reading": "もん" }, { "text": "から" }, { "text": "庭", "reading": "にわ" }, { "text": "に" }, { "text": "入", "reading": "い" }, { "text": "れる。" } ],
+      "en": "This gate allows access to the garden.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [219323, 56640] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 門" },
+  "source": { "jmdict": 1584800, "jlpt": 5 }
+}

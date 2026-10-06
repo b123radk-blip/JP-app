@@ -1,0 +1,22 @@
+{
+  "id": "w1120990",
+  "type": "word",
+  "word": "ペット",
+  "primaryReading": "ペット",
+  "furigana": [{ "text": "ペット" }],
+  "meaning": "pet",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "motion": "bounce", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ペットのネコが" }, { "text": "昨日", "reading": "きのう" }, { "text": "しんじゃったの。" } ],
+      "en": "My pet cat died yesterday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196795, 33974] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ペット" },
+  "source": { "jmdict": 1120990, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1070790",
+  "type": "word",
+  "word": "ストーブ",
+  "primaryReading": "ストーブ",
+  "furigana": [{ "text": "ストーブ" }],
+  "meaning": "(room) heater; stove",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["embers"], "backdrop": "halo", "scene": ["room"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "ストーブで" }, { "text": "体", "reading": "からだ" }, { "text": "を" }, { "text": "温", "reading": "あたた" }, { "text": "めなさい。" } ],
+      "en": "Warm up using the stove.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214597, 51890] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ストーブ" },
+  "source": { "jmdict": 1070790, "jlpt": 5 }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "65c5",
+  "kanji": "旅",
+  "meaning": "trip; travel",
+  "primaryReading": "りょ",
+  "readings": { "kun": ["たび"], "on": ["リョ"] },
+  "mnemonic": "People (亻) under a banner (方) setting off: travel.",
+  "effect": { "material": "clay", "backdrop": "sky:morning", "scene": ["road"], "motion": "walk", "emblem": "suitcase" },
+  "sentences": [
+    {
+      "segments": [ { "text": "旅行", "reading": "りょこう" }, { "text": "にお" }, { "text": "出", "reading": "で" }, { "text": "かけですか。" } ],
+      "en": "Will you go on a trip?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78179, 325539] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

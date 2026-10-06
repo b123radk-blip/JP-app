@@ -1,0 +1,22 @@
+{
+  "id": "w1582310",
+  "type": "word",
+  "word": "頭",
+  "primaryReading": "あたま",
+  "furigana": [{ "text": "頭", "reading": "あたま" }],
+  "meaning": "head",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "lightbulb", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "頭", "reading": "あたま" }, { "text": "の" }, { "text": "中", "reading": "なか" }, { "text": "がいっぱいだよ。" } ],
+      "en": "My brain is full.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [123847, 280148] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 頭" },
+  "source": { "jmdict": 1582310, "jlpt": 5 }
+}

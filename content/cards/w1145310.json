@@ -1,0 +1,22 @@
+{
+  "id": "w1145310",
+  "type": "word",
+  "word": "レストラン",
+  "primaryReading": "レストラン",
+  "furigana": [{ "text": "レストラン" }],
+  "meaning": "restaurant",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "scene": ["room:shop"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このレストランはダメだ。" } ],
+      "en": "This restaurant won't do.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223006, 60337] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word レストラン" },
+  "source": { "jmdict": 1145310, "jlpt": 5 }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "4e21",
+  "kanji": "両",
+  "meaning": "both",
+  "primaryReading": "りょう",
+  "readings": { "kun": ["てる", "ふたつ"], "on": ["リョウ"] },
+  "mnemonic": "Two equal pans hung from one beam: both.",
+  "effect": {
+    "material": "gold",
+    "backdrop": "sky:day",
+    "motion": "split",
+    "emblem": { "type": "dots", "n": 2, "color": "#ffd060" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "両親", "reading": "りょうしん" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "にそこへ" }, { "text": "行", "reading": "い" }, { "text": "かせた。" } ],
+      "en": "My parents had me go there.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78028, 325690] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

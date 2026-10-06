@@ -1,0 +1,29 @@
+{
+  "id": "w1236900",
+  "type": "word",
+  "word": "教える",
+  "primaryReading": "おしえる",
+  "furigana": [{ "text": "教", "reading": "おし" }, { "text": "える" }],
+  "meaning": "to teach; to instruct",
+  "pos": ["v1", "vt"],
+  "kanji": ["6559"],
+  "builtFrom": [{ "k": "教", "m": "teach" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["room:classroom"],
+    "emblem": "pen",
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "場所", "reading": "ばしょ" }, { "text": "を" }, { "text": "教", "reading": "おし" }, { "text": "えてください。" } ],
+      "en": "Please tell me your location.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [146086, 268476] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 教える" },
+  "source": { "jmdict": 1236900, "jlpt": 5 }
+}

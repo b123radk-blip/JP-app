@@ -1,0 +1,22 @@
+{
+  "id": "w1087820",
+  "type": "word",
+  "word": "ドア",
+  "primaryReading": "ドア",
+  "furigana": [{ "text": "ドア" }],
+  "meaning": "door",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "けってドアを" }, { "text": "開", "reading": "あ" }, { "text": "けるな。" } ],
+      "en": "Don't kick the door open.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225247, 62584] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ドア" },
+  "source": { "jmdict": 1087820, "jlpt": 5 }
+}

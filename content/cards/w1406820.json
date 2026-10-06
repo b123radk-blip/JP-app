@@ -1,0 +1,22 @@
+{
+  "id": "w1406820",
+  "type": "word",
+  "word": "村",
+  "primaryReading": "むら",
+  "furigana": [{ "text": "村", "reading": "むら" }],
+  "meaning": "village",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["field"], "emblem": "house", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "町", "reading": "まち" }, { "text": "は" }, { "text": "村", "reading": "むら" }, { "text": "よりも" }, { "text": "大", "reading": "おお" }, { "text": "きい。" } ],
+      "en": "Towns are larger than villages.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [126109, 277883] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 村" },
+  "source": { "jmdict": 1406820, "jlpt": 5 }
+}

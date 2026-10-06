@@ -1,0 +1,22 @@
+{
+  "id": "w1380440",
+  "type": "word",
+  "word": "声",
+  "primaryReading": "こえ",
+  "furigana": [{ "text": "声", "reading": "こえ" }],
+  "meaning": "voice",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "speech", "particles": ["notes"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたの" }, { "text": "声", "reading": "こえ" }, { "text": "が" }, { "text": "聞", "reading": "き" }, { "text": "けてうれしいわ。" } ],
+      "en": "I am happy to hear your voice.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [1142225, 70500] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 声" },
+  "source": { "jmdict": 1380440, "jlpt": 5 }
+}

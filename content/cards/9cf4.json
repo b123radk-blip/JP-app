@@ -1,0 +1,25 @@
+{
+  "id": "9cf4",
+  "kanji": "鳴",
+  "meaning": "chirp; cry",
+  "primaryReading": "な",
+  "readings": { "kun": ["な(く)", "な(る)", "な(らす)"], "on": ["メイ"] },
+  "mnemonic": "A bird (鳥) opening its mouth (口): chirp, sing, ring.",
+  "effect": {
+    "material": "jade",
+    "particles": ["notes"],
+    "backdrop": "sky:forest",
+    "emblem": "bird",
+    "parts": { "口": { "material": "rose" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "鳥", "reading": "とり" }, { "text": "が" }, { "text": "鳴", "reading": "な" }, { "text": "いています。" } ],
+      "en": "The birds are singing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

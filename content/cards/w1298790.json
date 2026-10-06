@@ -1,0 +1,22 @@
+{
+  "id": "w1298790",
+  "type": "word",
+  "word": "撮る",
+  "primaryReading": "とる",
+  "furigana": [{ "text": "撮", "reading": "と" }, { "text": "る" }],
+  "meaning": "to take (a photograph)",
+  "pos": ["v5r", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "camera", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "妹", "reading": "いもうと" }, { "text": "を" }, { "text": "撮", "reading": "と" }, { "text": "った" }, { "text": "写真", "reading": "しゃしん" }, { "text": "です。" } ],
+      "en": "This is a picture of my sister.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [218296, 55609] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 撮る" },
+  "source": { "jmdict": 1298790, "jlpt": 5 }
+}

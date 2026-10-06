@@ -1,0 +1,24 @@
+{
+  "id": "7fd2",
+  "kanji": "習",
+  "meaning": "learn",
+  "primaryReading": "しゅう",
+  "readings": { "kun": ["なら(う)", "なら(い)"], "on": ["シュウ", "ジュ"] },
+  "mnemonic": "A fledgling flaps its wings (羽) a hundred (白) times, like practising with a pen: learn.",
+  "effect": {
+    "material": "paper",
+    "backdrop": "sky:morning",
+    "emblem": "pen",
+    "parts": { "羽": { "material": "cloud", "motion": { "type": "wave", "amp": 0.18, "speed": 7 } } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "車", "reading": "くるま" }, { "text": "の" }, { "text": "運転", "reading": "うんてん" }, { "text": "を" }, { "text": "習", "reading": "なら" }, { "text": "っています。" } ],
+      "en": "I've been learning to drive.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [149053, 265505] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

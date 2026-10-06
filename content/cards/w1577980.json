@@ -1,0 +1,22 @@
+{
+  "id": "w1577980",
+  "type": "word",
+  "word": "いる",
+  "primaryReading": "いる",
+  "furigana": [{ "text": "いる" }],
+  "meaning": "to be; to exist",
+  "pos": ["v1", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "motion": "float", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "映画", "reading": "えいが" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "くのと" }, { "text": "家", "reading": "いえ" }, { "text": "にいるの、どっちがいい？" } ],
+      "en": "Which would you rather do, go to the cinema or stay at home?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [189332, 26479] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word いる" },
+  "source": { "jmdict": 1577980, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1414340",
+  "type": "word",
+  "word": "大切",
+  "primaryReading": "たいせつ",
+  "furigana": [{ "text": "大", "reading": "たい" }, { "text": "切", "reading": "せつ" }],
+  "meaning": "important; significant",
+  "pos": ["adj-na"],
+  "kanji": ["5927", "5207"],
+  "builtFrom": [{ "k": "大", "m": "large" }, { "k": "切", "m": "cut" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "motion": "pulse", "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "大切", "reading": "たいせつ" }, { "text": "な" }, { "text": "話", "reading": "はなし" }, { "text": "があるんです。" } ],
+      "en": "I'm about to tell you something important.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [137435, 275801] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 大切" },
+  "source": { "jmdict": 1414340, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1422970",
+  "type": "word",
+  "word": "着く",
+  "primaryReading": "つく",
+  "furigana": [{ "text": "着", "reading": "つ" }, { "text": "く" }],
+  "meaning": "to arrive at; to reach",
+  "pos": ["v5k", "vi"],
+  "kanji": ["7740"],
+  "builtFrom": [{ "k": "着", "m": "wear" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag", "motion": "drift:down", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "時間通", "reading": "じかんどお" }, { "text": "りに" }, { "text": "駅", "reading": "えき" }, { "text": "に" }, { "text": "着", "reading": "つ" }, { "text": "いた。" } ],
+      "en": "I arrived at the station on time.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [150528, 264029] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 着く" },
+  "source": { "jmdict": 1422970, "jlpt": 5 }
+}

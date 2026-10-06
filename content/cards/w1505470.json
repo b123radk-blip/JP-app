@@ -1,0 +1,22 @@
+{
+  "id": "w1505470",
+  "type": "word",
+  "word": "文章",
+  "primaryReading": "ぶんしょう",
+  "furigana": [{ "text": "文", "reading": "ぶん" }, { "text": "章", "reading": "しょう" }],
+  "meaning": "writing; composition",
+  "pos": ["n"],
+  "kanji": ["6587"],
+  "builtFrom": [{ "k": "文", "m": "sentence" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sheet", "particles": ["kana"], "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "次", "reading": "つぎ" }, { "text": "の" }, { "text": "文章", "reading": "ぶんしょう" }, { "text": "を" }, { "text": "日本語", "reading": "にほんご" }, { "text": "に" }, { "text": "直", "reading": "なお" }, { "text": "しなさい。" } ],
+      "en": "Put the following sentences into Japanese.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [150227, 264330] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 文章" },
+  "source": { "jmdict": 1505470, "jlpt": 5 }
+}

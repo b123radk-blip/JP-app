@@ -1,0 +1,28 @@
+{
+  "id": "w1115150",
+  "type": "word",
+  "word": "プール",
+  "primaryReading": "プール",
+  "furigana": [{ "text": "プール" }],
+  "meaning": "(swimming) pool",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["ripples"],
+    "particles": ["bubbles"],
+    "backdrop": "sky:noon"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はプールで" }, { "text": "泳", "reading": "およ" }, { "text": "ぐのは" }, { "text": "好", "reading": "す" }, { "text": "きではない。" } ],
+      "en": "I don't like to swim in the pool.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159022, 255503] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word プール" },
+  "source": { "jmdict": 1115150, "jlpt": 5 }
+}

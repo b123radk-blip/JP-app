@@ -1,0 +1,26 @@
+{
+  "id": "5c4b",
+  "kanji": "屋",
+  "meaning": "roof; house; shop",
+  "primaryReading": "や",
+  "readings": { "kun": ["や"], "on": ["オク"] },
+  "mnemonic": "A body (尸) reaching (至) the shelter of a roof: house, room, shop.",
+  "effect": {
+    "material": "wood",
+    "backdrop": "sky:indoor",
+    "scene": ["room"],
+    "emblem": "window",
+    "motion": "float",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "部屋", "reading": "へや" }, { "text": "を" }, { "text": "変", "reading": "か" }, { "text": "えられますか。" } ],
+      "en": "Could I change rooms?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84099, 319617] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

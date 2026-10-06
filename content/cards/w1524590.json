@@ -1,0 +1,28 @@
+{
+  "id": "w1524590",
+  "type": "word",
+  "word": "妹",
+  "primaryReading": "いもうと",
+  "furigana": [{ "text": "妹", "reading": "いもうと" }],
+  "meaning": "younger sister",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "person", "color": "#ff7aa8", "size": 0.8 },
+    "motion": "bounce",
+    "backdrop": "sky:dawn"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あのかわいい" }, { "text": "少女", "reading": "しょうじょ" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "妹", "reading": "いもうと" }, { "text": "です。" } ],
+      "en": "That pretty girl is my sister.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231347, 68714] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 妹" },
+  "source": { "jmdict": 1524590, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1207590",
+  "type": "word",
+  "word": "かかる",
+  "primaryReading": "かかる",
+  "furigana": [{ "text": "かかる" }],
+  "meaning": "to take",
+  "pos": ["v5r", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "学校", "reading": "がっこう" }, { "text": "まで" }, { "text": "十五", "reading": "じゅうご" }, { "text": "分", "reading": "ふん" }, { "text": "かかります。" } ],
+      "en": "It takes fifteen minutes to get to school.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word かかる" },
+  "source": { "jmdict": 1207590, "jlpt": 5 }
+}

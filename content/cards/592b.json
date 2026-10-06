@@ -1,0 +1,19 @@
+{
+  "id": "592b",
+  "kanji": "夫",
+  "meaning": "husband; man",
+  "primaryReading": "おっと",
+  "readings": { "kun": ["おっと", "それ"], "on": ["フ", "フウ", "ブ"] },
+  "mnemonic": "A big (大) man with a hairpin (一) on his wedding day: husband; also sturdy (丈夫).",
+  "effect": { "material": "skin", "backdrop": "sky:day", "emblem": "ring" },
+  "sentences": [
+    {
+      "segments": [ { "text": "いや、" }, { "text": "大丈夫", "reading": "だいじょうぶ" }, { "text": "だ。" } ],
+      "en": "No, no, that's okay.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [228498, 65856] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1189370",
+  "type": "word",
+  "word": "どなた",
+  "primaryReading": "どなた",
+  "furigana": [{ "text": "どなた" }],
+  "meaning": "who",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "方", "reading": "かた" }, { "text": "はどなたですか。" } ],
+      "en": "Who is that person?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word どなた" },
+  "source": { "jmdict": 1189370, "jlpt": 5 }
+}

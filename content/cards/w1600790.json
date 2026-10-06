@@ -1,0 +1,22 @@
+{
+  "id": "w1600790",
+  "type": "word",
+  "word": "二十歳",
+  "primaryReading": "はたち",
+  "furigana": [{ "text": "二十歳", "reading": "はたち" }],
+  "meaning": "20 years old",
+  "pos": ["n"],
+  "kanji": ["4e8c", "5341"],
+  "builtFrom": [{ "k": "二", "m": "two" }, { "k": "十", "m": "ten" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "trophy", "particles": ["sparks"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "彼女", "reading": "かのじょ" }, { "text": "は" }, { "text": "二十歳", "reading": "はたち" }, { "text": "だと" }, { "text": "言", "reading": "い" }, { "text": "ったが、それは" }, { "text": "嘘", "reading": "うそ" }, { "text": "だった。" } ],
+      "en": "She said she was twenty years old, which was not true.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [87650, 310118] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 二十歳" },
+  "source": { "jmdict": 1600790, "jlpt": 5 }
+}

@@ -1,0 +1,19 @@
+{
+  "id": "59cb",
+  "kanji": "始",
+  "meaning": "commence; begin",
+  "primaryReading": "はじ",
+  "readings": { "kun": ["はじ(める)", "はじ(める)", "はじ(まる)"], "on": ["シ"] },
+  "mnemonic": "A woman (女) at the platform (台) waves the start flag: begin.",
+  "effect": { "material": "rose", "backdrop": "sky:dawn", "emblem": "flag", "parts": { "女": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "それはいつ" }, { "text": "始", "reading": "はじ" }, { "text": "まりますか。" } ],
+      "en": "When does it begin?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205537, 42781] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

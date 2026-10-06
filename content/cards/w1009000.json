@@ -1,0 +1,22 @@
+{
+  "id": "w1009000",
+  "type": "word",
+  "word": "どうも",
+  "primaryReading": "どうも",
+  "furigana": [{ "text": "どうも" }],
+  "meaning": "thank you; thanks",
+  "pos": ["int"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "motion": "bow", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それはご" }, { "text": "親切", "reading": "しんせつ" }, { "text": "にどうも。" } ],
+      "en": "That's very kind of you.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205506, 38401] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word どうも" },
+  "source": { "jmdict": 1009000, "jlpt": 5 }
+}

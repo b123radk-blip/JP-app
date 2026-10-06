@@ -1,0 +1,22 @@
+{
+  "id": "w1577200",
+  "type": "word",
+  "word": "可愛い",
+  "primaryReading": "かわいい",
+  "furigana": [{ "text": "可愛", "reading": "かわい" }, { "text": "い" }],
+  "meaning": "cute; adorable",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["hearts"], "emblem": "heart", "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "猫", "reading": "ねこ" }, { "text": "はとても" }, { "text": "可愛", "reading": "かわい" }, { "text": "いです。" } ],
+      "en": "This cat is very cute.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 可愛い" },
+  "source": { "jmdict": 1577200, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1551790",
+  "type": "word",
+  "word": "りっぱ",
+  "primaryReading": "りっぱ",
+  "furigana": [{ "text": "りっぱ" }],
+  "meaning": "splendid; fine",
+  "pos": ["adj-na"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "trophy", "backdrop": "sky:golden", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "彼", "reading": "かれ" }, { "text": "はその" }, { "text": "仕事", "reading": "しごと" }, { "text": "を" }, { "text": "りっぱ" }, { "text": "にやった。" } ],
+      "en": "He made a fine job of it.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [112828, 290848] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word りっぱ" },
+  "source": { "jmdict": 1551790, "jlpt": 5 }
+}

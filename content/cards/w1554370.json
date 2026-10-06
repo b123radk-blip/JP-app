@@ -1,0 +1,22 @@
+{
+  "id": "w1554370",
+  "type": "word",
+  "word": "涼しい",
+  "primaryReading": "すずしい",
+  "furigana": [{ "text": "涼", "reading": "すず" }, { "text": "しい" }],
+  "meaning": "cool; refreshing",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["wind", "leaves"], "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "日増", "reading": "ひま" }, { "text": "しに" }, { "text": "涼", "reading": "すず" }, { "text": "しくなっていく。" } ],
+      "en": "It's getting cooler day by day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [122850, 281152] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 涼しい" },
+  "source": { "jmdict": 1554370, "jlpt": 5 }
+}

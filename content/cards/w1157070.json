@@ -1,0 +1,22 @@
+{
+  "id": "w1157070",
+  "type": "word",
+  "word": "椅子",
+  "primaryReading": "いす",
+  "furigana": [{ "text": "椅", "reading": "い" }, { "text": "子", "reading": "す" }],
+  "meaning": "chair; seat",
+  "pos": ["n"],
+  "kanji": ["5b50"],
+  "builtFrom": [{ "k": "子", "m": "child" }],
+  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "backdrop": "sky:indoor", "motion": "bounce" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ちょっと" }, { "text": "椅子", "reading": "いす" }, { "text": "をずらしてくれない？" } ],
+      "en": "Could you move the chair a bit?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [202860, 40095] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 椅子" },
+  "source": { "jmdict": 1157070, "jlpt": 5 }
+}

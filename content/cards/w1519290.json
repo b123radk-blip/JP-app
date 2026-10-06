@@ -1,0 +1,22 @@
+{
+  "id": "w1519290",
+  "type": "word",
+  "word": "忙しい",
+  "primaryReading": "いそがしい",
+  "furigana": [{ "text": "忙", "reading": "いそが" }, { "text": "しい" }],
+  "meaning": "busy; occupied",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "motion": "shake", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "忙", "reading": "いそが" }, { "text": "しくない。" } ],
+      "en": "I'm not busy today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [156943, 257591] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 忙しい" },
+  "source": { "jmdict": 1519290, "jlpt": 5 }
+}

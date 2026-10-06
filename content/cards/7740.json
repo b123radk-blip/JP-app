@@ -1,0 +1,25 @@
+{
+  "id": "7740",
+  "kanji": "着",
+  "meaning": "wear; arrive",
+  "primaryReading": "き",
+  "readings": { "kun": ["き(る)", "き(せる)", "つ(く)", "つ(ける)"], "on": ["チャク", "ジャク"] },
+  "mnemonic": "A sheep (羊) arrives and puts on its woolly coat, eyes (目) shining: wear, arrive.",
+  "effect": {
+    "material": "fur",
+    "reveal": "stamp",
+    "backdrop": "sky:morning",
+    "emblem": { "type": "shirt", "color": "#e07a3a" },
+    "parts": { "羊": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今", "reading": "いま" }, { "text": "着", "reading": "つ" }, { "text": "いたばかりだ。" } ],
+      "en": "I just arrived now.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157014, 257520] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

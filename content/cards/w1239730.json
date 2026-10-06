@@ -1,0 +1,29 @@
+{
+  "id": "w1239730",
+  "type": "word",
+  "word": "曲がる",
+  "primaryReading": "まがる",
+  "furigana": [{ "text": "曲", "reading": "ま" }, { "text": "がる" }],
+  "meaning": "to bend; to curve",
+  "pos": ["v5r", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["road"],
+    "motion": "turn",
+    "backdrop": "sky:day",
+    "particles": ["motes"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ネクタイが" }, { "text": "曲", "reading": "ま" }, { "text": "がってるよ。" } ],
+      "en": "Your tie is crooked.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198633, 35826] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 曲がる" },
+  "source": { "jmdict": 1239730, "jlpt": 5 }
+}

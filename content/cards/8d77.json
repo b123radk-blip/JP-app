@@ -1,0 +1,19 @@
+{
+  "id": "8d77",
+  "kanji": "起",
+  "meaning": "wake up; rouse",
+  "primaryReading": "お",
+  "readings": { "kun": ["お(きる)", "お(こる)", "お(こす)", "おこ(す)"], "on": ["キ"] },
+  "mnemonic": "Run (走) as soon as you (己) are up: wake up, get up.",
+  "effect": { "material": "gold", "backdrop": "sunrise", "motion": "stand", "emblem": "alarm", "parts": { "走": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "もう" }, { "text": "起", "reading": "お" }, { "text": "きる" }, { "text": "時間", "reading": "じかん" }, { "text": "ですよ。" } ],
+      "en": "This is the time you should get up.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [194226, 31399] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1406050",
+  "type": "word",
+  "word": "それでは",
+  "primaryReading": "それでは",
+  "furigana": [{ "text": "それでは" }],
+  "meaning": "well, ...; right, ...",
+  "pos": ["conj"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "さあそれでは" }, { "text": "始", "reading": "はじ" }, { "text": "めよう。" } ],
+      "en": "Well, let's get the ball rolling.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [216902, 54209] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word それでは" },
+  "source": { "jmdict": 1406050, "jlpt": 5 }
+}

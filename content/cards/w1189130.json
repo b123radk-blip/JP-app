@@ -1,0 +1,22 @@
+{
+  "id": "w1189130",
+  "type": "word",
+  "word": "どうぞ",
+  "primaryReading": "どうぞ",
+  "furigana": [{ "text": "どうぞ" }],
+  "meaning": "please; kindly",
+  "pos": ["adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "bow", "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "写真", "reading": "しゃしん" }, { "text": "をどうぞ" }, { "text": "見", "reading": "み" }, { "text": "せて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
+      "en": "Please show me your picture.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [149251, 265307] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word どうぞ" },
+  "source": { "jmdict": 1189130, "jlpt": 5 }
+}

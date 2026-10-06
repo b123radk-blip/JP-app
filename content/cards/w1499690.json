@@ -1,0 +1,22 @@
+{
+  "id": "w1499690",
+  "type": "word",
+  "word": "封筒",
+  "primaryReading": "ふうとう",
+  "furigana": [{ "text": "封", "reading": "ふう" }, { "text": "筒", "reading": "とう" }],
+  "meaning": "envelope",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "だれがこの" }, { "text": "封筒", "reading": "ふうとう" }, { "text": "を" }, { "text": "破", "reading": "やぶ" }, { "text": "って" }, { "text": "開", "reading": "あ" }, { "text": "けたのか。" } ],
+      "en": "Who has torn the envelope open?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203217, 40453] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 封筒" },
+  "source": { "jmdict": 1499690, "jlpt": 5 }
+}

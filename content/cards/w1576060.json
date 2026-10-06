@@ -1,0 +1,28 @@
+{
+  "id": "w1576060",
+  "type": "word",
+  "word": "おととし",
+  "primaryReading": "おととし",
+  "furigana": [{ "text": "おととし" }],
+  "meaning": "year before last",
+  "pos": ["n", "adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "arrow:left",
+    "motion": "count:2",
+    "backdrop": "sky:golden"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "おととしの" }, { "text": "夏", "reading": "なつ" }, { "text": "は" }, { "text": "暑", "reading": "あつ" }, { "text": "かったです。" } ],
+      "en": "Summer the year before last was hot.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word おととし" },
+  "source": { "jmdict": 1576060, "jlpt": 5 }
+}

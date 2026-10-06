@@ -1,0 +1,22 @@
+{
+  "id": "w1100760",
+  "type": "word",
+  "word": "パーティー",
+  "primaryReading": "パーティー",
+  "furigana": [{ "text": "パーティー" }],
+  "meaning": "party",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["notes", "sparks"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "パーティーは" }, { "text": "終", "reading": "お" }, { "text": "わった。" } ],
+      "en": "The party is over.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198435, 35626] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word パーティー" },
+  "source": { "jmdict": 1100760, "jlpt": 5 }
+}

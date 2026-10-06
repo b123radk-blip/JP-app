@@ -1,0 +1,22 @@
+{
+  "id": "w1589500",
+  "type": "word",
+  "word": "降りる",
+  "primaryReading": "おりる",
+  "furigana": [{ "text": "降", "reading": "お" }, { "text": "りる" }],
+  "meaning": "to descend; to go down",
+  "pos": ["v1", "vi"],
+  "kanji": ["964d"],
+  "builtFrom": [{ "k": "降", "m": "descend" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stairs", "motion": "drift:down", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "バスから" }, { "text": "降", "reading": "お" }, { "text": "りましょう。" } ],
+      "en": "Let's get off the bus.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [198239, 35431] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 降りる" },
+  "source": { "jmdict": 1589500, "jlpt": 5 }
+}

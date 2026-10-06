@@ -1,0 +1,22 @@
+{
+  "id": "w1343460",
+  "type": "word",
+  "word": "暑い",
+  "primaryReading": "あつい",
+  "furigana": [{ "text": "暑", "reading": "あつ" }, { "text": "い" }],
+  "meaning": "hot; warm",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sun", "backdrop": "halo", "particles": ["motes"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "夏", "reading": "なつ" }, { "text": "最高", "reading": "さいこう" }, { "text": "の" }, { "text": "暑", "reading": "あつ" }, { "text": "さだ。" } ],
+      "en": "It is the hottest this summer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222850, 60181] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 暑い" },
+  "source": { "jmdict": 1343460, "jlpt": 5 }
+}

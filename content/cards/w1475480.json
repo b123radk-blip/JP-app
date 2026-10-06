@@ -1,0 +1,22 @@
+{
+  "id": "w1475480",
+  "type": "word",
+  "word": "薄い",
+  "primaryReading": "うすい",
+  "furigana": [{ "text": "薄", "reading": "うす" }, { "text": "い" }],
+  "meaning": "thin (of an object)",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sheet", "motion": "shrink", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "肉", "reading": "にく" }, { "text": "を" }, { "text": "薄", "reading": "うす" }, { "text": "く" }, { "text": "切", "reading": "き" }, { "text": "りなさい。" } ],
+      "en": "Cut the meat into thin slices.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [122981, 281021] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 薄い" },
+  "source": { "jmdict": 1475480, "jlpt": 5 }
+}

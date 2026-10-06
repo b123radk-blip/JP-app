@@ -1,0 +1,22 @@
+{
+  "id": "w1213170",
+  "type": "word",
+  "word": "漢字",
+  "primaryReading": "かんじ",
+  "furigana": [{ "text": "漢", "reading": "かん" }, { "text": "字", "reading": "じ" }],
+  "meaning": "kanji; Chinese character",
+  "pos": ["n"],
+  "kanji": ["5b57"],
+  "builtFrom": [{ "k": "字", "m": "character" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["kana"], "emblem": "pen", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "漢字", "reading": "かんじ" }, { "text": "を" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "教", "reading": "おし" }, { "text": "えてください。" } ],
+      "en": "Teach me some kanji, please.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [237388, 21023] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 漢字" },
+  "source": { "jmdict": 1213170, "jlpt": 5 }
+}

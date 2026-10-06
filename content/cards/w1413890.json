@@ -1,0 +1,22 @@
+{
+  "id": "w1413890",
+  "type": "word",
+  "word": "大使館",
+  "primaryReading": "たいしかん",
+  "furigana": [{ "text": "大", "reading": "たい" }, { "text": "使", "reading": "し" }, { "text": "館", "reading": "かん" }],
+  "meaning": "embassy",
+  "pos": ["n"],
+  "kanji": ["5927", "4f7f", "9928"],
+  "builtFrom": [{ "k": "大", "m": "large" }, { "k": "使", "m": "use" }, { "k": "館", "m": "building" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag:japan", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "大使館", "reading": "たいしかん" }, { "text": "はどこですか。" } ],
+      "en": "Where is the embassy?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 大使館" },
+  "source": { "jmdict": 1413890, "jlpt": 5 }
+}

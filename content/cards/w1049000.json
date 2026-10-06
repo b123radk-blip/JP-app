@@ -1,0 +1,28 @@
+{
+  "id": "w1049000",
+  "type": "word",
+  "word": "コート",
+  "primaryReading": "コート",
+  "furigana": [{ "text": "コート" }],
+  "meaning": "coat",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "shirt", "color": "#8a6040" },
+    "backdrop": "sky:snow",
+    "particles": ["wind"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このコートは" }, { "text": "暖", "reading": "あたた" }, { "text": "かい。" } ],
+      "en": "This coat is warm.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223809, 61145] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word コート" },
+  "source": { "jmdict": 1049000, "jlpt": 5 }
+}

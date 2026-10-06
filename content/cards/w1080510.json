@@ -1,0 +1,22 @@
+{
+  "id": "w1080510",
+  "type": "word",
+  "word": "テレビ",
+  "primaryReading": "テレビ",
+  "furigana": [{ "text": "テレビ" }],
+  "meaning": "television; TV",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:indoor", "particles": ["motes"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "テレビは" }, { "text": "毎日", "reading": "まいにち" }, { "text": "見", "reading": "み" }, { "text": "ますよ。" } ],
+      "en": "I watch television every day.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159389, 255134] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word テレビ" },
+  "source": { "jmdict": 1080510, "jlpt": 5 }
+}

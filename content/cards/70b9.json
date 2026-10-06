@@ -1,0 +1,25 @@
+{
+  "id": "70b9",
+  "kanji": "点",
+  "meaning": "spot; point; mark",
+  "primaryReading": "てん",
+  "readings": { "kun": ["つ(ける)", "つ(く)", "た(てる)", "さ(す)"], "on": ["テン"] },
+  "mnemonic": "Four dots of fire (灬) under a fortune (占): a point, a mark.",
+  "effect": {
+    "material": "neon",
+    "reveal": "stamp",
+    "particles": [{ "type": "sparks", "count": 0.8 }],
+    "backdrop": "sky:night",
+    "parts": { "灬": { "material": "gold" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それが" }, { "text": "重要", "reading": "じゅうよう" }, { "text": "な" }, { "text": "点", "reading": "てん" }, { "text": "です。" } ],
+      "en": "That's the point.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205871, 43117] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

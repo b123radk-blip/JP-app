@@ -1,0 +1,22 @@
+{
+  "id": "w1246740",
+  "type": "word",
+  "word": "靴下",
+  "primaryReading": "くつした",
+  "furigana": [{ "text": "靴", "reading": "くつ" }, { "text": "下", "reading": "した" }],
+  "meaning": "socks; sock",
+  "pos": ["n"],
+  "kanji": ["9774", "4e0b"],
+  "builtFrom": [{ "k": "靴", "m": "shoes" }, { "k": "下", "m": "down" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shoe", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "靴下", "reading": "くつした" }, { "text": "の" }, { "text": "片方", "reading": "かたほう" }, { "text": "はどこだ。" } ],
+      "en": "Where is the mate to this sock?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222242, 59569] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 靴下" },
+  "source": { "jmdict": 1246740, "jlpt": 5 }
+}

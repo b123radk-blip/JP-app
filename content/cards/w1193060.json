@@ -1,0 +1,22 @@
+{
+  "id": "w1193060",
+  "type": "word",
+  "word": "果物",
+  "primaryReading": "くだもの",
+  "furigana": [{ "text": "果物", "reading": "くだもの" }],
+  "meaning": "fruit",
+  "pos": ["n"],
+  "kanji": ["7269"],
+  "builtFrom": [{ "k": "物", "m": "thing" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flower", "backdrop": "sky:day", "particles": ["leaves"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "果物", "reading": "くだもの" }, { "text": "がたくさんあるんだ。" } ],
+      "en": "There's a lot of fruit.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [186802, 1499507] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 果物" },
+  "source": { "jmdict": 1193060, "jlpt": 5 }
+}

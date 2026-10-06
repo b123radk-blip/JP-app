@@ -1,0 +1,22 @@
+{
+  "id": "w1158880",
+  "type": "word",
+  "word": "違う",
+  "primaryReading": "ちがう",
+  "furigana": [{ "text": "違", "reading": "ちが" }, { "text": "う" }],
+  "meaning": "to differ (from); to be different",
+  "pos": ["v5u", "vi"],
+  "kanji": ["9055"],
+  "builtFrom": [{ "k": "違", "m": "differ" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cross", "motion": "shake", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "それは" }, { "text": "違", "reading": "ちが" }, { "text": "うと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],
+      "en": "I'm afraid you're mistaken.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [205341, 42586] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 違う" },
+  "source": { "jmdict": 1158880, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1125150",
+  "type": "word",
+  "word": "ポスト",
+  "primaryReading": "ポスト",
+  "furigana": [{ "text": "ポスト" }],
+  "meaning": "postbox; mailbox",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "motion": "bounce", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ポストはどこにありますか。" } ],
+      "en": "Where is the mailbox?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196278, 33455] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ポスト" },
+  "source": { "jmdict": 1125150, "jlpt": 5 }
+}

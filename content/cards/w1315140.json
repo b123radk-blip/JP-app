@@ -1,0 +1,22 @@
+{
+  "id": "w1315140",
+  "type": "word",
+  "word": "字引",
+  "primaryReading": "じびき",
+  "furigana": [{ "text": "字引", "reading": "じびき" }],
+  "meaning": "dictionary",
+  "pos": ["n"],
+  "kanji": ["5b57", "5f15"],
+  "builtFrom": [{ "k": "字", "m": "character" }, { "k": "引", "m": "pull" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "particles": ["kana"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "字引", "reading": "じびき" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "いです。" } ],
+      "en": "This dictionary is old.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 字引" },
+  "source": { "jmdict": 1315140, "jlpt": 5 }
+}

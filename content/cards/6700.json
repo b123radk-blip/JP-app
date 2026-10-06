@@ -1,0 +1,26 @@
+{
+  "id": "6700",
+  "kanji": "最",
+  "meaning": "utmost; most",
+  "primaryReading": "さい",
+  "readings": { "kun": ["もっと(も)", "つま"], "on": ["サイ", "シュ"] },
+  "mnemonic": "Taking (取) the sun (日) itself: the most, the best.",
+  "effect": {
+    "material": "gold",
+    "particles": ["sparks"],
+    "backdrop": "sky:golden",
+    "motion": { "type": "grow", "to": 1.15 },
+    "emblem": "trophy",
+    "parts": { "日": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "最重要", "reading": "さいじゅうよう" }, { "text": "問題", "reading": "もんだい" }, { "text": "だ。" } ],
+      "en": "This is a matter of supreme importance.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [218395, 55706] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

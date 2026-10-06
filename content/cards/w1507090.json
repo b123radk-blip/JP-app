@@ -1,0 +1,22 @@
+{
+  "id": "w1507090",
+  "type": "word",
+  "word": "平仮名",
+  "primaryReading": "ひらがな",
+  "furigana": [{ "text": "平", "reading": "ひら" }, { "text": "仮", "reading": "が" }, { "text": "名", "reading": "な" }],
+  "meaning": "hiragana",
+  "pos": ["n"],
+  "kanji": ["540d"],
+  "builtFrom": [{ "k": "名", "m": "name" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["kana"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "平仮名", "reading": "ひらがな" }, { "text": "はやさしいです。" } ],
+      "en": "Hiragana is easy.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 平仮名" },
+  "source": { "jmdict": 1507090, "jlpt": 5 }
+}

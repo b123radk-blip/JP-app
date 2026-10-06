@@ -1,0 +1,22 @@
+{
+  "id": "w1254760",
+  "type": "word",
+  "word": "結構",
+  "primaryReading": "けっこう",
+  "furigana": [{ "text": "結", "reading": "けっ" }, { "text": "構", "reading": "こう" }],
+  "meaning": "splendid; nice",
+  "pos": ["adj-na"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "どちらの" }, { "text": "日", "reading": "ひ" }, { "text": "でも" }, { "text": "結構", "reading": "けっこう" }, { "text": "です。" } ],
+      "en": "Either day is OK.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [200732, 37934] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 結構" },
+  "source": { "jmdict": 1254760, "jlpt": 5 }
+}

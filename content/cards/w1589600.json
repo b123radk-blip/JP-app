@@ -1,0 +1,22 @@
+{
+  "id": "w1589600",
+  "type": "word",
+  "word": "終わる",
+  "primaryReading": "おわる",
+  "furigana": [{ "text": "終", "reading": "お" }, { "text": "わる" }],
+  "meaning": "to end; to come to an end",
+  "pos": ["v5r", "vi"],
+  "kanji": ["7d42"],
+  "builtFrom": [{ "k": "終", "m": "end" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag:finish", "backdrop": "sky:sunset" },
+  "sentences": [
+    {
+      "segments": [ { "text": "学校", "reading": "がっこう" }, { "text": "は" }, { "text": "三", "reading": "さん" }, { "text": "時半", "reading": "じはん" }, { "text": "に" }, { "text": "終", "reading": "お" }, { "text": "わる。" } ],
+      "en": "School is over at 3:30.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [184393, 2937733] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 終わる" },
+  "source": { "jmdict": 1589600, "jlpt": 5 }
+}

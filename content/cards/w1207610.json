@@ -1,0 +1,22 @@
+{
+  "id": "w1207610",
+  "type": "word",
+  "word": "掛ける",
+  "primaryReading": "かける",
+  "furigana": [{ "text": "掛", "reading": "か" }, { "text": "ける" }],
+  "meaning": "to hang up; to let hang",
+  "pos": ["v1", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "hang", "scene": ["room"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "コートをハンガーに" }, { "text": "掛", "reading": "か" }, { "text": "けておきなさい。" } ],
+      "en": "Put your coat on a hanger.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224960, 62296] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 掛ける" },
+  "source": { "jmdict": 1207610, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1592340",
+  "type": "word",
+  "word": "曇り",
+  "primaryReading": "くもり",
+  "furigana": [{ "text": "曇", "reading": "くも" }, { "text": "り" }],
+  "meaning": "cloudiness; cloudy weather",
+  "pos": ["n"],
+  "kanji": ["66c7"],
+  "builtFrom": [{ "k": "曇", "m": "cloudy weather" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cloud", "backdrop": "sky:snow" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "夜", "reading": "よる" }, { "text": "は" }, { "text": "曇", "reading": "くも" }, { "text": "りだった。" } ],
+      "en": "It was cloudy that night.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [206344, 43592] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 曇り" },
+  "source": { "jmdict": 1592340, "jlpt": 5 }
+}

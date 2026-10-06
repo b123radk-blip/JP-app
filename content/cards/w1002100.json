@@ -1,0 +1,29 @@
+{
+  "id": "w1002100",
+  "type": "word",
+  "word": "お手洗い",
+  "primaryReading": "おてあらい",
+  "furigana": [{ "text": "お" }, { "text": "手", "reading": "て" }, { "text": "洗", "reading": "あら" }, { "text": "い" }],
+  "meaning": "toilet; restroom",
+  "pos": ["n"],
+  "kanji": ["624b", "6d17"],
+  "builtFrom": [{ "k": "手", "m": "hand" }, { "k": "洗", "m": "wash" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "hand",
+    "particles": ["bubbles"],
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "手洗", "reading": "てあら" }, { "text": "いはどこですか。" } ],
+      "en": "Where's the restroom?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227063, 38932] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word お手洗い" },
+  "source": { "jmdict": 1002100, "jlpt": 5 }
+}

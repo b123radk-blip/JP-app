@@ -1,0 +1,22 @@
+{
+  "id": "w1420900",
+  "type": "word",
+  "word": "地下鉄",
+  "primaryReading": "ちかてつ",
+  "furigana": [{ "text": "地", "reading": "ち" }, { "text": "下", "reading": "か" }, { "text": "鉄", "reading": "てつ" }],
+  "meaning": "subway; metro",
+  "pos": ["n"],
+  "kanji": ["5730", "4e0b"],
+  "builtFrom": [{ "k": "地", "m": "ground" }, { "k": "下", "m": "down" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "train", "backdrop": "sky:night", "motion": "drift:down" },
+  "sentences": [
+    {
+      "segments": [ { "text": "地下鉄", "reading": "ちかてつ" }, { "text": "で" }, { "text": "行", "reading": "い" }, { "text": "きたいのです。" } ],
+      "en": "I want to get there by subway.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [127016, 277074] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 地下鉄" },
+  "source": { "jmdict": 1420900, "jlpt": 5 }
+}

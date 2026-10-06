@@ -1,0 +1,22 @@
+{
+  "id": "w1576630",
+  "type": "word",
+  "word": "塩",
+  "primaryReading": "しお",
+  "furigana": [{ "text": "塩", "reading": "しお" }],
+  "meaning": "salt; common salt",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "spoon", "particles": ["snow"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このスープは" }, { "text": "塩", "reading": "しお" }, { "text": "が" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "足", "reading": "た" }, { "text": "りない。" } ],
+      "en": "This soup wants a bit of salt.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223651, 60987] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 塩" },
+  "source": { "jmdict": 1576630, "jlpt": 5 }
+}

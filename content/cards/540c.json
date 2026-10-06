@@ -1,0 +1,19 @@
+{
+  "id": "540c",
+  "kanji": "同",
+  "meaning": "same; agree",
+  "primaryReading": "おな",
+  "readings": { "kun": ["おな(じ)"], "on": ["ドウ"] },
+  "mnemonic": "One mouth (口) under the same roof (冂): the same.",
+  "effect": { "material": "silver", "backdrop": "sky:day", "motion": { "type": "count", "n": 2 }, "emblem": "equals" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "靴", "reading": "くつ" }, { "text": "は" }, { "text": "同", "reading": "おな" }, { "text": "じ" }, { "text": "大", "reading": "おお" }, { "text": "きさだ。" } ],
+      "en": "The shoes are the same size.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222249, 59575] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

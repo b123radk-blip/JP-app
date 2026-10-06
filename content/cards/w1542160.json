@@ -1,0 +1,22 @@
+{
+  "id": "w1542160",
+  "type": "word",
+  "word": "遊ぶ",
+  "primaryReading": "あそぶ",
+  "furigana": [{ "text": "遊", "reading": "あそ" }, { "text": "ぶ" }],
+  "meaning": "to play (games, sports)",
+  "pos": ["v5b", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "blocks", "motion": "bounce", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "公園", "reading": "こうえん" }, { "text": "で" }, { "text": "遊", "reading": "あそ" }, { "text": "びましょう。" } ],
+      "en": "Let's play in the park.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 遊ぶ" },
+  "source": { "jmdict": 1542160, "jlpt": 5 }
+}

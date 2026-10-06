@@ -1,0 +1,19 @@
+{
+  "id": "958b",
+  "kanji": "開",
+  "meaning": "open; unfold",
+  "primaryReading": "あ",
+  "readings": { "kun": ["ひら(く)", "ひら(き)", "びら(き)", "ひら(ける)"], "on": ["カイ"] },
+  "mnemonic": "Two hands (开) push the gate (門) open and light pours in: open.",
+  "effect": { "material": "lacquer", "backdrop": "sky:dusk", "scene": ["gate"], "parts": { "开": { "material": "skin" } } },
+  "sentences": [
+    {
+      "segments": [ { "text": "ぐいと" }, { "text": "押", "reading": "お" }, { "text": "すとドアは" }, { "text": "開", "reading": "ひら" }, { "text": "いた。" } ],
+      "en": "The door yielded to a strong push.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225720, 63059] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1221270",
+  "type": "word",
+  "word": "帰る",
+  "primaryReading": "かえる",
+  "furigana": [{ "text": "帰", "reading": "かえ" }, { "text": "る" }],
+  "meaning": "to return; to come home",
+  "pos": ["v5r", "vi"],
+  "kanji": ["5e30"],
+  "builtFrom": [{ "k": "帰", "m": "homecoming" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "motion": "drift:left", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "すぐに" }, { "text": "家", "reading": "いえ" }, { "text": "に" }, { "text": "帰", "reading": "かえ" }, { "text": "りなさい。" } ],
+      "en": "Come home at once.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214911, 52206] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 帰る" },
+  "source": { "jmdict": 1221270, "jlpt": 5 }
+}

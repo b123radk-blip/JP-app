@@ -1,0 +1,22 @@
+{
+  "id": "w1009330",
+  "type": "word",
+  "word": "どんな",
+  "primaryReading": "どんな",
+  "furigana": [{ "text": "どんな" }],
+  "meaning": "what kind of; what sort of",
+  "pos": ["adj-pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots", "motion": "tilt", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "どんな" }, { "text": "所", "reading": "ところ" }, { "text": "がお" }, { "text": "好", "reading": "す" }, { "text": "きですか。" } ],
+      "en": "What kind of places do you like?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [199407, 1112558] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word どんな" },
+  "source": { "jmdict": 1009330, "jlpt": 5 }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "5f53",
+  "kanji": "当",
+  "meaning": "hit; right",
+  "primaryReading": "とう",
+  "readings": { "kun": ["あ(たる)", "あ(たり)", "あ(てる)", "あ(て)"], "on": ["トウ"] },
+  "mnemonic": "Little sparks (⺌) above a hand (⺕) that hits the mark: hit, right.",
+  "effect": {
+    "material": "gold",
+    "particles": ["sparks"],
+    "backdrop": "sky:day",
+    "emblem": { "type": "target", "color": "#ff4040" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "それは" }, { "text": "本当", "reading": "ほんとう" }, { "text": "に" }, { "text": "違", "reading": "ちが" }, { "text": "いない。" } ],
+      "en": "It has to be true.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [204841, 42083] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

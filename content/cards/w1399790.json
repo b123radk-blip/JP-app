@@ -1,0 +1,29 @@
+{
+  "id": "w1399790",
+  "type": "word",
+  "word": "掃除",
+  "primaryReading": "そうじ",
+  "furigana": [{ "text": "掃", "reading": "そう" }, { "text": "除", "reading": "じ" }],
+  "meaning": "cleaning; sweeping",
+  "pos": ["n", "vs", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": ["dust"],
+    "emblem": "hand",
+    "backdrop": "sky:indoor",
+    "scene": ["room"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたの" }, { "text": "部屋", "reading": "へや" }, { "text": "を" }, { "text": "掃除", "reading": "そうじ" }, { "text": "しましたか。" } ],
+      "en": "Did you clean your room?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233037, 70407] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 掃除" },
+  "source": { "jmdict": 1399790, "jlpt": 5 }
+}

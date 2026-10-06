@@ -1,0 +1,22 @@
+{
+  "id": "w1482290",
+  "type": "word",
+  "word": "番号",
+  "primaryReading": "ばんごう",
+  "furigana": [{ "text": "番", "reading": "ばん" }, { "text": "号", "reading": "ごう" }],
+  "meaning": "number; series of digits",
+  "pos": ["n"],
+  "kanji": ["756a"],
+  "builtFrom": [{ "k": "番", "m": "turn" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "ticket", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ええ、じゃあ" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "電話", "reading": "でんわ" }, { "text": "番", "reading": "ばん", "base": "ばん", "dict": true }, { "text": "号", "reading": "ごう", "base": "ごう", "dict": true }, { "text": "教", "reading": "おし" }, { "text": "えるね。" } ],
+      "en": "OK. Let me give you my number.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [228016, 65369] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 番号" },
+  "source": { "jmdict": 1482290, "jlpt": 5 }
+}

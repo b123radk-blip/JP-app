@@ -1,0 +1,22 @@
+{
+  "id": "w1401400",
+  "type": "word",
+  "word": "窓",
+  "primaryReading": "まど",
+  "furigana": [{ "text": "窓", "reading": "まど" }],
+  "meaning": "window",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "window", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "窓", "reading": "まど" }, { "text": "を" }, { "text": "開", "reading": "あ" }, { "text": "けっぱなしにしておいたの？" } ],
+      "en": "Did you leave the window open?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231771, 16831] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 窓" },
+  "source": { "jmdict": 1401400, "jlpt": 5 }
+}

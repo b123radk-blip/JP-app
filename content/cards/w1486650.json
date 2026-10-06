@@ -1,0 +1,28 @@
+{
+  "id": "w1486650",
+  "type": "word",
+  "word": "美味しい",
+  "primaryReading": "おいしい",
+  "furigana": [{ "text": "美味", "reading": "おい" }, { "text": "しい" }],
+  "meaning": "good(-tasting); nice",
+  "pos": ["adj-i"],
+  "kanji": ["7f8e", "5473"],
+  "builtFrom": [{ "k": "美", "m": "beauty" }, { "k": "味", "m": "flavor" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "spoon",
+    "particles": ["hearts"],
+    "backdrop": "sky:golden"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "これはとても" }, { "text": "美味", "reading": "おい" }, { "text": "しいですよ。" } ],
+      "en": "This is very good.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [218557, 55871] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 美味しい" },
+  "source": { "jmdict": 1486650, "jlpt": 5 }
+}

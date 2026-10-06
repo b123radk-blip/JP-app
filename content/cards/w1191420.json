@@ -1,0 +1,22 @@
+{
+  "id": "w1191420",
+  "type": "word",
+  "word": "夏休み",
+  "primaryReading": "なつやすみ",
+  "furigana": [{ "text": "夏", "reading": "なつ" }, { "text": "休", "reading": "やす" }, { "text": "み" }],
+  "meaning": "summer vacation; summer holiday",
+  "pos": ["n"],
+  "kanji": ["590f", "4f11"],
+  "builtFrom": [{ "k": "夏", "m": "summer" }, { "k": "休", "m": "rest" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sun", "scene": ["ripples"], "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "夏休", "reading": "なつやす" }, { "text": "みはどこかへ" }, { "text": "行", "reading": "い" }, { "text": "くのですか。" } ],
+      "en": "Are you going away this summer?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [222855, 60186] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 夏休み" },
+  "source": { "jmdict": 1191420, "jlpt": 5 }
+}

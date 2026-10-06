@@ -1,0 +1,22 @@
+{
+  "id": "w1546020",
+  "type": "word",
+  "word": "洋服",
+  "primaryReading": "ようふく",
+  "furigana": [{ "text": "洋", "reading": "よう" }, { "text": "服", "reading": "ふく" }],
+  "meaning": "Western-style clothes",
+  "pos": ["n"],
+  "kanji": ["6d0b", "670d"],
+  "builtFrom": [{ "k": "洋", "m": "ocean" }, { "k": "服", "m": "clothing" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shirt", "scene": ["room:shop"], "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "とてもすてきな" }, { "text": "洋服", "reading": "ようふく" }, { "text": "ですね。" } ],
+      "en": "That's a beautiful dress.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [236922, 37853] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 洋服" },
+  "source": { "jmdict": 1546020, "jlpt": 5 }
+}

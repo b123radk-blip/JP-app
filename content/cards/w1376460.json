@@ -1,0 +1,22 @@
+{
+  "id": "w1376460",
+  "type": "word",
+  "word": "晴れ",
+  "primaryReading": "はれ",
+  "furigana": [{ "text": "晴", "reading": "は" }, { "text": "れ" }],
+  "meaning": "clear weather; fine weather",
+  "pos": ["n", "adj-no"],
+  "kanji": ["6674"],
+  "builtFrom": [{ "k": "晴", "m": "clear up" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sun", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "日", "reading": "ひ" }, { "text": "は" }, { "text": "晴", "reading": "は" }, { "text": "れだったので、" }, { "text": "私", "reading": "わたし" }, { "text": "たちは" }, { "text": "泳", "reading": "およ" }, { "text": "ぎに" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],
+      "en": "It was a fine day, so we went swimming.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [207332, 44584] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 晴れ" },
+  "source": { "jmdict": 1376460, "jlpt": 5 }
+}

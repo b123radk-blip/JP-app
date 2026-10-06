@@ -1,0 +1,26 @@
+{
+  "id": "6d0b",
+  "kanji": "洋",
+  "meaning": "ocean; foreign",
+  "primaryReading": "よう",
+  "readings": { "kun": [], "on": ["ヨウ"] },
+  "mnemonic": "Water (氵) as wide as a flock of sheep (羊): the ocean; Western.",
+  "effect": {
+    "material": "water",
+    "backdrop": "sky:day",
+    "scene": ["ripples"],
+    "motion": { "type": "sway", "axis": "z", "amp": 0.05 },
+    "emblem": "boat",
+    "parts": { "氵": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "お" }, { "text": "前", "reading": "まえ" }, { "text": "に" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "洋服", "reading": "ようふく" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "ってあげよう。" } ],
+      "en": "I will make a new suit for you.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [226963, 64311] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

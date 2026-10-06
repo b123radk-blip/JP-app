@@ -1,0 +1,19 @@
+{
+  "id": "984c",
+  "kanji": "題",
+  "meaning": "topic; subject",
+  "primaryReading": "だい",
+  "readings": { "kun": [], "on": ["ダイ"] },
+  "mnemonic": "The head (頁) of the page: the title, the topic; homework (宿題).",
+  "effect": { "material": "paper", "backdrop": "sky:indoor", "emblem": "sheet", "parts": { "頁": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "宿題", "reading": "しゅくだい" }, { "text": "が" }, { "text": "無", "reading": "な" }, { "text": "い。" } ],
+      "en": "I have no homework today.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171597, 242878] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

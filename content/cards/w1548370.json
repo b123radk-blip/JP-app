@@ -1,0 +1,22 @@
+{
+  "id": "w1548370",
+  "type": "word",
+  "word": "頼む",
+  "primaryReading": "たのむ",
+  "furigana": [{ "text": "頼", "reading": "たの" }, { "text": "む" }],
+  "meaning": "to request; to beg",
+  "pos": ["v5m", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "bow", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたに" }, { "text": "頼", "reading": "たの" }, { "text": "んでもよろしいですか。" } ],
+      "en": "May I request a favour of you?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [233649, 71023] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 頼む" },
+  "source": { "jmdict": 1548370, "jlpt": 5 }
+}

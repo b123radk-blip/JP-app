@@ -1,0 +1,19 @@
+{
+  "id": "65b9",
+  "kanji": "方",
+  "meaning": "direction; person",
+  "primaryReading": "かた",
+  "readings": { "kun": ["かた", "かた", "がた"], "on": ["ホウ"] },
+  "mnemonic": "A signpost on the hilltop (亠) pointing every way: direction, way.",
+  "effect": { "material": "gold", "backdrop": "sky:golden", "emblem": "signpost" },
+  "sentences": [
+    {
+      "segments": [ { "text": "歩", "reading": "ある" }, { "text": "き" }, { "text": "方", "reading": "かた" }, { "text": "がとてもゆっくりだね。" } ],
+      "en": "He is walking very slowly.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [83206, 320510] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1516925"] }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1270590",
+  "type": "word",
+  "word": "御飯",
+  "primaryReading": "ごはん",
+  "furigana": [{ "text": "御", "reading": "ご" }, { "text": "飯", "reading": "はん" }],
+  "meaning": "cooked rice",
+  "pos": ["n"],
+  "kanji": ["5fa1", "98ef"],
+  "builtFrom": [{ "k": "御", "m": "honorable" }, { "k": "飯", "m": "meal" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "bowl",
+    "backdrop": "sky:indoor",
+    "particles": ["steam"],
+    "motion": "pulse"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "毎朝", "reading": "まいあさ" }, { "text": "、" }, { "text": "御飯", "reading": "ごはん" }, { "text": "を" }, { "text": "食", "reading": "た" }, { "text": "べます。" } ],
+      "en": "I eat rice every morning.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 御飯" },
+  "source": { "jmdict": 1270590, "jlpt": 5 }
+}

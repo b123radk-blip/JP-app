@@ -1,0 +1,29 @@
+{
+  "id": "w1601340",
+  "type": "word",
+  "word": "晩御飯",
+  "primaryReading": "ばんごはん",
+  "furigana": [{ "text": "晩", "reading": "ばん" }, { "text": "御", "reading": "ご" }, { "text": "飯", "reading": "はん" }],
+  "meaning": "dinner; evening meal",
+  "pos": ["n"],
+  "kanji": ["6669", "5fa1", "98ef"],
+  "builtFrom": [{ "k": "晩", "m": "nightfall" }, { "k": "御", "m": "honorable" }, { "k": "飯", "m": "meal" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "bowl",
+    "backdrop": "sky:night",
+    "particles": ["steam"],
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "晩御飯", "reading": "ばんごはん" }, { "text": "の" }, { "text": "支度", "reading": "したく" }, { "text": "で" }, { "text": "忙", "reading": "いそが" }, { "text": "しい。" } ],
+      "en": "Mother is busy cooking the dinner.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [82878, 320838] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 晩御飯" },
+  "source": { "jmdict": 1601340, "jlpt": 5 }
+}

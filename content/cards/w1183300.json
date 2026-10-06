@@ -1,0 +1,27 @@
+{
+  "id": "w1183300",
+  "type": "word",
+  "word": "温い",
+  "primaryReading": "ぬるい",
+  "furigana": [{ "text": "温", "reading": "ぬる" }, { "text": "い" }],
+  "meaning": "lukewarm; tepid",
+  "pos": ["adj-i"],
+  "kanji": ["6e29"],
+  "builtFrom": [{ "k": "温", "m": "warm" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "thermometer", "level": 0.45 },
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "このお" }, { "text": "茶", "reading": "ちゃ" }, { "text": "は" }, { "text": "温", "reading": "ぬる", "base": null, "dict": true }, { "text": "い" }, { "text": "です。" } ],
+      "en": "This tea is lukewarm.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 温い" },
+  "source": { "jmdict": 1183300, "jlpt": 5 }
+}

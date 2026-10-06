@@ -1,0 +1,22 @@
+{
+  "id": "w1144940",
+  "type": "word",
+  "word": "レコード",
+  "primaryReading": "レコード",
+  "furigana": [{ "text": "レコード" }],
+  "meaning": "(phonograph) record",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "particles": ["notes"], "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あのレコードはこの" }, { "text": "店", "reading": "みせ" }, { "text": "で" }, { "text": "買", "reading": "か" }, { "text": "ったんだ。" } ],
+      "en": "I bought that record in this store.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231234, 68600] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word レコード" },
+  "source": { "jmdict": 1144940, "jlpt": 5 }
+}

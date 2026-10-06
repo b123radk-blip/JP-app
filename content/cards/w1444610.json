@@ -1,0 +1,28 @@
+{
+  "id": "w1444610",
+  "type": "word",
+  "word": "渡す",
+  "primaryReading": "わたす",
+  "furigana": [{ "text": "渡", "reading": "わた" }, { "text": "す" }],
+  "meaning": "to ferry across; to carry across",
+  "pos": ["v5s", "vt"],
+  "kanji": ["6e21"],
+  "builtFrom": [{ "k": "渡", "m": "transit" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "hand", "color": "#ffd27a" },
+    "motion": "drift:right",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "本", "reading": "ほん" }, { "text": "を" }, { "text": "渡", "reading": "わた" }, { "text": "してください。" } ],
+      "en": "Hand me that book, please.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [206631, 43879] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 渡す" },
+  "source": { "jmdict": 1444610, "jlpt": 5 }
+}

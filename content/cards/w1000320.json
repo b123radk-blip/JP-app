@@ -1,0 +1,22 @@
+{
+  "id": "w1000320",
+  "type": "word",
+  "word": "あそこ",
+  "primaryReading": "あそこ",
+  "furigana": [{ "text": "あそこ" }],
+  "meaning": "there; over there",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pin", "motion": "drift:away", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あそこのカウンターです。" } ],
+      "en": "It's at that counter.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [234396, 71772] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word あそこ" },
+  "source": { "jmdict": 1000320, "jlpt": 5 }
+}

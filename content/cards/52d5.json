@@ -1,0 +1,26 @@
+{
+  "id": "52d5",
+  "kanji": "動",
+  "meaning": "move; motion",
+  "primaryReading": "どう",
+  "readings": { "kun": ["うご(く)", "うご(かす)"], "on": ["ドウ"] },
+  "mnemonic": "Heavy (重) things only move with power (力): move.",
+  "effect": {
+    "material": "clay",
+    "reveal": "draw:dust",
+    "particles": ["wind"],
+    "backdrop": "sky:day",
+    "motion": "slide",
+    "parts": { "力": { "material": "lacquer" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はその" }, { "text": "動物", "reading": "どうぶつ" }, { "text": "の" }, { "text": "名前", "reading": "なまえ" }, { "text": "を" }, { "text": "知", "reading": "し" }, { "text": "っている。" } ],
+      "en": "I know the name of this animal.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159921, 254601] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

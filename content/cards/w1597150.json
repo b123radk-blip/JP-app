@@ -1,0 +1,22 @@
+{
+  "id": "w1597150",
+  "type": "word",
+  "word": "たばこ",
+  "primaryReading": "たばこ",
+  "furigana": [{ "text": "たばこ" }],
+  "meaning": "tobacco; cigarette",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["steam"], "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "たばこは" }, { "text": "体", "reading": "からだ" }, { "text": "に" }, { "text": "悪", "reading": "わる" }, { "text": "いよ。" } ],
+      "en": "Smoking is bad for your health.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203415, 40661] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word たばこ" },
+  "source": { "jmdict": 1597150, "jlpt": 5 }
+}

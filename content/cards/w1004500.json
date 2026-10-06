@@ -1,0 +1,28 @@
+{
+  "id": "w1004500",
+  "type": "word",
+  "word": "こちら",
+  "primaryReading": "こちら",
+  "furigana": [{ "text": "こちら" }],
+  "meaning": "this way; this direction",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "signpost",
+    "motion": "drift:toward",
+    "backdrop": "sky:morning"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "こちらへやってくる" }, { "text": "少年", "reading": "しょうねん" }, { "text": "とその" }, { "text": "犬", "reading": "いぬ" }, { "text": "をごらんなさい。" } ],
+      "en": "Look at the boy and his dog that are coming this way.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224144, 61480] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word こちら" },
+  "source": { "jmdict": 1004500, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1324300",
+  "type": "word",
+  "word": "若い",
+  "primaryReading": "わかい",
+  "furigana": [{ "text": "若", "reading": "わか" }, { "text": "い" }],
+  "meaning": "young; youthful",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["sparks"], "motion": "bounce", "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "もっと" }, { "text": "若", "reading": "わか" }, { "text": "ければなぁ。" } ],
+      "en": "I wish I were younger.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [193272, 30437] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 若い" },
+  "source": { "jmdict": 1324300, "jlpt": 5 }
+}

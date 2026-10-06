@@ -1,0 +1,22 @@
+{
+  "id": "w1365850",
+  "type": "word",
+  "word": "辛い",
+  "primaryReading": "からい",
+  "furigana": [{ "text": "辛", "reading": "から" }, { "text": "い" }],
+  "meaning": "spicy; hot",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["flames"], "backdrop": "halo", "emblem": "bowl" },
+  "sentences": [
+    {
+      "segments": [ { "text": "カレーが" }, { "text": "辛", "reading": "から", "base": "から", "dict": true }, { "text": "くて、" }, { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "飲", "reading": "の" }, { "text": "みました。" } ],
+      "en": "The curry was spicy, so I drank some water.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 辛い" },
+  "source": { "jmdict": 1365850, "jlpt": 5 }
+}

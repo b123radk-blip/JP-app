@@ -1,0 +1,22 @@
+{
+  "id": "w1375610",
+  "type": "word",
+  "word": "なる",
+  "primaryReading": "なる",
+  "furigana": [{ "text": "なる" }],
+  "meaning": "to become; to get",
+  "pos": ["v5r", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "grow", "particles": ["sparks"], "backdrop": "sky:dawn" },
+  "sentences": [
+    {
+      "segments": [ { "text": "すぐ" }, { "text": "明", "reading": "あか" }, { "text": "るくなるだろう。" } ],
+      "en": "It will soon grow light.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214755, 52049] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word なる" },
+  "source": { "jmdict": 1375610, "jlpt": 5 }
+}

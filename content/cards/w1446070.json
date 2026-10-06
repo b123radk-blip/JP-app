@@ -1,0 +1,22 @@
+{
+  "id": "w1446070",
+  "type": "word",
+  "word": "冬",
+  "primaryReading": "ふゆ",
+  "furigana": [{ "text": "冬", "reading": "ふゆ" }],
+  "meaning": "winter",
+  "pos": ["n", "adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["snow"], "backdrop": "sky:snow", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "まもなく" }, { "text": "冬", "reading": "ふゆ" }, { "text": "だ。" } ],
+      "en": "It will be winter before long.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [195261, 32435] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 冬" },
+  "source": { "jmdict": 1446070, "jlpt": 5 }
+}

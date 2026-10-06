@@ -1,0 +1,22 @@
+{
+  "id": "w1122650",
+  "type": "word",
+  "word": "ホテル",
+  "primaryReading": "ホテル",
+  "furigana": [{ "text": "ホテル" }],
+  "meaning": "hotel",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bed", "backdrop": "sky:night" },
+  "sentences": [
+    {
+      "segments": [ { "text": "このホテルではだめだ。" } ],
+      "en": "This hotel will not do.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [223166, 60497] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ホテル" },
+  "source": { "jmdict": 1122650, "jlpt": 5 }
+}

@@ -1,0 +1,29 @@
+{
+  "id": "w1358340",
+  "type": "word",
+  "word": "食べ物",
+  "primaryReading": "たべもの",
+  "furigana": [{ "text": "食", "reading": "た" }, { "text": "べ" }, { "text": "物", "reading": "もの" }],
+  "meaning": "food",
+  "pos": ["n"],
+  "kanji": ["98df", "7269"],
+  "builtFrom": [{ "k": "食", "m": "eat" }, { "k": "物", "m": "thing" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "bowl",
+    "particles": ["steam", "motes"],
+    "backdrop": "sky:indoor",
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "食べ物", "reading": "たべもの" }, { "text": "はたっぷりある。" } ],
+      "en": "There is plenty of food.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [145898, 268664] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 食べ物" },
+  "source": { "jmdict": 1358340, "jlpt": 5 }
+}

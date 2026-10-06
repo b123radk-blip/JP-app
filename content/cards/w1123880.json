@@ -1,0 +1,22 @@
+{
+  "id": "w1123880",
+  "type": "word",
+  "word": "ボタン",
+  "primaryReading": "ボタン",
+  "furigana": [{ "text": "ボタン" }],
+  "meaning": "button (clothing)",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:1", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "コートのボタンが" }, { "text": "取", "reading": "と" }, { "text": "れてたんだ。" } ],
+      "en": "A button has come off my coat.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224965, 62300] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ボタン" },
+  "source": { "jmdict": 1123880, "jlpt": 5 }
+}

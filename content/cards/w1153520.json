@@ -1,0 +1,22 @@
+{
+  "id": "w1153520",
+  "type": "word",
+  "word": "飴",
+  "primaryReading": "あめ",
+  "furigana": [{ "text": "飴", "reading": "あめ" }],
+  "meaning": "(hard) candy; toffee",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "gem", "backdrop": "sky:dawn", "particles": ["sparks"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "子供", "reading": "こども" }, { "text": "に" }, { "text": "飴", "reading": "あめ" }, { "text": "をあげました。" } ],
+      "en": "I gave the child a sweet.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 飴" },
+  "source": { "jmdict": 1153520, "jlpt": 5 }
+}

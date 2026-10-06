@@ -1,0 +1,22 @@
+{
+  "id": "w1396130",
+  "type": "word",
+  "word": "全部",
+  "primaryReading": "ぜんぶ",
+  "furigana": [{ "text": "全", "reading": "ぜん" }, { "text": "部", "reading": "ぶ" }],
+  "meaning": "all; entire",
+  "pos": ["n", "adj-no", "adv"],
+  "kanji": ["5168", "90e8"],
+  "builtFrom": [{ "k": "全", "m": "whole" }, { "k": "部", "m": "section" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pie:0", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "所持金", "reading": "しょじきん" }, { "text": "を" }, { "text": "全部", "reading": "ぜんぶ" }, { "text": "あげよう。" } ],
+      "en": "You shall have what money I have.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [147494, 267066] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 全部" },
+  "source": { "jmdict": 1396130, "jlpt": 5 }
+}

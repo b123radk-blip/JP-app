@@ -1,0 +1,19 @@
+{
+  "id": "5acc",
+  "kanji": "嫌",
+  "meaning": "dislike; hate",
+  "primaryReading": "いや",
+  "readings": { "kun": ["きら(う)", "きら(い)", "いや"], "on": ["ケン", "ゲン"] },
+  "mnemonic": "A woman (女) handed two of something (兼) she doesn't want: dislike.",
+  "effect": { "material": "silver", "backdrop": "sky:storm", "motion": "shake", "emblem": "frown", "parts": { "女": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "水", "reading": "みず" }, { "text": "は" }, { "text": "嫌", "reading": "いや" }, { "text": "なにおいがする。" } ],
+      "en": "This water has an ugly smell.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [220969, 58291] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1587610"] }
+}

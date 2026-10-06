@@ -1,0 +1,22 @@
+{
+  "id": "w1342550",
+  "type": "word",
+  "word": "初めて",
+  "primaryReading": "はじめて",
+  "furigana": [{ "text": "初", "reading": "はじ" }, { "text": "めて" }],
+  "meaning": "for the first time",
+  "pos": ["adv", "adj-no"],
+  "kanji": ["521d"],
+  "builtFrom": [{ "k": "初", "m": "first time" }],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["sparks"], "backdrop": "sky:dawn", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "こちらは" }, { "text": "初", "reading": "はじ" }, { "text": "めてですか。" } ],
+      "en": "Are you new here?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224150, 502232] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 初めて" },
+  "source": { "jmdict": 1342550, "jlpt": 5 }
+}

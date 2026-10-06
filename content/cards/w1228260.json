@@ -1,0 +1,22 @@
+{
+  "id": "w1228260",
+  "type": "word",
+  "word": "吸う",
+  "primaryReading": "すう",
+  "furigana": [{ "text": "吸", "reading": "す" }, { "text": "う" }],
+  "meaning": "to breathe in; to inhale",
+  "pos": ["v5u", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["wind"], "motion": "pulse", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "たばこを" }, { "text": "一服", "reading": "いっぷく" }, { "text": "吸", "reading": "す" }, { "text": "いたい。" } ],
+      "en": "I long for a smoke.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203400, 40640] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 吸う" },
+  "source": { "jmdict": 1228260, "jlpt": 5 }
+}

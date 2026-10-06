@@ -1,0 +1,22 @@
+{
+  "id": "w1597890",
+  "type": "word",
+  "word": "作る",
+  "primaryReading": "つくる",
+  "furigana": [{ "text": "作", "reading": "つく" }, { "text": "る" }],
+  "meaning": "to make; to produce",
+  "pos": ["v5r", "vt"],
+  "kanji": ["4f5c"],
+  "builtFrom": [{ "k": "作", "m": "make" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hammer", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "服", "reading": "ふく" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "った。" } ],
+      "en": "Mother made a new piece of clothing.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [82910, 320806] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 作る" },
+  "source": { "jmdict": 1597890, "jlpt": 5 }
+}

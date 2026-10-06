@@ -1,0 +1,28 @@
+{
+  "id": "w1178940",
+  "type": "word",
+  "word": "汚い",
+  "primaryReading": "きたない",
+  "furigana": [{ "text": "汚", "reading": "きたな" }, { "text": "い" }],
+  "meaning": "dirty; filthy",
+  "pos": ["adj-i"],
+  "kanji": ["6c5a"],
+  "builtFrom": [{ "k": "汚", "m": "dirty" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "splash", "color": "#6a4a28" },
+    "backdrop": "sky:day",
+    "particles": ["dust"]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "汚", "reading": "きたな" }, { "text": "い" }, { "text": "犬", "reading": "いぬ" }, { "text": "を" }, { "text": "台所", "reading": "だいどころ" }, { "text": "に" }, { "text": "入", "reading": "い" }, { "text": "れないで。" } ],
+      "en": "Don't bring that dirty dog through the kitchen.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [212187, 49466] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 汚い" },
+  "source": { "jmdict": 1178940, "jlpt": 5 }
+}

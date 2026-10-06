@@ -1,0 +1,29 @@
+{
+  "id": "w1049180",
+  "type": "word",
+  "word": "コーヒー",
+  "primaryReading": "コーヒー",
+  "furigana": [{ "text": "コーヒー" }],
+  "meaning": "coffee",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "cup", "drink": "#4a2a10" },
+    "backdrop": "sky:indoor",
+    "particles": ["steam"],
+    "motion": "float"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "コーヒーを" }, { "text": "飲", "reading": "の" }, { "text": "みますか。" } ],
+      "en": "Will you have some coffee?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224861, 62196] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word コーヒー" },
+  "source": { "jmdict": 1049180, "jlpt": 5 }
+}

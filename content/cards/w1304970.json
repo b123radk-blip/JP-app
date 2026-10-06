@@ -1,0 +1,22 @@
+{
+  "id": "w1304970",
+  "type": "word",
+  "word": "仕事",
+  "primaryReading": "しごと",
+  "furigana": [{ "text": "仕", "reading": "し" }, { "text": "事", "reading": "ごと" }],
+  "meaning": "work; job",
+  "pos": ["n", "vs", "vi"],
+  "kanji": ["4ed5", "4e8b"],
+  "builtFrom": [{ "k": "仕", "m": "attend" }, { "k": "事", "m": "matter" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "briefcase", "backdrop": "sky:morning", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "父", "reading": "ちち" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "仕事", "reading": "しごと" }, { "text": "を" }, { "text": "休", "reading": "やす" }, { "text": "んだ。" } ],
+      "en": "My father took a day off from work yesterday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84568, 10330703] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 仕事" },
+  "source": { "jmdict": 1304970, "jlpt": 5 }
+}

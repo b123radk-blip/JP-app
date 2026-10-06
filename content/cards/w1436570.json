@@ -1,0 +1,22 @@
+{
+  "id": "w1436570",
+  "type": "word",
+  "word": "締める",
+  "primaryReading": "しめる",
+  "furigana": [{ "text": "締", "reading": "し" }, { "text": "める" }],
+  "meaning": "to tie; to fasten",
+  "pos": ["v1", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bag", "motion": "pulse", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "運転手", "reading": "うんてんしゅ" }, { "text": "はベルトを" }, { "text": "締", "reading": "し" }, { "text": "めるべきだ。" } ],
+      "en": "Drivers should wear seat belts.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [189441, 26592] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 締める" },
+  "source": { "jmdict": 1436570, "jlpt": 5 }
+}

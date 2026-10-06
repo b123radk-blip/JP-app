@@ -1,0 +1,22 @@
+{
+  "id": "w1332650",
+  "type": "word",
+  "word": "秋",
+  "primaryReading": "あき",
+  "furigana": [{ "text": "秋", "reading": "あき" }],
+  "meaning": "autumn; fall",
+  "pos": ["n", "adv"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["leaves"], "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "秋", "reading": "あき" }, { "text": "には" }, { "text": "木の葉", "reading": "このは" }, { "text": "が" }, { "text": "落", "reading": "お" }, { "text": "ちる。" } ],
+      "en": "Leaves fall in the autumn.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [148208, 266351] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 秋" },
+  "source": { "jmdict": 1332650, "jlpt": 5 }
+}

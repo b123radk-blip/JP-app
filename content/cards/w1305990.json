@@ -1,0 +1,22 @@
+{
+  "id": "w1305990",
+  "type": "word",
+  "word": "使う",
+  "primaryReading": "つかう",
+  "furigana": [{ "text": "使", "reading": "つか" }, { "text": "う" }],
+  "meaning": "to use; to make use of",
+  "pos": ["v5u", "vt"],
+  "kanji": ["4f7f"],
+  "builtFrom": [{ "k": "使", "m": "use" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "wrench", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "自分", "reading": "じぶん" }, { "text": "で" }, { "text": "使", "reading": "つか" }, { "text": "ってみなさい。" } ],
+      "en": "Try it out yourself.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [149948, 264610] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 使う" },
+  "source": { "jmdict": 1305990, "jlpt": 5 }
+}

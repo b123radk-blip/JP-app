@@ -1,0 +1,22 @@
+{
+  "id": "w1154330",
+  "type": "word",
+  "word": "暗い",
+  "primaryReading": "くらい",
+  "furigana": [{ "text": "暗", "reading": "くら" }, { "text": "い" }],
+  "meaning": "dark; gloomy",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:night", "motion": "shrink" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あたりがもう" }, { "text": "暗", "reading": "くら" }, { "text": "くなっていることに" }, { "text": "気", "reading": "き" }, { "text": "がついた。" } ],
+      "en": "I observed that it had already got dark.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [234367, 71743] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 暗い" },
+  "source": { "jmdict": 1154330, "jlpt": 5 }
+}

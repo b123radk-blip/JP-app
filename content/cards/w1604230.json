@@ -1,0 +1,22 @@
+{
+  "id": "w1604230",
+  "type": "word",
+  "word": "丸い",
+  "primaryReading": "まるい",
+  "furigana": [{ "text": "丸", "reading": "まる" }, { "text": "い" }],
+  "meaning": "round; circular",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pie:0", "motion": "spin", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ボールは" }, { "text": "丸", "reading": "まる" }, { "text": "い。" } ],
+      "en": "Balls are round.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196476, 33654] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 丸い" },
+  "source": { "jmdict": 1604230, "jlpt": 5 }
+}

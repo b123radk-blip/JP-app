@@ -1,0 +1,25 @@
+{
+  "id": "697d",
+  "kanji": "楽",
+  "meaning": "music; comfort",
+  "primaryReading": "たの",
+  "readings": { "kun": ["たの(しい)", "たの(しむ)", "この(む)"], "on": ["ガク", "ラク", "ゴウ"] },
+  "mnemonic": "Bells (白) ring on a wooden (木) stand: music, fun.",
+  "effect": {
+    "material": "gold",
+    "particles": ["notes"],
+    "backdrop": "sky:golden",
+    "motion": "bounce",
+    "parts": { "木": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "音楽", "reading": "おんがく" }, { "text": "について" }, { "text": "話", "reading": "はな" }, { "text": "したよ。" } ],
+      "en": "I talked about music.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158200, 256329] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

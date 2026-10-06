@@ -1,0 +1,22 @@
+{
+  "id": "w1291330",
+  "type": "word",
+  "word": "差す",
+  "primaryReading": "さす",
+  "furigana": [{ "text": "差", "reading": "さ" }, { "text": "す" }],
+  "meaning": "to shine",
+  "pos": ["v5s", "vi"],
+  "kanji": ["5dee"],
+  "builtFrom": [{ "k": "差", "m": "difference" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "umbrella", "particles": ["rain"], "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "雨", "reading": "あめ" }, { "text": "なので、" }, { "text": "傘", "reading": "かさ" }, { "text": "を" }, { "text": "差", "reading": "さ" }, { "text": "しました。" } ],
+      "en": "It was raining, so I put up my umbrella.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 差す" },
+  "source": { "jmdict": 1291330, "jlpt": 5 }
+}

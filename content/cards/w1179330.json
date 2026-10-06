@@ -1,0 +1,22 @@
+{
+  "id": "w1179330",
+  "type": "word",
+  "word": "奥さん",
+  "primaryReading": "おくさん",
+  "furigana": [{ "text": "奥", "reading": "おく" }, { "text": "さん" }],
+  "meaning": "wife; your wife",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "ring", "backdrop": "sky:dawn", "particles": ["hearts"] },
+  "sentences": [
+    {
+      "segments": [ { "text": "いい" }, { "text": "奥", "reading": "おく" }, { "text": "さんになるよ。" } ],
+      "en": "You will make a good wife.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [229377, 66734] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 奥さん" },
+  "source": { "jmdict": 1179330, "jlpt": 5 }
+}

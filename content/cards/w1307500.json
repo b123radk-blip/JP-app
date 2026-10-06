@@ -1,0 +1,22 @@
+{
+  "id": "w1307500",
+  "type": "word",
+  "word": "始まる",
+  "primaryReading": "はじまる",
+  "furigana": [{ "text": "始", "reading": "はじ" }, { "text": "まる" }],
+  "meaning": "to begin; to start",
+  "pos": ["v5r", "vi"],
+  "kanji": ["59cb"],
+  "builtFrom": [{ "k": "始", "m": "commence" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag", "backdrop": "sky:dawn", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "会合", "reading": "かいごう" }, { "text": "は" }, { "text": "午後", "reading": "ごご" }, { "text": "三", "reading": "さん" }, { "text": "時", "reading": "じ" }, { "text": "から" }, { "text": "始", "reading": "はじ" }, { "text": "まる。" } ],
+      "en": "The meeting will commence.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [185301, 22432] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 始まる" },
+  "source": { "jmdict": 1307500, "jlpt": 5 }
+}

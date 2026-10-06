@@ -1,0 +1,27 @@
+{
+  "id": "w1050390",
+  "type": "word",
+  "word": "コップ",
+  "primaryReading": "コップ",
+  "furigana": [{ "text": "コップ" }],
+  "meaning": "glass (drinking vessel); tumbler",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "cup", "drink": "#9fd0ff" },
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "コップは" }, { "text": "水", "reading": "みず" }, { "text": "でいっぱいだ。" } ],
+      "en": "The glass is full of water.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [224105, 61441] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word コップ" },
+  "source": { "jmdict": 1050390, "jlpt": 5 }
+}

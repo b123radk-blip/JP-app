@@ -1,0 +1,27 @@
+{
+  "id": "w1092820",
+  "type": "word",
+  "word": "ネクタイ",
+  "primaryReading": "ネクタイ",
+  "furigana": [{ "text": "ネクタイ" }],
+  "meaning": "tie; necktie",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "shirt", "color": "#c03030" },
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ネクタイがほどけてるよ。" } ],
+      "en": "Your tie has come undone.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [178510, 17362] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word ネクタイ" },
+  "source": { "jmdict": 1092820, "jlpt": 5 }
+}

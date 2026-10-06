@@ -1,0 +1,27 @@
+{
+  "id": "w1002330",
+  "type": "word",
+  "word": "おばあさん",
+  "primaryReading": "おばあさん",
+  "furigana": [{ "text": "おばあさん" }],
+  "meaning": "grandmother",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "person", "color": "#c0b0d0" },
+    "backdrop": "sky:golden"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "おばあさんはバスから" }, { "text": "降", "reading": "お" }, { "text": "りた。" } ],
+      "en": "The old lady got off the bus.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [227592, 2160727] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word おばあさん" },
+  "source": { "jmdict": 1002330, "jlpt": 5 }
+}

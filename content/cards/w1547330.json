@@ -1,0 +1,29 @@
+{
+  "id": "w1547330",
+  "type": "word",
+  "word": "欲しい",
+  "primaryReading": "ほしい",
+  "furigana": [{ "text": "欲", "reading": "ほ" }, { "text": "しい" }],
+  "meaning": "wanting (to have); desiring",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "bag",
+    "particles": ["hearts"],
+    "motion": "pulse",
+    "backdrop": "sky:dawn"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "新", "reading": "あたら" }, { "text": "しいかばんが" }, { "text": "欲", "reading": "ほ" }, { "text": "しいです。" } ],
+      "en": "I want a new bag.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 欲しい" },
+  "source": { "jmdict": 1547330, "jlpt": 5 }
+}

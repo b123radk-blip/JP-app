@@ -1,0 +1,29 @@
+{
+  "id": "w1177800",
+  "type": "word",
+  "word": "遠い",
+  "primaryReading": "とおい",
+  "furigana": [{ "text": "遠", "reading": "とお" }, { "text": "い" }],
+  "meaning": "far; distant",
+  "pos": ["adj-i"],
+  "kanji": ["9060"],
+  "builtFrom": [{ "k": "遠", "m": "distant" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["road"],
+    "motion": "shrink",
+    "emblem": "arrow:away",
+    "backdrop": "sky:golden"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "駅", "reading": "えき" }, { "text": "はここから" }, { "text": "遠", "reading": "とお" }, { "text": "い。" } ],
+      "en": "The station is far from here.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [212201, 49480] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 遠い" },
+  "source": { "jmdict": 1177800, "jlpt": 5 }
+}

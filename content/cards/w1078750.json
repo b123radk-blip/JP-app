@@ -1,0 +1,22 @@
+{
+  "id": "w1078750",
+  "type": "word",
+  "word": "テープ",
+  "primaryReading": "テープ",
+  "furigana": [{ "text": "テープ" }],
+  "meaning": "tape",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:indoor" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はテープを" }, { "text": "買", "reading": "か" }, { "text": "います。" } ],
+      "en": "I buy a tape.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [159466, 255057] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word テープ" },
+  "source": { "jmdict": 1078750, "jlpt": 5 }
+}

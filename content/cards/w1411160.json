@@ -1,0 +1,22 @@
+{
+  "id": "w1411160",
+  "type": "word",
+  "word": "貸す",
+  "primaryReading": "かす",
+  "furigana": [{ "text": "貸", "reading": "か" }, { "text": "す" }],
+  "meaning": "to lend; to loan",
+  "pos": ["v5s", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "motion": "drift:right", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "夏", "reading": "なつ" }, { "text": "の" }, { "text": "間", "reading": "あいだ" }, { "text": "彼", "reading": "かれ" }, { "text": "らは" }, { "text": "家", "reading": "いえ" }, { "text": "を" }, { "text": "人", "reading": "ひと" }, { "text": "に" }, { "text": "貸", "reading": "か" }, { "text": "した。" } ],
+      "en": "They rented their house for the summer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [187228, 24365] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 貸す" },
+  "source": { "jmdict": 1411160, "jlpt": 5 }
+}

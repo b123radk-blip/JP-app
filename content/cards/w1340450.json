@@ -1,0 +1,22 @@
+{
+  "id": "w1340450",
+  "type": "word",
+  "word": "できる",
+  "primaryReading": "できる",
+  "furigana": [{ "text": "できる" }],
+  "meaning": "to be able to do; to be possible",
+  "pos": ["v1", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:noon" },
+  "sentences": [
+    {
+      "segments": [ { "text": "日本語", "reading": "にほんご" }, { "text": "ができます。" } ],
+      "en": "I can speak Japanese.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word できる" },
+  "source": { "jmdict": 1340450, "jlpt": 5 }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "56f3",
+  "kanji": "図",
+  "meaning": "map; drawing",
+  "primaryReading": "ず",
+  "readings": { "kun": ["え", "はか(る)"], "on": ["ズ", "ト"] },
+  "mnemonic": "A drawing inside a frame (囗): a map, a plan.",
+  "effect": {
+    "material": "paper",
+    "backdrop": "sky:day",
+    "scene": ["field"],
+    "emblem": { "type": "pin", "color": "#3a7ad0" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "図書館", "reading": "としょかん" }, { "text": "はどこですか。" } ],
+      "en": "Where is the library?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [143866, 270700] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

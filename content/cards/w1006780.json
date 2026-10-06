@@ -1,0 +1,28 @@
+{
+  "id": "w1006780",
+  "type": "word",
+  "word": "そちら",
+  "primaryReading": "そちら",
+  "furigana": [{ "text": "そちら" }],
+  "meaning": "that way; that direction",
+  "pos": ["pn"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": { "type": "signpost", "color": "#ffd27a" },
+    "motion": "drift:right",
+    "backdrop": "sky:day"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "すぐそちらへまいります。" } ],
+      "en": "I'll be with you in a second.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [214978, 52274] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word そちら" },
+  "source": { "jmdict": 1006780, "jlpt": 5 }
+}

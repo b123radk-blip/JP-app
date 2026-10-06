@@ -1,0 +1,25 @@
+{
+  "id": "6669",
+  "kanji": "晩",
+  "meaning": "nightfall; night",
+  "primaryReading": "ばん",
+  "readings": { "kun": [], "on": ["バン"] },
+  "mnemonic": "The sun (日) slips down, excused (免) for the day: evening, night.",
+  "effect": {
+    "material": "pearl",
+    "particles": [{ "type": "motes", "dir": "still" }],
+    "backdrop": "sky:twilight",
+    "parts": { "日": { "motion": { "type": "drift", "dir": "down", "dist": 0.035 } } },
+    "scene": [{ "type": "lanterns", "n": 3, "color": "#ffb050" }]
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "晩", "reading": "ばん" }, { "text": "は" }, { "text": "月", "reading": "つき" }, { "text": "が" }, { "text": "出", "reading": "で" }, { "text": "ていた。" } ],
+      "en": "There was a moon that night.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [207157, 44408] }
+    }
+  ],
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1482110"] }
+}

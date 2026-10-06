@@ -1,0 +1,22 @@
+{
+  "id": "w1249960",
+  "type": "word",
+  "word": "兄弟",
+  "primaryReading": "きょうだい",
+  "furigana": [{ "text": "兄", "reading": "きょう" }, { "text": "弟", "reading": "だい" }],
+  "meaning": "brothers and sisters; siblings",
+  "pos": ["n"],
+  "kanji": ["5144", "5f1f"],
+  "builtFrom": [{ "k": "兄", "m": "elder brother" }, { "k": "弟", "m": "younger brother" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "motion": "count:2", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "には" }, { "text": "兄弟", "reading": "きょうだい" }, { "text": "がいない。" } ],
+      "en": "I don't have any brothers.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [164611, 249896] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 兄弟" },
+  "source": { "jmdict": 1249960, "jlpt": 5 }
+}

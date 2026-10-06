@@ -1,0 +1,25 @@
+{
+  "id": "591c",
+  "kanji": "夜",
+  "meaning": "night; evening",
+  "primaryReading": "よる",
+  "readings": { "kun": ["よ", "よる"], "on": ["ヤ"] },
+  "mnemonic": "A person (亻) under a roof (亠) as the evening moon (夕) rises: night.",
+  "effect": {
+    "material": "neon",
+    "particles": [{ "type": "motes", "dir": "still" }],
+    "backdrop": "sky:night",
+    "emblem": "zzz",
+    "parts": { "亻": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "楽", "reading": "たの" }, { "text": "しい" }, { "text": "夜", "reading": "よる" }, { "text": "をありがとう。" } ],
+      "en": "Thank you for the pleasant evening.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [184163, 21292] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1536350"] }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1583250",
+  "type": "word",
+  "word": "いいえ",
+  "primaryReading": "いいえ",
+  "furigana": [{ "text": "いいえ" }],
+  "meaning": "no",
+  "pos": ["int"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cross", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "いいえ、" }, { "text": "外出", "reading": "がいしゅつ" }, { "text": "しました。" } ],
+      "en": "No, I went out.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [229440, 66800] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word いいえ" },
+  "source": { "jmdict": 1583250, "jlpt": 5 }
+}

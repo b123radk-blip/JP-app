@@ -1,0 +1,22 @@
+{
+  "id": "w1157170",
+  "type": "word",
+  "word": "する",
+  "primaryReading": "する",
+  "furigana": [{ "text": "する" }],
+  "meaning": "to do; to carry out",
+  "pos": ["vs-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "bounce", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "夏", "reading": "なつ" }, { "text": "には" }, { "text": "水泳", "reading": "すいえい" }, { "text": "をする。" } ],
+      "en": "I swim in the summer.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [158072, 256458] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word する" },
+  "source": { "jmdict": 1157170, "jlpt": 5 }
+}

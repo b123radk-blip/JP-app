@@ -1,0 +1,22 @@
+{
+  "id": "w1451150",
+  "type": "word",
+  "word": "働く",
+  "primaryReading": "はたらく",
+  "furigana": [{ "text": "働", "reading": "はたら" }, { "text": "く" }],
+  "meaning": "to work; to labor",
+  "pos": ["v5k", "vi"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "briefcase", "backdrop": "sky:morning" },
+  "sentences": [
+    {
+      "segments": [ { "text": "ほとんど" }, { "text": "働", "reading": "はたら" }, { "text": "けなかった。" } ],
+      "en": "I was barely able to work.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [196104, 33276] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 働く" },
+  "source": { "jmdict": 1451150, "jlpt": 5 }
+}

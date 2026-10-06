@@ -1,0 +1,19 @@
+{
+  "id": "7a7a",
+  "kanji": "空",
+  "meaning": "sky; empty",
+  "primaryReading": "そら",
+  "readings": { "kun": ["そら", "あ(く)", "あ(き)", "あ(ける)"], "on": ["クウ"] },
+  "mnemonic": "A hole (穴) in the roof over the workbench (工): the empty sky above.",
+  "effect": { "material": "cloud", "backdrop": "sky:noon", "motion": "float", "emblem": { "type": "cloud", "size": 1.4 } },
+  "sentences": [
+    {
+      "segments": [ { "text": "そのグラスは" }, { "text": "空", "reading": "そら" }, { "text": "だった。" } ],
+      "en": "I found the glass empty.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [213246, 50532] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1245290"] }
+}

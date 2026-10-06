@@ -1,0 +1,28 @@
+{
+  "id": "w1419370",
+  "type": "word",
+  "word": "弾く",
+  "primaryReading": "ひく",
+  "furigana": [{ "text": "弾", "reading": "ひ" }, { "text": "く" }],
+  "meaning": "to play",
+  "pos": ["v5k", "vt"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "note",
+    "particles": ["notes"],
+    "backdrop": "sky:twilight"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "誰", "reading": "だれ" }, { "text": "かがピアノを" }, { "text": "弾", "reading": "ひ" }, { "text": "いている。" } ],
+      "en": "Somebody is playing the piano.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [203238, 40474] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 弾く" },
+  "source": { "jmdict": 1419370, "jlpt": 5 }
+}

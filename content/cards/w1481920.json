@@ -1,0 +1,22 @@
+{
+  "id": "w1481920",
+  "type": "word",
+  "word": "うるさい",
+  "primaryReading": "うるさい",
+  "furigana": [{ "text": "うるさい" }],
+  "meaning": "noisy; loud",
+  "pos": ["adj-i"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "speaker", "motion": "shake", "backdrop": "sky:storm" },
+  "sentences": [
+    {
+      "segments": [ { "text": "あの" }, { "text": "子", "reading": "こ" }, { "text": "はなんてうるさい" }, { "text": "子", "reading": "こ" }, { "text": "だろう。" } ],
+      "en": "What a nuisance that child is!",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [230966, 68335] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word うるさい" },
+  "source": { "jmdict": 1481920, "jlpt": 5 }
+}

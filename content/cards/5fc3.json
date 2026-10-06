@@ -1,0 +1,19 @@
+{
+  "id": "5fc3",
+  "kanji": "心",
+  "meaning": "heart; mind",
+  "primaryReading": "しん",
+  "readings": { "kun": ["こころ", "ごころ"], "on": ["シン"] },
+  "mnemonic": "A heart with drops of feeling around it: heart, mind.",
+  "effect": { "material": "rose", "particles": ["hearts"], "backdrop": "sky:dusk", "motion": "pulse", "emblem": "heart" },
+  "sentences": [
+    {
+      "segments": [ { "text": "心", "reading": "こころ" }, { "text": "がやさしい" }, { "text": "人", "reading": "ひと" }, { "text": "です。" } ],
+      "en": "She is a kind-hearted person.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

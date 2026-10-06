@@ -1,0 +1,22 @@
+{
+  "id": "w1386500",
+  "type": "word",
+  "word": "雪",
+  "primaryReading": "ゆき",
+  "furigana": [{ "text": "雪", "reading": "ゆき" }],
+  "meaning": "snow; snowfall",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "particles": ["snow"], "backdrop": "sky:snow", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "昨日", "reading": "きのう" }, { "text": "は" }, { "text": "雪", "reading": "ゆき" }, { "text": "がひどかった。" } ],
+      "en": "It snowed hard yesterday.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [169965, 244521] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 雪" },
+  "source": { "jmdict": 1386500, "jlpt": 5 }
+}

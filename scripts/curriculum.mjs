@@ -37,11 +37,14 @@ const target = level.filter((w) => !single.includes(w) && !deck.cards.includes(w
 const section = orderSection(target, known, plan);
 const order = [...deck.cards, ...section.map((e) => (e.type === 'kanji' ? kanji[e.char].hex : e.id))];
 
-// primary reading of a kanji card: its own one-kanji word if it has one (山 やま), else the reading its words use most
+// primary reading of a kanji card: its own one-kanji word if it has one (山 やま), else the reading this level's words use most
+// (汚 きたな from 汚い), else the one its words at any level use most
 function primaryReading(c) {
   const own = single.filter((w) => w.word === c).sort((a, b) => b.use - a.use)[0];
   if (own) return own.reading;
-  const counts = Object.entries(kanji[c].inWords).sort((a, b) => b[1] - a[1]);
+  const here = {};
+  for (const w of level) for (const f of w.furigana ?? []) if (f.reading && f.text === c) here[f.reading] = (here[f.reading] ?? 0) + w.use;
+  const counts = Object.entries(Object.keys(here).length ? here : kanji[c].inWords).sort((a, b) => b[1] - a[1]);
   return counts[0]?.[0] ?? (kanji[c].kun[0]?.replace(/\(.*\)/, '') || kanji[c].on[0]);
 }
 const byId = new Map(words.map((w) => [w.id, w]));

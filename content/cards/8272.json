@@ -1,0 +1,19 @@
+{
+  "id": "8272",
+  "kanji": "色",
+  "meaning": "color",
+  "primaryReading": "いろ",
+  "readings": { "kun": ["いろ"], "on": ["ショク", "シキ"] },
+  "mnemonic": "A painter (⺈) bent over a curled-up palette (巴), cycling through every colour: colour.",
+  "effect": { "material": "rainbow", "backdrop": "sky:night", "emblem": "rainbow" },
+  "sentences": [
+    {
+      "segments": [ { "text": "葉", "reading": "は" }, { "text": "の" }, { "text": "色", "reading": "いろ" }, { "text": "が" }, { "text": "変", "reading": "か" }, { "text": "わり" }, { "text": "始", "reading": "はじ" }, { "text": "めた。" } ],
+      "en": "The leaves have begun to turn.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [78833, 324883] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1357600"] }
+}

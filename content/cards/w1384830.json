@@ -1,0 +1,22 @@
+{
+  "id": "w1384830",
+  "type": "word",
+  "word": "切る",
+  "primaryReading": "きる",
+  "furigana": [{ "text": "切", "reading": "き" }, { "text": "る" }],
+  "meaning": "to cut; to cut through",
+  "pos": ["v5r", "vt"],
+  "kanji": ["5207"],
+  "builtFrom": [{ "k": "切", "m": "cut" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "knife", "motion": "split", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "紙", "reading": "かみ" }, { "text": "をはさみで" }, { "text": "切", "reading": "き" }, { "text": "った。" } ],
+      "en": "I cut the paper with a pair of scissors.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [156472, 258062] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 切る" },
+  "source": { "jmdict": 1384830, "jlpt": 5 }
+}

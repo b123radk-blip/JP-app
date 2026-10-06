@@ -1,0 +1,28 @@
+{
+  "id": "w1044070",
+  "type": "word",
+  "word": "クラス",
+  "primaryReading": "クラス",
+  "furigana": [{ "text": "クラス" }],
+  "meaning": "class",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "scene": ["room:classroom"],
+    "emblem": "person",
+    "backdrop": "sky:indoor"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "クラスは" }, { "text": "意見", "reading": "いけん" }, { "text": "が" }, { "text": "分", "reading": "わ" }, { "text": "かれた。" } ],
+      "en": "The class were divided in their opinion.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [225569, 62906] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word クラス" },
+  "source": { "jmdict": 1044070, "jlpt": 5 }
+}

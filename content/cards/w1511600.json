@@ -1,0 +1,27 @@
+{
+  "id": "w1511600",
+  "type": "word",
+  "word": "かたかな",
+  "primaryReading": "かたかな",
+  "furigana": [{ "text": "かたかな" }],
+  "meaning": "katakana",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "particles": [{ "type": "kana", "color": "#9c8cff" }],
+    "backdrop": "sky:night"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "名前", "reading": "なまえ" }, { "text": "をかたかなで" }, { "text": "書", "reading": "か" }, { "text": "きます。" } ],
+      "en": "I write my name in katakana.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word かたかな" },
+  "source": { "jmdict": 1511600, "jlpt": 5 }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "9045",
+  "kanji": "遅",
+  "meaning": "slow; late",
+  "primaryReading": "おそ",
+  "readings": { "kun": ["おく(れる)", "おく(らす)", "おそ(い)"], "on": ["チ"] },
+  "mnemonic": "A sheep (羊) dawdling along the road (⻌): slow, late.",
+  "effect": {
+    "material": "clay",
+    "backdrop": "sky:golden",
+    "scene": ["road"],
+    "motion": { "type": "slide", "speed": 0.4, "dist": 0.02 },
+    "emblem": "snail"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "とにかく" }, { "text": "遅", "reading": "おそ" }, { "text": "すぎますよ。" } ],
+      "en": "It's too late, anyhow.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [200445, 37646] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

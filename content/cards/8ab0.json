@@ -1,0 +1,24 @@
+{
+  "id": "8ab0",
+  "kanji": "誰",
+  "meaning": "who; someone",
+  "primaryReading": "だれ",
+  "readings": { "kun": ["だれ", "たれ", "た"], "on": ["スイ"] },
+  "mnemonic": "A bird (隹) asking (言), \"Who? Who?\": who.",
+  "effect": {
+    "material": "silver",
+    "backdrop": "sky:dusk",
+    "motion": "tilt",
+    "emblem": { "type": "question", "color": "#c0a0ff" }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "あなたは" }, { "text": "誰", "reading": "だれ" }, { "text": "の" }, { "text": "味方", "reading": "みかた" }, { "text": "なの。" } ],
+      "en": "Whose side are you?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231737, 69104] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1416830"] }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1577280",
+  "type": "word",
+  "word": "暇",
+  "primaryReading": "ひま",
+  "furigana": [{ "text": "暇", "reading": "ひま" }],
+  "meaning": "spare time; free time",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "zzz", "backdrop": "sky:golden" },
+  "sentences": [
+    {
+      "segments": [ { "text": "今晩", "reading": "こんばん" }, { "text": "暇", "reading": "ひま" }, { "text": "かな？" } ],
+      "en": "Are you free tonight?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [171215, 243262] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 暇" },
+  "source": { "jmdict": 1577280, "jlpt": 5 }
+}

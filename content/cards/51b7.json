@@ -1,0 +1,26 @@
+{
+  "id": "51b7",
+  "kanji": "冷",
+  "meaning": "cool; chill",
+  "primaryReading": "れい",
+  "readings": { "kun": ["つめ(たい)", "ひ(える)", "ひ(や)", "ひ(ややか)"], "on": ["レイ"] },
+  "mnemonic": "Ice (冫) by order (令): cold.",
+  "effect": {
+    "material": "ice",
+    "particles": ["snow"],
+    "backdrop": "sky:snow",
+    "motion": "shake",
+    "emblem": { "type": "thermometer", "level": 0.15, "color": "#40a0ff" },
+    "parts": { "冫": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "もう" }, { "text": "手", "reading": "て" }, { "text": "が" }, { "text": "冷", "reading": "つめ" }, { "text": "たくって。" } ],
+      "en": "My hand's getting too cold.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [194174, 31343] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

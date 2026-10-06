@@ -1,0 +1,26 @@
+{
+  "id": "6cf3",
+  "kanji": "泳",
+  "meaning": "swim",
+  "primaryReading": "およ",
+  "readings": { "kun": ["およ(ぐ)"], "on": ["エイ"] },
+  "mnemonic": "Water (氵) that goes on forever (永): swim.",
+  "effect": {
+    "material": "water",
+    "particles": ["bubbles", "sparks"],
+    "backdrop": "sky:lake",
+    "scene": ["ripples"],
+    "motion": "swim",
+    "parts": { "氵": {} }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "本当", "reading": "ほんとう" }, { "text": "に" }, { "text": "泳", "reading": "およ" }, { "text": "げるのですか。" } ],
+      "en": "Can you swim at all?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [231567, 68934] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

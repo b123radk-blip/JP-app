@@ -1,0 +1,24 @@
+{
+  "id": "58f2",
+  "kanji": "売",
+  "meaning": "sell",
+  "primaryReading": "う",
+  "readings": { "kun": ["う(る)", "う(れる)"], "on": ["バイ"] },
+  "mnemonic": "A samurai (士) on long legs (儿) under a roof (冖) calling out his wares: sell.",
+  "effect": {
+    "material": "gold",
+    "particles": [{ "type": "coins", "count": 0.6 }],
+    "backdrop": "sky:golden",
+    "emblem": "tag"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "家", "reading": "いえ" }, { "text": "は" }, { "text": "安", "reading": "やす" }, { "text": "く" }, { "text": "売", "reading": "う" }, { "text": "られた。" } ],
+      "en": "The house went cheap.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [212101, 49380] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

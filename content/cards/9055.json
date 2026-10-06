@@ -1,0 +1,19 @@
+{
+  "id": "9055",
+  "kanji": "違",
+  "meaning": "differ; difference",
+  "primaryReading": "ちが",
+  "readings": { "kun": ["ちが(う)", "ちが(い)", "ちが(える)", "ちが(える)"], "on": ["イ"] },
+  "mnemonic": "Walking (⻌) the wrong way round the leather (韋): different, wrong.",
+  "effect": { "material": "silver", "backdrop": "sky:dusk", "motion": "shake", "emblem": "cross" },
+  "sentences": [
+    {
+      "segments": [ { "text": "答", "reading": "こた" }, { "text": "えが" }, { "text": "違", "reading": "ちが" }, { "text": "います。" } ],
+      "en": "The answer is wrong.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

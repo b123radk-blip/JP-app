@@ -1,0 +1,22 @@
+{
+  "id": "w1579100",
+  "type": "word",
+  "word": "今朝",
+  "primaryReading": "けさ",
+  "furigana": [{ "text": "今朝", "reading": "けさ" }],
+  "meaning": "this morning",
+  "pos": ["n", "adv"],
+  "kanji": ["4eca", "671d"],
+  "builtFrom": [{ "k": "今", "m": "now" }, { "k": "朝", "m": "morning" }],
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sunrise", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今朝", "reading": "けさ" }, { "text": "、" }, { "text": "遅", "reading": "おそ" }, { "text": "く" }, { "text": "起", "reading": "お" }, { "text": "きた。" } ],
+      "en": "I got up late this morning.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [157011, 257523] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 今朝" },
+  "source": { "jmdict": 1579100, "jlpt": 5 }
+}

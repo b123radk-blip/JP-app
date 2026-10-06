@@ -1,0 +1,22 @@
+{
+  "id": "w1542430",
+  "type": "word",
+  "word": "郵便局",
+  "primaryReading": "ゆうびんきょく",
+  "furigana": [{ "text": "郵", "reading": "ゆう" }, { "text": "便", "reading": "びん" }, { "text": "局", "reading": "きょく" }],
+  "meaning": "post office",
+  "pos": ["n"],
+  "kanji": [],
+  "builtFrom": [],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "backdrop": "sky:day" },
+  "sentences": [
+    {
+      "segments": [ { "text": "郵便局", "reading": "ゆうびんきょく" }, { "text": "はどこですか。" } ],
+      "en": "Where is the post office?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [79171, 324546] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 郵便局" },
+  "source": { "jmdict": 1542430, "jlpt": 5 }
+}

@@ -1,0 +1,22 @@
+{
+  "id": "w1526360",
+  "type": "word",
+  "word": "万年筆",
+  "primaryReading": "まんねんひつ",
+  "furigana": [{ "text": "万", "reading": "まん" }, { "text": "年", "reading": "ねん" }, { "text": "筆", "reading": "ひつ" }],
+  "meaning": "fountain pen",
+  "pos": ["n"],
+  "kanji": ["4e07", "5e74", "7b46"],
+  "builtFrom": [{ "k": "万", "m": "ten thousand" }, { "k": "年", "m": "year" }, { "k": "筆", "m": "writing brush" }],
+  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:noon", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "万年筆", "reading": "まんねんひつ" }, { "text": "を" }, { "text": "持", "reading": "も" }, { "text": "っていますか。" } ],
+      "en": "Do you have a fountain pen with you?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [81091, 322624] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 万年筆" },
+  "source": { "jmdict": 1526360, "jlpt": 5 }
+}

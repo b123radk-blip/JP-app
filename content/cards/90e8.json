@@ -1,0 +1,24 @@
+{
+  "id": "90e8",
+  "kanji": "部",
+  "meaning": "section; part",
+  "primaryReading": "ぶ",
+  "readings": { "kun": ["べ"], "on": ["ブ"] },
+  "mnemonic": "A village (⻏) divided into sections: part, section.",
+  "effect": {
+    "material": "chalk",
+    "backdrop": "sky:day",
+    "emblem": { "type": "pie", "part": 0.25 },
+    "parts": { "⻏": { "material": "jade" } }
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "部屋", "reading": "へや" }, { "text": "の" }, { "text": "電気", "reading": "でんき" }, { "text": "がつかない。" } ],
+      "en": "The light doesn't come on in my room.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [84158, 319557] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

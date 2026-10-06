@@ -1,0 +1,29 @@
+{
+  "id": "w1602710",
+  "type": "word",
+  "word": "両親",
+  "primaryReading": "りょうしん",
+  "furigana": [{ "text": "両", "reading": "りょう" }, { "text": "親", "reading": "しん" }],
+  "meaning": "parents; both parents",
+  "pos": ["n"],
+  "kanji": ["4e21", "89aa"],
+  "builtFrom": [{ "k": "両", "m": "both" }, { "k": "親", "m": "parent" }],
+  "effect": {
+    "material": "ivory",
+    "reveal": "draw",
+    "emblem": "person",
+    "particles": ["hearts"],
+    "backdrop": "sky:golden",
+    "motion": "count:2"
+  },
+  "sentences": [
+    {
+      "segments": [ { "text": "ご" }, { "text": "両親", "reading": "りょうしん" }, { "text": "によろしく。" } ],
+      "en": "Give my best respects to your parents.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
+      "source": { "tatoeba": [216983, 54290] }
+    }
+  ],
+  "review": { "recipe": "draft", "rule": "word 両親" },
+  "source": { "jmdict": 1602710, "jlpt": 5 }
+}
