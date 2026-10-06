@@ -3,7 +3,7 @@
 // Usage: npm run serve (other shell), then npm run e2e. Exit code 1 if any check fails. It cannot test a real headset.
 import { createRequire } from 'node:module';
 import assert from 'node:assert/strict';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 const { chromium } = createRequire('/opt/node22/lib/node_modules/_')('playwright');
 
 const BASE = process.env.BASE || 'http://localhost:8080/', OUT = process.env.OUT || 'docs/screenshots';
@@ -41,15 +41,30 @@ const seekEnd = async (page) => { const t = (await info(page)).player.times.rati
 const setDay = (page, n) => page.evaluate((k) => { window.__app.app.clock.addDays(k); window.__app.app.show('home'); }, n);
 const close = (page, y) => page.evaluate((cy) => { const { kit } = window.__app.app; kit.camera.position.set(0, 1.4 + cy, -0.62); kit.controls.target.set(0, 1.4 + cy, -1.2); kit.controls.update(); }, y);
 
-// ---------- 1. day 1: deck tile -> study -> three new cards (日 sun, 火 fire, 水 default) ----------
+const deckIds = JSON.parse(readFileSync('content/decks/n5.json', 'utf8')).cards;
+const budget = (st) => st && st.drawCalls <= 160 && st.particles <= 2000 && st.pointLights <= 3;
+// rate every card of the current session Good until the session ends; returns the card ids seen, in order
+async function rateAll(page, onCard = async () => {}) {
+  const seen = [];
+  for (;;) {
+    await page.waitForFunction((prev) => { const i = window.__app.info(); return i.screen === 'done' || (i.player && i.player.id !== prev); }, seen.at(-1) ?? null, { timeout: 15000 });
+    const i = await info(page);
+    if (i.screen === 'done') return seen;
+    seen.push(i.player.id); await onCard(i);
+    await seekEnd(page); await click(page, 'rate-good');
+  }
+}
+
+// ---------- 1. day 1: deck tile -> study -> the 10 new cards of the day, each with its recipe animation ----------
 let page = await open();
 let st = await info(page);
 check(st.screen === 'home' && st.ids.join() === 'deck-n5', 'home shows one pressable deck tile (N4-N1 are "coming soon" and not pressable)');
+check(!(await page.locator('#buttons button').allInnerTexts()).some((b) => b.startsWith('Sound')) && !(await page.locator('#footer').innerText()).includes('Voice'), 'no voice clips yet: no Sound button and no voice credit');
 await shot(page, '1-home');
 await click(page, 'deck-n5');
 await waitCard(page, '65e5'); st = await info(page);
 check(st.screen === 'study' && st.player.active, 'clicking the N5 tile starts a session on card 日 with its animation active');
-check(st.player.effectId === 'sun' && !st.ids.includes('rate-good'), '日 uses the sun effect; rating buttons are hidden while the animation plays');
+check(st.player.effectId === 'recipe' && !st.ids.includes('rate-good'), '日 is built from a recipe; rating buttons are hidden while the animation plays');
 await page.evaluate(() => window.__app.seek(3.2)); await page.waitForTimeout(250); await shot(page, '2-sun-mid-strokes');
 await seekEnd(page); st = await info(page);
 check(st.ids.includes('rate-good') && !st.ids.includes('skip'), 'after the sentence, rating buttons appear and Skip disappears');
@@ -57,27 +72,28 @@ check(await page.evaluate(() => { const g = window.__app.app.screen.player.group
 await shot(page, '3-sun-rating');
 await click(page, 'rate-good');
 await waitCard(page, '706b'); st = await info(page);
-check(st.player.effectId === 'fire' && st.player.active, 'next card is 火 with the fire effect');
+check(st.player.effectId === 'recipe' && st.player.active && st.player.effect.particles > 0, 'next card is 火, a recipe with particles');
 await page.evaluate(() => window.__app.seek(2.6)); await page.waitForTimeout(250); await shot(page, '4-fire-mid-strokes');
 await seekEnd(page); await shot(page, '5-fire-rating'); await close(page, -0.2); await page.waitForTimeout(300); await shot(page, '6-sentence-closeup');
 await page.evaluate(() => { const { kit } = window.__app.app; kit.camera.position.set(0, 1.45, 0.25); kit.controls.target.set(0, 1.4, -1.2); kit.controls.update(); });
 await page.waitForTimeout(200);
 await click(page, 'rate-good');
-await waitCard(page, '6c34'); st = await info(page);
-check(st.player.effectId === 'default' && st.player.active, 'third card 水 has no effect of its own and gets the default effect');
-await seekEnd(page); await shot(page, '7-default-rating');
-await click(page, 'rate-good');
-await page.waitForFunction(() => window.__app.info().screen === 'done'); await page.waitForTimeout(300);
-await shot(page, '8-done');
+const overBudget = [];
+const day1 = ['65e5', '706b', ...await rateAll(page, async (i) => {
+  if (!budget(i.player.effect)) overBudget.push(i.player.id);
+  if (i.player.id === '6c34') { await seekEnd(page); await shot(page, '7-water-rating'); }
+})];
+check(day1.join() === deckIds.slice(0, 10).join(), `day 1 shows the first 10 cards of the deck in order (new-card limit): ${day1.length}`);
+check(!overBudget.length, `every effect stays within the performance budget ${overBudget.join(' ')}`);
+await page.waitForTimeout(300); await shot(page, '8-done');
 st = await info(page);
-check(Object.keys(st.cards).length === 3 && Object.values(st.cards).every((c) => c.reps === 1 && c.interval === 1), 'three cards saved with one Good each (interval 1 day)');
+check(Object.keys(st.cards).length === 10 && Object.values(st.cards).every((c) => c.reps === 1 && c.interval === 1), 'ten cards saved with one Good each (interval 1 day)');
 
 // ---------- 2. progress survives a reload (localStorage) ----------
 await page.reload({ waitUntil: 'load' }); await page.waitForFunction(() => window.__app?.ready === true);
-st = await info(page); check(Object.keys(st.cards).length === 3, 'progress is still there after reloading the page');
+st = await info(page); check(Object.keys(st.cards).length === 10, 'progress is still there after reloading the page');
 
-// ---------- 3. day 2 and 3: the 2-days retirement rule through the real UI ----------
-await click(page, 'home').catch(() => {});
+// ---------- 3. day 2 and 5: the 2-days retirement rule through the real UI ----------
 await page.evaluate(() => window.__app.app.show('home'));
 await shot(page, '9-home-nothing-due');
 await click(page, 'deck-n5'); await page.waitForFunction(() => window.__app.info().screen === 'done'); st = await info(page);
@@ -87,10 +103,11 @@ check(st.ids.includes('study-ahead'), '...with a "Study ahead" option');
 await setDay(page, 1);
 await click(page, 'deck-n5'); await waitCard(page, '65e5'); st = await info(page);
 check(st.player.active, 'day 2: after only ONE good day, 日 still shows its animation');
-for (const id of ['65e5', '706b', '6c34']) { await waitCard(page, id); await seekEnd(page); await click(page, 'rate-good'); }
-await page.waitForFunction(() => window.__app.info().screen === 'done');
-await setDay(page, 3);                                       // interval is now 3 days
-await click(page, 'deck-n5'); await waitCard(page, '65e5'); st = await info(page);
+const day2 = ['65e5', ...await (async () => { await seekEnd(page); await click(page, 'rate-good'); return rateAll(page); })()];
+check(day2.length === 15 && day2.slice(10).join() === deckIds.slice(10).join(), `day 2: the 10 due cards, then the last 5 new ones (${day2.length})`);
+await setDay(page, 3);                                       // the first ten are now due after a 3-day interval
+await click(page, 'deck-n5'); await page.waitForFunction(() => window.__app.info().player);
+await page.evaluate(() => window.__app.app.screen.jump('65e5')); await waitCard(page, '65e5'); st = await info(page);   // the debug panel's jump
 check(!st.player.active && !st.player.hasEffect, 'day 5: Good on 2 different days -> 日 is retired: no animation, plain kanji');
 check(st.ids.includes('show-answer') && !st.ids.includes('rate-good'), 'retired card asks "Show answer" first; no rating buttons yet');
 await shot(page, '11-retired-front');
@@ -98,17 +115,55 @@ await click(page, 'show-answer'); await page.evaluate(() => window.__app.seek(1.
 st = await info(page); check(st.ids.includes('rate-hard'), 'after Show answer the rating buttons appear');
 await shot(page, '12-retired-answer');
 await click(page, 'rate-hard');                              // a lapse: the animation must come back
-await waitCard(page, '706b'); await page.evaluate(() => window.__app.app.show('home'));
-await setDay(page, 4);
+await page.waitForFunction(() => window.__app.info().player?.id !== '65e5' || window.__app.info().screen === 'done');
+await page.evaluate(() => window.__app.app.show('home'));
+await setDay(page, 1);
 await click(page, 'deck-n5'); await page.waitForFunction(() => window.__app.info().player);
-st = await info(page); check(st.player.id === '706b', 'overdue cards (火, 水) come before 日, which is due later after Hard');
-await page.evaluate(() => window.__app.app.screen.jump('65e5')); await waitCard(page, '65e5'); st = await info(page);   // the debug panel's jump
+await page.evaluate(() => window.__app.app.screen.jump('65e5')); await waitCard(page, '65e5'); st = await info(page);
 check(st.player.active && st.player.hasEffect, '日 rated Hard -> its animation is back');
 await shot(page, '13-animation-back');
-await page.evaluate(() => window.__app.app.debug.forceAnimation = 'off'); 
+await page.evaluate(() => window.__app.app.debug.forceAnimation = 'off');
 await close(page, 0); await page.close();
 
-// ---------- 4. mocked XR: buttons, error path, and a `select` ray aimed at a button ----------
+// ---------- 4. preview page: every card on its own, Prev / Next, built cost = catalog estimate, URL recipes ----------
+page = await open('?preview=1&deck=n5');
+st = await info(page);
+check(st.screen === 'preview' && st.player.id === deckIds[0], 'the preview page opens on the first card of the deck');
+await click(page, 'preview-next'); await page.waitForFunction((i) => window.__app.info().player?.id === i, deckIds[1]);
+await click(page, 'preview-prev'); await page.waitForFunction((i) => window.__app.info().player?.id === i, deckIds[0]);
+check(true, 'Next / Prev buttons flip through the cards');
+const costs = await page.evaluate(async (ids) => {
+  const { normalizeRecipe, estimateCost } = await import('/src/effects/catalog.js');
+  const { COMPONENT_LOOKS } = await import('/src/config.js');
+  const out = [];
+  for (const id of ids) {
+    window.__app.app.screen.jump(id);
+    for (let k = 0; k < 100 && window.__app.info().player?.id !== id; k++) await new Promise((r) => setTimeout(r, 50));
+    const card = await (await fetch(`/content/cards/${id}.json`)).json(), strokes = await (await fetch(`/data/kanji-${id}.json`)).json();
+    const est = estimateCost(normalizeRecipe(card.effect, COMPONENT_LOOKS), strokes.strokes.length), built = window.__app.info().player.effect;
+    out.push({ id, est, built });
+  }
+  return out;
+}, deckIds);
+const off = costs.filter((c) => c.est.drawCalls !== c.built.drawCalls || c.est.particles !== c.built.particles || c.est.pointLights !== c.built.pointLights);
+check(!off.length, `built draw calls / particle slots / lights equal the catalog estimate for all ${costs.length} cards ${JSON.stringify(off)}`);
+await page.evaluate(() => window.__app.app.screen.jump('706b')); await page.waitForFunction(() => window.__app.info().player?.id === '706b');
+await page.evaluate(() => window.__app.seek(2.4)); await page.waitForTimeout(200); await shot(page, '14-preview');
+await page.close();
+page = await open(`?preview=1&card=6c34&t=2&recipe=${encodeURIComponent(JSON.stringify({ material: 'heat', reveal: 'ignite', particles: ['flames'], backdrop: 'halo' }))}`);
+st = await info(page);
+check(st.player.id === '6c34' && st.player.paused && st.player.effect.drawCalls === 3 * 4 + 1 + 1, 'a URL recipe is tried on 水 (heat material: 3 draw calls per stroke) and t= freezes the time');
+await page.close();
+
+// ---------- 5. voice clips: when the manifest has clips, Sound button + VOICEVOX credit ----------
+page = await (await browser.newContext({ viewport: { width: 1100, height: 760 } })).newPage();
+page.on('pageerror', (e) => errors.push(`[pageerror] ${e.message}`));
+await page.route('**/audio/manifest.json', (r) => r.fulfill({ contentType: 'application/json', body: JSON.stringify({ voice: { credit: 'VOICEVOX: テスト' }, clips: { '65e5-reading': { src: 'audio/test.wav', text: 'ひ' } } }) }));
+await page.goto(BASE + '?today=2026-10-06', { waitUntil: 'load' }); await page.waitForFunction(() => window.__app?.ready === true);
+check((await page.locator('#buttons button').allInnerTexts()).includes('Sound: on') && (await page.locator('#footer').innerText()).includes('Voice: VOICEVOX: テスト'), 'with clips in the manifest: Sound button and the VOICEVOX credit appear');
+await page.close();
+
+// ---------- 6. mocked XR: buttons, error path, and a `select` ray aimed at a button ----------
 page = await open('?debug=1', { mockXR: true });
 const labels = await page.locator('#buttons button').allInnerTexts();
 check(labels.includes('Enter VR') && labels.includes('Enter AR'), `Enter VR / Enter AR buttons appear when the browser reports support (${labels.join(', ')})`);

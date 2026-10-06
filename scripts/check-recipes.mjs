@@ -40,7 +40,7 @@ function missing(rows) {
     const specs = [...SLOTS.filter((s) => s !== 'particles').map((s) => [s, r.recipe[s]]), ...r.recipe.particles.map((p) => ['particles', p]), ...Object.values(r.recipe.parts).flatMap((p) => [['material', p.material], ['motion', p.motion]])];
     for (const [slot, s] of specs) {
       if (!s) continue;
-      if (!PIECES[slot][s.type]) note(`${slot}: ${s.type}`, r.name);
+      if (!PIECES[slot][s.type]) note(slot === 'material' ? `material preset (data only): ${s.type}` : PARTICLE_KINDS[s.type]?.tip ? `particles: ${s.type} as a layer (the tip kind exists; needs an emitter)` : `${slot}: ${s.type}`, r.name);
       else if (slot === 'material' && s.preset && !MATERIALS[s.preset]) note(`material preset (data only): ${s.preset}`, r.name);
       else if (slot === 'backdrop' && s.type === 'sky' && !SKIES[s.preset]) note(`sky preset (data only): ${s.preset}`, r.name);
       else if (slot === 'reveal' && s.tip && !PARTICLE_KINDS[s.tip]) note(`tip particles: ${s.tip}`, r.name);

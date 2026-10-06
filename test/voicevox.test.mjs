@@ -83,9 +83,11 @@ test('generate: matching clips are rendered (wav), a misread one is reported and
     assert.equal(calls.filter((c) => c.endsWith('/synthesis')).length, synth, 'unchanged clips are not rendered again');
     assert.match(again.out, /unchanged 2/);
 
-    const acc = await vv(dir, ['generate', '--speaker', '3', '--host', host, '--format', 'wav', '--only', '706b-s1', '--accept', '706b-s1']);
+    const acc = await vv(dir, ['generate', '--speaker', '3', '--host', host, '--format', 'wav', '--only', '706b-s1', '--accept', '706b-s1', '--credit', 'VOICEVOX:テスト']);
     assert.equal(acc.code, 0, acc.out);
     assert.ok(existsSync(join(dir, 'audio/706b-s1.wav')));
+    await vv(dir, ['generate', '--speaker', '3', '--host', host, '--format', 'wav', '--only', '65e5-s1', '--force']);
+    assert.equal(JSON.parse(readFileSync(join(dir, 'audio/manifest.json'), 'utf8')).voice.credit, 'VOICEVOX:テスト', 'a --credit set earlier is kept for the same character');
   } finally { server.close(); }
 });
 

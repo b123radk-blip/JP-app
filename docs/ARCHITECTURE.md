@@ -3,7 +3,8 @@
 ## Flow
 `index.html` -> `src/main.js` -> `app/app.js` builds the shared services and shows a screen:
 **home** (deck tiles N5-N1; only enabled decks are pressable) -> **study** (session over due + new cards) -> **done**
-(summary, or "all caught up" with Study ahead). A screen is `create(app, props) -> { name, group, update(dt), dispose(), onPlaced?, onEnvironment? }`.
+(summary, or "all caught up" with Study ahead). `?preview=1` shows **preview** instead (one card's animation, looping, with
+its recipe and real cost; Prev / Replay / Pause / Next). A screen is `create(app, props) -> { name, group, update(dt), dispose(), onPlaced?, onEnvironment? }`.
 
 | Folder | Responsibility |
 |---|---|
@@ -11,10 +12,11 @@
 | `src/core/` | `scene` (renderer, camera, root/card groups, frame loop), `xr` (Enter VR/AR, placement, passthrough), `input` + `pick` (mouse, controller and hand rays), `audio` (clips by id), `text` (canvas text, furigana), `clock` (fake days) |
 | `src/srs/` | pure logic, unit-tested: `scheduler`, `retirement`, `storage`, `session`, `dates` |
 | `src/kanji/tube.js` | KanjiVG centre-lines -> 3D tubes, stroke timing |
-| `src/effects/` | `sun` (日), `fire` (火), `default`; shared `glow-glyph` |
+| `src/effects/` | composable effects: `catalog` (pure: pieces, options, costs, recipe parsing / validation), `similarity` (pure), `compose` (builds one card's effect), `pieces/` (materials, reveal, particles, backdrops, motion, emblems) |
 | `src/ui/` | 3D `button`, 2D `debug-panel` |
-| `src/app/` | app wiring, `card-player`, screens |
-| `content/` | cards, decks (data only); `audio/manifest.json` maps clip ids to files; `data/` holds stroke data |
+| `src/app/` | app wiring, `card-player` (also the mnemonic panel), screens (home, study, done, preview) |
+| `content/` | cards, decks (data only); `src/content/clips.js` derives voice clip ids; `audio/clips.json` lists every clip the content needs, `audio/manifest.json` the ones that exist; `data/` holds stroke data + KanjiVG components |
+| `scripts/` | build (kanji, font), checks (content, recipes, sentences), e2e and screenshots, `voice-list` + `voicevox` (run on the user's PC) |
 
 ## Decisions and why
 - **WebXR, not native.** Fast loop: everything except the headset itself can be built and checked here. Content carries over if we port later.
@@ -26,9 +28,26 @@
 - **Storage**: one versioned JSON object in localStorage. Unreadable or newer-version data is backed up to `<key>:backup`, never silently overwritten; card entries are validated on load and import. Export/import buttons are the safety net (browsers can clear site data). No accounts or sync yet.
 - **XR input**: on the session's `select` event (pinch or trigger) we raycast from that input source's target-ray pose; every frame we raycast for hover and draw a small reticle. Desktop uses the same raycast from the mouse. Hidden or disabled buttons are never hit.
 - **Text: canvas, not SDF.** Both were rendered side by side (docs/screenshots/text-eval-*.png): equally crisp at reading distance; up close the canvas text was cleaner (SDF showed hairline seams where 熱 / 火 contours overlap). Canvas text measures synchronously, so furigana is exact; no worker or extra library. Resolution ~5000 px/m (about 2.5x the headset's pixel density at 1.2 m). Font: Noto Sans JP (OFL) subset to the characters in use (`assets/fonts/charset.txt`); the content check fails if a card uses a character outside it.
+- **Effects are recipes, not code.** A card's `effect` names one piece per slot (material, reveal, up to 2 particle layers,
+  backdrop, motion, emblem) plus per-component styling. New cards need data only, and the similarity check keeps them
+  distinct. 日 and 火 were rebuilt as recipes and compared with the old bespoke code with the frame loop frozen: 日 and the
+  default effect render pixel-identical, 火 differs only where spark positions are one frame apart.
+  Per frame: reveal -> backdrop -> materials -> particle layers -> tip particles -> pools -> motions -> emblem. Shared state:
+  `ctx.rv` (stroke progress, tips, when the front reached each sample), `ctx.light` (backdrop light level), `ctx.idle`.
+  All particles of one blend mode and space share one instanced mesh (one draw call); all randomness is one seeded generator.
+- **Components** come from KanjiVG's `kvg:element` groups (`scripts/lib/kanjivg.mjs`): each part gets its own material
+  instance and pivot group, so a component keeps one look across kanji (`COMPONENT_LOOKS`) and can move on its own.
+- **Cost is declared and checked.** Each piece declares draw calls / particle slots / lights; the content check rejects a
+  recipe over `EFFECTS.budget`, and e2e checks that what is built equals the declaration.
+- **Mnemonic** (optional, one line): shown left of the kanji with the meaning, under the label "Memory aid (a story, not
+  the origin)". Accuracy rules apply to meanings, readings and sentences, not to the story.
+- **Voice**: generated by the user with VOICEVOX on their PC (docs/VOICEVOX.md). The script checks VOICEVOX's planned kana
+  against the verified reading before saving. The app plays only clips listed in the manifest; with none, it is silent
+  and shows no Sound button or voice credit.
 - **Placement**: on session start the card is placed 1.2 m in front of where the viewer looks, at eye height, facing them; the card restarts then.
 
 ## Known limits / next steps
-- Headset behaviour (pinch accuracy, comfort, text sharpness, frame rate with the fire effect) is untested here.
-- Audio is a robotic placeholder for two clips; VOICEVOX via a clip manifest is the plan.
+- Headset behaviour (pinch accuracy, comfort, text sharpness, frame rate with the fire and rain effects) is untested here.
+- No voice until the user renders it (docs/VOICEVOX.md). Slow clips (`--slow-too`) are not used by the app yet.
+- Pieces for most of N5 are still missing: see docs/EFFECTS-PLAN.md (generated list).
 - One sentence per card (the first); no card editing; no stats screen; no cloud sync.

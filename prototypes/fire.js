@@ -29,7 +29,7 @@ const FURIGANA = { 0: 'ひ', 2: 'あつ' };           // slot -> reading shown a
 const MEANING_DELAY = 0.9;      // after the last stroke
 const STAGE2_DELAY = 1.9;       // sentence appears this long after the last stroke
 const SAY_SENTENCE_DELAY = 0.7; // sentence audio starts this long after the sentence appears
-const SENTENCE_AUDIO_LEN = 1.1; // seconds (audio/fire-is-hot.mp3 is 1.08 s)
+const SENTENCE_AUDIO_LEN = 1.1; // seconds the sentence stays before the English (was the length of the old voice clip)
 
 const params = new URLSearchParams(location.search);
 const clamp01 = (x) => Math.min(1, Math.max(0, x));
@@ -429,23 +429,10 @@ function stepAll(t, dt) {
   english.mat.opacity = smooth((t - T_ENGLISH) / 0.6);
 }
 
-// ---------- audio (placeholder voice, see scripts/make-audio.py) ----------
-function makeClip(url) {
-  const a = new Audio(url); a.preload = 'auto';
-  a.addEventListener('error', () => { state.note = `Could not load ${url}`; renderStatus(); });
-  return a;
-}
-const sayKanji = makeClip('../audio/hi.mp3'), saySentence = makeClip('../audio/fire-is-hot.mp3');
-let soundOn = true, saidKanji = false, saidSentence = false;
-function play(a) {
-  if (!soundOn) return;
-  a.currentTime = 0;
-  a.play().catch(() => { state.note = 'Sound is blocked until you tap the page once (browser autoplay rule).'; renderStatus(); });
-}
-const soundBtn = document.createElement('button');
-soundBtn.textContent = 'Sound: on';
-soundBtn.onclick = () => { soundOn = !soundOn; soundBtn.textContent = 'Sound: ' + (soundOn ? 'on' : 'off'); state.note = ''; renderStatus(); };
-buttonsEl.appendChild(soundBtn);
+// ---------- audio: removed (the placeholder Open JTalk voice is gone; the app now uses VOICEVOX clips, docs/VOICEVOX.md) ----------
+const sayKanji = null, saySentence = null;
+let saidKanji = false, saidSentence = false;
+function play() {}
 
 // ---------- timing / replay ----------
 let frozen = params.has('t') ? parseFloat(params.get('t')) : null; // ?t=2.5 freezes the timeline (used for screenshots)
