@@ -20,9 +20,10 @@ export const STORAGE_KEY = 'jp-app:progress';
 export const LAYOUT = {
   dist: 1.2,
   desktopPos: [0, 1.4, -1.2],
+  desktopCameraBack: 0.25,            // desktop only: camera a little further back than the headset so the whole card fits
   cardY: 0.05,                        // lifts the whole card so its middle sits near eye height
-  glyphHeight: 0.28,                  // 3D kanji bounding box height
-  y: { top: 0.50, furigana: 0.38, kanji: 0.16, meaning: -0.06, sentence: -0.22, english: -0.36, buttons: -0.52, hint: -0.52 },
+  glyphHeight: 0.26,                  // 3D kanji bounding box height
+  y: { top: 0.42, furigana: 0.31, kanji: 0.13, meaning: -0.06, sentence: -0.20, english: -0.32, buttons: -0.45 },
   buttonW: 0.2, buttonH: 0.085, buttonGap: 0.02,
 };
 
