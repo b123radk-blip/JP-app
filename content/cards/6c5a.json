@@ -7,9 +7,8 @@
   "mnemonic": "Muddy water (氵) splashed everywhere: dirty.",
   "effect": {
     "material": "clay",
-    "particles": ["dust"],
     "backdrop": "sky:day",
-    "emblem": { "type": "splash", "color": "#6a4a28" },
+    "vignette": "mud-splash",
     "parts": { "氵": { "material": "clay" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

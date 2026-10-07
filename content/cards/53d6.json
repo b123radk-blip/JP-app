@@ -8,8 +8,7 @@
   "effect": {
     "material": "skin",
     "backdrop": "sky:day",
-    "motion": { "type": "shove", "dir": "left", "dist": 0.02 },
-    "emblem": "hand",
+    "vignette": "grab-apple",
     "parts": { "又": { "material": "lacquer" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [143632, 270935] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

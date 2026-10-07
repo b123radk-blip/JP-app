@@ -219,7 +219,7 @@ export const VIGNETTES = {
   'inn-sleep': V(10, '宿: a traveller with a suitcase walks into a little inn; the window lights, goes dark and Zzz floats up'),
   'grab-apple': V(4, '取: a hand reaches in, grabs the apple off a table and pulls it away, leaving the table empty'),
   'gem-test': V(8, '真: a magnifying glass passes over two gems: the real one sparkles (tick), the fake cracks (cross)'),
-  'photo-snap': V(10, '写: a person poses with a peace sign; the camera flashes and a photo slides out and develops'),
+  'photo-snap': V(8, '写: a person poses with a peace sign; the camera flashes and a photo slides out and develops'),
   'ocean-ship': V(4, '洋: waves roll across a wide sea; a ship sails along the horizon, puffing smoke'),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),
 };

@@ -82,18 +82,19 @@ function ambulance(ctx, spec, stage) {
 }
 
 function walkFar(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, rx = B.maxX + 0.5 * u;
-  const road = solidProp([[G.box(0.3 * u, 0.01 * u, 3.4 * u, 0, 0.005 * u, -1.4 * u), 0xc8b088], [G.box(1.6 * u, 0.006 * u, 3.4 * u, 0, 0, -1.4 * u), 0x6aaa4a], ...[-0.5, 0.1, 0.6].map((x, i) => [G.cone(0.35 * u, 0.5 * u, x * u, 0.25 * u, -3.0 * u - 0.2 * u * i), 0x5a6a9a])], 0.3);
-  road.position.set(rx, floor, 0);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, rx = B.maxX + 0.55 * u, HZ = 0.5 * u;
+  const trap = new THREE.Shape(); trap.moveTo(-0.26 * u, 0); trap.lineTo(0.26 * u, 0); trap.lineTo(0.015 * u, HZ); trap.lineTo(-0.015 * u, HZ); trap.lineTo(-0.26 * u, 0);
+  const land = solidProp([[new THREE.PlaneGeometry(1.2 * u, HZ).translate(0, HZ / 2, -0.01 * u), 0x6aaa4a], [new THREE.ShapeGeometry(trap), 0xd8c098], ...[-0.35, -0.1, 0.25].map((x, i) => [G.cone(0.14 * u, 0.16 * u, x * u, HZ + 0.07 * u, -0.02 * u), i % 2 ? 0x7a8ab8 : 0x5a6a9a])], 0.35);
+  land.position.set(rx, floor, -0.1 * u);
   const p = createPerson({ u: 0.75 * u, shirt: 0xe04848 });
-  group.add(road, p.group);
+  group.add(land, p.group);
   const loop = 5.6;
   return {
     group,
     step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, T = timeline(v, { wave: [0.1, 1.0], go: [1.2, 3.6, 'in'], back: [5.0, 0.4] }), w = bump(v, 0.1, 1.1);
-      p.reset().face(w > 0 ? 0.3 : Math.PI).walk(v * 8, T.go > 0 && T.go < 1 ? 1 : 0); p.raise('R', 2.6 * w + 0.3 * Math.sin(v * 10) * w);
-      p.group.position.set(rx, floor, 0.25 * u - 3.0 * u * T.go); p.group.scale.setScalar(pop(T.go >= 1 ? T.back : 1)); if (T.go >= 1) p.group.position.z = 0.25 * u; p.update();
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, T = timeline(v, { go: [1.2, 3.6, 'out'], back: [5.0, 0.4] }), w = bump(v, 0.1, 1.1), g = T.go;
+      p.reset().face(w > 0 ? 0.3 : Math.PI).walk(v * 8, g > 0 && g < 1 ? 1 : 0); p.raise('R', 2.6 * w + 0.3 * Math.sin(v * 10) * w);
+      const k = g >= 1 ? T.back : 1 - 0.94 * g; p.group.position.set(rx, floor + (g >= 1 ? 0 : HZ * 0.92 * g), 0.0); p.group.scale.setScalar(pop(k)); p.update();
     },
   };
 }

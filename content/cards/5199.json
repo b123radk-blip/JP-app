@@ -5,7 +5,7 @@
   "primaryReading": "しゃ",
   "readings": { "kun": ["うつ(す)", "うつ(る)", "うつ", "うつ(し)"], "on": ["シャ", "ジャ"] },
   "mnemonic": "A cover (冖) over the camera: copy, take a photo.",
-  "effect": { "material": "silver", "backdrop": "sky:day", "emblem": "camera", "motion": "float" },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": { "type": "photo-snap", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "これらの" }, { "text": "写真", "reading": "しゃしん" }, { "text": "は" }, { "text": "美", "reading": "うつく" }, { "text": "しい。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [217886, 55196] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

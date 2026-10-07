@@ -5,7 +5,12 @@
   "primaryReading": "しゅく",
   "readings": { "kun": ["やど", "やど(る)", "やど(す)"], "on": ["シュク"] },
   "mnemonic": "A hundred (百) people (亻) sleeping under one roof (宀): an inn.",
-  "effect": { "material": "wood", "backdrop": "sky:night", "emblem": "bed", "parts": { "宀": { "material": "lacquer" } } },
+  "effect": {
+    "material": "wood",
+    "backdrop": "sky:dusk",
+    "vignette": { "type": "inn-sleep", "size": 1.2 },
+    "parts": { "宀": { "material": "lacquer" } }
+  },
   "sentences": [
     {
       "segments": [ { "text": "先", "reading": "さき" }, { "text": "に" }, { "text": "宿題", "reading": "しゅくだい" }, { "text": "をやりなさい。" } ],
@@ -14,6 +19,6 @@
       "source": { "tatoeba": [141909, 272661] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

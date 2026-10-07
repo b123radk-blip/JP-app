@@ -8,8 +8,7 @@
   "effect": {
     "material": "chalk",
     "backdrop": "sky:dusk",
-    "scene": ["gate"],
-    "emblem": "question",
+    "vignette": "hand-question",
     "parts": { "口": { "material": "rose" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [204705, 41946] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

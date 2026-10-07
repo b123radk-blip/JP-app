@@ -5,7 +5,7 @@
   "primaryReading": "おな",
   "readings": { "kun": ["おな(じ)"], "on": ["ドウ"] },
   "mnemonic": "One mouth (口) under the same roof (冂): the same.",
-  "effect": { "material": "silver", "backdrop": "sky:day", "motion": { "type": "count", "n": 2 }, "emblem": "equals" },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "mirror-dance" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "靴", "reading": "くつ" }, { "text": "は" }, { "text": "同", "reading": "おな" }, { "text": "じ" }, { "text": "大", "reading": "おお" }, { "text": "きさだ。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [222249, 59575] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

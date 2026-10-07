@@ -7,9 +7,8 @@
   "mnemonic": "Ten (十) eyes (目) checking the gem on its stand: true, genuine.",
   "effect": {
     "material": "pearl",
-    "particles": [{ "type": "sparks", "count": 0.6 }],
     "backdrop": "sky:day",
-    "emblem": "gem",
+    "vignette": { "type": "gem-test", "size": 1.4 },
     "parts": { "目": {} }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [221454, 58778] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

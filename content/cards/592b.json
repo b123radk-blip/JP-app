@@ -5,7 +5,7 @@
   "primaryReading": "おっと",
   "readings": { "kun": ["おっと", "それ"], "on": ["フ", "フウ", "ブ"] },
   "mnemonic": "A big (大) man with a hairpin (一) on his wedding day: husband; also sturdy (丈夫).",
-  "effect": { "material": "skin", "backdrop": "sky:day", "emblem": "ring" },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "wedding" },
   "sentences": [
     {
       "segments": [ { "text": "いや、" }, { "text": "大丈夫", "reading": "だいじょうぶ" }, { "text": "だ。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [228498, 65856] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

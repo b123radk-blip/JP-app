@@ -4,7 +4,7 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** the pilot and Batches 1-4 are built (105 of the 150 kanji, 137 words). Next is Batch 5: the next 25 unticked
+**Where to continue:** the pilot, Batches 1-4 and the Batch 5 kanji are built (130 of the 150 kanji, 137 words). Next: the Batch 5 words, then Batch 6: the remaining unticked
 kanji of the list below, then their words (every word whose Step 2 kanji are all ticked). Each batch: build,
 look at the frame strips, fix, apply with `scripts/set-recipes.mjs`, tick here, `npm test`, e2e, commit and push.
 
@@ -160,31 +160,31 @@ Batches of about 25 in this order. Tick a line when its scene is built, looked a
 - [x] 皿 dish (C): pilot, built. Built: `stack-plates`.
 - [x] 心 heart (C): a heart beats inside a person's chest, glowing brighter; they hug themselves happily. Built: `heart-beat`.
 - [x] 親 parent (C): a big person holds a small one's hand and watches over them from a little behind (standing on the tree 木 to see). Built: `parent-watch`.
-- [ ] 美 beautiful (C): a flower opens; sparkles; a person gasps with hands on their cheeks.
-- [ ] 最 most (C): three people race up to a podium; the winner climbs the top step and lifts a trophy.
-- [ ] 面 face / mask (C): a mask lifts off the kanji's middle; underneath, a face winks.
-- [ ] 売 sell (C): a stall: a seller holds up an apple and calls out, a buyer hands a coin, the apple goes over.
-- [ ] 始 begin (C): runners on a line; a flag drops and they dash off (the start), dust flying.
-- [ ] 終 end (C): a runner breaks the finish tape (chequered flag); they slow and collapse, finished; a curtain falls.
-- [ ] 住 live / dwell (C): a person carries a box into a little house; the window lights up, smoke from the chimney: they live there now.
-- [ ] 転 roll / turn over (C): a person on a bike wobbles and falls over (tumbles), the wheel spinning.
-- [ ] 病 ill (C): a person in bed with a red nose, sneezing; a thermometer and a bowl of medicine on the side.
-- [ ] 院 institution / hospital (C): an ambulance pulls up at a building with a red cross; the doors open.
-- [ ] 遠 far (C): a person waves goodbye and walks away down a long road, smaller and smaller until a dot (the mirror of 近).
-- [ ] 同 same (C): two people side by side do exactly the same moves at the same time, like a mirror.
-- [ ] 夫 husband (C): a groom and bride stand together; rings slide onto fingers; confetti.
-- [ ] 丈 length / sturdy (C): a tape measure pulls out along the kanji, longer and longer; a sturdy post doesn't budge when kicked.
-- [ ] 起 wake up (C): an alarm clock rings and hops; a person in bed bolts upright, hair sticking out.
-- [ ] 帰 return home (C): a person walks home along a path at dusk; the house door opens and light spills out to greet them.
-- [ ] 遅 slow / late (C): a snail and a person race; the snail is hopelessly behind; a clock spins: late!
-- [ ] 汚 dirty (C): a person in clean clothes steps in a puddle; mud splashes all over them and the kanji.
-- [ ] 問 question / ask (C): a person at the gate (門) knocks, a speech bubble with "?" pops out of the mouth (口).
-- [ ] 題 topic / title (C): a sheet of paper; a title writes itself in big letters at the top, underlined.
-- [ ] 宿 inn (C): a sleepy traveller with a suitcase walks into a little inn; a bed, the light switches off, "zzz".
-- [ ] 取 take (C): a hand reaches in, grabs an apple off a table and pulls it away (the table is left empty).
-- [ ] 真 true (C): a magnifier over a gem: it sparkles real; a fake beside it cracks.
-- [ ] 写 copy / photo (C): a person poses, a camera flashes, a photo slides out and develops into the same picture.
-- [ ] 洋 ocean / western (C): big waves roll across; a ship sails over the horizon.
+- [x] 美 beautiful (C): a flower opens; sparkles; a person gasps with hands on their cheeks. Built: `flower-gasp`.
+- [x] 最 most (C): three people race up to a podium; the winner climbs the top step and lifts a trophy. Built: `podium-win`.
+- [x] 面 face / mask (C): a mask lifts off the kanji's middle; underneath, a face winks. Built: `face-change`.
+- [x] 売 sell (C): a stall: a seller holds up an apple and calls out, a buyer hands a coin, the apple goes over. Built: `apple-sell`.
+- [x] 始 begin (C): runners on a line; a flag drops and they dash off (the start), dust flying. Built: `race-start`.
+- [x] 終 end (C): a runner breaks the finish tape (chequered flag); they slow and collapse, finished; a curtain falls. Built: `curtain-close`.
+- [x] 住 live / dwell (C): a person carries a box into a little house; the window lights up, smoke from the chimney: they live there now. Built: `move-in`.
+- [x] 転 roll / turn over (C): a person on a bike wobbles and falls over (tumbles), the wheel spinning. Built: `banana-trip`.
+- [x] 病 ill (C): a person in bed with a red nose, sneezing; a thermometer and a bowl of medicine on the side. Built: `sick-bed`.
+- [x] 院 institution / hospital (C): an ambulance pulls up at a building with a red cross; the doors open. Built: `ambulance`.
+- [x] 遠 far (C): a person waves goodbye and walks away down a long road, smaller and smaller until a dot (the mirror of 近). Built: `walk-far`.
+- [x] 同 same (C): two people side by side do exactly the same moves at the same time, like a mirror. Built: `mirror-dance`.
+- [x] 夫 husband (C): a groom and bride stand together; rings slide onto fingers; confetti. Built: `wedding`.
+- [x] 丈 length / sturdy (C): a tape measure pulls out along the kanji, longer and longer; a sturdy post doesn't budge when kicked. Built: `post-kick`.
+- [x] 起 wake up (C): an alarm clock rings and hops; a person in bed bolts upright, hair sticking out. Built: `alarm-wake`.
+- [x] 帰 return home (C): a person walks home along a path at dusk; the house door opens and light spills out to greet them. Built: `home-greet`.
+- [x] 遅 slow / late (C): a snail and a person race; the snail is hopelessly behind; a clock spins: late! Built: `toast-run`.
+- [x] 汚 dirty (C): a person in clean clothes steps in a puddle; mud splashes all over them and the kanji. Built: `mud-splash`.
+- [x] 問 question / ask (C): a person at the gate (門) knocks, a speech bubble with "?" pops out of the mouth (口). Built: `hand-question`.
+- [x] 題 topic / title (C): a sheet of paper; a title writes itself in big letters at the top, underlined. Built: `title-stamp`.
+- [x] 宿 inn (C): a sleepy traveller with a suitcase walks into a little inn; a bed, the light switches off, "zzz". Built: `inn-sleep`.
+- [x] 取 take (C): a hand reaches in, grabs an apple off a table and pulls it away (the table is left empty). Built: `grab-apple`.
+- [x] 真 true (C): a magnifier over a gem: it sparkles real; a fake beside it cracks. Built: `gem-test`.
+- [x] 写 copy / photo (C): a person poses, a camera flashes, a photo slides out and develops into the same picture. Built: `photo-snap`.
+- [x] 洋 ocean / western (C): big waves roll across; a ship sails over the horizon. Built: `ocean-ship`.
 - [ ] 旅 travel (C): a person with a backpack and a suitcase walks along a road past changing scenery (a mountain, the sea).
 - [x] 押 push (C): pilot, built. Built: `push`.
 - [ ] 泳 swim (C): a person swims across a pool in front of the kanji (arms windmilling), splashes, a dive.

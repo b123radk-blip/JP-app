@@ -5,7 +5,7 @@
   "primaryReading": "だい",
   "readings": { "kun": [], "on": ["ダイ"] },
   "mnemonic": "The head (頁) of the page: the title, the topic; homework (宿題).",
-  "effect": { "material": "paper", "backdrop": "sky:indoor", "emblem": "sheet", "parts": { "頁": {} } },
+  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": "title-stamp", "parts": { "頁": {} } },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "宿題", "reading": "しゅくだい" }, { "text": "が" }, { "text": "無", "reading": "な" }, { "text": "い。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [171597, 242878] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

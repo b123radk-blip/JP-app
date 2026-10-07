@@ -5,12 +5,7 @@
   "primaryReading": "いん",
   "readings": { "kun": [], "on": ["イン"] },
   "mnemonic": "A complete (完) building up on the hill (⻖): an institution, the hospital (病院).",
-  "effect": {
-    "material": "chalk",
-    "backdrop": "sky:day",
-    "emblem": { "type": "hospital", "size": 1.3 },
-    "motion": "float"
-  },
+  "effect": { "material": "chalk", "backdrop": "sky:day", "vignette": "ambulance" },
   "sentences": [
     {
       "segments": [ { "text": "けが" }, { "text": "人", "reading": "にん" }, { "text": "は" }, { "text": "病院", "reading": "びょういん" }, { "text": "へ" }, { "text": "運", "reading": "はこ" }, { "text": "ばれた。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [225271, 62607] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

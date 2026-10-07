@@ -8,9 +8,7 @@
   "effect": {
     "material": "water",
     "backdrop": "sky:day",
-    "scene": ["ripples"],
-    "motion": { "type": "sway", "axis": "z", "amp": 0.05 },
-    "emblem": "boat",
+    "vignette": { "type": "ocean-ship", "size": 1.3 },
     "parts": { "氵": {} }
   },
   "sentences": [
@@ -21,6 +19,6 @@
       "source": { "tatoeba": [226963, 64311] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

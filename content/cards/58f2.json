@@ -5,12 +5,7 @@
   "primaryReading": "う",
   "readings": { "kun": ["う(る)", "う(れる)"], "on": ["バイ"] },
   "mnemonic": "A samurai (士) on long legs (儿) under a roof (冖) calling out his wares: sell.",
-  "effect": {
-    "material": "gold",
-    "particles": [{ "type": "coins", "count": 0.6 }],
-    "backdrop": "sky:golden",
-    "emblem": "tag"
-  },
+  "effect": { "material": "gold", "backdrop": "sky:golden", "vignette": "apple-sell" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "家", "reading": "いえ" }, { "text": "は" }, { "text": "安", "reading": "やす" }, { "text": "く" }, { "text": "売", "reading": "う" }, { "text": "られた。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [212101, 49380] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

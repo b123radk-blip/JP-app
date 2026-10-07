@@ -8,7 +8,7 @@
   "effect": {
     "material": "skin",
     "backdrop": "sky:night",
-    "scene": [{ "type": "room", "window": "#1a2a50" }],
+    "vignette": "move-in",
     "parts": { "亻": {}, "主": { "material": "gold" } }
   },
   "sentences": [
@@ -19,6 +19,6 @@
       "source": { "tatoeba": [182096, 19346] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

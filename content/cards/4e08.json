@@ -5,12 +5,7 @@
   "primaryReading": "じょう",
   "readings": { "kun": ["たけ", "だけ"], "on": ["ジョウ"] },
   "mnemonic": "Ten (十) measures, crossed (乂): length; sturdy (丈夫).",
-  "effect": {
-    "material": "wood",
-    "backdrop": "sky:golden",
-    "motion": { "type": "stretch", "axis": "y", "to": 1.25 },
-    "emblem": "ruler"
-  },
+  "effect": { "material": "wood", "backdrop": "sky:golden", "vignette": "post-kick" },
   "sentences": [
     {
       "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "大丈夫", "reading": "だいじょうぶ" }, { "text": "だと" }, { "text": "言", "reading": "い" }, { "text": "った。" } ],

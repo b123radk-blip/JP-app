@@ -108,8 +108,8 @@ function gemTest(ctx, spec, stage) {
 
 function photoSnap(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.3 * u, cx = B.maxX + 0.95 * u, cy = floor + 0.55 * u;
-  const p = createPerson({ u: 0.75 * u, shirt: 0xe07ab0 }), cam = emblemProp('camera', 0.3 * u), tripod = solidProp([[G.cyl(0.008 * u, 0.008 * u, 0.48 * u, -0.06 * u, 0.24 * u, 0, 0, 0, 0.2), 0x3a3a44], [G.cyl(0.008 * u, 0.008 * u, 0.48 * u, 0.06 * u, 0.24 * u, 0, 0, 0, -0.2), 0x3a3a44]], 0.4);
-  tripod.position.set(cx, floor, -0.05 * u); cam.position.set(cx, cy, 0.0); cam.rotation.y = -0.7;
+  const p = createPerson({ u: 0.75 * u, shirt: 0xe07ab0 }), cam = solidProp([[G.box(0.24 * u, 0.16 * u, 0.12 * u, 0, 0, 0), 0x2a2a30], [G.cyl(0.055 * u, 0.055 * u, 0.06 * u, -0.02 * u, 0, 0.08 * u, Math.PI / 2), 0x14141c], [G.cyl(0.04 * u, 0.04 * u, 0.062 * u, -0.02 * u, 0, 0.08 * u, Math.PI / 2), 0x3a6ad8], [G.box(0.05 * u, 0.03 * u, 0.01 * u, 0.07 * u, 0.05 * u, 0.062 * u), 0xffffff], [G.box(0.18 * u, 0.02 * u, 0.1 * u, 0, -0.09 * u, 0), 0xe04848]], 0.4), tripod = solidProp([[G.cyl(0.008 * u, 0.008 * u, 0.48 * u, -0.06 * u, 0.24 * u, 0, 0, 0, 0.2), 0x3a3a44], [G.cyl(0.008 * u, 0.008 * u, 0.48 * u, 0.06 * u, 0.24 * u, 0, 0, 0, -0.2), 0x3a3a44]], 0.4);
+  tripod.position.set(cx, floor, -0.05 * u); cam.position.set(cx, cy, 0.0);
   const flash = burst(u, { s: 0.5, n: 10, color: 0xffffff }), photo = solidProp([[G.box(0.24 * u, 0.28 * u, 0.006 * u, 0, 0, 0), 0xffffff]], 0.6), pic = solidProp([[G.box(0.2 * u, 0.2 * u, 0.008 * u, 0, 0.02 * u, 0), 0xffffff]], 0.6), mini = solidProp([[G.cyl(0.025 * u, 0.03 * u, 0.07 * u, 0, -0.03 * u, 0.006 * u), 0xe07ab0], [G.sphere(0.025 * u, 0, 0.03 * u, 0.006 * u), 0xffd2b0], [G.box(0.05 * u, 0.012 * u, 0.004 * u, 0.04 * u, 0.04 * u, 0.006 * u, 0.8), 0xffd2b0]], 0.6);
   group.add(p.group, tripod, cam, flash, photo, pic, mini);
   const loop = 5.4, grey = new THREE.Color(0x303038), sky = new THREE.Color(0x8ad0ff);
@@ -121,7 +121,6 @@ function photoSnap(ctx, spec, stage) {
       const f = pre ? 0 : bump(v, 1.1, 0.3); flash.visible = f > 0; flash.scale.setScalar(pop(f)); flash.position.set(cx - 0.05 * u, cy + 0.05 * u, 0.1 * u);
       const k = pre ? 0 : T.out * (1 - T.drop), y = cy - 0.12 * u - 0.22 * u * T.out; [photo, pic, mini].forEach((o, i) => { o.visible = k > 0.01; o.position.set(cx, y + (i ? 0.02 * u : 0), 0.12 * u + i * 0.003 * u); o.scale.setScalar(pop(k)); });
       pic.material.color.copy(grey).lerp(sky, T.dev); mini.scale.setScalar(pop(k * T.dev));
-      cam.idle(0);
     },
   };
 }

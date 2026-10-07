@@ -5,7 +5,12 @@
   "primaryReading": "お",
   "readings": { "kun": ["お(きる)", "お(こる)", "お(こす)", "おこ(す)"], "on": ["キ"] },
   "mnemonic": "Run (走) as soon as you (己) are up: wake up, get up.",
-  "effect": { "material": "gold", "backdrop": "sunrise", "motion": "stand", "emblem": "alarm", "parts": { "走": {} } },
+  "effect": {
+    "material": "gold",
+    "backdrop": "sky:morning",
+    "vignette": { "type": "alarm-wake", "size": 1.2 },
+    "parts": { "走": {} }
+  },
   "sentences": [
     {
       "segments": [ { "text": "もう" }, { "text": "起", "reading": "お" }, { "text": "きる" }, { "text": "時間", "reading": "じかん" }, { "text": "ですよ。" } ],
@@ -14,6 +19,6 @@
       "source": { "tatoeba": [194226, 31399] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

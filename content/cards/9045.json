@@ -5,13 +5,7 @@
   "primaryReading": "おそ",
   "readings": { "kun": ["おく(れる)", "おく(らす)", "おそ(い)"], "on": ["チ"] },
   "mnemonic": "A sheep (羊) dawdling along the road (⻌): slow, late.",
-  "effect": {
-    "material": "clay",
-    "backdrop": "sky:golden",
-    "scene": ["road"],
-    "motion": { "type": "slide", "speed": 0.4, "dist": 0.02 },
-    "emblem": "snail"
-  },
+  "effect": { "material": "clay", "backdrop": "sky:golden", "vignette": "toast-run" },
   "sentences": [
     {
       "segments": [ { "text": "とにかく" }, { "text": "遅", "reading": "おそ" }, { "text": "すぎますよ。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [200445, 37646] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }
