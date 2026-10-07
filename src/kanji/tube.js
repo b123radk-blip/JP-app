@@ -5,8 +5,9 @@ export const RADIAL = 14;           // vertices around each tube cross-section
 export const WIDTH_UNITS = 6.5;     // stroke width in KanjiVG units (the source glyph uses 3; bolder reads better in VR)
 
 // Normalise a kanji data file (see scripts/build-kanji.mjs) to metres, centred on the origin.
-export function normalizeStrokes(kanji, glyphHeight) {
-  const bb = kanji.bbox, S = glyphHeight / (bb.maxY - bb.minY);
+// A flat glyph (一) is scaled by its width instead, at most maxAspect x glyphHeight wide, so it stays card-sized.
+export function normalizeStrokes(kanji, glyphHeight, maxAspect = 1.6) {
+  const bb = kanji.bbox, S = Math.min(glyphHeight / (bb.maxY - bb.minY), glyphHeight * maxAspect / (bb.maxX - bb.minX));
   const cx = (bb.minX + bb.maxX) / 2, cy = (bb.minY + bb.maxY) / 2;
   return { S, strokes: kanji.strokes.map((s) => ({ length: s.length, pts: s.points.map(([x, y]) => new THREE.Vector3((x - cx) * S, -(y - cy) * S, 0)) })) };
 }

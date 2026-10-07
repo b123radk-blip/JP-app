@@ -2,7 +2,8 @@
 
 Continue the Kanji Memory WebXR app in b123radk-blip/JP-app on branch `claude/kanji-3d-galaxy-xr-uoi522` (GitHub Pages
 serves it; no new branch, no PR). Read CLAUDE.md, docs/ARCHITECTURE.md, docs/ROADMAP.md and docs/BATCH-LOG.md first and
-follow them.
+follow them. Do Step 2b (`docs/prompts/step-2b-revamp.md`) first: design the N4 kanji as scenes (vignettes) the
+same way, not as emblem recipes.
 
 ## Goal
 An N4 deck: the next ~150 kanji by unlock value over the N4 words, the N4 words they unlock, the N4 kana-only words, and the

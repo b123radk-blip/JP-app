@@ -8,7 +8,7 @@
 // Every frame: reveal -> backdrop -> materials -> scene props -> particle layers -> tip particles -> pools -> motions -> emblem.
 // Deterministic: all randomness is one seeded generator, reset by reset(), so seek(t) always gives the same picture.
 import * as THREE from 'three';
-import { EFFECTS } from '../config.js';
+import { EFFECTS, LAYOUT } from '../config.js';
 import { PIECES, PARTICLE_KINDS, REVEAL_TIPS } from './catalog.js';
 import { normalizeStrokes, layoutWord, strokeSchedule, WIDTH_UNITS } from '../kanji/tube.js';
 import { planKanji, planWord } from './plan.js';
@@ -47,7 +47,7 @@ const pivotOf = (spec) => (spec ? motion.PIVOT[spec.type]?.(spec) ?? 'center' : 
 export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   const group = new THREE.Group(), W = EFFECTS.word;
   const H = word ? Math.min(W.glyphBox, (word.maxWidth ?? W.maxWidth) / word.glyphs.length) : glyphHeight;
-  const laid = word ? layoutWord(word.glyphs.map((g) => g.data), H) : { ...normalizeStrokes(kanji, glyphHeight), components: kanji.components };
+  const laid = word ? layoutWord(word.glyphs.map((g) => g.data), H) : { ...normalizeStrokes(kanji, glyphHeight, LAYOUT.glyphMaxAspect), components: kanji.components };
   const { S, strokes } = laid;
   strokes.forEach((s, i) => { s.index = i; });
   const radius = (WIDTH_UNITS * S) / 2;
