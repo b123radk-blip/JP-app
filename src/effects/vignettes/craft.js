@@ -59,8 +59,9 @@ function hammerNail(ctx, spec, stage) {
     const target = bend && v >= 0.7 && v < 2.9 ? thumbAt : head;
     const [ex, ey] = elbowFor(target[0], target[1]);
     hand.group.position.set(ex + 0.04 * u * raise, ey + 0.02 * u * raise + (1 - I.hand) * 0.8 * u, 0);
-    hand.group.rotation.z = Math.PI + 0.22 * raise;
-    hand.bone('palm').rotation.z = 0.95 * raise;                                    // cock the wrist
+    // cocking turns the arm and wrist clockwise: the head (left of the fist) rises high, then the strike brings it down on top
+    hand.group.rotation.z = Math.PI - 0.3 * raise;
+    hand.bone('palm').rotation.z = -1.25 * raise;
     tool.rotation.z = -Math.PI / 2 - (bend ? 0 : Math.PI * 2 * T.twirl);           // clean: a baton twirl to finish
     hand.update();
     // helper hand: holds the nail; lets go after the tap (clean) or jerks away when its thumb is hit (bend); back for the loop
