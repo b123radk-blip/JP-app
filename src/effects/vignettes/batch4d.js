@@ -8,6 +8,7 @@
 //   parent-watch   親: a parent walks with a small kid; the kid runs ahead and the parent climbs a tree stump to watch
 //                  over them, hand shading their eyes; the kid waves back
 import * as THREE from 'three';
+import { bikeRide, fountainPen, hotTouch, milkGlass, pencilSharpen, steakGrill } from './variants4b.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, heart, PUFF } from '../pieces/kit-things.js';
@@ -19,6 +20,7 @@ import { between } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f);
 
 function busRide(ctx, spec, stage) {
+  if (spec.outcome === 'bike') return bikeRide(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.75 * u, W = 0.95 * u, H = 0.42 * u, D = 0.3 * u, lo = 0.08 * u, YEL = 0xf0c020;
   const winY = lo + H * 0.62, winH = 0.13 * u, xs = [-0.3, -0.1, 0.1, 0.3];
   const side = [[G.box(W, winY - winH / 2 - lo, D, 0, lo + (winY - winH / 2 - lo) / 2, 0), YEL], [G.box(W, lo + H - (winY + winH / 2), D, 0, (winY + winH / 2 + lo + H) / 2, 0), YEL], ...[-0.475, -0.2, 0, 0.2, 0.475].map((x) => [G.box(0.05 * u, winH, D, x * u, winY, 0), YEL])];
@@ -40,6 +42,7 @@ function busRide(ctx, spec, stage) {
 }
 
 function fever(ctx, spec, stage) {
+  if (spec.outcome === 'touch') return hotTouch(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.42 * u, pu = 0.95 * u, SKIN = 0xffd2b0;
   const p = createPerson({ u: pu, shirt: 0x9ad0f0 }), k = pu;
   const thermo = solidProp([[G.cyl(0.012 * k, 0.012 * k, 0.2 * k, 0, 0.1 * k, 0), 0xf0f4f8], [G.sphere(0.018 * k), 0xe02020]], 0.6), red = solidProp([[G.cyl(0.007 * k, 0.007 * k, 1, 0, 0.5, 0.008 * k), 0xe02020]], 0.9);
@@ -63,6 +66,8 @@ function fever(ctx, spec, stage) {
 }
 
 function brushEnso(ctx, spec, stage) {
+  if (spec.outcome === 'pen') return fountainPen(ctx, spec, stage);
+  if (spec.outcome === 'pencil') return pencilSharpen(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u, cy = B.cy + 0.02 * u, R = 0.22 * u, N = 36;
   const paper = solidProp([[G.box(0.62 * u, 0.62 * u, 0.006 * u, 0, 0, 0), 0xfaf6ea]], 0.6); paper.position.set(cx, cy, -0.02 * u);
   const stone = solidProp([[G.box(0.24 * u, 0.06 * u, 0.14 * u, 0, 0.03 * u, 0), 0x2a2a30], [G.box(0.08 * u, 0.01 * u, 0.1 * u, 0.06 * u, 0.062 * u, 0), 0x0a0a10]], 0.3); stone.position.set(cx + 0.45 * u, floor, 0.1 * u);
@@ -86,6 +91,8 @@ function brushEnso(ctx, spec, stage) {
 }
 
 function cowMoo(ctx, spec, stage) {
+  if (spec.outcome === 'steak') return steakGrill(ctx, spec, stage);
+  if (spec.outcome === 'milk') return milkGlass(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u;
   const cow = emblemProp('cow', 0.62 * u), rings = many([[G.torus(0.08 * u, 0.01 * u), 0xffffff]], 3, 0.9), moo = textPlane('モー', { h: 0.32 * u, color: '#ffffff', bg: null });
   const pail = solidProp([[G.cyl(0.1 * u, 0.08 * u, 0.16 * u, 0, 0.08 * u, 0, 0, 0, 0, 20), 0xa8acb4], [G.torus(0.1 * u, 0.008 * u, Math.PI, 0, 0.16 * u, 0), 0x6a6e76]], 0.4), milk = solidProp([[G.cyl(0.095 * u, 0.095 * u, 0.01 * u, 0, 0, 0, 0, 0, 0, 20), 0xffffff]], 0.8);

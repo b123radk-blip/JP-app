@@ -11,6 +11,7 @@
 //   tool-use       使: a hand takes a wrench off a pegboard, turns a bolt with it, and hangs it back on its outline
 //   barbell-flex   強: a person lifts a barbell overhead with ease, sets it down and flexes both arms in a burst of stars
 import * as THREE from 'three';
+import { cinema } from './variants4b.js';
 import { stairsClimb, scissorCut } from './variants3.js';
 import { acts, timeline, bump, wobble, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
@@ -175,6 +176,7 @@ function mapUnroll(ctx, spec, stage) {
 }
 
 function hallRise(ctx, spec, stage) {
+  if (spec.outcome === 'cinema') return cinema(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + (spec.outcome === 'embassy' ? 0.68 : 0.55) * u, W = 0.85 * u;
   const tri = new THREE.Shape(); tri.moveTo(-4.6, 0); tri.lineTo(4.6, 0); tri.lineTo(0, 1.7); tri.lineTo(-4.6, 0); const k = W / 9;
   const cols = Array.from({ length: 5 }, (_, i) => [G.cyl(0.03 * u, 0.034 * u, 0.42 * u, (i / 4 - 0.5) * W * 0.78, 0.33 * u, 0.06 * u), 0xf6f4ee]);

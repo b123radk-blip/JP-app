@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["4ea4", "756a"],
   "builtFrom": [{ "k": "交", "m": "mingle" }, { "k": "番", "m": "turn" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stop", "backdrop": "sky:dusk" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "police-box" } },
   "sentences": [
     {
       "segments": [ { "text": "交番", "reading": "こうばん" }, { "text": "が" }, { "text": "近", "reading": "ちか" }, { "text": "くにある。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [174099, 240370] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 交番" },
+  "review": { "recipe": "reviewed", "rule": "word 交番" },
   "source": { "jmdict": 1272500, "jlpt": 5 }
 }

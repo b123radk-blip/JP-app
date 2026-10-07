@@ -6,6 +6,7 @@
 //   tape-measure  計: a tape measure pulls out across the top of the kanji while a counter counts the centimetres
 //   rewind-ball   再: a ball rolls off a table and bounces; it all rewinds, and plays again
 import * as THREE from 'three';
+import { acrossRiver, balloonHold, toddler } from './variants4a.js';
 import { acts, timeline, bump, wobble, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
@@ -18,6 +19,7 @@ import { between, handTo, liveText, puffs, poseGlyph } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f);
 
 function bagCarry(ctx, spec, stage) {
+  if (spec.outcome === 'balloon') return balloonHold(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.45 * u, BH = 0.26 * u;
   const bag = new THREE.Group(), bagM = solidProp([[G.box(0.3 * u, BH, 0.14 * u, 0, -0.12 * u - BH / 2, 0), 0xe07a30], [G.torus(0.08 * u, 0.012 * u, Math.PI, 0, -0.12 * u, 0), 0x6a3a1a], [G.sphere(0.06 * u, -0.05 * u, -0.12 * u, 0), 0xe03a3a], [G.cyl(0.02 * u, 0.025 * u, 0.12 * u, 0.06 * u, -0.08 * u, 0, 0, 0, -0.3), 0x60c060], [G.box(0.12 * u, 0.06 * u, 0.004 * u, 0, -0.12 * u - BH * 0.5, 0.072 * u), 0xffffff]], 0.4);
   bag.add(bagM);
@@ -59,6 +61,7 @@ function dotPoint(ctx, spec, stage) {
 }
 
 function turnAround(ctx, spec, stage) {
+  if (spec.outcome === 'across') return acrossRiver(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.42 * u;
   const p = createPerson({ u: 0.95 * u, shirt: 0x60b060 }), arrow = emblemProp('arrow', 0.35 * u, { dir: 'right', color: 0xffd040 });
   group.add(p.group, arrow);
@@ -77,6 +80,7 @@ function turnAround(ctx, spec, stage) {
 }
 
 function standUp(ctx, spec, stage) {
+  if (spec.outcome === 'toddler') return toddler(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u, pu = 0.85 * u;
   const p = createPerson({ u: pu, shirt: 0xe04848 }), stool = solidProp([[G.cyl(0.1 * u, 0.1 * u, 0.03 * u, 0, 0.2 * pu, 0, 0, 0, 0, 20), 0x8a5a30], [G.cyl(0.015 * u, 0.015 * u, 0.2 * pu, -0.06 * u, 0.1 * pu, 0), 0x6a4020], [G.cyl(0.015 * u, 0.015 * u, 0.2 * pu, 0.06 * u, 0.1 * pu, 0), 0x6a4020]], 0.3);
   stool.position.set(px + 0.1 * u, floor, 0.3 * u);

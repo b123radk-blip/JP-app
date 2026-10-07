@@ -4,7 +4,7 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** the pilot, Batches 1-3 and the Batch 4 kanji are built (105 of the 150 kanji, 114 words). Next: the Batch 4 words, then Batch 5 from the next 25 unticked
+**Where to continue:** the pilot and Batches 1-4 are built (105 of the 150 kanji, 137 words). Next is Batch 5: the next 25 unticked
 kanji of the list below, then their words (every word whose Step 2 kanji are all ticked). Each batch: build,
 look at the frame strips, fix, apply with `scripts/set-recipes.mjs`, tick here, `npm test`, e2e, commit and push.
 
@@ -318,31 +318,31 @@ Grades: **B** when the meaning *is* its kanji side by side (a word rule that doe
 - [x] 大使館 embassy (C): a building with a flag on a pole that rises. Built: `hall-rise:embassy`.
 - [x] 勉強 study (C): a person at a desk with books, a lamp, writing; pages turn. Built: `study-desk`.
 - [x] 強い strong (C): 強's scene, option: arm-wrestling and winning. Built: `barbell-flex:car`.
-- [ ] 交番 police box (C): a little police box; an officer steps out and salutes.
-- [ ] 差す hold up (umbrella) (C): rain starts, a hand opens and raises an umbrella.
-- [ ] 丁度 exactly (C): a ball rolls and stops exactly on the line; a check.
-- [ ] 飛行機 aeroplane (C): a plane taxis, takes off and climbs over the word.
-- [ ] 建物 building (B): buildings rising behind the word (no emblem).
-- [ ] 音楽 music (C): a band: drum, guitar, notes streaming.
-- [ ] 持つ hold (C): 持's scene, option: a hand holds a balloon by its string.
-- [ ] 交差点 intersection (C): a crossroads seen from above with cars taking turns at the lights.
-- [ ] 向こう other side (C): a person on one bank waves to someone on the far side of a river.
+- [x] 交番 police box (C): a little police box; an officer steps out and salutes. Built: `police-box`.
+- [x] 差す hold up (umbrella) (C): rain starts, a hand opens and raises an umbrella. Built: `parasol-up`.
+- [x] 丁度 exactly (C): a ball rolls and stops exactly on the line; a check. Built: `stopwatch-exact`.
+- [x] 飛行機 aeroplane (C): a plane taxis, takes off and climbs over the word. Built: `plane-takeoff`.
+- [x] 建物 building (B): buildings rising behind the word (no emblem). Built: `brick-build:tower`.
+- [x] 音楽 music (C): a band: drum, guitar, notes streaming. Built: `headphones-dance`.
+- [x] 持つ hold (C): 持's scene, option: a hand holds a balloon by its string. Built: `bag-carry:balloon`.
+- [x] 交差点 intersection (C): a crossroads seen from above with cars taking turns at the lights. Built: `car-cross:scramble`.
+- [x] 向こう other side (C): a person on one bank waves to someone on the far side of a river. Built: `turn-around:across`.
 - [x] 重い heavy (C): 重's scene, option: a person dragging a huge suitcase. Built: `drag-suitcase`.
 - [x] 違う differ (C): 違's scene, option: two pictures side by side, a circle marks the difference. Built: `spot-difference`.
-- [ ] 立つ stand (C): 立's scene, option: a person stands up from a chair.
-- [ ] 時計 clock (C): a wall clock ticking, the hands sweep, a cuckoo pops out.
-- [ ] 再来年 year after next (B): two calendar years flip forward (2 years).
-- [ ] 喫茶店 coffee shop (C): a café table, a cup of coffee with steam, a cake.
-- [ ] 要る need (C): 要's scene, option: someone needs a key to open a door.
-- [ ] 映画 movie (C): a film reel spins and a projector shows a little movie on a screen.
-- [ ] 映画館 cinema (C): rows of seats, the lights dim, popcorn.
-- [ ] 料理 cooking (C): a frying pan, a flip of the food, flames.
-- [ ] 乗る ride / get on (C): 乗's scene, option: a person hops onto a bicycle.
-- [ ] 熱い hot (to touch) (C): a hand touches a hot pan, jerks away, steam.
-- [ ] 鉛筆 pencil (C): a pencil sharpens itself and draws a line.
-- [ ] 万年筆 fountain pen (C): a pen's cap clicks off, it writes a curly signature.
-- [ ] 牛乳 milk (C): milk pours into a glass from a carton, a cow moos.
-- [ ] 牛肉 beef (C): a steak sizzles on a grill.
+- [x] 立つ stand (C): 立's scene, option: a person stands up from a chair. Built: `stand-up:toddler`.
+- [x] 時計 clock (C): a wall clock ticking, the hands sweep, a cuckoo pops out. Built: `cuckoo-clock`.
+- [x] 再来年 year after next (B): two calendar years flip forward (2 years). Built: `year-hop`.
+- [x] 喫茶店 coffee shop (C): a café table, a cup of coffee with steam, a cake. Built: `shop-counter:cafe`.
+- [x] 要る need (C): 要's scene, option: someone needs a key to open a door. Built: `phone-charge:water`.
+- [x] 映画 movie (C): a film reel spins and a projector shows a little movie on a screen. Built: `projector:popcorn`.
+- [x] 映画館 cinema (C): rows of seats, the lights dim, popcorn. Built: `hall-rise:cinema`.
+- [x] 料理 cooking (C): a frying pan, a flip of the food, flames. Built: `pot-cook:pan`.
+- [x] 乗る ride / get on (C): 乗's scene, option: a person hops onto a bicycle. Built: `bus-ride:bike`.
+- [x] 熱い hot (to touch) (C): a hand touches a hot pan, jerks away, steam. Built: `fever:touch`.
+- [x] 鉛筆 pencil (C): a pencil sharpens itself and draws a line. Built: `brush-enso:pencil`.
+- [x] 万年筆 fountain pen (C): a pen's cap clicks off, it writes a curly signature. Built: `brush-enso:pen`.
+- [x] 牛乳 milk (C): milk pours into a glass from a carton, a cow moos. Built: `cow-moo:milk`.
+- [x] 牛肉 beef (C): a steak sizzles on a grill. Built: `cow-moo:steak`.
 - [x] 灰皿 ashtray (C): a dish with ash, a cigarette stubbed out with smoke curling. Built: `ashtray`.
 - [x] お皿 plate (C): 皿's scene, option: plates washed and stacked. Built: `stack-plates:dry`.
 - [ ] 美味しい delicious (C): a person takes a bite, their face lights up, sparkles, a thumbs up.

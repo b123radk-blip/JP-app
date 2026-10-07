@@ -7,6 +7,8 @@
 //   projector       映: a projector's beam lights a screen behind the kanji, where a little figure runs across
 //   pot-cook        料: a carrot, a fish and a rice ball drop into a pot on the stove; a ladle stirs, steam rises
 import * as THREE from 'three';
+import { cafe, popcorn, waterNeed } from './variants4a.js';
+import { panFlip } from './variants4b.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
@@ -19,6 +21,7 @@ import { between, arc, bonePoint, handTo, beam, wisps } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f), WOOD = 0xc89a60;
 
 function shopCounter(ctx, spec, stage) {
+  if (spec.outcome === 'cafe') return cafe(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.55 * u, W = 0.8 * u, CH = 0.36 * u;
   const stripes = Array.from({ length: 6 }, (_, i) => [G.box(W / 6, 0.03 * u, 0.3 * u, (i / 5 - 0.5) * W * 5 / 6, 0.95 * u, 0.0, 0), i % 2 ? 0xffffff : 0xe04848]);
   const stall = solidProp([[G.box(W, CH, 0.24 * u, 0, CH / 2, 0), WOOD], [G.box(W + 0.04 * u, 0.03 * u, 0.28 * u, 0, CH + 0.015 * u, 0), 0x8a5a30], [G.box(0.03 * u, 0.95 * u, 0.03 * u, -W / 2, 0.475 * u, -0.1 * u), 0x8a5a30], [G.box(0.03 * u, 0.95 * u, 0.03 * u, W / 2, 0.475 * u, -0.1 * u), 0x8a5a30], ...stripes.map(([g, c]) => [g.rotateX(0.35), c]), [G.box(0.18 * u, 0.12 * u, 0.14 * u, -0.25 * u, CH + 0.09 * u, 0), 0x8a8e96], [G.box(0.12 * u, 0.05 * u, 0.01 * u, -0.25 * u, CH + 0.12 * u, 0.072 * u), 0x60e080]], 0.35);
@@ -46,6 +49,7 @@ function shopCounter(ctx, spec, stage) {
 }
 
 function phoneCharge(ctx, spec, stage) {
+  if (spec.outcome === 'water') return waterNeed(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), px = B.maxX + 0.35 * u, py = B.cy + 0.08 * u, PW = 0.26 * u, PH = 0.46 * u;
   const phone = solidProp([[G.box(PW, PH, 0.04 * u, 0, 0, 0), 0x2a2a30], [G.box(PW * 0.88, PH * 0.84, 0.004 * u, 0, 0, 0.021 * u), 0x203048], [G.box(0.12 * u, 0.06 * u, 0.004 * u, 0, 0, 0.024 * u), 0xffffff], [G.box(0.1 * u, 0.045 * u, 0.004 * u, 0, 0, 0.026 * u), 0x203048], [G.box(0.012 * u, 0.024 * u, 0.004 * u, 0.067 * u, 0, 0.024 * u), 0xffffff]], 0.5);
   phone.position.set(px, py, 0);
@@ -120,6 +124,7 @@ function easelPaint(ctx, spec, stage) {
 }
 
 function projector(ctx, spec, stage) {
+  if (spec.outcome === 'popcorn') return popcorn(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.45 * u, sy = B.cy + 0.15 * u, SW = 0.62 * u, SH = 0.44 * u;
   const screen = solidProp([[G.box(SW, SH, 0.01 * u, 0, 0, 0), 0xf4f4f0], [G.box(SW + 0.04 * u, 0.03 * u, 0.03 * u, 0, SH / 2 + 0.015 * u, 0), 0x3a3a44], [G.cyl(0.01 * u, 0.01 * u, sy - floor - SH / 2, 0, -SH / 2 - (sy - floor - SH / 2) / 2, -0.01 * u), 0x3a3a44]], 0.7);
   screen.position.set(sx, sy, -0.5 * u);
@@ -142,6 +147,7 @@ function projector(ctx, spec, stage) {
 }
 
 function potCook(ctx, spec, stage) {
+  if (spec.outcome === 'pan') return panFlip(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u, PR = 0.22 * u, PH = 0.22 * u, base = floor + 0.08 * u;
   const pot = solidProp([[G.box(0.6 * u, 0.08 * u, 0.36 * u, 0, 0.04 * u, 0), 0xe8e8ee], [G.torus(0.13 * u, 0.012 * u).rotateX(Math.PI / 2).translate(0, 0.082 * u, 0), 0x2a2a30], [G.cyl(PR, PR * 0.92, PH, 0, 0.08 * u + PH / 2, 0, 0, 0, 0, 28), 0x8a8e96], [G.torus(PR, 0.015 * u).rotateX(Math.PI / 2).translate(0, 0.08 * u + PH, 0), 0x6a6e76], [G.box(0.1 * u, 0.025 * u, 0.04 * u, -PR - 0.04 * u, 0.08 * u + PH * 0.8, 0), 0x2a2a30], [G.box(0.1 * u, 0.025 * u, 0.04 * u, PR + 0.04 * u, 0.08 * u + PH * 0.8, 0), 0x2a2a30], [G.cyl(PR * 0.9, PR * 0.9, 0.01 * u, 0, 0.08 * u + PH * 0.85, 0, 0, 0, 0, 28), 0xd89a50]], 0.35);
   pot.position.set(cx, floor, 0);

@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["6620", "753b"],
   "builtFrom": [{ "k": "映", "m": "reflect" }, { "k": "画", "m": "picture" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "film", "backdrop": "sky:indoor" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:night",
+    "vignette": { "size": 1, "type": "projector", "outcome": "popcorn" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "兄", "reading": "あに" }, { "text": "と" }, { "text": "映画", "reading": "えいが" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きました。" } ],

@@ -8,7 +8,11 @@
   "pos": ["adj-i"],
   "kanji": ["71b1"],
   "builtFrom": [{ "k": "熱", "m": "heat" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["steam"], "emblem": "cup", "backdrop": "halo" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1.2, "type": "fever", "outcome": "touch" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "熱", "reading": "あつ" }, { "text": "いココアを" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [121917, 282085] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 熱い" },
+  "review": { "recipe": "reviewed", "rule": "word 熱い" },
   "source": { "jmdict": 1467720, "jlpt": 5 }
 }

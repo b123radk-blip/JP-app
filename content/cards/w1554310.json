@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "料", "m": "fee" }, { "k": "理", "m": "logic" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "pot",
-    "scene": ["room:kitchen"],
     "backdrop": "sky:indoor",
-    "particles": ["steam"]
+    "vignette": { "size": 1, "type": "pot-cook", "outcome": "pan" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [227830, 65183] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 料理" },
+  "review": { "recipe": "reviewed", "rule": "word 料理" },
   "source": { "jmdict": 1554310, "jlpt": 5 }
 }

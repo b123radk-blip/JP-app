@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["6642", "8a08"],
   "builtFrom": [{ "k": "時", "m": "time" }, { "k": "計", "m": "plan" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "backdrop": "sky:day", "motion": "float" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1.2, "type": "cuckoo-clock" } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "時計", "reading": "とけい" }, { "text": "は" }, { "text": "電気", "reading": "でんき" }, { "text": "で" }, { "text": "動", "reading": "うご" }, { "text": "く。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [221591, 58915] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 時計" },
+  "review": { "recipe": "reviewed", "rule": "word 時計" },
   "source": { "jmdict": 1316140, "jlpt": 5 }
 }

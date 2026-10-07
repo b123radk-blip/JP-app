@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["97f3", "697d"],
   "builtFrom": [{ "k": "音", "m": "sound" }, { "k": "楽", "m": "music" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "note", "particles": ["notes"], "backdrop": "sky:golden" },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": { "size": 1, "type": "headphones-dance" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "音楽", "reading": "おんがく" }, { "text": "が" }, { "text": "分", "reading": "わ" }, { "text": "からない。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [158204, 256326] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 音楽" },
+  "review": { "recipe": "reviewed", "rule": "word 音楽" },
   "source": { "jmdict": 1183720, "jlpt": 5 }
 }

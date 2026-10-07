@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["98db", "884c", "6a5f"],
   "builtFrom": [{ "k": "飛", "m": "fly" }, { "k": "行", "m": "going" }, { "k": "機", "m": "machine" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "plane",
-    "backdrop": "sky:noon",
-    "motion": "fly",
-    "particles": ["wind"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1.5, "type": "plane-takeoff" } },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "飛行機", "reading": "ひこうき" }, { "text": "で" }, { "text": "旅行", "reading": "りょこう" }, { "text": "したことがありますか。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [231608, 68975] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 飛行機" },
+  "review": { "recipe": "reviewed", "rule": "word 飛行機" },
   "source": { "jmdict": 1485470, "jlpt": 5 }
 }

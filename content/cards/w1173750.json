@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "映", "m": "reflect" }, { "k": "画", "m": "picture" }, { "k": "館", "m": "building" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "film",
-    "backdrop": "sky:indoor",
-    "particles": ["motes"],
-    "motion": "float"
+    "backdrop": "sky:dusk",
+    "vignette": { "size": 1, "type": "hall-rise", "outcome": "cinema" }
   },
   "sentences": [
     {

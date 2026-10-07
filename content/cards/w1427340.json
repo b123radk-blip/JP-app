@@ -8,7 +8,7 @@
   "pos": ["adv"],
   "kanji": ["5ea6"],
   "builtFrom": [{ "k": "度", "m": "degrees" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "motion": "pulse", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1.2, "type": "stopwatch-exact" } },
   "sentences": [
     {
       "segments": [ { "text": "今", "reading": "いま" }, { "text": "、" }, { "text": "丁度", "reading": "ちょうど" }, { "text": "三", "reading": "さん" }, { "text": "時", "reading": "じ" }, { "text": "です。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 丁度" },
+  "review": { "recipe": "reviewed", "rule": "word 丁度" },
   "source": { "jmdict": 1427340, "jlpt": 5 }
 }

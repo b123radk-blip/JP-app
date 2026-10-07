@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["725b", "8089"],
   "builtFrom": [{ "k": "牛", "m": "cow" }, { "k": "肉", "m": "meat" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cow", "backdrop": "sky:indoor", "particles": ["steam"] },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:dusk",
+    "vignette": { "size": 1.3, "type": "cow-moo", "outcome": "steak" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "好", "reading": "この" }, { "text": "みはどちらかというと" }, { "text": "牛肉", "reading": "ぎゅうにく" }, { "text": "ですね。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [163655, 250857] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 牛肉" },
+  "review": { "recipe": "reviewed", "rule": "word 牛肉" },
   "source": { "jmdict": 1231580, "jlpt": 5 }
 }

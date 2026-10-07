@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "交", "m": "mingle" }, { "k": "差", "m": "difference" }, { "k": "点", "m": "spot" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "scene": ["road"],
-    "emblem": "swap",
     "backdrop": "sky:day",
-    "motion": "float"
+    "vignette": { "size": 1.3, "type": "car-cross", "outcome": "scramble" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [209867, 47130] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 交差点" },
+  "review": { "recipe": "reviewed", "rule": "word 交差点" },
   "source": { "jmdict": 1592970, "jlpt": 5 }
 }

@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["7b46"],
   "builtFrom": [{ "k": "筆", "m": "writing brush" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:day", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.2, "type": "brush-enso", "outcome": "pencil" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ペンか" }, { "text": "鉛筆", "reading": "えんぴつ" }, { "text": "を" }, { "text": "持", "reading": "も" }, { "text": "っていますか。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [196645, 33824] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 鉛筆" },
+  "review": { "recipe": "reviewed", "rule": "word 鉛筆" },
   "source": { "jmdict": 1178590, "jlpt": 5 }
 }

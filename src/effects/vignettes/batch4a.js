@@ -7,6 +7,7 @@
 //   bell-ring      音: a bell swings and rings, sound rings ripple out; a person turns and cups an ear
 //   errand-run     用: a parent hands a kid a note; the kid runs off and comes back with a carton of milk; a heart
 import * as THREE from 'three';
+import { scramble, towerRise } from './variants4a.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, heart, PUFF } from '../pieces/kit-things.js';
@@ -19,6 +20,7 @@ import { gearShape } from './batch3c.js';
 const pop = (f) => Math.max(1e-3, f), ROAD = 0x3a3c44;
 
 function carCross(ctx, spec, stage) {
+  if (spec.outcome === 'scramble') return scramble(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.65 * u;
   const dash = (x, z, w, d) => [G.box(w, 0.004 * u, d, x, 0.024 * u, z), 0xf4f4f4];
   const roads = solidProp([[G.box(1.4 * u, 0.02 * u, 0.3 * u, 0, 0.01 * u, 0), ROAD], [G.box(0.3 * u, 0.021 * u, 1.0 * u, 0, 0.011 * u, 0), ROAD], ...[-0.55, -0.35, 0.35, 0.55].map((x) => dash(x * u, 0, 0.1 * u, 0.02 * u)), ...[-0.4, -0.25, 0.25, 0.4].map((z) => dash(0, z * u, 0.02 * u, 0.08 * u))], 0.3);
@@ -106,6 +108,7 @@ function factoryPress(ctx, spec, stage) {
 }
 
 function brickBuild(ctx, spec, stage) {
+  if (spec.outcome === 'tower') return towerRise(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, wx = B.maxX + 0.45 * u, BW = 0.16 * u, BH = 0.08 * u, ROWS = 4, COLS = 4, N = ROWS * COLS;
   const bricks = many([[G.box(BW * 0.94, BH * 0.9, 0.12 * u, 0, 0, 0), 0xffffff]], N, 0.35);
   for (let i = 0; i < N; i++) bricks.setColorAt(i, new THREE.Color(i % 3 ? 0xc0583a : 0xa8482e));

@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5efa", "7269"],
   "builtFrom": [{ "k": "建", "m": "build" }, { "k": "物", "m": "thing" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "museum", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.2, "type": "brick-build", "outcome": "tower" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "あの" }, { "text": "高", "reading": "たか" }, { "text": "い" }, { "text": "建物", "reading": "たてもの" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "なさい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [231029, 68396] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 建物" },
+  "review": { "recipe": "reviewed", "rule": "word 建物" },
   "source": { "jmdict": 1257540, "jlpt": 5 }
 }

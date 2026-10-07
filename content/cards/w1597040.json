@@ -8,7 +8,11 @@
   "pos": ["v5t", "vi"],
   "kanji": ["7acb"],
   "builtFrom": [{ "k": "立", "m": "stand up" }],
-  "effect": { "material": "ivory", "reveal": "draw", "motion": "stand", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1.3, "type": "stand-up", "outcome": "toddler" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "時", "reading": "とき" }, { "text": "、" }, { "text": "立", "reading": "た" }, { "text": "てなかった。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [209766, 47029] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 立つ" },
+  "review": { "recipe": "reviewed", "rule": "word 立つ" },
   "source": { "jmdict": 1597040, "jlpt": 5 }
 }

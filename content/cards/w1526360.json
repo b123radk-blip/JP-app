@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["4e07", "5e74", "7b46"],
   "builtFrom": [{ "k": "万", "m": "ten thousand" }, { "k": "年", "m": "year" }, { "k": "筆", "m": "writing brush" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:noon", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.4, "type": "brush-enso", "outcome": "pen" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "万年筆", "reading": "まんねんひつ" }, { "text": "を" }, { "text": "持", "reading": "も" }, { "text": "っていますか。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [81091, 322624] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 万年筆" },
+  "review": { "recipe": "reviewed", "rule": "word 万年筆" },
   "source": { "jmdict": 1526360, "jlpt": 5 }
 }

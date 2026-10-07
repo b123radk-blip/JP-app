@@ -8,7 +8,11 @@
   "pos": ["v5r", "vi"],
   "kanji": ["8981"],
   "builtFrom": [{ "k": "要", "m": "need" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "exclaim", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:noon",
+    "vignette": { "size": 1, "type": "phone-charge", "outcome": "water" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "バターが" }, { "text": "要", "reading": "い" }, { "text": "るんだけど、いくらかありますか。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [198027, 35217] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 要る" },
+  "review": { "recipe": "reviewed", "rule": "word 要る" },
   "source": { "jmdict": 1546640, "jlpt": 5 }
 }

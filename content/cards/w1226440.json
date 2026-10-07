@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "茶", "m": "tea" }, { "k": "店", "m": "store" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "cup", "drink": "#4a2a10" },
-    "scene": ["room:shop"],
-    "backdrop": "sky:indoor"
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1, "type": "shop-counter", "outcome": "cafe" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [165940, 248564] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 喫茶店" },
+  "review": { "recipe": "reviewed", "rule": "word 喫茶店" },
   "source": { "jmdict": 1226440, "jlpt": 5 }
 }
