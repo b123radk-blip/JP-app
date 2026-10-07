@@ -5,13 +5,7 @@
   "primaryReading": "おん",
   "readings": { "kun": ["おと", "ね"], "on": ["オン", "イン", "-ノン"] },
   "mnemonic": "Stand (立) under the sun (日) and listen: sound.",
-  "effect": {
-    "material": "gold",
-    "particles": ["notes"],
-    "backdrop": "sky:twilight",
-    "emblem": "speaker",
-    "parts": { "日": {} }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:twilight", "vignette": "bell-ring", "parts": { "日": {} } },
   "sentences": [
     {
       "segments": [ { "text": "音楽", "reading": "おんがく" }, { "text": "がない" }, { "text": "人生", "reading": "じんせい" }, { "text": "は" }, { "text": "無", "reading": "な" }, { "text": "い。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [188305, 25448] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

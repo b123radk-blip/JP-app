@@ -5,7 +5,7 @@
   "primaryReading": "ふく",
   "readings": { "kun": [], "on": ["フク"] },
   "mnemonic": "Clothes for the body (月) hung up by a hand (又): clothing.",
-  "effect": { "material": "pearl", "backdrop": "sky:indoor", "scene": ["room:shop"], "motion": "sway", "emblem": "shirt" },
+  "effect": { "material": "pearl", "backdrop": "sky:morning", "vignette": "wardrobe-dress" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "服", "reading": "ふく" }, { "text": "はいかが？" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [163257, 251255] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1500940"] }
 }

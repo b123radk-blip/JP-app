@@ -87,7 +87,7 @@ function brushEnso(ctx, spec, stage) {
 
 function cowMoo(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u;
-  const cow = emblemProp('cow', 0.62 * u), rings = many([[G.torus(0.08 * u, 0.01 * u), 0xffffff]], 3, 0.9), moo = textPlane('モー', { h: 0.18 * u, color: '#ffffff', bg: null });
+  const cow = emblemProp('cow', 0.62 * u), rings = many([[G.torus(0.08 * u, 0.01 * u), 0xffffff]], 3, 0.9), moo = textPlane('モー', { h: 0.32 * u, color: '#ffffff', bg: null });
   const pail = solidProp([[G.cyl(0.1 * u, 0.08 * u, 0.16 * u, 0, 0.08 * u, 0, 0, 0, 0, 20), 0xa8acb4], [G.torus(0.1 * u, 0.008 * u, Math.PI, 0, 0.16 * u, 0), 0x6a6e76]], 0.4), milk = solidProp([[G.cyl(0.095 * u, 0.095 * u, 0.01 * u, 0, 0, 0, 0, 0, 0, 20), 0xffffff]], 0.8);
   const kx = cx + 0.55 * u; pail.position.set(kx, floor, 0.2 * u);
   group.add(cow, rings, moo, pail, milk);
@@ -128,7 +128,7 @@ function heartBeat(ctx, spec, stage) {
 }
 
 function parentWatch(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.35 * u, SH = 0.14 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.55 * u, SH = 0.14 * u;
   const stump = solidProp([[G.cyl(0.13 * u, 0.15 * u, SH, 0, SH / 2, 0, 0, 0, 0, 20), 0x8a5a30], [G.cyl(0.125 * u, 0.125 * u, 0.006 * u, 0, SH + 0.003 * u, 0, 0, 0, 0, 20), 0xe0b880], [G.torus(0.07 * u, 0.005 * u).rotateX(Math.PI / 2).translate(0, SH + 0.007 * u, 0), 0xb08050]], 0.35);
   stump.position.set(sx, floor, -0.05 * u);
   const parent = createPerson({ u: 1.0 * u, shirt: 0x40a080 }), kid = createPerson({ u: 0.5 * u, shirt: 0xf0a030 });

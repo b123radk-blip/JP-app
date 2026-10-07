@@ -79,7 +79,7 @@ function turnAround(ctx, spec, stage) {
 function standUp(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u, pu = 0.85 * u;
   const p = createPerson({ u: pu, shirt: 0xe04848 }), stool = solidProp([[G.cyl(0.1 * u, 0.1 * u, 0.03 * u, 0, 0.2 * pu, 0, 0, 0, 0, 20), 0x8a5a30], [G.cyl(0.015 * u, 0.015 * u, 0.2 * pu, -0.06 * u, 0.1 * pu, 0), 0x6a4020], [G.cyl(0.015 * u, 0.015 * u, 0.2 * pu, 0.06 * u, 0.1 * pu, 0), 0x6a4020]], 0.3);
-  stool.position.set(px + 0.1 * u, floor, -0.25 * u);
+  stool.position.set(px + 0.1 * u, floor, 0.3 * u);
   const dust = many(PUFF(u), 5, 0.4);
   group.add(p.group, stool, dust);
   const loop = 4.8;
@@ -91,7 +91,7 @@ function standUp(ctx, spec, stage) {
       const sit = 1 - Math.min(1, Math.max(0, up));
       p.reset().face('left'); p.bone('body').position.y = -0.17 * pu * sit; p.bone('legL').rotation.x = p.bone('legR').rotation.x = 1.5 * sit; p.bone('shinL').rotation.x = p.bone('shinR').rotation.x = -1.5 * sit;
       p.raise('L', 0.8 * bump(v, 0.9, 0.8)); p.raise('R', 0.8 * bump(v, 0.9, 0.8));
-      p.group.position.set(px + 0.05 * u * sit, floor + 0.04 * u * bump(v, 1.0, 0.3), -0.25 * u); p.update();
+      p.group.position.set(px + 0.05 * u * sit, floor + 0.04 * u * bump(v, 1.0, 0.3), 0.3 * u); p.update();
       puffs(dust, 0, 5, B.maxX - 0.2 * u, floor, between(v, 0.9, 1.5), u, 0.4); dust.commit();
     },
   };

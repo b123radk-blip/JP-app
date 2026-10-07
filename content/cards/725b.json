@@ -5,7 +5,7 @@
   "primaryReading": "ぎゅう",
   "readings": { "kun": ["うし"], "on": ["ギュウ"] },
   "mnemonic": "A cow's head with its horns: cow.",
-  "effect": { "material": "fur", "backdrop": "sky:day", "scene": ["field"], "motion": "tilt", "emblem": "cow" },
+  "effect": { "material": "fur", "backdrop": "sky:day", "vignette": { "type": "cow-moo", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "牛肉", "reading": "ぎゅうにく" }, { "text": "にしてください。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [182303, 19483] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

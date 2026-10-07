@@ -7,9 +7,8 @@
   "mnemonic": "Four dots of fire (灬) under a fortune (占): a point, a mark.",
   "effect": {
     "material": "neon",
-    "reveal": "stamp",
-    "particles": [{ "type": "sparks", "count": 0.8 }],
-    "backdrop": "sky:night",
+    "backdrop": "sky:twilight",
+    "vignette": { "type": "dot-point", "size": 1.3 },
     "parts": { "灬": { "material": "gold" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [205871, 43117] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

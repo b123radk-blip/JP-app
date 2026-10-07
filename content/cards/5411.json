@@ -5,12 +5,7 @@
   "primaryReading": "む",
   "readings": { "kun": ["む(く)", "む(い)", "む(き)", "む(ける)"], "on": ["コウ"] },
   "mnemonic": "A window (口) in the house (冂) turned to face you: face towards, over there.",
-  "effect": {
-    "material": "jade",
-    "backdrop": "sky:morning",
-    "motion": "turn",
-    "emblem": { "type": "arrow", "dir": "toward" }
-  },
+  "effect": { "material": "jade", "backdrop": "sky:morning", "vignette": "turn-around" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "男の子", "reading": "おとこのこ" }, { "text": "は" }, { "text": "向", "reading": "む" }, { "text": "こうにいます。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [208147, 45404] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

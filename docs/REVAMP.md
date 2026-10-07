@@ -4,7 +4,7 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** the pilot and Batches 1-3 are built (80 of the 150 kanji, 114 words). Next is Batch 4: the next 25 unticked
+**Where to continue:** the pilot, Batches 1-3 and the Batch 4 kanji are built (105 of the 150 kanji, 114 words). Next: the Batch 4 words, then Batch 5 from the next 25 unticked
 kanji of the list below, then their words (every word whose Step 2 kanji are all ticked). Each batch: build,
 look at the frame strips, fix, apply with `scripts/set-recipes.mjs`, tick here, `npm test`, e2e, commit and push.
 
@@ -132,34 +132,34 @@ Batches of about 25 in this order. Tick a line when its scene is built, looked a
 - [x] 館 large building (C): a big columned hall rises out of the ground behind the kanji; doors open, people walk in. Built: `hall-rise`.
 - [x] 使 use (C): a hand picks up a tool (a spoon), uses it to scoop, then puts it back on its hook. Built: `tool-use`.
 - [x] 強 strong (C): a person lifts a heavy barbell over their head easily and flexes (the opposite of 重's struggle). Built: `barbell-flex`.
-- [ ] 交 mingle / cross (C): two cars come from left and right and cross at a junction under the kanji, passing each other.
-- [ ] 差 difference (C): two towers of blocks side by side; one grows taller; a ruler measures the gap between them.
-- [ ] 度 degrees / times (C): a thermometer beside a person rises a notch each time they shiver (1, 2, 3 times).
-- [ ] 機 machine (C): a little machine with gears and a conveyor: a ball goes in one side, gets pressed, comes out a cube.
-- [ ] 建 build (C): bricks fly in and stack into a wall; a crane lowers the roof on top.
-- [ ] 音 sound (C): a bell swings and rings; sound rings ripple out; a person turns their head and cups their ear.
-- [ ] 用 use / errand (C): a person with a shopping list ticks items off as they pop into their basket.
-- [ ] 持 hold / have (C): a hand reaches down and lifts a bag by its handle, then holds it up, swinging.
-- [ ] 点 point / dot (C): a pen dots four points under the kanji (its 灬 dots), then a pointer taps one and it glows.
-- [ ] 向 face towards (C): a person standing with their back to you turns round to face you, then turns and points "over there".
+- [x] 交 mingle / cross (C): two cars come from left and right and cross at a junction under the kanji, passing each other. Built: `car-cross`.
+- [x] 差 difference (C): two towers of blocks side by side; one grows taller; a ruler measures the gap between them. Built: `tower-gap`.
+- [x] 度 degrees / times (C): a thermometer beside a person rises a notch each time they shiver (1, 2, 3 times). Built: `jump-rope`.
+- [x] 機 machine (C): a little machine with gears and a conveyor: a ball goes in one side, gets pressed, comes out a cube. Built: `factory-press`.
+- [x] 建 build (C): bricks fly in and stack into a wall; a crane lowers the roof on top. Built: `brick-build`.
+- [x] 音 sound (C): a bell swings and rings; sound rings ripple out; a person turns their head and cups their ear. Built: `bell-ring`.
+- [x] 用 use / errand (C): a person with a shopping list ticks items off as they pop into their basket. Built: `errand-run`.
+- [x] 持 hold / have (C): a hand reaches down and lifts a bag by its handle, then holds it up, swinging. Built: `bag-carry`.
+- [x] 点 point / dot (C): a pen dots four points under the kanji (its 灬 dots), then a pointer taps one and it glows. Built: `dot-point`.
+- [x] 向 face towards (C): a person standing with their back to you turns round to face you, then turns and points "over there". Built: `turn-around`.
 - [x] 重 heavy (C): pilot, built. Built: `lift-heavy`.
 - [x] 違 different (C): pilot, built. Built: `odd-one-out`.
-- [ ] 立 stand up (B): the kanji lies flat and springs upright; add a person who gets up from sitting at the same moment, with dust.
-- [ ] 計 measure / plan (C): a hand moves a tape measure along the kanji; numbers count up; a clock hand ticks round (時計).
-- [ ] 再 again (C): a ball rolls off a table and falls, then rewinds and does it again, and again.
-- [ ] 店 shop (C): a shop counter: a customer hands over a coin, the shopkeeper hands back a bag; the till dings.
-- [ ] 要 need (C): a person in the rain pats their pockets, panics; an umbrella drops into their hand just in time.
-- [ ] 服 clothes (C): a T-shirt and trousers fly off a hanger onto a person, who twirls to show them off.
-- [ ] 画 picture (C): an easel; a brush paints a sun and a hill on the canvas; a frame drops round it.
-- [ ] 映 project / reflect (C): a projector beam lights a screen behind the kanji and the kanji's shadow plays on it.
-- [ ] 料 materials / fee (C): ingredients drop into a pot one by one (carrot, fish, rice), a ladle stirs, steam rises.
-- [ ] 乗 ride (C): a person climbs onto a bus that pulls up beside the kanji; it drives off with them waving.
-- [ ] 熱 hot / fever (C): a person with a thermometer in their mouth; it shoots up red, steam puffs from their ears.
-- [ ] 筆 writing brush (C): a brush dips into ink and writes a stroke with a flourish, flicking ink.
-- [ ] 牛 cow (C): a cow walks in, chewing; it moos (a big "moo" ring) and a milk pail fills.
+- [x] 立 stand up (B): the kanji lies flat and springs upright; add a person who gets up from sitting at the same moment, with dust. Built: `stand-up`.
+- [x] 計 measure / plan (C): a hand moves a tape measure along the kanji; numbers count up; a clock hand ticks round (時計). Built: `tape-measure`.
+- [x] 再 again (C): a ball rolls off a table and falls, then rewinds and does it again, and again. Built: `rewind-ball`.
+- [x] 店 shop (C): a shop counter: a customer hands over a coin, the shopkeeper hands back a bag; the till dings. Built: `shop-counter`.
+- [x] 要 need (C): a person in the rain pats their pockets, panics; an umbrella drops into their hand just in time. Built: `phone-charge`.
+- [x] 服 clothes (C): a T-shirt and trousers fly off a hanger onto a person, who twirls to show them off. Built: `wardrobe-dress`.
+- [x] 画 picture (C): an easel; a brush paints a sun and a hill on the canvas; a frame drops round it. Built: `easel-paint`.
+- [x] 映 project / reflect (C): a projector beam lights a screen behind the kanji and the kanji's shadow plays on it. Built: `projector`.
+- [x] 料 materials / fee (C): ingredients drop into a pot one by one (carrot, fish, rice), a ladle stirs, steam rises. Built: `pot-cook`.
+- [x] 乗 ride (C): a person climbs onto a bus that pulls up beside the kanji; it drives off with them waving. Built: `bus-ride`.
+- [x] 熱 hot / fever (C): a person with a thermometer in their mouth; it shoots up red, steam puffs from their ears. Built: `fever`.
+- [x] 筆 writing brush (C): a brush dips into ink and writes a stroke with a flourish, flicking ink. Built: `brush-enso`.
+- [x] 牛 cow (C): a cow walks in, chewing; it moos (a big "moo" ring) and a milk pail fills. Built: `cow-moo`.
 - [x] 皿 dish (C): pilot, built. Built: `stack-plates`.
-- [ ] 心 heart (C): a heart beats inside a person's chest, glowing brighter; they hug themselves happily.
-- [ ] 親 parent (C): a big person holds a small one's hand and watches over them from a little behind (standing on the tree 木 to see).
+- [x] 心 heart (C): a heart beats inside a person's chest, glowing brighter; they hug themselves happily. Built: `heart-beat`.
+- [x] 親 parent (C): a big person holds a small one's hand and watches over them from a little behind (standing on the tree 木 to see). Built: `parent-watch`.
 - [ ] 美 beautiful (C): a flower opens; sparkles; a person gasps with hands on their cheeks.
 - [ ] 最 most (C): three people race up to a podium; the winner climbs the top step and lifts a trophy.
 - [ ] 面 face / mask (C): a mask lifts off the kanji's middle; underneath, a face winks.

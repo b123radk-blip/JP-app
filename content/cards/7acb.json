@@ -5,7 +5,7 @@
   "primaryReading": "た",
   "readings": { "kun": ["た(つ)", "た(つ)", "た(ち)", "た(てる)"], "on": ["リツ", "リュウ", "リットル"] },
   "mnemonic": "A person standing on the ground, arms out: stand.",
-  "effect": { "material": "skin", "backdrop": "sky:morning", "motion": "stand" },
+  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": "stand-up" },
   "sentences": [
     {
       "segments": [ { "text": "誰", "reading": "だれ" }, { "text": "かが" }, { "text": "入り口", "reading": "いりぐち" }, { "text": "に" }, { "text": "立", "reading": "た" }, { "text": "っています。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [137064, 276172] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

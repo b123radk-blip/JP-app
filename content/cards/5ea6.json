@@ -5,7 +5,7 @@
   "primaryReading": "ど",
   "readings": { "kun": ["たび", "た(い)"], "on": ["ド", "ト", "タク"] },
   "mnemonic": "A hand (又) under the eaves (广) reading the degrees: degrees, times.",
-  "effect": { "material": "silver", "backdrop": "sky:snow", "emblem": { "type": "thermometer", "level": 0.5 } },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "jump-rope" },
   "sentences": [
     {
       "segments": [ { "text": "温度", "reading": "おんど" }, { "text": "は" }, { "text": "七十", "reading": "ななじゅう" }, { "text": "度", "reading": "ど" }, { "text": "です。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [188325, 25468] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

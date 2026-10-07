@@ -5,7 +5,7 @@
   "primaryReading": "が",
   "readings": { "kun": ["えが(く)", "かく(する)", "かぎ(る)", "はかりごと"], "on": ["ガ", "カク", "エ"] },
   "mnemonic": "Fields (由) inside a frame (凵): a picture.",
-  "effect": { "material": "paper", "backdrop": "sky:day", "emblem": { "type": "frame", "size": 1.3 }, "motion": "float" },
+  "effect": { "material": "paper", "backdrop": "sky:day", "vignette": "easel-paint" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "映画", "reading": "えいが" }, { "text": "をもう" }, { "text": "一度", "reading": "いちど" }, { "text": "見", "reading": "み" }, { "text": "たいな。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [212237, 49519] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

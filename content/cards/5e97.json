@@ -5,7 +5,7 @@
   "primaryReading": "みせ",
   "readings": { "kun": ["みせ", "たな"], "on": ["テン"] },
   "mnemonic": "A stall under the eaves (广) where a fortune-teller (占) sells: shop.",
-  "effect": { "material": "wood", "backdrop": "sky:indoor", "scene": ["room:shop"], "emblem": "tag" },
+  "effect": { "material": "wood", "backdrop": "sky:day", "vignette": "shop-counter" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "店", "reading": "みせ" }, { "text": "は" }, { "text": "年中", "reading": "ねんじゅう" }, { "text": "無休", "reading": "むきゅう" }, { "text": "です。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [207607, 44860] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1582120"] }
 }

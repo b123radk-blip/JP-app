@@ -7,9 +7,8 @@
   "mnemonic": "Rice (米) measured with a ladle (斗): ingredients, a fee.",
   "effect": {
     "material": "gold",
-    "particles": [{ "type": "steam", "count": 0.6 }],
     "backdrop": "sky:indoor",
-    "emblem": "pot",
+    "vignette": { "type": "pot-cook", "size": 1.3 },
     "parts": { "米": { "material": "ivory" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [171232, 243245] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

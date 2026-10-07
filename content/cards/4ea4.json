@@ -5,7 +5,7 @@
   "primaryReading": "こう",
   "readings": { "kun": ["まじ(わる)", "まじ(える)", "ま(じる)", "まじ(る)"], "on": ["コウ"] },
   "mnemonic": "Legs crossed (父) under a lid: cross, exchange.",
-  "effect": { "material": "jade", "backdrop": "sky:day", "scene": ["road"], "emblem": "swap" },
+  "effect": { "material": "jade", "backdrop": "sky:day", "vignette": "car-cross" },
   "sentences": [
     {
       "segments": [ { "text": "向", "reading": "む" }, { "text": "こうの" }, { "text": "交番", "reading": "こうばん" }, { "text": "で" }, { "text": "聞", "reading": "き" }, { "text": "いてください。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [173841, 1584073] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

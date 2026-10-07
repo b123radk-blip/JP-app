@@ -5,7 +5,7 @@
   "primaryReading": "さ",
   "readings": { "kun": ["ふたた(び)"], "on": ["サイ", "サ"] },
   "mnemonic": "The same frame built once more: again.",
-  "effect": { "material": "jade", "backdrop": "sky:day", "emblem": "repeat", "motion": "float" },
+  "effect": { "material": "jade", "backdrop": "sky:day", "vignette": { "type": "rewind-ball", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "すぐ" }, { "text": "再会", "reading": "さいかい" }, { "text": "できるだろう。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [214788, 20894] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

@@ -5,13 +5,7 @@
   "primaryReading": "た",
   "readings": { "kun": ["た(てる)", "た(て)", "だ(て)", "た(つ)"], "on": ["ケン", "コン"] },
   "mnemonic": "A brush (聿) drafts the plan, a long stride (廴) builds it: build.",
-  "effect": {
-    "material": "wood",
-    "reveal": "assemble",
-    "particles": [{ "type": "dust", "count": 0.6 }],
-    "backdrop": "sky:day",
-    "emblem": "blocks"
-  },
+  "effect": { "material": "wood", "backdrop": "sky:day", "vignette": "brick-build" },
   "sentences": [
     {
       "segments": [ { "text": "あの" }, { "text": "白", "reading": "しろ" }, { "text": "い" }, { "text": "建物", "reading": "たてもの" }, { "text": "は" }, { "text": "病院", "reading": "びょういん" }, { "text": "です。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [230492, 67860] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

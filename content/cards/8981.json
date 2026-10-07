@@ -5,7 +5,12 @@
   "primaryReading": "い",
   "readings": { "kun": ["い(る)", "かなめ"], "on": ["ヨウ"] },
   "mnemonic": "A woman (女) carrying a basket (覀) she can't do without: need, essential.",
-  "effect": { "material": "gold", "backdrop": "sky:day", "motion": "pulse", "emblem": "exclaim", "parts": { "女": {} } },
+  "effect": {
+    "material": "gold",
+    "backdrop": "sky:day",
+    "vignette": { "type": "phone-charge", "size": 1.4 },
+    "parts": { "女": {} }
+  },
   "sentences": [
     {
       "segments": [ { "text": "お" }, { "text": "金", "reading": "かね" }, { "text": "は" }, { "text": "要", "reading": "い" }, { "text": "りません。" } ],
@@ -14,6 +19,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

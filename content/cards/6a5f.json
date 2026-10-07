@@ -7,10 +7,8 @@
   "mnemonic": "A wooden (木) loom full of tiny (幾) moving parts: machine.",
   "effect": {
     "material": "metal",
-    "reveal": "draw:sparks",
     "backdrop": "sky:noon",
-    "motion": "shake",
-    "emblem": "gears",
+    "vignette": { "type": "factory-press", "size": 1.3 },
     "parts": { "木": {} }
   },
   "sentences": [
@@ -21,6 +19,6 @@
       "source": { "tatoeba": [153120, 261424] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

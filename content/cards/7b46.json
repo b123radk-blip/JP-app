@@ -5,7 +5,12 @@
   "primaryReading": "ひつ",
   "readings": { "kun": ["ふで"], "on": ["ヒツ"] },
   "mnemonic": "A bamboo (竹) handle holding the brush tip (聿): writing brush.",
-  "effect": { "material": "ink", "reveal": "brush", "backdrop": "sky:snow", "parts": { "竹": { "material": "jade" } } },
+  "effect": {
+    "material": "ink",
+    "backdrop": "sky:snow",
+    "vignette": "brush-enso",
+    "parts": { "竹": { "material": "jade" } }
+  },
   "sentences": [
     {
       "segments": [ { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "万年筆", "reading": "まんねんひつ" }, { "text": "をなくしてしまった。" } ],
@@ -14,6 +19,6 @@
       "source": { "tatoeba": [155723, 258814] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

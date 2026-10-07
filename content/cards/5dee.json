@@ -7,9 +7,8 @@
   "mnemonic": "A sheep (羊) holds up an umbrella against the rain: hold up; difference.",
   "effect": {
     "material": "water",
-    "particles": ["rain"],
-    "backdrop": "sky:storm",
-    "emblem": { "type": "umbrella", "size": 1.3 },
+    "backdrop": "sky:day",
+    "vignette": { "type": "tower-gap", "size": 1.3 },
     "parts": { "羊": { "material": "fur" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

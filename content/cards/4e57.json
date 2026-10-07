@@ -5,7 +5,7 @@
   "primaryReading": "の",
   "readings": { "kun": ["の(る)", "の(り)", "の(せる)"], "on": ["ジョウ", "ショウ"] },
   "mnemonic": "Someone perched on top of a tree (木), riding high: ride.",
-  "effect": { "material": "silver", "backdrop": "sky:day", "scene": ["road"], "motion": "bounce", "emblem": "train" },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "bus-ride" },
   "sentences": [
     {
       "segments": [ { "text": "お" }, { "text": "乗", "reading": "の" }, { "text": "りになりませんか。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [227019, 64367] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

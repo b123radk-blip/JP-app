@@ -7,10 +7,8 @@
   "mnemonic": "Fire (灬) under the plant (埶): heat, a fever.",
   "effect": {
     "material": "lacquer",
-    "particles": ["embers"],
-    "backdrop": { "type": "halo", "color": "#ff5020" },
-    "motion": "shake",
-    "emblem": { "type": "thermometer", "level": 0.95 },
+    "backdrop": "sky:dusk",
+    "vignette": "fever",
     "parts": { "灬": { "material": "heat" } }
   },
   "sentences": [
@@ -21,6 +19,6 @@
       "source": { "tatoeba": [223931, 61267] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

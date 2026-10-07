@@ -22,16 +22,15 @@ function carCross(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.65 * u;
   const dash = (x, z, w, d) => [G.box(w, 0.004 * u, d, x, 0.024 * u, z), 0xf4f4f4];
   const roads = solidProp([[G.box(1.4 * u, 0.02 * u, 0.3 * u, 0, 0.01 * u, 0), ROAD], [G.box(0.3 * u, 0.021 * u, 1.0 * u, 0, 0.011 * u, 0), ROAD], ...[-0.55, -0.35, 0.35, 0.55].map((x) => dash(x * u, 0, 0.1 * u, 0.02 * u)), ...[-0.4, -0.25, 0.25, 0.4].map((z) => dash(0, z * u, 0.02 * u, 0.08 * u))], 0.3);
-  roads.position.set(cx, floor, 0);
-  const A = emblemProp('car', 0.32 * u, { color: 0xe04848 }), Bc = emblemProp('car', 0.32 * u, { color: 0x40a0e0 });
-  group.add(roads, A, Bc);
+  const A = emblemProp('car', 0.42 * u, { color: 0xe04848 }), Bc = emblemProp('car', 0.42 * u, { color: 0x40a0e0 }), tilt = new THREE.Group();
+  tilt.add(roads, A, Bc); tilt.position.set(cx, floor + 0.15 * u, 0); tilt.rotation.x = 0.55; group.add(tilt);
   const loop = 4.4;
   return {
     group,
     step(t) {
       const S = acts(ctx, t, loop), pre = S.u < 0, v = pre ? -1 : S.v, a = pre ? 0.3 : between(v, 0.1, 2.3), b = pre ? 0.1 : between(v, 1.0, 3.4);
-      A.position.set(cx - 0.75 * u + 1.5 * u * a, floor + 0.1 * u, 0); A.scale.setScalar(0.32 * u * pop(Math.min(1, Math.min(a, 1 - a) * 8))); A.idle(t);
-      Bc.position.set(cx, floor + 0.1 * u, -0.55 * u + 1.0 * u * b); Bc.rotation.y = -Math.PI / 2; Bc.scale.setScalar(0.32 * u * pop(Math.min(1, Math.min(b, 1 - b) * 8))); Bc.idle(t);
+      A.position.set(-0.75 * u + 1.5 * u * a, 0.1 * u, 0); A.scale.setScalar(0.42 * u * pop(Math.min(1, Math.min(a, 1 - a) * 8))); A.idle(t);
+      Bc.position.set(0, 0.1 * u, -0.55 * u + 1.0 * u * b); Bc.rotation.y = -Math.PI / 2; Bc.scale.setScalar(0.42 * u * pop(Math.min(1, Math.min(b, 1 - b) * 8))); Bc.idle(t);
     },
   };
 }
