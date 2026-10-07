@@ -61,9 +61,10 @@ export const EFFECTS = {
   // looks of the glyphs of a word that have no kanji card: hiragana take the word recipe's material (ivory by default),
   // katakana always their own preset (the script is a cue: a loanword), kanji outside the plan the neutral "plain" one
   glyphLooks: { katakana: 'katakana', plain: 'plain' },
-  // Recipe similarity (scripts/check-recipes.mjs): 0 = nothing shared, 1 = identical. Slot weights below. Kanji that look
+  // Recipe similarity (scripts/check-recipes.mjs): 0 = nothing shared, 1 = identical. Slot weights below; two scene cards
+  // (vignette slot) are compared by their scene only (sceneVariant: the same scene with another outcome, as 上手 / 下手). Kanji that look
   // alike (scripts/lib/lookalike.mjs: 人/入, 日/目) must stay below `lookalike`.
-  similarity: { warn: 0.72, fail: 0.9, lookalike: 0.5, weights: { material: 2, reveal: 1, particles: 2, scene: 2.5, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5 } },
+  similarity: { warn: 0.72, fail: 0.9, lookalike: 0.5, sceneVariant: 0.7, weights: { material: 2, reveal: 1, particles: 2, scene: 2.5, backdrop: 2, motion: 1.5, emblem: 2, parts: 1.5, vignette: 3 } },
 };
 
 // Glyph materials of the "glow" family: a recipe names one ("wood", or { "type": "glow", "preset": "wood" }) and may override fields.

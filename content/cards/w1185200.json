@@ -8,14 +8,7 @@
   "pos": ["adj-na", "n"],
   "kanji": ["4e0b", "624b"],
   "builtFrom": [{ "k": "下", "m": "down" }, { "k": "手", "m": "hand" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "hand",
-    "motion": "shake",
-    "backdrop": "sky:night",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "type": "hammer-nail", "outcome": "bend" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はテニスが" }, { "text": "下手", "reading": "へた" }, { "text": "だ。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [159444, 255079] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 下手" },
+  "review": { "recipe": "reviewed", "rule": "word 下手" },
   "source": { "jmdict": 1185200, "jlpt": 5 }
 }

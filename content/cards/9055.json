@@ -4,8 +4,8 @@
   "meaning": "differ; difference",
   "primaryReading": "ちが",
   "readings": { "kun": ["ちが(う)", "ちが(い)", "ちが(える)", "ちが(える)"], "on": ["イ"] },
-  "mnemonic": "Walking (⻌) the wrong way round the leather (韋): different, wrong.",
-  "effect": { "material": "silver", "backdrop": "sky:dusk", "motion": "shake", "emblem": "cross" },
+  "mnemonic": "Walking (⻌) round the leather (韋) the other way from everyone: different, wrong.",
+  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "odd-one-out" },
   "sentences": [
     {
       "segments": [ { "text": "答", "reading": "こた" }, { "text": "えが" }, { "text": "違", "reading": "ちが" }, { "text": "います。" } ],
@@ -14,6 +14,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

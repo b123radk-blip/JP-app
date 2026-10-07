@@ -4,14 +4,8 @@
   "meaning": "near",
   "primaryReading": "ちか",
   "readings": { "kun": ["ちか(い)"], "on": ["キン", "コン"] },
-  "mnemonic": "Walk (⻌) up to the axe (斤) close by: near.",
-  "effect": {
-    "material": "jade",
-    "backdrop": "sky:golden",
-    "scene": ["road"],
-    "motion": { "type": "drift", "dir": "toward" },
-    "emblem": "arrow:toward"
-  },
+  "mnemonic": "Walk (⻌) up the road until you are right beside the axe (斤): near.",
+  "effect": { "material": "jade", "backdrop": "sky:golden", "vignette": "come-near" },
   "sentences": [
     {
       "segments": [ { "text": "クリスマスが" }, { "text": "近", "reading": "ちか" }, { "text": "くなってきた。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [225480, 62816] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

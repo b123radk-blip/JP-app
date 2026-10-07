@@ -1,4 +1,4 @@
-// Builds every emblem, scene prop, reveal and particle layer once in the browser (on 大 through ?preview=1) and compares
+// Builds every emblem, scene prop, reveal, particle layer and vignette once in the browser (on 大 through ?preview=1) and compares
 // what was built with the catalog's declared cost. npm run e2e does the same for deck cards; this covers pieces no card uses yet.
 // Usage: npm run serve (other shell), then node scripts/check-piece-costs.mjs
 import { createRequire } from 'node:module';
@@ -8,6 +8,7 @@ const { chromium } = createRequire('/opt/node22/lib/node_modules/_')('playwright
 
 const BASE = process.env.BASE || 'http://localhost:8080/', ID = '5927', data = JSON.parse(readFileSync(`data/kanji-${ID}.json`, 'utf8'));
 const base = { material: 'chalk', backdrop: 'plain' };
+const only = process.argv[2];   // e.g. vignette: only the recipes that use that slot
 const recipes = [
   ...Object.keys(PIECES.emblem).map((e) => ({ ...base, emblem: e })),
   { ...base, emblem: 'flag:finish' }, { ...base, emblem: 'flag:japan' },
@@ -15,12 +16,13 @@ const recipes = [
   ...['classroom', 'kitchen', 'shop', 'station'].map((k) => ({ ...base, scene: [`room:${k}`] })),
   ...Object.keys(PIECES.reveal).map((r) => ({ ...base, reveal: r })),
   ...Object.entries(PIECES.particles).map(([p]) => ({ ...base, particles: [p] })),
+  ...Object.keys(PIECES.vignette).map((v) => ({ ...base, vignette: v })), { ...base, vignette: { type: 'hammer-nail', outcome: 'bend' } },
 ];
 const browser = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium', args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--no-sandbox'] });
 const page = await browser.newPage(), errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
 let bad = 0;
-for (const r of recipes) {
+for (const r of recipes.filter((x) => !only || x[only] !== undefined)) {
   await page.goto(`${BASE}?preview=1&cards=${ID}&card=${ID}&t=0&recipe=${encodeURIComponent(JSON.stringify(r))}`, { waitUntil: 'load' });
   await page.waitForFunction(() => window.__app?.ready && window.__app.info().player?.effect);
   const built = await page.evaluate(() => window.__app.info().player.effect), est = estimateCost(normalizeRecipe(r), data.strokes.length, data.components);

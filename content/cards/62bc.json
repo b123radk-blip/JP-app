@@ -4,14 +4,8 @@
   "meaning": "push",
   "primaryReading": "お",
   "readings": { "kun": ["お(す)", "お(し)", "お(っ)", "お(さえる)"], "on": ["オウ"] },
-  "mnemonic": "A hand (扌) pushing on armour (甲): push.",
-  "effect": {
-    "material": "skin",
-    "backdrop": "sky:day",
-    "motion": { "type": "shove", "dir": "right", "dist": 0.04 },
-    "emblem": { "type": "hand", "at": [-0.3, 0.05], "color": "#ffd27a" },
-    "parts": { "扌": {} }
-  },
+  "mnemonic": "A hand (扌) leaning on armour (甲) and shoving it along: push.",
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "push" },
   "sentences": [
     {
       "segments": [ { "text": "シャッターを" }, { "text": "押", "reading": "お" }, { "text": "してくれますか。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [215785, 53086] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

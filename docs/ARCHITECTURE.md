@@ -12,7 +12,7 @@ its recipe and real cost; Prev / Replay / Pause / Next). Kanji cards and word ca
 | `src/core/` | `scene` (renderer, camera, root/card groups, frame loop), `xr` (Enter VR/AR, placement, passthrough), `input` + `pick` (mouse, controller and hand rays), `audio` (clips by id), `text` (canvas text, furigana), `clock` (fake days) |
 | `src/srs/` | pure logic, unit-tested: `scheduler`, `retirement`, `storage`, `session` (unlock rule for words), `dates` |
 | `src/kanji/tube.js` | KanjiVG centre-lines -> merged 3D tubes per part, stroke timing, the glyph row of a word |
-| `src/effects/` | composable effects: `catalog` (pure: pieces, options, costs, recipe parsing / validation), `plan` (pure: which strokes form which part, for a kanji or a word), `similarity` (pure), `compose` (builds one card's effect), `pieces/` (materials + the reveal shader, particles, scene props, backdrops, motion, emblems) |
+| `src/effects/` | composable effects (`vignettes/`: the scenes, `vignette-catalog.js`: their types and costs): `catalog` (pure: pieces, options, costs, recipe parsing / validation), `plan` (pure: which strokes form which part, for a kanji or a word), `similarity` (pure), `compose` (builds one card's effect), `pieces/` (materials + the reveal shader, particles, scene props, backdrops, motion, emblems) |
 | `src/ui/` | 3D `button`, 2D `debug-panel` |
 | `src/app/` | app wiring, `card-player` (also the mnemonic panel), screens (home, study, done, preview) |
 | `content/` | cards (kanji `<hex>.json`, words `w<JMdict seq>.json`), decks (card order + `requires`: the kanji each word needs); `src/content/clips.js` derives voice clip ids; `audio/clips.json` lists every clip the content needs, `audio/manifest.json` the ones that exist |
@@ -76,6 +76,14 @@ its recipe and real cost; Prev / Replay / Pause / Next). Kanji cards and word ca
   against the verified reading before saving. The app plays only clips listed in the manifest; with none, it is silent
   and shows no Sound button or voice credit.
 - **Placement**: on session start the card is placed 1.2 m in front of where the viewer looks, at eye height, facing them; the card restarts then.
+
+- **Scenes over labels (Step 2b).** After 50 cards in the headset many looked alike: one shared piece set gives
+  variations of one card, and an emblem beside the kanji is a label, not a memory. The `vignette` slot gives each card a
+  short scene acting out its meaning (set-up while the strokes draw, an action, a settle, then the action loops), with
+  the kanji taking part (it is pushed, lifted, used as a stand). Scenes are pure functions of t (`vignettes/timeline.js`),
+  so `seek()` stays exact. Actors come from a props kit: articulated actors are bone rigs drawn as two instanced meshes
+  (2 draw calls for a whole person), static props merge their colours into one mesh. Scene cards are compared by their
+  scene (vignette-catalog.js `variant` tells 上手 / 下手 apart).
 
 ## Known limits / next steps
 - Headset behaviour (pinch accuracy, comfort, text sharpness, frame rate with the fire and rain effects) is untested here.

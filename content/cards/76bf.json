@@ -4,8 +4,8 @@
   "meaning": "dish; plate",
   "primaryReading": "さら",
   "readings": { "kun": ["さら"], "on": ["ベイ"] },
-  "mnemonic": "A plate on its stand, seen from the side: dish.",
-  "effect": { "material": "pearl", "backdrop": "sky:indoor", "emblem": { "type": "plate", "size": 1.3 } },
+  "mnemonic": "A stand with the plates piled on top: dish, plate.",
+  "effect": { "material": "pearl", "backdrop": "sky:indoor", "vignette": "stack-plates" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は、" }, { "text": "夕食", "reading": "ゆうしょく" }, { "text": "後", "reading": "ご" }, { "text": "、お" }, { "text": "皿", "reading": "さら" }, { "text": "を" }, { "text": "洗", "reading": "あら" }, { "text": "った。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [162135, 252380] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

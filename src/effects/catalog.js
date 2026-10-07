@@ -2,8 +2,9 @@
 // no three.js, so Node scripts (content check, similarity check, audit) can import it. Implementations: src/effects/pieces/.
 import { MATERIALS, SKIES } from '../config.js';
 import { planKanji, planWord } from './plan.js';
+import { VIGNETTES } from './vignette-catalog.js';
 
-export const SLOTS = ['material', 'reveal', 'particles', 'scene', 'backdrop', 'motion', 'emblem'];
+export const SLOTS = ['material', 'reveal', 'particles', 'scene', 'backdrop', 'motion', 'emblem', 'vignette'];
 export const LIST_SLOTS = ['particles', 'scene'];             // these take a list
 export const MAX_PARTICLE_LAYERS = 2, MAX_SCENE_PROPS = 2;
 
@@ -162,18 +163,20 @@ export const PIECES = {
       pill: [2, 0xe04848, 'capsule pill (illness, medicine)'], hospital: [3, 0xe03030, 'hospital, red cross (hospital)'], museum: [1, 0xe8dcc8, 'columned hall (building, hall)'], shield: [2, 0x5a7ad0, 'shield (sturdy, protect)'], letter: [2, 0xd03030, 'envelope (letter)'],
     }),
   },
+  // scenes that act out the meaning, the kanji taking part (vignettes/, vignette-catalog.js); one per card
+  vignette: Object.fromEntries(Object.entries(VIGNETTES).map(([name, v]) => [name, { impl: name, variant: v.variant, opts: v.opts, cost: (o) => cost(typeof v.dc === 'function' ? v.dc(o) : v.dc), desc: v.desc }])),
 };
 
 // tip particles each reveal brings (draw: its own `tip` option); keep in step with pieces/reveal.js TIPS
 export const REVEAL_TIPS = { ignite: ['front', 'sparks'], grow: ['sprouts'], brush: ['ink'], stamp: ['dust'] };
 export const DEFAULT_RECIPE = { motion: { type: 'sway', amp: 0.25 } };       // cards with no "effect"
-const SLOT_DEFAULTS = { material: 'glow', reveal: 'draw', backdrop: 'plain', motion: 'none', emblem: null };
+const SLOT_DEFAULTS = { material: 'glow', reveal: 'draw', backdrop: 'plain', motion: 'none', emblem: null, vignette: null };
 const RECIPE_KEYS = new Set([...SLOTS, 'parts', 'options']);
 const OPTION_KEYS = new Set(['start', 'seed']);
 
 // "type", "type:variant" or { type, ...options } -> { type, ...options } (aliases resolved), or null for none.
 export function parseSpec(slot, v) {
-  if (v === null || v === undefined || v === 'none' && slot === 'emblem') return null;
+  if (v === null || v === undefined || v === 'none' && (slot === 'emblem' || slot === 'vignette')) return null;
   let spec = typeof v === 'string' ? (() => { const [type, variant] = v.split(':'); return { type, ...(variant !== undefined ? { [PIECES[slot]?.[type]?.variant ?? 'variant']: isNaN(+variant) ? variant : +variant } : {}) }; })() : { ...v };
   const piece = PIECES[slot]?.[spec.type];
   if (piece?.alias) spec = { ...piece.alias, ...spec, type: piece.alias.type };
@@ -249,6 +252,7 @@ export function estimateCost(r, n, components = [], glyphs = null) {
   for (const p of r.scene) add(PIECES.scene[p.type].cost(p, n, { components }));
   add(PIECES.backdrop[r.backdrop.type].cost(r.backdrop));
   if (r.emblem) add(PIECES.emblem[r.emblem.type].cost(r.emblem));
+  if (r.vignette) add(PIECES.vignette[r.vignette.type].cost(r.vignette));
   sum.drawCalls += pools.size;
   return sum;
 }
@@ -258,5 +262,5 @@ export function describeRecipe(r) {
   if (r.bespoke) return `bespoke: ${r.bespoke}`;
   const v = (slot, s) => { if (!s) return '—'; const k = PIECES[slot]?.[s.type]?.variant; return k && s[k] !== null && s[k] !== undefined ? `${s.type}:${s[k]}` : s.type; };
   const parts = Object.entries(r.parts).map(([el, p]) => `${el}=${[p.material && v('material', p.material), p.motion && v('motion', p.motion)].filter(Boolean).join('/')}`);
-  return [v('material', r.material), v('reveal', r.reveal), r.particles.map((p) => v('particles', p)).join('+') || '—', ...(r.scene.length ? [r.scene.map((p) => v('scene', p)).join('+')] : []), v('backdrop', r.backdrop), v('motion', r.motion), v('emblem', r.emblem)].join(' · ') + (parts.length ? ` · parts ${parts.join(' ')}` : '');
+  return [v('material', r.material), v('reveal', r.reveal), r.particles.map((p) => v('particles', p)).join('+') || '—', ...(r.scene.length ? [r.scene.map((p) => v('scene', p)).join('+')] : []), v('backdrop', r.backdrop), v('motion', r.motion), v('emblem', r.emblem), ...(r.vignette ? [`scene ${v('vignette', r.vignette)}`] : [])].join(' · ') + (parts.length ? ` · parts ${parts.join(' ')}` : '');
 }

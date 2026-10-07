@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["4e8c", "4eba"],
   "builtFrom": [{ "k": "二", "m": "two" }, { "k": "人", "m": "person" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "person",
-    "motion": "count:2",
-    "particles": ["hearts"],
-    "backdrop": "sky:dawn"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "hand-in-hand" },
   "sentences": [
     {
       "segments": [ { "text": "ケーキを" }, { "text": "二人", "reading": "ふたり" }, { "text": "に" }, { "text": "分", "reading": "わ" }, { "text": "けた。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [225293, 62630] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 二人" },
+  "review": { "recipe": "reviewed", "rule": "word 二人" },
   "source": { "jmdict": 1582670, "jlpt": 5 }
 }

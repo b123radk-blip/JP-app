@@ -8,7 +8,7 @@
   "pos": ["adj-na", "n"],
   "kanji": ["4e0a", "624b"],
   "builtFrom": [{ "k": "上", "m": "up" }, { "k": "手", "m": "hand" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "particles": ["sparks"], "backdrop": "sky:noon" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "type": "hammer-nail", "outcome": "clean" } },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "上手", "reading": "じょうず" }, { "text": "にバスケットボールができますか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [231837, 69204] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 上手" },
+  "review": { "recipe": "reviewed", "rule": "word 上手" },
   "source": { "jmdict": 1353320, "jlpt": 5 }
 }

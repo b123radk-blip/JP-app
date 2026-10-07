@@ -5,7 +5,8 @@
 //   ├ backdrop (sky, lights ...), world-space scene props (mountains, river ...), emblem, world-space particle pools
 //   └ glyphPivot (whole-kanji motion) └ glyphSpace └ one pivot group per part (part motion) └ that part's material meshes
 //                                                └ glyph-space particle pools (flames ride along with the kanji)
-// Every frame: reveal -> backdrop -> materials -> scene props -> particle layers -> tip particles -> pools -> motions -> emblem.
+// Every frame: reveal -> stroke motion -> vignette -> backdrop -> materials -> scene props -> particle layers -> tip particles ->
+// pools -> motions -> emblem. The vignette (a scene acting out the meaning, vignettes/) may move the whole glyph and single strokes.
 // Deterministic: all randomness is one seeded generator, reset by reset(), so seek(t) always gives the same picture.
 import * as THREE from 'three';
 import { EFFECTS, LAYOUT } from '../config.js';
@@ -28,6 +29,7 @@ import * as emblems from './pieces/emblems.js';
 import * as land from './pieces/props-land.js';
 import * as objects from './pieces/props-objects.js';
 import * as places from './pieces/props-places.js';
+import * as vignettes from './vignettes/index.js';
 
 const MATERIALS = { glow: glow.create, heat: heat.create };
 const BACKDROPS = { plain, halo, sunrise: sunrise.create, sky: sky.create };
@@ -87,7 +89,7 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
     const spec = part.material;
     const mat = MATERIALS[spec.type](ctx, spec, part.strokes);
     const { outer, inner } = pivotGroup(mat.group, part.strokes.flatMap((i) => strokes[i].pts), pivotOf(part.motion));
-    glyphSpace.add(outer); mats.push(mat); built.push({ ...part, inner });
+    glyphSpace.add(outer); mats.push(mat); built.push({ ...part, inner, outer });
     if (part.motion) motions.push(motion.create(ctx, part.motion, outer, part.index));
   }
   const props = [];
@@ -102,11 +104,13 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   const layers = r.particles.map((p) => createLayer(ctx, p));
   const emblem = r.emblem ? emblems.create(ctx, r.emblem) : null;
   if (emblem) group.add(emblem.group);
+  const scene = r.vignette ? vignettes.create(ctx, r.vignette, { group, glyph: glyphPivot, parts: built.map(({ element, strokes: st, outer }) => ({ element, strokes: st, outer })) }) : null;
   const pools = Object.values(ctx.pools);
 
   function step(t, dt) {
     rev.step(t); rev.pose(t, revealPivot); ctx.idle = Math.max(0, t - rev.end);
     mover?.step(t);                                          // adds to the reveal's per-stroke offsets (ctx.so) before the materials read them
+    scene?.step(t);                                          // the vignette: moves its actors, the kanji, single strokes (ctx.so)
     backdrop.step(t);
     for (const m of mats) m.step(t);
     for (const p of props) p.step(t);

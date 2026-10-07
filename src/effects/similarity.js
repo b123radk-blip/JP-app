@@ -29,10 +29,21 @@ function partsSim(a, b) {
 // Slots that neither recipe uses (no particles, no scene prop, no emblem, no styled parts) say nothing about whether two
 // cards look alike, so they are left out of the score; material, reveal, backdrop and motion always count. Identical
 // recipes still score 1. (Counting "both empty" as a match made any two sparse cards with the same sky look alike.)
-const OPTIONAL = { particles: (r) => r.particles.length > 0, scene: (r) => (r.scene ?? []).length > 0, emblem: (r) => !!r.emblem, parts: (r) => Object.keys(r.parts).length > 0 };
+const OPTIONAL = { particles: (r) => r.particles.length > 0, scene: (r) => (r.scene ?? []).length > 0, emblem: (r) => !!r.emblem, parts: (r) => Object.keys(r.parts).length > 0, vignette: (r) => !!r.vignette };
+
+// Scene cards (the "vignette" slot) are compared by their scene alone: the scene is what the learner remembers, so two
+// cards acting out the same scene look alike whatever else differs (1), and different scenes do not match on the shared
+// sky or material underneath (0). The same scene with another outcome (上手 / 下手: one set-up, two endings, told apart by
+// the scene's variant option) scores EFFECTS.similarity.sceneVariant, just under the warning line: a pair made on purpose.
+// A scene card and a card without one are compared slot by slot, the scene counting as an unshared slot with the largest weight.
+function sceneSim(a, b) {
+  if (a.type !== b.type) return 0;
+  return variantOf('vignette', a) === variantOf('vignette', b) ? 1 : EFFECTS.similarity.sceneVariant;
+}
 
 // Returns { score, slots: { slot: 0..1 } } (slots used by neither recipe are left out).
 export function recipeSimilarity(a, b, weights = EFFECTS.similarity.weights) {
+  if (a.vignette && b.vignette) { const v = sceneSim(a.vignette, b.vignette); return { score: v, slots: { vignette: v } }; }
   const slots = {
     material: specSim('material', a.material, b.material),
     reveal: a.reveal.type === b.reveal.type ? (a.reveal.tip === b.reveal.tip ? 1 : 0.5) : 0,
@@ -42,6 +53,7 @@ export function recipeSimilarity(a, b, weights = EFFECTS.similarity.weights) {
     motion: specSim('motion', a.motion, b.motion),
     emblem: specSim('emblem', a.emblem, b.emblem),
     parts: partsSim(a.parts, b.parts),
+    vignette: specSim('vignette', a.vignette, b.vignette),        // only one has a scene here: 0, and it weighs the most
   };
   for (const [k, used] of Object.entries(OPTIONAL)) if (!used(a) && !used(b)) delete slots[k];
   let s = 0, w = 0;

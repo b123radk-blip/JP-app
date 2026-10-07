@@ -67,7 +67,7 @@ the kanji card. Sentences: `segments` of `{ text, reading? }` (every kanji segme
 `verified`, `source`; rephrase until `verify-sentences.py` passes.
 
 ## Write a recipe
-`"effect": { "material", "reveal", "particles": [ ≤ 2 ], "scene": [ ≤ 2 ], "backdrop", "motion", "emblem", "parts", "options" }`. Each slot is
+`"effect": { "material", "reveal", "particles": [ ≤ 2 ], "scene": [ ≤ 2 ], "backdrop", "motion", "emblem", "vignette", "parts", "options" }`. Each slot is
 `"type"`, `"type:variant"` or `{ "type": ..., options }`; colours may be `"#rrggbb"`. Omitted: `glow` (cyan), `draw`, no
 particles, `plain`, `none`, no emblem. A card with no `effect` gets the default (cyan glow that sways). `parts` styles
 KanjiVG components: `"parts": { "木": {} }` gives every 木 its shared look (`COMPONENT_LOOKS` in config: 日 gold, 月 silver,
@@ -93,6 +93,30 @@ Budget per card (config `EFFECTS.budget`): 160 dc, 2000 p, 3 lights.
 | backdrop | `plain` (`rim`), `halo` (`color size flicker`; grows with the reveal), `sunrise` (first stroke at 1.6 s), `sky` (`preset`: `day dusk night twilight storm forest deep lake morning golden noon dawn sunset snow indoor`, config `SKIES`; `moon`, `stars` override) | 0 / 1 / 14 / 1-6 dc, 2 lights |
 | motion | `none sway` (`amp speed bob axis phase`) `float pulse drift` (`dir`) `lean tilt count grow shrink stretch spin bounce shake wave wag walk blink swim`, and `fly sink roll stand bow hang turn flip shove` (`dir`) `vanish slide`; stroke motions `split` (`axis dist`: strokes either side of the middle move apart and back), `jiggle` | 0 |
 | emblem | `arrow` (`dir` incl. `toward away`) `question zzz clock dots` (`n`) `speech eye ear hand foot person heart note lightbulb book yen crescent compass plus calendar stars window bowl cup phone train car bolt sun cloud target house pen`; signs `stop` (止まれ) `check cross exclaim equals repeat swap flag` (`kind start finish japan`) `pin signpost ticket tag pie` (`part`) `trophy gem onsen globe splash rainbow frown`; things `knife umbrella gears camera hammer wrench scale dumbbell weight thermometer` (`level`) `ruler suitcase briefcase bag box mirror glasses shirt shoe bed pot spoon plate frame film mic speaker sheet ring mask alarm bow boomerang`; life `bird cow snail leaf flower bike plane boat stairs blocks puzzle pill hospital museum shield letter`; all take `color at size` | 1-6 dc |
+
+## Add a scene (vignette)
+Since Step 2b a card's look is first of all its **scene**: the recipe slot `"vignette": { "type": ..., options }`
+(`"hammer-nail:bend"` for short) acts the meaning out with the kanji taking part (上手: a hammer drives a nail in; 押: a
+person shoves the kanji along). The rest of the recipe (material, sky ...) stays underneath it. Test for every card:
+would a kid who has never seen the kanji guess its meaning from the scene alone? Progress list: docs/REVAMP.md.
+- Types, options, descriptions and draw calls: `src/effects/vignette-catalog.js` (pure data; every type also takes `at`
+  and `size`). Implementation: a theme module in `src/effects/vignettes/` (`craft.js`, `people.js`, `things.js` ...),
+  each `SCENES = { type: create(ctx, spec, stage) -> { group, step(t) } }`, registered in `vignettes/index.js`.
+- Timing (`vignettes/timeline.js`): `acts(ctx, t, loop)` gives `setup` (0..1 while the strokes draw), `v` (seconds into
+  the looping action), `n`; `timeline(v, { beat: [at, dur, ease] })` eases each beat 0..1; `bump`, `wobble`, `tremble`.
+  Write every frame as a pure function of t (no state, no random), and end the action where it started so it loops.
+- `stage`: `glyph` (the kanji's pivot: move or turn the whole kanji; keep the recipe's motion `none`), `parts`, `box`,
+  `glyphBox(i)`, `offset(si, x, y, z)` (move one stroke), `u` (glyph height: build actors about that tall).
+- Props kit (`src/effects/pieces/kit-*.js`): `createHand` (poses open grip point thumbs pinch flat), `createPerson`
+  (walk, lean, raise, face), things (hammer, nail, board, plate, ball, heart, burst, stars) and `many()` (one small shape
+  many times, one draw call). Articulated props are bone rigs drawn as 2 instanced meshes. Look at a new prop with
+  `{ "vignette": "kit" }` (`node scripts/look.mjs 5927~kit --recipes kit.json --cam x,y,d --clip 0,40,760,520`).
+- Readable from the learner's seat: actors about a glyph tall, within about 1.5 glyph widths of the kanji, high
+  contrast, nothing faster than about 0.3 s; the left side is the story panel and the meaning label sits just under the
+  kanji, so scenes play on the kanji itself, to its right, above it, or in depth.
+- Similarity: two cards with the same scene type are look-alikes (1); the same type with another variant (上手 / 下手's
+  `outcome`) scores `sceneVariant` (0.7); different scenes score 0.
+- Check costs: `node scripts/check-piece-costs.mjs vignette`, then `npm run e2e`.
 
 ## Add a piece
 Implementation in `src/effects/pieces/`, registered in `catalog.js` (options with defaults, `cost`, `desc`) and wired in

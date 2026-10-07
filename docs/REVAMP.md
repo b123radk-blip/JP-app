@@ -1,0 +1,399 @@
+# Step 2b revamp: a scene of its own for every kanji (progress checklist)
+
+The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This file is where each session continues.
+The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
+alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
+
+**Where to continue:** the pilot (below) is built and waits for a headset look. Once the user is happy with it, build
+Batch 1 (the first 25 C kanji of the list, with their words), then the next batches in list order, ticking each card here.
+
+## Grades
+Triaged on frame strips of every card (`node scripts/look.mjs ids --times 1,3,6`, sheets in `.cache/revamp/`), plus the
+recipe of each card:
+- **A**: distinct and readable; keep.
+- **B**: a better existing piece or a small tweak fixes it.
+- **C**: needs a scene.
+
+The scene on each C line is the plan, not a promise. When a better story turns up while building it, use that one and
+update the line.
+
+| | Kanji (150) | Words (177) |
+|---|---|---|
+| A | 3: 朝 色 開 | 0 |
+| B | 4: 消 閉 渡 立 | 17: the meaning is their kanji (今朝 毎晩 ...); a word rule that does not repeat a kanji's emblem |
+| C | 143 (5 built in the pilot) | 160 |
+
+Almost every Step 2 card is a material, a sky and an emblem floating beside the kanji, so it reads as a label rather
+than a story (`物` + a box, `計` + a clock). The three A cards act their meaning out with the glyph itself: the sun
+rises behind 朝 while the moon still hangs there, 色 walks round the rainbow, and 開's gate doors slide open with light
+pouring out.
+
+## Pilot (built, waiting for the headset look)
+Strips: `docs/screenshots/revamp-pilot-*.jpg`.
+
+- [x] 上手 (word, Step 1), hammer-nail clean. A board slides in beside the word, a nail pops up, a helper hand pinches
+  it, and a hand with a hammer comes down. A tap, the helper lets go, two firm blows drive the nail in flush, a sparkle,
+  and the hammer is twirled like a baton.
+- [x] 下手 (word, Step 1), hammer-nail bend. The same set-up. The first blow bends the nail over; the second lands on
+  the helper's thumb, which flashes red, swells, jerks away shaking, with stars circling.
+- [x] 押 push (action). A person walks up beside the kanji, leans in with both hands on it and shoves it along in three
+  heaves, dust puffing at its base. Then they step back and it slides home.
+- [x] 重 heavy (quality). A person squats, grips the kanji's corner and strains: shaking, red in the face, sweat
+  flying. It tips up a crack, then thuds down in a cloud of dust and knocks them onto their bottom.
+- [x] 近 near (direction). Far down a sandy path a tiny person walks towards you, growing, until they stand right
+  beside the kanji, lean in close and wave.
+- [x] 皿 dish (object). The kanji is the stand: plates fly in one by one and land on its top with a clink (it gives a
+  little), the top one wobbles, and a cake drops onto it. Then they lift away and the stack builds again.
+- [x] 違 different (abstract). A row of identical blue balls hops in step beside the kanji, but one is a red cube
+  hopping out of time. A magnifier glides along the row, stops on it, and a red cross pops up.
+- [x] 二人 two people (word, Step 1, the user's own example). One person walks out from behind the word, another in
+  from the side. They turn to you, take hands and swing them, heads tilted together, hearts rising between them.
+
+## Kanji (Step 2 plan order)
+Batches of about 25 in this order. Tick a line when its scene is built, looked at, and pushed.
+
+- [ ] 物 thing (C): a cardboard box tips open and things tumble out one after another (a ball, a cup, a book, a shoe) and land in a heap; the lid flaps shut.
+- [ ] 切 cut (C): a knife comes down through the middle of the kanji; the two halves slide apart (split), a little gap glints, then they ease back together.
+- [ ] 朝 morning (A): keep (sunrise behind it, the moon still up).
+- [ ] 着 wear / arrive (C): a person walks in (arrive), stops, and a coat drops onto them from above; arms slide into the sleeves, they straighten it, proud.
+- [ ] 色 colour (A): keep (the glyph walks round the rainbow).
+- [ ] 茶 tea (C): a teapot tips over a cup, a green stream pours, steam curls up, a hand lifts the cup away.
+- [ ] 晩 nightfall (C): the sun sinks below a hill line, the sky dims, windows of little houses light up one by one, a moon rises.
+- [ ] 事 matter / thing (C): a hand stamps a stack of papers one by one (thump, thump), each slides onto an "done" pile: business to deal with.
+- [ ] 家 house (C): a little house builds itself around the kanji (floor, walls, the roof dropping on), a chimney puffs, a light comes on inside.
+- [ ] 動 move (C): the kanji, stuck still, gets a push of wind; it shuffles, then slides across in jerks, wheels popping out under it (things moving).
+- [ ] 自 oneself (C): a person points at their own nose (the Japanese "me" gesture), then a mirror swings round and shows them themselves.
+- [ ] 洗 wash (C): a sponge in a hand scrubs the kanji, suds foam up, a bucket of water splashes over it and it comes out sparkling.
+- [ ] 昨 yesterday (C): a calendar page flips backwards (rewind) while a little sun runs backwards across the sky from right to left.
+- [ ] 夜 night (C): a person yawns, a sleeping cap drops onto them, they lie down; stars blink on, the moon rises over the kanji.
+- [ ] 兄 older brother (C): two kids stand side by side; the taller one pats the small one on the head and lifts a toy out of their reach.
+- [ ] 赤 red (C): a green apple on a branch ripens to bright red (colour sweeps over it), and the kanji blushes red with it.
+- [ ] 当 hit / right (C): a dart flies in a curve and thunks into the bullseye on a target; the target wobbles, a ding.
+- [ ] 近 near (C): pilot, built.
+- [ ] 方 direction (C): a person at a crossroads looks one way, then the other, then a signpost arm swings round and points the way; they walk off that way.
+- [ ] 消 erase / put out (B): the strokes rub away already; add a hand with an eraser rubbing them out, crumbs falling (消す); a candle blown out for 消える.
+- [ ] 開 open (A): keep (gate doors slide open, light pours out).
+- [ ] 教 teach (C): a teacher (person) at the blackboard taps it with a pointer, a small pupil raises a hand, a speech bubble with a lightbulb pops up.
+- [ ] 葉 leaf (C): the kanji's 木 grows a branch; one big leaf unfurls on it, flutters loose and zigzags down to the ground.
+- [ ] 昼 noon (C): the sun climbs to the very top of the sky over a person; their shadow shrinks under their feet; they open a lunchbox.
+- [ ] 飯 meal / rice (C): a bowl of rice is set down, chopsticks dip in and lift a clump, steam rises; the bowl empties, gets refilled.
+- [ ] 所 place (C): a map pin drops out of the sky and stabs into the ground right next to the kanji with a thunk; a little "here" flag pops up.
+- [ ] 楽 fun / music (C): two kids bounce on a seesaw / play drums; music notes fly up with each bounce; the kanji bobs to the beat.
+- [ ] 番 turn / number (C): a line of three people; a ticket machine spits a numbered ticket, the front one steps up when "1" lights, then the next.
+- [ ] 風 wind (C): a big gust blows across: the kanji leans over, a person's hat flies off and tumbles away, leaves streak by.
+- [ ] 地 ground (C): the kanji drops onto the ground with a thud; the ground cracks around it, grass sprouts; a tiny globe turns underneath.
+- [ ] 初 first time (C): a chick pecks its way out of an egg next to the kanji and blinks at the world for the very first time.
+- [ ] 引 pull (C): a person grabs a rope tied to the kanji and pulls, leaning back; it slides towards them in jerks (the mirror of 押).
+- [ ] 止 stop (C): a person running along stops dead at a red stop sign (止まれ), skidding, arms windmilling.
+- [ ] 歌 sing (C): a person on a little stage holds a mic, mouth wide; notes stream out and a spotlight sways.
+- [ ] 晴 clear weather (C): grey clouds part and slide off both sides; the sun beams out over the kanji; a person takes off their raincoat.
+- [ ] 嫌 dislike (C): a hand offers a spoonful of green vegetables to a kid, who turns their head away, crosses arms and shakes their head.
+- [ ] 冷 cold (C): a person shivers, teeth chattering; ice crystals creep over the kanji; an icicle grows under it and drips.
+- [ ] 合 fit / join (C): the top part (人一) lifts like a lid and drops onto the box (口) with a click; it fits perfectly, a sparkle.
+- [ ] 味 taste (C): a spoon dips into a pot, lifts to a mouth; the person's eyes widen, they smack their lips and nod (mm!).
+- [ ] 意 meaning / mind (C): a person scratching their head; a lightbulb above them flickers then switches on bright: they get it.
+- [ ] 青 blue (C): the sky behind turns from grey to deep blue; a blue wave rolls in under the kanji; a blue bird lands on it.
+- [ ] 並 line up (C): little people run in from both sides and line up in a neat row in front of the kanji, shoulder to shoulder.
+- [ ] 屋 roof / shop (C): a little shop: a shutter rolls up, a shopkeeper waves from behind the counter, an awning flaps.
+- [ ] 閉 close (B): gate already slides shut; add a person ducking inside just before the doors meet, and a click / lock.
+- [ ] 姉 older sister (C): an older girl ties the shoelace of a little one, then takes their hand and leads them along.
+- [ ] 場 place / venue (C): a stage with curtains opens; spotlights sweep and land on a spot marked X where a person stands.
+- [ ] 飛 fly (C): the kanji itself sprouts wings (its hooks flap), lifts off and soars up out of the frame, then glides back down.
+- [ ] 作 make (C): two hands assemble things on a workbench: blocks stack, a hammer taps, and a toy car rolls off finished.
+- [ ] 文 sentence / writing (C): a brush writes a line of characters across a scroll that unrolls beside the kanji.
+- [ ] 変 strange / change (C): a frog hops onto the kanji, *poof*, turns into a prince(ss), then back; the kanji jiggles.
+- [ ] 黒 black (C): an ink bottle tips over; black ink floods across and paints the kanji black; a cat's eyes blink in the dark.
+- [ ] 降 descend / fall (C): a person walks down a staircase and steps off the last step; rain starts falling as they reach the bottom.
+- [ ] 習 learn (C): a fledgling on a branch flaps its wings, falls, flaps again, and the third time flies: learning by practice.
+- [ ] 弟 younger brother (C): a small kid tries to keep up behind a bigger one, tugging their sleeve, bouncing to see over.
+- [ ] 部 section / part (C): a cake is sliced into four; one slice slides out and away from the others.
+- [ ] 全 whole / all (C): puzzle pieces fly in and fill a frame until the last one clicks in; the whole picture glows.
+- [ ] 体 body (C): a person stretches: arms up, touches toes, twists; their outline glows part by part (head, arms, legs).
+- [ ] 字 letter / character (C): wooden letter blocks drop in a row and spell something, a child points at each in turn.
+- [ ] 通 pass through (C): a train runs through a tunnel mouth beside the kanji: in one side, out the other, lights flickering past.
+- [ ] 空 sky / empty (C): a bird cage door opens, the bird flies out into the blue sky; the cage is left empty.
+- [ ] 渡 cross (B): river and bridge already there; add a person walking over the bridge from one bank to the other.
+- [ ] 紙 paper (C): a sheet of paper flutters down, folds itself into a paper plane in three folds and glides away.
+- [ ] 夏 summer (C): a person under a blazing sun fans themselves, then licks an ice cream that melts and drips.
+- [ ] 庭 garden (C): a person waters a little garden plot; flowers pop up one by one in rows, a butterfly visits.
+- [ ] 夕 evening (C): the sun sets into the sea, painting it orange; a crow flies home across it; the first star.
+- [ ] 御 honourable (C): a person bows deeply and offers a gift box with both hands (polite).
+- [ ] 黄 yellow (C): a chick hatches and fluffs up bright yellow; a banana peels itself beside it.
+- [ ] 靴 shoes (C): a pair of shoes walks in by themselves, a foot steps into one, laces tie themselves.
+- [ ] 曇 cloudy (C): fat grey clouds drift in and cover the sun one by one; the light dims; the sun peeks out and is covered again.
+- [ ] 誰 who (C): a door with a knock-knock; it opens a crack and a silhouette peeks out; a big "?" over it.
+- [ ] 広 wide (C): two hands grab the kanji's sides and stretch it wide; a field unrolls behind it to the horizon.
+- [ ] 背 back / height (C): two kids stand back to back, measuring height; a ruler slides down onto their heads.
+- [ ] 無 nothing (C): a box is opened and turned upside down, shaken: nothing falls out; the kanji poofs to nothing and back.
+- [ ] 理 reason (C): two gears that do not turn; a hand slots in the missing middle gear and all three turn together: it makes sense.
+- [ ] 段 steps (C): the kanji's strokes rearrange into a staircase; a ball bounces down it step by step.
+- [ ] 図 map / drawing (C): a map unrolls on the ground; a dotted path draws itself across it to an X.
+- [ ] 館 large building (C): a big columned hall rises out of the ground behind the kanji; doors open, people walk in.
+- [ ] 使 use (C): a hand picks up a tool (a spoon), uses it to scoop, then puts it back on its hook.
+- [ ] 強 strong (C): a person lifts a heavy barbell over their head easily and flexes (the opposite of 重's struggle).
+- [ ] 交 mingle / cross (C): two cars come from left and right and cross at a junction under the kanji, passing each other.
+- [ ] 差 difference (C): two towers of blocks side by side; one grows taller; a ruler measures the gap between them.
+- [ ] 度 degrees / times (C): a thermometer beside a person rises a notch each time they shiver (1, 2, 3 times).
+- [ ] 機 machine (C): a little machine with gears and a conveyor: a ball goes in one side, gets pressed, comes out a cube.
+- [ ] 建 build (C): bricks fly in and stack into a wall; a crane lowers the roof on top.
+- [ ] 音 sound (C): a bell swings and rings; sound rings ripple out; a person turns their head and cups their ear.
+- [ ] 用 use / errand (C): a person with a shopping list ticks items off as they pop into their basket.
+- [ ] 持 hold / have (C): a hand reaches down and lifts a bag by its handle, then holds it up, swinging.
+- [ ] 点 point / dot (C): a pen dots four points under the kanji (its 灬 dots), then a pointer taps one and it glows.
+- [ ] 向 face towards (C): a person standing with their back to you turns round to face you, then turns and points "over there".
+- [ ] 重 heavy (C): pilot, built.
+- [ ] 違 different (C): pilot, built.
+- [ ] 立 stand up (B): the kanji lies flat and springs upright; add a person who gets up from sitting at the same moment, with dust.
+- [ ] 計 measure / plan (C): a hand moves a tape measure along the kanji; numbers count up; a clock hand ticks round (時計).
+- [ ] 再 again (C): a ball rolls off a table and falls, then rewinds and does it again, and again.
+- [ ] 店 shop (C): a shop counter: a customer hands over a coin, the shopkeeper hands back a bag; the till dings.
+- [ ] 要 need (C): a person in the rain pats their pockets, panics; an umbrella drops into their hand just in time.
+- [ ] 服 clothes (C): a T-shirt and trousers fly off a hanger onto a person, who twirls to show them off.
+- [ ] 画 picture (C): an easel; a brush paints a sun and a hill on the canvas; a frame drops round it.
+- [ ] 映 project / reflect (C): a projector beam lights a screen behind the kanji and the kanji's shadow plays on it.
+- [ ] 料 materials / fee (C): ingredients drop into a pot one by one (carrot, fish, rice), a ladle stirs, steam rises.
+- [ ] 乗 ride (C): a person climbs onto a bus that pulls up beside the kanji; it drives off with them waving.
+- [ ] 熱 hot / fever (C): a person with a thermometer in their mouth; it shoots up red, steam puffs from their ears.
+- [ ] 筆 writing brush (C): a brush dips into ink and writes a stroke with a flourish, flicking ink.
+- [ ] 牛 cow (C): a cow walks in, chewing; it moos (a big "moo" ring) and a milk pail fills.
+- [ ] 皿 dish (C): pilot, built.
+- [ ] 心 heart (C): a heart beats inside a person's chest, glowing brighter; they hug themselves happily.
+- [ ] 親 parent (C): a big person holds a small one's hand and watches over them from a little behind (standing on the tree 木 to see).
+- [ ] 美 beautiful (C): a flower opens; sparkles; a person gasps with hands on their cheeks.
+- [ ] 最 most (C): three people race up to a podium; the winner climbs the top step and lifts a trophy.
+- [ ] 面 face / mask (C): a mask lifts off the kanji's middle; underneath, a face winks.
+- [ ] 売 sell (C): a stall: a seller holds up an apple and calls out, a buyer hands a coin, the apple goes over.
+- [ ] 始 begin (C): runners on a line; a flag drops and they dash off (the start), dust flying.
+- [ ] 終 end (C): a runner breaks the finish tape (chequered flag); they slow and collapse, finished; a curtain falls.
+- [ ] 住 live / dwell (C): a person carries a box into a little house; the window lights up, smoke from the chimney: they live there now.
+- [ ] 転 roll / turn over (C): a person on a bike wobbles and falls over (tumbles), the wheel spinning.
+- [ ] 病 ill (C): a person in bed with a red nose, sneezing; a thermometer and a bowl of medicine on the side.
+- [ ] 院 institution / hospital (C): an ambulance pulls up at a building with a red cross; the doors open.
+- [ ] 遠 far (C): a person waves goodbye and walks away down a long road, smaller and smaller until a dot (the mirror of 近).
+- [ ] 同 same (C): two people side by side do exactly the same moves at the same time, like a mirror.
+- [ ] 夫 husband (C): a groom and bride stand together; rings slide onto fingers; confetti.
+- [ ] 丈 length / sturdy (C): a tape measure pulls out along the kanji, longer and longer; a sturdy post doesn't budge when kicked.
+- [ ] 起 wake up (C): an alarm clock rings and hops; a person in bed bolts upright, hair sticking out.
+- [ ] 帰 return home (C): a person walks home along a path at dusk; the house door opens and light spills out to greet them.
+- [ ] 遅 slow / late (C): a snail and a person race; the snail is hopelessly behind; a clock spins: late!
+- [ ] 汚 dirty (C): a person in clean clothes steps in a puddle; mud splashes all over them and the kanji.
+- [ ] 問 question / ask (C): a person at the gate (門) knocks, a speech bubble with "?" pops out of the mouth (口).
+- [ ] 題 topic / title (C): a sheet of paper; a title writes itself in big letters at the top, underlined.
+- [ ] 宿 inn (C): a sleepy traveller with a suitcase walks into a little inn; a bed, the light switches off, "zzz".
+- [ ] 取 take (C): a hand reaches in, grabs an apple off a table and pulls it away (the table is left empty).
+- [ ] 真 true (C): a magnifier over a gem: it sparkles real; a fake beside it cracks.
+- [ ] 写 copy / photo (C): a person poses, a camera flashes, a photo slides out and develops into the same picture.
+- [ ] 洋 ocean / western (C): big waves roll across; a ship sails over the horizon.
+- [ ] 旅 travel (C): a person with a backpack and a suitcase walks along a road past changing scenery (a mountain, the sea).
+- [ ] 押 push (C): pilot, built.
+- [ ] 泳 swim (C): a person swims across a pool in front of the kanji (arms windmilling), splashes, a dive.
+- [ ] 鳴 chirp / cry (C): a bird on the kanji opens its beak and sings; notes rise; another bird answers.
+- [ ] 暖 warm (C): a person by a stove holds out their hands; frost on them melts; they smile and relax.
+- [ ] 温 warm (water) (C): a person lowers into a hot spring tub, steam rises, they sigh "ahh" (onsen).
+- [ ] 両 both (C): a person lifts two buckets at once, one in each hand, balanced.
+- [ ] 運 carry / luck (C): a person pushes a wheelbarrow loaded with boxes along; a four-leaf clover falls in.
+- [ ] 台 stand / platform (C): a little stand is set down and a vase is placed on it; a person steps up on a stage block.
+- [ ] 有 have (C): a hand opens to show a coin, closes over it and keeps it (it is mine).
+- [ ] 仕 serve (C): a waiter carries a tray with a cup, bows and serves it on a table.
+- [ ] 答 answer (C): a hand shoots up in class; a speech bubble with a big check mark pops; the teacher nods.
+- [ ] 悪 bad (C): a little devil sneaks up, knocks over a vase, and snickers; it shatters.
+- [ ] 太 thick / fat (C): a person eats a cake and puffs up rounder and rounder; a belt pings off.
+- [ ] 辞 word / dictionary (C): a thick book opens, pages flip; a word lifts out of a page and glows.
+- [ ] 返 return (C): a boomerang flies out in a loop and comes back to the hand that threw it.
+- [ ] 覚 memorize (C): a person reads a book; the picture from the page floats into their head and stays there (a lightbulb).
+- [ ] 業 work / business (C): a person at a desk types; papers stack up; a clock spins; a factory chimney puffs.
+
+## Words (177, Step 2 kanji)
+Grades: **B** when the meaning *is* its kanji side by side (a word rule that does not repeat a kanji's emblem);
+**C** when it needs its own scene, as a vignette option of its kanji's scene or a scene of its own.
+
+- [ ] 食べ物 food (C): plates of different foods slide in one after another (onigiri, fish, apple), a fork stabs one.
+- [ ] 買い物 shopping (C): a person with a basket walks along a shelf, items hop into the basket, they pay.
+- [ ] 荷物 luggage (C): a person staggers under a pile of suitcases and bags, the top one wobbles.
+- [ ] 果物 fruit (C): a fruit bowl fills: an apple, a banana and grapes drop in.
+- [ ] 飲み物 drink (C): a cup fills from a pitcher; a straw pops in and the level goes down.
+- [ ] 大切 important (C): a person hugs a treasure box tight, a heart over it.
+- [ ] 切る cut (C): 切's knife scene, option: chopping a carrot into rounds.
+- [ ] 切符 ticket (C): a ticket pops out of a machine slot, a hand takes it, a gate opens.
+- [ ] 切手 stamp (C): a stamp is licked and pressed onto an envelope corner, thump.
+- [ ] 今朝 this morning (B): 朝's sunrise with a "now" clock face.
+- [ ] 毎朝 every morning (B): three small sunrises one after another (each morning).
+- [ ] 朝ごはん breakfast (C): toast pops out of a toaster in the sunrise, an egg fries.
+- [ ] 着る wear (C): 着's scene, option: buttoning up the coat.
+- [ ] 上着 jacket (C): a jacket on a hanger slides off and wraps around a person.
+- [ ] 着く arrive (C): a train pulls into a station and stops; a person steps off.
+- [ ] 色々 various (B): many small coloured shapes popping in one after another (no rainbow emblem).
+- [ ] お茶 tea (C): 茶's scene, option: a bow and two hands offering the cup.
+- [ ] 紅茶 black tea (C): a teabag dunks into a cup, red-brown colour spreads.
+- [ ] 茶碗 rice bowl (C): a bowl on a hand, rice heaped into it.
+- [ ] 茶色 brown (B): the kanji turns from green to brown, leaves dry.
+- [ ] 毎晩 every night (B): moon rising three times, a calendar ticking.
+- [ ] 今晩 tonight (B): the sun dips and the moon rises right now (a clock pointing).
+- [ ] 家族 family (C): a parent, a child and a dog come out of a house and stand together, waving.
+- [ ] 動物 animal (C): a dog, a cat and a bird walk across in a parade.
+- [ ] 自分 myself (C): a person points at their own nose, then pats their chest (自's scene, option).
+- [ ] 自動車 car (C): a car drives in by itself, honks, parks.
+- [ ] 洗う wash (C): 洗's scene, option: washing hands under a tap.
+- [ ] 洗濯 laundry (C): a washing machine drum spins clothes, then shirts hang on a line flapping.
+- [ ] お手洗い toilet (C): a door with a sign, a person dashing in, the sound of a flush, hand washing.
+- [ ] 昨日 yesterday (B): one calendar page flipping backwards.
+- [ ] 一昨日 day before yesterday (B): two calendar pages flipping backwards.
+- [ ] お兄さん older brother (C): 兄's scene, option: big brother carries the little one piggyback.
+- [ ] 赤い red (B): the word's kana and kanji flush red one by one (no splash).
+- [ ] 本当 truth (C): a person tells a story; a fake mask falls off a second person and their real face smiles; a green check.
+- [ ] お弁当 lunch box (C): a lunch box lid opens to show rice, egg, sausage; chopsticks pick.
+- [ ] 近い near (C): 近's scene, option: two people standing close, nearly touching.
+- [ ] 近く neighbourhood (C): little houses gather round a person's house; a map pin with a circle around it.
+- [ ] 消す erase (C): 消's eraser rubbing out.
+- [ ] 消える disappear (C): a candle flame goes out by itself, smoke curls.
+- [ ] 開ける open (C): a hand opens a box lid; a present pops out.
+- [ ] 教室 classroom (C): a classroom: desks, a blackboard, kids filing in and sitting.
+- [ ] 教える teach (C): 教's scene, option: the teacher points and the pupil nods.
+- [ ] 言葉 language (C): speech bubbles with different scripts float out of two mouths.
+- [ ] 葉書 postcard (C): a postcard with a picture flips over, is written on, dropped into a postbox.
+- [ ] 昼ご飯 lunch (C): at noon sun, a person opens a lunch box at a desk.
+- [ ] 楽しい fun (C): kids on a merry-go-round, laughing, going round.
+- [ ] 一番 first (C): a race: one runner breaks the tape, a "1" medal.
+- [ ] 番号 number (C): a keypad; fingers press 1-2-3, the numbers light.
+- [ ] 風邪 cold (illness) (C): a person sneezes (ah-choo!), a tissue flies, a red nose.
+- [ ] お風呂 bath (C): a person in a tub with bubbles and a rubber duck.
+- [ ] 地下鉄 subway (C): the ground cuts away to show a train running in a tunnel underneath.
+- [ ] 初め beginning (C): a book opens on page 1; a little "start" flag.
+- [ ] 初めて first time (C): 初's egg scene, option: the chick's first wobbly step.
+- [ ] 引く pull (C): 引's rope scene, option: pulling open a drawer.
+- [ ] 止まる stop (C): 止's scene, option: a car stops at a red light.
+- [ ] 歌う sing (C): 歌's scene, option: a person singing in the shower with notes.
+- [ ] 晴れ clear weather (C): a weather board flips from cloud to sun.
+- [ ] 晴れる clear up (C): 晴's scene, option: rain stops and clouds part.
+- [ ] 嫌い dislike (C): 嫌's scene, option: a cat recoils from a cucumber.
+- [ ] 冷蔵庫 fridge (C): a fridge door opens, cold mist pours out, a hand takes milk.
+- [ ] 冷たい cold (to touch) (C): a hand touches an ice cube and jerks back, shaking.
+- [ ] 意味 meaning (C): a person reads a word, a lightbulb goes on and a picture of the thing pops up.
+- [ ] 青い blue (B): the word turns blue like the sea beneath it.
+- [ ] 並ぶ line up (C): 並's scene, option: people queue at a door.
+- [ ] 並べる line up (things) (C): a hand sets cups in a neat row.
+- [ ] 八百屋 greengrocer (C): a stall of vegetables; a hand picks a carrot and a radish.
+- [ ] 閉める close (C): a hand shuts a window with a slam, the curtain swings.
+- [ ] 閉まる be shut (C): 閉's gate scene, option: a shop's shutter rolls down by itself.
+- [ ] お姉さん older sister (C): 姉's scene, option: braiding the little one's hair.
+- [ ] 飛ぶ fly (C): 飛's scene, option: a bird lifts off a branch.
+- [ ] 作る make (C): 作's scene, option: hands shape a clay pot on a wheel.
+- [ ] 作文 composition (C): a pencil writes lines on a page, a title at the top, a gold star.
+- [ ] 文章 writing (C): paragraphs of lines write themselves on a page.
+- [ ] 大変 very / terrible (C): a person juggles too many plates, everything wobbles, they crash.
+- [ ] 黒い black (B): ink pours over the word.
+- [ ] 降りる get off (C): a person steps down off a bus.
+- [ ] 降る fall (rain) (C): rain starts falling from a cloud onto an umbrella.
+- [ ] 練習 practice (C): a person kicks a ball against a wall again and again.
+- [ ] 習う take lessons (C): a teacher plays a note on a piano, a kid copies it.
+- [ ] 兄弟 siblings (C): big brother and little brother play catch.
+- [ ] 部屋 room (C): a door opens into a cosy room with a bed and a lamp.
+- [ ] 全部 all (C): a hand sweeps every coin on a table into a jar.
+- [ ] 漢字 kanji (C): a brush writes a kanji on paper; it lifts off and glows.
+- [ ] 字引 dictionary (C): a finger runs down a dictionary page and stops on a word.
+- [ ] 渡す hand over (C): one hand passes a parcel to another.
+- [ ] 渡る cross (C): 渡's scene, option: a person crosses a zebra crossing.
+- [ ] 手紙 letter (C): an envelope opens, a letter unfolds, a heart.
+- [ ] 夏休み summer holiday (C): a beach umbrella, a person relaxing in a chair, a crab scuttles by.
+- [ ] 家庭 home / household (C): a family at a dinner table, a lamp overhead.
+- [ ] 夕方 dusk (B): the sun touching the horizon (no clock).
+- [ ] 夕飯 dinner (C): a family table at sunset, a steaming pot is set down.
+- [ ] 御飯 cooked rice (C): a rice cooker lid lifts, steam, a scoop of rice.
+- [ ] 晩御飯 dinner (C): a dinner table under a hanging lamp, night window.
+- [ ] 黄色 yellow (B): the word turns yellow, a lemon rolls under it.
+- [ ] 黄色い yellow (B): yellow paint drips down from the top of the word.
+- [ ] 靴下 socks (C): a sock is pulled onto a foot, toes wiggle.
+- [ ] 曇り cloudy (B): grey clouds drift over the word (no sun emblem).
+- [ ] 曇る cloud over (C): 曇's scene, option: a mirror fogs up.
+- [ ] 誰か someone (C): footsteps, a shadow appears behind a door frosted glass.
+- [ ] 広い spacious (C): 広's scene, option: a person spreads their arms in a huge empty room.
+- [ ] 背広 business suit (C): a suit on a hanger, a tie knots itself.
+- [ ] 無くす lose (C): a person pats their pockets, the keys are gone; they look everywhere.
+- [ ] 階段 stairs (C): a person climbs a staircase step by step.
+- [ ] 段々 gradually (C): a plant grows a little each frame, a sun crossing faster.
+- [ ] 地図 map (C): 図's map scene, option: a person turns the map upside down, confused.
+- [ ] 図書館 library (C): tall bookshelves; a person takes a book and sits to read; "shh".
+- [ ] 使う use (C): 使's scene, option: using scissors to cut paper.
+- [ ] 大使館 embassy (C): a building with a flag on a pole that rises.
+- [ ] 勉強 study (C): a person at a desk with books, a lamp, writing; pages turn.
+- [ ] 強い strong (C): 強's scene, option: arm-wrestling and winning.
+- [ ] 交番 police box (C): a little police box; an officer steps out and salutes.
+- [ ] 差す hold up (umbrella) (C): rain starts, a hand opens and raises an umbrella.
+- [ ] 丁度 exactly (C): a ball rolls and stops exactly on the line; a check.
+- [ ] 飛行機 aeroplane (C): a plane taxis, takes off and climbs over the word.
+- [ ] 建物 building (B): buildings rising behind the word (no emblem).
+- [ ] 音楽 music (C): a band: drum, guitar, notes streaming.
+- [ ] 持つ hold (C): 持's scene, option: a hand holds a balloon by its string.
+- [ ] 交差点 intersection (C): a crossroads seen from above with cars taking turns at the lights.
+- [ ] 向こう other side (C): a person on one bank waves to someone on the far side of a river.
+- [ ] 重い heavy (C): 重's scene, option: a person dragging a huge suitcase.
+- [ ] 違う differ (C): 違's scene, option: two pictures side by side, a circle marks the difference.
+- [ ] 立つ stand (C): 立's scene, option: a person stands up from a chair.
+- [ ] 時計 clock (C): a wall clock ticking, the hands sweep, a cuckoo pops out.
+- [ ] 再来年 year after next (B): two calendar years flip forward (2 years).
+- [ ] 喫茶店 coffee shop (C): a café table, a cup of coffee with steam, a cake.
+- [ ] 要る need (C): 要's scene, option: someone needs a key to open a door.
+- [ ] 映画 movie (C): a film reel spins and a projector shows a little movie on a screen.
+- [ ] 映画館 cinema (C): rows of seats, the lights dim, popcorn.
+- [ ] 料理 cooking (C): a frying pan, a flip of the food, flames.
+- [ ] 乗る ride / get on (C): 乗's scene, option: a person hops onto a bicycle.
+- [ ] 熱い hot (to touch) (C): a hand touches a hot pan, jerks away, steam.
+- [ ] 鉛筆 pencil (C): a pencil sharpens itself and draws a line.
+- [ ] 万年筆 fountain pen (C): a pen's cap clicks off, it writes a curly signature.
+- [ ] 牛乳 milk (C): milk pours into a glass from a carton, a cow moos.
+- [ ] 牛肉 beef (C): a steak sizzles on a grill.
+- [ ] 灰皿 ashtray (C): a dish with ash, a cigarette stubbed out with smoke curling.
+- [ ] お皿 plate (C): 皿's scene, option: plates washed and stacked.
+- [ ] 美味しい delicious (C): a person takes a bite, their face lights up, sparkles, a thumbs up.
+- [ ] 面白い interesting / funny (C): a person reading laughs so hard they roll over.
+- [ ] 売る sell (C): 売's scene, option: a "sold" sign stamped on an item.
+- [ ] 始まる begin (C): 始's scene, option: curtains open on a stage.
+- [ ] 終わる end (C): 終's scene, option: "The End" on a screen, curtains close.
+- [ ] 住む live (C): 住's scene, option: a bird builds a nest and settles in it.
+- [ ] 自転車 bicycle (C): a person pedals a bicycle across, bell ringing.
+- [ ] 病気 illness (C): 病's scene, option: germs bounce around a sneezing person.
+- [ ] 病院 hospital (C): a doctor with a stethoscope listens to a patient's chest.
+- [ ] 遠い far (C): 遠's scene, option: binoculars looking at a far mountain.
+- [ ] 同じ same (C): 同's scene, option: two identical cats sit side by side.
+- [ ] 大丈夫 all right (C): a person trips, gets up, gives a thumbs up: OK!
+- [ ] 丈夫 sturdy (C): a person stands firm in strong wind and doesn't budge.
+- [ ] 起きる get up (C): 起's scene, option: stretching out of bed.
+- [ ] 帰る go home (C): 帰's scene, option: "I'm home" at the door, shoes off.
+- [ ] 遅い slow (C): 遅's scene, option: a tortoise plods.
+- [ ] 汚い dirty (C): 汚's scene, option: a dog shakes mud everywhere.
+- [ ] 質問 question (C): a hand goes up in a crowd, a "?" bubble.
+- [ ] 問題 problem (C): a maths problem on a board, a person scratching their head.
+- [ ] 宿題 homework (C): a person at a desk at night with a pile of worksheets.
+- [ ] 取る take (C): 取's scene, option: picking a cookie from a jar.
+- [ ] 写真 photo (C): 写's scene, option: a selfie with a peace sign.
+- [ ] 洋服 western clothes (C): a dress and a suit on a rack, a person tries one on.
+- [ ] 旅行 trip (C): a suitcase rolls along, stickers of places appear on it.
+- [ ] 押す push (C): 押's scene, option: a finger presses a big button, it lights.
+- [ ] 泳ぐ swim (C): 泳's scene, option: a fish swims by.
+- [ ] 鳴く cry (animal) (C): 鳴's scene, option: a cat meows, a dog barks.
+- [ ] 暖かい warm (weather) (C): spring sun; snow melts and flowers come up.
+- [ ] 温い lukewarm (C): a hand tests bath water, makes a "meh" face, so-so.
+- [ ] 両親 parents (C): a mum and dad each hold a hand of a child, swing them.
+- [ ] 台所 kitchen (C): a stove and a sink; a pot boils, a person chops.
+- [ ] 有名 famous (C): a person on a red carpet, camera flashes, autographs.
+- [ ] 仕事 work / job (C): a person at a desk typing, coffee, papers stacking.
+- [ ] 答える answer (C): 答's scene, option: answering a phone call.
+- [ ] 悪い bad (C): 悪's scene, option: a thumbs down.
+- [ ] 太い thick (C): 太's scene, option: a thin pencil and a fat crayon side by side.
+- [ ] 辞書 dictionary (C): 辞's scene, option: the book slams shut.
+- [ ] 返す return (thing) (C): 返's scene, option: a borrowed book is handed back.
+- [ ] 覚える memorize (C): 覚's scene, option: flashcards flip, one sticks in the head.
+- [ ] 授業 lesson (C): 教室 set, the teacher writes on the board, a bell rings.
+
+## Notes for later batches
+- Props built so far (`src/effects/pieces/kit-*.js`, look at them with the "kit" vignette): an articulated hand (open,
+  grip, point, thumbs up, pinch), a person (walk cycle, lean, raise, squat, sit), a hammer, a nail that can bend, a
+  board, a plate, a ball, a heart, a star burst, a ring of dizzy stars, and `many()` for crowds of one small shape
+  (dust puffs, sweat drops, hearts) in one draw call.
+- Props still to build (asked for by the scenes above): door, box, cup, teapot, book, car, bus, bird, bicycle, chair
+  and bed, a house kit, a stage with a curtain, clouds that can part.
+- Pairs that mirror each other share a prop but never an action: 押 / 引 (push vs pull a rope), 近 / 遠 (walk in vs walk
+  away), 重 / 強 (fails to lift vs lifts easily), 開 / 閉, 始 / 終, 消す / 消える.
+- Step 1's 112 kanji get this same pass later. What carries over: the kit, the timeline, and the "kanji takes part"
+  tricks (`poseGlyph` in vignettes/people.js turns or shifts the kanji about any point; `stage.offset` moves single
+  strokes).
