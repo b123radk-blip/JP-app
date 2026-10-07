@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["91cd"],
   "builtFrom": [{ "k": "重", "m": "heavy" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "weight", "motion": "sink", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "drag-suitcase", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "重", "reading": "おも" }, { "text": "くて" }, { "text": "私", "reading": "わたし" }, { "text": "にはもてない。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [147979, 266580] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 重い" },
+  "review": { "recipe": "reviewed", "rule": "word 重い" },
   "source": { "jmdict": 1335750, "jlpt": 5 }
 }

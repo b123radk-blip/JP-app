@@ -3,6 +3,8 @@
 //                  the moon rises and stars come out
 //   calendar-back  昨: a calendar shows today; its page flips BACK a day while a little sun runs backwards across the sky
 //                  (days: 2 flips back two days, for 一昨日)
+//   rewind-clock   昨: a clock beside the kanji: its hands spin backwards, a rewind sign (◀◀) flashes, a little sun runs back
+//                  across the sky from right to left
 //   go-to-bed      夜: a person yawns and stretches, lies down on a futon, pulls up the blanket; dusk falls, the moon
 //                  rises, stars twinkle and Zzz floats up (the sleep then holds)
 //   noon-sun       昼: the sun climbs from the horizon to straight overhead, the person's head following it up; at the
@@ -15,6 +17,7 @@ import { emblemProp, textPlane, veil, calendarPad, cardBox } from '../pieces/kit
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, arc } from './helpers.js';
+import { noonEat } from './variants.js';
 import { smooth } from '../pieces/util.js';
 
 const sunBall = (u, r = 0.16) => solidProp([[G.sphere(r * u), 0xffa030]], 1.2);
@@ -98,6 +101,7 @@ function goToBed(ctx, spec, stage) {
 }
 
 function noonSun(ctx, spec, stage) {
+  if (spec.outcome === 'eat') return noonEat(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u;
   const p = createPerson({ u, shirt: 0xf0a030 }), sun = emblemProp('sun', 0.42 * u);
   const lunch = cardBox(0.6 * u, { w: 0.5, h: 0.22, color: 0xd83838 }), rice = solidProp([[G.sphere(0.07 * u, 0, 0, 0, 1, 0.9, 0.8), 0xffffff], [G.box(0.06 * u, 0.05 * u, 0.02 * u, 0, -0.01 * u, 0.055 * u), 0x1a2a1a]]);
@@ -121,4 +125,25 @@ function noonSun(ctx, spec, stage) {
   };
 }
 
-export const SCENES = { 'sunset-lights': sunsetLights, 'calendar-back': calendarBack, 'go-to-bed': goToBed, 'noon-sun': noonSun };
+function rewindClock(ctx, spec, stage) {
+  const u = stage.u, B = stage.box, group = new THREE.Group(), cx = B.maxX + 0.5 * u, cy = B.cy + 0.05 * u;
+  const clock = emblemProp('clock', 0.75 * u), sun = sunBall(u, 0.08), tri = (x) => [G.cone(0.08 * u, 0.13 * u, x, 0, 0, Math.PI / 2), 0xffffff];
+  const rewind = solidProp([tri(-0.06 * u), tri(0.06 * u)], 1.2);
+  group.add(clock, sun, rewind);
+  const loop = 4.6;
+  return {
+    group,
+    step(t) {
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
+      clock.position.set(cx, cy, 0); clock.scale.setScalar(0.75 * u * Math.max(1e-3, timeline(A.setup, { a: [0.3, 0.4, 'back'] }).a));
+      const back = pre ? 0 : between(v, 0.3, 3.3);
+      clock.idle(-(back * 6) * (1 + 2 * back));                       // the hands run backwards, faster and faster
+      const f = pre ? 0 : between(v, 0.3, 3.3), a = Math.PI * (0.1 + 0.8 * f);
+      sun.position.set(cx + Math.cos(a) * 0.55 * u, cy + 0.1 * u + Math.sin(a) * 0.5 * u, -0.05 * u); sun.visible = f < 1;
+      const fl = !pre && v > 0.3 && v < 3.3 ? 0.6 + 0.4 * Math.abs(Math.sin(v * 5)) : 0;
+      rewind.visible = fl > 0; rewind.position.set(cx, cy - 0.5 * u, 0.06 * u); rewind.material.userData.glow.value = 1.2 * fl;
+    },
+  };
+}
+
+export const SCENES = { 'rewind-clock': rewindClock, 'sunset-lights': sunsetLights, 'calendar-back': calendarBack, 'go-to-bed': goToBed, 'noon-sun': noonSun };

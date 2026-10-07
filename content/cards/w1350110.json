@@ -8,7 +8,7 @@
   "pos": ["v5s", "vt"],
   "kanji": ["6d88"],
   "builtFrom": [{ "k": "消", "m": "extinguish" }],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:night", "motion": "vanish" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "switch-off", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "テレビを" }, { "text": "消", "reading": "け" }, { "text": "しましょう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [201935, 528645] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 消す" },
+  "review": { "recipe": "reviewed", "rule": "word 消す" },
   "source": { "jmdict": 1350110, "jlpt": 5 }
 }

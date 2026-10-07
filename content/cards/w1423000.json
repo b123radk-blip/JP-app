@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "着", "m": "wear" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "shirt",
-    "motion": "drift:down",
-    "backdrop": "sky:morning"
+    "backdrop": "sky:morning",
+    "vignette": { "type": "coat-on", "outcome": "wear", "size": 1.2 }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [187154, 24291] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 着る" },
+  "review": { "recipe": "reviewed", "rule": "word 着る" },
   "source": { "jmdict": 1423000, "jlpt": 5 }
 }

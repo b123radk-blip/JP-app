@@ -25,7 +25,10 @@ export function acts(ctx, t, loop) {
 // beats: { name: [at, dur, ease?] } -> { name: 0..1 }, each eased (default smooth). 0 before `at`, 1 after at + dur.
 export function timeline(v, beats) {
   const out = {};
-  for (const [name, [at, dur, ease = 'smooth']] of Object.entries(beats)) out[name] = EASE[ease](clamp01((v - at) / Math.max(1e-3, dur)));
+  for (const [name, [at, dur, ease = 'smooth']] of Object.entries(beats)) {
+    const x = clamp01((v - at) / Math.max(1e-3, dur));
+    out[name] = x <= 0 ? 0 : x >= 1 ? 1 : EASE[ease](x);           // exact ends (back and bounce are off by 1e-16 there)
+  }
   return out;
 }
 

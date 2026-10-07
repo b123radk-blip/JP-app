@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["8336"],
   "builtFrom": [{ "k": "茶", "m": "tea" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "cup", "drink": "#8a2a10" },
-    "backdrop": "sky:golden",
-    "particles": ["steam", "motes"],
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": { "type": "teabag", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "紅茶", "reading": "こうちゃ" }, { "text": "をいただけますか。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [173489, 240981] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 紅茶" },
+  "review": { "recipe": "reviewed", "rule": "word 紅茶" },
   "source": { "jmdict": 1280770, "jlpt": 5 }
 }

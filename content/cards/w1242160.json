@@ -8,14 +8,7 @@
   "pos": ["n", "adj-no", "adv"],
   "kanji": ["8fd1"],
   "builtFrom": [{ "k": "近", "m": "near" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "pin",
-    "motion": "drift:toward",
-    "backdrop": "sky:day",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "neighbourhood", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "駅", "reading": "えき" }, { "text": "の" }, { "text": "近", "reading": "ちか" }, { "text": "くにいます。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [158262, 256268] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 近く" },
+  "review": { "recipe": "reviewed", "rule": "word 近く" },
   "source": { "jmdict": 1242160, "jlpt": 5 }
 }

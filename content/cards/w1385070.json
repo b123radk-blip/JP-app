@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5207", "624b"],
   "builtFrom": [{ "k": "切", "m": "cut" }, { "k": "手", "m": "hand" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "particles": ["sparks"], "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "stamp-letter", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "切手", "reading": "きって" }, { "text": "はどこで" }, { "text": "買", "reading": "か" }, { "text": "えますか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [142110, 272460] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 切手" },
+  "review": { "recipe": "reviewed", "rule": "word 切手" },
   "source": { "jmdict": 1385070, "jlpt": 5 }
 }

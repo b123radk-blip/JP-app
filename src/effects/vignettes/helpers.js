@@ -49,3 +49,15 @@ export function liveText(u, { h = 0.2, w = 0.3, color = '#ffe060', bg = '#202428
   };
   return mesh;
 }
+// a rope / pole / beam between two points: mesh built along +y with height 1 and its base at the origin (G.cyl(..., 1, 0, 0.5))
+const up = new THREE.Vector3(0, 1, 0), dir = new THREE.Vector3();
+export function beam(mesh, a, b) {
+  dir.subVectors(b, a); const len = Math.max(1e-4, dir.length());
+  mesh.position.copy(a); mesh.quaternion.setFromUnitVectors(up, dir.divideScalar(len)); mesh.scale.set(1, len, 1);
+}
+// the strokes of a kanji split by where their middle is (x or y against a line): returns { lo: [si], hi: [si] }
+export function strokeSides(ctx, axis, at) {
+  const lo = [], hi = [];
+  ctx.strokes.forEach((s, si) => { const c = s.pts.reduce((a, p) => a + p[axis] / s.pts.length, 0); (c < at ? lo : hi).push(si); });
+  return { lo, hi };
+}

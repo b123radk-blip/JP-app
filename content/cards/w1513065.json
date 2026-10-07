@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5f53"],
   "builtFrom": [{ "k": "当", "m": "hit" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "box", "backdrop": "sky:noon" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "type": "bento-open", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "彼", "reading": "かれ" }, { "text": "は" }, { "text": "今日", "reading": "きょう" }, { "text": "、" }, { "text": "お" }, { "text": "弁", "reading": "べん", "base": "べん", "dict": true }, { "text": "当", "reading": "とう", "base": "とう", "dict": true }, { "text": "を" }, { "text": "持", "reading": "も" }, { "text": "って" }, { "text": "来", "reading": "き" }, { "text": "た。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [107100, 296586] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word お弁当" },
+  "review": { "recipe": "reviewed", "rule": "word お弁当" },
   "source": { "jmdict": 1513065, "jlpt": 5 }
 }

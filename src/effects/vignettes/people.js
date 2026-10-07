@@ -11,6 +11,7 @@ import { many, PUFF, DROP, HEART } from '../pieces/kit-things.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { smooth } from '../pieces/util.js';
 import { poseGlyph, puffs } from './helpers.js';
+import { nearFace } from './variants.js';
 
 function push(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), side = spec.dir === 'right' ? -1 : 1;   // stands on the right, pushes left
@@ -81,6 +82,7 @@ function liftHeavy(ctx, spec, stage) {
 }
 
 function comeNear(ctx, spec, stage) {
+  if (spec.outcome === 'face') return nearFace(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), xs = B.maxX + 0.3 * u;
   const p = createPerson({ u, shirt: 0xd04a6a, hair: 0x6a3a1a }).face('toward');
     // a path from far away to the kanji's feet: sandy, with a lighter edge on each side (flat on the floor)

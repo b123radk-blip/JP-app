@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["756a"],
   "builtFrom": [{ "k": "番", "m": "turn" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "ticket", "backdrop": "sky:day", "motion": "float" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "keypad", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "ええ、じゃあ" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "電話", "reading": "でんわ" }, { "text": "番", "reading": "ばん", "base": "ばん", "dict": true }, { "text": "号", "reading": "ごう", "base": "ごう", "dict": true }, { "text": "教", "reading": "おし" }, { "text": "えるね。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [228016, 65369] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 番号" },
+  "review": { "recipe": "reviewed", "rule": "word 番号" },
   "source": { "jmdict": 1482290, "jlpt": 5 }
 }

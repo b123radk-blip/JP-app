@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["98df", "7269"],
   "builtFrom": [{ "k": "食", "m": "eat" }, { "k": "物", "m": "thing" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "bowl",
-    "particles": ["steam", "motes"],
-    "backdrop": "sky:indoor",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "food-row", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "食べ物", "reading": "たべもの" }, { "text": "はたっぷりある。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [145898, 268664] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 食べ物" },
+  "review": { "recipe": "reviewed", "rule": "word 食べ物" },
   "source": { "jmdict": 1358340, "jlpt": 5 }
 }

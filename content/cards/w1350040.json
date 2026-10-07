@@ -8,7 +8,7 @@
   "pos": ["v1", "vi"],
   "kanji": ["6d88"],
   "builtFrom": [{ "k": "消", "m": "extinguish" }],
-  "effect": { "material": "ivory", "reveal": "draw", "motion": "vanish", "backdrop": "sky:dusk", "particles": ["mist"] },
+  "effect": { "material": "ivory", "backdrop": "sky:night", "vignette": { "type": "candle-out", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "音楽", "reading": "おんがく" }, { "text": "の" }, { "text": "音", "reading": "おと" }, { "text": "はしだいに" }, { "text": "消", "reading": "き" }, { "text": "えていった。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [212151, 49429] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 消える" },
+  "review": { "recipe": "reviewed", "rule": "word 消える" },
   "source": { "jmdict": 1350040, "jlpt": 5 }
 }

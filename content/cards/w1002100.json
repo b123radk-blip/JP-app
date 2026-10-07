@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["624b", "6d17"],
   "builtFrom": [{ "k": "手", "m": "hand" }, { "k": "洗", "m": "wash" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "hand",
-    "particles": ["bubbles"],
-    "backdrop": "sky:indoor",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "toilet-dash", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "お" }, { "text": "手洗", "reading": "てあら" }, { "text": "いはどこですか。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [227063, 38932] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word お手洗い" },
+  "review": { "recipe": "reviewed", "rule": "word お手洗い" },
   "source": { "jmdict": 1002100, "jlpt": 5 }
 }

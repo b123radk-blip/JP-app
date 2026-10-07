@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["98a8"],
   "builtFrom": [{ "k": "風", "m": "wind" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "thermometer", "motion": "shake", "backdrop": "sky:snow" },
+  "effect": { "material": "ivory", "backdrop": "sky:snow", "vignette": { "type": "sneeze", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "ただの" }, { "text": "風邪", "reading": "かぜ" }, { "text": "でしょう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [203635, 40873] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 風邪" },
+  "review": { "recipe": "reviewed", "rule": "word 風邪" },
   "source": { "jmdict": 1583720, "jlpt": 5 }
 }

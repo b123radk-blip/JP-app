@@ -8,7 +8,7 @@
   "effect": {
     "material": "silver",
     "backdrop": "sky:morning",
-    "vignette": "calendar-back",
+    "vignette": "rewind-clock",
     "parts": { "日": { "material": "gold" } }
   },
   "sentences": [

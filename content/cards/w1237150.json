@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["6559"],
   "builtFrom": [{ "k": "教", "m": "teach" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room:classroom"], "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "classroom-kids", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "教室", "reading": "きょうしつ" }, { "text": "は" }, { "text": "生徒", "reading": "せいと" }, { "text": "でいっぱいだった。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [180166, 19027] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 教室" },
+  "review": { "recipe": "reviewed", "rule": "word 教室" },
   "source": { "jmdict": 1237150, "jlpt": 5 }
 }

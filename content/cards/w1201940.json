@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["76bf"],
   "builtFrom": [{ "k": "皿", "m": "dish" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "plate", "particles": ["steam"], "backdrop": "sky:night" },
+  "effect": { "material": "ivory", "backdrop": "sky:night", "vignette": { "type": "ashtray", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "灰皿", "reading": "はいざら" }, { "text": "を" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [185012, 22144] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 灰皿" },
+  "review": { "recipe": "reviewed", "rule": "word 灰皿" },
   "source": { "jmdict": 1201940, "jlpt": 5 }
 }

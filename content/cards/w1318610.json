@@ -8,7 +8,7 @@
   "pos": ["pn"],
   "kanji": ["81ea", "5206"],
   "builtFrom": [{ "k": "自", "m": "oneself" }, { "k": "分", "m": "part" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "mirror", "backdrop": "sky:morning" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "type": "me-spotlight", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "自分", "reading": "じぶん" }, { "text": "の" }, { "text": "仕事", "reading": "しごと" }, { "text": "をしなさい。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [149835, 264584] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 自分" },
+  "review": { "recipe": "reviewed", "rule": "word 自分" },
   "source": { "jmdict": 1318610, "jlpt": 5 }
 }

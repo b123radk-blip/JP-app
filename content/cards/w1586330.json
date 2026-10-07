@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["671d"],
   "builtFrom": [{ "k": "朝", "m": "morning" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "backdrop": "sunrise", "particles": ["steam"] },
+  "effect": { "material": "ivory", "backdrop": "sunrise", "vignette": { "type": "toaster", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "朝", "reading": "あさ" }, { "text": "ごはんにはなにがよろしいですか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [126248, 277744] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 朝ごはん" },
+  "review": { "recipe": "reviewed", "rule": "word 朝ごはん" },
   "source": { "jmdict": 1586330, "jlpt": 5 }
 }

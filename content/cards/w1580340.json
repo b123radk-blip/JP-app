@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["4e0a", "7740"],
   "builtFrom": [{ "k": "上", "m": "up" }, { "k": "着", "m": "wear" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shirt", "backdrop": "sky:snow" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:snow",
+    "vignette": { "type": "coat-on", "outcome": "jacket", "color": "#3a8a5a", "size": 1.2 }
+  },
   "sentences": [
     {
       "segments": [ { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "上着", "reading": "うわぎ" }, { "text": "を" }, { "text": "着", "reading": "き" }, { "text": "ている。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [145375, 269188] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 上着" },
+  "review": { "recipe": "reviewed", "rule": "word 上着" },
   "source": { "jmdict": 1580340, "jlpt": 5 }
 }

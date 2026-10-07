@@ -8,7 +8,7 @@
   "pos": ["v5u", "vi"],
   "kanji": ["9055"],
   "builtFrom": [{ "k": "違", "m": "differ" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cross", "motion": "shake", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "spot-difference", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "それは" }, { "text": "違", "reading": "ちが" }, { "text": "うと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [205341, 42586] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 違う" },
+  "review": { "recipe": "reviewed", "rule": "word 違う" },
   "source": { "jmdict": 1158880, "jlpt": 5 }
 }

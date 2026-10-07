@@ -8,7 +8,7 @@
   "pos": ["n", "adj-no"],
   "kanji": ["4e00", "756a"],
   "builtFrom": [{ "k": "一", "m": "one" }, { "k": "番", "m": "turn" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "trophy", "backdrop": "sky:golden" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "type": "race-win", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "このネクタイにしましょう、" }, { "text": "一番", "reading": "いちばん" }, { "text": "よさそうだから。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [223406, 60739] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 一番" },
+  "review": { "recipe": "reviewed", "rule": "word 一番" },
   "source": { "jmdict": 1165970, "jlpt": 5 }
 }

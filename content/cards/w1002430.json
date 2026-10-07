@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "茶", "m": "tea" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "cup", "drink": "#7aa63a" },
     "backdrop": "sky:indoor",
-    "particles": ["steam"]
+    "vignette": { "type": "tea-pour", "outcome": "serve", "size": 1.2 }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [195510, 32684] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word お茶" },
+  "review": { "recipe": "reviewed", "rule": "word お茶" },
   "source": { "jmdict": 1002430, "jlpt": 5 }
 }

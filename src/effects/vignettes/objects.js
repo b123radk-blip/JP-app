@@ -19,10 +19,12 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { pointAt } from '../../kanji/tube.js';
 import { poseGlyph, puffs, arc, handTo, between, mixColor } from './helpers.js';
+import { chopCarrot } from './variants.js';
 
 const centroidX = (s) => s.pts.reduce((a, p) => a + p.x, 0) / s.pts.length;
 
 function chopSplit(ctx, spec, stage) {
+  if (spec.food) return chopCarrot(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), xm = B.cx;
   const knife = cleaver(1.6 * u), flash = solidProp([[G.box(0.02 * u, B.h * 1.1, 0.01 * u, 0, 0, 0), 0xffffff]], 2);
   const side = ctx.strokes.map((s) => (centroidX(s) < xm ? -1 : 1));

@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["98a8"],
   "builtFrom": [{ "k": "風", "m": "wind" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["steam"], "emblem": "onsen", "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "bath-tub", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はほとんど" }, { "text": "毎日", "reading": "まいにち" }, { "text": "お" }, { "text": "風呂", "reading": "ふろ" }, { "text": "に" }, { "text": "入", "reading": "はい" }, { "text": "ります。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [158918, 255608] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word お風呂" },
+  "review": { "recipe": "reviewed", "rule": "word お風呂" },
   "source": { "jmdict": 2220600, "jlpt": 5 }
 }

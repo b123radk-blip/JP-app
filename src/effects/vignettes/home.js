@@ -18,6 +18,7 @@ import { emblemProp, cardBox, teapot, teacup, disc, bowl, chopsticks, sponge, bu
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { poseGlyph, wisps, arc, handTo, between } from './helpers.js';
+import { teaServe } from './variants.js';
 
 function boxTumble(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
@@ -117,11 +118,12 @@ function scrubWash(ctx, spec, stage) {
 }
 
 function teaPour(ctx, spec, stage) {
+  if (spec.outcome === 'serve') return teaServe(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
   const S = 1.6, pot = teapot(S * u), cup = teacup(S * u), fill = disc(S * u, 0.085, 0x8ab84a), stream = many([[G.sphere(0.03 * u), 0x9ac85a]], 14, 0.7), steam = many(PUFF(1.5 * u, 0xf4f4f8), 5, 0.6), leaves = many([[G.sphere(0.045 * u, 0, 0, 0, 1.6, 0.4, 1), 0x4aa040]], 5, 0.5);
   const cx = B.maxX + 0.36 * u, pp = [B.maxX + 1.0 * u, floor + 0.55 * u];
-  cup.position.set(cx, floor, 0.04 * u); pot.position.set(...pp, 0);
-  group.add(pot, cup, fill, stream, steam, leaves);
+  cup.position.set(cx, floor, 0.04 * u); cup.rotation.x = 0.4; pot.position.set(...pp, 0);
+  cup.add(fill); group.add(pot, cup, stream, steam, leaves);
   const loop = 4.8, spout = () => { const a = pot.rotation.z, x = -0.3 * S * u, y = 0.26 * S * u; return [pp[0] + x * Math.cos(a) - y * Math.sin(a), pp[1] + x * Math.sin(a) + y * Math.cos(a)]; };
   return {
     group,
@@ -137,7 +139,8 @@ function teaPour(ctx, spec, stage) {
       for (let i = 0; i < 14; i++) { const f = ((v * 2.2 + i / 14) % 1); const [x, y] = arc([sx, sy], top, 0.05 * u, f); stream.set(i, x, y, 0.04 * u, pouring ? 1 : 0); }
       stream.commit();
       const level = pre ? 0 : between(v, 1.3, 2.6) * (1 - T.drink);
-      fill.position.set(cx, floor + (0.02 + 0.09 * level) * S * u, 0.04 * u); fill.scale.set(0.8 + 0.25 * level, 1, 0.8 + 0.25 * level); fill.visible = level > 0.02;
+      // the tea spreads over the top as it fills
+      fill.position.set(0, 0.136 * S * u, 0); fill.scale.set(0.15 + 0.95 * level, 1, 0.15 + 0.95 * level); fill.visible = level > 0.02;
       wisps(steam, 0, 5, cx, floor + 0.16 * S * u, t, u, { period: 1.8, rise: 0.7, on: level > 0.3 ? 1 : 0 });
       steam.commit();
     },

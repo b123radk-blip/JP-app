@@ -8,14 +8,7 @@
   "pos": ["n", "vs", "vt"],
   "kanji": ["6d17"],
   "builtFrom": [{ "k": "洗", "m": "wash" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["bubbles"],
-    "emblem": "shirt",
-    "backdrop": "sky:day",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "laundry", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "日曜日", "reading": "にちようび" }, { "text": "には" }, { "text": "洗濯", "reading": "せんたく" }, { "text": "をする。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [122161, 281842] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 洗濯" },
+  "review": { "recipe": "reviewed", "rule": "word 洗濯" },
   "source": { "jmdict": 1390980, "jlpt": 5 }
 }

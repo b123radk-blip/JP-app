@@ -42,6 +42,10 @@ test('timeline: beats ease from 0 to 1, acts splits set-up / action / loops', ()
   const T = timeline(0.5, { a: [0, 1, 'linear'], b: [1, 1], c: [0, 0.25] });
   assert.equal(T.a, 0.5); assert.equal(T.b, 0); assert.equal(T.c, 1);
   assert.equal(bump(0.5, 0, 1), 1); assert.equal(bump(2, 0, 1), 0);
+  for (const ease of ['back', 'bounce', 'in', 'out', 'smooth']) {        // exact 0 and 1 at the ends: scenes test "> 0" (a 1e-16 hid a postcard)
+    const E = timeline(5, { before: [6, 1, ease], after: [1, 1, ease] });
+    assert.equal(E.before, 0, `${ease} before`); assert.equal(E.after, 1, `${ease} after`);
+  }
   const ctx = { rv: { items: [{ start: 1, dur: 1 }, { start: 2.1, dur: 0.9 }], end: 3 } };
   assert.deepEqual(acts(ctx, 2, 4), { setup: 0.5, u: -1, v: -1, n: -1, s: 1 });
   const later = acts(ctx, 3 + 4 * 2 + 0.5, 4);

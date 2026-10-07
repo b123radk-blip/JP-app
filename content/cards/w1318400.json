@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["81ea", "52d5", "8eca"],
   "builtFrom": [{ "k": "自", "m": "oneself" }, { "k": "動", "m": "move" }, { "k": "車", "m": "car" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "car", "scene": ["road"], "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "car-park", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "これは" }, { "text": "誰", "reading": "だれ" }, { "text": "の" }, { "text": "自動車", "reading": "じどうしゃ" }, { "text": "ですか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [218205, 55518] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 自動車" },
+  "review": { "recipe": "reviewed", "rule": "word 自動車" },
   "source": { "jmdict": 1318400, "jlpt": 5 }
 }

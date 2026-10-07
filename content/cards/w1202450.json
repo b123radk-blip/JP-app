@@ -8,7 +8,7 @@
   "pos": ["v1", "vt"],
   "kanji": ["958b"],
   "builtFrom": [{ "k": "開", "m": "open" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "gift-open", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "押", "reading": "お" }, { "text": "して" }, { "text": "開", "reading": "あ" }, { "text": "けてください。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [188527, 25673] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 開ける" },
+  "review": { "recipe": "reviewed", "rule": "word 開ける" },
   "source": { "jmdict": 1202450, "jlpt": 5 }
 }

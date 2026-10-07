@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "教", "m": "teach" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "scene": ["room:classroom"],
-    "emblem": "pen",
     "backdrop": "sky:indoor",
-    "motion": "float"
+    "vignette": { "type": "teach-board", "text": "あいう", "size": 1 }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [146086, 268476] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 教える" },
+  "review": { "recipe": "reviewed", "rule": "word 教える" },
   "source": { "jmdict": 1236900, "jlpt": 5 }
 }

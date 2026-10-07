@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["98f2", "7269"],
   "builtFrom": [{ "k": "飲", "m": "drink" }, { "k": "物", "m": "thing" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "drink-straw", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "飲み物", "reading": "のみもの" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "りましょう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [189952, 27109] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 飲み物" },
+  "review": { "recipe": "reviewed", "rule": "word 飲み物" },
   "source": { "jmdict": 1600430, "jlpt": 5 }
 }

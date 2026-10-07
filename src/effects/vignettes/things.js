@@ -8,6 +8,7 @@ import { acts, timeline, bump, wobble, lerp } from './timeline.js';
 import { many } from '../pieces/kit-things.js';
 import { G } from '../pieces/shape-kit.js';
 import { solidProp } from '../pieces/kit-rig.js';
+import { plateDry } from './variants.js';
 
 function plateShape(u, r, color = 0xf6f4ee, rim = 0x3a6ad0) {
   const k = (x) => x * u, pts = [[0, 0], [k(r * 0.55), 0], [k(r * 0.62), k(0.014)], [k(r * 0.95), k(0.04)], [k(r), k(0.05)]].map(([x, y]) => new THREE.Vector2(x, y));
@@ -15,6 +16,7 @@ function plateShape(u, r, color = 0xf6f4ee, rim = 0x3a6ad0) {
 }
 
 function stackPlates(ctx, spec, stage) {
+  if (spec.outcome === 'dry') return plateDry(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), N = 4, R = Math.min(0.42, (B.w / u) * 0.42), H = 0.06 * u;
   const plates = many(plateShape(u, R), N, 0.35);
   const cake = solidProp([[G.cyl(0.16 * u, 0.16 * u, 0.13 * u, 0, 0.065 * u), 0xffe8c8], [G.cyl(0.165 * u, 0.165 * u, 0.03 * u, 0, 0.12 * u), 0xff8ab0], [G.sphere(0.035 * u, 0, 0.165 * u), 0xe02030], [G.cyl(0.004 * u, 0.004 * u, 0.04 * u, 0, 0.2 * u), 0x40a040]]);

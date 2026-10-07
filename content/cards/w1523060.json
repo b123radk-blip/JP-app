@@ -8,7 +8,7 @@
   "pos": ["n", "adj-no", "adj-na"],
   "kanji": ["672c", "5f53"],
   "builtFrom": [{ "k": "本", "m": "book" }, { "k": "当", "m": "hit" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "mask-off", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "本当", "reading": "ほんとう" }, { "text": "だと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [159771, 254751] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 本当" },
+  "review": { "recipe": "reviewed", "rule": "word 本当" },
   "source": { "jmdict": 1523060, "jlpt": 5 }
 }

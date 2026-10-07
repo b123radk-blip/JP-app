@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["8a00", "8449"],
   "builtFrom": [{ "k": "言", "m": "say" }, { "k": "葉", "m": "leaf" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["kana"], "emblem": "speech", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "talk-bubbles", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "言葉", "reading": "ことば" }, { "text": "が" }, { "text": "出", "reading": "で" }, { "text": "てこなかった。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [174713, 239755] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 言葉" },
+  "review": { "recipe": "reviewed", "rule": "word 言葉" },
   "source": { "jmdict": 1264540, "jlpt": 5 }
 }

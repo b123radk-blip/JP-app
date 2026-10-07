@@ -12,10 +12,12 @@ import { ball, burst } from '../pieces/kit-things.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, bonePoint } from './helpers.js';
+import { coatVariant, piggyback } from './variants.js';
 
 const SHIRT = 0xd8d8e0, SKIN = 0xffd2b0;
 
 function coatOn(ctx, spec, stage) {
+  if (spec.outcome === 'wear' || spec.outcome === 'jacket') return coatVariant(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.45 * u, COAT = spec.color ?? 0xc8402a;
   const p = createPerson({ u, shirt: SHIRT });
   const coat = solidProp([[G.box(0.25 * u, 0.3 * u, 0.2 * u, 0, 0, 0), COAT], [G.cyl(0.05 * u, 0.05 * u, 0.3 * u, -0.17 * u, -0.02 * u, 0, 0, 0, 0.3), COAT], [G.cyl(0.05 * u, 0.05 * u, 0.3 * u, 0.17 * u, -0.02 * u, 0, 0, 0, -0.3), COAT], [G.box(0.12 * u, 0.04 * u, 0.21 * u, 0, 0.16 * u, 0), 0x8a2a1a], ...[0, 1, 2].map((i) => [G.sphere(0.012 * u, 0, (0.08 - i * 0.08) * u, 0.105 * u), 0xffd040])]);
@@ -74,6 +76,7 @@ function mirrorMe(ctx, spec, stage) {
 }
 
 function bigBrother(ctx, spec, stage) {
+  if (spec.outcome === 'piggyback') return piggyback(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
   const big = createPerson({ u: 1.05 * u, shirt: 0x3a6ae0 }), small = createPerson({ u: 0.62 * u, shirt: 0xf0c030, hair: 0x6a3a1a }), toy = ball(u, { r: 0.07, color: 0xe84040, stripe: 0xffffff });
   const bx = B.maxX + 0.35 * u, sx = B.maxX + 0.78 * u;

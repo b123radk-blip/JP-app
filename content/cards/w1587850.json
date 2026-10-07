@@ -8,7 +8,7 @@
   "pos": ["adj-na", "adj-no"],
   "kanji": ["8272"],
   "builtFrom": [{ "k": "色", "m": "color" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "rainbow", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "confetti-shapes", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "色々", "reading": "いろいろ" }, { "text": "ありがとう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [145951, 2107841] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 色々" },
+  "review": { "recipe": "reviewed", "rule": "word 色々" },
   "source": { "jmdict": 1587850, "jlpt": 5 }
 }

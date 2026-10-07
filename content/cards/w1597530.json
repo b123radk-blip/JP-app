@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["8336"],
   "builtFrom": [{ "k": "茶", "m": "tea" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "backdrop": "sky:morning" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "type": "bowl-spin", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "茶碗", "reading": "ちゃわん" }, { "text": "にはひびがある。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [207848, 45104] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 茶碗" },
+  "review": { "recipe": "reviewed", "rule": "word 茶碗" },
   "source": { "jmdict": 1597530, "jlpt": 5 }
 }

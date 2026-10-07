@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["663c", "98ef"],
   "builtFrom": [{ "k": "昼", "m": "daytime" }, { "k": "飯", "m": "meal" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "backdrop": "sky:noon" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:noon",
+    "vignette": { "type": "noon-sun", "outcome": "eat", "size": 1 }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ちょうど" }, { "text": "昼ご飯", "reading": "ひるごはん" }, { "text": "を" }, { "text": "食", "reading": "た" }, { "text": "べ" }, { "text": "終", "reading": "お" }, { "text": "わったとこだよ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [202892, 40126] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 昼ご飯" },
+  "review": { "recipe": "reviewed", "rule": "word 昼ご飯" },
   "source": { "jmdict": 1602340, "jlpt": 5 }
 }

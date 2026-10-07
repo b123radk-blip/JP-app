@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["8449", "66f8"],
   "builtFrom": [{ "k": "葉", "m": "leaf" }, { "k": "書", "m": "write" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "particles": ["leaves"], "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "postcard-post", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "店", "reading": "みせ" }, { "text": "に" }, { "text": "葉書", "reading": "はがき" }, { "text": "がたくさんある。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [220432, 57755] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 葉書" },
+  "review": { "recipe": "reviewed", "rule": "word 葉書" },
   "source": { "jmdict": 1546590, "jlpt": 5 }
 }

@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5207"],
   "builtFrom": [{ "k": "切", "m": "cut" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "ticket", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "ticket-gate", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "切符", "reading": "きっぷ" }, { "text": "で" }, { "text": "二人", "reading": "ふたり" }, { "text": "入", "reading": "い" }, { "text": "れるよ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [220860, 58182] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 切符" },
+  "review": { "recipe": "reviewed", "rule": "word 切符" },
   "source": { "jmdict": 1385170, "jlpt": 5 }
 }

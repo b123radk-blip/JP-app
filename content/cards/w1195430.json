@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["7269"],
   "builtFrom": [{ "k": "物", "m": "thing" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "suitcase", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "luggage-pile", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "荷物", "reading": "にもつ" }, { "text": "を" }, { "text": "運", "reading": "はこ" }, { "text": "びましょうか？" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [233414, 64739] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 荷物" },
+  "review": { "recipe": "reviewed", "rule": "word 荷物" },
   "source": { "jmdict": 1195430, "jlpt": 5 }
 }

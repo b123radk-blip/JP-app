@@ -8,7 +8,7 @@
   "pos": ["v5s", "vt"],
   "kanji": ["62bc"],
   "builtFrom": [{ "k": "押", "m": "push" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "shove:right", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "button-press", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "ボタンを" }, { "text": "押", "reading": "お" }, { "text": "しましたか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [196246, 33423] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 押す" },
+  "review": { "recipe": "reviewed", "rule": "word 押す" },
   "source": { "jmdict": 1180470, "jlpt": 5 }
 }

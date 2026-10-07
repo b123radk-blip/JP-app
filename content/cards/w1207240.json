@@ -8,13 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["697d"],
   "builtFrom": [{ "k": "楽", "m": "music" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["notes"],
-    "motion": "bounce",
-    "backdrop": "sky:golden"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": { "type": "merry-go-round", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "楽", "reading": "たの" }, { "text": "しくやっていますか。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [184157, 21285] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 楽しい" },
+  "review": { "recipe": "reviewed", "rule": "word 楽しい" },
   "source": { "jmdict": 1207240, "jlpt": 5 }
 }

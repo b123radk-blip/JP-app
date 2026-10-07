@@ -8,7 +8,7 @@
   "pos": ["adj-na"],
   "kanji": ["5927", "5207"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "切", "m": "cut" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "motion": "pulse", "backdrop": "sky:golden" },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": { "type": "hug-treasure", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "大切", "reading": "たいせつ" }, { "text": "な" }, { "text": "話", "reading": "はなし" }, { "text": "があるんです。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [137435, 275801] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 大切" },
+  "review": { "recipe": "reviewed", "rule": "word 大切" },
   "source": { "jmdict": 1414340, "jlpt": 5 }
 }

@@ -8,12 +8,7 @@
   "pos": ["n", "adj-no"],
   "kanji": ["8336", "8272"],
   "builtFrom": [{ "k": "茶", "m": "tea" }, { "k": "色", "m": "color" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "splash", "color": "#8a5020" },
-    "backdrop": "sky:day"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "paint-pour", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "茶色", "reading": "ちゃいろ" }, { "text": "で" }, { "text": "小", "reading": "ちい" }, { "text": "さくて、やせています。" } ],
@@ -22,6 +17,6 @@
       "source": { "tatoeba": [210959, 48230] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 茶色" },
+  "review": { "recipe": "reviewed", "rule": "word 茶色" },
   "source": { "jmdict": 1422720, "jlpt": 5 }
 }

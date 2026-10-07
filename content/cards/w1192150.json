@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5bb6"],
   "builtFrom": [{ "k": "家", "m": "house" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "particles": ["hearts"], "backdrop": "sky:dusk" },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "type": "family-wave", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "あなたの" }, { "text": "家族", "reading": "かぞく" }, { "text": "はきっと" }, { "text": "親切", "reading": "しんせつ" }, { "text": "でしょう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [233420, 70790] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 家族" },
+  "review": { "recipe": "reviewed", "rule": "word 家族" },
   "source": { "jmdict": 1192150, "jlpt": 5 }
 }

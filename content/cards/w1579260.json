@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "昨", "m": "yesterday" }, { "k": "日", "m": "sun" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "arrow:left",
     "backdrop": "sky:dusk",
-    "motion": "drift:left"
+    "vignette": { "type": "calendar-back", "days": 1, "size": 1.2 }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [84567, 10330690] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 昨日" },
+  "review": { "recipe": "reviewed", "rule": "word 昨日" },
   "source": { "jmdict": 1579260, "jlpt": 5 }
 }

@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "近", "m": "near" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "motion": "drift:toward",
-    "emblem": "arrow:toward",
-    "backdrop": "sky:day"
+    "backdrop": "sky:day",
+    "vignette": { "type": "come-near", "outcome": "face", "size": 1.2 }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [85333, 318380] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 近い" },
+  "review": { "recipe": "reviewed", "rule": "word 近い" },
   "source": { "jmdict": 1242130, "jlpt": 5 }
 }

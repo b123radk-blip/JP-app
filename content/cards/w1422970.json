@@ -8,7 +8,7 @@
   "pos": ["v5k", "vi"],
   "kanji": ["7740"],
   "builtFrom": [{ "k": "着", "m": "wear" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag", "motion": "drift:down", "backdrop": "sky:dusk" },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "type": "train-arrive", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "時間通", "reading": "じかんどお" }, { "text": "りに" }, { "text": "駅", "reading": "えき" }, { "text": "に" }, { "text": "着", "reading": "つ" }, { "text": "いた。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [150528, 264029] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 着く" },
+  "review": { "recipe": "reviewed", "rule": "word 着く" },
   "source": { "jmdict": 1422970, "jlpt": 5 }
 }
