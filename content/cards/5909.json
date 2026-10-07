@@ -4,8 +4,8 @@
   "meaning": "change; unusual",
   "primaryReading": "へん",
   "readings": { "kun": ["か(わる)", "か(わり)", "か(える)"], "on": ["ヘン"] },
-  "mnemonic": "Red (亦) feet (夂) wobbling like jelly: strange, change.",
-  "effect": { "material": "neon", "backdrop": "sky:twilight", "motion": "jiggle", "emblem": "question" },
+  "mnemonic": "A frog on red (亦) feet (夂) turns into a prince and back: strange, change.",
+  "effect": { "material": "neon", "backdrop": "sky:twilight", "vignette": "frog-prince" },
   "sentences": [
     {
       "segments": [ { "text": "これは" }, { "text": "大変", "reading": "たいへん" }, { "text": "古", "reading": "ふる" }, { "text": "い" }, { "text": "本", "reading": "ほん" }, { "text": "です。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [218216, 55529] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

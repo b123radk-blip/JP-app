@@ -7,10 +7,9 @@
   "mnemonic": "The sun (日) in a blue (青) sky: clear weather.",
   "effect": {
     "material": "gold",
-    "particles": [{ "type": "motes", "dir": "up" }],
     "backdrop": "sky:noon",
-    "emblem": { "type": "sun", "size": 1.3 },
-    "parts": { "日": {}, "青": { "material": "water" } }
+    "vignette": "clouds-part",
+    "parts": { "日": { "material": "gold" }, "青": { "material": "water" } }
   },
   "sentences": [
     {
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [143007, 271560] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

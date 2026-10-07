@@ -4,14 +4,8 @@
   "meaning": "pull; tug",
   "primaryReading": "ひ",
   "readings": { "kun": ["ひ(く)", "ひ(ける)"], "on": ["イン"] },
-  "mnemonic": "A bow (弓) and its string (丨) drawn back: pull.",
-  "effect": {
-    "material": "wood",
-    "backdrop": "sky:day",
-    "motion": { "type": "shove", "dir": "left" },
-    "emblem": "bow",
-    "parts": { "弓": {} }
-  },
+  "mnemonic": "A bow (弓) and its string (丨) hauled back on a rope: pull.",
+  "effect": { "material": "wood", "backdrop": "sky:day", "vignette": "rope-pull" },
   "sentences": [
     {
       "segments": [ { "text": "カーテンがゆっくり" }, { "text": "引", "reading": "ひ" }, { "text": "かれた。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [226492, 63837] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

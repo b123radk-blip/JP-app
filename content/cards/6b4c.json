@@ -5,14 +5,7 @@
   "primaryReading": "うた",
   "readings": { "kun": ["うた", "うた(う)"], "on": ["カ"] },
   "mnemonic": "Two mouths (哥) and a wide-open yawn (欠): singing a song.",
-  "effect": {
-    "material": "rose",
-    "particles": ["notes"],
-    "backdrop": "sky:golden",
-    "motion": "sway",
-    "emblem": "mic",
-    "parts": { "欠": {} }
-  },
+  "effect": { "material": "rose", "backdrop": "sky:golden", "vignette": "sing-mic" },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "歌", "reading": "うた" }, { "text": "を" }, { "text": "歌", "reading": "うた" }, { "text": "えます。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [232172, 69541] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1193180"] }
 }

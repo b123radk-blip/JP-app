@@ -7,10 +7,9 @@
   "mnemonic": "A person (亻) hammering away in a moment (乍): make.",
   "effect": {
     "material": "wood",
-    "reveal": "draw:sparks",
     "backdrop": "sky:indoor",
-    "emblem": "hammer",
-    "parts": { "亻": {} }
+    "vignette": "build-toy",
+    "parts": { "亻": { "material": "skin" } }
   },
   "sentences": [
     {
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [164334, 250175] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

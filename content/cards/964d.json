@@ -5,13 +5,7 @@
   "primaryReading": "お",
   "readings": { "kun": ["お(りる)", "お(ろす)", "ふ(る)", "ふ(り)"], "on": ["コウ", "ゴ"] },
   "mnemonic": "Feet (夅) going down the hill steps (⻖): get off, come down; rain falls.",
-  "effect": {
-    "material": "ice",
-    "particles": [{ "type": "rain", "count": 0.6 }],
-    "backdrop": "sky:storm",
-    "motion": { "type": "drift", "dir": "down" },
-    "emblem": "stairs"
-  },
+  "effect": { "material": "ice", "backdrop": "sky:storm", "vignette": "stairs-down" },
   "sentences": [
     {
       "segments": [ { "text": "ここで" }, { "text": "降", "reading": "お" }, { "text": "りましょう。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [224559, 61894] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

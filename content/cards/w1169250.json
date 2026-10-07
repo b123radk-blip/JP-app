@@ -8,7 +8,11 @@
   "pos": ["v5k", "vt"],
   "kanji": ["5f15"],
   "builtFrom": [{ "k": "引", "m": "pull" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bow", "motion": "shove:left", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "type": "rope-pull", "size": 1.2, "outcome": "drawer" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "引", "reading": "ひ" }, { "text": "けばドアが" }, { "text": "開", "reading": "ひら" }, { "text": "きます。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [189987, 27143] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 引く" },
+  "review": { "recipe": "reviewed", "rule": "word 引く" },
   "source": { "jmdict": 1169250, "jlpt": 5 }
 }

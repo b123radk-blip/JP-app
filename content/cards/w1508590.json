@@ -8,12 +8,7 @@
   "pos": ["v1", "vt"],
   "kanji": ["9589"],
   "builtFrom": [{ "k": "閉", "m": "closed" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": [{ "type": "gate", "close": true }],
-    "backdrop": "sky:night"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "type": "window-shut", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "どうかドアを" }, { "text": "閉", "reading": "し" }, { "text": "めてくれませんか。" } ],
@@ -22,6 +17,6 @@
       "source": { "tatoeba": [201657, 38867] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 閉める" },
+  "review": { "recipe": "reviewed", "rule": "word 閉める" },
   "source": { "jmdict": 1508590, "jlpt": 5 }
 }

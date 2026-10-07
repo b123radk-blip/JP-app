@@ -8,7 +8,7 @@
   "pos": ["n", "vs", "vi"],
   "kanji": ["4f5c", "6587"],
   "builtFrom": [{ "k": "作", "m": "make" }, { "k": "文", "m": "sentence" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "type": "essay-star", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "作文", "reading": "さくぶん" }, { "text": "は" }, { "text": "書", "reading": "か" }, { "text": "いてしまいましたか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [170165, 244319] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 作文" },
+  "review": { "recipe": "reviewed", "rule": "word 作文" },
   "source": { "jmdict": 1297960, "jlpt": 5 }
 }

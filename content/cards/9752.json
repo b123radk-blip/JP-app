@@ -5,12 +5,7 @@
   "primaryReading": "あお",
   "readings": { "kun": ["あお", "あお", "あお(い)"], "on": ["セイ", "ショウ"] },
   "mnemonic": "Young plants sprouting on top of a moonlit (月) field: blue, green.",
-  "effect": {
-    "material": "water",
-    "backdrop": "sky:day",
-    "scene": ["ripples"],
-    "emblem": { "type": "splash", "color": "#2a7aff" }
-  },
+  "effect": { "material": "water", "backdrop": "sky:morning", "vignette": "roller-blue" },
   "sentences": [
     {
       "segments": [ { "text": "なぜ" }, { "text": "空", "reading": "そら" }, { "text": "が" }, { "text": "青", "reading": "あお" }, { "text": "いか" }, { "text": "知", "reading": "し" }, { "text": "っているか。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [199202, 36403] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1381380"] }
 }

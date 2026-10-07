@@ -4,13 +4,8 @@
   "meaning": "closed; shut",
   "primaryReading": "し",
   "readings": { "kun": ["と(じる)", "と(ざす)", "し(める)", "し(まる)"], "on": ["ヘイ"] },
-  "mnemonic": "The gate (門) barred shut (才): close.",
-  "effect": {
-    "material": "lacquer",
-    "backdrop": "sky:night",
-    "scene": [{ "type": "gate", "close": true }],
-    "motion": "float"
-  },
+  "mnemonic": "The gate (門) slides shut on the bar (才): close.",
+  "effect": { "material": "lacquer", "backdrop": "sky:dusk", "vignette": "gate-shut" },
   "sentences": [
     {
       "segments": [ { "text": "あいにく" }, { "text": "店", "reading": "みせ" }, { "text": "は" }, { "text": "閉", "reading": "し" }, { "text": "まっていた。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [234558, 71935] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

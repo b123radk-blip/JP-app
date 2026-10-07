@@ -8,7 +8,7 @@
   "pos": ["v5b", "vi"],
   "kanji": ["98db"],
   "builtFrom": [{ "k": "飛", "m": "fly" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bird", "motion": "fly", "backdrop": "sky:noon" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "paper-plane", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "ワシが" }, { "text": "空", "reading": "そら" }, { "text": "を" }, { "text": "飛", "reading": "と" }, { "text": "んでいる。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [191980, 29142] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 飛ぶ" },
+  "review": { "recipe": "reviewed", "rule": "word 飛ぶ" },
   "source": { "jmdict": 1429700, "jlpt": 5 }
 }

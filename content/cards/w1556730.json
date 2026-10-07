@@ -8,13 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["51b7"],
   "builtFrom": [{ "k": "冷", "m": "cool" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["snow"],
-    "emblem": "thermometer",
-    "backdrop": "sky:snow"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:snow", "vignette": { "type": "touch-ice", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "外気", "reading": "がいき" }, { "text": "は" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "冷", "reading": "つめ" }, { "text": "たかった。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [184849, 21979] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 冷たい" },
+  "review": { "recipe": "reviewed", "rule": "word 冷たい" },
   "source": { "jmdict": 1556730, "jlpt": 5 }
 }

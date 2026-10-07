@@ -7,10 +7,8 @@
   "mnemonic": "The sound (音) of your heart (心) lights up an idea: meaning, mind.",
   "effect": {
     "material": "pearl",
-    "particles": [{ "type": "hearts", "count": 0.5 }],
     "backdrop": "sky:twilight",
-    "motion": "pulse",
-    "emblem": "lightbulb",
+    "vignette": "think-click",
     "parts": { "心": { "material": "rose" } }
   },
   "sentences": [
@@ -21,6 +19,6 @@
       "source": { "tatoeba": [191038, 28198] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

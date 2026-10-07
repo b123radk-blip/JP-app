@@ -8,12 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["9ed2"],
   "builtFrom": [{ "k": "黒", "m": "black" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "splash", "color": "#16161e" },
-    "backdrop": "sky:snow"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:snow", "vignette": { "type": "black-cat", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "あの" }, { "text": "黒", "reading": "くろ" }, { "text": "いのは" }, { "text": "私", "reading": "わたし" }, { "text": "のです。" } ],
@@ -22,6 +17,6 @@
       "source": { "tatoeba": [231017, 68383] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 黒い" },
+  "review": { "recipe": "reviewed", "rule": "word 黒い" },
   "source": { "jmdict": 1287420, "jlpt": 5 }
 }

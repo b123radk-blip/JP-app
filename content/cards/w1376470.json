@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "晴", "m": "clear up" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "sun", "color": "#ffd27a" },
-    "motion": "drift:up",
-    "backdrop": "sky:noon"
+    "backdrop": "sky:day",
+    "vignette": { "type": "clouds-part", "size": 1, "outcome": "rainbow" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [143010, 271558] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 晴れる" },
+  "review": { "recipe": "reviewed", "rule": "word 晴れる" },
   "source": { "jmdict": 1376470, "jlpt": 5 }
 }

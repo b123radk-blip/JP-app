@@ -5,14 +5,7 @@
   "primaryReading": "れい",
   "readings": { "kun": ["つめ(たい)", "ひ(える)", "ひ(や)", "ひ(ややか)"], "on": ["レイ"] },
   "mnemonic": "Ice (冫) by order (令): cold.",
-  "effect": {
-    "material": "ice",
-    "particles": ["snow"],
-    "backdrop": "sky:snow",
-    "motion": "shake",
-    "emblem": { "type": "thermometer", "level": 0.15, "color": "#40a0ff" },
-    "parts": { "冫": {} }
-  },
+  "effect": { "material": "water", "backdrop": "sky:snow", "vignette": "shiver-frost" },
   "sentences": [
     {
       "segments": [ { "text": "もう" }, { "text": "手", "reading": "て" }, { "text": "が" }, { "text": "冷", "reading": "つめ" }, { "text": "たくって。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [194174, 31343] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

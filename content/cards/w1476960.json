@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["516b", "767e", "5c4b"],
   "builtFrom": [{ "k": "八", "m": "eight" }, { "k": "百", "m": "hundred" }, { "k": "屋", "m": "roof" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "leaf", "scene": ["room:shop"], "backdrop": "sky:indoor" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:golden",
+    "vignette": { "type": "shop-open", "size": 1, "outcome": "veg" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "八百屋", "reading": "やおや" }, { "text": "は" }, { "text": "客", "reading": "きゃく" }, { "text": "にとても" }, { "text": "親切", "reading": "しんせつ" }, { "text": "だ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [207193, 44444] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 八百屋" },
+  "review": { "recipe": "reviewed", "rule": "word 八百屋" },
   "source": { "jmdict": 1476960, "jlpt": 5 }
 }

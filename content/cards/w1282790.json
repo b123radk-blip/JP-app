@@ -8,7 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": ["964d"],
   "builtFrom": [{ "k": "降", "m": "descend" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["rain"], "backdrop": "sky:storm", "motion": "float" },
+  "effect": { "material": "ivory", "backdrop": "sky:storm", "vignette": { "type": "rain-umbrella", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "今夜", "reading": "こんや" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "降", "reading": "ふ" }, { "text": "るだろう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [171130, 243349] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 降る" },
+  "review": { "recipe": "reviewed", "rule": "word 降る" },
   "source": { "jmdict": 1282790, "jlpt": 5 }
 }

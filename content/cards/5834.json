@@ -5,7 +5,12 @@
   "primaryReading": "ば",
   "readings": { "kun": ["ば"], "on": ["ジョウ", "チョウ"] },
   "mnemonic": "The sun rising (昜) over open ground (土): a place, a venue.",
-  "effect": { "material": "chalk", "backdrop": "sunrise", "scene": ["field"], "parts": { "土": {} } },
+  "effect": {
+    "material": "chalk",
+    "backdrop": "sky:day",
+    "vignette": "playground",
+    "parts": { "土": { "material": "clay" } }
+  },
   "sentences": [
     {
       "segments": [ { "text": "入場料", "reading": "にゅうじょうりょう" }, { "text": "はいくらですか。" } ],

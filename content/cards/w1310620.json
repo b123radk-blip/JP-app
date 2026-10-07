@@ -8,7 +8,11 @@
   "pos": ["v5r", "vi"],
   "kanji": ["6b62"],
   "builtFrom": [{ "k": "止", "m": "stop" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stop", "backdrop": "sky:day", "motion": "sink" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "type": "stop-sign", "size": 1, "outcome": "car" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "くしゃみが" }, { "text": "止", "reading": "と" }, { "text": "まりません。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [225705, 63043] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 止まる" },
+  "review": { "recipe": "reviewed", "rule": "word 止まる" },
   "source": { "jmdict": 1310620, "jlpt": 5 }
 }

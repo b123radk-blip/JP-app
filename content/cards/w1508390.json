@@ -8,7 +8,7 @@
   "pos": ["v1", "vt"],
   "kanji": ["4e26"],
   "builtFrom": [{ "k": "並", "m": "row" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["lanterns:5"], "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "arrange-row", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "メイドはテーブルにナイフとフォークを" }, { "text": "並", "reading": "なら" }, { "text": "べた。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [194690, 31863] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 並べる" },
+  "review": { "recipe": "reviewed", "rule": "word 並べる" },
   "source": { "jmdict": 1508390, "jlpt": 5 }
 }

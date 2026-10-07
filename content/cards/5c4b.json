@@ -5,14 +5,7 @@
   "primaryReading": "や",
   "readings": { "kun": ["や"], "on": ["オク"] },
   "mnemonic": "A body (尸) reaching (至) the shelter of a roof: house, room, shop.",
-  "effect": {
-    "material": "wood",
-    "backdrop": "sky:indoor",
-    "scene": ["room"],
-    "emblem": "window",
-    "motion": "float",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "wood", "backdrop": "sky:golden", "vignette": "shop-open" },
   "sentences": [
     {
       "segments": [ { "text": "部屋", "reading": "へや" }, { "text": "を" }, { "text": "変", "reading": "か" }, { "text": "えられますか。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [84099, 319617] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

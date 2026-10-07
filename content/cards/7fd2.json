@@ -8,8 +8,8 @@
   "effect": {
     "material": "paper",
     "backdrop": "sky:morning",
-    "emblem": "pen",
-    "parts": { "羽": { "material": "cloud", "motion": { "type": "wave", "amp": 0.18, "speed": 7 } } }
+    "vignette": "learn-fly",
+    "parts": { "羽": { "material": "cloud" } }
   },
   "sentences": [
     {
@@ -19,6 +19,6 @@
       "source": { "tatoeba": [149053, 265505] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

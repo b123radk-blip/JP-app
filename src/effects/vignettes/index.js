@@ -28,9 +28,13 @@ import { SCENES as TOWN } from './town.js';
 import { SCENES as FOLK } from './folk.js';
 import { SCENES as GLYPHPLAY } from './glyphplay.js';
 import { SCENES as ACTIONS } from './actions.js';
+import { SCENES as WORLD } from './world.js';
+import { SCENES as EVERYDAY2 } from './everyday2.js';
+import { SCENES as PLAY2 } from './play2.js';
+import { SCENES as BATCH3A } from './batch3a.js';
 import { SCENES as KIT } from './kit-sheet.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...KIT };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

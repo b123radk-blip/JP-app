@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5144", "5f1f"],
   "builtFrom": [{ "k": "兄", "m": "elder brother" }, { "k": "弟", "m": "younger brother" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "motion": "count:2", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "play-catch", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "には" }, { "text": "兄弟", "reading": "きょうだい" }, { "text": "がいない。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [164611, 249896] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 兄弟" },
+  "review": { "recipe": "reviewed", "rule": "word 兄弟" },
   "source": { "jmdict": 1249960, "jlpt": 5 }
 }

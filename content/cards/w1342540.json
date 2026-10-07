@@ -8,7 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["521d"],
   "builtFrom": [{ "k": "初", "m": "first time" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag", "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": { "type": "book-one", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "初", "reading": "はじ" }, { "text": "めは" }, { "text": "病気", "reading": "びょうき" }, { "text": "だと" }, { "text": "思", "reading": "おも" }, { "text": "った。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [75012, 328706] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 初め" },
+  "review": { "recipe": "reviewed", "rule": "word 初め" },
   "source": { "jmdict": 1342540, "jlpt": 5 }
 }

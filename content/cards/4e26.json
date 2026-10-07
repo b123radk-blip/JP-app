@@ -5,12 +5,7 @@
   "primaryReading": "なら",
   "readings": { "kun": ["な(み)", "なみ", "なら(べる)", "なら(ぶ)"], "on": ["ヘイ", "ホウ"] },
   "mnemonic": "People standing side by side on one line: line up, in a row.",
-  "effect": {
-    "material": "chalk",
-    "backdrop": "sky:dusk",
-    "scene": [{ "type": "lanterns", "n": 4, "color": "#40c0ff" }],
-    "motion": { "type": "count", "n": 4 }
-  },
+  "effect": { "material": "chalk", "backdrop": "sky:dusk", "vignette": "line-up" },
   "sentences": [
     {
       "segments": [ { "text": "人", "reading": "ひと" }, { "text": "が" }, { "text": "並", "reading": "なら" }, { "text": "んでいます。" } ],
@@ -19,6 +14,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

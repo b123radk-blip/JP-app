@@ -8,7 +8,11 @@
   "pos": ["v5u", "vt", "vi"],
   "kanji": ["6b4c"],
   "builtFrom": [{ "k": "歌", "m": "song" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "mic", "particles": ["notes"], "backdrop": "sky:golden" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "type": "sing-mic", "size": 1.2, "outcome": "shower" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はその" }, { "text": "歌", "reading": "うた" }, { "text": "を" }, { "text": "歌", "reading": "うた" }, { "text": "いたい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [160265, 254256] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 歌う" },
+  "review": { "recipe": "reviewed", "rule": "word 歌う" },
   "source": { "jmdict": 1588120, "jlpt": 5 }
 }

@@ -8,7 +8,7 @@
   "pos": ["n", "vs", "vt"],
   "kanji": ["610f", "5473"],
   "builtFrom": [{ "k": "意", "m": "idea" }, { "k": "味", "m": "flavor" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "lightbulb", "backdrop": "sky:twilight" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "word-picture", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "生", "reading": "い" }, { "text": "きる" }, { "text": "意味", "reading": "いみ" }, { "text": "を" }, { "text": "教", "reading": "おし" }, { "text": "えてくれ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [75952, 327766] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 意味" },
+  "review": { "recipe": "reviewed", "rule": "word 意味" },
   "source": { "jmdict": 1156800, "jlpt": 5 }
 }

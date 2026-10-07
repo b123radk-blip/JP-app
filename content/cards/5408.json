@@ -4,8 +4,8 @@
   "meaning": "fit; join",
   "primaryReading": "あ",
   "readings": { "kun": ["あ(う)", "あ(う)", "あ(い)", "あい"], "on": ["ゴウ", "ガッ", "カッ"] },
-  "mnemonic": "A lid (人一) drops onto a box (口): they fit together.",
-  "effect": { "material": "jade", "reveal": "assemble", "backdrop": "sky:day", "emblem": "puzzle" },
+  "mnemonic": "A lid (人一) dropped neatly onto a box (口): they fit together.",
+  "effect": { "material": "jade", "backdrop": "sky:day", "vignette": "lid-fit" },
   "sentences": [
     {
       "segments": [ { "text": "十", "reading": "じゅう" }, { "text": "分間", "reading": "ふんかん" }, { "text": "に" }, { "text": "合", "reading": "あ" }, { "text": "いましたね。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [148033, 12595945] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

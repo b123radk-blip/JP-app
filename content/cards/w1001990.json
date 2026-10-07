@@ -10,9 +10,8 @@
   "builtFrom": [{ "k": "姉", "m": "elder sister" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "person", "color": "#ff7aa8", "size": 1.3 },
-    "backdrop": "sky:day"
+    "backdrop": "sky:day",
+    "vignette": { "type": "sister-help", "size": 1, "outcome": "hair" }
   },
   "sentences": [
     {
@@ -22,6 +21,6 @@
       "source": { "tatoeba": [233604, 70974] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word お姉さん" },
+  "review": { "recipe": "reviewed", "rule": "word お姉さん" },
   "source": { "jmdict": 1001990, "jlpt": 5 }
 }

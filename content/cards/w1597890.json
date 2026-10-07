@@ -8,7 +8,7 @@
   "pos": ["v5r", "vt"],
   "kanji": ["4f5c"],
   "builtFrom": [{ "k": "作", "m": "make" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hammer", "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:snow", "vignette": { "type": "snowman", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "服", "reading": "ふく" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "った。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [82910, 320806] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 作る" },
+  "review": { "recipe": "reviewed", "rule": "word 作る" },
   "source": { "jmdict": 1597890, "jlpt": 5 }
 }

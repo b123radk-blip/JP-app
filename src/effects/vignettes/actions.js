@@ -22,10 +22,12 @@ import { emblemProp } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, poseGlyph, puffs, handTo, bonePoint, beam, wisps } from './helpers.js';
+import { chickStep, drawerPull, stopCar, showerSing, rainbowClear, stinkSock, blueBalloon, heightLine, shopVariant, hairBraid } from './variants2.js';
 
 const NOTE = (u) => [[G.sphere(0.035 * u, 0, 0, 0, 1.3, 1, 0.7), 0xffe060], [G.box(0.01 * u, 0.12 * u, 0.01 * u, 0.04 * u, 0.06 * u, 0), 0xffe060]];
 
 function ropePull(ctx, spec, stage) {
+  if (spec.outcome === 'drawer') return drawerPull(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
   const p = createPerson({ u, shirt: 0x6a9a3a }), rope = solidProp([[G.cyl(0.012 * u, 0.012 * u, 1, 0, 0.5, 0), 0xd8b070]], 0.3), dust = many(PUFF(u), 6);
   group.add(p.group, rope, dust);
@@ -50,6 +52,7 @@ function ropePull(ctx, spec, stage) {
 }
 
 function stopSign(ctx, spec, stage) {
+  if (spec.outcome === 'car') return stopCar(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.35 * u;
   const sign = emblemProp('stop', 0.8 * u), p = createPerson({ u: 0.9 * u, shirt: 0x3a8ae0 }), dust = many(PUFF(u), 6);
   sign.position.set(sx, floor + 0.55 * u, -0.08 * u);
@@ -61,7 +64,7 @@ function stopSign(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       sign.idle(0); sign.scale.setScalar(0.8 * u * Math.max(1e-3, timeline(A.setup, { a: [0.3, 0.4, 'back'] }).a));
       const T = timeline(v, { run: [0, 1.0, 'linear'], skid: [1.0, 0.45, 'out'], calm: [1.9, 0.5], off: [3.8, 1.0, 'in'] });
-      const x = sx + 0.4 * u + 1.4 * u * (1 - T.run) - 0.25 * u * T.skid + 1.6 * u * T.off;
+      const x = sx + 0.7 * u + 1.4 * u * (1 - T.run) - 0.25 * u * T.skid + 1.6 * u * T.off;   // stops just short of the sign
       p.group.position.set(x, floor, 0.12 * u); p.face(T.off > 0 ? 'right' : 'left').reset().walk(v * 14, T.run < 1 || T.off > 0 ? 1 : 0);
       const wind = bump(v, 1.0, 0.9); p.lean(-0.4 * T.skid * (1 - T.calm)); p.raise('L', 2.5 * wind + 0.6 * Math.sin(v * 16) * wind); p.raise('R', 2.5 * wind - 0.6 * Math.sin(v * 16) * wind);
       p.update();
@@ -71,6 +74,7 @@ function stopSign(ctx, spec, stage) {
 }
 
 function refuseSpoon(ctx, spec, stage) {
+  if (spec.outcome === 'stink') return stinkSock(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, kx = B.maxX + 0.4 * u;
   const kid = createPerson({ u: 0.85 * u, shirt: 0xe07ab0 }), hand = createHand({ u: 0.55 * u, side: -1, sleeve: 0x6a6a7a });
   const spoon = solidProp([[G.cyl(0.008 * u, 0.01 * u, 0.3 * u, 0, -0.15 * u, 0), 0xd8dde6], [G.sphere(0.045 * u, 0, -0.32 * u, 0, 1, 0.4, 1.3), 0xd8dde6], [G.sphere(0.035 * u, 0, -0.3 * u, 0), 0x3a9a3a], [G.sphere(0.025 * u, 0.02 * u, -0.27 * u, 0.01 * u), 0x50b050]], 0.4);
@@ -88,9 +92,9 @@ function refuseSpoon(ctx, spec, stage) {
       const cross = pre ? 0 : between(v, 1.0, 1.3) * (1 - T.give); kid.bone('armL').rotation.x = kid.bone('armR').rotation.x = 1.3 * cross; kid.raise('L', -0.6 * cross); kid.raise('R', -0.6 * cross); kid.bone('foreL').rotation.x = kid.bone('foreR').rotation.x = 1.2 * cross;
       kid.update();
       bonePoint(kid, 'head', 0.4, mouth);
-      const near = pre ? 0 : T.offer * (1 - T.give) - 0.3 * T.turn1 + 0.3 * T.retry, side = v > 1.8 ? -1 : 1;
-      hand.group.visible = !pre; hand.update(); handTo(hand, mouth.x + side * (0.2 + 0.45 * (1 - near)) * u, mouth.y - 0.02 * u, mouth.z + 0.12 * u);
-      hand.group.rotation.z = side > 0 ? 1.4 : -1.4;
+      const near = pre ? 0 : T.offer * (1 - T.give) - 0.3 * T.turn1 + 0.3 * T.retry, high = v > 1.8 ? 1 : 0;   // the retry comes from above
+      hand.group.rotation.z = high ? 2.2 : 1.4; hand.group.visible = !pre; hand.update();
+      handTo(hand, mouth.x + (0.2 + 0.45 * (1 - near)) * u * (high ? 0.5 : 1), mouth.y - 0.02 * u + high * 0.35 * u * (1 - near), mouth.z + 0.12 * u);
     },
   };
 }
@@ -124,8 +128,8 @@ function tasteSpoon(ctx, spec, stage) {
 function shiverFrost(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.4 * u, N = 14;
   const spots = Array.from({ length: N }, (_, i) => { const s = ctx.strokes[(i * 5) % ctx.strokes.length]; return s.pts[Math.floor(s.pts.length * ((0.2 + 0.31 * i) % 1))]; });
-  const frost = many([[G.box(0.09 * u, 0.012 * u, 0.012 * u, 0, 0, 0), 0xe8f8ff], [G.box(0.012 * u, 0.09 * u, 0.012 * u, 0, 0, 0), 0xe8f8ff], [G.box(0.06 * u, 0.01 * u, 0.012 * u, 0, 0, 0).rotateZ(0.8), 0xe8f8ff]], N, 1.0);
-  const icicle = solidProp([[G.cone(0.04 * u, 0.3 * u, 0, -0.15 * u, 0, Math.PI), 0xd8f4ff]], 0.7), drip = many([[G.sphere(0.018 * u, 0, 0, 0, 0.8, 1.3, 0.8), 0x9ae0ff]], 2, 0.8);
+  const frost = many([[G.box(0.14 * u, 0.02 * u, 0.02 * u, 0, 0, 0), 0xffffff], [G.box(0.02 * u, 0.14 * u, 0.02 * u, 0, 0, 0), 0xffffff], [G.box(0.1 * u, 0.018 * u, 0.02 * u, 0, 0, 0).rotateZ(0.8), 0xffffff], [G.box(0.1 * u, 0.018 * u, 0.02 * u, 0, 0, 0).rotateZ(-0.8), 0xffffff]], N, 1.2);
+  const icicle = solidProp([[G.cone(0.06 * u, 0.4 * u, 0, -0.2 * u, 0, Math.PI), 0xd8f4ff]], 0.7), drip = many([[G.sphere(0.018 * u, 0, 0, 0, 0.8, 1.3, 0.8), 0x9ae0ff]], 2, 0.8);
   const p = createPerson({ u: 0.9 * u, shirt: 0x8ab0e0 }), breath = many(PUFF(0.9 * u, 0xf0f8ff), 3, 0.7);
   group.add(frost, icicle, drip, p.group, breath);
   const loop = 4.6, mouth = new THREE.Vector3(), ix = B.cx + 0.15 * B.w;
@@ -149,6 +153,7 @@ function shiverFrost(ctx, spec, stage) {
 }
 
 function sisterHelp(ctx, spec, stage) {
+  if (spec.outcome === 'hair') return hairBraid(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
   const big = createPerson({ u: 1.0 * u, shirt: 0xe05a8a, hair: 0x6a2a1a }), small = createPerson({ u: 0.58 * u, shirt: 0x5ab0e0 });
   const bow = solidProp([[G.torus(0.03 * u, 0.008 * u).scale(1.4, 1, 1).translate(-0.04 * u, 0, 0), 0xffffff], [G.torus(0.03 * u, 0.008 * u).scale(1.4, 1, 1).translate(0.04 * u, 0, 0), 0xffffff]], 0.6);
@@ -197,6 +202,7 @@ function littleFollow(ctx, spec, stage) {
 }
 
 function lineUp(ctx, spec, stage) {
+  if (spec.outcome === 'height') return heightLine(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, N = 5, COLORS = [0xe04848, 0xf0a030, 0x50b050, 0x4a8ae0, 0xa060d0];
   const kids = COLORS.map((c) => createPerson({ u: 0.6 * u, shirt: c })), line = solidProp([[G.box(1.5 * u, 0.012 * u, 0.04 * u, 0, 0.006 * u, 0), 0xffffff]], 0.6);
   line.position.set(B.maxX + 0.9 * u, floor, 0.12 * u);
@@ -218,6 +224,7 @@ function lineUp(ctx, spec, stage) {
 }
 
 function singMic(ctx, spec, stage) {
+  if (spec.outcome === 'shower') return showerSing(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.45 * u;
   const p = createPerson({ u, shirt: 0xe04a8a, hair: 0x2a1a30 }), mic = emblemProp('mic', 0.28 * u), notes = many(NOTE(u), 7, 0.9);
   const stageBox = solidProp([[G.box(0.8 * u, 0.1 * u, 0.4 * u, 0, 0.05 * u, 0), 0x8a3a6a]], 0.3); stageBox.position.set(px, floor, 0);

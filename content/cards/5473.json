@@ -5,13 +5,7 @@
   "primaryReading": "み",
   "readings": { "kun": ["あじ", "あじ(わう)"], "on": ["ミ"] },
   "mnemonic": "A mouth (口) trying something not yet (未) tasted: flavour, taste.",
-  "effect": {
-    "material": "rose",
-    "particles": [{ "type": "steam", "count": 0.6 }],
-    "backdrop": "sky:indoor",
-    "emblem": "spoon",
-    "parts": { "口": {} }
-  },
+  "effect": { "material": "rose", "backdrop": "sky:indoor", "vignette": "taste-spoon" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "語", "reading": "ご" }, { "text": "にはいくつかの" }, { "text": "意味", "reading": "いみ" }, { "text": "がある。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [210824, 48094] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

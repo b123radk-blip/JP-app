@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["51b7"],
   "builtFrom": [{ "k": "冷", "m": "cool" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["snow"],
-    "scene": ["room:kitchen"],
-    "backdrop": "sky:indoor",
-    "emblem": "box"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "fridge", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "冷蔵庫", "reading": "れいぞうこ" }, { "text": "にバターはありますか。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [77648, 326070] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 冷蔵庫" },
+  "review": { "recipe": "reviewed", "rule": "word 冷蔵庫" },
   "source": { "jmdict": 1557110, "jlpt": 5 }
 }

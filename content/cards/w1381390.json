@@ -10,9 +10,8 @@
   "builtFrom": [{ "k": "青", "m": "blue" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "splash", "color": "#2a7aff" },
-    "backdrop": "sky:day"
+    "backdrop": "sky:morning",
+    "vignette": { "type": "roller-blue", "size": 1.2, "outcome": "balloon" }
   },
   "sentences": [
     {
@@ -22,6 +21,6 @@
       "source": { "tatoeba": [230674, 68042] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 青い" },
+  "review": { "recipe": "reviewed", "rule": "word 青い" },
   "source": { "jmdict": 1381390, "jlpt": 5 }
 }

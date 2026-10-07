@@ -8,7 +8,7 @@
   "pos": ["adv"],
   "kanji": ["5927", "5909"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "変", "m": "change" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "exclaim", "motion": "shake", "backdrop": "sky:dusk" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "juggle-crash", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "仕事", "reading": "しごと" }, { "text": "は" }, { "text": "大変", "reading": "たいへん" }, { "text": "面白", "reading": "おもしろ" }, { "text": "いです。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [169096, 245391] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 大変" },
+  "review": { "recipe": "reviewed", "rule": "word 大変" },
   "source": { "jmdict": 1415000, "jlpt": 5 }
 }

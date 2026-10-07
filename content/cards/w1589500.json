@@ -8,7 +8,7 @@
   "pos": ["v1", "vi"],
   "kanji": ["964d"],
   "builtFrom": [{ "k": "降", "m": "descend" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stairs", "motion": "drift:down", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "bus-off", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "バスから" }, { "text": "降", "reading": "お" }, { "text": "りましょう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [198239, 35431] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 降りる" },
+  "review": { "recipe": "reviewed", "rule": "word 降りる" },
   "source": { "jmdict": 1589500, "jlpt": 5 }
 }

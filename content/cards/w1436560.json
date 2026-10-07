@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "閉", "m": "closed" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "scene": [{ "type": "gate", "close": true }],
     "backdrop": "sky:dusk",
-    "motion": "float"
+    "vignette": { "type": "shop-open", "size": 1, "outcome": "closed" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [201892, 39100] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 閉まる" },
+  "review": { "recipe": "reviewed", "rule": "word 閉まる" },
   "source": { "jmdict": 1436560, "jlpt": 5 }
 }

@@ -4,14 +4,8 @@
   "meaning": "first time; beginning",
   "primaryReading": "はじ",
   "readings": { "kun": ["はじ(め)", "はじ(めて)", "はつ", "はつ"], "on": ["ショ"] },
-  "mnemonic": "Scissors (刀) cutting new cloth (衤) for the very first time: first, beginning.",
-  "effect": {
-    "material": "pearl",
-    "reveal": "draw:sparks",
-    "backdrop": "sky:dawn",
-    "parts": { "衤": { "material": "paper" }, "刀": { "material": "silver", "motion": "wave" } },
-    "emblem": { "type": "dots", "n": 1, "size": 1.6, "color": "#ffd060" }
-  },
+  "mnemonic": "Scissors (刀) cut new cloth (衤) for a newborn just out of the egg: first time.",
+  "effect": { "material": "pearl", "backdrop": "sky:dawn", "vignette": "egg-hatch" },
   "sentences": [
     {
       "segments": [ { "text": "こういうの" }, { "text": "初", "reading": "はじ" }, { "text": "めてだろ。" } ],

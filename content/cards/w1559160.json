@@ -8,7 +8,7 @@
   "pos": ["n", "vs", "vt"],
   "kanji": ["7fd2"],
   "builtFrom": [{ "k": "習", "m": "learn" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "repeat", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "practice-kick", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "あなたはいつピアノの" }, { "text": "練習", "reading": "れんしゅう" }, { "text": "をしますか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [232827, 70199] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 練習" },
+  "review": { "recipe": "reviewed", "rule": "word 練習" },
   "source": { "jmdict": 1559160, "jlpt": 5 }
 }

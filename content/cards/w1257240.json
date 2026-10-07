@@ -8,7 +8,11 @@
   "pos": ["adj-na", "n"],
   "kanji": ["5acc"],
   "builtFrom": [{ "k": "嫌", "m": "dislike" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "frown", "motion": "shake", "backdrop": "sky:storm" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "type": "refuse-spoon", "size": 1.2, "outcome": "stink" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "気取", "reading": "きど" }, { "text": "る" }, { "text": "女の子", "reading": "おんなのこ" }, { "text": "は" }, { "text": "嫌", "reading": "きら" }, { "text": "いだ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [183189, 20311] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 嫌い" },
+  "review": { "recipe": "reviewed", "rule": "word 嫌い" },
   "source": { "jmdict": 1257240, "jlpt": 5 }
 }

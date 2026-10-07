@@ -4,13 +4,8 @@
   "meaning": "stop; halt",
   "primaryReading": "と",
   "readings": { "kun": ["と(まる)", "ど(まり)", "と(める)", "と(める)"], "on": ["シ"] },
-  "mnemonic": "A foot planted firmly on the ground: stop. (Japan's stop sign says 止まれ.)",
-  "effect": {
-    "material": "lacquer",
-    "reveal": "stamp",
-    "backdrop": "sky:day",
-    "emblem": { "type": "stop", "size": 1.25 }
-  },
+  "mnemonic": "A foot planted firmly at the line: stop. (Japan's stop sign says 止まれ.)",
+  "effect": { "material": "lacquer", "backdrop": "sky:day", "vignette": "stop-sign" },
   "sentences": [
     {
       "segments": [ { "text": "男", "reading": "おとこ" }, { "text": "はぴたりと" }, { "text": "止", "reading": "と" }, { "text": "まった。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [127212, 276877] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

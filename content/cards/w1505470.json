@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["6587"],
   "builtFrom": [{ "k": "文", "m": "sentence" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sheet", "particles": ["kana"], "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:morning",
+    "vignette": { "type": "scroll-write", "size": 1.2, "text": "これはぶんしょうです。" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "次", "reading": "つぎ" }, { "text": "の" }, { "text": "文章", "reading": "ぶんしょう" }, { "text": "を" }, { "text": "日本語", "reading": "にほんご" }, { "text": "に" }, { "text": "直", "reading": "なお" }, { "text": "しなさい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [150227, 264330] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 文章" },
+  "review": { "recipe": "reviewed", "rule": "word 文章" },
   "source": { "jmdict": 1505470, "jlpt": 5 }
 }

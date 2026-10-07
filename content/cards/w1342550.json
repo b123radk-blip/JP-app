@@ -8,7 +8,11 @@
   "pos": ["adv", "adj-no"],
   "kanji": ["521d"],
   "builtFrom": [{ "k": "初", "m": "first time" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["sparks"], "backdrop": "sky:dawn", "motion": "pulse" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:dawn",
+    "vignette": { "type": "egg-hatch", "size": 1, "outcome": "step" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "こちらは" }, { "text": "初", "reading": "はじ" }, { "text": "めてですか。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [224150, 502232] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 初めて" },
+  "review": { "recipe": "reviewed", "rule": "word 初めて" },
   "source": { "jmdict": 1342550, "jlpt": 5 }
 }
