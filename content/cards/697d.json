@@ -4,13 +4,12 @@
   "meaning": "music; comfort",
   "primaryReading": "たの",
   "readings": { "kun": ["たの(しい)", "たの(しむ)", "この(む)"], "on": ["ガク", "ラク", "ゴウ"] },
-  "mnemonic": "Bells (白) ring on a wooden (木) stand: music, fun.",
+  "mnemonic": "Drumming on the wooden (木) stand under the bells (白): music, fun.",
   "effect": {
     "material": "gold",
-    "particles": ["notes"],
     "backdrop": "sky:golden",
-    "motion": "bounce",
-    "parts": { "木": {} }
+    "vignette": "drum-fun",
+    "parts": { "木": { "material": "wood" } }
   },
   "sentences": [
     {
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [158200, 256329] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

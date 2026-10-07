@@ -4,14 +4,8 @@
   "meaning": "house; home",
   "primaryReading": "いえ",
   "readings": { "kun": ["いえ", "や", "うち"], "on": ["カ", "ケ"] },
-  "mnemonic": "A pig (豕) snug under the roof (宀): home.",
-  "effect": {
-    "material": "wood",
-    "particles": [{ "type": "steam", "count": 0.6 }],
-    "backdrop": "sky:dusk",
-    "emblem": "house",
-    "parts": { "宀": { "material": "lacquer" } }
-  },
+  "mnemonic": "A pig (豕) snug under the roof (宀) of the family house: home.",
+  "effect": { "material": "wood", "backdrop": "sky:dusk", "vignette": "house-build" },
   "sentences": [
     {
       "segments": [ { "text": "家", "reading": "いえ" }, { "text": "へついたら" }, { "text": "電話", "reading": "でんわ" }, { "text": "が" }, { "text": "鳴", "reading": "な" }, { "text": "っていた。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [187003, 24140] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1191730"] }
 }

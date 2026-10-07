@@ -7,10 +7,9 @@
   "mnemonic": "Leaves (艹) picked by a person (人) from a tea bush (木), brewed green: tea.",
   "effect": {
     "material": "jade",
-    "particles": ["steam"],
     "backdrop": "sky:indoor",
-    "emblem": { "type": "cup", "drink": "#7aa63a" },
-    "parts": { "艹": { "material": "jade" }, "木": {} }
+    "vignette": "tea-pour",
+    "parts": { "艹": { "material": "jade" }, "木": { "material": "wood" } }
   },
   "sentences": [
     {
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [226855, 64203] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

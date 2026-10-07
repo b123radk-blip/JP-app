@@ -4,14 +4,8 @@
   "meaning": "red",
   "primaryReading": "あか",
   "readings": { "kun": ["あか", "あか", "あか(い)", "あか(らむ)"], "on": ["セキ", "シャク"] },
-  "mnemonic": "A fire glowing on the ground (土): red.",
-  "effect": {
-    "material": "lacquer",
-    "particles": ["embers"],
-    "backdrop": { "type": "halo", "color": "#ff2010" },
-    "motion": "pulse",
-    "emblem": { "type": "splash", "color": "#e02020" }
-  },
+  "mnemonic": "A fire glowing on the ground (土) ripens everything red: red.",
+  "effect": { "material": "lacquer", "backdrop": "sky:morning", "vignette": "apple-ripen" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "大好", "reading": "だいす" }, { "text": "きな" }, { "text": "色", "reading": "いろ" }, { "text": "は" }, { "text": "赤", "reading": "あか" }, { "text": "です。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [163100, 460021] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w2013900"] }
 }

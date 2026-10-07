@@ -5,7 +5,7 @@
   "primaryReading": "かた",
   "readings": { "kun": ["かた", "かた", "がた"], "on": ["ホウ"] },
   "mnemonic": "A signpost on the hilltop (亠) pointing every way: direction, way.",
-  "effect": { "material": "gold", "backdrop": "sky:golden", "emblem": "signpost" },
+  "effect": { "material": "gold", "backdrop": "sky:golden", "vignette": "which-way" },
   "sentences": [
     {
       "segments": [ { "text": "歩", "reading": "ある" }, { "text": "き" }, { "text": "方", "reading": "かた" }, { "text": "がとてもゆっくりだね。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [83206, 320510] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1516925"] }
 }

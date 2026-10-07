@@ -10,17 +10,7 @@ import { createPerson } from '../pieces/kit-person.js';
 import { many, PUFF, DROP, HEART } from '../pieces/kit-things.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { smooth } from '../pieces/util.js';
-
-// moves the kanji: shift (dx, dy) and turn by a about the point (px, py) of the kanji (its corner) instead of its middle
-function poseGlyph(stage, dx, dy, a = 0, px = 0, py = 0) {
-  const g = stage.glyph, B = g.userData.base, c = Math.cos(a), s = Math.sin(a);
-  const ox = px - B.x, oy = py - B.y;                                   // the pivot point, from the glyph pivot
-  g.rotation.z = a; g.position.set(B.x + dx + ox - (c * ox - s * oy), B.y + dy + oy - (s * ox + c * oy), B.z);
-}
-// dust puffs: k of them around (x, y), grown by f (0..1: born, spread, gone)
-function puffs(d, i0, n, x, y, f, u, spread = 0.25) {
-  for (let i = 0; i < n; i++) { const a = (i / n) * Math.PI - Math.PI / 2 + 0.3, r = spread * u * f; d.set(i0 + i, x + Math.sin(a) * r, y + 0.04 * u + Math.abs(Math.cos(a)) * r * 0.4, 0.05 * u, f > 0 && f < 1 ? 1.2 * Math.sin(Math.PI * f) : 0); }
-}
+import { poseGlyph, puffs } from './helpers.js';
 
 function push(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), side = spec.dir === 'right' ? -1 : 1;   // stands on the right, pushes left

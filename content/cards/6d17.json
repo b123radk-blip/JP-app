@@ -5,15 +5,7 @@
   "primaryReading": "あら",
   "readings": { "kun": ["あら(う)"], "on": ["セン"] },
   "mnemonic": "Water (氵) first (先): wash, scrubbing up the suds.",
-  "effect": {
-    "material": "water",
-    "reveal": "draw:drops",
-    "particles": ["bubbles"],
-    "backdrop": "sky:morning",
-    "motion": "shake",
-    "parts": { "氵": {} },
-    "emblem": "hand"
-  },
+  "effect": { "material": "water", "backdrop": "sky:morning", "vignette": "scrub-wash" },
   "sentences": [
     {
       "segments": [ { "text": "手", "reading": "て" }, { "text": "を" }, { "text": "洗", "reading": "あら" }, { "text": "ってください。" } ],

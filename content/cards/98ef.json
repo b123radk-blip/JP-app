@@ -7,9 +7,8 @@
   "mnemonic": "Food (飠) you go back (反) for every day: rice, a meal.",
   "effect": {
     "material": "ivory",
-    "particles": ["steam"],
     "backdrop": "sky:indoor",
-    "emblem": "bowl",
+    "vignette": "rice-bowl",
     "parts": { "飠": { "material": "gold" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

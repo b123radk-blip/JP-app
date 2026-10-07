@@ -5,12 +5,7 @@
   "primaryReading": "きょう",
   "readings": { "kun": ["おし(える)", "おそ(わる)"], "on": ["キョウ"] },
   "mnemonic": "A teacher's hand (攵) taps the blackboard for the child (孝): teach.",
-  "effect": {
-    "material": "chalk",
-    "backdrop": "sky:indoor",
-    "scene": ["room:classroom"],
-    "parts": { "攵": { "motion": "wave" } }
-  },
+  "effect": { "material": "chalk", "backdrop": "sky:indoor", "vignette": "teach-board" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "が" }, { "text": "道", "reading": "みち" }, { "text": "を" }, { "text": "教", "reading": "おし" }, { "text": "えましょう。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [167527, 280431] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

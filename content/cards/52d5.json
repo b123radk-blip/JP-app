@@ -7,10 +7,8 @@
   "mnemonic": "Heavy (重) things only move with power (力): move.",
   "effect": {
     "material": "clay",
-    "reveal": "draw:dust",
-    "particles": ["wind"],
     "backdrop": "sky:day",
-    "motion": "slide",
+    "vignette": "wheels-roll",
     "parts": { "力": { "material": "lacquer" } }
   },
   "sentences": [
@@ -21,6 +19,6 @@
       "source": { "tatoeba": [159921, 254601] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

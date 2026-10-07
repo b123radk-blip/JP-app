@@ -7,12 +7,9 @@
   "mnemonic": "Grass (艹) over a generation (世) of trees (木): leaf.",
   "effect": {
     "material": "jade",
-    "reveal": "grow",
-    "particles": ["leaves"],
     "backdrop": "sky:forest",
-    "motion": { "type": "sway", "axis": "z", "amp": 0.06 },
-    "emblem": "leaf",
-    "parts": { "木": {} }
+    "vignette": "leaf-fall",
+    "parts": { "木": { "material": "wood" } }
   },
   "sentences": [
     {
@@ -22,6 +19,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

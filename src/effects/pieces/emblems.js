@@ -16,7 +16,7 @@ const DIR_ROT = { up: 0, left: Math.PI / 2, down: Math.PI, right: -Math.PI / 2 }
 const DIR_VEC = { up: [0, 1], down: [0, -1], left: [-1, 0], right: [1, 0], toward: [-0.15, -0.3, 1], away: [0.15, 0.3, -1] };
 
 // Each builder: (spec, mat) -> { meshes: Object3D[], idle(o, t, s) } where o = the emblem group, s = seconds since it popped.
-const SHAPES = {
+export const SHAPES = {
   arrow: (spec, mat) => {
     const g = new THREE.Group(); g.rotation.z = DIR_ROT[spec.dir] ?? 0;
     if (spec.dir === 'toward') g.rotation.set(0.75, 0, Math.PI * 0.85); else if (spec.dir === 'away') g.rotation.set(-0.5, 0, -Math.PI * 0.2);   // tip at you (and down) / away (and up)

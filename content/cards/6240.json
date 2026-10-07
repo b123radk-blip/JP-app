@@ -5,7 +5,7 @@
   "primaryReading": "ところ",
   "readings": { "kun": ["ところ", "ところ", "どころ", "とこ"], "on": ["ショ"] },
   "mnemonic": "An axe (斤) hung by the door (戸): this is the place.",
-  "effect": { "material": "stone", "backdrop": "sky:day", "emblem": "pin", "parts": { "戸": { "material": "wood" } } },
+  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": "pin-drop" },
   "sentences": [
     {
       "segments": [ { "text": "どこでも" }, { "text": "好", "reading": "す" }, { "text": "きな" }, { "text": "所", "reading": "ところ" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "け。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [200976, 38106] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1343100"] }
 }

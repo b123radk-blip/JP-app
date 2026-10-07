@@ -15,9 +15,15 @@ import * as THREE from 'three';
 import { SCENES as CRAFT } from './craft.js';
 import { SCENES as PEOPLE } from './people.js';
 import { SCENES as THINGS } from './things.js';
+import { SCENES as HOME } from './home.js';
+import { SCENES as SKY } from './sky.js';
+import { SCENES as OBJECTS } from './objects.js';
+import { SCENES as FAMILY } from './family.js';
+import { SCENES as SCHOOL } from './school.js';
+import { SCENES as NATURE } from './nature.js';
 import { SCENES as KIT } from './kit-sheet.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...KIT };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

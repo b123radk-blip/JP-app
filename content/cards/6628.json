@@ -7,10 +7,9 @@
   "mnemonic": "The sun (日) of a moment ago (乍), sliding back to the left: yesterday.",
   "effect": {
     "material": "silver",
-    "backdrop": "sky:sunset",
-    "motion": { "type": "drift", "dir": "left" },
-    "emblem": "arrow:left",
-    "parts": { "日": {} }
+    "backdrop": "sky:morning",
+    "vignette": "calendar-back",
+    "parts": { "日": { "material": "gold" } }
   },
   "sentences": [
     {
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [169979, 244507] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

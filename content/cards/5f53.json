@@ -4,13 +4,8 @@
   "meaning": "hit; right",
   "primaryReading": "とう",
   "readings": { "kun": ["あ(たる)", "あ(たり)", "あ(てる)", "あ(て)"], "on": ["トウ"] },
-  "mnemonic": "Little sparks (⺌) above a hand (⺕) that hits the mark: hit, right.",
-  "effect": {
-    "material": "gold",
-    "particles": ["sparks"],
-    "backdrop": "sky:day",
-    "emblem": { "type": "target", "color": "#ff4040" }
-  },
+  "mnemonic": "A hand (⺕) throws, sparks (⺌) fly as it hits the mark: hit, right.",
+  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": "dart-bullseye" },
   "sentences": [
     {
       "segments": [ { "text": "それは" }, { "text": "本当", "reading": "ほんとう" }, { "text": "に" }, { "text": "違", "reading": "ちが" }, { "text": "いない。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [204841, 42083] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

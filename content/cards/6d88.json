@@ -5,13 +5,7 @@
   "primaryReading": "け",
   "readings": { "kun": ["き(える)", "け(す)"], "on": ["ショウ"] },
   "mnemonic": "Water (氵) on a little (肖) flame: it goes out; the strokes rub away: erase, put out.",
-  "effect": {
-    "material": "water",
-    "reveal": { "type": "draw", "erase": true },
-    "particles": [{ "type": "steam", "count": 0.8 }],
-    "backdrop": "sky:night",
-    "parts": { "氵": {} }
-  },
+  "effect": { "material": "water", "backdrop": "sky:day", "vignette": "eraser-rub" },
   "sentences": [
     {
       "segments": [ { "text": "明", "reading": "あ" }, { "text": "かりがすべて" }, { "text": "消", "reading": "き" }, { "text": "えた。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [80748, 51696] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

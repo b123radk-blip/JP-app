@@ -4,13 +4,8 @@
   "meaning": "wind; style",
   "primaryReading": "かぜ",
   "readings": { "kun": ["かぜ", "かざ"], "on": ["フウ", "フ"] },
-  "mnemonic": "An insect (虫) blown about under a sail (几): wind.",
-  "effect": {
-    "material": "cloud",
-    "particles": [{ "type": "wind", "count": 1.6 }, { "type": "leaves", "count": 0.6 }],
-    "backdrop": "sky:day",
-    "motion": { "type": "lean", "toward": "right", "angle": 0.12 }
-  },
+  "mnemonic": "An insect (虫) blown about under a sail (几) in the gust: wind.",
+  "effect": { "material": "cloud", "backdrop": "sky:day", "vignette": "gust-hat" },
   "sentences": [
     {
       "segments": [ { "text": "カーテンが" }, { "text": "風", "reading": "かぜ" }, { "text": "になびいた。" } ],

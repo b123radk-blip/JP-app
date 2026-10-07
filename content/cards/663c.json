@@ -5,7 +5,7 @@
   "primaryReading": "ひる",
   "readings": { "kun": ["ひる"], "on": ["チュウ"] },
   "mnemonic": "The sun (日) stands highest over the horizon line (一): noon, daytime.",
-  "effect": { "material": "gold", "backdrop": "sky:noon", "scene": ["dial"], "parts": { "日": {} } },
+  "effect": { "material": "gold", "backdrop": "sky:noon", "vignette": "noon-sun" },
   "sentences": [
     {
       "segments": [ { "text": "昼", "reading": "ひる" }, { "text": "はホットドッグを" }, { "text": "食", "reading": "た" }, { "text": "べたんだ。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [155091, 259448] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1426250"] }
 }

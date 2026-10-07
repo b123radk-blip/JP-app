@@ -4,14 +4,8 @@
   "meaning": "cut; be sharp",
   "primaryReading": "き",
   "readings": { "kun": ["き(る)", "き(る)", "き(り)", "き(り)"], "on": ["セツ", "サイ"] },
-  "mnemonic": "Seven (七) chops of a sword (刀) and the kanji falls in two: cut.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw:sparks",
-    "backdrop": "sky:noon",
-    "motion": { "type": "split", "dist": 0.09 },
-    "emblem": "knife"
-  },
+  "mnemonic": "A knife (刀) chops the seven (七) clean off: cut.",
+  "effect": { "material": "silver", "backdrop": "sky:noon", "vignette": "chop-split" },
   "sentences": [
     {
       "segments": [ { "text": "パンは" }, { "text": "切", "reading": "き" }, { "text": "ってください。" } ],

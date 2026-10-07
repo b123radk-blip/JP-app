@@ -7,10 +7,9 @@
   "mnemonic": "The sun (日) slips down, excused (免) for the day: evening, night.",
   "effect": {
     "material": "pearl",
-    "particles": [{ "type": "motes", "dir": "still" }],
-    "backdrop": "sky:twilight",
-    "parts": { "日": { "motion": { "type": "drift", "dir": "down", "dist": 0.035 } } },
-    "scene": [{ "type": "lanterns", "n": 3, "color": "#ffb050" }]
+    "backdrop": "sky:golden",
+    "vignette": "sunset-lights",
+    "parts": { "日": { "material": "gold" } }
   },
   "sentences": [
     {
