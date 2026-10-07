@@ -4,9 +4,8 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** the pilot, Batches 1-5 and the Batch 6 kanji are built (all 150 kanji, 160 words). Next: the last 16 words, then the Step 4 review. Batch 6: the remaining unticked
-kanji of the list below, then their words (every word whose Step 2 kanji are all ticked). Each batch: build,
-look at the frame strips, fix, apply with `scripts/set-recipes.mjs`, tick here, `npm test`, e2e, commit and push.
+**Where to continue:** done. All Step 2 cards are built (147 kanji and 173 words with scenes, plus the pilot); the
+checks and the log are in docs/BATCH-LOG.md. Next: the user's headset look, then Step 1's 112 kanji with the same prompt.
 
 ## Grades
 Triaged on frame strips of every card (`node scripts/look.mjs ids --times 1,3,6`, sheets in `.cache/revamp/`), plus the
@@ -368,23 +367,23 @@ Grades: **B** when the meaning *is* its kanji side by side (a word rule that doe
 - [x] 取る take (C): 取's scene, option: picking a cookie from a jar. Built: `grab-apple:claw`.
 - [x] 写真 photo (C): 写's scene, option: a selfie with a peace sign. Built: `photo-snap:wall`.
 - [x] 洋服 western clothes (C): a dress and a suit on a rack, a person tries one on. Built: `mannequin`.
-- [ ] 旅行 trip (C): a suitcase rolls along, stickers of places appear on it.
+- [x] 旅行 trip (C): a suitcase rolls along, stickers of places appear on it. Built: `travel-road:suitcase`.
 - [x] 押す push (C): 押's scene, option: a finger presses a big button, it lights. Built: `button-press`.
-- [ ] 泳ぐ swim (C): 泳's scene, option: a fish swims by.
-- [ ] 鳴く cry (animal) (C): 鳴's scene, option: a cat meows, a dog barks.
-- [ ] 暖かい warm (weather) (C): spring sun; snow melts and flowers come up.
-- [ ] 温い lukewarm (C): a hand tests bath water, makes a "meh" face, so-so.
-- [ ] 両親 parents (C): a mum and dad each hold a hand of a child, swing them.
-- [ ] 台所 kitchen (C): a stove and a sink; a pot boils, a person chops.
-- [ ] 有名 famous (C): a person on a red carpet, camera flashes, autographs.
-- [ ] 仕事 work / job (C): a person at a desk typing, coffee, papers stacking.
-- [ ] 答える answer (C): 答's scene, option: answering a phone call.
-- [ ] 悪い bad (C): 悪's scene, option: a thumbs down.
-- [ ] 太い thick (C): 太's scene, option: a thin pencil and a fat crayon side by side.
-- [ ] 辞書 dictionary (C): 辞's scene, option: the book slams shut.
-- [ ] 返す return (thing) (C): 返's scene, option: a borrowed book is handed back.
-- [ ] 覚える memorize (C): 覚's scene, option: flashcards flip, one sticks in the head.
-- [ ] 授業 lesson (C): 教室 set, the teacher writes on the board, a bell rings.
+- [x] 泳ぐ swim (C): 泳's scene, option: a fish swims by. Built: `pool-swim:fish`.
+- [x] 鳴く cry (animal) (C): 鳴's scene, option: a cat meows, a dog barks. Built: `bird-sing:pets`.
+- [x] 暖かい warm (weather) (C): spring sun; snow melts and flowers come up. Built: `stove-warm:spring`.
+- [x] 温い lukewarm (C): a hand tests bath water, makes a "meh" face, so-so. Built: `onsen-soak:tepid`.
+- [x] 両親 parents (C): a mum and dad each hold a hand of a child, swing them. Built: `two-buckets:parents`.
+- [x] 台所 kitchen (C): a stove and a sink; a pot boils, a person chops. Built: `stand-vase:kitchen`.
+- [x] 有名 famous (C): a person on a red carpet, camera flashes, autographs. Built: `coin-keep:star`.
+- [x] 仕事 work / job (C): a person at a desk typing, coffee, papers stacking. Built: `butler-door:hardhat`.
+- [x] 答える answer (C): 答's scene, option: answering a phone call. Built: `hand-question:phone`.
+- [x] 悪い bad (C): 悪's scene, option: a thumbs down. Built: `devil-vase:thumbsdown`.
+- [x] 太い thick (C): 太's scene, option: a thin pencil and a fat crayon side by side. Built: `trunk-thick:crayon`.
+- [x] 辞書 dictionary (C): 辞's scene, option: the book slams shut. Built: `words-fly:slam`.
+- [x] 返す return (thing) (C): 返's scene, option: a borrowed book is handed back. Built: `boomerang-throw:book`.
+- [x] 覚える memorize (C): 覚's scene, option: flashcards flip, one sticks in the head. Built: `memory-bubble:cards`.
+- [x] 授業 lesson (C): 教室 set, the teacher writes on the board, a bell rings. Built: `office-work:class`.
 
 ## Notes for later batches
 - Props built so far (`src/effects/pieces/kit-*.js`; look at them with the "kit" vignette):

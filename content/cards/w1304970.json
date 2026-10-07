@@ -8,7 +8,11 @@
   "pos": ["n", "vs", "vi"],
   "kanji": ["4ed5", "4e8b"],
   "builtFrom": [{ "k": "仕", "m": "attend" }, { "k": "事", "m": "matter" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "briefcase", "backdrop": "sky:morning", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "butler-door", "outcome": "hardhat" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "父", "reading": "ちち" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "仕事", "reading": "しごと" }, { "text": "を" }, { "text": "休", "reading": "やす" }, { "text": "んだ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [84568, 10330703] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 仕事" },
+  "review": { "recipe": "reviewed", "rule": "word 仕事" },
   "source": { "jmdict": 1304970, "jlpt": 5 }
 }

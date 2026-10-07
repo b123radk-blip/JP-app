@@ -8,7 +8,11 @@
   "pos": ["v1", "vi"],
   "kanji": ["7b54"],
   "builtFrom": [{ "k": "答", "m": "answer" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "speech", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "hand-question", "outcome": "phone" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "質問", "reading": "しつもん" }, { "text": "に" }, { "text": "答", "reading": "こた" }, { "text": "えてください。" } ],
@@ -17,6 +21,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 答える" },
+  "review": { "recipe": "reviewed", "rule": "word 答える" },
   "source": { "jmdict": 1449540, "jlpt": 5 }
 }

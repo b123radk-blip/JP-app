@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "台", "m": "pedestal" }, { "k": "所", "m": "place" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "scene": ["room:kitchen"],
     "backdrop": "sky:indoor",
-    "emblem": "pot"
+    "vignette": { "size": 1.3, "type": "stand-vase", "outcome": "kitchen" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [226715, 64058] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 台所" },
+  "review": { "recipe": "reviewed", "rule": "word 台所" },
   "source": { "jmdict": 1412640, "jlpt": 5 }
 }

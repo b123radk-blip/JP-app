@@ -2,8 +2,8 @@
 
 Continue the Kanji Memory WebXR app in b123radk-blip/JP-app on branch `claude/kanji-3d-galaxy-xr-uoi522` (GitHub Pages
 serves it; no new branch, no PR). Read CLAUDE.md, docs/ARCHITECTURE.md, docs/ROADMAP.md and docs/BATCH-LOG.md first and
-follow them. Do Step 2b (`docs/prompts/step-2b-revamp.md`) first: design the N4 kanji as scenes (vignettes) the
-same way, not as emblem recipes.
+follow them. Step 2b is done (docs/BATCH-LOG.md, docs/REVAMP.md): every N5 Step 2 card is a scene (vignette). Design the
+N4 kanji as scenes from the start, the same way, not as emblem recipes (CLAUDE.md "Add a scene").
 
 ## Goal
 An N4 deck: the next ~150 kanji by unlock value over the N4 words, the N4 words they unlock, the N4 kana-only words, and the
@@ -25,7 +25,11 @@ Keep the hand-fix rate under 20 % (Step 2: 12 % of kanji, 2 % of words).
   card's word (〜そうだ, でも as a particle), idioms, and senses other than the card's.
 - Data: the JLPT list words some N3 meanings oddly (ちょうだい, ロケット); 早い / 速い share one JMdict entry (the card shows
   the sense that fits the spelling). Expect a few more like that in N4.
-- Pieces still wanted: a map, a toothbrush / smile, a projector beam, a tray, a station backdrop (駅), electric arcs (電).
+- Pieces still wanted: a toothbrush / smile, a station backdrop (駅), electric arcs (電). A map (map-unroll, map-read), a
+  projector beam (projector) and a tray (cafe) now exist as scenes.
+- Step 2b: 233 scene types, 80 with variants; about a third of the scenes needed one framing fix (size on long words,
+  flat props tilted toward the viewer, silhouettes in front of something lit). The weakest were the abstract meanings
+  (用 要 有 丈 両 台 題 辞 真): give abstract kanji the most thought.
 
 ## Decisions already made (do not re-decide)
 - Kanji by unlock value (`node scripts/curriculum.mjs --level n4 --plan 150`), words placed after their last planned kanji,
@@ -38,11 +42,14 @@ Keep the hand-fix rate under 20 % (Step 2: 12 % of kanji, 2 % of words).
 - Content rules, contrast rule, budgets and `review` fields: as in CLAUDE.md.
 
 ## Work, in this order (each step leaves `npm test` green; commit and push after each)
-1. **Pieces** wanted by the N4 kanji (look at the plan first and list what the first 150 need), plus the ones above.
-   Declared cost, `node scripts/check-piece-costs.mjs`, a look with `scripts/look.mjs`.
+1. **Scene lines first.** For each of the ~150 kanji write one line (REVAMP style: "would a kid guess the meaning?") and
+   the props it needs; build missing props in the kit (`src/effects/pieces/kit-*.js`), declared cost,
+   `node scripts/check-piece-costs.mjs vignette`, a look with `scripts/look.mjs`.
 2. **Curriculum** for N4 (multi-deck: the N5 deck's kanji count as known; check the session builder and the home screen
    handle a second enabled deck), with a unit test.
-3. **Content:** designs for the ~150 kanji (meaning first), word rules for the N4 words (`scripts/lib/word-rules-n4.mjs`),
+3. **Content:** designs for the ~150 kanji as scenes in theme modules (`src/effects/vignettes/`; the recipe in
+   `kanji-designs.json` names the `vignette`), words as variants of their kanji's scene where it fits, word rules for the
+   other N4 words (`scripts/lib/word-rules-n4.mjs`),
    sentences verified and read, then `npm run voice:list`, `npm run review:list`, `npm run build:font`.
 4. **Review:** contact sheets of every new card (`scripts/look.mjs ids --one`, frame strips with `--times` for motion
    cards); fix the weakest cards and every listed pair; log the hand-fix rate, pieces still wanted, piece use.

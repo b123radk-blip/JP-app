@@ -8,6 +8,7 @@
 //   mud-splash     汚: a person in white steps in a puddle; mud splashes up and their clothes go brown and spotty
 //   hand-question  問: a kid raises a hand with a big "?" speech bubble; the grown-up beside scratches their head
 import * as THREE from 'three';
+import { phoneAnswer } from './variants6b.js';
 import { answerCheck } from './batch6c.js';
 import { birdHome, okUp, sturdyTable, sunWake, tortoiseHare } from './variants5b.js';
 import { dirtyDishes, micInterview, quizBuzzer } from './variants5c.js';
@@ -142,6 +143,7 @@ function mudSplash(ctx, spec, stage) {
 }
 
 function handQuestion(ctx, spec, stage) {
+  if (spec.outcome === 'phone') return phoneAnswer(ctx, spec, stage);
   if (spec.outcome === 'answer') return answerCheck(ctx, spec, stage);
   if (spec.outcome === 'quiz') return quizBuzzer(ctx, spec, stage);
   if (spec.outcome === 'mic') return micInterview(ctx, spec, stage);

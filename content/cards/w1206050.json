@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "覚", "m": "memorize" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "lightbulb",
     "backdrop": "sky:twilight",
-    "motion": "float"
+    "vignette": { "size": 1.2, "type": "memory-bubble", "outcome": "cards" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [164183, 250327] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 覚える" },
+  "review": { "recipe": "reviewed", "rule": "word 覚える" },
   "source": { "jmdict": 1206050, "jlpt": 5 }
 }

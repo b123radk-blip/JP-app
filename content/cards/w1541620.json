@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "有", "m": "possess" }, { "k": "名", "m": "name" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "trophy",
-    "particles": ["sparks"],
-    "backdrop": "sky:golden"
+    "backdrop": "sky:dusk",
+    "vignette": { "size": 1, "type": "coin-keep", "outcome": "star" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [231166, 68534] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 有名" },
+  "review": { "recipe": "reviewed", "rule": "word 有名" },
   "source": { "jmdict": 1541620, "jlpt": 5 }
 }

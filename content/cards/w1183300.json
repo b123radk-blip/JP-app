@@ -10,9 +10,8 @@
   "builtFrom": [{ "k": "温", "m": "warm" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "thermometer", "level": 0.45 },
-    "backdrop": "sky:indoor"
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1, "type": "onsen-soak", "outcome": "tepid" }
   },
   "sentences": [
     {
@@ -22,6 +21,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 温い" },
+  "review": { "recipe": "reviewed", "rule": "word 温い" },
   "source": { "jmdict": 1183300, "jlpt": 5 }
 }

@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["8f9e", "66f8"],
   "builtFrom": [{ "k": "辞", "m": "word" }, { "k": "書", "m": "write" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "particles": ["kana"], "backdrop": "sky:morning" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.4, "type": "words-fly", "outcome": "slam" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はよい" }, { "text": "辞書", "reading": "じしょ" }, { "text": "がほしい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [158674, 453183] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 辞書" },
+  "review": { "recipe": "reviewed", "rule": "word 辞書" },
   "source": { "jmdict": 1318970, "jlpt": 5 }
 }

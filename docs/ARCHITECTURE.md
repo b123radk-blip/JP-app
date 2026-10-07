@@ -83,7 +83,8 @@ its recipe and real cost; Prev / Replay / Pause / Next). Kanji cards and word ca
   the kanji taking part (it is pushed, lifted, used as a stand). Scenes are pure functions of t (`vignettes/timeline.js`),
   so `seek()` stays exact. Actors come from a props kit: articulated actors are bone rigs drawn as two instanced meshes
   (2 draw calls for a whole person), static props merge their colours into one mesh. Scene cards are compared by their
-  scene (vignette-catalog.js `variant` tells 上手 / 下手 apart).
+  scene (vignette-catalog.js `variant` tells 上手 / 下手 apart). Step 2 ended with 233 scene types in 50 theme modules;
+  a word usually reuses its kanji's scene with another option (a variant scores 0.7, so it never counts as a look-alike).
 
 ## Known limits / next steps
 - Headset behaviour (pinch accuracy, comfort, text sharpness, frame rate with the fire and rain effects) is untested here.

@@ -7,6 +7,7 @@
 //   hand-question:answer (答): the teacher asks under a "?"; a kid's hand shoots up and their bubble shows a big tick; a gold
 //                   star for the right answer
 import * as THREE from 'three';
+import { bookReturn, bookSlam, classBell, flashcards } from './variants6b.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, burst } from '../pieces/kit-things.js';
@@ -18,6 +19,7 @@ import { between, arc, bonePoint } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f), WOOD = 0xc89a60;
 
 function wordsFly(ctx, spec, stage) {
+  if (spec.outcome === 'slam') return bookSlam(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.45 * u, by = floor + 0.15 * u;
   const book = solidProp([[G.box(0.24 * u, 0.02 * u, 0.3 * u, -0.12 * u, 0.04 * u, 0, 0.25), 0xfaf6ea], [G.box(0.24 * u, 0.02 * u, 0.3 * u, 0.12 * u, 0.04 * u, 0, -0.25), 0xfaf6ea], [G.box(0.5 * u, 0.02 * u, 0.32 * u, 0, 0.0, 0), 0x8a2a2a]], 0.45);
   book.position.set(bx, by, 0); book.rotation.x = 0.5;
@@ -36,6 +38,7 @@ function wordsFly(ctx, spec, stage) {
 }
 
 function boomerangThrow(ctx, spec, stage) {
+  if (spec.outcome === 'book') return bookReturn(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.3 * u;
   const p = createPerson({ u: 0.8 * u, shirt: 0x40a080 }), boom = emblemProp('boomerang', 0.22 * u, { color: 0xe07a30 }), trail = many([[G.sphere(0.012 * u), 0xffffff]], 10, 0.8);
   group.add(p.group, boom, trail);
@@ -53,6 +56,7 @@ function boomerangThrow(ctx, spec, stage) {
 }
 
 function memoryBubble(ctx, spec, stage) {
+  if (spec.outcome === 'cards') return flashcards(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.4 * u, pu = 0.8 * u;
   const p = createPerson({ u: pu, shirt: 0x9a60d0 }), book = solidProp([[G.box(0.22 * u, 0.16 * u, 0.03 * u, 0, 0, 0), 0x3a7ad0], [G.box(0.21 * u, 0.15 * u, 0.032 * u, 0, 0, 0.001 * u), 0xffffff]], 0.45);
   const cloud = solidProp([[G.sphere(0.13 * u, 0, 0, 0, 1.4, 1, 0.4), 0xffffff], [G.sphere(0.09 * u, -0.14 * u, -0.03 * u, 0, 1, 1, 0.4), 0xffffff], [G.sphere(0.09 * u, 0.14 * u, -0.02 * u, 0, 1, 1, 0.4), 0xffffff], [G.sphere(0.03 * u, -0.08 * u, -0.17 * u, 0), 0xffffff], [G.sphere(0.02 * u, -0.1 * u, -0.23 * u, 0), 0xffffff]], 0.6);
@@ -75,6 +79,7 @@ function memoryBubble(ctx, spec, stage) {
 }
 
 function officeWork(ctx, spec, stage) {
+  if (spec.outcome === 'class') return classBell(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, dx = B.maxX + 0.5 * u, TH = 0.34 * u;
   const desk = solidProp([[G.box(0.7 * u, 0.03 * u, 0.3 * u, 0, TH, 0), WOOD], [G.box(0.03 * u, TH, 0.26 * u, -0.32 * u, TH / 2, 0), 0x8a5a30], [G.box(0.03 * u, TH, 0.26 * u, 0.32 * u, TH / 2, 0), 0x8a5a30], [G.box(0.22 * u, 0.012 * u, 0.15 * u, -0.05 * u, TH + 0.022 * u, 0.04 * u), 0x8a8e96], [G.box(0.22 * u, 0.15 * u, 0.01 * u, -0.05 * u, TH + 0.1 * u, -0.04 * u, 0), 0x3a3a44], [G.box(0.2 * u, 0.13 * u, 0.012 * u, -0.05 * u, TH + 0.1 * u, -0.034 * u), 0x6ab8f0], [G.cyl(0.03 * u, 0.025 * u, 0.06 * u, 0.15 * u, TH + 0.045 * u, 0.06 * u), 0xffffff]], 0.4);
   desk.position.set(dx, floor, 0.1 * u);

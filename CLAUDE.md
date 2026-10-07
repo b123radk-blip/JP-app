@@ -116,6 +116,12 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   kanji, so scenes play on the kanji itself, to its right, above it, or in depth.
 - Similarity: two cards with the same scene type are look-alikes (1); the same type with another variant (上手 / 下手's
   `outcome`) scores `sceneVariant` (0.7); different scenes score 0.
+- Variants: a word reuses its kanji's scene with another option (牛 moos, 牛乳 pours milk). Declare it in the catalog
+  (`V(dc, desc, { outcome: 'moo' }, 'outcome')`, `dc` may be a function of the options) and dispatch at the top of the
+  scene (`if (spec.outcome === 'milk') return milkGlass(ctx, spec, stage)`), with the variant in a `variants*.js` module.
+- Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2
+  --clip 150,20,560,340`, fix, then `scripts/set-recipes.mjs`. Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
+  (pools, roads) toward the viewer, a lit doorway behind a silhouette, fake depth on a flat picture. Log: docs/BATCH-LOG.md.
 - Check costs: `node scripts/check-piece-costs.mjs vignette`, then `npm run e2e`.
 
 ## Add a piece

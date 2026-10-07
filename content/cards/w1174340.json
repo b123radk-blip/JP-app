@@ -8,7 +8,11 @@
   "pos": ["v5g", "vi"],
   "kanji": ["6cf3"],
   "builtFrom": [{ "k": "泳", "m": "swim" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["ripples"], "motion": "swim", "backdrop": "sky:noon" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "pool-swim", "outcome": "fish" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "泳", "reading": "およ" }, { "text": "げますよね。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [232296, 16299] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 泳ぐ" },
+  "review": { "recipe": "reviewed", "rule": "word 泳ぐ" },
   "source": { "jmdict": 1174340, "jlpt": 5 }
 }

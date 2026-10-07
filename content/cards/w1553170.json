@@ -8,7 +8,11 @@
   "pos": ["n", "vs", "vi"],
   "kanji": ["65c5", "884c"],
   "builtFrom": [{ "k": "旅", "m": "trip" }, { "k": "行", "m": "going" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "suitcase", "scene": ["road"], "backdrop": "sky:morning" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.3, "type": "travel-road", "outcome": "suitcase" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "どこか" }, { "text": "旅行", "reading": "りょこう" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きたい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [201005, 38210] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 旅行" },
+  "review": { "recipe": "reviewed", "rule": "word 旅行" },
   "source": { "jmdict": 1553170, "jlpt": 5 }
 }

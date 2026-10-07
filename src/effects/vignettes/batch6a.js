@@ -8,6 +8,7 @@
 //                 snowflakes, a happy sigh
 //   two-buckets   両: a person lifts two buckets of water at once, one in each hand, and balances them evenly
 import * as THREE from 'three';
+import { fishSwim, parentsSwing, pets, springMelt, suitcaseRoll, tepidBath } from './variants6a.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, PUFF } from '../pieces/kit-things.js';
@@ -19,6 +20,7 @@ import { between, bonePoint, wisps } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f);
 
 function travelRoad(ctx, spec, stage) {
+  if (spec.outcome === 'suitcase') return suitcaseRoll(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u, W = 1.0 * u;
   const ground = solidProp([[G.box(W + 0.2 * u, 0.02 * u, 0.3 * u, 0, 0.01 * u, 0), 0xc8b088]], 0.3); ground.position.set(px, floor, 0.05 * u);
   const scenes = [solidProp([[G.cone(0.22 * u, 0.4 * u, -0.1 * u, 0.2 * u, 0), 0x5a6a9a], [G.cone(0.08 * u, 0.12 * u, -0.1 * u, 0.36 * u, 0.01 * u), 0xffffff], [G.cone(0.16 * u, 0.3 * u, 0.15 * u, 0.15 * u, -0.05 * u), 0x7a8ab8]], 0.4),
@@ -40,6 +42,7 @@ function travelRoad(ctx, spec, stage) {
 }
 
 function poolSwim(ctx, spec, stage) {
+  if (spec.outcome === 'fish') return fishSwim(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.6 * u, W = 1.1 * u, pu = 0.6 * u;
   const pool = solidProp([[G.box(W, 0.14 * u, 0.5 * u, 0, 0.07 * u, 0), 0xe8f0f4], [G.box(W - 0.06 * u, 0.02 * u, 0.44 * u, 0, 0.13 * u, 0), 0x40a8e8], ...Array.from({ length: 9 }, (_, i) => [G.sphere(0.012 * u, (i / 8 - 0.5) * (W - 0.1 * u), 0.145 * u, -0.1 * u), i % 2 ? 0xff4040 : 0xffffff])], 0.45);
   pool.position.set(cx, 0, 0);
@@ -63,6 +66,7 @@ function poolSwim(ctx, spec, stage) {
 }
 
 function birdSing(ctx, spec, stage) {
+  if (spec.outcome === 'pets') return pets(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.3 * u, by = floor + 0.6 * u;
   const branch = solidProp([[G.cyl(0.02 * u, 0.025 * u, 1.0 * u, 0.4 * u, 0, -0.05 * u, 0, 0, Math.PI / 2), 0x8a5a30], [G.sphere(0.06 * u, 0.85 * u, 0.04 * u, -0.05 * u, 1.6, 0.6, 0.8), 0x4a9a3a], [G.sphere(0.05 * u, 0.1 * u, 0.04 * u, -0.05 * u, 1.6, 0.6, 0.8), 0x4a9a3a]], 0.35);
   branch.position.set(bx, by, 0);
@@ -87,6 +91,7 @@ function birdSing(ctx, spec, stage) {
 }
 
 function stoveWarm(ctx, spec, stage) {
+  if (spec.outcome === 'spring') return springMelt(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.35 * u;
   const stove = solidProp([[G.box(0.3 * u, 0.36 * u, 0.26 * u, 0, 0.2 * u, 0), 0x3a3a44], [G.box(0.18 * u, 0.12 * u, 0.01 * u, 0, 0.18 * u, 0.131 * u), 0xff8a20], [G.cyl(0.04 * u, 0.04 * u, 0.5 * u, 0.06 * u, 0.62 * u, -0.05 * u), 0x3a3a44], ...[-0.1, 0.1].map((x) => [G.box(0.03 * u, 0.04 * u, 0.2 * u, x * u, 0.0, 0), 0x2a2a30])], 0.5);
   stove.position.set(sx, floor, 0);
@@ -110,6 +115,7 @@ function stoveWarm(ctx, spec, stage) {
 }
 
 function onsenSoak(ctx, spec, stage) {
+  if (spec.outcome === 'tepid') return tepidBath(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ox = B.maxX + 0.5 * u, pu = 0.65 * u;
   const rocks = solidProp(Array.from({ length: 9 }, (_, i) => { const a = (i / 9) * Math.PI * 2; return [G.sphere(0.07 * u, Math.cos(a) * 0.36 * u, 0.06 * u, Math.sin(a) * 0.2 * u, 1.3, 0.8, 1), i % 2 ? 0x7a7a72 : 0x8a8a80]; }), 0.35);
   rocks.position.set(ox, floor, 0);
@@ -132,6 +138,7 @@ function onsenSoak(ctx, spec, stage) {
 }
 
 function twoBuckets(ctx, spec, stage) {
+  if (spec.outcome === 'parents') return parentsSwing(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u, pu = 0.85 * u;
   const p = createPerson({ u: pu, shirt: 0xe07a30 }), buckets = many([[G.cyl(0.08 * u, 0.065 * u, 0.13 * u, 0, -0.1 * u, 0, 0, 0, 0, 16), 0x8a96a8], [G.cyl(0.075 * u, 0.075 * u, 0.01 * u, 0, -0.04 * u, 0, 0, 0, 0, 16), 0x40a0f0], [G.torus(0.07 * u, 0.006 * u, Math.PI, 0, -0.04 * u, 0), 0x3a3a44]], 2, 0.45);
   const level = solidProp([[G.box(0.6 * u, 0.012 * u, 0.012 * u, 0, 0, 0), 0x60e080], [G.sphere(0.02 * u, 0, 0.02 * u, 0), 0xffe040]], 0.8);

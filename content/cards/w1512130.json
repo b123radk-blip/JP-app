@@ -8,7 +8,11 @@
   "pos": ["v5s", "vt"],
   "kanji": ["8fd4"],
   "builtFrom": [{ "k": "返", "m": "return" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "boomerang", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "boomerang-throw", "outcome": "book" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "いつその" }, { "text": "本", "reading": "ほん" }, { "text": "を" }, { "text": "返", "reading": "かえ" }, { "text": "しましょうか。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [228946, 66304] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 返す" },
+  "review": { "recipe": "reviewed", "rule": "word 返す" },
   "source": { "jmdict": 1512130, "jlpt": 5 }
 }

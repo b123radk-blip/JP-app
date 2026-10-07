@@ -10,9 +10,8 @@
   "builtFrom": [{ "k": "太", "m": "plump" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "motion": { "type": "stretch", "axis": "x", "to": 1.3 },
-    "backdrop": "sky:day"
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "trunk-thick", "outcome": "crayon" }
   },
   "sentences": [
     {
@@ -22,6 +21,6 @@
       "source": { "tatoeba": [102554, 301140] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 太い" },
+  "review": { "recipe": "reviewed", "rule": "word 太い" },
   "source": { "jmdict": 1408180, "jlpt": 5 }
 }

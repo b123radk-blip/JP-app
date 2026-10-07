@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "暖", "m": "warmth" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "sun",
-    "particles": ["petals"],
-    "backdrop": "sky:golden",
-    "motion": "float"
+    "backdrop": "sky:morning",
+    "vignette": { "size": 1, "type": "stove-warm", "outcome": "spring" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [171621, 242854] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 暖かい" },
+  "review": { "recipe": "reviewed", "rule": "word 暖かい" },
   "source": { "jmdict": 1586420, "jlpt": 5 }
 }

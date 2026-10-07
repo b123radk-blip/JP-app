@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "悪", "m": "bad" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "frown", "color": "#8ad0ff" },
     "backdrop": "sky:storm",
-    "motion": "shake"
+    "vignette": { "size": 1.2, "type": "devil-vase", "outcome": "thumbsdown" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [215129, 52426] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 悪い" },
+  "review": { "recipe": "reviewed", "rule": "word 悪い" },
   "source": { "jmdict": 1151260, "jlpt": 5 }
 }

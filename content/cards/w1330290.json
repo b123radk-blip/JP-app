@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "業", "m": "business" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "scene": ["room:classroom"],
-    "emblem": "book",
     "backdrop": "sky:indoor",
-    "motion": "float"
+    "vignette": { "size": 1, "type": "office-work", "outcome": "class" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [171894, 242581] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 授業" },
+  "review": { "recipe": "reviewed", "rule": "word 授業" },
   "source": { "jmdict": 1330290, "jlpt": 5 }
 }

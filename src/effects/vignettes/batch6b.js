@@ -6,6 +6,8 @@
 //   devil-vase    悪: a little red devil with horns and a tail sneaks up, knocks a vase off its stand and snickers as it smashes
 //   trunk-thick   太: a thin sapling's trunk swells thicker and thicker into a fat old tree; its rings show on a cut stump
 import * as THREE from 'three';
+import { kitchen, redCarpet } from './variants6a.js';
+import { hardhat, pencilCrayon, thumbsDown } from './variants6b.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
@@ -37,6 +39,7 @@ function wheelbarrow(ctx, spec, stage) {
 }
 
 function standVase(ctx, spec, stage) {
+  if (spec.outcome === 'kitchen') return kitchen(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.4 * u, SH = 0.3 * u;
   const stand = solidProp([[G.box(0.3 * u, 0.04 * u, 0.24 * u, 0, SH, 0), WOOD], ...[[-0.12, 0.09], [0.12, 0.09], [-0.12, -0.09], [0.12, -0.09]].map(([x, z]) => [G.cyl(0.015 * u, 0.012 * u, SH, x * u, SH / 2, z * u), 0x8a5a30])], 0.35);
   const vase = solidProp([[new THREE.LatheGeometry([[0, 0], [0.05, 0], [0.07, 0.06], [0.05, 0.14], [0.035, 0.18], [0.045, 0.2]].map(([x, y]) => new THREE.Vector2(x * u, y * u)), 20), 0x3a6ad8], ...[-0.4, 0, 0.4].map((a) => [G.cyl(0.004 * u, 0.004 * u, 0.16 * u, Math.sin(a) * 0.04 * u, 0.26 * u, 0, 0, 0, -a), 0x3a9a3a]), ...[-0.4, 0, 0.4].map((a, i) => [G.sphere(0.03 * u, Math.sin(a) * 0.08 * u, 0.34 * u, 0), [0xff6a9a, 0xffe040, 0xff8a40][i]])], 0.45);
@@ -55,6 +58,7 @@ function standVase(ctx, spec, stage) {
 }
 
 function coinKeep(ctx, spec, stage) {
+  if (spec.outcome === 'star') return redCarpet(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), hx = B.maxX + 0.4 * u, hy = B.cy - 0.05 * u;
   const hand = createHand({ u: 0.6 * u, side: 1, sleeve: 0xe07a30 }), coin = solidProp([[G.cyl(0.07 * u, 0.07 * u, 0.015 * u, 0, 0, 0, Math.PI / 2, 0, 0, 24), 0xffc830], [G.torus(0.06 * u, 0.006 * u), 0xe0a020]], 0.7), shine = burst(u, { s: 0.35, n: 8, color: 0xfff0a0 });
   group.add(hand.group, coin, shine);
@@ -72,6 +76,7 @@ function coinKeep(ctx, spec, stage) {
 }
 
 function butlerDoor(ctx, spec, stage) {
+  if (spec.outcome === 'hardhat') return hardhat(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, dx = B.maxX + 0.55 * u, W = 0.34 * u, H = 0.75 * u;
   const frame = solidProp([[G.box(0.05 * u, H, 0.08 * u, -W / 2 - 0.025 * u, H / 2, 0), 0xe0d0b0], [G.box(0.05 * u, H, 0.08 * u, W / 2 + 0.025 * u, H / 2, 0), 0xe0d0b0], [G.box(W + 0.14 * u, 0.06 * u, 0.1 * u, 0, H + 0.03 * u, 0), 0xe0d0b0], [G.box(W, H, 0.01 * u, 0, H / 2, -0.06 * u), 0xffd890]], 0.4);
   frame.position.set(dx, floor, -0.1 * u);
@@ -94,6 +99,7 @@ function butlerDoor(ctx, spec, stage) {
 }
 
 function devilVase(ctx, spec, stage) {
+  if (spec.outcome === 'thumbsdown') return thumbsDown(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.35 * u, SH = 0.36 * u, RED = 0xff3a30;
   const stand = solidProp([[G.box(0.2 * u, 0.03 * u, 0.2 * u, 0, SH, 0), WOOD], [G.cyl(0.03 * u, 0.04 * u, SH, 0, SH / 2, 0), 0x8a5a30]], 0.35); stand.position.set(sx, floor, 0);
   const vase = solidProp([[new THREE.LatheGeometry([[0, 0], [0.04, 0], [0.065, 0.06], [0.045, 0.15], [0.03, 0.18], [0.04, 0.2]].map(([x, y]) => new THREE.Vector2(x * u, y * u)), 20), 0x40c8c8]], 0.5);
@@ -119,6 +125,7 @@ function devilVase(ctx, spec, stage) {
 }
 
 function trunkThick(ctx, spec, stage) {
+  if (spec.outcome === 'crayon') return pencilCrayon(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.45 * u;
   const trunk = solidProp([[G.cyl(1, 1.15, 0.55 * u, 0, 0.275 * u, 0, 0, 0, 0, 20), 0x8a5a30]], 0.35);
   const crown = solidProp([[G.sphere(0.25 * u, 0, 0, 0, 1.2, 0.9, 1), 0x3a9a3a], [G.sphere(0.18 * u, 0.15 * u, 0.08 * u, 0.05 * u), 0x4aaa4a], [G.sphere(0.16 * u, -0.15 * u, 0.06 * u, 0.04 * u), 0x2a8a2a]], 0.4);

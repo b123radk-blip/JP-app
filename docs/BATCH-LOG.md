@@ -3,6 +3,53 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 2b revamp: a scene for every Step 2 card, 2026-10-07
+
+**Made:** 323 cards changed (only `effect`, plus the `review` mark from `set-recipes.mjs`): 147 of the 150 Step 2 kanji,
+173 of their 177 words, and the pilot 上手 下手 二人. Kept as they were: 朝 色 開 (graded A: the glyph already acts the
+meaning out) and 今朝 毎朝 毎晩 今晩 (their meaning is their kanji's scene). Triage grades (docs/REVAMP.md): kanji A 3, B 4,
+C 143; words A 0, B 17, C 160. The four B kanji (消 閉 渡 立) got scenes too, and so did 13 of the 17 B words.
+
+**Built:**
+- The `vignette` recipe slot: catalog entry with declared draw calls (a number or a function of the options), similarity by
+  scene (same type 1, another variant 0.7, different 0), cost estimate, `look.mjs --recipes` trials.
+- `vignettes/timeline.js` (acts, beats with exact 0 / 1 ends, bump, wobble) so every frame is a pure function of t.
+- The props kit (`src/effects/pieces/kit-*.js`): bone rigs drawn as 2 instanced meshes (a person: walk, lean, raise, face,
+  attach props to bones, recolour bones; a hand with poses), `solidProp` (static props, 1 draw call), `many()` (instanced
+  small shapes with per-instance colours), text planes and live text (counters, clocks).
+- 233 scene types in 50 modules (`src/effects/vignettes/`, about 300 lines each), 80 of them with variants chosen by an
+  option (`outcome`, `time`, `letters` ...): a word reuses its kanji's scene with another outcome (歌 sings on stage, 歌う in
+  the shower; 牛 moos, 牛乳 pours milk, 牛肉 sizzles) and scores 0.7 against it.
+- Scenes cost 1-13 draw calls (the classroom of 授業 is the largest); every card is far inside the 160 dc budget.
+
+**Process:** six batches (25 kanji + the words they unlock). Each scene was written, rendered as a trial strip
+(`look.mjs --recipes`, 4 frames), fixed, and applied with `set-recipes.mjs`. About a third of the scenes needed one fix round,
+almost always framing, not the idea:
+- too small (props sized for a kanji card look tiny next to a 3-glyph word): the `size` option, 1.2-1.5 on words;
+- overlapping the word or the label (start the action about 0.3-0.6 glyph heights right of the kanji);
+- flat things seen edge-on vanish (a pool, a crossroads, a map lying down): tilt them 0.45-0.55 rad toward the viewer;
+- walking into depth barely reads: fake it on a flat picture (a road narrowing to the horizon, the walker shrinking);
+- dark actors on dark skies (a silhouette needs a lit doorway or window behind it); ink / metal kanji on dark skies
+  (the recipe check catches these);
+- emblems facing the camera can read as something else (the camera emblem looked like an eye; replaced by a boxy camera).
+
+**Checks:** `npm test` passes (62 unit tests, content check, recipe check): 0 deck pairs at or above 0.72, every look-alike
+pair under 0.5. `npm run e2e` passes after every batch: built draw calls / particle slots / lights equal the catalog
+estimate for all 835 cards. `node scripts/check-piece-costs.mjs vignette`: 378 recipes, 0 mismatches. Frame strips of every
+changed card: `docs/screenshots/revamp-*.jpg` (pilot, b1-b6 kanji and words).
+
+**Weakest scenes (abstract meanings; check these first in the headset):** 用 (an errand: a note, a run, milk), 要 (a phone
+that needs charging), 有 (a coin kept in the hand), 丈 (a post that does not budge), 両 (two buckets), 台 (a stand), 題 (a
+title band on a notebook), 辞 (letter tiles flying out of a book), 真 (a real gem sparkles, a fake one cracks).
+
+**Carry into Step 1's 112 kanji** (same prompt, `docs/prompts/step-2b-revamp.md`): reuse the kit and the module pattern;
+many Step 1 meanings already have a matching scene type to vary (日 / 月 / 火 / 水 ... need their own). Look at the strips
+at the moments the beats happen (`--times` after the strokes finish), and size scenes for the longest word that will
+reuse them.
+
+**Carry into N4:** design each kanji as a scene line first (REVAMP style), build in theme modules, give words variants of
+their kanji's scene, render trials before applying. Budget a framing-fix round for about a third of the scenes.
+
 ## N5 part 2 (Step 2), 2026-10-06
 
 **Made:** 610 cards on top of Step 1's 225, so the N5 deck has 835 cards (262 kanji, 573 words):
