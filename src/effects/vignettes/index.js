@@ -34,9 +34,15 @@ import { SCENES as PLAY2 } from './play2.js';
 import { SCENES as BATCH3A } from './batch3a.js';
 import { SCENES as BATCH3B } from './batch3b.js';
 import { SCENES as BATCH3C } from './batch3c.js';
+import { SCENES as WORDS3A } from './words3a.js';
+import { SCENES as WORDS3B } from './words3b.js';
+import { SCENES as B4A } from './batch4a.js';
+import { SCENES as B4B } from './batch4b.js';
+import { SCENES as B4C } from './batch4c.js';
+import { SCENES as B4D } from './batch4d.js';
 import { SCENES as KIT } from './kit-sheet.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...KIT };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

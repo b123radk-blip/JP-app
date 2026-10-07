@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["66c7"],
   "builtFrom": [{ "k": "曇", "m": "cloudy weather" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cloud", "backdrop": "sky:snow" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "clouds-gather", "outcome": "grey" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "夜", "reading": "よる" }, { "text": "は" }, { "text": "曇", "reading": "くも" }, { "text": "りだった。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [206344, 43592] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 曇り" },
+  "review": { "recipe": "reviewed", "rule": "word 曇り" },
   "source": { "jmdict": 1592340, "jlpt": 5 }
 }

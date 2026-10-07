@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["5fa1", "98ef"],
   "builtFrom": [{ "k": "御", "m": "honorable" }, { "k": "飯", "m": "meal" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "bowl",
-    "backdrop": "sky:indoor",
-    "particles": ["steam"],
-    "motion": "pulse"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "size": 1, "type": "rice-cooker" } },
   "sentences": [
     {
       "segments": [ { "text": "毎朝", "reading": "まいあさ" }, { "text": "、" }, { "text": "御飯", "reading": "ごはん" }, { "text": "を" }, { "text": "食", "reading": "た" }, { "text": "べます。" } ],
@@ -24,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 御飯" },
+  "review": { "recipe": "reviewed", "rule": "word 御飯" },
   "source": { "jmdict": 1270590, "jlpt": 5 }
 }

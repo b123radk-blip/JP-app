@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["9774", "4e0b"],
   "builtFrom": [{ "k": "靴", "m": "shoes" }, { "k": "下", "m": "down" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shoe", "backdrop": "sky:indoor" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1, "type": "shoe-step", "outcome": "socks" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "靴下", "reading": "くつした" }, { "text": "の" }, { "text": "片方", "reading": "かたほう" }, { "text": "はどこだ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [222242, 59569] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 靴下" },
+  "review": { "recipe": "reviewed", "rule": "word 靴下" },
   "source": { "jmdict": 1246740, "jlpt": 5 }
 }

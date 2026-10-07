@@ -11,6 +11,7 @@
 //   tool-use       使: a hand takes a wrench off a pegboard, turns a bolt with it, and hangs it back on its outline
 //   barbell-flex   強: a person lifts a barbell overhead with ease, sets it down and flexes both arms in a burst of stars
 import * as THREE from 'three';
+import { stairsClimb, scissorCut } from './variants3.js';
 import { acts, timeline, bump, wobble, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
@@ -95,7 +96,7 @@ function emptyBox(ctx, spec, stage) {
   };
 }
 
-function gearShape(n, R = 5, r = 4.1, hole = 1.1) {
+export function gearShape(n, R = 5, r = 4.1, hole = 1.1) {
   const sh = new THREE.Shape(), da = (Math.PI * 2) / n;
   for (let i = 0; i < n; i++) {
     const a = i * da;
@@ -129,6 +130,7 @@ function gearsClick(ctx, spec, stage) {
 }
 
 function ballSteps(ctx, spec, stage) {
+  if (spec.outcome === 'climb') return stairsClimb(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.2 * u, N = 4, SW = 0.22 * u, SH = 0.15 * u, R = 0.06 * u;
   const steps = solidProp(Array.from({ length: N }, (_, i) => [G.box(SW, (N - i) * SH, 0.4 * u, (i + 0.5) * SW, (N - i) * SH / 2, 0), i % 2 ? 0xb8b0a4 : 0xd0c8bc]), 0.3);
   steps.position.set(x0, floor, -0.1 * u);
@@ -173,19 +175,21 @@ function mapUnroll(ctx, spec, stage) {
 }
 
 function hallRise(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.55 * u, W = 0.85 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + (spec.outcome === 'embassy' ? 0.68 : 0.55) * u, W = 0.85 * u;
   const tri = new THREE.Shape(); tri.moveTo(-4.6, 0); tri.lineTo(4.6, 0); tri.lineTo(0, 1.7); tri.lineTo(-4.6, 0); const k = W / 9;
   const cols = Array.from({ length: 5 }, (_, i) => [G.cyl(0.03 * u, 0.034 * u, 0.42 * u, (i / 4 - 0.5) * W * 0.78, 0.33 * u, 0.06 * u), 0xf6f4ee]);
   const hall = solidProp([[G.box(W, 0.04 * u, 0.4 * u, 0, 0.02 * u, 0.02 * u), 0xc8c4bc], [G.box(W * 0.94, 0.04 * u, 0.34 * u, 0, 0.06 * u, 0), 0xd8d4cc], [G.box(W * 0.88, 0.04 * u, 0.28 * u, 0, 0.1 * u, -0.02 * u), 0xe4e0d8], ...cols, [G.box(W * 0.82, 0.42 * u, 0.02 * u, 0, 0.33 * u, -0.1 * u), 0xb8b0a0], [G.box(0.15 * u, 0.25 * u, 0.01 * u, 0, 0.245 * u, -0.085 * u), 0xffc870], [G.box(W * 0.92, 0.05 * u, 0.28 * u, 0, 0.565 * u, -0.02 * u), 0xeeeae2], [G.extrude(tri, 2.6).scale(k, k, k).translate(0, 0.59 * u, -0.02 * u), 0xe4e0d8]], 0.35);
   hall.position.set(hx, floor, -0.05 * u);
   const dust = many(PUFF(u), 6, 0.4), people = [createPerson({ u: 0.3 * u, shirt: 0xe04848 }), createPerson({ u: 0.28 * u, shirt: 0x40a0e0 })];
   group.add(hall, dust, ...people.map((p) => p.group));
+  const flags = spec.outcome === 'embassy' ? [0, 1].map((i) => { const pv = new THREE.Group(), cloth = solidProp(i ? [[G.box(0.24 * u, 0.16 * u, 0.006 * u, 0.12 * u, 0, 0), 0xffffff], [G.cyl(0.045 * u, 0.045 * u, 0.008 * u, 0.12 * u, 0, 0, Math.PI / 2), 0xe02030]] : [0x2a50c0, 0xffffff, 0xe03030].map((c, j) => [G.box(0.08 * u, 0.16 * u, 0.006 * u, (0.04 + 0.08 * j) * u, 0, 0), c]), 0.45); pv.add(cloth); pv.position.set(hx + (i ? 0.56 : -0.56) * u, floor + 0.78 * u, 0.05 * u); group.add(pv); return pv; }) : [];
+  if (flags.length) { const poles = solidProp([-1, 1].map((s) => [G.cyl(0.012 * u, 0.012 * u, 0.88 * u, hx + s * 0.56 * u, floor + 0.44 * u, 0.05 * u), 0xc8ccd4]), 0.35); group.add(poles); }
   const loop = 4.2;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, rise = timeline(A.setup, { r: [0, 1, 'back'] }).r;
-      hall.scale.y = pop(rise);
+      hall.scale.y = pop(rise); flags.forEach((f, i) => { f.visible = rise > 0.9; f.rotation.y = 0.35 * Math.sin(t * 3 + i * 1.3); });
       for (let i = 0; i < 6; i++) { const a = (i / 5 - 0.5) * W, f = A.setup > 0 && A.setup < 1 ? A.setup : 0; dust.set(i, hx + a * (1 + 0.3 * f), floor + 0.03 * u, 0.15 * u, f ? 1.4 * Math.sin(Math.PI * f) : 0); }
       dust.commit();
       people.forEach((p, i) => {
@@ -198,6 +202,7 @@ function hallRise(ctx, spec, stage) {
 }
 
 function toolUse(ctx, spec, stage) {
+  if (spec.outcome === 'scissors') return scissorCut(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u, py = floor + 0.68 * u, J = [0.12 * u, 0.13 * u], L = 0.34 * u, METAL = 0xc8ccd4;
   const board = solidProp([[G.box(0.62 * u, 0.46 * u, 0.02 * u, 0, 0, 0), 0xc8a070], [G.box(0.07 * u, L, 0.004 * u, J[0], J[1] - L / 2 - 0.02 * u, 0.012 * u), 0xffffff], [G.cyl(0.06 * u, 0.06 * u, 0.004 * u, J[0], J[1], 0.012 * u, Math.PI / 2), 0xffffff], [G.box(0.04 * u, 0.26 * u, 0.03 * u, -0.18 * u, -0.02 * u, 0.025 * u), 0x8a5a30], [G.box(0.14 * u, 0.06 * u, 0.04 * u, -0.18 * u, 0.12 * u, 0.025 * u), 0x60646c], [G.cyl(0.02 * u, 0.02 * u, 0.12 * u, -0.04 * u, 0.06 * u, 0.025 * u), 0xe04848], [G.cyl(0.006 * u, 0.006 * u, 0.14 * u, -0.04 * u, -0.07 * u, 0.025 * u), METAL]], 0.35);
   board.position.set(px, py, -0.05 * u);
@@ -226,8 +231,8 @@ function barbellFlex(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u, PR = 0.11 * u;
   const p = createPerson({ u: 0.95 * u, shirt: 0xe04848 });
   const bar = solidProp([[G.cyl(0.012 * u, 0.012 * u, 1.0 * u, 0, 0, 0, 0, 0, Math.PI / 2), 0xb0b4bc], ...[-1, 1].flatMap((s) => [[G.cyl(PR, PR, 0.05 * u, s * 0.4 * u, 0, 0, 0, 0, Math.PI / 2), 0x2a2a30], [G.cyl(PR * 0.75, PR * 0.75, 0.04 * u, s * 0.45 * u, 0, 0, 0, 0, Math.PI / 2), 0x3a3a44]])], 0.35);
-  const pow = burst(u, { s: 0.9, n: 10, color: 0xffd040 });
-  group.add(pow, p.group, bar);
+  const car = spec.outcome === 'car', load = car ? emblemProp('car', 0.7 * u, { color: 0x40a0e0 }) : bar, pow = burst(u, { s: 0.9, n: 10, color: 0xffd040 });
+  group.add(pow, p.group, load);
   const loop = 5.4, hL = new THREE.Vector3(), hR = new THREE.Vector3();
   return {
     group,
@@ -239,8 +244,8 @@ function barbellFlex(ctx, spec, stage) {
       const r = 0.25 + 2.65 * up + 1.3 * fl; p.raise('L', r); p.raise('R', r);
       p.bone('foreL').rotation.z = 1.8 * fl; p.bone('foreR').rotation.z = -1.8 * fl;
       p.update(); bonePoint(p, 'handL', 0.5, hL); bonePoint(p, 'handR', 0.5, hR);
-      const hy = (hL.y + hR.y) / 2, rest = floor + PR;
-      bar.position.set(px, pre || !holding && T.drop >= 1 ? rest : T.drop > 0 ? lerp(hy, rest, T.drop) : lerp(rest, hy, T.pick), 0.24 * u);
+      const hy = (hL.y + hR.y) / 2 + (car ? 0.12 * u : 0), rest = floor + (car ? 0.18 * u : PR);
+      load.position.set(px, pre || !holding && T.drop >= 1 ? rest : T.drop > 0 ? lerp(hy, rest, T.drop) : lerp(rest, hy, T.pick), 0.24 * u);
       const b = pre ? 0 : fl; pow.visible = b > 0.01; pow.position.set(px, floor + 0.62 * u, -0.1 * u); pow.scale.setScalar(pop(b * (1 + 0.1 * Math.sin(t * 8)))); pow.rotation.z = t * 0.6;
     },
   };

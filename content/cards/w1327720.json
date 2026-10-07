@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["624b", "7d19"],
   "builtFrom": [{ "k": "手", "m": "hand" }, { "k": "紙", "m": "paper" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "letter", "backdrop": "sky:day", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.2, "type": "paper-fold", "outcome": "letter" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "手紙", "reading": "てがみ" }, { "text": "を" }, { "text": "書", "reading": "か" }, { "text": "き" }, { "text": "終", "reading": "お" }, { "text": "えました。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [148558, 266001] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 手紙" },
+  "review": { "recipe": "reviewed", "rule": "word 手紙" },
   "source": { "jmdict": 1327720, "jlpt": 5 }
 }

@@ -8,14 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": ["66c7"],
   "builtFrom": [{ "k": "曇", "m": "cloudy weather" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "cloud",
-    "particles": ["mist"],
-    "backdrop": "sky:snow",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:snow", "vignette": { "size": 1.2, "type": "fog-glass" } },
   "sentences": [
     {
       "segments": [ { "text": "空", "reading": "そら" }, { "text": "が" }, { "text": "一面", "reading": "いちめん" }, { "text": "に" }, { "text": "曇", "reading": "くも" }, { "text": "ってきた。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [179485, 18343] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 曇る" },
+  "review": { "recipe": "reviewed", "rule": "word 曇る" },
   "source": { "jmdict": 1457560, "jlpt": 5 }
 }

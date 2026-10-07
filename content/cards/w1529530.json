@@ -8,7 +8,7 @@
   "pos": ["v5s", "vt"],
   "kanji": ["7121"],
   "builtFrom": [{ "k": "無", "m": "nothingness" }],
-  "effect": { "material": "ivory", "reveal": "draw", "motion": "vanish", "emblem": "question", "backdrop": "sky:dusk" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "lost-key" } },
   "sentences": [
     {
       "segments": [ { "text": "これは" }, { "text": "私", "reading": "わたし" }, { "text": "が" }, { "text": "無", "reading": "な" }, { "text": "くしたカメラだ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [218332, 55643] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 無くす" },
+  "review": { "recipe": "reviewed", "rule": "word 無くす" },
   "source": { "jmdict": 1529530, "jlpt": 5 }
 }

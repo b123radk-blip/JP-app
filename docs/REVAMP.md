@@ -4,8 +4,8 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** the pilot, Batch 1 (25 kanji, 55 words), Batch 2 (25 kanji, 30 words) and the Batch 3 kanji
-(部 … 強) are built. Next are the Batch 3 words (every word whose Step 2 kanji are all ticked), then Batch 4 from the next unticked kanji (every word whose Step 2 kanji are all ticked). Each batch: build,
+**Where to continue:** the pilot and Batches 1-3 are built (80 of the 150 kanji, 114 words). Next is Batch 4: the next 25 unticked
+kanji of the list below, then their words (every word whose Step 2 kanji are all ticked). Each batch: build,
 look at the frame strips, fix, apply with `scripts/set-recipes.mjs`, tick here, `npm test`, e2e, commit and push.
 
 ## Grades
@@ -288,36 +288,36 @@ Grades: **B** when the meaning *is* its kanji side by side (a word rule that doe
 - [x] 練習 practice (C): a person kicks a ball against a wall again and again. Built: `practice-kick`.
 - [x] 習う take lessons (C): a teacher plays a note on a piano, a kid copies it. Built: `piano-lesson`.
 - [x] 兄弟 siblings (C): big brother and little brother play catch. Built: `play-catch`.
-- [ ] 部屋 room (C): a door opens into a cosy room with a bed and a lamp.
-- [ ] 全部 all (C): a hand sweeps every coin on a table into a jar.
-- [ ] 漢字 kanji (C): a brush writes a kanji on paper; it lifts off and glows.
-- [ ] 字引 dictionary (C): a finger runs down a dictionary page and stops on a word.
-- [ ] 渡す hand over (C): one hand passes a parcel to another.
-- [ ] 渡る cross (C): 渡's scene, option: a person crosses a zebra crossing.
-- [ ] 手紙 letter (C): an envelope opens, a letter unfolds, a heart.
-- [ ] 夏休み summer holiday (C): a beach umbrella, a person relaxing in a chair, a crab scuttles by.
-- [ ] 家庭 home / household (C): a family at a dinner table, a lamp overhead.
-- [ ] 夕方 dusk (B): the sun touching the horizon (no clock).
-- [ ] 夕飯 dinner (C): a family table at sunset, a steaming pot is set down.
-- [ ] 御飯 cooked rice (C): a rice cooker lid lifts, steam, a scoop of rice.
-- [ ] 晩御飯 dinner (C): a dinner table under a hanging lamp, night window.
-- [ ] 黄色 yellow (B): the word turns yellow, a lemon rolls under it.
-- [ ] 黄色い yellow (B): yellow paint drips down from the top of the word.
-- [ ] 靴下 socks (C): a sock is pulled onto a foot, toes wiggle.
-- [ ] 曇り cloudy (B): grey clouds drift over the word (no sun emblem).
-- [ ] 曇る cloud over (C): 曇's scene, option: a mirror fogs up.
-- [ ] 誰か someone (C): footsteps, a shadow appears behind a door frosted glass.
-- [ ] 広い spacious (C): 広's scene, option: a person spreads their arms in a huge empty room.
-- [ ] 背広 business suit (C): a suit on a hanger, a tie knots itself.
-- [ ] 無くす lose (C): a person pats their pockets, the keys are gone; they look everywhere.
-- [ ] 階段 stairs (C): a person climbs a staircase step by step.
-- [ ] 段々 gradually (C): a plant grows a little each frame, a sun crossing faster.
-- [ ] 地図 map (C): 図's map scene, option: a person turns the map upside down, confused.
-- [ ] 図書館 library (C): tall bookshelves; a person takes a book and sits to read; "shh".
-- [ ] 使う use (C): 使's scene, option: using scissors to cut paper.
-- [ ] 大使館 embassy (C): a building with a flag on a pole that rises.
-- [ ] 勉強 study (C): a person at a desk with books, a lamp, writing; pages turn.
-- [ ] 強い strong (C): 強's scene, option: arm-wrestling and winning.
+- [x] 部屋 room (C): a door opens into a cosy room with a bed and a lamp. Built: `my-room`.
+- [x] 全部 all (C): a hand sweeps every coin on a table into a jar. Built: `sweep-all`.
+- [x] 漢字 kanji (C): a brush writes a kanji on paper; it lifts off and glows. Built: `letter-blocks`.
+- [x] 字引 dictionary (C): a finger runs down a dictionary page and stops on a word. Built: `dictionary`.
+- [x] 渡す hand over (C): one hand passes a parcel to another. Built: `hand-over`.
+- [x] 渡る cross (C): 渡's scene, option: a person crosses a zebra crossing. Built: `bridge-walk:zebra`.
+- [x] 手紙 letter (C): an envelope opens, a letter unfolds, a heart. Built: `paper-fold:letter`.
+- [x] 夏休み summer holiday (C): a beach umbrella, a person relaxing in a chair, a crab scuttles by. Built: `beach-day`.
+- [x] 家庭 home / household (C): a family at a dinner table, a lamp overhead. Built: `house-heart`.
+- [x] 夕方 dusk (B): the sun touching the horizon (no clock). Built: `home-time:clock`.
+- [x] 夕飯 dinner (C): a family table at sunset, a steaming pot is set down. Built: `dinner-table`.
+- [x] 御飯 cooked rice (C): a rice cooker lid lifts, steam, a scoop of rice. Built: `rice-cooker`.
+- [x] 晩御飯 dinner (C): a dinner table under a hanging lamp, night window. Built: `dinner-table`.
+- [x] 黄色 yellow (B): the word turns yellow, a lemon rolls under it. Built: `yellow-things:crayon`.
+- [x] 黄色い yellow (B): yellow paint drips down from the top of the word. Built: `yellow-things:hat`.
+- [x] 靴下 socks (C): a sock is pulled onto a foot, toes wiggle. Built: `shoe-step:socks`.
+- [x] 曇り cloudy (B): grey clouds drift over the word (no sun emblem). Built: `clouds-gather:grey`.
+- [x] 曇る cloud over (C): 曇's scene, option: a mirror fogs up. Built: `fog-glass`.
+- [x] 誰か someone (C): footsteps, a shadow appears behind a door frosted glass. Built: `knock-door:window`.
+- [x] 広い spacious (C): 広's scene, option: a person spreads their arms in a huge empty room. Built: `room-expand`.
+- [x] 背広 business suit (C): a suit on a hanger, a tie knots itself. Built: `suit-up`.
+- [x] 無くす lose (C): a person pats their pockets, the keys are gone; they look everywhere. Built: `lost-key`.
+- [x] 階段 stairs (C): a person climbs a staircase step by step. Built: `ball-steps:climb`.
+- [x] 段々 gradually (C): a plant grows a little each frame, a sun crossing faster. Built: `snail-climb`.
+- [x] 地図 map (C): 図's map scene, option: a person turns the map upside down, confused. Built: `map-read`.
+- [x] 図書館 library (C): tall bookshelves; a person takes a book and sits to read; "shh". Built: `library-shelf`.
+- [x] 使う use (C): 使's scene, option: using scissors to cut paper. Built: `tool-use:scissors`.
+- [x] 大使館 embassy (C): a building with a flag on a pole that rises. Built: `hall-rise:embassy`.
+- [x] 勉強 study (C): a person at a desk with books, a lamp, writing; pages turn. Built: `study-desk`.
+- [x] 強い strong (C): 強's scene, option: arm-wrestling and winning. Built: `barbell-flex:car`.
 - [ ] 交番 police box (C): a little police box; an officer steps out and salutes.
 - [ ] 差す hold up (umbrella) (C): rain starts, a hand opens and raises an umbrella.
 - [ ] 丁度 exactly (C): a ball rolls and stops exactly on the line; a check.

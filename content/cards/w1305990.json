@@ -8,7 +8,11 @@
   "pos": ["v5u", "vt"],
   "kanji": ["4f7f"],
   "builtFrom": [{ "k": "使", "m": "use" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "wrench", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.2, "type": "tool-use", "outcome": "scissors" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "自分", "reading": "じぶん" }, { "text": "で" }, { "text": "使", "reading": "つか" }, { "text": "ってみなさい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [149948, 264610] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 使う" },
+  "review": { "recipe": "reviewed", "rule": "word 使う" },
   "source": { "jmdict": 1305990, "jlpt": 5 }
 }

@@ -8,7 +8,11 @@
   "pos": ["adj-i"],
   "kanji": ["5f37"],
   "builtFrom": [{ "k": "強", "m": "strong" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dumbbell", "motion": "pulse", "backdrop": "sky:noon" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:noon",
+    "vignette": { "size": 1, "type": "barbell-flex", "outcome": "car" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "今朝", "reading": "けさ" }, { "text": "は" }, { "text": "風", "reading": "かぜ" }, { "text": "が" }, { "text": "強", "reading": "つよ" }, { "text": "いですね。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [172249, 242226] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 強い" },
+  "review": { "recipe": "reviewed", "rule": "word 強い" },
   "source": { "jmdict": 1236070, "jlpt": 5 }
 }

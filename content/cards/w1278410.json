@@ -8,14 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["5e83"],
   "builtFrom": [{ "k": "広", "m": "wide" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "motion": { "type": "stretch", "axis": "x", "to": 1.35 },
-    "scene": ["field"],
-    "backdrop": "sky:day",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "room-expand" } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "家", "reading": "いえ" }, { "text": "の" }, { "text": "台所", "reading": "だいどころ" }, { "text": "は" }, { "text": "大変", "reading": "たいへん" }, { "text": "広", "reading": "ひろ" }, { "text": "い。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [222838, 60168] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 広い" },
+  "review": { "recipe": "reviewed", "rule": "word 広い" },
   "source": { "jmdict": 1278410, "jlpt": 5 }
 }

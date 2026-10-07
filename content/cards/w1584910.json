@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5915", "98ef"],
   "builtFrom": [{ "k": "夕", "m": "evening" }, { "k": "飯", "m": "meal" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "backdrop": "sky:sunset", "particles": ["steam"] },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1.25, "type": "dinner-table", "time": "sunset" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "夕飯", "reading": "ゆうはん" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "った。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [156721, 257813] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 夕飯" },
+  "review": { "recipe": "reviewed", "rule": "word 夕飯" },
   "source": { "jmdict": 1584910, "jlpt": 5 }
 }

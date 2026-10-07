@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5b57", "5f15"],
   "builtFrom": [{ "k": "字", "m": "character" }, { "k": "引", "m": "pull" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "particles": ["kana"], "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "size": 1.2, "type": "dictionary" } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "字引", "reading": "じびき" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "いです。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 字引" },
+  "review": { "recipe": "reviewed", "rule": "word 字引" },
   "source": { "jmdict": 1315140, "jlpt": 5 }
 }

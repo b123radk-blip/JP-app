@@ -8,6 +8,7 @@
 //   clouds-gather   曇: grey clouds drift over the sun and stay; the day dims and a sunflower droops
 //   knock-door      誰: knock, knock, knock on a door; it opens a crack and a dark figure with bright eyes peeks out: "?"
 import * as THREE from 'three';
+import { fiveChime, crayonStar, yellowHat, greySky, shadowWindow } from './variants3.js';
 import { acts, timeline, bump, wobble } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
@@ -75,6 +76,7 @@ function gardenWater(ctx, spec, stage) {
 }
 
 function homeTime(ctx, spec, stage) {
+  if (spec.outcome === 'clock') return fiveChime(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.65 * u;
   const sun = solidProp([[new THREE.CircleGeometry(0.26 * u, 32), 0xff7a30]], 1.0), hill = solidProp([[new THREE.SphereGeometry(0.5 * u, 24, 10, 0, Math.PI * 2, 0, Math.PI / 2).scale(1.5, 0.45, 0.4), 0x40305a]], 0.25);
   hill.position.set(hx, floor, -0.1 * u);
@@ -126,6 +128,8 @@ function giftBow(ctx, spec, stage) {
 }
 
 function yellowThings(ctx, spec, stage) {
+  if (spec.outcome === 'crayon') return crayonStar(ctx, spec, stage);
+  if (spec.outcome === 'hat') return yellowHat(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.3 * u, Y = 0xffd820;
   const banana = solidProp([[G.tube([[-0.16 * u, 0.06 * u], [-0.08 * u, -0.03 * u], [0.08 * u, -0.03 * u], [0.16 * u, 0.06 * u]], 0.045 * u), Y], [G.sphere(0.02 * u, -0.17 * u, 0.07 * u, 0), 0x5a3a1a], [G.sphere(0.02 * u, 0.17 * u, 0.07 * u, 0), 0x5a3a1a]], 0.5);
   const lemon = solidProp([[G.sphere(0.12 * u, 0, 0, 0, 1.35, 1, 1), Y], [G.sphere(0.03 * u, 0.16 * u, 0, 0), Y], [G.sphere(0.03 * u, -0.16 * u, 0, 0), Y], [G.sphere(0.03 * u, 0.03 * u, 0.1 * u, 0.04 * u, 1.6, 0.5, 0.5), 0x3a9a3a]], 0.5);
@@ -147,11 +151,12 @@ function yellowThings(ctx, spec, stage) {
 }
 
 function shoeStep(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.5 * u, RED = 0xe03a3a, SKIN = 0xffd2b0;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.5 * u, socks = spec.outcome === 'socks', RED = socks ? 0xff6a9a : 0xe03a3a, SKIN = 0xffd2b0;
   const mat = solidProp([[G.box(0.6 * u, 0.02 * u, 0.4 * u, 0, 0.01 * u, 0), 0x8a5a30], [G.box(0.54 * u, 0.022 * u, 0.34 * u, 0, 0.012 * u, 0), 0xb07a40]], 0.3);
   mat.position.set(mx, floor, 0.15 * u);
   const SHOE = [[G.box(0.09 * u, 0.025 * u, 0.2 * u, 0, 0.0125 * u, 0), 0xf4f4f4], [G.sphere(0.06 * u, 0, 0.05 * u, 0.04 * u, 0.75, 0.75, 1.5), RED], [G.box(0.08 * u, 0.06 * u, 0.06 * u, 0, 0.06 * u, -0.07 * u), RED], [G.box(0.06 * u, 0.01 * u, 0.05 * u, 0, 0.09 * u, 0.0), 0xffffff]];
-  const shoes = many(SHOE.map(([g, c]) => [g.scale(1.7, 1.7, 1.7), c]), 2, 0.4), kid = createPerson({ u: 0.75 * u, shirt: 0x60b060, shoes: SKIN });
+  const SOCK = [[G.sphere(0.05 * u, 0, 0.03 * u, 0.03 * u, 0.85, 0.6, 1.6), RED], [G.cyl(0.042 * u, 0.042 * u, 0.15 * u, 0, 0.1 * u, -0.03 * u), RED], [G.cyl(0.044 * u, 0.044 * u, 0.02 * u, 0, 0.08 * u, -0.03 * u), 0xffffff], [G.cyl(0.044 * u, 0.044 * u, 0.02 * u, 0, 0.13 * u, -0.03 * u), 0xffffff]];
+  const shoes = many((socks ? SOCK : SHOE).map(([g, c]) => [g.scale(1.7, 1.7, 1.7), c]), 2, 0.4), kid = createPerson({ u: 0.75 * u, shirt: 0x60b060, shoes: SKIN });
   group.add(mat, shoes, kid.group);
   const loop = 5.6;
   return {
@@ -165,7 +170,7 @@ function shoeStep(ctx, spec, stage) {
       }
       shoes.commit();
       const worn = T.on > 0;
-      kid.rig.setColor('footL', worn ? RED : SKIN); kid.rig.setColor('footR', worn ? RED : SKIN);
+      ['footL', 'footR', ...(socks ? ['shinL', 'shinR'] : [])].forEach((n) => kid.rig.setColor(n, worn ? RED : n.startsWith('shin') ? 0x2a3550 : SKIN));
       kid.reset();
       if (T.on === 0) { kid.face('toward').walk(v * 9, T.walk > 0 && T.walk < 1 ? 1 : 0); kid.group.position.set(mx, floor, 0.15 * u - 0.7 * u * (1 - T.walk)); }
       else { kid.face('right').walk(v * 9, T.off > 0 && T.off < 1 ? 1 : 0); kid.group.position.set(mx + 0.75 * u * T.off, floor, 0.15 * u); }
@@ -175,6 +180,7 @@ function shoeStep(ctx, spec, stage) {
 }
 
 function cloudsGather(ctx, spec, stage) {
+  if (spec.outcome === 'grey') return greySky(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.45 * u, sy = B.maxY - 0.05 * u;
   const sun = emblemProp('sun', 0.55 * u), mats = []; sun.traverse((o) => { if (o.material) mats.push(o.material); });
   const CLOUD = [[G.sphere(0.13 * u, 0, 0, 0), 0xc8ccd4], [G.sphere(0.1 * u, -0.13 * u, -0.03 * u, 0), 0xc8ccd4], [G.sphere(0.1 * u, 0.13 * u, -0.03 * u, 0), 0xb8bcc8], [G.sphere(0.08 * u, 0.06 * u, 0.08 * u, 0.02 * u), 0xd8dce4]];
@@ -200,6 +206,7 @@ function cloudsGather(ctx, spec, stage) {
 }
 
 function knockDoor(ctx, spec, stage) {
+  if (spec.outcome === 'window') return shadowWindow(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, dx = B.maxX + 0.5 * u, W = 0.42 * u, H = 0.85 * u;
   const frame = solidProp([[G.box(0.05 * u, H + 0.05 * u, 0.08 * u, -W / 2 - 0.025 * u, H / 2, 0), 0x7a4a2a], [G.box(0.05 * u, H + 0.05 * u, 0.08 * u, W / 2 + 0.025 * u, H / 2, 0), 0x7a4a2a], [G.box(W + 0.1 * u, 0.05 * u, 0.08 * u, 0, H + 0.025 * u, 0), 0x7a4a2a], [G.box(W, H, 0.01 * u, 0, H / 2, -0.06 * u), 0xffd890]], 0.3);
   frame.position.set(dx, floor, 0);

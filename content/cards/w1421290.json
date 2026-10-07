@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5730", "56f3"],
   "builtFrom": [{ "k": "地", "m": "ground" }, { "k": "図", "m": "map" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["field"], "emblem": "pin", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "map-read" } },
   "sentences": [
     {
       "segments": [ { "text": "ちょっとこの" }, { "text": "地図", "reading": "ちず" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "なさい。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [202836, 40071] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 地図" },
+  "review": { "recipe": "reviewed", "rule": "word 地図" },
   "source": { "jmdict": 1421290, "jlpt": 5 }
 }

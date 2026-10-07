@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["90e8", "5c4b"],
   "builtFrom": [{ "k": "部", "m": "section" }, { "k": "屋", "m": "roof" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "backdrop": "sky:indoor", "emblem": "bed" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "size": 1, "type": "my-room" } },
   "sentences": [
     {
       "segments": [ { "text": "部屋", "reading": "へや" }, { "text": "には" }, { "text": "誰", "reading": "だれ" }, { "text": "かいますか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [84213, 319502] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 部屋" },
+  "review": { "recipe": "reviewed", "rule": "word 部屋" },
   "source": { "jmdict": 1499320, "jlpt": 5 }
 }

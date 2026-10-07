@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "渡", "m": "transit" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "scene": ["river", "bridge"],
-    "motion": "drift:right",
-    "backdrop": "sky:day"
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "bridge-walk", "outcome": "zebra" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [224241, 61576] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 渡る" },
+  "review": { "recipe": "reviewed", "rule": "word 渡る" },
   "source": { "jmdict": 1444680, "jlpt": 5 }
 }

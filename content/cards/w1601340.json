@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "晩", "m": "nightfall" }, { "k": "御", "m": "honorable" }, { "k": "飯", "m": "meal" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "bowl",
     "backdrop": "sky:night",
-    "particles": ["steam"],
-    "motion": "float"
+    "vignette": { "size": 1.2, "type": "dinner-table", "time": "night" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [82878, 320838] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 晩御飯" },
+  "review": { "recipe": "reviewed", "rule": "word 晩御飯" },
   "source": { "jmdict": 1601340, "jlpt": 5 }
 }

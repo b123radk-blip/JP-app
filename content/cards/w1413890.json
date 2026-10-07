@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5927", "4f7f", "9928"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "使", "m": "use" }, { "k": "館", "m": "building" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag:japan", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "hall-rise", "outcome": "embassy" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "大使館", "reading": "たいしかん" }, { "text": "はどこですか。" } ],
@@ -17,6 +21,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 大使館" },
+  "review": { "recipe": "reviewed", "rule": "word 大使館" },
   "source": { "jmdict": 1413890, "jlpt": 5 }
 }

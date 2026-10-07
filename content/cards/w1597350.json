@@ -8,13 +8,7 @@
   "pos": ["adv", "adv-to"],
   "kanji": ["6bb5"],
   "builtFrom": [{ "k": "段", "m": "steps" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "stairs", "color": "#ffd27a" },
-    "motion": "grow",
-    "backdrop": "sky:day"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1.2, "type": "snail-climb" } },
   "sentences": [
     {
       "segments": [ { "text": "段々", "reading": "だんだん" }, { "text": "思い出", "reading": "おもいだ" }, { "text": "し" }, { "text": "始", "reading": "はじ" }, { "text": "めてきた。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [159529, 254994] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 段々" },
+  "review": { "recipe": "reviewed", "rule": "word 段々" },
   "source": { "jmdict": 1597350, "jlpt": 5 }
 }

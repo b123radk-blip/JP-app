@@ -8,12 +8,7 @@
   "pos": ["n"],
   "kanji": ["80cc", "5e83"],
   "builtFrom": [{ "k": "背", "m": "stature" }, { "k": "広", "m": "wide" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "shirt", "color": "#3a3a50" },
-    "backdrop": "sky:morning"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "size": 1, "type": "suit-up" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "背広", "reading": "せびろ" }, { "text": "を" }, { "text": "買", "reading": "か" }, { "text": "った。" } ],
@@ -22,6 +17,6 @@
       "source": { "tatoeba": [155725, 258812] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 背広" },
+  "review": { "recipe": "reviewed", "rule": "word 背広" },
   "source": { "jmdict": 1472740, "jlpt": 5 }
 }

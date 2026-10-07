@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["6bb5"],
   "builtFrom": [{ "k": "段", "m": "steps" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "stairs", "backdrop": "sky:day", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "ball-steps", "outcome": "climb" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "先生", "reading": "せんせい" }, { "text": "は" }, { "text": "階段", "reading": "かいだん" }, { "text": "をかけ" }, { "text": "上", "reading": "あ" }, { "text": "がった。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [141655, 272915] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 階段" },
+  "review": { "recipe": "reviewed", "rule": "word 階段" },
   "source": { "jmdict": 1203090, "jlpt": 5 }
 }

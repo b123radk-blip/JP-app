@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "黄", "m": "yellow" }, { "k": "色", "m": "color" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "flower", "color": "#ffd800" },
-    "backdrop": "sky:day",
-    "motion": "float"
+    "backdrop": "sky:storm",
+    "vignette": { "size": 1, "type": "yellow-things", "outcome": "hat" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [188459, 25602] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 黄色い" },
+  "review": { "recipe": "reviewed", "rule": "word 黄色い" },
   "source": { "jmdict": 1182030, "jlpt": 5 }
 }

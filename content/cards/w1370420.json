@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["56f3", "66f8", "9928"],
   "builtFrom": [{ "k": "図", "m": "map" }, { "k": "書", "m": "write" }, { "k": "館", "m": "building" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "scene": ["room"], "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "size": 1, "type": "library-shelf" } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "図書館", "reading": "としょかん" }, { "text": "のものです。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [219587, 56908] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 図書館" },
+  "review": { "recipe": "reviewed", "rule": "word 図書館" },
   "source": { "jmdict": 1370420, "jlpt": 5 }
 }

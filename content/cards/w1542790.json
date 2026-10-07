@@ -8,7 +8,11 @@
   "pos": ["n", "adv"],
   "kanji": ["5915", "65b9"],
   "builtFrom": [{ "k": "夕", "m": "evening" }, { "k": "方", "m": "direction" }],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:sunset", "emblem": "crescent" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:sunset",
+    "vignette": { "size": 1, "type": "home-time", "outcome": "clock" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ひょっとすると" }, { "text": "夕方", "reading": "ゆうがた" }, { "text": "前", "reading": "まえ" }, { "text": "に" }, { "text": "雨", "reading": "あめ" }, { "text": "になるかもしれない。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [197417, 31050] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 夕方" },
+  "review": { "recipe": "reviewed", "rule": "word 夕方" },
   "source": { "jmdict": 1542790, "jlpt": 5 }
 }

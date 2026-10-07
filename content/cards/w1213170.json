@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5b57"],
   "builtFrom": [{ "k": "字", "m": "character" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["kana"], "emblem": "pen", "backdrop": "sky:indoor" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1, "type": "letter-blocks", "letters": "山川木" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "漢字", "reading": "かんじ" }, { "text": "を" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "教", "reading": "おし" }, { "text": "えてください。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [237388, 21023] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 漢字" },
+  "review": { "recipe": "reviewed", "rule": "word 漢字" },
   "source": { "jmdict": 1213170, "jlpt": 5 }
 }

@@ -9,6 +9,7 @@
 //   paper-fold     紙: a sheet of paper flutters down, folds into a triangle, again, and becomes a paper hat that hops
 //                  onto a kid's head
 import * as THREE from 'three';
+import { zebraCross, letterSend } from './variants3.js';
 import { acts, timeline, bump, wobble } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, burst } from '../pieces/kit-things.js';
@@ -140,6 +141,7 @@ function cageOpen(ctx, spec, stage) {
 }
 
 function bridgeWalk(ctx, spec, stage) {
+  if (spec.outcome === 'zebra') return zebraCross(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.7 * u, span = 1.0 * u, rise = 0.25 * u;
   const water = solidProp([[G.box(0.75 * u, 0.05 * u, 0.7 * u, 0, -0.025 * u, 0), 0x2a7ad0], [G.box(0.3 * u, 0.1 * u, 0.7 * u, -0.6 * u, -0.05 * u, 0), 0x5aa040], [G.box(0.3 * u, 0.1 * u, 0.7 * u, 0.6 * u, -0.05 * u, 0), 0x5aa040]], 0.5); water.position.set(bx, floor, 0);
   const pts = Array.from({ length: 9 }, (_, i) => { const f = i / 8; return [(f - 0.5) * span, rise * Math.sin(Math.PI * f)]; });
@@ -160,6 +162,7 @@ function bridgeWalk(ctx, spec, stage) {
 }
 
 function paperFold(ctx, spec, stage) {
+  if (spec.outcome === 'letter') return letterSend(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u, cy = B.cy + 0.15 * u, S = 0.5 * u;
   const tri = (c) => { const sh = new THREE.Shape(); sh.moveTo(-0.5, 0); sh.lineTo(0.5, 0); sh.lineTo(0, 0.5); sh.lineTo(-0.5, 0); return new THREE.ShapeGeometry(sh).scale(S, S, 1); };
   const lower = solidProp([[tri().rotateZ(Math.PI), 0xfaf6ea]], 0.5), upper = new THREE.Group(), upperM = solidProp([[tri(), 0xfaf6ea]], 0.5);

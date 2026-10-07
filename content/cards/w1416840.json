@@ -8,7 +8,11 @@
   "pos": ["pn"],
   "kanji": ["8ab0"],
   "builtFrom": [{ "k": "誰", "m": "who" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "motion": "tilt", "backdrop": "sky:dusk" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:night",
+    "vignette": { "size": 1, "type": "knock-door", "outcome": "window" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "誰", "reading": "だれ" }, { "text": "かほかの" }, { "text": "人", "reading": "ひと" }, { "text": "がほしい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [136965, 276271] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 誰か" },
+  "review": { "recipe": "reviewed", "rule": "word 誰か" },
   "source": { "jmdict": 1416840, "jlpt": 5 }
 }
