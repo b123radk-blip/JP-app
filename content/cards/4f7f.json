@@ -5,7 +5,7 @@
   "primaryReading": "つか",
   "readings": { "kun": ["つか(う)", "つか(い)", "つか(い)", "づか(い)"], "on": ["シ"] },
   "mnemonic": "A person (亻) put to work by an official (吏): use.",
-  "effect": { "material": "skin", "backdrop": "sky:day", "emblem": "wrench", "parts": { "亻": {} } },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "tool-use", "parts": { "亻": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "のカメラを" }, { "text": "使", "reading": "つか" }, { "text": "ったの？" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [9679094, 70290] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

@@ -5,12 +5,7 @@
   "primaryReading": "だれ",
   "readings": { "kun": ["だれ", "たれ", "た"], "on": ["スイ"] },
   "mnemonic": "A bird (隹) asking (言), \"Who? Who?\": who.",
-  "effect": {
-    "material": "silver",
-    "backdrop": "sky:dusk",
-    "motion": "tilt",
-    "emblem": { "type": "question", "color": "#c0a0ff" }
-  },
+  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "knock-door" },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "誰", "reading": "だれ" }, { "text": "の" }, { "text": "味方", "reading": "みかた" }, { "text": "なの。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [231737, 69104] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1416830"] }
 }

@@ -7,9 +7,8 @@
   "mnemonic": "A courtyard (廷) under the eaves (广), trees in bloom: garden.",
   "effect": {
     "material": "jade",
-    "particles": ["petals"],
     "backdrop": "sky:day",
-    "scene": [{ "type": "tree", "color": "#e890b0" }],
+    "vignette": "garden-water",
     "parts": { "广": { "material": "wood" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [198807, 36003] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1436130"] }
 }

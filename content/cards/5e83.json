@@ -5,12 +5,7 @@
   "primaryReading": "ひろ",
   "readings": { "kun": ["ひろ(い)", "ひろ(まる)", "ひろ(める)", "ひろ(がる)"], "on": ["コウ"] },
   "mnemonic": "A wide hall under the eaves (广) stretching out: wide.",
-  "effect": {
-    "material": "chalk",
-    "backdrop": "sky:day",
-    "scene": ["field"],
-    "motion": { "type": "stretch", "axis": "x", "to": 1.4 }
-  },
+  "effect": { "material": "chalk", "backdrop": "sky:day", "vignette": "stretch-wide" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "部屋", "reading": "へや" }, { "text": "は" }, { "text": "広", "reading": "ひろ" }, { "text": "いです。" } ],

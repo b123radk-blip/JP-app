@@ -4,8 +4,8 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** the pilot, Batch 1 (25 kanji, 55 words) and Batch 2 (25 kanji, 30 words) are built. Next is
-Batch 3: the next 25 unticked kanji of the list below (from 部 on), then their words (every word whose Step 2 kanji are all ticked). Each batch: build,
+**Where to continue:** the pilot, Batch 1 (25 kanji, 55 words), Batch 2 (25 kanji, 30 words) and the Batch 3 kanji
+(部 … 強) are built. Next are the Batch 3 words (every word whose Step 2 kanji are all ticked), then Batch 4 from the next unticked kanji (every word whose Step 2 kanji are all ticked). Each batch: build,
 look at the frame strips, fix, apply with `scripts/set-recipes.mjs`, tick here, `npm test`, e2e, commit and push.
 
 ## Grades
@@ -107,31 +107,31 @@ Batches of about 25 in this order. Tick a line when its scene is built, looked a
 - [x] 降 descend / fall (C): a person walks down a staircase and steps off the last step; rain starts falling as they reach the bottom. Built: `stairs-down`.
 - [x] 習 learn (C): a fledgling on a branch flaps its wings, falls, flaps again, and the third time flies: learning by practice. Built: `learn-fly`.
 - [x] 弟 younger brother (C): a small kid tries to keep up behind a bigger one, tugging their sleeve, bouncing to see over. Built: `little-follow`.
-- [ ] 部 section / part (C): a cake is sliced into four; one slice slides out and away from the others.
-- [ ] 全 whole / all (C): puzzle pieces fly in and fill a frame until the last one clicks in; the whole picture glows.
-- [ ] 体 body (C): a person stretches: arms up, touches toes, twists; their outline glows part by part (head, arms, legs).
-- [ ] 字 letter / character (C): wooden letter blocks drop in a row and spell something, a child points at each in turn.
-- [ ] 通 pass through (C): a train runs through a tunnel mouth beside the kanji: in one side, out the other, lights flickering past.
-- [ ] 空 sky / empty (C): a bird cage door opens, the bird flies out into the blue sky; the cage is left empty.
-- [ ] 渡 cross (B): river and bridge already there; add a person walking over the bridge from one bank to the other.
-- [ ] 紙 paper (C): a sheet of paper flutters down, folds itself into a paper plane in three folds and glides away.
-- [ ] 夏 summer (C): a person under a blazing sun fans themselves, then licks an ice cream that melts and drips.
-- [ ] 庭 garden (C): a person waters a little garden plot; flowers pop up one by one in rows, a butterfly visits.
-- [ ] 夕 evening (C): the sun sets into the sea, painting it orange; a crow flies home across it; the first star.
-- [ ] 御 honourable (C): a person bows deeply and offers a gift box with both hands (polite).
-- [ ] 黄 yellow (C): a chick hatches and fluffs up bright yellow; a banana peels itself beside it.
-- [ ] 靴 shoes (C): a pair of shoes walks in by themselves, a foot steps into one, laces tie themselves.
-- [ ] 曇 cloudy (C): fat grey clouds drift in and cover the sun one by one; the light dims; the sun peeks out and is covered again.
-- [ ] 誰 who (C): a door with a knock-knock; it opens a crack and a silhouette peeks out; a big "?" over it.
-- [ ] 広 wide (C): two hands grab the kanji's sides and stretch it wide; a field unrolls behind it to the horizon.
-- [ ] 背 back / height (C): two kids stand back to back, measuring height; a ruler slides down onto their heads.
-- [ ] 無 nothing (C): a box is opened and turned upside down, shaken: nothing falls out; the kanji poofs to nothing and back.
-- [ ] 理 reason (C): two gears that do not turn; a hand slots in the missing middle gear and all three turn together: it makes sense.
-- [ ] 段 steps (C): the kanji's strokes rearrange into a staircase; a ball bounces down it step by step.
-- [ ] 図 map / drawing (C): a map unrolls on the ground; a dotted path draws itself across it to an X.
-- [ ] 館 large building (C): a big columned hall rises out of the ground behind the kanji; doors open, people walk in.
-- [ ] 使 use (C): a hand picks up a tool (a spoon), uses it to scoop, then puts it back on its hook.
-- [ ] 強 strong (C): a person lifts a heavy barbell over their head easily and flexes (the opposite of 重's struggle).
+- [x] 部 section / part (C): a cake is sliced into four; one slice slides out and away from the others. Built: `cake-slice`.
+- [x] 全 whole / all (C): puzzle pieces fly in and fill a frame until the last one clicks in; the whole picture glows. Built: `puzzle-fill`.
+- [x] 体 body (C): a person stretches: arms up, touches toes, twists; their outline glows part by part (head, arms, legs). Built: `body-stretch`.
+- [x] 字 letter / character (C): wooden letter blocks drop in a row and spell something, a child points at each in turn. Built: `letter-blocks`.
+- [x] 通 pass through (C): a train runs through a tunnel mouth beside the kanji: in one side, out the other, lights flickering past. Built: `walk-through`.
+- [x] 空 sky / empty (C): a bird cage door opens, the bird flies out into the blue sky; the cage is left empty. Built: `cage-open`.
+- [x] 渡 cross (B): river and bridge already there; add a person walking over the bridge from one bank to the other. Built: `bridge-walk`.
+- [x] 紙 paper (C): a sheet of paper flutters down, folds itself into a paper plane in three folds and glides away. Built: `paper-fold`.
+- [x] 夏 summer (C): a person under a blazing sun fans themselves, then licks an ice cream that melts and drips. Built: `ice-melt`.
+- [x] 庭 garden (C): a person waters a little garden plot; flowers pop up one by one in rows, a butterfly visits. Built: `garden-water`.
+- [x] 夕 evening (C): the sun sets into the sea, painting it orange; a crow flies home across it; the first star. Built: `home-time`.
+- [x] 御 honourable (C): a person bows deeply and offers a gift box with both hands (polite). Built: `gift-bow`.
+- [x] 黄 yellow (C): a chick hatches and fluffs up bright yellow; a banana peels itself beside it. Built: `yellow-things`.
+- [x] 靴 shoes (C): a pair of shoes walks in by themselves, a foot steps into one, laces tie themselves. Built: `shoe-step`.
+- [x] 曇 cloudy (C): fat grey clouds drift in and cover the sun one by one; the light dims; the sun peeks out and is covered again. Built: `clouds-gather`.
+- [x] 誰 who (C): a door with a knock-knock; it opens a crack and a silhouette peeks out; a big "?" over it. Built: `knock-door`.
+- [x] 広 wide (C): two hands grab the kanji's sides and stretch it wide; a field unrolls behind it to the horizon. Built: `stretch-wide`.
+- [x] 背 back / height (C): two kids stand back to back, measuring height; a ruler slides down onto their heads. Built: `back-to-back`.
+- [x] 無 nothing (C): a box is opened and turned upside down, shaken: nothing falls out; the kanji poofs to nothing and back. Built: `empty-box`.
+- [x] 理 reason (C): two gears that do not turn; a hand slots in the missing middle gear and all three turn together: it makes sense. Built: `gears-click`.
+- [x] 段 steps (C): the kanji's strokes rearrange into a staircase; a ball bounces down it step by step. Built: `ball-steps`.
+- [x] 図 map / drawing (C): a map unrolls on the ground; a dotted path draws itself across it to an X. Built: `map-unroll`.
+- [x] 館 large building (C): a big columned hall rises out of the ground behind the kanji; doors open, people walk in. Built: `hall-rise`.
+- [x] 使 use (C): a hand picks up a tool (a spoon), uses it to scoop, then puts it back on its hook. Built: `tool-use`.
+- [x] 強 strong (C): a person lifts a heavy barbell over their head easily and flexes (the opposite of 重's struggle). Built: `barbell-flex`.
 - [ ] 交 mingle / cross (C): two cars come from left and right and cross at a junction under the kanji, passing each other.
 - [ ] 差 difference (C): two towers of blocks side by side; one grows taller; a ruler measures the gap between them.
 - [ ] 度 degrees / times (C): a thermometer beside a person rises a notch each time they shiver (1, 2, 3 times).

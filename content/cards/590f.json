@@ -5,13 +5,7 @@
   "primaryReading": "なつ",
   "readings": { "kun": ["なつ"], "on": ["カ", "ガ", "ゲ"] },
   "mnemonic": "A head (自) dragging its feet (夂) in the heat: summer.",
-  "effect": {
-    "material": "gold",
-    "particles": [{ "type": "motes", "dir": "up", "color": "#ffd060" }],
-    "backdrop": "sky:noon",
-    "scene": ["ripples"],
-    "emblem": { "type": "flower", "size": 1.2 }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:noon", "vignette": "ice-melt" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "夏", "reading": "なつ" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "多", "reading": "おお" }, { "text": "かった。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [222861, 60192] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1191320"] }
 }

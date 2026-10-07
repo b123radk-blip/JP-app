@@ -8,8 +8,7 @@
   "effect": {
     "material": { "type": "glow", "preset": "gold", "body": "#fff07a", "emissive": "#ffd400", "glow": "#ffe040" },
     "backdrop": "sky:day",
-    "emblem": { "type": "splash", "color": "#ffd800" },
-    "particles": [{ "type": "motes", "dir": "up", "color": "#ffe040" }]
+    "vignette": "yellow-things"
   },
   "sentences": [
     {

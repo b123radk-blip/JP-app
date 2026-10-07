@@ -5,7 +5,7 @@
   "primaryReading": "だん",
   "readings": { "kun": [], "on": ["ダン", "タン"] },
   "mnemonic": "Steps cut out with a hammer (殳): stairs, step by step.",
-  "effect": { "material": "stone", "backdrop": "sky:day", "emblem": { "type": "stairs", "size": 1.3 } },
+  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": "ball-steps" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "階段", "reading": "かいだん" }, { "text": "を" }, { "text": "上", "reading": "のぼ" }, { "text": "ってはいけません。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [211701, 48978] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

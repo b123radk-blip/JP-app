@@ -5,12 +5,7 @@
   "primaryReading": "ゆう",
   "readings": { "kun": ["ゆう"], "on": ["セキ"] },
   "mnemonic": "Half a moon (月) rising at dusk: evening.",
-  "effect": {
-    "material": "gold",
-    "backdrop": "sky:sunset",
-    "motion": { "type": "drift", "dir": "up", "dist": 0.03 },
-    "emblem": { "type": "crescent", "color": "#ffd890" }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:sunset", "vignette": "home-time" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "夕飯", "reading": "ゆうはん" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "った。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [156721, 257813] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

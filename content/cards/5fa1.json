@@ -5,7 +5,7 @@
   "primaryReading": "ご",
   "readings": { "kun": ["おん", "お", "み"], "on": ["ギョ", "ゴ"] },
   "mnemonic": "Stepping (彳) up to bow (卸) politely: the honourable prefix (御飯).",
-  "effect": { "material": "gold", "backdrop": { "type": "halo", "color": "#ffd070" }, "motion": "bow" },
+  "effect": { "material": "gold", "backdrop": { "type": "halo", "color": "#ffd070" }, "vignette": "gift-bow" },
   "sentences": [
     {
       "segments": [ { "text": "おいしい" }, { "text": "晩御飯", "reading": "ばんごはん" }, { "text": "をありがとうございました。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [227833, 65186] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

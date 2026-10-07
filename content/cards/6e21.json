@@ -8,8 +8,7 @@
   "effect": {
     "material": "lacquer",
     "backdrop": "sky:day",
-    "scene": ["river", "bridge"],
-    "motion": { "type": "drift", "dir": "right" },
+    "vignette": "bridge-walk",
     "parts": { "氵": { "material": "water" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [158694, 255834] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

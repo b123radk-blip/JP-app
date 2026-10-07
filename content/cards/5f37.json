@@ -8,8 +8,7 @@
   "effect": {
     "material": "metal",
     "backdrop": "sky:noon",
-    "motion": "pulse",
-    "emblem": "dumbbell",
+    "vignette": "barbell-flex",
     "parts": { "弓": { "material": "wood" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [171502, 242971] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

@@ -8,7 +8,7 @@
   "effect": {
     "material": "chalk",
     "backdrop": "sky:day",
-    "emblem": { "type": "pie", "part": 0.25 },
+    "vignette": "cake-slice",
     "parts": { "⻏": { "material": "jade" } }
   },
   "sentences": [
@@ -19,6 +19,6 @@
       "source": { "tatoeba": [84158, 319557] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

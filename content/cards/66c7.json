@@ -7,10 +7,9 @@
   "mnemonic": "Clouds (雲) drift over the sun (日): cloudy.",
   "effect": {
     "material": "cloud",
-    "particles": ["mist"],
-    "backdrop": "sky:snow",
-    "emblem": "cloud",
-    "parts": { "日": { "material": "gold", "motion": "pulse" } }
+    "backdrop": "sky:day",
+    "vignette": "clouds-gather",
+    "parts": { "日": { "material": "gold" } }
   },
   "sentences": [
     {
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [171528, 242947] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

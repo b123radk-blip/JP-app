@@ -5,7 +5,7 @@
   "primaryReading": "り",
   "readings": { "kun": ["ことわり"], "on": ["リ"] },
   "mnemonic": "Jade (王) cut along its grain in the village (里): reason, logic.",
-  "effect": { "material": "jade", "backdrop": "sky:twilight", "emblem": "scale", "parts": { "王": {} } },
+  "effect": { "material": "jade", "backdrop": "sky:twilight", "vignette": "gears-click", "parts": { "王": {} } },
   "sentences": [
     {
       "segments": [ { "text": "料理", "reading": "りょうり" }, { "text": "することは" }, { "text": "面白", "reading": "おもしろ" }, { "text": "い。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [77944, 325774] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

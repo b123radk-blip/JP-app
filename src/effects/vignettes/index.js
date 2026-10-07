@@ -32,9 +32,11 @@ import { SCENES as WORLD } from './world.js';
 import { SCENES as EVERYDAY2 } from './everyday2.js';
 import { SCENES as PLAY2 } from './play2.js';
 import { SCENES as BATCH3A } from './batch3a.js';
+import { SCENES as BATCH3B } from './batch3b.js';
+import { SCENES as BATCH3C } from './batch3c.js';
 import { SCENES as KIT } from './kit-sheet.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...KIT };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

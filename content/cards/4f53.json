@@ -5,13 +5,7 @@
   "primaryReading": "からだ",
   "readings": { "kun": ["からだ", "かたち"], "on": ["タイ", "テイ"] },
   "mnemonic": "A person (亻) and their trunk (本): body.",
-  "effect": {
-    "material": "skin",
-    "backdrop": "sky:day",
-    "motion": { "type": "stretch", "axis": "y", "to": 1.2 },
-    "emblem": { "type": "person", "color": "#ffb070" },
-    "parts": { "亻": {} }
-  },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "body-stretch", "parts": { "亻": {} } },
   "sentences": [
     {
       "segments": [ { "text": "体", "reading": "たい" }, { "text": "全体", "reading": "ぜんたい" }, { "text": "がだるいです。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [138014, 275221] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1409140"] }
 }

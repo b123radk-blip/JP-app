@@ -5,7 +5,7 @@
   "primaryReading": "な",
   "readings": { "kun": ["な(い)"], "on": ["ム", "ブ"] },
   "mnemonic": "Everything burned away in the fire (灬): nothing left.",
-  "effect": { "material": "chalk", "backdrop": "sky:night", "motion": "vanish", "parts": { "灬": { "material": "heat" } } },
+  "effect": { "material": "chalk", "backdrop": "sky:twilight", "vignette": "empty-box" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はペンを" }, { "text": "無", "reading": "な" }, { "text": "くしてしまった。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [158950, 255576] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

@@ -5,13 +5,7 @@
   "primaryReading": "ぜん",
   "readings": { "kun": ["まった(く)", "すべ(て)"], "on": ["ゼン"] },
   "mnemonic": "A king (王) under one roof (人) owns it all: whole, all.",
-  "effect": {
-    "material": "gold",
-    "particles": [{ "type": "sparks", "count": 0.6 }],
-    "backdrop": { "type": "halo", "color": "#ffd060" },
-    "motion": "pulse",
-    "emblem": { "type": "dots", "n": 5, "color": "#ffc040" }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:twilight", "vignette": "puzzle-fill" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "本", "reading": "ほん" }, { "text": "全部", "reading": "ぜんぶ" }, { "text": "読", "reading": "よ" }, { "text": "んだかい。" } ],

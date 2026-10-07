@@ -7,9 +7,8 @@
   "mnemonic": "Leather (革) that changes (化) into shoes.",
   "effect": {
     "material": "fur",
-    "particles": [{ "type": "footprints", "color": "#7a5030" }],
     "backdrop": "sky:day",
-    "emblem": "shoe",
+    "vignette": "shoe-step",
     "parts": { "革": { "material": "clay" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [200967, 38172] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1246700"] }
 }

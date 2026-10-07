@@ -5,7 +5,7 @@
   "primaryReading": "そら",
   "readings": { "kun": ["そら", "あ(く)", "あ(き)", "あ(ける)"], "on": ["クウ"] },
   "mnemonic": "A hole (穴) in the roof over the workbench (工): the empty sky above.",
-  "effect": { "material": "cloud", "backdrop": "sky:noon", "motion": "float", "emblem": { "type": "cloud", "size": 1.4 } },
+  "effect": { "material": "cloud", "backdrop": "sky:noon", "vignette": "cage-open" },
   "sentences": [
     {
       "segments": [ { "text": "そのグラスは" }, { "text": "空", "reading": "そら" }, { "text": "だった。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [213246, 50532] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1245290"] }
 }

@@ -5,12 +5,7 @@
   "primaryReading": "ず",
   "readings": { "kun": ["え", "はか(る)"], "on": ["ズ", "ト"] },
   "mnemonic": "A drawing inside a frame (囗): a map, a plan.",
-  "effect": {
-    "material": "paper",
-    "backdrop": "sky:day",
-    "scene": ["field"],
-    "emblem": { "type": "pin", "color": "#3a7ad0" }
-  },
+  "effect": { "material": "paper", "backdrop": "sky:day", "vignette": "map-unroll" },
   "sentences": [
     {
       "segments": [ { "text": "図書館", "reading": "としょかん" }, { "text": "はどこですか。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [143866, 270700] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }
