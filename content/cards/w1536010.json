@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["554f", "984c"],
   "builtFrom": [{ "k": "問", "m": "question" }, { "k": "題", "m": "topic" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "backdrop": "sky:indoor" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:twilight",
+    "vignette": { "size": 1, "type": "hand-question", "outcome": "quiz" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "問題", "reading": "もんだい" }, { "text": "はほっておけ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [206455, 43703] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 問題" },
+  "review": { "recipe": "reviewed", "rule": "word 問題" },
   "source": { "jmdict": 1536010, "jlpt": 5 }
 }

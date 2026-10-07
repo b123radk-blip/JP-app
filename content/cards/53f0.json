@@ -5,7 +5,7 @@
   "primaryReading": "だい",
   "readings": { "kun": ["うてな", "われ", "つかさ"], "on": ["ダイ", "タイ"] },
   "mnemonic": "A mouth (口) under a nose (厶) at the counter: a stand, a platform; the kitchen (台所).",
-  "effect": { "material": "wood", "backdrop": "sky:indoor", "scene": ["room:kitchen"], "motion": "float" },
+  "effect": { "material": "wood", "backdrop": "sky:indoor", "vignette": "stand-vase" },
   "sentences": [
     {
       "segments": [ { "text": "テレビは" }, { "text": "台", "reading": "だい" }, { "text": "の" }, { "text": "上", "reading": "うえ" }, { "text": "にあります。" } ],
@@ -14,6 +14,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

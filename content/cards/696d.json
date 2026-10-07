@@ -8,7 +8,7 @@
   "effect": {
     "material": "silver",
     "backdrop": "sky:morning",
-    "emblem": "gears",
+    "vignette": "office-work",
     "parts": { "木": { "material": "wood" } }
   },
   "sentences": [
@@ -19,6 +19,6 @@
       "source": { "tatoeba": [205089, 42331] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

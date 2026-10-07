@@ -8,7 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": ["7d42"],
   "builtFrom": [{ "k": "終", "m": "end" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag:finish", "backdrop": "sky:sunset" },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "size": 1.2, "type": "hourglass-end" } },
   "sentences": [
     {
       "segments": [ { "text": "学校", "reading": "がっこう" }, { "text": "は" }, { "text": "三", "reading": "さん" }, { "text": "時半", "reading": "じはん" }, { "text": "に" }, { "text": "終", "reading": "お" }, { "text": "わる。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [184393, 2937733] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 終わる" },
+  "review": { "recipe": "reviewed", "rule": "word 終わる" },
   "source": { "jmdict": 1589600, "jlpt": 5 }
 }

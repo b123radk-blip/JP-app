@@ -8,7 +8,11 @@
   "pos": ["adj-i"],
   "kanji": ["9045"],
   "builtFrom": [{ "k": "遅", "m": "slow" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "snail", "backdrop": "sky:dusk" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.3, "type": "toast-run", "outcome": "tortoise" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "夕食", "reading": "ゆうしょく" }, { "text": "は" }, { "text": "遅", "reading": "おそ" }, { "text": "くなるようだ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [79085, 324632] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 遅い" },
+  "review": { "recipe": "reviewed", "rule": "word 遅い" },
   "source": { "jmdict": 1421970, "jlpt": 5 }
 }

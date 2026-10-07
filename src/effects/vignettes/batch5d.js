@@ -7,6 +7,7 @@
 //   photo-snap   写: a person poses with a peace sign; the camera flashes and a photo slides out and develops
 //   ocean-ship   洋: waves roll across a wide sea; a ship sails along the horizon, puffing smoke
 import * as THREE from 'three';
+import { clawMachine, dogHomework, photoWall } from './variants5c.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
@@ -19,6 +20,7 @@ import { between, bonePoint, handTo, wisps } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f);
 
 function titleStamp(ctx, spec, stage) {
+  if (spec.outcome === 'dog') return dogHomework(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), nx = B.maxX + 0.4 * u, ny = B.cy, W = 0.46 * u, H = 0.6 * u;
   const book = solidProp([[G.box(W, H, 0.04 * u, 0, 0, 0), 0x3a7ad0], ...Array.from({ length: 6 }, (_, i) => [G.torus(0.025 * u, 0.006 * u, Math.PI * 2, -W / 2, H * 0.4 - i * 0.16 * u * 0.9, 0, 0), 0xc8ccd4])], 0.4);
   book.position.set(nx, ny, 0);
@@ -62,6 +64,7 @@ function innSleep(ctx, spec, stage) {
 }
 
 function grabApple(ctx, spec, stage) {
+  if (spec.outcome === 'claw') return clawMachine(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.4 * u, TH = 0.36 * u;
   const table = solidProp([[G.box(0.46 * u, 0.03 * u, 0.28 * u, 0, TH, 0), 0xc89a60], [G.box(0.03 * u, TH, 0.03 * u, -0.19 * u, TH / 2, 0.1 * u), 0x8a5a30], [G.box(0.03 * u, TH, 0.03 * u, 0.19 * u, TH / 2, 0.1 * u), 0x8a5a30], [G.cyl(0.1 * u, 0.1 * u, 0.01 * u, 0, TH + 0.02 * u, 0, 0, 0, 0, 20), 0xf4f4f8]], 0.35);
   table.position.set(tx, floor, -0.05 * u);
@@ -107,6 +110,7 @@ function gemTest(ctx, spec, stage) {
 }
 
 function photoSnap(ctx, spec, stage) {
+  if (spec.outcome === 'wall') return photoWall(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.3 * u, cx = B.maxX + 0.95 * u, cy = floor + 0.55 * u;
   const p = createPerson({ u: 0.75 * u, shirt: 0xe07ab0 }), cam = solidProp([[G.box(0.24 * u, 0.16 * u, 0.12 * u, 0, 0, 0), 0x2a2a30], [G.cyl(0.055 * u, 0.055 * u, 0.06 * u, -0.02 * u, 0, 0.08 * u, Math.PI / 2), 0x14141c], [G.cyl(0.04 * u, 0.04 * u, 0.062 * u, -0.02 * u, 0, 0.08 * u, Math.PI / 2), 0x3a6ad8], [G.box(0.05 * u, 0.03 * u, 0.01 * u, 0.07 * u, 0.05 * u, 0.062 * u), 0xffffff], [G.box(0.18 * u, 0.02 * u, 0.1 * u, 0, -0.09 * u, 0), 0xe04848]], 0.4), tripod = solidProp([[G.cyl(0.008 * u, 0.008 * u, 0.48 * u, -0.06 * u, 0.24 * u, 0, 0, 0, 0.2), 0x3a3a44], [G.cyl(0.008 * u, 0.008 * u, 0.48 * u, 0.06 * u, 0.24 * u, 0, 0, 0, -0.2), 0x3a3a44]], 0.4);
   tripod.position.set(cx, floor, -0.05 * u); cam.position.set(cx, cy, 0.0);

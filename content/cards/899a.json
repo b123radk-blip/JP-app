@@ -5,13 +5,7 @@
   "primaryReading": "おぼ",
   "readings": { "kun": ["おぼ(える)", "さ(ます)", "さ(める)", "さと(る)"], "on": ["カク"] },
   "mnemonic": "Seeing (見) the book with sparks (⺍) over your head: memorize, remember.",
-  "effect": {
-    "material": "pearl",
-    "particles": [{ "type": "sparks", "count": 0.6 }],
-    "backdrop": "sky:twilight",
-    "emblem": "book",
-    "parts": { "見": {} }
-  },
+  "effect": { "material": "pearl", "backdrop": "sky:twilight", "vignette": "memory-bubble", "parts": { "見": {} } },
   "sentences": [
     {
       "segments": [ { "text": "日本語", "reading": "にほんご" }, { "text": "は" }, { "text": "外人", "reading": "がいじん" }, { "text": "にとって" }, { "text": "覚", "reading": "おぼ" }, { "text": "えにくい。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [122337, 281665] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

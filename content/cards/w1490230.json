@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["75c5", "6c17"],
   "builtFrom": [{ "k": "病", "m": "ill" }, { "k": "気", "m": "spirit" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pill", "backdrop": "sky:storm" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:dusk",
+    "vignette": { "size": 1, "type": "sick-bed", "outcome": "germs" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "病気", "reading": "びょうき" }, { "text": "で" }, { "text": "病院", "reading": "びょういん" }, { "text": "に" }, { "text": "入院", "reading": "にゅういん" }, { "text": "した。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [85309, 318404] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 病気" },
+  "review": { "recipe": "reviewed", "rule": "word 病気" },
   "source": { "jmdict": 1490230, "jlpt": 5 }
 }

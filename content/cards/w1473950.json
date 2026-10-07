@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "売", "m": "sell" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "tag",
-    "particles": ["coins"],
-    "backdrop": "sky:golden",
-    "motion": "float"
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.2, "type": "apple-sell", "outcome": "sold" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [212052, 49331] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 売る" },
+  "review": { "recipe": "reviewed", "rule": "word 売る" },
   "source": { "jmdict": 1473950, "jlpt": 5 }
 }

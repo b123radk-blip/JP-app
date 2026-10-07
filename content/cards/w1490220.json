@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["75c5", "9662"],
   "builtFrom": [{ "k": "病", "m": "ill" }, { "k": "院", "m": "institution" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hospital", "backdrop": "sky:day", "motion": "pulse" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "ambulance", "outcome": "doctor" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "病院", "reading": "びょういん" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [171443, 243032] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 病院" },
+  "review": { "recipe": "reviewed", "rule": "word 病院" },
   "source": { "jmdict": 1490220, "jlpt": 5 }
 }

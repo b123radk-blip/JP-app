@@ -8,7 +8,11 @@
   "pos": ["v5r", "vi"],
   "kanji": ["5e30"],
   "builtFrom": [{ "k": "帰", "m": "homecoming" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "motion": "drift:left", "backdrop": "sky:dusk" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:dusk",
+    "vignette": { "size": 1.3, "type": "home-greet", "outcome": "bird" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "すぐに" }, { "text": "家", "reading": "いえ" }, { "text": "に" }, { "text": "帰", "reading": "かえ" }, { "text": "りなさい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [214911, 52206] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 帰る" },
+  "review": { "recipe": "reviewed", "rule": "word 帰る" },
   "source": { "jmdict": 1221270, "jlpt": 5 }
 }

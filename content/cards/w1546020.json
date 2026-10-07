@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["6d0b", "670d"],
   "builtFrom": [{ "k": "洋", "m": "ocean" }, { "k": "服", "m": "clothing" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shirt", "scene": ["room:shop"], "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "size": 1, "type": "mannequin" } },
   "sentences": [
     {
       "segments": [ { "text": "とてもすてきな" }, { "text": "洋服", "reading": "ようふく" }, { "text": "ですね。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [236922, 37853] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 洋服" },
+  "review": { "recipe": "reviewed", "rule": "word 洋服" },
   "source": { "jmdict": 1546020, "jlpt": 5 }
 }

@@ -5,14 +5,7 @@
   "primaryReading": "およ",
   "readings": { "kun": ["およ(ぐ)"], "on": ["エイ"] },
   "mnemonic": "Water (氵) that goes on forever (永): swim.",
-  "effect": {
-    "material": "water",
-    "particles": ["bubbles", "sparks"],
-    "backdrop": "sky:lake",
-    "scene": ["ripples"],
-    "motion": "swim",
-    "parts": { "氵": {} }
-  },
+  "effect": { "material": "water", "backdrop": "sky:lake", "vignette": "pool-swim", "parts": { "氵": {} } },
   "sentences": [
     {
       "segments": [ { "text": "本当", "reading": "ほんとう" }, { "text": "に" }, { "text": "泳", "reading": "およ" }, { "text": "げるのですか。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [231567, 68934] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

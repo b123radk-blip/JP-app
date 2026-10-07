@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["81ea", "8ee2", "8eca"],
   "builtFrom": [{ "k": "自", "m": "oneself" }, { "k": "転", "m": "revolve" }, { "k": "車", "m": "car" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bike", "scene": ["road"], "backdrop": "sky:morning" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "bike-bell" } },
   "sentences": [
     {
       "segments": [ { "text": "自転車", "reading": "じてんしゃ" }, { "text": "もらえるかしら。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [150066, 264491] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 自転車" },
+  "review": { "recipe": "reviewed", "rule": "word 自転車" },
   "source": { "jmdict": 1318290, "jlpt": 5 }
 }

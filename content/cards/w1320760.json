@@ -8,7 +8,11 @@
   "pos": ["n", "vs", "vt", "vi", "adj-no"],
   "kanji": ["554f"],
   "builtFrom": [{ "k": "問", "m": "question" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "question", "backdrop": "sky:day", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "hand-question", "outcome": "mic" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "質問", "reading": "しつもん" }, { "text": "してもいいですか。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [149525, 71054] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 質問" },
+  "review": { "recipe": "reviewed", "rule": "word 質問" },
   "source": { "jmdict": 1320760, "jlpt": 5 }
 }

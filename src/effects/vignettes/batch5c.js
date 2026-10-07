@@ -8,6 +8,9 @@
 //   mud-splash     汚: a person in white steps in a puddle; mud splashes up and their clothes go brown and spotty
 //   hand-question  問: a kid raises a hand with a big "?" speech bubble; the grown-up beside scratches their head
 import * as THREE from 'three';
+import { answerCheck } from './batch6c.js';
+import { birdHome, okUp, sturdyTable, sunWake, tortoiseHare } from './variants5b.js';
+import { dirtyDishes, micInterview, quizBuzzer } from './variants5c.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, stars, heart, DROP } from '../pieces/kit-things.js';
@@ -19,6 +22,8 @@ import { between, bonePoint } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f);
 
 function postKick(ctx, spec, stage) {
+  if (spec.outcome === 'weight') return sturdyTable(ctx, spec, stage);
+  if (spec.outcome === 'ok') return okUp(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.35 * u;
   const post = solidProp([[G.cyl(0.12 * u, 0.13 * u, 0.7 * u, 0, 0.35 * u, 0, 0, 0, 0, 20), 0x8a5a30], [G.cyl(0.125 * u, 0.125 * u, 0.02 * u, 0, 0.7 * u, 0, 0, 0, 0, 20), 0xd8b080], [G.torus(0.13 * u, 0.012 * u).rotateX(Math.PI / 2).translate(0, 0.5 * u, 0), 0xe8d0a0], [G.torus(0.13 * u, 0.012 * u).rotateX(Math.PI / 2).translate(0, 0.46 * u, 0), 0xe8d0a0], [G.cyl(0.25 * u, 0.25 * u, 0.02 * u, 0, 0.01 * u, 0, 0, 0, 0, 20), 0x7a7a6a]], 0.35);
   post.position.set(px, floor, 0);
@@ -41,6 +46,7 @@ function postKick(ctx, spec, stage) {
 }
 
 function alarmWake(ctx, spec, stage) {
+  if (spec.outcome === 'sun') return sunWake(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.6 * u, top = floor + 0.24 * u, pu = 0.7 * u, hip = 0.39 * pu;
   const bed = solidProp([[G.box(0.8 * u, 0.2 * u, 0.34 * u, 0, 0.1 * u, 0), 0x8a5a30], [G.box(0.78 * u, 0.06 * u, 0.32 * u, 0, 0.21 * u, 0), 0xf4f4f4], [G.box(0.04 * u, 0.36 * u, 0.34 * u, -0.4 * u, 0.18 * u, 0), 0x6a4020], [G.box(0.16 * u, 0.26 * u, 0.16 * u, -0.55 * u, 0.13 * u, 0), 0xa86a38]], 0.35);
   bed.position.set(bx, floor, 0);
@@ -68,6 +74,7 @@ function alarmWake(ctx, spec, stage) {
 }
 
 function homeGreet(ctx, spec, stage) {
+  if (spec.outcome === 'bird') return birdHome(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.85 * u, W = 0.5 * u, H = 0.45 * u;
   const tri = new THREE.Shape(); tri.moveTo(-3.4, 0); tri.lineTo(3.4, 0); tri.lineTo(0, 2.2); tri.lineTo(-3.4, 0); const k = (W + 0.1 * u) / 6.8;
   const house = solidProp([[G.box(W, H, 0.4 * u, 0, H / 2, 0), 0xe8d0b0], [G.extrude(tri, 4.4).scale(k, k, k).translate(0, H, 0), 0xc04030], [G.box(0.14 * u, 0.3 * u, 0.01 * u, -0.12 * u, 0.15 * u, 0.2 * u), 0xffd070], [G.box(0.12 * u, 0.1 * u, 0.01 * u, 0.12 * u, 0.28 * u, 0.201 * u), 0xffd070]], 0.5);
@@ -91,6 +98,7 @@ function homeGreet(ctx, spec, stage) {
 }
 
 function toastRun(ctx, spec, stage) {
+  if (spec.outcome === 'tortoise') return tortoiseHare(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, pu = 0.75 * u;
   const kid = createPerson({ u: pu, shirt: 0xffffff, pants: 0x23304a }), toast = solidProp([[G.box(0.12 * u, 0.12 * u, 0.02 * u, 0, 0, 0), 0xf0c070], [G.box(0.1 * u, 0.1 * u, 0.022 * u, 0, 0, 0), 0xffe8b0]], 0.5);
   kid.rig.attach('head', toast, 0.35).position.set(0, -0.02 * pu, 0.14 * pu); toast.rotation.y = Math.PI / 2;
@@ -114,6 +122,7 @@ function toastRun(ctx, spec, stage) {
 }
 
 function mudSplash(ctx, spec, stage) {
+  if (spec.outcome === 'dishes') return dirtyDishes(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.65 * u, MUD = 0x7a5530;
   const puddle = solidProp([[G.sphere(0.22 * u, 0, 0, 0, 1.3, 0.06, 0.7), MUD]], 0.35); puddle.position.set(mx, floor, 0.12 * u);
   const p = createPerson({ u: 0.8 * u, shirt: 0xffffff, pants: 0xf0f0f0 }), drops = many([[G.sphere(0.025 * u, 0, 0, 0, 1, 1, 0.8), MUD]], 12, 0.4);
@@ -133,6 +142,9 @@ function mudSplash(ctx, spec, stage) {
 }
 
 function handQuestion(ctx, spec, stage) {
+  if (spec.outcome === 'answer') return answerCheck(ctx, spec, stage);
+  if (spec.outcome === 'quiz') return quizBuzzer(ctx, spec, stage);
+  if (spec.outcome === 'mic') return micInterview(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, kx = B.maxX + 0.35 * u;
   const kid = createPerson({ u: 0.6 * u, shirt: 0xf0a030 }), adult = createPerson({ u: 0.95 * u, shirt: 0x60b060 });
   const bubble = solidProp([[G.sphere(0.2 * u, 0, 0, 0, 1.3, 1, 0.35), 0xffffff], [G.cone(0.05 * u, 0.12 * u, -0.1 * u, -0.2 * u, 0, 0.5), 0xffffff]], 0.6), q = emblemProp('question', 0.25 * u, { color: 0x3a7ad0 });

@@ -8,7 +8,11 @@
   "pos": ["adj-na"],
   "kanji": ["4e08", "592b"],
   "builtFrom": [{ "k": "丈", "m": "length" }, { "k": "夫", "m": "husband" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "shield", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1.2, "type": "post-kick", "outcome": "weight" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ロバは" }, { "text": "丈夫", "reading": "じょうぶ" }, { "text": "な" }, { "text": "動物", "reading": "どうぶつ" }, { "text": "だ。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [192170, 29333] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 丈夫" },
+  "review": { "recipe": "reviewed", "rule": "word 丈夫" },
   "source": { "jmdict": 1580480, "jlpt": 5 }
 }

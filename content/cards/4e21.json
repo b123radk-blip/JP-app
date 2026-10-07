@@ -5,12 +5,7 @@
   "primaryReading": "りょう",
   "readings": { "kun": ["てる", "ふたつ"], "on": ["リョウ"] },
   "mnemonic": "Two equal pans hung from one beam: both.",
-  "effect": {
-    "material": "gold",
-    "backdrop": "sky:day",
-    "motion": "split",
-    "emblem": { "type": "dots", "n": 2, "color": "#ffd060" }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": "two-buckets" },
   "sentences": [
     {
       "segments": [ { "text": "両親", "reading": "りょうしん" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "にそこへ" }, { "text": "行", "reading": "い" }, { "text": "かせた。" } ],
@@ -19,6 +14,6 @@
       "source": { "tatoeba": [78028, 325690] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

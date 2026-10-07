@@ -8,7 +8,11 @@
   "pos": ["v5r", "vi"],
   "kanji": ["59cb"],
   "builtFrom": [{ "k": "始", "m": "commence" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "flag", "backdrop": "sky:dawn", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1, "type": "curtain-close", "outcome": "open" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "会合", "reading": "かいごう" }, { "text": "は" }, { "text": "午後", "reading": "ごご" }, { "text": "三", "reading": "さん" }, { "text": "時", "reading": "じ" }, { "text": "から" }, { "text": "始", "reading": "はじ" }, { "text": "まる。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [185301, 22432] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 始まる" },
+  "review": { "recipe": "reviewed", "rule": "word 始まる" },
   "source": { "jmdict": 1307500, "jlpt": 5 }
 }

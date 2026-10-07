@@ -4,7 +4,7 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** the pilot, Batches 1-4 and the Batch 5 kanji are built (130 of the 150 kanji, 137 words). Next: the Batch 5 words, then Batch 6: the remaining unticked
+**Where to continue:** the pilot, Batches 1-5 and the Batch 6 kanji are built (all 150 kanji, 160 words). Next: the last 16 words, then the Step 4 review. Batch 6: the remaining unticked
 kanji of the list below, then their words (every word whose Step 2 kanji are all ticked). Each batch: build,
 look at the frame strips, fix, apply with `scripts/set-recipes.mjs`, tick here, `npm test`, e2e, commit and push.
 
@@ -185,24 +185,24 @@ Batches of about 25 in this order. Tick a line when its scene is built, looked a
 - [x] 真 true (C): a magnifier over a gem: it sparkles real; a fake beside it cracks. Built: `gem-test`.
 - [x] 写 copy / photo (C): a person poses, a camera flashes, a photo slides out and develops into the same picture. Built: `photo-snap`.
 - [x] 洋 ocean / western (C): big waves roll across; a ship sails over the horizon. Built: `ocean-ship`.
-- [ ] 旅 travel (C): a person with a backpack and a suitcase walks along a road past changing scenery (a mountain, the sea).
+- [x] 旅 travel (C): a person with a backpack and a suitcase walks along a road past changing scenery (a mountain, the sea). Built: `travel-road`.
 - [x] 押 push (C): pilot, built. Built: `push`.
-- [ ] 泳 swim (C): a person swims across a pool in front of the kanji (arms windmilling), splashes, a dive.
-- [ ] 鳴 chirp / cry (C): a bird on the kanji opens its beak and sings; notes rise; another bird answers.
-- [ ] 暖 warm (C): a person by a stove holds out their hands; frost on them melts; they smile and relax.
-- [ ] 温 warm (water) (C): a person lowers into a hot spring tub, steam rises, they sigh "ahh" (onsen).
-- [ ] 両 both (C): a person lifts two buckets at once, one in each hand, balanced.
-- [ ] 運 carry / luck (C): a person pushes a wheelbarrow loaded with boxes along; a four-leaf clover falls in.
-- [ ] 台 stand / platform (C): a little stand is set down and a vase is placed on it; a person steps up on a stage block.
-- [ ] 有 have (C): a hand opens to show a coin, closes over it and keeps it (it is mine).
-- [ ] 仕 serve (C): a waiter carries a tray with a cup, bows and serves it on a table.
-- [ ] 答 answer (C): a hand shoots up in class; a speech bubble with a big check mark pops; the teacher nods.
-- [ ] 悪 bad (C): a little devil sneaks up, knocks over a vase, and snickers; it shatters.
-- [ ] 太 thick / fat (C): a person eats a cake and puffs up rounder and rounder; a belt pings off.
-- [ ] 辞 word / dictionary (C): a thick book opens, pages flip; a word lifts out of a page and glows.
-- [ ] 返 return (C): a boomerang flies out in a loop and comes back to the hand that threw it.
-- [ ] 覚 memorize (C): a person reads a book; the picture from the page floats into their head and stays there (a lightbulb).
-- [ ] 業 work / business (C): a person at a desk types; papers stack up; a clock spins; a factory chimney puffs.
+- [x] 泳 swim (C): a person swims across a pool in front of the kanji (arms windmilling), splashes, a dive. Built: `pool-swim`.
+- [x] 鳴 chirp / cry (C): a bird on the kanji opens its beak and sings; notes rise; another bird answers. Built: `bird-sing`.
+- [x] 暖 warm (C): a person by a stove holds out their hands; frost on them melts; they smile and relax. Built: `stove-warm`.
+- [x] 温 warm (water) (C): a person lowers into a hot spring tub, steam rises, they sigh "ahh" (onsen). Built: `onsen-soak`.
+- [x] 両 both (C): a person lifts two buckets at once, one in each hand, balanced. Built: `two-buckets`.
+- [x] 運 carry / luck (C): a person pushes a wheelbarrow loaded with boxes along; a four-leaf clover falls in. Built: `wheelbarrow`.
+- [x] 台 stand / platform (C): a little stand is set down and a vase is placed on it; a person steps up on a stage block. Built: `stand-vase`.
+- [x] 有 have (C): a hand opens to show a coin, closes over it and keeps it (it is mine). Built: `coin-keep`.
+- [x] 仕 serve (C): a waiter carries a tray with a cup, bows and serves it on a table. Built: `butler-door`.
+- [x] 答 answer (C): a hand shoots up in class; a speech bubble with a big check mark pops; the teacher nods. Built: `hand-question:answer`.
+- [x] 悪 bad (C): a little devil sneaks up, knocks over a vase, and snickers; it shatters. Built: `devil-vase`.
+- [x] 太 thick / fat (C): a person eats a cake and puffs up rounder and rounder; a belt pings off. Built: `trunk-thick`.
+- [x] 辞 word / dictionary (C): a thick book opens, pages flip; a word lifts out of a page and glows. Built: `words-fly`.
+- [x] 返 return (C): a boomerang flies out in a loop and comes back to the hand that threw it. Built: `boomerang-throw`.
+- [x] 覚 memorize (C): a person reads a book; the picture from the page floats into their head and stays there (a lightbulb). Built: `memory-bubble`.
+- [x] 業 work / business (C): a person at a desk types; papers stack up; a clock spins; a factory chimney puffs. Built: `office-work`.
 
 ## Words (177, Step 2 kanji)
 Grades: **B** when the meaning *is* its kanji side by side (a word rule that does not repeat a kanji's emblem);
@@ -345,29 +345,29 @@ Grades: **B** when the meaning *is* its kanji side by side (a word rule that doe
 - [x] 牛肉 beef (C): a steak sizzles on a grill. Built: `cow-moo:steak`.
 - [x] 灰皿 ashtray (C): a dish with ash, a cigarette stubbed out with smoke curling. Built: `ashtray`.
 - [x] お皿 plate (C): 皿's scene, option: plates washed and stacked. Built: `stack-plates:dry`.
-- [ ] 美味しい delicious (C): a person takes a bite, their face lights up, sparkles, a thumbs up.
-- [ ] 面白い interesting / funny (C): a person reading laughs so hard they roll over.
-- [ ] 売る sell (C): 売's scene, option: a "sold" sign stamped on an item.
-- [ ] 始まる begin (C): 始's scene, option: curtains open on a stage.
-- [ ] 終わる end (C): 終's scene, option: "The End" on a screen, curtains close.
-- [ ] 住む live (C): 住's scene, option: a bird builds a nest and settles in it.
-- [ ] 自転車 bicycle (C): a person pedals a bicycle across, bell ringing.
-- [ ] 病気 illness (C): 病's scene, option: germs bounce around a sneezing person.
-- [ ] 病院 hospital (C): a doctor with a stethoscope listens to a patient's chest.
-- [ ] 遠い far (C): 遠's scene, option: binoculars looking at a far mountain.
-- [ ] 同じ same (C): 同's scene, option: two identical cats sit side by side.
-- [ ] 大丈夫 all right (C): a person trips, gets up, gives a thumbs up: OK!
-- [ ] 丈夫 sturdy (C): a person stands firm in strong wind and doesn't budge.
-- [ ] 起きる get up (C): 起's scene, option: stretching out of bed.
-- [ ] 帰る go home (C): 帰's scene, option: "I'm home" at the door, shoes off.
-- [ ] 遅い slow (C): 遅's scene, option: a tortoise plods.
-- [ ] 汚い dirty (C): 汚's scene, option: a dog shakes mud everywhere.
-- [ ] 質問 question (C): a hand goes up in a crowd, a "?" bubble.
-- [ ] 問題 problem (C): a maths problem on a board, a person scratching their head.
-- [ ] 宿題 homework (C): a person at a desk at night with a pile of worksheets.
-- [ ] 取る take (C): 取's scene, option: picking a cookie from a jar.
-- [ ] 写真 photo (C): 写's scene, option: a selfie with a peace sign.
-- [ ] 洋服 western clothes (C): a dress and a suit on a rack, a person tries one on.
+- [x] 美味しい delicious (C): a person takes a bite, their face lights up, sparkles, a thumbs up. Built: `flower-gasp:yum`.
+- [x] 面白い interesting / funny (C): a person reading laughs so hard they roll over. Built: `face-change:laugh`.
+- [x] 売る sell (C): 売's scene, option: a "sold" sign stamped on an item. Built: `apple-sell:sold`.
+- [x] 始まる begin (C): 始's scene, option: curtains open on a stage. Built: `curtain-close:open`.
+- [x] 終わる end (C): 終's scene, option: "The End" on a screen, curtains close. Built: `hourglass-end`.
+- [x] 住む live (C): 住's scene, option: a bird builds a nest and settles in it. Built: `move-in:crab`.
+- [x] 自転車 bicycle (C): a person pedals a bicycle across, bell ringing. Built: `bike-bell`.
+- [x] 病気 illness (C): 病's scene, option: germs bounce around a sneezing person. Built: `sick-bed:germs`.
+- [x] 病院 hospital (C): a doctor with a stethoscope listens to a patient's chest. Built: `ambulance:doctor`.
+- [x] 遠い far (C): 遠's scene, option: binoculars looking at a far mountain. Built: `walk-far:scope`.
+- [x] 同じ same (C): 同's scene, option: two identical cats sit side by side. Built: `mirror-dance:match`.
+- [x] 大丈夫 all right (C): a person trips, gets up, gives a thumbs up: OK! Built: `post-kick:ok`.
+- [x] 丈夫 sturdy (C): a person stands firm in strong wind and doesn't budge. Built: `post-kick:weight`.
+- [x] 起きる get up (C): 起's scene, option: stretching out of bed. Built: `alarm-wake:sun`.
+- [x] 帰る go home (C): 帰's scene, option: "I'm home" at the door, shoes off. Built: `home-greet:bird`.
+- [x] 遅い slow (C): 遅's scene, option: a tortoise plods. Built: `toast-run:tortoise`.
+- [x] 汚い dirty (C): 汚's scene, option: a dog shakes mud everywhere. Built: `mud-splash:dishes`.
+- [x] 質問 question (C): a hand goes up in a crowd, a "?" bubble. Built: `hand-question:mic`.
+- [x] 問題 problem (C): a maths problem on a board, a person scratching their head. Built: `hand-question:quiz`.
+- [x] 宿題 homework (C): a person at a desk at night with a pile of worksheets. Built: `title-stamp:dog`.
+- [x] 取る take (C): 取's scene, option: picking a cookie from a jar. Built: `grab-apple:claw`.
+- [x] 写真 photo (C): 写's scene, option: a selfie with a peace sign. Built: `photo-snap:wall`.
+- [x] 洋服 western clothes (C): a dress and a suit on a rack, a person tries one on. Built: `mannequin`.
 - [ ] 旅行 trip (C): a suitcase rolls along, stickers of places appear on it.
 - [x] 押す push (C): 押's scene, option: a finger presses a big button, it lights. Built: `button-press`.
 - [ ] 泳ぐ swim (C): 泳's scene, option: a fish swims by.

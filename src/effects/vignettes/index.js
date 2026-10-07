@@ -45,9 +45,13 @@ import { SCENES as B5A } from './batch5a.js';
 import { SCENES as B5B } from './batch5b.js';
 import { SCENES as B5C } from './batch5c.js';
 import { SCENES as B5D } from './batch5d.js';
+import { SCENES as W5A } from './words5a.js';
+import { SCENES as B6A } from './batch6a.js';
+import { SCENES as B6B } from './batch6b.js';
+import { SCENES as B6C } from './batch6c.js';
 import { SCENES as KIT } from './kit-sheet.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...W5A, ...B6A, ...B6B, ...B6C, ...KIT };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

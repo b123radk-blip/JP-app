@@ -7,6 +7,7 @@
 //   curtain-close  終: on a little stage an actor bows; the red curtains slide shut and "おわり" appears on them
 //   move-in        住: a person carries a box into a little house; its window lights up and the chimney puffs smoke
 import * as THREE from 'three';
+import { crabShell, curtainOpen, laugh, soldStamp, yum } from './variants5a.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, stars, PUFF } from '../pieces/kit-things.js';
@@ -18,6 +19,7 @@ import { between, arc, bonePoint, puffs, wisps } from './helpers.js';
 const pop = (f) => Math.max(1e-3, f);
 
 function flowerGasp(ctx, spec, stage) {
+  if (spec.outcome === 'yum') return yum(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, fx = B.maxX + 0.3 * u, fy = floor + 0.62 * u, N = 8;
   const stem = solidProp([[G.cyl(0.015 * u, 0.015 * u, fy - floor, 0, (fy - floor) / 2, 0), 0x3a9a3a], [G.sphere(0.06 * u, 0.06 * u, 0.25 * u, 0, 1.4, 0.5, 0.5), 0x3a9a3a], [G.sphere(0.06 * u, -0.06 * u, 0.35 * u, 0, 1.4, 0.5, 0.5), 0x3a9a3a]], 0.4);
   stem.position.set(fx, floor, 0);
@@ -65,6 +67,7 @@ function podiumWin(ctx, spec, stage) {
 }
 
 function faceChange(ctx, spec, stage) {
+  if (spec.outcome === 'laugh') return laugh(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), cx = B.maxX + 0.42 * u, cy = B.cy, R = 0.3 * u;
   const face = solidProp([[G.sphere(R, 0, 0, 0, 1, 1, 0.35), 0xffd84a]], 0.5); face.position.set(cx, cy, 0);
   const eyes = many([[G.sphere(0.035 * u, 0, 0, 0, 1, 1.4, 0.5), 0x1a1a24]], 2, 0.2), cheeks = many([[G.sphere(0.04 * u, 0, 0, 0, 1.3, 0.8, 0.3), 0xff8aa0]], 2, 0.5);
@@ -88,6 +91,7 @@ function faceChange(ctx, spec, stage) {
 }
 
 function appleSell(ctx, spec, stage) {
+  if (spec.outcome === 'sold') return soldStamp(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.4 * u, CH = 0.24 * u;
   const crate = solidProp([[G.box(0.42 * u, CH, 0.26 * u, 0, CH / 2, 0), 0xc89a60], ...[0.06, 0.14].map((y) => [G.box(0.43 * u, 0.02 * u, 0.265 * u, 0, y * u, 0), 0x8a5a30])], 0.35);
   crate.position.set(cx, floor, 0.05 * u);
@@ -140,6 +144,7 @@ function raceStart(ctx, spec, stage) {
 }
 
 function curtainClose(ctx, spec, stage) {
+  if (spec.outcome === 'open') return curtainOpen(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.55 * u, W = 0.9 * u, H = 0.8 * u;
   const stageBox = solidProp([[G.box(W, 0.12 * u, 0.4 * u, 0, 0.06 * u, 0), 0x8a5a30], [G.box(W, H, 0.02 * u, 0, 0.12 * u + H / 2, -0.2 * u), 0x1a1028], [G.box(W + 0.12 * u, 0.1 * u, 0.06 * u, 0, 0.12 * u + H, 0.17 * u), 0xc02030], [G.box(0.06 * u, H, 0.06 * u, -W / 2 - 0.03 * u, 0.12 * u + H / 2, 0.17 * u), 0xc02030], [G.box(0.06 * u, H, 0.06 * u, W / 2 + 0.03 * u, 0.12 * u + H / 2, 0.17 * u), 0xc02030]], 0.35);
   stageBox.position.set(sx, floor, -0.1 * u);
@@ -162,6 +167,7 @@ function curtainClose(ctx, spec, stage) {
 }
 
 function moveIn(ctx, spec, stage) {
+  if (spec.outcome === 'crab') return crabShell(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.55 * u, W = 0.55 * u, H = 0.42 * u;
   const tri = new THREE.Shape(); tri.moveTo(-3.4, 0); tri.lineTo(3.4, 0); tri.lineTo(0, 2.2); tri.lineTo(-3.4, 0); const k = (W + 0.1 * u) / 6.8;
   const house = solidProp([[G.box(W, H, 0.4 * u, 0, H / 2, 0), 0xf0dcc0], [G.extrude(tri, 4.4).scale(k, k, k).translate(0, H, 0), 0x3a7ad0], [G.box(0.06 * u, 0.18 * u, 0.06 * u, 0.15 * u, H + 0.16 * u, -0.05 * u), 0x8a5a30], [G.box(0.13 * u, 0.24 * u, 0.01 * u, -0.12 * u, 0.12 * u, 0.201 * u), 0x8a5a30]], 0.35);

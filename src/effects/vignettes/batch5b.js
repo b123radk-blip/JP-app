@@ -7,6 +7,8 @@
 //   mirror-dance   同: two people side by side do exactly the same jumping jacks at the same time; an "=" glows above
 //   wedding        夫: a groom in a suit and a bride in white face each other; rings float to them; confetti and a heart
 import * as THREE from 'three';
+import { doctor, germs } from './variants5a.js';
+import { cardMatch, telescope } from './variants5b.js';
 import { acts, timeline, bump, lerp } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { many, stars, heart, PUFF } from '../pieces/kit-things.js';
@@ -40,6 +42,7 @@ function bananaTrip(ctx, spec, stage) {
 }
 
 function sickBed(ctx, spec, stage) {
+  if (spec.outcome === 'germs') return germs(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.55 * u, top = floor + 0.24 * u, pu = 0.7 * u;
   const bed = solidProp([[G.box(0.8 * u, 0.2 * u, 0.34 * u, 0, 0.1 * u, 0), 0x8a5a30], [G.box(0.78 * u, 0.06 * u, 0.32 * u, 0, 0.21 * u, 0), 0xf4f4f4], [G.box(0.04 * u, 0.36 * u, 0.34 * u, -0.4 * u, 0.18 * u, 0), 0x6a4020], [G.box(0.16 * u, 0.06 * u, 0.26 * u, -0.3 * u, 0.27 * u, -0.02 * u), 0xffffff], [G.box(0.5 * u, 0.1 * u, 0.3 * u, 0.12 * u, 0.28 * u, 0.04 * u), 0x9ad0f0]], 0.35);
   bed.position.set(bx, floor, 0);
@@ -62,6 +65,7 @@ function sickBed(ctx, spec, stage) {
 }
 
 function ambulance(ctx, spec, stage) {
+  if (spec.outcome === 'doctor') return doctor(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.45 * u, W = 0.6 * u, H = 0.6 * u;
   const hosp = solidProp([[G.box(W, H, 0.3 * u, 0, H / 2, 0), 0xf4f4f8], [G.box(0.2 * u, 0.2 * u, 0.01 * u, 0, H - 0.14 * u, 0.151 * u), 0xffffff], [G.box(0.14 * u, 0.04 * u, 0.012 * u, 0, H - 0.14 * u, 0.153 * u), 0xe02020], [G.box(0.04 * u, 0.14 * u, 0.012 * u, 0, H - 0.14 * u, 0.153 * u), 0xe02020], [G.box(0.26 * u, 0.24 * u, 0.008 * u, 0, 0.12 * u, 0.15 * u), 0x203048], ...[-0.22, 0.22].map((x) => [G.box(0.1 * u, 0.08 * u, 0.008 * u, x * u, 0.32 * u, 0.151 * u), 0x8ad0ff])], 0.35);
   hosp.position.set(hx, floor, -0.2 * u);
@@ -82,6 +86,7 @@ function ambulance(ctx, spec, stage) {
 }
 
 function walkFar(ctx, spec, stage) {
+  if (spec.outcome === 'scope') return telescope(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, rx = B.maxX + 0.55 * u, HZ = 0.5 * u;
   const trap = new THREE.Shape(); trap.moveTo(-0.26 * u, 0); trap.lineTo(0.26 * u, 0); trap.lineTo(0.015 * u, HZ); trap.lineTo(-0.015 * u, HZ); trap.lineTo(-0.26 * u, 0);
   const land = solidProp([[new THREE.PlaneGeometry(1.2 * u, HZ).translate(0, HZ / 2, -0.01 * u), 0x6aaa4a], [new THREE.ShapeGeometry(trap), 0xd8c098], ...[-0.35, -0.1, 0.25].map((x, i) => [G.cone(0.14 * u, 0.16 * u, x * u, HZ + 0.07 * u, -0.02 * u), i % 2 ? 0x7a8ab8 : 0x5a6a9a])], 0.35);
@@ -100,6 +105,7 @@ function walkFar(ctx, spec, stage) {
 }
 
 function mirrorDance(ctx, spec, stage) {
+  if (spec.outcome === 'match') return cardMatch(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.55 * u;
   const P = [createPerson({ u: 0.75 * u, shirt: 0xe07ab0 }), createPerson({ u: 0.75 * u, shirt: 0x40a0e0 })], eq = emblemProp('equals', 0.28 * u, { color: 0xffe040 });
   group.add(...P.map((p) => p.group), eq);

@@ -5,13 +5,7 @@
   "primaryReading": "あたた",
   "readings": { "kun": ["あたた(か)", "あたた(かい)", "あたた(まる)", "あたた(める)"], "on": ["オン"] },
   "mnemonic": "Water (氵) warmed by the sun (日) in a basin (皿): a warm bath.",
-  "effect": {
-    "material": "clay",
-    "particles": ["steam"],
-    "backdrop": { "type": "halo", "color": "#ff9040" },
-    "emblem": "onsen",
-    "parts": { "氵": {} }
-  },
+  "effect": { "material": "clay", "backdrop": "sky:dusk", "vignette": "onsen-soak", "parts": { "氵": {} } },
   "sentences": [
     {
       "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "体温", "reading": "たいおん" }, { "text": "を" }, { "text": "計", "reading": "はか" }, { "text": "った。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [82944, 320772] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

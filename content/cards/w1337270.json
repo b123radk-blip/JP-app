@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5bbf", "984c"],
   "builtFrom": [{ "k": "宿", "m": "inn" }, { "k": "題", "m": "topic" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sheet", "backdrop": "sky:night" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "size": 1.2, "type": "title-stamp", "outcome": "dog" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "宿題", "reading": "しゅくだい" }, { "text": "は" }, { "text": "自分", "reading": "じぶん" }, { "text": "でやったの？" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [177150, 15999] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 宿題" },
+  "review": { "recipe": "reviewed", "rule": "word 宿題" },
   "source": { "jmdict": 1337270, "jlpt": 5 }
 }

@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "遠", "m": "distant" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "scene": ["road"],
-    "motion": "shrink",
-    "emblem": "arrow:away",
-    "backdrop": "sky:golden"
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "walk-far", "outcome": "scope" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [212201, 49480] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 遠い" },
+  "review": { "recipe": "reviewed", "rule": "word 遠い" },
   "source": { "jmdict": 1177800, "jlpt": 5 }
 }

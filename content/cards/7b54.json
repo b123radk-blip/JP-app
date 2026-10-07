@@ -5,7 +5,12 @@
   "primaryReading": "こた",
   "readings": { "kun": ["こた(える)", "こた(え)"], "on": ["トウ"] },
   "mnemonic": "Bamboo slips (竹) fitted together (合): the answer.",
-  "effect": { "material": "jade", "backdrop": "sky:day", "emblem": "check", "parts": { "竹": {} } },
+  "effect": {
+    "material": "jade",
+    "backdrop": "sky:day",
+    "vignette": { "type": "hand-question", "outcome": "answer" },
+    "parts": { "竹": {} }
+  },
   "sentences": [
     {
       "segments": [ { "text": "手", "reading": "て" }, { "text": "をあげてから" }, { "text": "答", "reading": "こた" }, { "text": "えなさい。" } ],
@@ -14,6 +19,6 @@
       "source": { "tatoeba": [148633, 265925] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

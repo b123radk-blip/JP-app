@@ -7,9 +7,8 @@
   "mnemonic": "A hand (ナ) holding a piece of meat (月): have, possess.",
   "effect": {
     "material": "gold",
-    "particles": [{ "type": "coins", "count": 0.6 }],
-    "backdrop": { "type": "halo", "color": "#ffc040" },
-    "emblem": "hand",
+    "backdrop": "sky:day",
+    "vignette": { "type": "coin-keep", "size": 1.5 },
     "parts": { "月": {} }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [79254, 12405052] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

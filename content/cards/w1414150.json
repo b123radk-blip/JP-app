@@ -8,7 +8,11 @@
   "pos": ["adj-na"],
   "kanji": ["5927", "4e08", "592b"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "丈", "m": "length" }, { "k": "夫", "m": "husband" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "check", "backdrop": "sky:day", "motion": "float" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "post-kick", "outcome": "ok" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "大丈夫", "reading": "だいじょうぶ" }, { "text": "、" }, { "text": "気", "reading": "き" }, { "text": "にしないで。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [137502, 275734] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 大丈夫" },
+  "review": { "recipe": "reviewed", "rule": "word 大丈夫" },
   "source": { "jmdict": 1414150, "jlpt": 5 }
 }

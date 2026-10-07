@@ -5,7 +5,7 @@
   "primaryReading": "ふと",
   "readings": { "kun": ["ふと(い)", "ふと(る)"], "on": ["タイ", "タ"] },
   "mnemonic": "Big (大) with an extra dot (丶) of belly: fat, thick.",
-  "effect": { "material": "clay", "backdrop": "sky:day", "motion": { "type": "stretch", "axis": "x", "to": 1.35 } },
+  "effect": { "material": "clay", "backdrop": "sky:day", "vignette": "trunk-thick" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "木", "reading": "き" }, { "text": "は" }, { "text": "太", "reading": "ふと" }, { "text": "いです。" } ],
@@ -14,6 +14,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

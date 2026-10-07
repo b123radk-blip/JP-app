@@ -7,9 +7,8 @@
   "mnemonic": "The sun (日) lending a warm hand (爰) to the spring: warm weather.",
   "effect": {
     "material": "gold",
-    "particles": ["petals"],
-    "backdrop": "sky:golden",
-    "emblem": { "type": "sun", "color": "#ff9a40" },
+    "backdrop": "sky:snow",
+    "vignette": "stove-warm",
     "parts": { "日": { "motion": "pulse" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [203062, 40297] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

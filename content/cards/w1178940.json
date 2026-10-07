@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "汚", "m": "dirty" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "splash", "color": "#6a4a28" },
     "backdrop": "sky:day",
-    "particles": ["dust"]
+    "vignette": { "size": 1, "type": "mud-splash", "outcome": "dishes" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [212187, 49466] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 汚い" },
+  "review": { "recipe": "reviewed", "rule": "word 汚い" },
   "source": { "jmdict": 1178940, "jlpt": 5 }
 }

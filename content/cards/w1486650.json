@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "美", "m": "beauty" }, { "k": "味", "m": "flavor" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "spoon",
-    "particles": ["hearts"],
-    "backdrop": "sky:golden"
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "flower-gasp", "outcome": "yum" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [218557, 55871] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 美味しい" },
+  "review": { "recipe": "reviewed", "rule": "word 美味しい" },
   "source": { "jmdict": 1486650, "jlpt": 5 }
 }

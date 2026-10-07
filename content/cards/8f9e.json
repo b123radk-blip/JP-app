@@ -7,9 +7,8 @@
   "mnemonic": "A tongue (舌) and a spicy (辛) word: words; a dictionary (辞書).",
   "effect": {
     "material": "paper",
-    "particles": [{ "type": "kana", "color": "#ffe6b0" }],
     "backdrop": "sky:indoor",
-    "emblem": "speech",
+    "vignette": "words-fly",
     "parts": { "舌": { "material": "rose" } }
   },
   "sentences": [
@@ -20,6 +19,6 @@
       "source": { "tatoeba": [218204, 55516] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

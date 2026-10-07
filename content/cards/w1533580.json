@@ -10,11 +10,8 @@
   "builtFrom": [{ "k": "面", "m": "mask" }, { "k": "白", "m": "white" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "speech",
-    "particles": ["notes"],
-    "motion": "bounce",
-    "backdrop": "sky:golden"
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "face-change", "outcome": "laugh" }
   },
   "sentences": [
     {
@@ -24,6 +21,6 @@
       "source": { "tatoeba": [218336, 55647] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 面白い" },
+  "review": { "recipe": "reviewed", "rule": "word 面白い" },
   "source": { "jmdict": 1533580, "jlpt": 5 }
 }

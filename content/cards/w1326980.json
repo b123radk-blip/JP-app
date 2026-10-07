@@ -8,7 +8,11 @@
   "pos": ["v5r", "vt"],
   "kanji": ["53d6"],
   "builtFrom": [{ "k": "取", "m": "take" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "motion": "shove:left", "backdrop": "sky:day" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "size": 1, "type": "grab-apple", "outcome": "claw" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "このソファーは" }, { "text": "場所", "reading": "ばしょ" }, { "text": "を" }, { "text": "取", "reading": "と" }, { "text": "りすぎる。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [223590, 60925] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 取る" },
+  "review": { "recipe": "reviewed", "rule": "word 取る" },
   "source": { "jmdict": 1326980, "jlpt": 5 }
 }
