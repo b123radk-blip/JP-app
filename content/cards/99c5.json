@@ -5,14 +5,7 @@
   "primaryReading": "えき",
   "readings": { "kun": [], "on": ["エキ"] },
   "mnemonic": "A stop where the horses (馬) rest: station.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "scene": ["road"],
-    "backdrop": "sky:snow",
-    "emblem": "train",
-    "parts": { "馬": {}, "尺": {} }
-  },
+  "effect": { "material": "silver", "backdrop": "sky:snow", "vignette": "station-train", "parts": { "馬": {}, "尺": {} } },
   "sentences": [
     {
       "segments": [ { "text": "駅", "reading": "えき" }, { "text": "まで" }, { "text": "歩", "reading": "ある" }, { "text": "いていこうか。" } ],

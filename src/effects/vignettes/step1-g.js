@@ -77,7 +77,7 @@ function dieList(u, s) {
 export const dieThing = (s) => solidProp(dieList(s / 0.25, 0.22), 0.5);
 function diceSix(ctx, spec, stage) {
   const u = stage.u, B = stage.box, floor = B.minY;
-  if (spec.outcome === 'count') { const s = countScene(ctx, stage, 6, many([[G.sphere(0.075 * u, 0, 0.06 * u, 0, 0.82, 1.05, 0.82), 0xfff0d8]], 6, 0.6), grid(B, u, 6, 3, floor + 0.04 * u, 0.21, 0.35), { tagUp: 0.42 }); const box = solidProp([[G.box(0.68 * u, 0.06 * u, 0.24 * u, 0, 0.03 * u, 0), 0xb8a888], [G.box(0.68 * u, 0.06 * u, 0.24 * u, 0, 0.24 * u, 0), 0xb8a888]], 0.35); box.position.set(B.maxX + 0.56 * u, floor - 0.04 * u, -0.05 * u); s.group.add(box); return s; }
+  if (spec.outcome === 'count') { const s = countScene(ctx, stage, 6, many([[G.sphere(0.1 * u, 0, 0.08 * u, 0, 0.82, 1.05, 0.82), 0xfff0d8]], 6, 0.6), grid(B, u, 6, 3, floor + 0.02 * u, 0.24, 0.32), { tagUp: 0.5 }); const box = solidProp([[G.box(0.78 * u, 0.1 * u, 0.3 * u, 0, 0.0, 0), 0xb8a888], ...[0, 1, 2].map((i) => [G.cyl(0.09 * u, 0.07 * u, 0.06 * u, (i - 1) * 0.24 * u, 0.05 * u, 0), 0xa89878])], 0.35); box.position.set(B.maxX + 0.56 * u, floor - 0.02 * u, -0.08 * u); box.rotation.x = 0.3; s.group.add(box); return s; }
   if (spec.outcome === 'day') return dayScene(ctx, stage, 6, dieThing);
   const group = new THREE.Group(), S = 0.42, die = solidProp(dieList(u, S), 0.5), dx = B.maxX + 0.5 * u, tag = countTag(u, { s: 0.24 }), glow = many([[G.sphere(0.04 * u, 0, 0, 0, 1, 1, 0.3), 0xffe060]], 6, 1.5), dust = many(PUFF(u), 6, 0.3);
   group.add(die, glow, tag, dust);
@@ -177,14 +177,14 @@ function birdLand(ctx, spec, stage) {
 
 // ---- 先 a boat race ----
 function boatRace(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.15 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.4 * u;
   const hull = new THREE.Shape(); hull.moveTo(-0.13, 0.05); hull.lineTo(0.13, 0.05); hull.lineTo(0.08, -0.04); hull.lineTo(-0.08, -0.04); hull.closePath();
   const sail = new THREE.Shape(); sail.moveTo(-0.06, 0.05); sail.lineTo(0.06, 0.05); sail.lineTo(0.0, 0.15); sail.closePath();
   const boats = many([[G.extrude(hull, 0.1).scale(1.5 * u, 1.5 * u, 1.5 * u), 0xffffff], [G.extrude(sail, 0.02).scale(1.5 * u, 1.5 * u, 1.5 * u), 0xffffff]], 3, 0.6);
   [0xff5a5a, 0x5aa0ff, 0xffd040].forEach((c, i) => boats.setColorAt(i, new THREE.Color(c)));
   const water = solidProp([[G.box(1.5 * u, 0.02 * u, 0.7 * u, 0, 0, 0), 0x2a7ad0], ...[0, 1, 2].map((i) => [G.box(1.5 * u, 0.025 * u, 0.008 * u, 0, 0, (-0.2 + 0.2 * i) * u), 0x6ab0ff])], 0.4);
   const flag = solidProp([[G.cyl(0.006 * u, 0.006 * u, 0.16 * u, 0, 0.08 * u, 0), 0x404040], [G.box(0.09 * u, 0.06 * u, 0.005 * u, 0.045 * u, 0.13 * u, 0), 0xffd040]], 0.8), wake = many([[G.sphere(0.02 * u, 0, 0, 0, 1.6, 0.6, 1), 0xe0f4ff]], 9, 1.0);
-  water.position.set(x0 + 0.6 * u, floor, -0.1 * u); water.rotation.x = 0.5;
+  water.position.set(x0 + 0.45 * u, floor, -0.1 * u); water.rotation.x = 0.5; water.scale.x = 0.8;
   group.add(water, boats, flag, wake);
   const loop = 6.0, lanes = [0.0, -0.2, 0.2];   // z of each lane on the tilted water (the red boat in the middle)
   return {
@@ -192,7 +192,7 @@ function boatRace(ctx, spec, stage) {
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0.2, 4.6), fade = pre ? 1 : between(v, 4.9, 5.6);
       lanes.forEach((ly, i) => {
-        const speed = i === 0 ? 0.9 * f + 0.3 * f * f : (0.75 - 0.1 * i) * f, x = x0 + speed * 0.95 * u, zz = -0.1 * u + ly * u * Math.cos(0.5), y = floor - ly * u * Math.sin(0.5) + 0.02 * u + 0.01 * u * Math.sin(t * 3 + i);
+        const speed = i === 0 ? 0.6 * f + 0.3 * f * f : (0.55 - 0.08 * i) * f, x = x0 + speed * 0.95 * u, zz = -0.1 * u + ly * u * Math.cos(0.5), y = floor - ly * u * Math.sin(0.5) + 0.02 * u + 0.01 * u * Math.sin(t * 3 + i);
         boats.set(i, x, y, zz, grow(1 - fade), 0.06 * Math.sin(t * 4 + i));
         for (let k = 0; k < 3; k++) { const w = ((t * 1.5 + k / 3) % 1); wake.set(i * 3 + k, x - 0.22 * u - 0.15 * u * w, y - 0.03 * u, zz + 0.02 * u, f > 0 && f < 1 ? 1 - w : 0); }
         if (i === 0) { const k = pre ? 0 : between(v, 2.4, 2.8) * (1 - fade); flag.visible = k > 0.01; flag.scale.setScalar(grow(k)); flag.position.set(x, y + 0.2 * u, zz + 0.02 * u); flag.scale.multiplyScalar(1.5); }

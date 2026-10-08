@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["51fa", "53e3"],
   "builtFrom": [{ "k": "出", "m": "exit" }, { "k": "口", "m": "mouth" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "emblem": "arrow:down", "backdrop": "sky:dusk" },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "turtle-out:exit" },
   "sentences": [
     {
       "segments": [ { "text": "出口", "reading": "でぐち" }, { "text": "はどちらですか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [147749, 266811] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 出口" },
+  "review": { "recipe": "reviewed", "rule": "word 出口" },
   "source": { "jmdict": 1338850, "jlpt": 5 }
 }

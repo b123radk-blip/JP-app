@@ -8,13 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["5148", "6708"],
   "builtFrom": [{ "k": "先", "m": "before" }, { "k": "月", "m": "month" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "arrow:left",
-    "motion": "drift:left",
-    "backdrop": "sky:twilight"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": "last-unit:month" },
   "sentences": [
     {
       "segments": [ { "text": "先月", "reading": "せんげつ" }, { "text": "から" }, { "text": "気分", "reading": "きぶん" }, { "text": "がすぐれないんだ。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [141889, 272682] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 先月" },
+  "review": { "recipe": "reviewed", "rule": "word 先月" },
   "source": { "jmdict": 1387500, "jlpt": 5 }
 }

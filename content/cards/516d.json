@@ -5,7 +5,7 @@
   "primaryReading": "ろく",
   "readings": { "kun": ["む", "む(つ)", "むっ(つ)", "むい"], "on": ["ロク", "リク"] },
   "mnemonic": "A lamp with a lid on top and two legs: roll a six.",
-  "effect": { "material": "clay", "reveal": "draw", "backdrop": "sky:dusk", "motion": "count:6", "emblem": "dots:6" },
+  "effect": { "material": "clay", "backdrop": "sky:indoor", "vignette": "dice-six" },
   "sentences": [
     {
       "segments": [ { "text": "もうすぐ" }, { "text": "六", "reading": "ろく" }, { "text": "時", "reading": "じ" }, { "text": "です。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [519112, 519113] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1585310"] }
 }

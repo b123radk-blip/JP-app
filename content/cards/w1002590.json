@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["7236"],
   "builtFrom": [{ "k": "父", "m": "father" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "scene": ["room"], "backdrop": "sky:lake" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:dusk",
+    "vignette": { "type": "dad-shoulders", "outcome": "home", "size": 0.9 }
+  },
   "sentences": [
     {
       "segments": [ { "text": "お" }, { "text": "父", "reading": "とう" }, { "text": "さんはどこですか。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [226727, 64072] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word お父さん" },
+  "review": { "recipe": "reviewed", "rule": "word お父さん" },
   "source": { "jmdict": 1002590, "jlpt": 5 }
 }

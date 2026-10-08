@@ -5,13 +5,7 @@
   "primaryReading": "よう",
   "readings": { "kun": [], "on": ["ヨウ"] },
   "mnemonic": "The sun (日) and a bird with wings (羽 隹) flying over the days of the week.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "scene": ["lanterns:7"],
-    "backdrop": "sky:indoor",
-    "parts": { "日": {} }
-  },
+  "effect": { "material": "silver", "backdrop": "sky:indoor", "vignette": "weekday-wheel", "parts": { "日": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "土曜日", "reading": "どようび" }, { "text": "からここにいます。" } ],

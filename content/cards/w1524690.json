@@ -8,14 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["6bce", "9031"],
   "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "週", "m": "week" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["road"],
-    "backdrop": "sky:morning",
-    "motion": "count:3",
-    "emblem": "calendar"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "every-unit:week" },
   "sentences": [
     {
       "segments": [ { "text": "父", "reading": "ちち" }, { "text": "は" }, { "text": "毎週", "reading": "まいしゅう" }, { "text": "日曜日", "reading": "にちようび" }, { "text": "にテニスをする。" } ],

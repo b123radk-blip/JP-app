@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["516d", "65e5"],
   "builtFrom": [{ "k": "六", "m": "six" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "scene": ["lanterns:6"],
-    "backdrop": "sky:day",
-    "particles": ["sparks"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "dice-six:day" },
   "sentences": [
     {
       "segments": [ { "text": "六", "reading": "むい" }, { "text": "日", "reading": "か" }, { "text": "は" }, { "text": "土曜日", "reading": "どようび" }, { "text": "です。" } ],
@@ -24,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /day of the month|^\\w+ days?$/i" },
   "source": { "jmdict": 1561470, "jlpt": 5 }
 }

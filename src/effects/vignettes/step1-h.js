@@ -10,7 +10,7 @@
 //   lightning-bulb  電: two dark clouds; a lightning bolt zaps between them and down into a light bulb on a stand, which
 //                   lights up. outcome phone: an old phone rings and hops, sparks running along its cord (電話); bulb: sparks
 //                   run along the wires of a power pole into a little house, whose windows light up (電気)
-//   electric-train  電車: a train runs along under an overhead wire; its pantograph sparks as it goes
+//   electric-train  電車: a train runs along under an overhead wire and back, its pantograph sparking as it goes
 //   feet-walk       足: two bare feet walk across beside the kanji, leaving footprints; they stop and wiggle their toes
 //   hen-lead        前: a hen walks in front, three chicks behind her in a line; a glowing ring marks the one in front
 //   road-unroll     道: a winding road unrolls from your feet over the hills to a far-off house, trees popping up along it
@@ -173,7 +173,7 @@ function autoDoors(ctx, spec, stage) {
   };
 }
 function piggyCoin(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u;
+  const u = 1.35 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.4 * u;
   const pig = solidProp([[G.sphere(0.24 * u, 0, 0.24 * u, 0, 1.3, 1, 1), 0xff9ab0], [G.cyl(0.07 * u, 0.07 * u, 0.06 * u, 0.32 * u, 0.24 * u, 0, 0, 0, Math.PI / 2), 0xff8aa0], [G.sphere(0.015 * u, 0.36 * u, 0.25 * u, 0.025 * u), 0xc04060], [G.sphere(0.015 * u, 0.36 * u, 0.25 * u, -0.025 * u), 0xc04060], [G.sphere(0.022 * u, 0.22 * u, 0.36 * u, 0.12 * u), 0x101010], [G.cone(0.05 * u, 0.08 * u, 0.15 * u, 0.46 * u, 0.1 * u), 0xff8aa0], [G.box(0.12 * u, 0.02 * u, 0.04 * u, 0, 0.475 * u, 0), 0x502030], ...[[-0.15, 0.12], [-0.15, -0.12], [0.15, 0.12], [0.15, -0.12]].map(([x, z]) => [G.cyl(0.04 * u, 0.04 * u, 0.1 * u, x * u, 0.04 * u, z * u), 0xff8aa0])], 0.45);
   const coin = solidProp([[G.cyl(0.07 * u, 0.07 * u, 0.02 * u, 0, 0, 0, Math.PI / 2), 0xffc030], [G.cyl(0.05 * u, 0.05 * u, 0.022 * u, 0, 0, 0, Math.PI / 2), 0xffd860]], 0.8), sparks = many([[G.sphere(0.018 * u), 0xffe060]], 6, 1.4);
   pig.position.set(px, floor, 0); group.add(pig, coin, sparks);
@@ -218,9 +218,9 @@ function lightningBulb(ctx, spec, stage) {
   };
 }
 function phoneRing(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.5 * u;
-  const phone = solidProp([[G.box(0.4 * u, 0.18 * u, 0.28 * u, 0, 0.09 * u, 0), 0xd83030], [G.cyl(0.09 * u, 0.09 * u, 0.02 * u, 0.02 * u, 0.19 * u, 0.06 * u, 0.4), 0xf4efe6]], 0.45);
-  const handset = solidProp([[G.box(0.44 * u, 0.06 * u, 0.08 * u, 0, 0, 0), 0xd83030], [G.sphere(0.07 * u, -0.2 * u, -0.02 * u, 0, 1, 0.6, 1), 0xd83030], [G.sphere(0.07 * u, 0.2 * u, -0.02 * u, 0, 1, 0.6, 1), 0xd83030]], 0.45);
+  const u = 1.3 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.4 * u;
+  const phone = solidProp([[G.box(0.36 * u, 0.22 * u, 0.24 * u, 0, 0.11 * u, 0), 0xd83030], [G.cyl(0.085 * u, 0.085 * u, 0.02 * u, 0, 0.12 * u, 0.125 * u, Math.PI / 2), 0xf4efe6], ...Array.from({ length: 8 }, (_, i) => [G.cyl(0.012 * u, 0.012 * u, 0.022 * u, Math.cos(i * 0.7 + 0.5) * 0.06 * u, 0.12 * u + Math.sin(i * 0.7 + 0.5) * 0.06 * u, 0.128 * u, Math.PI / 2), 0x303030]), [G.box(0.08 * u, 0.06 * u, 0.1 * u, -0.13 * u, 0.24 * u, 0), 0xb82020], [G.box(0.08 * u, 0.06 * u, 0.1 * u, 0.13 * u, 0.24 * u, 0), 0xb82020]], 0.45);
+  const handset = solidProp([[G.cyl(0.03 * u, 0.03 * u, 0.36 * u, 0, 0, 0, 0, 0, Math.PI / 2), 0xd83030], [G.sphere(0.07 * u, -0.18 * u, -0.03 * u, 0, 1, 0.7, 1), 0xd83030], [G.sphere(0.07 * u, 0.18 * u, -0.03 * u, 0, 1, 0.7, 1), 0xd83030]], 0.45);
   const cord = many([[G.sphere(0.018 * u), 0x404048]], 10, 0.4), sparks = many([[G.sphere(0.02 * u), 0xfff060]], 4, 1.6), rings = many([[G.torus(0.1 * u, 0.01 * u, Math.PI * 0.5, 0, 0, 0, Math.PI * 0.25), 0xffe060]], 4, 1.2);
   group.add(phone, handset, cord, sparks, rings);
   const loop = 4.8;
@@ -230,7 +230,7 @@ function phoneRing(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, ringing = !pre && (v % 1.6) < 1.0;
       const shake = ringing ? Math.sin(t * 50) : 0, hop = ringing ? 0.03 * u * Math.abs(Math.sin(t * 25)) : 0;
       phone.position.set(px, floor + hop, 0); phone.rotation.z = 0.05 * shake;
-      handset.position.set(px, floor + 0.24 * u + hop + 0.05 * u * Math.abs(shake) * (ringing ? 1 : 0), 0.02 * u); handset.rotation.z = 0.08 * shake;
+      handset.position.set(px, floor + 0.32 * u + hop + 0.05 * u * Math.abs(shake) * (ringing ? 1 : 0), 0.0); handset.rotation.z = 0.08 * shake;
       for (let i = 0; i < 10; i++) { const f = i / 9; cord.set(i, px - 0.2 * u - 0.6 * u * f, floor + 0.05 * u + 0.04 * u * Math.sin(f * 14), 0.0, 1); }
       cord.commit();
       for (let i = 0; i < 4; i++) { const f = ((v * 0.9 + i / 4) % 1); sparks.set(i, px - 0.8 * u + 0.6 * u * f, floor + 0.05 * u + 0.04 * u * Math.sin(f * 14), 0.02 * u, pre ? 0 : 1.2); }
@@ -262,21 +262,21 @@ function powerHouse(ctx, spec, stage) {
   };
 }
 function electricTrain(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.1 * u, x1 = B.maxX + 1.4 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.45 * u, x1 = B.maxX + 1.25 * u;
   const car = (c) => [[G.box(0.55 * u, 0.24 * u, 0.2 * u, 0, 0.16 * u, 0), c], [G.box(0.55 * u, 0.05 * u, 0.205 * u, 0, 0.1 * u, 0), 0x2a8a4a], ...[-0.17, -0.05, 0.07, 0.19].map((x) => [G.box(0.08 * u, 0.08 * u, 0.21 * u, x * u, 0.2 * u, 0), 0x9ad8ff]), ...[-0.18, 0.18].map((x) => [G.cyl(0.04 * u, 0.04 * u, 0.22 * u, x * u, 0.04 * u, 0, Math.PI / 2), 0x202428])];
-  const train = solidProp([...car(0xf0f0f0), ...car(0xf0f0f0).map(([g, c]) => [g.clone().translate(-0.58 * u, 0, 0), c])], 0.45);
+  const train = solidProp(car(0xf0f0f0), 0.45);
   const panto = solidProp([[G.poly([[-0.06 * u, 0], [0, 0.12 * u], [0.06 * u, 0]], 0.008 * u), 0x404048], [G.box(0.1 * u, 0.01 * u, 0.02 * u, 0, 0.12 * u, 0), 0x404048]], 0.4);
   const wire = solidProp([[G.box(2.4 * u, 0.008 * u, 0.008 * u, 0, 0, 0), 0x303030], ...[-0.6, 0.6].map((x) => [G.cyl(0.015 * u, 0.015 * u, 0.62 * u, x * u, -0.31 * u, -0.1 * u), 0x6a6a72])], 0.3);
   const rails = solidProp([[G.box(2.4 * u, 0.02 * u, 0.04 * u, 0, 0, 0), 0x8a8a92], [G.box(2.4 * u, 0.025 * u, 0.12 * u, 0, -0.02 * u, 0), 0x5a4030]], 0.3), sparks = many([[G.sphere(0.018 * u), 0x9ae8ff]], 5, 2.0);
-  const yWire = floor + 0.52 * u; wire.position.set((x0 + x1) / 2, yWire, -0.02 * u); rails.position.set((x0 + x1) / 2, floor, 0);
+  const yWire = floor + 0.52 * u; wire.position.set((x0 + x1) / 2, yWire, -0.02 * u); rails.position.set((x0 + x1) / 2, floor, 0); wire.scale.x = rails.scale.x = 0.6;
   group.add(rails, wire, train, panto, sparks);
   const loop = 5.0;
   return {
     group,
     step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0, 4.6), x = x0 - 0.6 * u + (x1 - x0 + 1.2 * u) * f;
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0, 2.1) - between(v, 2.6, 4.7), x = x0 + (x1 - x0) * (f * f * (3 - 2 * f));
       train.visible = !pre; train.position.set(x, floor + 0.02 * u + 0.005 * u * Math.sin(t * 20), 0); panto.position.set(x, floor + 0.3 * u, 0); panto.visible = !pre;
-      for (let i = 0; i < 5; i++) { const k = ((t * 4 + i * 0.37) % 1); sparks.set(i, x + 0.04 * u * Math.cos(i * 2.1 + k * 6), yWire + 0.04 * u * Math.sin(i * 1.7 + k * 5), 0.01 * u, !pre && k < 0.5 ? 1.3 : 0); }
+      for (let i = 0; i < 5; i++) { const k = ((t * 4 + i * 0.37) % 1); sparks.set(i, x + 0.04 * u * Math.cos(i * 2.1 + k * 6), yWire + 0.04 * u * Math.sin(i * 1.7 + k * 5), 0.01 * u, !pre && f > 0.02 && f < 0.98 && k < 0.5 ? 1.3 : 0); }
       sparks.commit();
     },
   };

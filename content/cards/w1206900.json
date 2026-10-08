@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5b66", "751f"],
   "builtFrom": [{ "k": "学", "m": "study" }, { "k": "生", "m": "life" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "emblem": "book", "backdrop": "sky:golden" },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "abacus-kid:backpack" },
   "sentences": [
     {
       "segments": [ { "text": "あなたも" }, { "text": "私", "reading": "わたし" }, { "text": "も" }, { "text": "学生", "reading": "がくせい" }, { "text": "です。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [231470, 68837] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 学生" },
+  "review": { "recipe": "reviewed", "rule": "word 学生" },
   "source": { "jmdict": 1206900, "jlpt": 5 }
 }

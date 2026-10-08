@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["5165", "53e3"],
   "builtFrom": [{ "k": "入", "m": "enter" }, { "k": "口", "m": "mouth" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["gate"],
-    "emblem": "arrow:up",
-    "backdrop": "sky:day",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "tent-in:doors" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "入り口", "reading": "いりぐち" }, { "text": "のところまで" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [154674, 259866] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 入り口" },
+  "review": { "recipe": "reviewed", "rule": "word 入り口" },
   "source": { "jmdict": 1582820, "jlpt": 5 }
 }

@@ -5,14 +5,7 @@
   "primaryReading": "しろ",
   "readings": { "kun": ["しろ", "しら", "しろ(い)"], "on": ["ハク", "ビャク"] },
   "mnemonic": "A ray of light (丿) on the sun (日): bright white.",
-  "effect": {
-    "material": "pearl",
-    "reveal": "draw",
-    "particles": ["snow"],
-    "backdrop": "sky:day",
-    "motion": "pulse",
-    "parts": { "日": {} }
-  },
+  "effect": { "material": "pearl", "backdrop": "sky:snow", "vignette": "snow-white", "parts": { "日": {} } },
   "sentences": [
     {
       "segments": [ { "text": "白", "reading": "しろ" }, { "text": "いドレスはありますか。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [121439, 282568] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1474900"] }
 }

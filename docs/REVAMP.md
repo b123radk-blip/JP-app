@@ -498,34 +498,34 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [x] 大 big (C): the kanji grows huge; a tiny mouse at its foot looks up and up. Built: `grow-big`.
 - [x] 外 outside (C): a little house; the door opens and a dog runs out into the yard; the door shuts behind it. Built: `house-out`.
 - [ ] 国 country (C): an island rises from the sea, a border draws round it and a flag plants on top.
-- [ ] 父 father (C, P): a dad lifts a kid up onto his shoulders, swaying.
-- [ ] 母 mother (C, P): a mum rocks a baby in her arms, hearts rising.
-- [ ] 八 eight (C): an octopus pops up and waves its eight arms.
-- [ ] 私 I (C, P): three lockers; one opens, a person steps out and points at themselves, a name tag lights.
-- [ ] 来 come (C): a hand beckons and a puppy bounds over from far away, wagging.
+- [x] 父 father (C, P): a dad lifts a kid up onto his shoulders, swaying. Built: `dad-shoulders`.
+- [x] 母 mother (C, P): a mum rocks a baby in her arms, hearts rising. Built: `mum-cradle`.
+- [x] 八 eight (C): an octopus pops up and waves its eight arms. Built: `octopus-eight`.
+- [x] 私 I (C, P): a kid jumps up and down waving, then points at their own chest: "わたし!". Built: `me-me`.
+- [x] 来 come (C): a hand beckons and a puppy bounds over from far away, wagging. Built: `come-here`.
 - [x] 月 moon (C): night sky; the moon waxes from a thin crescent to full and wanes again; 月曜日 `week`. Built: `moon-wax`.
-- [ ] 先 ahead (C): three paper boats race on the water; one pulls ahead, a little flag on it.
-- [ ] 曜 weekday (C): a wheel of the seven day symbols turns until the pointer stops on one.
-- [ ] 週 week (C): a seven-day strip; a little sun hops across it day by day and wraps round.
-- [ ] 毎 every (C): `every-unit:cups`: a teapot hops along a row of cups and fills every one.
-- [ ] 六 six (C): a big die tumbles and lands showing six.
-- [ ] 白 white (C): snow falls; the ground, a little tree and the kanji turn white.
+- [x] 先 ahead (C): three paper boats race on the water; one pulls ahead, a little flag on it. Built: `boat-race`.
+- [x] 曜 weekday (C): a wheel of the seven day symbols turns until the pointer stops on one. Built: `weekday-wheel`.
+- [x] 週 week (C): a seven-day strip; a little sun hops across it day by day and wraps round. Built: `week-hop`.
+- [x] 毎 every (C): `every-unit:cups`: a teapot hops along a row of cups and fills every one. Built: `every-unit:cups`.
+- [x] 六 six (C): a big die tumbles and lands showing six. Built: `dice-six`.
+- [x] 白 white (C): snow falls; the ground, a little tree and the kanji turn white. Built: `snow-white`.
 - [x] 車 car (C): a car drives a loop around the kanji, honks and parks. Built: `car-beep`.
-- [ ] 九 nine (C): a noughts-and-crosses grid fills with nine marks one by one.
-- [ ] 男 man (C, P): a man pulls a plough through the rice field, straining.
-- [ ] 出 exit (C): a turtle pokes its head and legs out of its shell and walks off.
+- [x] 九 nine (C): a noughts-and-crosses grid fills with nine marks one by one. Built: `ttt-nine`.
+- [x] 男 man (C, P): a man pulls a plough through the rice field, straining. Built: `plough-man`.
+- [x] 出 exit (C): a turtle pokes its head and legs out of its shell and walks off. Built: `turtle-out`.
 - [x] 口 mouth (C): the glyph opens and shuts like a mouth: teeth, a tongue, it says "ah" and chomps. Built: `mouth-open`.
-- [ ] 入 enter (C): a dog trots into a tent and the flap drops behind it.
-- [ ] 電 electricity (C): lightning arcs between two clouds and strikes a lightbulb, which lights.
-- [ ] 足 foot (C): two bare feet walk across leaving prints; the toes wiggle.
-- [ ] 女 woman (C, P): a woman with long hair in a dress twirls, a flower in her hair.
-- [ ] 前 in front (C): a mother duck walks in front, the ducklings following; a ring glows round the leader.
-- [ ] 道 road (C): a road unrolls into the distance; a car drives along it towards the horizon.
-- [ ] 見 see (C, P): a person lifts binoculars and spots a bird, which flies off.
-- [ ] 生 life (C): a seed in the soil sprouts, grows leaves and stands up alive.
-- [ ] 学 study (C, P): a kid at a desk reads, writes, and a lightbulb lights.
-- [ ] 駅 station (C): a station with a name board and a clock; a train pulls in, doors open, it leaves.
-- [ ] 花 flower (C): a bud swells and opens into a big flower; a bee visits.
+- [x] 入 enter (C): a dog trots into a tent and the flap drops behind it. Built: `tent-in`.
+- [x] 電 electricity (C): lightning arcs between two clouds and strikes a lightbulb, which lights. Built: `lightning-bulb`.
+- [x] 足 foot (C): two bare feet walk across leaving prints; the toes wiggle. Built: `feet-walk`.
+- [x] 女 woman (C, P): a woman with long hair in a dress twirls, a flower in her hair. Built: `woman-twirl`.
+- [x] 前 in front (C): a hen walks in front, three chicks following in a line; a ring and an arrow mark the one in front. Built: `hen-lead`.
+- [x] 道 road (C): a road unrolls into the distance; a car drives along it towards the horizon. Built: `road-unroll`.
+- [x] 見 see (C, P): a person lifts binoculars and spots a bird, which flies off. Built: `binoculars`.
+- [x] 生 life (C): a seed in the soil sprouts, grows leaves and stands up alive. Built: `sprout-life`.
+- [x] 学 study (C, P): a kid at a table flicks the beads of an abacus, counting, then a lightbulb lights (the Step 2 勉強 desk scene is taken). Built: `abacus-kid`.
+- [x] 駅 station (C): a station with a name board and a clock; a train pulls in, doors open, it leaves. Built: `station-train`.
+- [x] 花 flower (C): a bud swells and opens into a big flower; a bee visits. Built: `flower-bloom`.
 - [ ] 子 child (C): the glyph is a kid: its arms flap, it hops and bounces.
 - [x] 犬 dog (C): a dog wags its tail, runs after a thrown ball and brings it back. Built: `dog-fetch`.
 - [ ] 少 few (C): a hand shakes a bag over a bowl and only a few grains drop out.
@@ -611,46 +611,46 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [x] 大きな big (C): `grow:whale`: a whale surfaces beside a little boat. Built: `grow-big:whale`.
 - [ ] 外国 foreign country (C): `island:plane`: a plane flies from one island with a flag to another.
 - [ ] 外国人 foreigner (C, P): `island:visitor`: a traveller with a suitcase and a passport, a stamp thumps.
-- [ ] お父さん dad (C, P): `dad:home`: dad comes home with a briefcase, the kid runs to hug him.
-- [ ] お母さん mum (C, P): `mum:cook`: mum cooks at a pot, steam, a taste with the spoon.
-- [ ] 八日 8th (C): `day`, an octopus.
-- [ ] 八つ eight (C): `count`: eight takoyaki on a tray.
-- [ ] 来る come (C): `beckon:bird`: a bird flies in and lands on a held-out finger.
-- [ ] 来年 next year (C): `next-unit:year`.
-- [ ] 来月 next month (C): `next-unit:month`.
-- [ ] 今月 this month (C): `this-unit:month`.
-- [ ] 先月 last month (C): `last-unit:month`.
+- [x] お父さん dad (C, P): `dad:home`: dad comes home with a briefcase, the kid runs to hug him. Built: `dad-shoulders:home`.
+- [x] お母さん mum (C, P): `mum:cook`: mum cooks at a pot, steam, a taste with the spoon. Built: `mum-cradle:cook`.
+- [x] 八日 8th (C): `day`, an octopus. Built: `octopus-eight:day`.
+- [x] 八つ eight (C): `count`: eight takoyaki on a tray. Built: `octopus-eight:count`.
+- [x] 来る come (C): `beckon:bird`: a bird flies in and lands on a held-out finger. Built: `come-here:bird`.
+- [x] 来年 next year (C): `next-unit:year`. Built: `next-unit:year`.
+- [x] 来月 next month (C): `next-unit:month`. Built: `next-unit:month`.
+- [x] 今月 this month (C): `this-unit:month`. Built: `this-unit:month`.
+- [x] 先月 last month (C): `last-unit:month`. Built: `last-unit:month`.
 - [x] 火曜日 Tuesday (C): `week` of 火. Built: `fire-catch:week`.
 - [x] 日曜日 Sunday (C): `week` of 日. Built: `sun-rise:week`.
 - [x] 月曜日 Monday (C): `week` of 月. Built: `moon-wax:week`.
 - [x] 木曜日 Thursday (C): `week` of 木. Built: `tree-sprout:week`.
 - [x] 水曜日 Wednesday (C): `week` of 水. Built: `tap-fill:week`.
-- [ ] 来週 next week (C): `next-unit:week`.
-- [ ] 先週 last week (C): `last-unit:week`.
-- [ ] 今週 this week (C): `this-unit:week`.
-- [ ] 毎日 every day (C): `every-unit:day`.
-- [ ] 毎年 every year (C): `every-unit:year`.
-- [ ] 毎週 every week (C): `every-unit:week`.
-- [ ] 毎月 every month (C): `every-unit:month`.
-- [ ] 六日 6th (C): `day`, a die.
-- [ ] 六つ six (C): `count`: an egg box of six.
-- [ ] 白い white (C): `snow:rabbit`: a white rabbit hops through the snow.
-- [ ] 九つ nine (C): `count`: nine marbles in a tray.
-- [ ] 九日 9th (C): `day`, a cross.
-- [ ] 出る leave (C, P): `out:door`: a person walks out of a door with a wave.
-- [ ] 出す take out (C): `out:hat`: a hand pulls a rabbit out of a top hat.
-- [ ] 出口 exit (C, P): `out:exit`: a green exit sign glows, a person runs out under it.
-- [ ] 入る enter (C, P): `tent:house`: a person walks into a house and the door shuts.
-- [ ] 入り口 entrance (C, P): `tent:doors`: automatic doors slide open and a person walks in.
-- [ ] 入れる put in (C): `tent:coin`: a coin drops into a piggy bank.
-- [ ] 電話 phone (C): `bolt:phone`: an old phone rings and hops, sparks along its wire.
-- [ ] 電車 train (C): an electric train runs under the wires, sparks at the pantograph.
-- [ ] 見る see (C): `binoculars:stars`: a telescope turns to the stars.
-- [ ] 見せる show (C, P): `binoculars:show`: a kid holds up a drawing to show you.
-- [ ] 先生 teacher (C, P): a teacher with a pointer bows, kids bow back.
-- [ ] 生まれる be born (C): `sprout:stork`: a stork flies in with a bundle, a baby peeks out.
-- [ ] 学生 student (C, P): `desk:backpack`: a student with a school bag and books walks along.
-- [ ] 大学 university (C): `desk:cap`: graduation caps fly up in the air.
+- [x] 来週 next week (C): `next-unit:week`. Built: `next-unit:week`.
+- [x] 先週 last week (C): `last-unit:week`. Built: `last-unit:week`.
+- [x] 今週 this week (C): `this-unit:week`. Built: `this-unit:week`.
+- [x] 毎日 every day (C): `every-unit:day`. Built: `every-unit:day`.
+- [x] 毎年 every year (C): `every-unit:year`. Built: `every-unit:year`.
+- [x] 毎週 every week (C): `every-unit:week`. Built: `every-unit:week`.
+- [x] 毎月 every month (C): `every-unit:month`. Built: `every-unit:month`.
+- [x] 六日 6th (C): `day`, a die. Built: `dice-six:day`.
+- [x] 六つ six (C): `count`: an egg box of six. Built: `dice-six:count`.
+- [x] 白い white (C): `snow:rabbit`: a white rabbit hops through the snow. Built: `snow-white:rabbit`.
+- [x] 九つ nine (C): `count`: nine marbles in a tray. Built: `ttt-nine:count`.
+- [x] 九日 9th (C): `day`, a cross. Built: `ttt-nine:day`.
+- [x] 出る leave (C, P): `out:door`: a person walks out of a door with a wave. Built: `turtle-out:door`.
+- [x] 出す take out (C): `out:hat`: a hand pulls a rabbit out of a top hat. Built: `turtle-out:hat`.
+- [x] 出口 exit (C, P): `out:exit`: a green exit sign glows, a person runs out under it. Built: `turtle-out:exit`.
+- [x] 入る enter (C, P): `tent:house`: a person walks into a house and the door shuts. Built: `tent-in:house`.
+- [x] 入り口 entrance (C, P): `tent:doors`: automatic doors slide open and a person walks in. Built: `tent-in:doors`.
+- [x] 入れる put in (C): `tent:coin`: a coin drops into a piggy bank. Built: `tent-in:coin`.
+- [x] 電話 phone (C): `bolt:phone`: an old phone rings and hops, sparks along its wire. Built: `lightning-bulb:phone`.
+- [x] 電車 train (C): an electric train runs under the wires, sparks at the pantograph. Built: `electric-train`.
+- [x] 見る see (C): `binoculars:stars`: a telescope turns to the stars. Built: `binoculars:stars`.
+- [x] 見せる show (C, P): `binoculars:show`: a kid holds up a drawing to show you. Built: `binoculars:show`.
+- [x] 先生 teacher (C, P): a teacher with a pointer bows, kids bow back. Built: `teacher-bow`.
+- [x] 生まれる be born (C): `sprout:stork`: a stork flies in with a bundle, a baby peeks out. Built: `sprout-life:stork`.
+- [x] 学生 student (C, P): `abacus-kid:backpack`: a student with a school bag and books walks along. Built: `abacus-kid:backpack`.
+- [x] 大学 university (C): `abacus-kid:caps`: graduation caps fly up in the air. Built: `abacus-kid:caps`.
 - [ ] 女の子 girl (C, P): `woman:girl`: a girl on a swing.
 - [ ] 男の子 boy (C, P): `plough:boy`: a boy flies a toy plane round his head.
 - [ ] 少し a little (C): `few:pinch`: a pinch of salt drops into a pot.

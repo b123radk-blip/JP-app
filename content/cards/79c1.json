@@ -7,8 +7,8 @@
   "mnemonic": "Grain (禾) I keep for myself (厶): I, private.",
   "effect": {
     "material": "gold",
-    "reveal": "draw",
     "backdrop": "sky:golden",
+    "vignette": "me-me",
     "parts": { "禾": { "motion": "sway" }, "厶": { "material": "skin" } }
   },
   "sentences": [

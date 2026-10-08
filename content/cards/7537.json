@@ -5,13 +5,7 @@
   "primaryReading": "おとこ",
   "readings": { "kun": ["おとこ", "お"], "on": ["ダン", "ナン"] },
   "mnemonic": "Power (力) in the rice field (田): a man.",
-  "effect": {
-    "material": "clay",
-    "reveal": "draw",
-    "scene": ["field"],
-    "backdrop": "sky:day",
-    "parts": { "田": {}, "力": {} }
-  },
+  "effect": { "material": "clay", "backdrop": "sky:day", "vignette": "plough-man", "parts": { "田": {}, "力": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はその" }, { "text": "男", "reading": "おとこ" }, { "text": "をじっと" }, { "text": "見", "reading": "み" }, { "text": "た。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [159971, 254551] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1419990"] }
 }

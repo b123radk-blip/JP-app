@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["6bcd"],
   "builtFrom": [{ "k": "母", "m": "mother" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "scene": ["room"], "backdrop": "sky:morning" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:indoor",
+    "vignette": { "type": "mum-cradle", "outcome": "cook", "size": 0.9 }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ただいま、" }, { "text": "お" }, { "text": "母", "reading": "かあ", "base": null, "dict": true }, { "text": "さん" }, { "text": "。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [203661, 40899] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word お母さん" },
+  "review": { "recipe": "reviewed", "rule": "word お母さん" },
   "source": { "jmdict": 1002650, "jlpt": 5 }
 }

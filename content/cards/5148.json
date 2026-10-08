@@ -5,14 +5,7 @@
   "primaryReading": "さき",
   "readings": { "kun": ["さき", "ま(ず)"], "on": ["セン"] },
   "mnemonic": "Legs (儿) striding out ahead of everyone: ahead, previous.",
-  "effect": {
-    "material": "jade",
-    "reveal": "draw:dust",
-    "backdrop": "sky:dawn",
-    "motion": "drift:right",
-    "parts": { "儿": {} },
-    "particles": [{ "type": "footprints", "dir": "right" }]
-  },
+  "effect": { "material": "jade", "backdrop": "sky:dawn", "vignette": "boat-race", "parts": { "儿": {} } },
   "sentences": [
     {
       "segments": [ { "text": "それから" }, { "text": "先", "reading": "さき" }, { "text": "の" }, { "text": "話", "reading": "はなし" }, { "text": "を" }, { "text": "聞", "reading": "き" }, { "text": "きたい。" } ],

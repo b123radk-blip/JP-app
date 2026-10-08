@@ -5,14 +5,7 @@
   "primaryReading": "みち",
   "readings": { "kun": ["みち", "いう"], "on": ["ドウ", "トウ"] },
   "mnemonic": "A head (首) leading the way along the road (⻌).",
-  "effect": {
-    "material": "stone",
-    "reveal": "draw",
-    "particles": ["dust"],
-    "scene": ["road"],
-    "backdrop": "sky:day",
-    "parts": { "首": {}, "⻌": {} }
-  },
+  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": "road-unroll", "parts": { "首": {}, "⻌": {} } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "道", "reading": "みち" }, { "text": "はどこに" }, { "text": "出", "reading": "で" }, { "text": "ますか。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [220308, 57628] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1454080"] }
 }

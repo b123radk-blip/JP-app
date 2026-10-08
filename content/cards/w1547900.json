@@ -8,13 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["6765", "6708"],
   "builtFrom": [{ "k": "来", "m": "come" }, { "k": "月", "m": "month" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "arrow:right",
-    "motion": "drift:right",
-    "backdrop": "sky:night"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:night", "vignette": "next-unit:month" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "来月", "reading": "らいげつ" }, { "text": "新車", "reading": "しんしゃ" }, { "text": "を" }, { "text": "買", "reading": "か" }, { "text": "います。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [152418, 262131] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 来月" },
+  "review": { "recipe": "reviewed", "rule": "word 来月" },
   "source": { "jmdict": 1547900, "jlpt": 5 }
 }

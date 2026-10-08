@@ -5,15 +5,7 @@
   "primaryReading": "らい",
   "readings": { "kun": ["く(る)", "きた(る)", "きた(す)", "き(たす)"], "on": ["ライ", "タイ"] },
   "mnemonic": "A rice plant (米) walking towards you: come.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "particles": ["leaves"],
-    "scene": ["road"],
-    "backdrop": "sky:day",
-    "motion": "drift:toward",
-    "emblem": "arrow:down"
-  },
+  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": "come-here" },
   "sentences": [
     {
       "segments": [ { "text": "すぐにここへ" }, { "text": "来", "reading": "き" }, { "text": "なさい。" } ],
@@ -22,6 +14,6 @@
       "source": { "tatoeba": [214956, 52251] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

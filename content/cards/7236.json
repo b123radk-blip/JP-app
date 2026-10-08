@@ -5,7 +5,7 @@
   "primaryReading": "ちち",
   "readings": { "kun": ["ちち"], "on": ["フ"] },
   "mnemonic": "Father with two crossed sticks (乂) to chop firewood.",
-  "effect": { "material": "wood", "reveal": "draw", "scene": ["room"], "backdrop": "sky:indoor" },
+  "effect": { "material": "wood", "backdrop": "sky:indoor", "vignette": "dad-shoulders" },
   "sentences": [
     {
       "segments": [ { "text": "父", "reading": "ちち" }, { "text": "はビジネスマンです。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [84669, 319045] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1497610"] }
 }

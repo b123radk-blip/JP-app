@@ -8,7 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": ["5165"],
   "builtFrom": [{ "k": "入", "m": "enter" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "motion": "drift:away", "backdrop": "sky:noon" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "tent-in:house" },
   "sentences": [
     {
       "segments": [ { "text": "クラブに" }, { "text": "入", "reading": "はい" }, { "text": "りませんか。" } ],

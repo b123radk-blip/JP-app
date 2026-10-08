@@ -8,14 +8,7 @@
   "pos": ["v1", "vi"],
   "kanji": ["751f"],
   "builtFrom": [{ "k": "生", "m": "life" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["petals"],
-    "emblem": "heart",
-    "backdrop": "sky:dawn",
-    "motion": "grow"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "sprout-life:stork" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "二十", "reading": "にじゅう" }, { "text": "年", "reading": "ねん" }, { "text": "前", "reading": "まえ" }, { "text": "に" }, { "text": "生", "reading": "う" }, { "text": "まれた。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [154766, 259775] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 生まれる" },
+  "review": { "recipe": "reviewed", "rule": "word 生まれる" },
   "source": { "jmdict": 1378690, "jlpt": 5 }
 }

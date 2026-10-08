@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["516b", "65e5"],
   "builtFrom": [{ "k": "八", "m": "eight" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "scene": ["lanterns:8"],
-    "backdrop": "sky:snow",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "octopus-eight:day" },
   "sentences": [
     {
       "segments": [ { "text": "八", "reading": "よう" }, { "text": "日", "reading": "か" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "でした。" } ],
@@ -24,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /day of the month|^\\w+ days?$/i" },
   "source": { "jmdict": 1476920, "jlpt": 5 }
 }

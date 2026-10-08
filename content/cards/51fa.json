@@ -4,16 +4,8 @@
   "meaning": "exit; leave",
   "primaryReading": "で",
   "readings": { "kun": ["で(る)", "で", "だ(す)", "だ(す)"], "on": ["シュツ", "スイ"] },
-  "mnemonic": "A sprout climbing out of a pot: go out.",
-  "effect": {
-    "material": "stone",
-    "reveal": "draw",
-    "scene": ["mountains"],
-    "backdrop": "sky:day",
-    "motion": "drift:up",
-    "emblem": "arrow:up",
-    "parts": { "山": {} }
-  },
+  "mnemonic": "A head poking up and out, like a turtle coming out of its shell: go out.",
+  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": "turtle-out", "parts": { "山": {} } },
   "sentences": [
     {
       "segments": [ { "text": "どこから" }, { "text": "出", "reading": "で" }, { "text": "るんですか。" } ],
@@ -22,6 +14,6 @@
       "source": { "tatoeba": [201017, 38222] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

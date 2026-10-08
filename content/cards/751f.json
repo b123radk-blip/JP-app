@@ -5,13 +5,7 @@
   "primaryReading": "せい",
   "readings": { "kun": ["い(きる)", "い(かす)", "い(ける)", "う(まれる)"], "on": ["セイ", "ショウ"] },
   "mnemonic": "A plant sprouting from the ground: life, to be born.",
-  "effect": {
-    "material": "jade",
-    "reveal": "grow",
-    "particles": ["leaves"],
-    "backdrop": "sky:morning",
-    "motion": "grow:1.2"
-  },
+  "effect": { "material": "jade", "backdrop": "sky:morning", "vignette": "sprout-life" },
   "sentences": [
     {
       "segments": [ { "text": "先生", "reading": "せんせい" }, { "text": "はいすにすわった。" } ],

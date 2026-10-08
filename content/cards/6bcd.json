@@ -5,14 +5,7 @@
   "primaryReading": "はは",
   "readings": { "kun": ["はは", "も"], "on": ["ボ"] },
   "mnemonic": "Mother's arms around two little ones.",
-  "effect": {
-    "material": "rose",
-    "reveal": "draw",
-    "scene": ["room"],
-    "backdrop": "sky:indoor",
-    "motion": "pulse",
-    "emblem": "heart"
-  },
+  "effect": { "material": "rose", "backdrop": "sky:dusk", "vignette": "mum-cradle" },
   "sentences": [
     {
       "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "毎日", "reading": "まいにち" }, { "text": "うちにいます。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [82855, 320861] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1514990"] }
 }

@@ -8,14 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["6bce", "65e5"],
   "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "motion": "count:3",
-    "backdrop": "sky:morning",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "every-unit:day" },
   "sentences": [
     {
       "segments": [ { "text": "テレビは" }, { "text": "毎日", "reading": "まいにち" }, { "text": "見", "reading": "み" }, { "text": "ますよ。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [159389, 255134] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 毎日" },
+  "review": { "recipe": "reviewed", "rule": "word 毎日" },
   "source": { "jmdict": 1524720, "jlpt": 5 }
 }

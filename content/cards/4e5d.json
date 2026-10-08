@@ -5,14 +5,7 @@
   "primaryReading": "きゅう",
   "readings": { "kun": ["ここの", "ここの(つ)"], "on": ["キュウ", "ク"] },
   "mnemonic": "An arm hooking round a corner to catch the ninth ball.",
-  "effect": {
-    "material": "chalk",
-    "reveal": "draw",
-    "particles": ["sparks"],
-    "backdrop": "sky:dusk",
-    "motion": "count:9",
-    "emblem": "target"
-  },
+  "effect": { "material": "chalk", "backdrop": "sky:dusk", "vignette": "ttt-nine" },
   "sentences": [
     {
       "segments": [ { "text": "九", "reading": "きゅう" }, { "text": "ページを" }, { "text": "開", "reading": "ひら" }, { "text": "きなさい。" } ],

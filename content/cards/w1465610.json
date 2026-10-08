@@ -8,7 +8,7 @@
   "pos": ["v1", "vt"],
   "kanji": ["5165"],
   "builtFrom": [{ "k": "入", "m": "enter" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "motion": "drift:down", "backdrop": "sky:noon" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "tent-in:coin" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はバケツに" }, { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "入", "reading": "い" }, { "text": "れた。" } ],

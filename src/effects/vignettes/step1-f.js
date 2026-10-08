@@ -12,7 +12,7 @@
 //                  outcome stars: a telescope on a stand turns up to the stars and a shooting star streaks past (見る);
 //                  show: a kid holds up a drawing to show you, bouncing proudly (見せる)
 //   abacus-kid     学: a kid flicks the beads of an abacus, counting, then lifts their hand: got it! outcome backpack:
-//                  a student with a school bag and books walks to school (学生); caps: graduation caps fly up and spin
+//                  a student in a cap with a school bag and books walks off to school (学生); caps: graduation caps fly up and spin
 //                  down (大学)
 //   teacher-bow    先生: a teacher with glasses and a pointer bows; two pupils in front bow back
 import * as THREE from 'three';
@@ -323,9 +323,7 @@ function studentWalk(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 1.3 * u;
   const s = createPerson({ u: 0.85 * u, shirt: 0x202a48, pants: 0x202a48 }), bag = solidProp([[G.box(0.2 * u, 0.24 * u, 0.12 * u, 0, 0, 0), 0xc02020], [G.box(0.205 * u, 0.1 * u, 0.13 * u, 0, 0.08 * u, 0.0), 0x901818]], 0.45), books = solidProp([[G.box(0.16 * u, 0.04 * u, 0.12 * u, 0, 0, 0), 0x3a7ae0], [G.box(0.15 * u, 0.04 * u, 0.11 * u, 0, 0.04 * u, 0), 0x40b060]], 0.5), cap = solidProp([[G.sphere(0.13 * u, 0, 0, 0, 1, 0.5, 1), 0x202a48], [G.box(0.14 * u, 0.01 * u, 0.1 * u, 0, -0.02 * u, 0.1 * u), 0x101828]], 0.4);
   s.rig.attach('body', bag, 0.6); bag.position.set(0, 0, -0.14 * u); s.rig.attach('head', cap, 0.85);
-  const school = solidProp([[G.box(0.4 * u, 0.3 * u, 0.15 * u, 0, 0.15 * u, 0), 0xf0e8d8], [G.box(0.12 * u, 0.12 * u, 0.15 * u, 0, 0.36 * u, 0), 0xf0e8d8], [G.cyl(0.04 * u, 0.04 * u, 0.01 * u, 0, 0.36 * u, 0.08 * u, Math.PI / 2), 0xffffff]], 0.4);
-  school.position.set(B.maxX + 0.25 * u, floor + 0.35 * u, -0.5 * u); school.scale.setScalar(0.8);
-  group.add(school, s.group, books);
+  group.add(s.group, books);
   const loop = 6.0;
   return {
     group,

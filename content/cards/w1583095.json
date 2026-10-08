@@ -8,7 +8,7 @@
   "pos": ["num"],
   "kanji": ["516b"],
   "builtFrom": [{ "k": "八", "m": "eight" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:8", "particles": ["motes"], "backdrop": "sky:storm" },
+  "effect": { "material": "ivory", "backdrop": "sky:sunset", "vignette": "octopus-eight:count" },
   "sentences": [
     {
       "segments": [ { "text": "卵", "reading": "たまご" }, { "text": "を" }, { "text": "八", "reading": "やっ", "base": "やっ", "dict": true }, { "text": "つ" }, { "text": "ください。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
   "source": { "jmdict": 1583095, "jlpt": 5 }
 }

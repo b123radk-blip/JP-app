@@ -5,14 +5,7 @@
   "primaryReading": "い",
   "readings": { "kun": ["い(る)", "い(る)", "い(り)", "い(れる)"], "on": ["ニュウ", "ジュ"] },
   "mnemonic": "A tent flap pulled aside: go in.",
-  "effect": {
-    "material": "metal",
-    "reveal": "draw",
-    "scene": ["gate"],
-    "backdrop": "sky:dawn",
-    "motion": "drift:away",
-    "emblem": "arrow:up"
-  },
+  "effect": { "material": "metal", "backdrop": "sky:dawn", "vignette": "tent-in" },
   "sentences": [
     {
       "segments": [ { "text": "スタジオに" }, { "text": "入", "reading": "い" }, { "text": "れません。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [214681, 51974] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

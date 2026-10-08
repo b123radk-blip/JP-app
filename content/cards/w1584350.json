@@ -8,14 +8,7 @@
   "pos": ["adv", "n"],
   "kanji": ["6bce", "6708"],
   "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "月", "m": "month" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "crescent",
-    "motion": "count:3",
-    "backdrop": "sky:deep",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:deep", "vignette": "every-unit:month" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "母", "reading": "はは" }, { "text": "から" }, { "text": "毎月", "reading": "まいつき" }, { "text": "便", "reading": "たよ" }, { "text": "りをもらう。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [152873, 261673] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 毎月" },
+  "review": { "recipe": "reviewed", "rule": "word 毎月" },
   "source": { "jmdict": 1584350, "jlpt": 5 }
 }

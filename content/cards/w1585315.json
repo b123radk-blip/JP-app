@@ -8,7 +8,7 @@
   "pos": ["num"],
   "kanji": ["516d"],
   "builtFrom": [{ "k": "六", "m": "six" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:6", "particles": ["motes"], "backdrop": "sky:deep" },
+  "effect": { "material": "ivory", "backdrop": "sky:deep", "vignette": "dice-six:count" },
   "sentences": [
     {
       "segments": [ { "text": "いすが" }, { "text": "六", "reading": "むっ", "base": "むっ", "dict": true }, { "text": "つ" }, { "text": "あります。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
   "source": { "jmdict": 1585315, "jlpt": 5 }
 }

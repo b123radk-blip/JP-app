@@ -8,13 +8,7 @@
   "pos": ["n"],
   "kanji": ["5148", "751f"],
   "builtFrom": [{ "k": "先", "m": "before" }, { "k": "生", "m": "life" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["room:classroom"],
-    "emblem": "speech",
-    "backdrop": "sky:forest"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": "teacher-bow" },
   "sentences": [
     {
       "segments": [ { "text": "あれはきっと" }, { "text": "校長", "reading": "こうちょう" }, { "text": "先生", "reading": "せんせい" }, { "text": "だ。" } ],

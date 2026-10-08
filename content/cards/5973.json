@@ -5,13 +5,7 @@
   "primaryReading": "おんな",
   "readings": { "kun": ["おんな", "め"], "on": ["ジョ", "ニョ", "ニョウ"] },
   "mnemonic": "A woman kneeling gracefully.",
-  "effect": {
-    "material": "rose",
-    "reveal": "draw",
-    "backdrop": "sky:dusk",
-    "motion": "sway",
-    "emblem": { "type": "person", "color": "#ff6a8a" }
-  },
+  "effect": { "material": "rose", "backdrop": "sky:dusk", "vignette": "woman-twirl" },
   "sentences": [
     {
       "segments": [ { "text": "あの" }, { "text": "女", "reading": "おんな" }, { "text": "の" }, { "text": "人", "reading": "ひと" }, { "text": "は" }, { "text": "先生", "reading": "せんせい" }, { "text": "です。" } ],

@@ -8,14 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["6765", "5e74"],
   "builtFrom": [{ "k": "来", "m": "come" }, { "k": "年", "m": "year" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "arrow:right",
-    "motion": "drift:right",
-    "backdrop": "sky:golden",
-    "particles": ["petals"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "next-unit:year" },
   "sentences": [
     {
       "segments": [ { "text": "来年", "reading": "らいねん" }, { "text": "は" }, { "text": "会", "reading": "あ" }, { "text": "えるでしょう。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [78581, 325134] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 来年" },
+  "review": { "recipe": "reviewed", "rule": "word 来年" },
   "source": { "jmdict": 1548220, "jlpt": 5 }
 }

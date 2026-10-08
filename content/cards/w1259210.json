@@ -8,14 +8,7 @@
   "pos": ["v1", "vt"],
   "kanji": ["898b"],
   "builtFrom": [{ "k": "見", "m": "see" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "eye",
-    "motion": "drift:toward",
-    "backdrop": "sky:noon",
-    "particles": ["sparks"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "binoculars:show" },
   "sentences": [
     {
       "segments": [ { "text": "ちょっと" }, { "text": "見", "reading": "み" }, { "text": "せて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [202785, 40019] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 見せる" },
+  "review": { "recipe": "reviewed", "rule": "word 見せる" },
   "source": { "jmdict": 1259210, "jlpt": 5 }
 }

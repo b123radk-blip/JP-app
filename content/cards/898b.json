@@ -5,7 +5,7 @@
   "primaryReading": "み",
   "readings": { "kun": ["み(る)", "み(える)", "み(せる)"], "on": ["ケン"] },
   "mnemonic": "An eye (目) on legs (儿): see.",
-  "effect": { "material": "cyan", "reveal": "draw", "backdrop": "plain", "emblem": "eye", "parts": { "目": {} } },
+  "effect": { "material": "cyan", "backdrop": "sky:day", "vignette": "binoculars", "parts": { "目": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はテレビを" }, { "text": "見", "reading": "み" }, { "text": "ません。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [159402, 255121] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

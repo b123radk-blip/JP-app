@@ -8,14 +8,7 @@
   "pos": ["adv", "n"],
   "kanji": ["6bce", "5e74"],
   "builtFrom": [{ "k": "毎", "m": "every" }, { "k": "年", "m": "year" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "motion": "count:3",
-    "backdrop": "sky:forest",
-    "particles": ["leaves"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": "every-unit:year" },
   "sentences": [
     {
       "segments": [ { "text": "毎年", "reading": "まいとし" }, { "text": "ここに" }, { "text": "来", "reading": "こ" }, { "text": "なきゃ。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [81248, 322467] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 毎年" },
+  "review": { "recipe": "reviewed", "rule": "word 毎年" },
   "source": { "jmdict": 1584360, "jlpt": 5 }
 }

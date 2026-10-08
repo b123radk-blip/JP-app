@@ -8,7 +8,7 @@
   "pos": ["v1", "vt"],
   "kanji": ["898b"],
   "builtFrom": [{ "k": "見", "m": "see" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "eye", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:night", "vignette": "binoculars:stars" },
   "sentences": [
     {
       "segments": [ { "text": "それを" }, { "text": "見", "reading": "み" }, { "text": "たいものです。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [204606, 41846] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 見る" },
+  "review": { "recipe": "reviewed", "rule": "word 見る" },
   "source": { "jmdict": 1259290, "jlpt": 5 }
 }

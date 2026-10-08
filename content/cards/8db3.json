@@ -5,16 +5,7 @@
   "primaryReading": "あし",
   "readings": { "kun": ["あし", "た(りる)", "た(る)", "た(す)"], "on": ["ソク"] },
   "mnemonic": "A knee (口) above a foot: foot, leg; also enough.",
-  "effect": {
-    "material": "skin",
-    "reveal": "draw",
-    "particles": [{ "type": "footprints", "dir": "right" }],
-    "scene": ["road"],
-    "backdrop": "sky:day",
-    "motion": "walk",
-    "emblem": "foot",
-    "parts": { "口": {} }
-  },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "feet-walk", "parts": { "口": {} } },
   "sentences": [
     {
       "segments": [ { "text": "また" }, { "text": "足", "reading": "あし" }, { "text": "がしびれた。" } ],

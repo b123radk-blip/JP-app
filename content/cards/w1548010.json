@@ -8,14 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["6765", "9031"],
   "builtFrom": [{ "k": "来", "m": "come" }, { "k": "週", "m": "week" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "arrow:right",
-    "motion": "drift:right",
-    "backdrop": "sky:twilight",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": "next-unit:week" },
   "sentences": [
     {
       "segments": [ { "text": "来週", "reading": "らいしゅう" }, { "text": "の" }, { "text": "今日", "reading": "きょう" }, { "text": "お" }, { "text": "会", "reading": "あ" }, { "text": "いします。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [78649, 325067] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 来週" },
+  "review": { "recipe": "reviewed", "rule": "word 来週" },
   "source": { "jmdict": 1548010, "jlpt": 5 }
 }

@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["96fb", "8eca"],
   "builtFrom": [{ "k": "電", "m": "electricity" }, { "k": "車", "m": "car" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "train", "scene": ["road"], "backdrop": "sky:morning" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "type": "electric-train", "size": 1.1 } },
   "sentences": [
     {
       "segments": [ { "text": "電車", "reading": "でんしゃ" }, { "text": "で" }, { "text": "会社", "reading": "かいしゃ" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 電車" },
+  "review": { "recipe": "reviewed", "rule": "word 電車" },
   "source": { "jmdict": 1443530, "jlpt": 5 }
 }

@@ -5,14 +5,7 @@
   "primaryReading": "しゅう",
   "readings": { "kun": [], "on": ["シュウ"] },
   "mnemonic": "A loop (周) you walk (⻌) every seven days: a week.",
-  "effect": {
-    "material": "paper",
-    "reveal": "draw",
-    "scene": ["road"],
-    "backdrop": "sky:morning",
-    "emblem": "dots:7",
-    "parts": { "⻌": {} }
-  },
+  "effect": { "material": "paper", "backdrop": "sky:morning", "vignette": "week-hop", "parts": { "⻌": {} } },
   "sentences": [
     {
       "segments": [ { "text": "先生", "reading": "せんせい" }, { "text": "に" }, { "text": "今週", "reading": "こんしゅう" }, { "text": "会", "reading": "あ" }, { "text": "えますか。" } ],

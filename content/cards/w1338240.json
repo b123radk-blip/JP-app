@@ -8,13 +8,7 @@
   "pos": ["v1", "vi"],
   "kanji": ["51fa"],
   "builtFrom": [{ "k": "出", "m": "exit" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["gate"],
-    "motion": "drift:toward",
-    "backdrop": "sky:morning"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "turtle-out:door" },
   "sentences": [
     {
       "segments": [ { "text": "電話", "reading": "でんわ" }, { "text": "には" }, { "text": "出", "reading": "で" }, { "text": "なかったからメールしておきました。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [449040, 449041] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 出る" },
+  "review": { "recipe": "reviewed", "rule": "word 出る" },
   "source": { "jmdict": 1338240, "jlpt": 5 }
 }

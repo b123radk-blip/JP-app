@@ -8,14 +8,7 @@
   "pos": ["vk", "vi"],
   "kanji": ["6765"],
   "builtFrom": [{ "k": "来", "m": "come" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["road"],
-    "emblem": "arrow:down",
-    "motion": "drift:toward",
-    "backdrop": "sky:forest"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": "come-here:bird" },
   "sentences": [
     {
       "segments": [ { "text": "バスはすぐ" }, { "text": "来", "reading": "く" }, { "text": "るはずです。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [198131, 35321] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 来る" },
+  "review": { "recipe": "reviewed", "rule": "word 来る" },
   "source": { "jmdict": 1547720, "jlpt": 5 }
 }

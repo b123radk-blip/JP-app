@@ -5,14 +5,7 @@
   "primaryReading": "はな",
   "readings": { "kun": ["はな"], "on": ["カ", "ケ"] },
   "mnemonic": "Grass (艹) on top, and below someone changing (化) into a flower.",
-  "effect": {
-    "material": "rose",
-    "reveal": "grow",
-    "particles": ["petals"],
-    "backdrop": "sky:day",
-    "motion": "sway",
-    "parts": { "艹": {} }
-  },
+  "effect": { "material": "rose", "backdrop": "sky:day", "vignette": "flower-bloom", "parts": { "艹": {} } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "花", "reading": "はな" }, { "text": "は" }, { "text": "何", "reading": "なん" }, { "text": "と" }, { "text": "言", "reading": "い" }, { "text": "いますか。" } ],

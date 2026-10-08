@@ -5,15 +5,7 @@
   "primaryReading": "でん",
   "readings": { "kun": [], "on": ["デン"] },
   "mnemonic": "Rain (雨) and a bolt striking the field: electricity.",
-  "effect": {
-    "material": "neon",
-    "reveal": "draw:sparks",
-    "particles": ["sparks"],
-    "backdrop": "sky:storm",
-    "motion": "shake",
-    "emblem": "bolt",
-    "parts": { "雨": {} }
-  },
+  "effect": { "material": "neon", "backdrop": "sky:storm", "vignette": "lightning-bulb", "parts": { "雨": {} } },
   "sentences": [
     {
       "segments": [ { "text": "またいつか" }, { "text": "電話", "reading": "でんわ" }, { "text": "します。" } ],

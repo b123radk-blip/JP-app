@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["767d"],
   "builtFrom": [{ "k": "白", "m": "white" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["snow"], "backdrop": "sky:snow" },
+  "effect": { "material": "ivory", "backdrop": "sky:snow", "vignette": "snow-white:rabbit" },
   "sentences": [
     {
       "segments": [ { "text": "白", "reading": "しろ" }, { "text": "いシャツはありますか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [121441, 282565] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 白い" },
+  "review": { "recipe": "reviewed", "rule": "word 白い" },
   "source": { "jmdict": 1474910, "jlpt": 5 }
 }

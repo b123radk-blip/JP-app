@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["5927", "5b66"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "学", "m": "study" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["gate"],
-    "emblem": "lightbulb",
-    "backdrop": "sky:golden",
-    "motion": "grow"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "abacus-kid:caps" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "大学", "reading": "だいがく" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きたい。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [155210, 259326] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 大学" },
+  "review": { "recipe": "reviewed", "rule": "word 大学" },
   "source": { "jmdict": 1413240, "jlpt": 5 }
 }
