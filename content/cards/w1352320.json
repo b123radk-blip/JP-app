@@ -8,7 +8,11 @@
   "pos": ["v1", "vt"],
   "kanji": ["4e0a"],
   "builtFrom": [{ "k": "上", "m": "up" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "arrow:up", "motion": "drift:up", "backdrop": "sky:noon" },
+  "effect": {
+    "material": "jade",
+    "backdrop": "sky:noon",
+    "vignette": { "type": "balloon-up", "outcome": "flag", "size": 1.2 }
+  },
   "sentences": [
     {
       "segments": [ { "text": "左手", "reading": "ひだりて" }, { "text": "を" }, { "text": "上", "reading": "あ" }, { "text": "げなさい。" } ],
@@ -17,6 +21,6 @@
       "source": { "tatoeba": [170915, 243565] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 上げる" },
+  "review": { "recipe": "reviewed", "rule": "word 上げる" },
   "source": { "jmdict": 1352320, "jlpt": 5 }
 }

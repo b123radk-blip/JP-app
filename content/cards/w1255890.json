@@ -9,11 +9,9 @@
   "kanji": ["6708", "66dc", "65e5"],
   "builtFrom": [{ "k": "月", "m": "month" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
   "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "crescent",
-    "backdrop": "sky:night",
-    "particles": ["motes"]
+    "material": "silver",
+    "backdrop": { "type": "sky", "preset": "night", "moon": false },
+    "vignette": { "type": "moon-wax", "outcome": "week" }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [171638, 242836] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 月曜日" },
+  "review": { "recipe": "reviewed", "rule": "word 月曜日" },
   "source": { "jmdict": 1255890, "jlpt": 5 }
 }

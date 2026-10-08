@@ -8,13 +8,7 @@
   "pos": ["num"],
   "kanji": ["4e09"],
   "builtFrom": [{ "k": "三", "m": "three" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "dots:3",
-    "particles": ["motes"],
-    "backdrop": "sky:twilight"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "three-ducks:count" },
   "sentences": [
     {
       "segments": [ { "text": "これを" }, { "text": "三", "reading": "みっ" }, { "text": "つください。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [217647, 54957] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
   "source": { "jmdict": 1299740, "jlpt": 5 }
 }

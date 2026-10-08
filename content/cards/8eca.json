@@ -5,15 +5,7 @@
   "primaryReading": "くるま",
   "readings": { "kun": ["くるま"], "on": ["シャ"] },
   "mnemonic": "A cart from above: two wheels on an axle.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "particles": ["dust"],
-    "scene": ["road"],
-    "backdrop": "sky:day",
-    "motion": "drift:right",
-    "emblem": "car"
-  },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "car-beep" },
   "sentences": [
     {
       "segments": [ { "text": "車", "reading": "くるま" }, { "text": "で" }, { "text": "学校", "reading": "がっこう" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きます。" } ],

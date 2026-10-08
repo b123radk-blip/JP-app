@@ -5,19 +5,13 @@
   "primaryReading": "かわ",
   "readings": { "kun": ["かわ"], "on": ["セン"] },
   "mnemonic": "Three streams of water running down side by side.",
-  "effect": {
-    "material": "water",
-    "reveal": "draw:drops",
-    "particles": ["flow"],
-    "scene": ["river"],
-    "backdrop": "sky:morning",
-    "motion": "none"
-  },
+  "effect": { "material": "water", "backdrop": "sky:morning", "scene": ["river"], "vignette": "river-flow" },
   "sentences": [
     {
       "segments": [ { "text": "大", "reading": "おお" }, { "text": "きい" }, { "text": "川", "reading": "かわ" }, { "text": "です" }, { "text": "。" } ],
       "en": "It's a big river.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

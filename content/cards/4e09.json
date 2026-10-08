@@ -4,19 +4,14 @@
   "meaning": "three",
   "primaryReading": "さん",
   "readings": { "kun": ["み", "みっ(つ)"], "on": ["サン"] },
-  "mnemonic": "Three lines, like three fingers: count them, one, two, three.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw:sparks",
-    "scene": ["lanterns:3"],
-    "backdrop": {"type": "sky", "preset": "night", "moon": false},
-    "motion": "count:3"
-  },
+  "mnemonic": "Three lines, like three ducks in a row: count them, one, two, three.",
+  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": "three-ducks" },
   "sentences": [
     {
       "segments": [ { "text": "りんご" }, { "text": "が" }, { "text": "三", "reading": "みっ" }, { "text": "つ" }, { "text": "あります" }, { "text": "。" } ],
       "en": "There are three apples.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

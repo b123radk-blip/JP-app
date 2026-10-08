@@ -10,10 +10,8 @@
   "builtFrom": [{ "k": "三", "m": "three" }, { "k": "日", "m": "sun" }],
   "effect": {
     "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "scene": ["lanterns:3"],
-    "backdrop": "sky:indoor"
+    "backdrop": "sky:indoor",
+    "vignette": { "type": "three-ducks", "outcome": "day", "size": 1.2 }
   },
   "sentences": [
     {
@@ -23,6 +21,6 @@
       "source": { "tatoeba": [169483, 72642] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /day of the month|^\\w+ days?$/i" },
   "source": { "jmdict": 1301330, "jlpt": 5 }
 }

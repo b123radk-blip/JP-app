@@ -473,16 +473,16 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [ ] 火 fire (B): keep the flames; a match strikes, the logs under the kanji catch, it roars up; 火曜日 `week`.
 - [ ] 水 water (C): a tap above pours onto the kanji, water runs down it into a basin that fills and ripples; 水曜日 `week`.
 - [ ] 山 mountain (C): the kanji heaves up out of the ground with a rumble, a mountain rises behind, snow settles on the peak.
-- [ ] 川 river (B): the three strokes ripple like flowing water and a leaf floats down them; banks either side.
+- [x] 川 river (B): the three strokes ripple like flowing water and a paper boat floats down the middle one and away; grass on the banks. Built: `river-flow`.
 - [ ] 木 tree (C): the kanji sprouts branches, a canopy of leaves bursts out, an apple drops; 木曜日 `week`.
 - [ ] 雨 rain (B): a cloud gathers over the kanji, its four dots fall out of it as rain and splash in puddles, then reappear.
 - [ ] 休 rest (C, P): a tired walker stops, sits down against the tree beside the kanji, closes their eyes, Zzz.
 - [ ] 明 bright (C): night; the 日 part glows gold and the 月 part silver, beams sweep out and the dark lifts.
 - [ ] 林 woods (C): both 木 grow canopies, then small trees pop up between them into a little wood; a squirrel runs along.
-- [ ] 上 up (C): a balloon tied to a box lifts off and floats up above the kanji, bobbing; the box stays down.
+- [x] 上 up (C): a balloon tied to a box lifts off and floats up above the kanji, bobbing; the box stays down. Built: `balloon-up`.
 - [ ] 下 down (C): a boat on the water; its anchor drops down on a chain to the sea bed below.
 - [ ] 何 what (C): a mystery box shakes and hops; a big "?" springs out on a spring like a jack-in-the-box.
-- [ ] 三 three (C): three ducks waddle in a row along the bottom stroke, each quacking in turn.
+- [x] 三 three (C): three ducks waddle in a row along the bottom stroke, each quacking in turn. Built: `three-ducks`.
 - [ ] 時 time (B): a big clock face behind the kanji, the hands sweep round, and on each hour a bell rings out.
 - [ ] 二 two (C): two birds fly in and land on the two strokes as if on wires, chirp, and fly off.
 - [ ] 一 one (C): one cupcake with one candle sits on the stroke; the candle lights, flickers and is blown out.
@@ -503,18 +503,18 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [ ] 八 eight (C): an octopus pops up and waves its eight arms.
 - [ ] 私 I (C, P): three lockers; one opens, a person steps out and points at themselves, a name tag lights.
 - [ ] 来 come (C): a hand beckons and a puppy bounds over from far away, wagging.
-- [ ] 月 moon (C): night sky; the moon waxes from a thin crescent to full and wanes again; 月曜日 `week`.
+- [x] 月 moon (C): night sky; the moon waxes from a thin crescent to full and wanes again; 月曜日 `week`. Built: `moon-wax`.
 - [ ] 先 ahead (C): three paper boats race on the water; one pulls ahead, a little flag on it.
 - [ ] 曜 weekday (C): a wheel of the seven day symbols turns until the pointer stops on one.
 - [ ] 週 week (C): a seven-day strip; a little sun hops across it day by day and wraps round.
 - [ ] 毎 every (C): `every-unit:cups`: a teapot hops along a row of cups and fills every one.
 - [ ] 六 six (C): a big die tumbles and lands showing six.
 - [ ] 白 white (C): snow falls; the ground, a little tree and the kanji turn white.
-- [ ] 車 car (C): a car drives a loop around the kanji, honks and parks.
+- [x] 車 car (C): a car drives a loop around the kanji, honks and parks. Built: `car-beep`.
 - [ ] 九 nine (C): a noughts-and-crosses grid fills with nine marks one by one.
 - [ ] 男 man (C, P): a man pulls a plough through the rice field, straining.
 - [ ] 出 exit (C): a turtle pokes its head and legs out of its shell and walks off.
-- [ ] 口 mouth (C): the glyph opens and shuts like a mouth: teeth, a tongue, it says "ah" and chomps.
+- [x] 口 mouth (C): the glyph opens and shuts like a mouth: teeth, a tongue, it says "ah" and chomps. Built: `mouth-open`.
 - [ ] 入 enter (C): a dog trots into a tent and the flap drops behind it.
 - [ ] 電 electricity (C): lightning arcs between two clouds and strikes a lightbulb, which lights.
 - [ ] 足 foot (C): two bare feet walk across leaving prints; the toes wiggle.
@@ -527,7 +527,7 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [ ] 駅 station (C): a station with a name board and a clock; a train pulls in, doors open, it leaves.
 - [ ] 花 flower (C): a bud swells and opens into a big flower; a bee visits.
 - [ ] 子 child (C): the glyph is a kid: its arms flap, it hops and bounces.
-- [ ] 犬 dog (C): a dog wags its tail, runs after a thrown ball and brings it back.
+- [x] 犬 dog (C): a dog wags its tail, runs after a thrown ball and brings it back. Built: `dog-fetch`.
 - [ ] 少 few (C): a hand shakes a bag over a bowl and only a few grains drop out.
 - [ ] 午 noon (C): a clock's hands meet at twelve, the sun reaches the top; ding.
 - [ ] 魚 fish (C): a fish leaps out of the water in an arc and splashes back.
@@ -587,9 +587,9 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [ ] 時々 sometimes (C): `time:sometimes`: a clock ticks and now and then a little bird pops out of it.
 - [ ] 休み rest (C, P): `rest-tree:holiday`: a person stretches out in a hammock under the sun.
 - [ ] 休む take a day off (C, P): `rest-tree:bed`: a person in bed with the alarm clock pushed away.
-- [ ] 三つ three (C): `count`: three dango drop onto a stick, counted 1, 2, 3.
-- [ ] 上げる raise (C): `up:flag`: a flag is raised up a pole.
-- [ ] 三日 3rd (C): `day`: the month grid lights to 3, a duck hops onto it.
+- [x] 三つ three (C): `count`: three dango drop onto a stick, counted 1, 2, 3. Built: `three-ducks:count`.
+- [x] 上げる raise (C): `up:flag`: a flag is raised up a pole. Built: `balloon-up:flag`.
+- [x] 三日 3rd (C): `day`: the month grid lights to 3, a duck hops onto it. Built: `three-ducks:day`.
 - [ ] 二つ two (C): `count`: two eggs.
 - [ ] 二日 2nd (C): `day`, a bird.
 - [ ] 一つ one (C): `count`: one apple.
@@ -622,7 +622,7 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [ ] 先月 last month (C): `last-unit:month`.
 - [ ] 火曜日 Tuesday (C): `week` of 火.
 - [ ] 日曜日 Sunday (C): `week` of 日.
-- [ ] 月曜日 Monday (C): `week` of 月.
+- [x] 月曜日 Monday (C): `week` of 月. Built: `moon-wax:week`.
 - [ ] 木曜日 Thursday (C): `week` of 木.
 - [ ] 水曜日 Wednesday (C): `week` of 水.
 - [ ] 来週 next week (C): `next-unit:week`.

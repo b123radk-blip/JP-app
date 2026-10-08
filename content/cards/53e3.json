@@ -5,14 +5,7 @@
   "primaryReading": "くち",
   "readings": { "kun": ["くち"], "on": ["コウ", "ク"] },
   "mnemonic": "An open mouth: a square.",
-  "effect": {
-    "material": "rose",
-    "reveal": "draw",
-    "particles": ["notes"],
-    "backdrop": "sky:dusk",
-    "motion": "pulse",
-    "emblem": "speech"
-  },
+  "effect": { "material": "rose", "backdrop": "sky:dusk", "vignette": "mouth-open" },
   "sentences": [
     {
       "segments": [ { "text": "口", "reading": "くち" }, { "text": "をゆすいでください。" } ],

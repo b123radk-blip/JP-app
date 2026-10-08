@@ -4,14 +4,11 @@
   "meaning": "month; moon",
   "primaryReading": "げつ",
   "readings": { "kun": ["つき"], "on": ["ゲツ", "ガツ"] },
-  "mnemonic": "A crescent moon hanging in the dark; the two short lines are its craters.",
+  "mnemonic": "The moon in the dark, growing night by night; the two short lines are its craters.",
   "effect": {
     "material": "silver",
-    "reveal": "draw",
-    "particles": ["motes:still"],
-    "backdrop": "sky:night",
-    "motion": "float",
-    "emblem": "crescent"
+    "backdrop": { "type": "sky", "preset": "night", "moon": false },
+    "vignette": "moon-wax"
   },
   "sentences": [
     {
@@ -21,6 +18,6 @@
       "source": { "tatoeba": [78691, 325025] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

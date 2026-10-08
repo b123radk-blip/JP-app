@@ -9,7 +9,16 @@ import { assignParts } from '../src/effects/plan.js';
 import { parseKanjiVG } from '../scripts/lib/kanjivg.mjs';
 import { COMPONENT_LOOKS } from '../src/config.js';
 
-const card = (hex) => JSON.parse(readFileSync(`content/cards/${hex}.json`, 'utf8'));
+// Step 1 recipes as first drafted (the cards themselves now carry scenes): the tests below exercise the engine on them
+const OLD = {
+  '706b': {"material":"heat","reveal":"ignite","particles":["flames","embers"],"backdrop":"halo","motion":"none"},
+  '65e5': {"material":{"type":"cyan","emissiveK":0.18,"glowK":1.5},"reveal":"draw","backdrop":"sunrise","motion":{"type":"sway","amp":0.3,"bob":0.008}},
+  '6797': {"material":"wood","reveal":"draw","particles":["leaves"],"scene":["tree:木"],"backdrop":"sky:golden","motion":"none","parts":{"木":{"motion":{"type":"sway","axis":"z","amp":0.07,"speed":0.9}}}},
+  '6642': {"material":"silver","reveal":"draw","particles":[{"type":"motes","dir":"still","color":"#ffd9a0","count":0.6}],"scene":["dial"],"backdrop":"sky:dusk","motion":"none","parts":{"日":{}}},
+  '4e0a': {"material":"jade","reveal":"draw","particles":[{"type":"motes","dir":"up"}],"backdrop":"sky:day","motion":{"type":"drift","dir":"up"},"emblem":"arrow:up"},
+  '4e0b': {"material":"silver","reveal":"draw","particles":[{"type":"motes","dir":"down","color":"#a8dcff"}],"backdrop":"sky:deep","motion":{"type":"drift","dir":"down"},"emblem":{"type":"arrow","dir":"down","color":"#a8dcff","at":[0.2,-0.02]}},
+};
+
 const strokes = (hex) => JSON.parse(readFileSync(`data/kanji-${hex}.json`, 'utf8'));
 const norm = (e) => normalizeRecipe(e, COMPONENT_LOOKS);
 
@@ -37,22 +46,22 @@ test('validation catches typos and impossible recipes', () => {
   const has = (re) => assert.ok(p.some((x) => re.test(x)), `expected a problem matching ${re}: ${p.join(' | ')}`);
   has(/unknown recipe key "materal"/); has(/unknown reveal "melt"/); has(/at most 2 particle layers/);
   has(/unknown sky preset "sea"/); has(/unknown option "ampp" for sway/); has(/"日" is not a component/);
-  assert.deepEqual(validateRecipe(card('706b').effect), []);
+  assert.deepEqual(validateRecipe(OLD['706b']), []);
   assert.deepEqual(validateRecipe('fire', { bespokeIds: [] }).length, 1);
 });
 
 test('cost estimates match what the pieces build (checked in the browser by npm run e2e as well)', () => {
-  assert.deepEqual(estimateCost(norm(card('706b').effect), 4), { drawCalls: 4, particles: 1280, pointLights: 2 }, 'heat body + caps, halo, one particle pool');
-  assert.equal(estimateCost(norm(card('65e5').effect), 4).drawCalls, 18, 'glow 4 + sunrise 14');
+  assert.deepEqual(estimateCost(norm(OLD['706b']), 4), { drawCalls: 4, particles: 1280, pointLights: 2 }, 'heat body + caps, halo, one particle pool');
+  assert.equal(estimateCost(norm(OLD['65e5']), 4).drawCalls, 18, 'glow 4 + sunrise 14');
 });
 
 test('similarity: identical recipes score 1, the pilot cards stay apart, one changed slot lowers the score', () => {
-  const fire = norm(card('706b').effect), sun = norm(card('65e5').effect);
+  const fire = norm(OLD['706b']), sun = norm(OLD['65e5']);
   assert.equal(recipeSimilarity(fire, fire).score, 1);
   assert.ok(recipeSimilarity(fire, sun).score < 0.5);
-  const up = norm(card('4e0a').effect), down = norm(card('4e0b').effect);
+  const up = norm(OLD['4e0a']), down = norm(OLD['4e0b']);
   assert.ok(recipeSimilarity(up, down).score < 0.72, 'the 上 / 下 pair must not look alike');
-  const sameButEmblem = norm({ ...card('4e0a').effect, emblem: 'question' });
+  const sameButEmblem = norm({ ...OLD['4e0a'], emblem: 'question' });
   assert.ok(recipeSimilarity(up, sameButEmblem).score < 1 && recipeSimilarity(up, sameButEmblem).score > 0.8);
   assert.match(describeRecipe(fire), /^heat · ignite · flames\+embers · halo · none · —$/);
 });
@@ -68,14 +77,14 @@ test('KanjiVG components: nested groups, repeated components, split parts merged
 });
 
 test('parts: both 木 of 林 are styled, the rest of 時 keeps the recipe material', () => {
-  const rin = assignParts(norm(card('6797').effect), strokes('6797').components, 8);
+  const rin = assignParts(norm(OLD['6797']), strokes('6797').components, 8);
   assert.deepEqual(rin.map((p) => [p.element, p.index, p.strokes.join()]), [['木', 0, '0,1,2,3'], ['木', 1, '4,5,6,7']]);
-  const ji = assignParts(norm(card('6642').effect), strokes('6642').components, 10);
+  const ji = assignParts(norm(OLD['6642']), strokes('6642').components, 10);
   assert.deepEqual(ji.map((p) => [p.element, p.strokes.length, p.material?.preset ?? null]), [['日', 4, 'gold'], [null, 6, null]]);
 });
 
 test('scene props: shorthand, validation, cost of a prop placed on a repeated component', () => {
-  const rin = norm(card('6797').effect);
+  const rin = norm(OLD['6797']);
   assert.deepEqual(rin.scene.map((p) => [p.type, p.on]), [['tree', '木']]);
   assert.equal(estimateCost(rin, 8, strokes('6797').components).drawCalls, 4 * 2 + 2 + 1 + 1, 'two 木 parts (4 each), one crown per 木, sky, leaves pool');
   const p = validateRecipe({ scene: ['tree:日', 'volcano', 'river', 'dial'] }, { components: strokes('6797').components });
