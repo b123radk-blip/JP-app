@@ -126,3 +126,6 @@ export const COMPONENT_LOOKS = {
 
 // ---- voice clips (audio/manifest.json; generated on your PC with VOICEVOX, see docs/VOICEVOX.md) ----
 export const VOICE = { speed: { normal: 1.0, slow: 0.75 }, readingSpeed: { normal: 0.9, slow: 0.7 } };
+
+// 3D models (src/effects/models.js): where the glTF packs live, and how much self-light they get (like the kit's props)
+export const MODELS = { root: 'assets/models/', glow: 0.28 };

@@ -123,6 +123,10 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   (月曜日 = `moon-wax:week`), `countScene` / `dayScene` give a number's 〜つ / 〜日 words (`three-ducks:count`, `:day`),
   and `this-unit` / `next-unit` / `last-unit` / `every-unit` with `unit` cover 今 来 先 毎 × 年 月 週 日. Reuse them for N4's
   counters and time words. Word variants of a theme module live in its `step1-*v.js` (keeps modules near 300 lines).
+- 3D models (trial): `src/effects/models.js` loads glTF files from `assets/models/` (Kenney CC0 packs, License.txt per
+  pack); a scene names them in the catalog (`VM(dc, desc, ['dog'])`), clones with `createModel('dog', { height })` and
+  poses with `pose('run', t)` every frame (clips: idle walk run sit dance eat gesture-positive ...). Trials of new recipes
+  for existing cards: `content/trials/<name>.json`, viewed with `?preview=1&trial=<name>` (Old / New button).
 - Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2
   --clip 150,20,560,340`, fix, then `scripts/set-recipes.mjs`. Word cards: `--clip 90,60,660,300` (the default crops their right edge). Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
   (pools, roads) toward the viewer, a lit doorway behind a silhouette, fake depth on a flat picture. Log: docs/BATCH-LOG.md.

@@ -3,6 +3,23 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## 3D model trial: Kenney packs on 8 Step 1 cards, 2026-10-08
+- **What:** glTF models from Kenney's CC0 packs (cube pets, mini characters, nature, car, train kits), copied into
+  `assets/models/kenney/<pack>/` with each pack's License.txt (1.5 MB: only the 11 models used). Loader:
+  `src/effects/models.js` (vendored `GLTFLoader` + `SkeletonUtils` in `vendor/three/addons/`, no CDN); a scene lists its
+  models in the catalog (`VM(dc, desc, models)`), the app loads them before it builds the card, a scene clones them
+  synchronously and poses them from their own clips (`pose('walk', t)`: idle walk run sit dance eat gesture-positive ...).
+- **Cards:** 犬 `m-dog-fetch`, 三 `m-three-chicks`, 休 `m-rest-tree`, 車 `m-car-beep`, 電車 `m-tram`, 魚 `m-fish-leap`,
+  歩 `m-walker`, 大きい `m-elephant`; same stories as their current scenes. Recipes in `content/trials/kenney.json`
+  (the deck is unchanged). View: `?preview=1&trial=kenney`, Old / New button. Sheets (old row above new):
+  docs/screenshots/kenney-trial-1.jpg, -2.jpg.
+- **Lessons:** the mixer only writes values that changed, so `pose()` first puts back what it wrote last frame and the
+  rest pose of what the clip does not drive (otherwise a scene's tweak, such as a nodding head, piles up frame after
+  frame). Floors are seen almost edge-on from the seat: tilt roads and ponds toward the viewer, make footprints face
+  you. A model walking straight right shows its back from the seat; turn it 0.5-0.75 rad toward the viewer. Draw calls
+  = mesh parts (cube pet 3-6, character 2, car 5); the cost check covers them (`check-piece-costs.mjs vignette`).
+- **Checks:** npm test ok (0 pairs >= 0.72), cost check 0 mismatches on the `m-*` scenes, e2e all checks passed.
+
 ## Step 2c revamp: a scene for every Step 1 card, 2026-10-08
 
 **Made:** 222 cards changed (only `effect`, plus `mnemonic` on 八 二 一 三 四 七 下 年 月 出 国 and the `review` mark from

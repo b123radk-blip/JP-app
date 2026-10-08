@@ -7,6 +7,8 @@
 // the row of time tiles in step1-time.js: the cards, plus one mesh for suns, two for clocks, or a label per tile
 const rowDc = (unit) => 1 + (({ day: 1, now: 2 })[unit] ?? 3);
 const V = (dc, desc, opts = {}, variant = null) => ({ dc, desc, opts: { at: null, size: null, ...opts }, variant });
+// a scene built from glTF models (effects/models.js): `models` names what must be loaded before it is built
+const VM = (dc, desc, models, opts = {}, variant = null) => ({ ...V(dc, desc, opts, variant), models });
 
 export const VIGNETTES = {
   'hammer-nail': V(10, 'a hand swings a hammer at a nail standing in a board; outcome clean: three blows drive it in flush, a sparkle, thumbs up (skilled); bend: the nail bends over, the hammer hits the thumb, stars (unskilled)', { outcome: 'clean' }, 'outcome'),
@@ -362,5 +364,15 @@ export const VIGNETTES = {
   'cart-shop': V((o) => (o.outcome === 'vending' ? 4 : 5), '買: a shopping cart rolls along under a shelf; goods hop off into it, the till goes ピッ and a receipt curls out; outcome vending: a coin goes into a vending machine, a button lights and a can drops out (買う)', { outcome: 'cart' }, 'outcome'),
   'friends-five': V(6, '友: two kids run up to each other, high-five with a burst, then walk off together arm in arm'),
   'island-flag': V((o) => (o.outcome === 'visitor' ? 7 : 4), '国: an island rises out of the sea, a dotted border draws itself round it and a flag plants on top, waving; outcome plane: a little plane flies from one island with a flag over the sea to another with a different flag (外国); visitor: a traveller with a suitcase walks up, a passport opens and a stamp thumps down on it (外国人)', { outcome: 'island' }, 'outcome'),
+  // ---- model scenes (Kenney trial, vignettes/models-a.js) ----
+  'm-dog-fetch': VM(8, '犬 (models): a dog waits; a ball bounces past, it runs after it, brings it back in its mouth, drops it and dances, hearts', ['dog']),
+  'm-three-chicks': VM(18, '三 (models): three chicks walk up and turn to you; each cheers in turn under a badge 1, 2, 3 while its stroke hops; they walk off', ['chick']),
+  'm-rest-tree': VM(9, '休 (models): a walker comes up to a big tree, sits down against it and dozes, Zzz, then gets up and walks on', ['oak', 'man', 'grass']),
+  'm-car-beep': VM(8, '車 (models): a car drives up a road out of the distance, parks beside the kanji, beeps twice with its lights and backs away', ['sedan']),
+  'm-tram': VM(12, '電車 (models): a tram rolls in along its track under an overhead wire, sparks crackling at the pantograph, stops and rolls back', ['tramCar', 'track']),
+  'm-fish-leap': VM(6, '魚 (models): a fish leaps out of a pond in an arc, splashes down, then leaps back the other way', ['fish']),
+  'm-walker': VM(3, '歩 (models): a person walks along beside the kanji leaving footprints, turns to you, nods and walks back', ['hiker']),
+  'm-elephant': VM(14, '大きい (models): an elephant swells up huge beside a tiny chick and trumpets パオーン; the chick jumps, "!"', ['elephant', 'chick']),
+  'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards)', ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),
 };

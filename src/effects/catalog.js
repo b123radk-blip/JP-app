@@ -164,7 +164,7 @@ export const PIECES = {
     }),
   },
   // scenes that act out the meaning, the kanji taking part (vignettes/, vignette-catalog.js); one per card
-  vignette: Object.fromEntries(Object.entries(VIGNETTES).map(([name, v]) => [name, { impl: name, variant: v.variant, opts: v.opts, cost: (o) => cost(typeof v.dc === 'function' ? v.dc(o) : v.dc), desc: v.desc }])),
+  vignette: Object.fromEntries(Object.entries(VIGNETTES).map(([name, v]) => [name, { impl: name, variant: v.variant, opts: v.opts, cost: (o) => cost(typeof v.dc === 'function' ? v.dc(o) : v.dc), desc: v.desc, models: v.models }])),
 };
 
 // tip particles each reveal brings (draw: its own `tip` option); keep in step with pieces/reveal.js TIPS

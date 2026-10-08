@@ -10,7 +10,7 @@ import { createClock } from '../core/clock.js';
 import { loadFonts, setAnisotropy } from '../core/text.js';
 import { createScheduler } from '../srs/scheduler.js';
 import { createStorage, safeBackend } from '../srs/storage.js';
-import { loadDeckIndex, loadDeck } from '../content/loader.js';
+import { loadDeckIndex, loadDeck, loadTrial } from '../content/loader.js';
 import { createDebugPanel } from '../ui/debug-panel.js';
 import * as home from './screens/home.js';
 import * as study from './screens/study.js';
@@ -27,12 +27,14 @@ function download(name, text) {
 }
 
 // ?preview=1 options -> props for the preview screen (see screens/preview.js)
-function previewProps(q, decks) {
-  const ids = q.get('cards') ? q.get('cards').split(',') : (q.get('deck') ? decks.filter((d) => d.id === q.get('deck')) : decks.filter((d) => d.enabled)).flatMap((d) => d.cards);
+async function previewProps(q, decks) {
+  let trial = null;
+  if (q.get('trial')) try { trial = await loadTrial(q.get('trial')); } catch (e) { $('msg').textContent = `trial=${q.get('trial')}: ${e.message}`; }
+  const ids = q.get('cards') ? q.get('cards').split(',') : trial ? Object.keys(trial.cards) : (q.get('deck') ? decks.filter((d) => d.id === q.get('deck')) : decks.filter((d) => d.enabled)).flatMap((d) => d.cards);
   let recipe = null;
   if (q.get('recipe')) try { recipe = JSON.parse(q.get('recipe')); } catch (e) { $('msg').textContent = `recipe= is not valid JSON (${e.message})`; }
   const t = q.get('t');
-  return { ids, index: Math.max(0, ids.indexOf(q.get('card'))), recipe, freeze: t === null ? null : Number(t) };
+  return { ids, index: Math.max(0, ids.indexOf(q.get('card'))), recipe, trial, old: q.get('old') === '1', freeze: t === null ? null : Number(t) };
 }
 
 export async function startApp() {
@@ -88,7 +90,7 @@ export async function startApp() {
   const index = await loadDeckIndex();
   app.decks = await Promise.all(index.decks.map(async (d) => { const deck = d.enabled ? await loadDeck(d.file) : { cards: [] }; return { ...d, cards: deck.cards, requires: deck.requires ?? {} }; }));
   const q = new URLSearchParams(location.search);
-  if (q.has('preview')) app.show('preview', previewProps(q, app.decks));
+  if (q.has('preview')) app.show('preview', await previewProps(q, app.decks));
   else app.show('home');
   createDebugPanel(app);
 

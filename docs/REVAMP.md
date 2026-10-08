@@ -7,6 +7,10 @@ alone?** Scenes act the meaning out (a beginning, an action, an end) and the kan
 **Where to continue:** Step 2b (Step 2 cards) and Step 2c (Step 1 cards, "Step 1 revamp" at the end of this file) are done:
 every card in the N5 deck has a scene. Checks and numbers: docs/BATCH-LOG.md. Next: the user's headset look (the weakest
 scenes are listed in the log), then N4 with the same pattern.
+**3D model trial (Kenney, CC0):** 8 Step 1 cards (犬 三 休 車 電車 魚 歩 大きい) have a second version built from glTF
+models (`content/trials/kenney.json`, scenes `m-*` in `vignettes/models-a.js`). The deck still uses the old scenes. Open
+`?preview=1&trial=kenney` (footer link "3D model trial"); the Old / New button flips each card. Next: the user's verdict
+decides whether new scenes default to models (then: move the winners into the cards with `set-recipes`, more packs).
 
 ## Grades
 Triaged on frame strips of every card (`node scripts/look.mjs ids --times 1,3,6`, sheets in `.cache/revamp/`), plus the

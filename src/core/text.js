@@ -45,9 +45,9 @@ function paint(g, str, x, y, px, weight, color, outline, glow) {
   if (glow) { g.shadowColor = glow; g.shadowBlur = px * 0.22; }
   g.fillStyle = color; g.fillText(str, x, y); g.shadowBlur = 0;
 }
-function paintPanel(g, w, h, panel, ppm) { if (!panel) return; g.fillStyle = COLORS.panel; roundRect(g, 0, 0, w, h, panel.radius * ppm); g.fill(); }
+function paintPanel(g, w, h, panel, ppm) { if (!panel) return; g.fillStyle = panel.color ?? COLORS.panel; roundRect(g, 0, 0, w, h, panel.radius * ppm); g.fill(); }
 
-// A text label. size = font size in metres. Options: weight, color, glow, outline, maxWidth (metres, wraps), panel { pad, radius }.
+// A text label. size = font size in metres. Options: weight, color, glow, outline, maxWidth (metres, wraps), panel { pad, radius, color? }.
 export function makeLabel(text, { size = 0.05, weight = 700, color = COLORS.text, glow = 'rgba(255,150,60,0.55)', outline = true, maxWidth = null, panel = null } = {}) {
   const pad = panel ? panel.pad : 0.012, lines = wrap(text, weight, maxWidth ? maxWidth / size : 0), lh = size * 1.35;
   const w = Math.max(...lines.map((l) => widthEm(l, weight))) * size + 2 * pad, h = lh * lines.length + 2 * pad;

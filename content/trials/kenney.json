@@ -1,0 +1,57 @@
+{
+ "title": "Kenney models trial",
+ "note": "The same cards with their scene rebuilt from CC0 Kenney models (assets/models/kenney). Open with ?preview=1&trial=kenney; the Old / New button flips to the card's current scene.",
+ "cards": {
+  "72ac": {
+   "material": "fur",
+   "backdrop": "sky:day",
+   "vignette": "m-dog-fetch"
+  },
+  "4e09": {
+   "material": "gold",
+   "backdrop": "sky:day",
+   "vignette": "m-three-chicks"
+  },
+  "4f11": {
+   "material": "wood",
+   "backdrop": "sky:golden",
+   "parts": {
+    "亻": {},
+    "木": {}
+   },
+   "vignette": "m-rest-tree"
+  },
+  "8eca": {
+   "material": "silver",
+   "backdrop": "sky:day",
+   "vignette": "m-car-beep"
+  },
+  "w1443530": {
+   "material": "ivory",
+   "backdrop": "sky:morning",
+   "vignette": "m-tram"
+  },
+  "9b5a": {
+   "material": "silver",
+   "backdrop": "sky:lake",
+   "vignette": "m-fish-leap",
+   "parts": {
+    "灬": {}
+   }
+  },
+  "6b69": {
+   "material": "clay",
+   "backdrop": "sky:day",
+   "vignette": "m-walker",
+   "parts": {
+    "止": {},
+    "少": {}
+   }
+  },
+  "w1588880": {
+   "material": "ivory",
+   "backdrop": "sky:day",
+   "vignette": "m-elephant"
+  }
+ }
+}

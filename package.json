@@ -6,7 +6,7 @@
   "description": "Kanji Memory: spaced-repetition kanji study with 3D animations, a WebXR app for Galaxy XR",
   "scripts": {
     "build:kanji": "node scripts/build-kanji.mjs",
-    "vendor": "mkdir -p vendor/three && cp node_modules/three/build/three.module.js node_modules/three/build/three.core.js node_modules/three/examples/jsm/controls/OrbitControls.js node_modules/three/LICENSE vendor/three/",
+    "vendor": "mkdir -p vendor/three && cp node_modules/three/build/three.module.js node_modules/three/build/three.core.js node_modules/three/examples/jsm/controls/OrbitControls.js node_modules/three/LICENSE vendor/three/ && mkdir -p vendor/three/addons/loaders vendor/three/addons/utils && cp node_modules/three/examples/jsm/loaders/GLTFLoader.js vendor/three/addons/loaders/ && cp node_modules/three/examples/jsm/utils/SkeletonUtils.js node_modules/three/examples/jsm/utils/BufferGeometryUtils.js vendor/three/addons/utils/",
     "serve": "python3 -m http.server 8080",
     "screenshots": "node scripts/screenshots.mjs",
     "build:font": "python3 scripts/build-font.py",
