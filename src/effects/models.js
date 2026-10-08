@@ -16,6 +16,10 @@ export const MODELS = {
   man: 'kenney/mini-characters/character-male-b.glb', hiker: 'kenney/mini-characters/character-male-e.glb',
   oak: 'kenney/nature-kit/tree_oak.glb', grass: 'kenney/nature-kit/grass_large.glb', sedan: 'kenney/car-kit/sedan.glb',
   tramCar: 'kenney/train-kit/train-electric-city-b.glb', track: 'kenney/train-kit/track.glb',
+  // Quaternius (natural low-poly animals, chibi people; packs named in assets/models/quaternius/License.txt)
+  shiba: 'quaternius/animals/shiba.glb', cow: 'quaternius/animals/cow.glb',
+  guy: 'quaternius/characters/casual-male.glb', gal: 'quaternius/characters/casual-female.glb',
+  kimono: 'quaternius/characters/kimono-female.glb', doctor: 'quaternius/characters/doctor.glb',
 };
 
 const loaded = new Map();               // name -> Promise<{ scene, animations, box }>

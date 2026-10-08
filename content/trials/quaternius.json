@@ -1,0 +1,57 @@
+{
+ "title": "Quaternius models trial",
+ "note": "The same cards with their scene rebuilt from CC0 Quaternius models (assets/models/quaternius). Open with ?preview=1&trial=quaternius; the Old / New button flips to the card's current scene.",
+ "cards": {
+  "5973": {
+   "material": "rose",
+   "backdrop": "sky:dusk",
+   "vignette": "q-kimono"
+  },
+  "72ac": {
+   "material": "fur",
+   "backdrop": "sky:day",
+   "vignette": "q-dog-fetch"
+  },
+  "725b": {
+   "material": "fur",
+   "backdrop": "sky:day",
+   "vignette": "q-cow"
+  },
+  "4f11": {
+   "material": "wood",
+   "backdrop": "sky:golden",
+   "parts": {
+    "亻": {},
+    "木": {}
+   },
+   "vignette": "q-rest-tree"
+  },
+  "6b69": {
+   "material": "clay",
+   "backdrop": "sky:day",
+   "vignette": "q-walker",
+   "parts": {
+    "止": {},
+    "少": {}
+   }
+  },
+  "w1159980": {
+   "material": "ivory",
+   "reveal": "draw",
+   "backdrop": "sky:day",
+   "vignette": "q-doctor"
+  },
+  "w1402540": {
+   "material": "ivory",
+   "reveal": "draw",
+   "backdrop": "sky:morning",
+   "vignette": "q-run"
+  },
+  "w1291800": {
+   "material": "ivory",
+   "reveal": "draw",
+   "backdrop": "sky:day",
+   "vignette": "q-sit"
+  }
+ }
+}

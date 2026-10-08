@@ -3,6 +3,21 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## 3D model trial 2: Quaternius models on 8 cards, 2026-10-08
+- **What:** CC0 models from Quaternius's Ultimate Animated Animal Pack and Ultimate Animated Character Pack (the user
+  downloaded the glTF folders: Google Drive refuses downloads from this cloud server, itch.io and poly.pizza are not
+  reachable). Six models slimmed with `scripts/prep-model.mjs` (only the clips a scene uses, quantized, binary .glb:
+  2-3 MB -> 0.7-1 MB each, 4.8 MB in all) into `assets/models/quaternius/` (License.txt names the packs).
+- **Cards:** 犬 `q-dog-fetch` (Shiba Inu), 牛 `q-cow`, 休 `q-rest-tree`, 歩 `q-walker`, 女 `q-kimono`, 医者 `q-doctor`
+  (patient slumped under a cloud, doctor brings a red-cross kit, patient cheers), 走る `q-run` (laps a little track),
+  座る `q-sit` (sits on a chair). Recipes in `content/trials/quaternius.json`; `?preview=1&trial=quaternius`, Old / New.
+  Sheets: docs/screenshots/quaternius-trial-1.jpg (犬 休 歩: current / Kenney / Quaternius) and -2.jpg (current / new).
+- **Lessons:** the people come with near-black skin and white eye shapes (the pack's style); tinted to skin with dark eyes
+  (`tint: { Skin, Face }`) so they read on dark skies. Their SitDown pose is a seated pose with the hips at 0.18 of the
+  body height: give them a seat at about 0.13 (a log, a low chair) or they sit on air. three.js renames bones without dots
+  (`Foot.L` -> `FootL`). Draw calls = material parts (Shiba 6, cow 7, people 5-6).
+- **Checks:** npm test ok, cost check 0 mismatches on the `m-*` / `q-*` scenes, e2e all checks passed.
+
 ## 3D model trial: Kenney packs on 8 Step 1 cards, 2026-10-08
 - **What:** glTF models from Kenney's CC0 packs (cube pets, mini characters, nature, car, train kits), copied into
   `assets/models/kenney/<pack>/` with each pack's License.txt (1.5 MB: only the 11 models used). Loader:

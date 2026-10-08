@@ -373,6 +373,15 @@ export const VIGNETTES = {
   'm-fish-leap': VM(6, '魚 (models): a fish leaps out of a pond in an arc, splashes down, then leaps back the other way', ['fish']),
   'm-walker': VM(3, '歩 (models): a person walks along beside the kanji leaving footprints, turns to you, nods and walks back', ['hiker']),
   'm-elephant': VM(14, '大きい (models): an elephant swells up huge beside a tiny chick and trumpets パオーン; the chick jumps, "!"', ['elephant', 'chick']),
-  'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards)', ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
+  // ---- model scenes (Quaternius trial, vignettes/models-b.js) ----
+  'q-dog-fetch': VM(9, '犬 (models): a Shiba waits; a ball bounces past, it gallops after it, brings it back in its mouth and hops for joy, hearts', ['shiba']),
+  'q-cow': VM(11, '牛 (models): a cow walks up, grazes, lifts its head and moos モー, then wanders off', ['cow', 'grass']),
+  'q-rest-tree': VM(12, '休 (models): a walker reaches a tree, sits down on a log against it, nods off, Zzz, stands up and walks on', ['oak', 'guy']),
+  'q-walker': VM(7, '歩 (models): a person walks along beside the kanji leaving footprints, turns to you, cheers and walks back', ['gal']),
+  'q-kimono': VM(6, '女 (models): a woman in a kimono walks up, turns to you, cheers and twirls under falling petals', ['kimono']),
+  'q-doctor': VM(16, '医者 (models): a patient sits slumped under a grey cloud; a doctor walks up carrying a red-cross kit and sets it down; the patient jumps up cheering', ['guy', 'doctor']),
+  'q-run': VM(8, '走る (models): a runner laps a little track beside the kanji, dust kicking up behind', ['guy']),
+  'q-sit': VM(7, '座る (models): a person walks up to a chair, turns, sits down, rests, stands up and walks off', ['gal'], { seatLift: 0.11 }),
+  'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards; names: other models)', (o) => o.names ?? ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),
 };

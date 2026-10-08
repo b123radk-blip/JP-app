@@ -11,6 +11,8 @@ scenes are listed in the log), then N4 with the same pattern.
 models (`content/trials/kenney.json`, scenes `m-*` in `vignettes/models-a.js`). The deck still uses the old scenes. Open
 `?preview=1&trial=kenney` (footer link "3D model trial"); the Old / New button flips each card. Next: the user's verdict
 decides whether new scenes default to models (then: move the winners into the cards with `set-recipes`, more packs).
+A second trial, `?preview=1&trial=quaternius` (`content/trials/quaternius.json`, `vignettes/models-b.js`), does 犬 休 歩
+with Quaternius models plus 牛 女 医者 走る 座る, so the two styles can be compared.
 
 ## Grades
 Triaged on frame strips of every card (`node scripts/look.mjs ids --times 1,3,6`, sheets in `.cache/revamp/`), plus the

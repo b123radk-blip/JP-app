@@ -126,7 +126,9 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
 - 3D models (trial): `src/effects/models.js` loads glTF files from `assets/models/` (Kenney CC0 packs, License.txt per
   pack); a scene names them in the catalog (`VM(dc, desc, ['dog'])`), clones with `createModel('dog', { height })` and
   poses with `pose('run', t)` every frame (clips: idle walk run sit dance eat gesture-positive ...). Trials of new recipes
-  for existing cards: `content/trials/<name>.json`, viewed with `?preview=1&trial=<name>` (Old / New button).
+  for existing cards: `content/trials/<name>.json`, viewed with `?preview=1&trial=<name>` (Old / New button). New
+  downloads: `node scripts/prep-model.mjs in.gltf out.glb --keep Idle,Walk` (only the clips used, quantized; packs:
+  Kenney `assets/models/kenney/`, Quaternius `assets/models/quaternius/`).
 - Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2
   --clip 150,20,560,340`, fix, then `scripts/set-recipes.mjs`. Word cards: `--clip 90,60,660,300` (the default crops their right edge). Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
   (pools, roads) toward the viewer, a lit doorway behind a silhouette, fake depth on a flat picture. Log: docs/BATCH-LOG.md.
