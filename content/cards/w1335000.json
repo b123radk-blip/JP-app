@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["5341", "65e5"],
   "builtFrom": [{ "k": "十", "m": "ten" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "scene": ["lanterns:10"],
-    "backdrop": "sky:indoor",
-    "motion": "sway"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "ten-strike:day" },
   "sentences": [
     {
       "segments": [ { "text": "十", "reading": "とお", "base": "とお", "dict": true }, { "text": "日", "reading": "か", "base": "か", "dict": true }, { "text": "は" }, { "text": "日曜日", "reading": "にちようび" }, { "text": "です。" } ],
@@ -24,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /day of the month|^\\w+ days?$/i" },
   "source": { "jmdict": 1335000, "jlpt": 5 }
 }

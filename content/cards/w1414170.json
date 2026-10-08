@@ -8,14 +8,7 @@
   "pos": ["n", "adj-no", "adj-na"],
   "kanji": ["5927", "4eba"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "人", "m": "person" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "person",
-    "motion": "grow",
-    "backdrop": "sky:dusk",
-    "particles": ["motes"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "adult-kid" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "大人", "reading": "おとな" }, { "text": "によく" }, { "text": "読", "reading": "よ" }, { "text": "まれている。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [219579, 56900] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 大人" },
+  "review": { "recipe": "reviewed", "rule": "word 大人" },
   "source": { "jmdict": 1414170, "jlpt": 5 }
 }

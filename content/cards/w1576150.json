@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["4e00", "4eba"],
   "builtFrom": [{ "k": "一", "m": "one" }, { "k": "人", "m": "person" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "backdrop": "sky:dusk" },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "kanji-walker:alone" },
   "sentences": [
     {
       "segments": [ { "text": "あと" }, { "text": "一人", "reading": "ひとり" }, { "text": "、いればなあ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [234290, 71665] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 一人" },
+  "review": { "recipe": "reviewed", "rule": "word 一人" },
   "source": { "jmdict": 1576150, "jlpt": 5 }
 }

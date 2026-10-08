@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["4e8c", "65e5"],
   "builtFrom": [{ "k": "二", "m": "two" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "scene": ["lanterns:2"],
-    "backdrop": "sky:indoor",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "two-birds:day" },
   "sentences": [
     {
       "segments": [ { "text": "二日", "reading": "ふつか", "base": null, "dict": true }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
@@ -24,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /day of the month|^\\w+ days?$/i" },
   "source": { "jmdict": 1462900, "jlpt": 5 }
 }

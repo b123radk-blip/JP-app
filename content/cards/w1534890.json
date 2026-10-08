@@ -8,13 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["6728", "66dc", "65e5"],
   "builtFrom": [{ "k": "木", "m": "tree" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["tree"],
-    "backdrop": "sky:sunset",
-    "particles": ["leaves"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "tree-sprout", "outcome": "week" } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "週刊誌", "reading": "しゅうかんし" }, { "text": "は" }, { "text": "木曜日", "reading": "もくようび" }, { "text": "に" }, { "text": "出", "reading": "で" }, { "text": "る。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [209437, 46698] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 木曜日" },
+  "review": { "recipe": "reviewed", "rule": "word 木曜日" },
   "source": { "jmdict": 1534890, "jlpt": 5 }
 }

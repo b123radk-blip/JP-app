@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["4e8c", "5341", "65e5"],
   "builtFrom": [{ "k": "二", "m": "two" }, { "k": "十", "m": "ten" }, { "k": "日", "m": "sun" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "calendar", "backdrop": "sky:twilight" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:twilight",
+    "vignette": { "type": "ten-strike", "outcome": "day20", "size": 1.2 }
+  },
   "sentences": [
     {
       "segments": [ { "text": "二十日", "reading": "はつか", "base": null, "dict": true }, { "text": "は" }, { "text": "休", "reading": "やす" }, { "text": "みです。" } ],
@@ -17,6 +21,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /day of the month|^\\w+ days?$/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /day of the month|^\\w+ days?$/i" },
   "source": { "jmdict": 1600850, "jlpt": 5 }
 }

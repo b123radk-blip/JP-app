@@ -5,19 +5,13 @@
   "primaryReading": "やま",
   "readings": { "kun": ["やま"], "on": ["サン"] },
   "mnemonic": "Three peaks side by side, the middle one the tallest.",
-  "effect": {
-    "material": "stone",
-    "reveal": "draw:dust",
-    "particles": ["mist"],
-    "scene": ["mountains"],
-    "backdrop": "sky:dusk",
-    "motion": "none"
-  },
+  "effect": { "material": "stone", "backdrop": "sky:dusk", "vignette": "mountain-rise" },
   "sentences": [
     {
       "segments": [ { "text": "山", "reading": "やま" }, { "text": "は" }, { "text": "高", "reading": "たか" }, { "text": "い" }, { "text": "です" }, { "text": "。" } ],
       "en": "The mountain is high.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

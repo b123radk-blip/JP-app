@@ -4,14 +4,8 @@
   "meaning": "year; counter for years",
   "primaryReading": "とし",
   "readings": { "kun": ["とし"], "on": ["ネン"] },
-  "mnemonic": "A farmer carries the rice harvest home once every year.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "particles": ["leaves"],
-    "backdrop": "sky:golden",
-    "emblem": "calendar"
-  },
+  "mnemonic": "Every year the tree turns through its seasons and the farmer carries the rice harvest home.",
+  "effect": { "material": "jade", "backdrop": "sky:morning", "vignette": "year-seasons" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "年", "reading": "とし" }, { "text": "がわかりますか。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [162950, 251563] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1468060"] }
 }

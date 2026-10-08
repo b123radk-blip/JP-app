@@ -4,20 +4,14 @@
   "meaning": "down; below",
   "primaryReading": "した",
   "readings": { "kun": ["した", "しも", "もと", "さ(がる)", "くだ(る)", "お(りる)"], "on": ["カ", "ゲ"] },
-  "mnemonic": "A line for the ceiling, and a stalk hanging down below it.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "particles": [{"type": "motes", "dir": "down", "color": "#a8dcff"}],
-    "backdrop": "sky:deep",
-    "motion": {"type": "drift", "dir": "down"},
-    "emblem": {"type": "arrow", "dir": "down", "color": "#a8dcff", "at": [0.2, -0.02]}
-  },
+  "mnemonic": "A line for the water, and a stalk hanging down below it like an anchor on its chain.",
+  "effect": { "material": "silver", "backdrop": "sky:deep", "vignette": "anchor-drop" },
   "sentences": [
     {
       "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "いす" }, { "text": "の" }, { "text": "下", "reading": "した" }, { "text": "に" }, { "text": "います" }, { "text": "。" } ],
       "en": "The dog is under the chair.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

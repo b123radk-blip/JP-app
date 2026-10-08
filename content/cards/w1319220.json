@@ -8,13 +8,7 @@
   "pos": ["num"],
   "kanji": ["4e03"],
   "builtFrom": [{ "k": "七", "m": "seven" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "dots:7",
-    "particles": ["motes"],
-    "backdrop": "sky:sunset"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:sunset", "vignette": "rainbow-seven:count" },
   "sentences": [
     {
       "segments": [ { "text": "りんごが" }, { "text": "七", "reading": "なな" }, { "text": "つあります。" } ],
@@ -23,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
   "source": { "jmdict": 1319220, "jlpt": 5 }
 }

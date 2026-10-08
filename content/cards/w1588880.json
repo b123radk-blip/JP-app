@@ -8,13 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["5927"],
   "builtFrom": [{ "k": "大", "m": "large" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["mountains"],
-    "backdrop": "sky:day",
-    "motion": "grow:1.45"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "grow-big:elephant" },
   "sentences": [
     {
       "segments": [ { "text": "これらのイヌは" }, { "text": "大", "reading": "おお" }, { "text": "きい。" } ],

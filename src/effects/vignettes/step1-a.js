@@ -188,7 +188,7 @@ function flagUp(ctx, spec, stage) {
 }
 
 // ---- 犬 a dog ----
-function dogParts(u) {
+export function dogParts(u) {
   const body = solidProp([
     [G.sphere(0.16 * u, 0, 0.32 * u, 0, 1.5, 0.85, 0.85), 0xc88a48], [G.sphere(0.13 * u, 0.24 * u, 0.48 * u, 0), 0xc88a48],
     [G.sphere(0.07 * u, 0.36 * u, 0.44 * u, 0, 1.2, 0.8, 0.9), 0xe8c898], [G.sphere(0.03 * u, 0.43 * u, 0.47 * u, 0), 0x181818],

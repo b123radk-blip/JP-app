@@ -8,7 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["4e00", "65e5"],
   "builtFrom": [{ "k": "一", "m": "one" }, { "k": "日", "m": "sun" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["dial"], "emblem": "sun", "backdrop": "sky:noon" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "one-candle:allday" },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "一", "reading": "いち" }, { "text": "日", "reading": "にち" }, { "text": "外出", "reading": "がいしゅつ" }, { "text": "です。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [171712, 242763] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "reading いちにち" },
+  "review": { "recipe": "reviewed", "rule": "reading いちにち" },
   "source": { "jmdict": 1576260, "jlpt": 5 }
 }

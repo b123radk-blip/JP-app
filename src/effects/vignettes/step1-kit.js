@@ -1,5 +1,5 @@
 // Shared pieces for the Step 1 scenes (Step 2c): the families that need one look across many cards.
-//   weekStrip   the seven days 月火水木金土日 in a row, one of them lit (the weekday words: 2 draw calls)
+//   weekStrip   the seven days 月火水木金土日 in a row, one of them lit (the weekday words: 3 draw calls)
 //   withWeek    wraps an element scene (月 moon, 火 fire ...) into its weekday word: the scene smaller, the strip above the word
 //   countTag    a round number badge that pops up (1, 2, 3 ...) when a thing is counted (1 draw call, redraws on change)
 //   monthGrid   a calendar month whose days light up one by one to a date, which gets a red ring (the 〜日 words: 4 dc)
@@ -18,21 +18,22 @@ export const grow = (f) => Math.max(1e-3, f);
 
 // seven tiles with the day kanji; tile `day` (0 = 月 ... 6 = 日) lights up when on > 0. Origin at the strip's middle.
 export function weekStrip(u, day, { w = 1.5 } = {}) {
-  const g = new THREE.Group(), cell = w / 7;
-  const label = textPlane(DAYS.join(''), { h: 0.2 * u, w: w * u, color: '#ffffff', bg: '#2a3048', size: 0.92 });
-  const lit = solidProp([[G.box(cell * u * 0.98, 0.22 * u, 0.01 * u, 0, 0, 0), day === 6 ? 0xff5a5a : day === 5 ? 0x4a8aff : 0xffc040]], 1.0);
-  label.position.z = 0.012 * u; lit.position.set((day - 3) * cell * u, 0, 0.004 * u);
-  g.add(lit, label);
-  return Object.assign(g, { drawCalls: 2, light(on, t = 0) { lit.scale.set(1, Math.max(1e-3, on), 1); lit.visible = on > 0.01; lit.material.userData.glow.value = 0.8 + 0.4 * Math.sin(t * 5) * on; } });
+  const g = new THREE.Group(), cell = 0.2 * 0.92 / 1.3;               // one character of the label (h 0.2, size 0.92 of the line)
+  const label = textPlane(DAYS.join(''), { h: 0.2 * u, w: w * u, color: '#ffffff', size: 0.92 });
+  const back = solidProp([[G.box((7 * cell + 0.08) * u, 0.24 * u, 0.008 * u, 0, 0, 0), 0x2a3048]], 0.3);
+  const lit = solidProp([[G.box(cell * u * 0.96, 0.24 * u, 0.01 * u, 0, 0, 0), day === 6 ? 0xe83a3a : day === 5 ? 0x3a7ae8 : 0xe8a020]], 1.0);
+  label.position.z = 0.014 * u; lit.position.set((day - 3) * cell * u, 0, 0.006 * u);
+  g.add(back, lit, label);
+  return Object.assign(g, { drawCalls: 3, light(on, t = 0) { lit.scale.set(1, Math.max(1e-3, on), 1); lit.visible = on > 0.01; lit.material.userData.glow.value = 0.8 + 0.4 * Math.sin(t * 5) * on; } });
 }
 
 // The weekday word: the element's own scene played at `scale` about the word's right end, and the strip above the word
 // lighting `day` once the strokes are drawn. make(ctx, spec, stage) builds the element's scene as usual.
-export function withWeek(make, day, ctx, spec, stage, { scale = 0.85, lift = 0 } = {}) {
-  const u = stage.u, B = stage.box, inner = make(ctx, { ...spec, outcome: null }, stage), group = new THREE.Group(), holder = new THREE.Group();
+export function withWeek(make, day, ctx, spec, stage, { scale = 0.85, lift = 0, stripAt = null, inner: extra = {} } = {}) {
+  const u = stage.u, B = stage.box, inner = make(ctx, { ...spec, outcome: null, ...extra }, stage), group = new THREE.Group(), holder = new THREE.Group();
   holder.add(inner.group); holder.scale.setScalar(scale); holder.position.set(B.maxX * (1 - scale), B.minY * (1 - scale) + lift * u, 0);
   const strip = weekStrip(u, day, { w: Math.max(1.5, B.w / u * 1.05) });
-  strip.position.set(B.cx, B.maxY + 0.22 * u, 0.02 * u);
+  const [sx, sy] = stripAt ? stripAt(stage) : [B.cx, B.maxY + 0.22 * u]; strip.position.set(sx, sy, 0.02 * u);
   group.add(holder, strip);
   return {
     group,

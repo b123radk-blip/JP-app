@@ -5,14 +5,7 @@
   "primaryReading": "ひと",
   "readings": { "kun": ["ひと", "り", "と"], "on": ["ジン", "ニン"] },
   "mnemonic": "A person walking: two legs.",
-  "effect": {
-    "material": "skin",
-    "reveal": "draw",
-    "scene": ["road"],
-    "backdrop": "sky:morning",
-    "motion": "walk",
-    "emblem": "person"
-  },
+  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": "kanji-walker" },
   "sentences": [
     {
       "segments": [ { "text": "あの" }, { "text": "人", "reading": "ひと" }, { "text": "はだれですか。" } ],

@@ -5,7 +5,7 @@
   "primaryReading": "だい",
   "readings": { "kun": ["おお", "おお(きい)", "おお(いに)"], "on": ["ダイ", "タイ"] },
   "mnemonic": "A person stretching arms and legs as wide as they can: big.",
-  "effect": { "material": "skin", "reveal": "draw", "backdrop": "sky:noon", "motion": "grow", "emblem": "person" },
+  "effect": { "material": "gold", "backdrop": "sky:noon", "vignette": "grow-big" },
   "sentences": [
     {
       "segments": [ { "text": "大", "reading": "おお" }, { "text": "きなスーパーがある。" } ],

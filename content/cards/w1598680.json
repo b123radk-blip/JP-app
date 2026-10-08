@@ -8,7 +8,7 @@
   "pos": ["adv", "adj-no"],
   "kanji": ["6642"],
   "builtFrom": [{ "k": "時", "m": "time" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "clock", "motion": "blink", "backdrop": "sky:twilight" },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": "clock-hours:sometimes" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "時々", "reading": "ときどき" }, { "text": "テレビを" }, { "text": "見", "reading": "み" }, { "text": "る。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [150451, 264106] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 時々" },
+  "review": { "recipe": "reviewed", "rule": "word 時々" },
   "source": { "jmdict": 1598680, "jlpt": 5 }
 }

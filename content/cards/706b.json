@@ -5,12 +5,19 @@
   "primaryReading": "ひ",
   "readings": { "kun": ["ひ"], "on": ["カ"] },
   "mnemonic": "A campfire: flames leap up the middle and two sparks jump out at the sides.",
-  "effect": {"material": "heat", "reveal": "ignite", "particles": ["flames", "embers"], "backdrop": "halo", "motion": "none"},
+  "effect": {
+    "material": "heat",
+    "reveal": "ignite",
+    "particles": ["embers"],
+    "backdrop": "halo",
+    "vignette": "fire-catch"
+  },
   "sentences": [
     {
       "segments": [ { "text": "火", "reading": "ひ" }, { "text": "は" }, { "text": "熱", "reading": "あつ" }, { "text": "い" }, { "text": "。" } ],
       "en": "Fire is hot.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

@@ -8,7 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["706b", "66dc", "65e5"],
   "builtFrom": [{ "k": "火", "m": "fire" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["flames"], "backdrop": "halo", "emblem": "calendar" },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "type": "fire-catch", "outcome": "week" } },
   "sentences": [
     {
       "segments": [ { "text": "できたら" }, { "text": "火曜日", "reading": "かようび" }, { "text": "に" }, { "text": "来", "reading": "き" }, { "text": "なさい。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [202359, 39570] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 火曜日" },
+  "review": { "recipe": "reviewed", "rule": "word 火曜日" },
   "source": { "jmdict": 1194290, "jlpt": 5 }
 }

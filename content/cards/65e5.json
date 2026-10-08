@@ -5,17 +5,13 @@
   "primaryReading": "ひ",
   "readings": { "kun": ["ひ"], "on": ["ニチ", "ジツ"] },
   "mnemonic": "The sun climbs over the hill: a bright window in the sky that starts each day.",
-  "effect": {
-    "material": {"type": "cyan", "emissiveK": 0.18, "glowK": 1.5},
-    "reveal": "draw",
-    "backdrop": "sunrise",
-    "motion": {"type": "sway", "amp": 0.3, "bob": 0.008}
-  },
+  "effect": { "material": "gold", "backdrop": "sky:dawn", "vignette": "sun-rise" },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "いい" }, { "text": "日", "reading": "ひ" }, { "text": "です" }, { "text": "。" } ],
       "en": "It's a good day today.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

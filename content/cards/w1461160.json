@@ -8,13 +8,7 @@
   "pos": ["num"],
   "kanji": ["4e8c"],
   "builtFrom": [{ "k": "二", "m": "two" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "dots:2",
-    "particles": ["motes"],
-    "backdrop": "sky:indoor"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "two-birds:count" },
   "sentences": [
     {
       "segments": [ { "text": "道", "reading": "みち" }, { "text": "はここで" }, { "text": "二", "reading": "ふた" }, { "text": "つに" }, { "text": "分", "reading": "わ" }, { "text": "かれている。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [123592, 280405] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
   "source": { "jmdict": 1461160, "jlpt": 5 }
 }

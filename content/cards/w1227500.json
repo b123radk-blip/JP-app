@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["4f11"],
   "builtFrom": [{ "k": "休", "m": "rest" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "sun", "backdrop": "sky:golden", "particles": ["petals"] },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "rest-tree:holiday" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今週", "reading": "こんしゅう" }, { "text": "はお" }, { "text": "休", "reading": "やす" }, { "text": "みです。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [157022, 252252] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 休み" },
+  "review": { "recipe": "reviewed", "rule": "word 休み" },
   "source": { "jmdict": 1227500, "jlpt": 5 }
 }

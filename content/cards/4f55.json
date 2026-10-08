@@ -5,12 +5,13 @@
   "primaryReading": "なに",
   "readings": { "kun": ["なに", "なん"], "on": ["カ"] },
   "mnemonic": "A person (亻) points at a strange box and asks: what's that?",
-  "effect": {"material": "cyan", "reveal": "draw", "backdrop": "plain", "motion": "tilt", "emblem": "question", "parts": {"亻": {}}},
+  "effect": { "material": "pearl", "backdrop": "sky:twilight", "vignette": "what-box" },
   "sentences": [
     {
       "segments": [ { "text": "これ" }, { "text": "は" }, { "text": "何", "reading": "なん" }, { "text": "です" }, { "text": "か" }, { "text": "。" } ],
       "en": "What is this?",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

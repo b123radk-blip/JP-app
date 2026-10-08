@@ -5,15 +5,7 @@
   "primaryReading": "あと",
   "readings": { "kun": ["のち", "うし(ろ)", "うしろ", "あと"], "on": ["ゴ", "コウ"] },
   "mnemonic": "Slow steps (彳 夂) trailing behind: behind, after.",
-  "effect": {
-    "material": "chalk",
-    "reveal": "draw",
-    "scene": ["road"],
-    "backdrop": "sky:dusk",
-    "motion": "drift:away",
-    "parts": { "彳": {} },
-    "particles": [{ "type": "footprints", "dir": "away" }]
-  },
+  "effect": { "material": "gold", "backdrop": "sky:dusk", "vignette": "peek-behind" },
   "sentences": [
     {
       "segments": [ { "text": "いぬが" }, { "text": "後", "reading": "あと" }, { "text": "についてきた。" } ],

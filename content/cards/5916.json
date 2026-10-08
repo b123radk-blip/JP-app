@@ -5,15 +5,7 @@
   "primaryReading": "そと",
   "readings": { "kun": ["そと", "ほか", "はず(す)", "はず(れる)"], "on": ["ガイ", "ゲ"] },
   "mnemonic": "The evening (夕) fortune-teller (卜) sits outside.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "particles": ["motes:still"],
-    "backdrop": "sky:night",
-    "motion": "drift:away",
-    "emblem": "house",
-    "parts": { "夕": {} }
-  },
+  "effect": { "material": "jade", "backdrop": "sky:day", "vignette": "house-out" },
   "sentences": [
     {
       "segments": [ { "text": "ごみを" }, { "text": "外", "reading": "そと" }, { "text": "に" }, { "text": "出", "reading": "だ" }, { "text": "しなさい。" } ],

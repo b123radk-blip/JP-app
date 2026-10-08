@@ -8,14 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["4eca", "5e74"],
   "builtFrom": [{ "k": "今", "m": "now" }, { "k": "年", "m": "year" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "backdrop": "sky:dawn",
-    "motion": "pulse",
-    "particles": ["petals", "snow"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "this-unit:year" },
   "sentences": [
     {
       "segments": [ { "text": "今年", "reading": "ことし" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "多", "reading": "おお" }, { "text": "かった。" } ],

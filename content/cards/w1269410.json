@@ -8,13 +8,7 @@
   "pos": ["n", "adj-no"],
   "kanji": ["5f8c"],
   "builtFrom": [{ "k": "後", "m": "behind" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "arrow:down",
-    "motion": "drift:away",
-    "backdrop": "sky:dusk"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "peek-behind:sneak" },
   "sentences": [
     {
       "segments": [ { "text": "後", "reading": "うし" }, { "text": "ろに" }, { "text": "下", "reading": "さ" }, { "text": "がってください。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [201275, 38482] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 後ろ" },
+  "review": { "recipe": "reviewed", "rule": "word 後ろ" },
   "source": { "jmdict": 1269410, "jlpt": 5 }
 }

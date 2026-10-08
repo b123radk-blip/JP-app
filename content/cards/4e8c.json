@@ -4,8 +4,8 @@
   "meaning": "two",
   "primaryReading": "に",
   "readings": { "kun": ["ふた", "ふた(つ)", "ふたたび"], "on": ["ニ", "ジ"] },
-  "mnemonic": "Two chopsticks lying one above the other.",
-  "effect": { "material": "wood", "reveal": "draw", "backdrop": "sky:day", "motion": "count:2", "emblem": "dots:2" },
+  "mnemonic": "Two lines, like two wires with a bird sitting on each.",
+  "effect": { "material": "wood", "backdrop": "sky:day", "vignette": "two-birds" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "二", "reading": "に" }, { "text": "時間", "reading": "じかん" }, { "text": "ここにいます。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [154768, 259772] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1461140"] }
 }

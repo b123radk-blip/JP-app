@@ -4,15 +4,8 @@
   "meaning": "one",
   "primaryReading": "いち",
   "readings": { "kun": ["ひと", "ひと(つ)"], "on": ["イチ", "イツ"] },
-  "mnemonic": "One finger laid flat: a single line on the horizon.",
-  "effect": {
-    "material": "jade",
-    "reveal": "draw",
-    "particles": ["motes:still"],
-    "backdrop": "sky:dawn",
-    "motion": "count:1",
-    "emblem": "dots:1"
-  },
+  "mnemonic": "One single line, like one candle on one cupcake.",
+  "effect": { "material": "jade", "backdrop": "sky:dawn", "vignette": "one-candle" },
   "sentences": [
     {
       "segments": [ { "text": "一時", "reading": "いちじ" }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
@@ -21,6 +14,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1160790"] }
 }

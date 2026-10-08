@@ -8,7 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["65e5", "66dc"],
   "builtFrom": [{ "k": "日", "m": "sun" }, { "k": "曜", "m": "weekday" }],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sunrise", "emblem": "sun" },
+  "effect": { "material": "gold", "backdrop": "sky:dawn", "vignette": { "type": "sun-rise", "outcome": "week" } },
   "sentences": [
     {
       "segments": [ { "text": "日曜日", "reading": "にちようび" }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [122158, 281845] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 日曜日" },
+  "review": { "recipe": "reviewed", "rule": "word 日曜日" },
   "source": { "jmdict": 1464900, "jlpt": 5 }
 }

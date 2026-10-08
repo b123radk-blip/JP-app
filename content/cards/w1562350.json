@@ -8,13 +8,7 @@
   "pos": ["v5s", "vt"],
   "kanji": ["8a71"],
   "builtFrom": [{ "k": "話", "m": "tale" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "speech",
-    "particles": ["notes"],
-    "backdrop": "sky:morning"
-  },
+  "effect": { "material": "rose", "backdrop": "sky:morning", "vignette": "chat-table:phone" },
   "sentences": [
     {
       "segments": [ { "text": "ドイツ" }, { "text": "語", "reading": "ご" }, { "text": "を" }, { "text": "話", "reading": "はな" }, { "text": "せますか？" } ],

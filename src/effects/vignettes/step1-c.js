@@ -33,7 +33,7 @@ function oneCandle(ctx, spec, stage) {
   if (spec.outcome === 'first') return firstOfMonth(ctx, spec, stage);
   if (spec.outcome === 'allday') return allDay(ctx, spec, stage);
   const group = new THREE.Group(), y0 = stage.strokeBox(0).maxY, cake = solidProp(CUPCAKE(1.5 * u), 0.5);
-  const flame = solidProp([[G.cone(0.035 * u, 0.11 * u, 0, 0.055 * u, 0), 0xffa020], [G.cone(0.018 * u, 0.06 * u, 0, 0.03 * u, 0.01 * u), 0xfff080]], 1.5);
+  const flame = solidProp([[G.sphere(0.06 * u, 0, 0.06 * u, 0, 0.8, 1.4, 0.8), 0xff9a20], [G.cone(0.06 * u, 0.16 * u, 0, 0.16 * u, 0), 0xff9a20], [G.sphere(0.035 * u, 0, 0.06 * u, 0.02 * u, 0.8, 1.3, 0.8), 0xfff080]], 1.5);
   const smoke = many([[G.sphere(0.03 * u), 0xc8c8d0]], 5, 0.3), tag = countTag(u, { s: 0.26 }), puff = many([[G.sphere(0.04 * u, 0, 0, 0, 1.6, 0.6, 0.6), 0xe0f0ff]], 4, 0.8);
   group.add(cake, flame, smoke, tag, puff);
   const cx = B.cx + 0.05 * u, loop = 6.0, wick = [cx + 0.09 * u, y0 + 0.62 * u];
@@ -46,7 +46,7 @@ function oneCandle(ctx, spec, stage) {
       cake.visible = !pre && T.gone < 1; cake.position.set(cx, y0 + 0.9 * u * (1 - T.drop), 0.02 * u); cake.scale.set(grow(1 + 0.1 * land) * (1 - T.gone), grow(1 - 0.12 * land) * (1 - T.gone), grow(1 - T.gone));
       for (const si of [0]) stage.offset(si, 0, -0.03 * u * Math.max(0, land), 0);
       const f = pre ? 0 : T.light * (1 - T.blow); flame.visible = f > 0.01; flame.position.set(wick[0] + 0.02 * u * T.blow, wick[1], 0.02 * u); flame.scale.set(grow(f), grow(f * (1 + 0.15 * Math.sin(t * 18))), grow(f)); flame.rotation.z = -0.5 * bump(v, 3.5, 0.6) + 0.05 * Math.sin(t * 11);
-      tag.show(1, pre ? 0 : T.tag * (1 - T.gone)); tag.position.set(cx + 0.45 * u, y0 + 0.75 * u, 0.06 * u);
+      tag.show(1, pre ? 0 : T.tag * (1 - T.gone)); tag.position.set(cx + 0.45 * u, y0 + 0.5 * u, 0.06 * u);
       for (let i = 0; i < 4; i++) { const p = pre ? 0 : between(v, 3.2 + i * 0.05, 3.8 + i * 0.05); puff.set(i, wick[0] - 0.6 * u + 0.55 * u * p, wick[1] + 0.02 * u * (i - 1.5), 0.03 * u, p > 0 && p < 1 ? 1 : 0); }
       puff.commit();
       wisps(smoke, 0, 5, wick[0], wick[1] + 0.03 * u, v, u, { period: 1.4, rise: 0.6, on: pre ? 0 : between(v, 3.9, 4.1) * (1 - between(v, 5.0, 5.4)) });
@@ -78,7 +78,7 @@ function allDay(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.minX - 0.1 * u, x1 = B.maxX + 0.9 * u, R = (x1 - x0) / 2, mid = (x0 + x1) / 2;
   const sun = solidProp([[G.sphere(0.17 * u), 0xffb030], [G.sphere(0.03 * u, -0.06 * u, 0.04 * u, 0.16 * u), 0x5a2a10], [G.sphere(0.03 * u, 0.06 * u, 0.04 * u, 0.16 * u), 0x5a2a10]], 1.2);
   const ground = solidProp([[G.box(x1 - x0 + 0.6 * u, 0.12 * u, 0.3 * u, 0, -0.06 * u, 0), 0x3a7a3a]], 0.3), dark = veil(7 * u, 5 * u, 0x081030), tag = countTag(u, { s: 0.26 });
-  ground.position.set(mid, floor - 0.04 * u, -0.4 * u); dark.position.set(mid, floor + 1 * u, -0.8 * u);
+  ground.position.set(mid, floor - 0.04 * u, -0.4 * u); dark.position.set(mid, floor + 1 * u, -0.6 * u);
   const trail = many([[G.sphere(0.02 * u), 0xffe080]], 12, 1.2);
   group.add(dark, ground, sun, trail, tag);
   const loop = 6.4;
@@ -105,7 +105,6 @@ function twoBirds(ctx, spec, stage) {
   if (spec.outcome === 'count') { const eggs = many([[G.sphere(0.1 * u, 0, 0.1 * u, 0, 0.82, 1.05, 0.82), 0xfff4e0]], 2, 0.6); return countScene(ctx, stage, 2, eggs, row(B, u, 2, floor, 0.32)); }
   if (spec.outcome === 'day') return dayScene(ctx, stage, 2, birdThing);
   const group = new THREE.Group(), birds = many(BIRD(1.4 * u), 2, 0.5), wings = many([[G.sphere(0.1 * u, 0.07 * u, 0, 0, 1.4, 0.25, 0.8), 0x3a72c8]], 4, 0.5), tags = [1, 2].map(() => countTag(u, { s: 0.22 }));
-  birds.setColorAt(0, new THREE.Color(0x4a8ae0)); birds.setColorAt(1, new THREE.Color(0xe05a8a));
   const notes = many([[G.sphere(0.025 * u, 0, 0, 0, 1.2, 1, 0.6), 0xffffff], [G.box(0.008 * u, 0.07 * u, 0.008 * u, 0.022 * u, 0.035 * u, 0), 0xffffff]], 4, 1.0);
   group.add(birds, wings, notes, ...tags);
   // the two strokes, top first: where each bird lands
@@ -125,7 +124,7 @@ function twoBirds(ctx, spec, stage) {
         birds.set(i, bx, by - 0.03 * u * Math.max(0, dip) + 0.03 * u * chirp, 0.05 * u, pre ? 0 : 1, 0.25 * chirp, T.out > 0 ? 0 : Math.PI);
         const flap = flying ? Math.sin(t * 22) * 0.9 : 0.15;
         for (const s of [0, 1]) wings.set(i * 2 + s, bx + (T.out > 0 ? 0.01 : -0.01) * u, by + 0.13 * u, 0.05 * u + (s ? 0.06 : -0.06) * u, pre ? 0 : 1, 0, T.out > 0 ? 0 : Math.PI, (s ? 1 : -1) * flap);
-        tags[i].show(i + 1, pre ? 0 : between(v, 1.9 + 0.7 * i, 2.15 + 0.7 * i) * (1 - T.out)); tags[i].position.set(x, y + 0.48 * u, 0.06 * u);
+        tags[i].show(i + 1, pre ? 0 : between(v, 1.9 + 0.7 * i, 2.15 + 0.7 * i) * (1 - T.out)); tags[i].position.set(x + 0.3 * u, y + 0.3 * u, 0.06 * u);
         for (const k of [0, 1]) { const f = pre ? 0 : between(v, 2.0 + 0.7 * i + 0.15 * k, 2.8 + 0.7 * i + 0.15 * k); notes.set(i * 2 + k, x - 0.18 * u - 0.15 * u * f, y + 0.3 * u + 0.2 * u * f, 0.06 * u, f > 0 && f < 1 ? 1.4 : 0, 0.3 * Math.sin(f * 8)); }
       });
       birds.commit(); wings.commit(); notes.commit();
@@ -139,7 +138,7 @@ const CLOVER = (u) => [[G.cyl(0.012 * u, 0.012 * u, 0.15 * u, 0, 0.075 * u, 0), 
 export const cloverThing = (s) => solidProp(CLOVER(s / 0.3), 0.5);
 function fourClover(ctx, spec, stage) {
   const u = stage.u, B = stage.box, floor = B.minY;
-  if (spec.outcome === 'count') return countScene(ctx, stage, 4, many(CLOVER(0.9 * u), 4, 0.5), row(B, u, 4, floor, 0.28));
+  if (spec.outcome === 'count') return countScene(ctx, stage, 4, many(CLOVER(1.3 * u), 4, 0.5), grid(B, u, 4, 2, floor + 0.05 * u, 0.36), { tagUp: 0.5 });
   if (spec.outcome === 'day') return dayScene(ctx, stage, 4, cloverThing);
   const group = new THREE.Group(), cx = B.maxX + 0.55 * u, cy = floor + 0.62 * u;
   const stem = solidProp([[G.cyl(0.022 * u, 0.026 * u, 1, 0, 0.5, 0), 0x3a8a30]], 0.4), leaves = many(HEART(u, 0.32, 0x3aaa3a), 4, 0.5), tag = countTag(u, { s: 0.24 }), shine = burst(u, { s: 0.5, n: 8, color: 0xfff080 });
@@ -170,7 +169,7 @@ export const pinThing = (s) => solidProp(PIN(s / 0.25), 0.5);
 function tenStrike(ctx, spec, stage) {
   const u = stage.u, B = stage.box, floor = B.minY;
   if (spec.outcome === 'day' || spec.outcome === 'day20') return dayScene(ctx, stage, spec.outcome === 'day20' ? 20 : 10, pinThing);
-  const group = new THREE.Group(), lx = B.maxX + 0.6 * u;
+  const group = new THREE.Group(), lx = B.maxX + 0.45 * u;
   const lane = new THREE.Shape(); lane.moveTo(-0.3, 0); lane.lineTo(0.3, 0); lane.lineTo(0.2, 1.0); lane.lineTo(-0.2, 1.0); lane.closePath();
   const floorM = solidProp([[new THREE.ShapeGeometry(lane).scale(u, u, u), 0xd8a868]], 0.3), pins = many(PIN(1.15 * u), 10, 0.5), bowl = solidProp([[G.sphere(0.09 * u), 0x3040c0], [G.sphere(0.015 * u, 0.03 * u, 0.04 * u, 0.08 * u), 0x101020], [G.sphere(0.015 * u, -0.01 * u, 0.06 * u, 0.08 * u), 0x101020]], 0.6);
   const strike = textPlane('STRIKE!', { h: 0.2 * u, color: '#ffffff', bg: '#e04848', pad: 0.2 }), tag = countTag(u, { s: 0.24 }), boom = burst(u, { s: 0.5, n: 10, color: 0xffe060 });

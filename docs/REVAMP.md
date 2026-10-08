@@ -469,34 +469,34 @@ bowl. 四 a four-leaf clover / 西 the sun sets in the west. 休 resting against
 slides into the gap between two bookends (Step 2: 問 a raised hand).
 
 ## Step 1 kanji (deck order)
-- [ ] 日 sun (B): night with stars; the sun rises behind the kanji, pushes the dark away, rays spin out; 日曜日 `week`.
-- [ ] 火 fire (B): keep the flames; a match strikes, the logs under the kanji catch, it roars up; 火曜日 `week`.
-- [ ] 水 water (C): a tap above pours onto the kanji, water runs down it into a basin that fills and ripples; 水曜日 `week`.
-- [ ] 山 mountain (C): the kanji heaves up out of the ground with a rumble, a mountain rises behind, snow settles on the peak.
+- [x] 日 sun (B): night with stars; the sun rises behind the kanji, pushes the dark away, rays spin out; 日曜日 `week`. Built: `sun-rise`.
+- [x] 火 fire (B): keep the flames; a match strikes, the logs under the kanji catch, it roars up; 火曜日 `week`. Built: `fire-catch`.
+- [x] 水 water (C): a tap above pours onto the kanji, water runs down it into a basin that fills and ripples; 水曜日 `week`. Built: `tap-fill`.
+- [x] 山 mountain (C): the kanji heaves up out of the ground with a rumble, a mountain rises behind, snow settles on the peak. Built: `mountain-rise`.
 - [x] 川 river (B): the three strokes ripple like flowing water and a paper boat floats down the middle one and away; grass on the banks. Built: `river-flow`.
-- [ ] 木 tree (C): the kanji sprouts branches, a canopy of leaves bursts out, an apple drops; 木曜日 `week`.
-- [ ] 雨 rain (B): a cloud gathers over the kanji, its four dots fall out of it as rain and splash in puddles, then reappear.
-- [ ] 休 rest (C, P): a tired walker stops, sits down against the tree beside the kanji, closes their eyes, Zzz.
-- [ ] 明 bright (C): night; the 日 part glows gold and the 月 part silver, beams sweep out and the dark lifts.
-- [ ] 林 woods (C): both 木 grow canopies, then small trees pop up between them into a little wood; a squirrel runs along.
+- [x] 木 tree (C): the kanji sprouts branches, a canopy of leaves bursts out, an apple drops; 木曜日 `week`. Built: `tree-sprout`.
+- [x] 雨 rain (B): a cloud gathers over the kanji, its four dots fall out of it as rain and splash in puddles, then reappear. Built: `rain-drops`.
+- [x] 休 rest (C, P): a tired walker stops, sits down against the tree beside the kanji, closes their eyes, Zzz. Built: `rest-tree`.
+- [x] 明 bright (C): night; the 日 part glows gold and the 月 part silver, beams sweep out and the dark lifts. Built: `sun-moon-glow`.
+- [x] 林 woods (C): both 木 grow canopies, then small trees pop up between them into a little wood; a squirrel runs along. Built: `grove-grow`.
 - [x] 上 up (C): a balloon tied to a box lifts off and floats up above the kanji, bobbing; the box stays down. Built: `balloon-up`.
-- [ ] 下 down (C): a boat on the water; its anchor drops down on a chain to the sea bed below.
-- [ ] 何 what (C): a mystery box shakes and hops; a big "?" springs out on a spring like a jack-in-the-box.
+- [x] 下 down (C): a boat on the water; its anchor drops down on a chain to the sea bed below. Built: `anchor-drop`.
+- [x] 何 what (C): a mystery box shakes and hops; a big "?" springs out on a spring like a jack-in-the-box. Built: `what-box`.
 - [x] 三 three (C): three ducks waddle in a row along the bottom stroke, each quacking in turn. Built: `three-ducks`.
-- [ ] 時 time (B): a big clock face behind the kanji, the hands sweep round, and on each hour a bell rings out.
-- [ ] 二 two (C): two birds fly in and land on the two strokes as if on wires, chirp, and fly off.
-- [ ] 一 one (C): one cupcake with one candle sits on the stroke; the candle lights, flickers and is blown out.
-- [ ] 人 person (C): the glyph walks on its two strokes as legs, a head pops on top, it turns and waves.
-- [ ] 今 now (C): three clocks in a row (before, now, after); a spotlight lands on the middle one, which ticks and glows.
-- [ ] 手 hand (C): two big hands meet in a high five with a burst, then wave.
-- [ ] 四 four (C): a four-leaf clover grows beside the kanji and unfolds its four leaves one by one, a sparkle.
-- [ ] 十 ten (C): a bowling ball rolls into ten pins and knocks them all down: strike!
-- [ ] 年 year (C): a tree runs through the seasons (blossom, green, red, snow) while a year number ticks on.
-- [ ] 七 seven (C): a rainbow builds itself stripe by stripe, seven colours.
-- [ ] 話 talk (C, P): two people at a table chat; speech bubbles go back and forth.
-- [ ] 後 behind (C, P): a kid hides behind the kanji, peeks out round its side and ducks back.
-- [ ] 大 big (C): the kanji grows huge; a tiny mouse at its foot looks up and up.
-- [ ] 外 outside (C): a little house; the door opens and a dog runs out into the yard; the door shuts behind it.
+- [x] 時 time (B): a big clock face behind the kanji, the hands sweep round, and on each hour a bell rings out. Built: `clock-hours`.
+- [x] 二 two (C): two birds fly in and land on the two strokes as if on wires, chirp, and fly off. Built: `two-birds`.
+- [x] 一 one (C): one cupcake with one candle sits on the stroke; the candle lights, flickers and is blown out. Built: `one-candle`.
+- [x] 人 person (C): the glyph walks on its two strokes as legs, a head pops on top, it turns and waves. Built: `kanji-walker`.
+- [x] 今 now (C): three clocks in a row (before, now, after); a spotlight lands on the middle one, which ticks and glows. Built: `this-unit:now`.
+- [x] 手 hand (C): two big hands meet in a high five with a burst, then wave. Built: `high-five`.
+- [x] 四 four (C): a four-leaf clover grows beside the kanji and unfolds its four leaves one by one, a sparkle. Built: `four-clover`.
+- [x] 十 ten (C): a bowling ball rolls into ten pins and knocks them all down: strike! Built: `ten-strike`.
+- [x] 年 year (C): a tree runs through the seasons (blossom, green, red, snow) while a year number ticks on. Built: `year-seasons`.
+- [x] 七 seven (C): a rainbow builds itself stripe by stripe, seven colours. Built: `rainbow-seven`.
+- [x] 話 talk (C, P): two people at a table chat; speech bubbles go back and forth. Built: `chat-table`.
+- [x] 後 behind (C, P): a kid hides behind the kanji, peeks out round its side and ducks back. Built: `peek-behind`.
+- [x] 大 big (C): the kanji grows huge; a tiny mouse at its foot looks up and up. Built: `grow-big`.
+- [x] 外 outside (C): a little house; the door opens and a dog runs out into the yard; the door shuts behind it. Built: `house-out`.
 - [ ] 国 country (C): an island rises from the sea, a border draws round it and a flag plants on top.
 - [ ] 父 father (C, P): a dad lifts a kid up onto his shoulders, swaying.
 - [ ] 母 mother (C, P): a mum rocks a baby in her arms, hearts rising.
@@ -583,32 +583,32 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [ ] 友 friend (C, P): two kids high-five, then walk off arm in arm.
 
 ## Step 1 words (deck order)
-- [ ] 下さい please (C, P): a kid holds out both hands, a sweet drops into them, a bow.
-- [ ] 時々 sometimes (C): `time:sometimes`: a clock ticks and now and then a little bird pops out of it.
-- [ ] 休み rest (C, P): `rest-tree:holiday`: a person stretches out in a hammock under the sun.
-- [ ] 休む take a day off (C, P): `rest-tree:bed`: a person in bed with the alarm clock pushed away.
+- [x] 下さい please (C, P): a kid holds out both hands, a sweet drops into them, a bow. Built: `anchor-drop:please`.
+- [x] 時々 sometimes (C): `time:sometimes`: a clock ticks and now and then a little bird pops out of it. Built: `clock-hours:sometimes`.
+- [x] 休み rest (C, P): `rest-tree:holiday`: a person stretches out in a hammock under the sun. Built: `rest-tree:holiday`.
+- [x] 休む take a day off (C, P): `rest-tree:bed`: a person in bed with the alarm clock pushed away. Built: `rest-tree:bed`.
 - [x] 三つ three (C): `count`: three dango drop onto a stick, counted 1, 2, 3. Built: `three-ducks:count`.
 - [x] 上げる raise (C): `up:flag`: a flag is raised up a pole. Built: `balloon-up:flag`.
 - [x] 三日 3rd (C): `day`: the month grid lights to 3, a duck hops onto it. Built: `three-ducks:day`.
-- [ ] 二つ two (C): `count`: two eggs.
-- [ ] 二日 2nd (C): `day`, a bird.
-- [ ] 一つ one (C): `count`: one apple.
-- [ ] 一日 one day (C): `allday`: one sun crosses the sky from sunrise to sunset.
-- [ ] 一日 1st of the month (C): `first`: a calendar page tears off, a new month, day 1 circled.
-- [ ] 一人 one person (C, P): `walker:alone`: one person sits alone on a bench under a lamp.
-- [ ] 今日 today (C): `this-unit:day`.
-- [ ] 四つ four (C): `count`: four clovers.
-- [ ] 四日 4th (C): `day`, a clover.
-- [ ] 十日 10th (C): `day`, a bowling pin.
-- [ ] 二十日 20th (C): `day:20` of 十's scene.
-- [ ] 今年 this year (C): `this-unit:year`.
-- [ ] 七つ seven (C): `count`: seven rainbow balls.
-- [ ] 七日 7th (C): `day`, a rainbow.
-- [ ] 話す talk (C, P): `talk:phone`: a person talks with big gestures, squiggles in a bubble.
-- [ ] 後ろ behind (C, P): `peek:sneak`: a cat sneaks up behind a person, who turns round.
-- [ ] 大きい big (C): `grow:elephant`: an elephant beside a mouse.
-- [ ] 大人 adult (C, P): a tall grown-up with a briefcase beside a small kid, who stretches up to match.
-- [ ] 大きな big (C): `grow:whale`: a whale surfaces beside a little boat.
+- [x] 二つ two (C): `count`: two eggs. Built: `two-birds:count`.
+- [x] 二日 2nd (C): `day`, a bird. Built: `two-birds:day`.
+- [x] 一つ one (C): `count`: one apple. Built: `one-candle:count`.
+- [x] 一日 one day (C): `allday`: one sun crosses the sky from sunrise to sunset. Built: `one-candle:allday`.
+- [x] 一日 1st of the month (C): `first`: a calendar page tears off, a new month, day 1 circled. Built: `one-candle:first`.
+- [x] 一人 one person (C, P): `walker:alone`: one person sits alone on a bench under a lamp. Built: `kanji-walker:alone`.
+- [x] 今日 today (C): `this-unit:day`. Built: `this-unit:day`.
+- [x] 四つ four (C): `count`: four clovers. Built: `four-clover:count`.
+- [x] 四日 4th (C): `day`, a clover. Built: `four-clover:day`.
+- [x] 十日 10th (C): `day`, a bowling pin. Built: `ten-strike:day`.
+- [x] 二十日 20th (C): `day:20` of 十's scene. Built: `ten-strike:day20`.
+- [x] 今年 this year (C): `this-unit:year`. Built: `this-unit:year`.
+- [x] 七つ seven (C): `count`: seven rainbow balls. Built: `rainbow-seven:count`.
+- [x] 七日 7th (C): `day`, a rainbow. Built: `rainbow-seven:day`.
+- [x] 話す talk (C, P): `talk:phone`: a person talks with big gestures, squiggles in a bubble. Built: `chat-table:phone`.
+- [x] 後ろ behind (C, P): `peek:sneak`: a cat sneaks up behind a person, who turns round. Built: `peek-behind:sneak`.
+- [x] 大きい big (C): `grow:elephant`: an elephant beside a mouse. Built: `grow-big:elephant`.
+- [x] 大人 adult (C, P): a tall grown-up with a briefcase beside a small kid, who stretches up to match. Built: `adult-kid`.
+- [x] 大きな big (C): `grow:whale`: a whale surfaces beside a little boat. Built: `grow-big:whale`.
 - [ ] 外国 foreign country (C): `island:plane`: a plane flies from one island with a flag to another.
 - [ ] 外国人 foreigner (C, P): `island:visitor`: a traveller with a suitcase and a passport, a stamp thumps.
 - [ ] お父さん dad (C, P): `dad:home`: dad comes home with a briefcase, the kid runs to hug him.
@@ -620,11 +620,11 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [ ] 来月 next month (C): `next-unit:month`.
 - [ ] 今月 this month (C): `this-unit:month`.
 - [ ] 先月 last month (C): `last-unit:month`.
-- [ ] 火曜日 Tuesday (C): `week` of 火.
-- [ ] 日曜日 Sunday (C): `week` of 日.
+- [x] 火曜日 Tuesday (C): `week` of 火. Built: `fire-catch:week`.
+- [x] 日曜日 Sunday (C): `week` of 日. Built: `sun-rise:week`.
 - [x] 月曜日 Monday (C): `week` of 月. Built: `moon-wax:week`.
-- [ ] 木曜日 Thursday (C): `week` of 木.
-- [ ] 水曜日 Wednesday (C): `week` of 水.
+- [x] 木曜日 Thursday (C): `week` of 木. Built: `tree-sprout:week`.
+- [x] 水曜日 Wednesday (C): `week` of 水. Built: `tap-fill:week`.
 - [ ] 来週 next week (C): `next-unit:week`.
 - [ ] 先週 last week (C): `last-unit:week`.
 - [ ] 今週 this week (C): `this-unit:week`.

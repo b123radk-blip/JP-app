@@ -35,8 +35,8 @@ function sunRise(ctx, spec, stage) {
   if (spec.outcome === 'week') return withWeek(sunRise, 6, ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.45 * u;
   const sun = solidProp([[G.sphere(0.3 * u), 0xffb030], [G.sphere(0.035 * u, -0.1 * u, 0.06 * u, 0.28 * u), 0x5a2a10], [G.sphere(0.035 * u, 0.1 * u, 0.06 * u, 0.28 * u), 0x5a2a10], [G.torus(0.1 * u, 0.018 * u, Math.PI, 0, -0.05 * u, 0.29 * u, Math.PI), 0x5a2a10]], 1.2);
-  const hill = solidProp([[G.sphere(1.0 * u, 0, 0, 0, 1.6, 0.32, 0.3), 0x24502c]], 0.25), night = veil(7 * u, 5 * u, 0x040818), shine = rays(u, 12, 0.32, 0xffd040), stars = starField(u, 16, 3);
-  hill.position.set(sx, floor - 0.08 * u, -0.25 * u); night.position.set(B.cx + 0.4 * u, floor + 1.2 * u, -0.7 * u);
+  const hill = solidProp([[G.sphere(0.75 * u, 0, 0, 0, 1.3, 0.3, 0.15), 0x1a3a22], [G.sphere(0.5 * u, 0.6 * u, -0.03 * u, -0.02 * u, 1.2, 0.35, 0.15), 0x163020]], 0.15), night = veil(7 * u, 5 * u, 0x040818), shine = rays(u, 12, 0.32, 0xffd040), stars = starField(u, 16, 3);
+  hill.position.set(sx + 0.1 * u, floor - 0.04 * u, -0.25 * u); night.position.set(B.cx + 0.4 * u, floor + 1.2 * u, -0.7 * u);
   group.add(night, stars, shine, sun, hill);
   const loop = 6.4;
   return {
@@ -123,7 +123,7 @@ function tapFill(ctx, spec, stage) {
 
 // ---- 山 a mountain rising ----
 function mountainRise(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.35 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.5 * u;
   const peak = new THREE.Group(), rock = solidProp([[G.cone(0.75 * u, 1.15 * u, 0, 0.575 * u, 0), 0x5a6a5a], [G.cone(0.5 * u, 0.75 * u, 0.42 * u, 0.375 * u, 0.1 * u), 0x4a5a4c]], 0.3);
   const cap = solidProp([[G.cone(0.25 * u, 0.39 * u, 0, 0, 0.012 * u), 0xffffff]], 0.7); cap.position.y = 0.955 * u;
   peak.add(rock, cap); peak.position.set(mx, floor, -0.35 * u);
@@ -154,8 +154,8 @@ export function crown(u, n, colors) {
 }
 const CROWN = [[0, 0.22, 1.25], [-0.2, 0.1, 1.0], [0.2, 0.1, 1.0], [-0.12, 0.34, 0.9], [0.13, 0.33, 0.95], [0, 0.02, 0.85], [-0.3, -0.04, 0.7], [0.3, -0.04, 0.7]];
 function treeSprout(ctx, spec, stage) {
-  if (spec.outcome === 'week') return withWeek(treeSprout, 3, ctx, spec, stage, { scale: 0.8 });
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, top = B.maxY - 0.05 * u;
+  if (spec.outcome === 'week') return withWeek(treeSprout, 3, ctx, spec, stage, { scale: 1, stripAt: (st) => [st.glyphBox(0).cx + 1.05 * st.u, st.box.maxY + 0.22 * st.u], inner: { glyph: 0 } });
+  const u = stage.u, B = spec.glyph != null ? stage.glyphBox(spec.glyph) : stage.box, group = new THREE.Group(), floor = B.minY, top = B.maxY - 0.05 * u;
   const leaves = crown(u, CROWN.length, [0x3aa040, 0x48b848, 0x2e8a3a]);
   const twigs = many([[G.cyl(0.015 * u, 0.022 * u, 0.25 * u, 0, 0.125 * u, 0), 0x7a4a24]], 3, 0.3);
   const apple = solidProp([[G.sphere(0.07 * u), 0xe02828], [G.cyl(0.006 * u, 0.006 * u, 0.04 * u, 0, 0.08 * u, 0), 0x5a3a1a], [G.sphere(0.025 * u, 0.025 * u, 0.09 * u, 0, 1.4, 0.4, 0.8), 0x40a040]], 0.6);
@@ -186,7 +186,7 @@ function treeSprout(ctx, spec, stage) {
 function rainDrops(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY - 0.04 * u;
   const dots = ctx.strokes.map((s, i) => [i, stage.strokeBox(i)]).filter(([, b]) => Math.max(b.w, b.h) < 0.22 * B.w).map(([i, b]) => ({ i, b }));
-  const cloud = many([[G.sphere(0.2 * u), 0x9aa4b4]], 6, 0.35), rain = many(DROP(1.4 * u, 0x7fc8ff), 12, 1.0), rings = many([[G.torus(0.07 * u, 0.008 * u).rotateX(Math.PI / 2 - 0.5), 0xd8f0ff]], 6, 1.0);
+  const cloud = many([[G.sphere(0.2 * u), 0x9aa4b4]], 6, 0.35), rain = many(DROP(2 * u, 0x8ad0ff), 12, 1.1), rings = many([[G.torus(0.07 * u, 0.008 * u).rotateX(Math.PI / 2 - 0.5), 0xd8f0ff]], 6, 1.0);
   group.add(cloud, rain, rings);
   const C = [[-0.35, 0.05, 0.9], [-0.12, 0.12, 1.15], [0.12, 0.1, 1.1], [0.35, 0.03, 0.9], [0.0, -0.02, 1.0], [0.55, -0.02, 0.7]];
   const loop = 6.0;
@@ -219,7 +219,7 @@ function sunMoonGlow(ctx, spec, stage) {
   const box = (list) => { const bs = list.map((i) => stage.strokeBox(i)); return { x: (Math.min(...bs.map((b) => b.minX)) + Math.max(...bs.map((b) => b.maxX))) / 2, y: (Math.min(...bs.map((b) => b.minY)) + Math.max(...bs.map((b) => b.maxY))) / 2 }; };
   const S = box(lo), M = box(hi);
   const disc = (color) => { const m = solidProp([[G.cyl(0.32 * u, 0.32 * u, 0.001 * u, 0, 0, 0, Math.PI / 2, 0, 0, 40), color]], 1.2); m.material.transparent = true; return m; };
-  const sunGlow = disc(0xffc040), moonGlow = disc(0xc8d8ff), night = veil(7 * u, 5 * u, 0x030612), beams = rays(u, 16, 0.75, 0xfff0b0), stars = starField(u, 14, 9);
+  const sunGlow = disc(0xffc040), moonGlow = disc(0xc8d8ff), night = veil(7 * u, 5 * u, 0x030612), beams = rays(u, 16, 0.6, 0xfff0b0), stars = starField(u, 14, 9);
   sunGlow.position.set(S.x, S.y, -0.06 * u); moonGlow.position.set(M.x, M.y, -0.07 * u); night.position.set(B.cx + 0.3 * u, B.cy, -0.6 * u);
   beams.material.transparent = true;
   group.add(night, stars, beams, sunGlow, moonGlow);
@@ -233,7 +233,7 @@ function sunMoonGlow(ctx, spec, stage) {
       sunGlow.material.opacity = 0.75 * s; sunGlow.scale.setScalar(grow(s) * (1 + 0.06 * Math.sin(t * 4)));
       moonGlow.material.opacity = 0.65 * m; moonGlow.scale.setScalar(grow(m) * (1 + 0.06 * Math.sin(t * 3 + 1)));
       night.material.opacity = 0.85 * (1 - day);
-      beams.visible = day > 0.01; beams.material.opacity = 0.6 * day; spin(beams, B.cx, B.cy, -0.2 * u, grow(day) * 1.4, v * 0.3);
+      beams.visible = day > 0.01; beams.material.opacity = 0.35 * day; spin(beams, B.cx, B.cy, -0.2 * u, grow(day) * 1.4, v * 0.3);
       twinkle(stars, B.minX - 0.4 * u, B.minY, B.w + 1.2 * u, 1.2 * u, 1 - day, t);
     },
   };

@@ -8,7 +8,7 @@
   "pos": ["exp"],
   "kanji": ["4e0b"],
   "builtFrom": [{ "k": "下", "m": "down" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "backdrop": "sky:dawn", "motion": "tilt" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "anchor-drop:please" },
   "sentences": [
     {
       "segments": [ { "text": "くつろいでいて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [225652, 2378] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 下さい" },
+  "review": { "recipe": "reviewed", "rule": "word 下さい" },
   "source": { "jmdict": 1184270, "jlpt": 5 }
 }

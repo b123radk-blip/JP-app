@@ -5,14 +5,7 @@
   "primaryReading": "いま",
   "readings": { "kun": ["いま"], "on": ["コン", "キン"] },
   "mnemonic": "A roof (人) over one single tick of the clock: now.",
-  "effect": {
-    "material": "cyan",
-    "reveal": "draw:dust",
-    "backdrop": "plain",
-    "motion": "pulse",
-    "emblem": "clock",
-    "parts": { "人": {} }
-  },
+  "effect": { "material": "cyan", "backdrop": "sky:indoor", "vignette": "this-unit:now" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今", "reading": "いま" }, { "text": "お" }, { "text": "金", "reading": "かね" }, { "text": "はいらない。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [157084, 257450] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1288850"] }
 }

@@ -8,7 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["6c34", "66dc", "65e5"],
   "builtFrom": [{ "k": "水", "m": "water" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["ripples"], "backdrop": "sky:lake", "emblem": "calendar" },
+  "effect": { "material": "ivory", "backdrop": "sky:lake", "vignette": { "type": "tap-fill", "outcome": "week" } },
   "sentences": [
     {
       "segments": [ { "text": "今度", "reading": "こんど" }, { "text": "の" }, { "text": "水曜日", "reading": "すいようび" }, { "text": "ならいいですよ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [172151, 242323] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 水曜日" },
+  "review": { "recipe": "reviewed", "rule": "word 水曜日" },
   "source": { "jmdict": 1372190, "jlpt": 5 }
 }

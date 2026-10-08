@@ -5,14 +5,7 @@
   "primaryReading": "じゅう",
   "readings": { "kun": ["とお", "と", "そ"], "on": ["ジュウ", "ジッ", "ジュッ"] },
   "mnemonic": "A plus sign: all ten fingers crossed.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "particles": ["sparks"],
-    "backdrop": "halo",
-    "motion": "spin",
-    "emblem": "plus"
-  },
+  "effect": { "material": "gold", "backdrop": "sky:indoor", "vignette": "ten-strike" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "本", "reading": "ほん" }, { "text": "に" }, { "text": "十", "reading": "じゅう" }, { "text": "ドルをつかった。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [152809, 261738] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1579840"] }
 }

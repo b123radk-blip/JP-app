@@ -6,11 +6,10 @@
   "readings": { "kun": ["あか(るい)", "あ(ける)", "あき(らか)"], "on": ["メイ", "ミョウ"] },
   "mnemonic": "Sun (日) and moon (月) side by side: twice the light, so it is bright.",
   "effect": {
-    "reveal": "draw",
-    "particles": [{"type": "motes", "dir": "still", "color": "#fff0c0"}],
+    "material": "silver",
     "backdrop": "sky:twilight",
-    "motion": "pulse",
-    "parts": {"日": {}, "月": {}}
+    "parts": { "日": {}, "月": {} },
+    "vignette": "sun-moon-glow"
   },
   "sentences": [
     {
@@ -18,5 +17,6 @@
       "en": "It's bright outside.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true }
     }
-  ]
+  ],
+  "review": { "recipe": "reviewed" }
 }

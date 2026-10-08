@@ -8,13 +8,7 @@
   "pos": ["num"],
   "kanji": ["4e00"],
   "builtFrom": [{ "k": "一", "m": "one" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "dots:1",
-    "particles": ["motes"],
-    "backdrop": "sky:forest"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": "one-candle:count" },
   "sentences": [
     {
       "segments": [ { "text": "バッグが" }, { "text": "一", "reading": "ひと" }, { "text": "つ" }, { "text": "見", "reading": "み" }, { "text": "あたらない。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [197975, 35164] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
   "source": { "jmdict": 1160820, "jlpt": 5 }
 }

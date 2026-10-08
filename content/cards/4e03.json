@@ -4,8 +4,8 @@
   "meaning": "seven",
   "primaryReading": "しち",
   "readings": { "kun": ["なな", "なな(つ)", "なの"], "on": ["シチ"] },
-  "mnemonic": "A cross with a bent tail: the seven stars of the Big Dipper.",
-  "effect": { "material": "silver", "reveal": "draw", "backdrop": "sky:night", "motion": "count:7", "emblem": "stars" },
+  "mnemonic": "A cross with a bent tail; think of the seven colours of the rainbow.",
+  "effect": { "material": "pearl", "backdrop": "sky:day", "vignette": "rainbow-seven" },
   "sentences": [
     {
       "segments": [ { "text": "ちょうど" }, { "text": "七", "reading": "なな" }, { "text": "時半", "reading": "じはん" }, { "text": "です。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [202909, 40144] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1319210"] }
 }
