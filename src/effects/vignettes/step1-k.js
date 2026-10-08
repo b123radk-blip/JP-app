@@ -40,7 +40,7 @@ const SPARK = (u) => [[G.sphere(0.022 * u), 0xffffff]];
 // ---- 新 new ----
 function newToy(ctx, spec, stage) {
   if (spec.outcome === 'shoes') return newShoes(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.5 * u;
+  const u = 1.35 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.35 * u;
   const box = solidProp([[G.box(0.4 * u, 0.26 * u, 0.3 * u, 0, 0.13 * u, 0), 0x3a7ae0], [G.box(0.06 * u, 0.265 * u, 0.305 * u, 0, 0.13 * u, 0), 0xffd040]], 0.45), flaps = many([[G.box(0.2 * u, 0.012 * u, 0.3 * u, 0.1 * u, 0, 0), 0x5a9af0]], 2, 0.45);
   const robot = solidProp([[G.box(0.16 * u, 0.18 * u, 0.12 * u, 0, 0.09 * u, 0), 0xd8dde6], [G.box(0.13 * u, 0.11 * u, 0.11 * u, 0, 0.25 * u, 0), 0xd8dde6], [G.sphere(0.02 * u, -0.035 * u, 0.26 * u, 0.056 * u), 0x40c0ff], [G.sphere(0.02 * u, 0.035 * u, 0.26 * u, 0.056 * u), 0x40c0ff], [G.cyl(0.006 * u, 0.006 * u, 0.06 * u, 0, 0.33 * u, 0), 0x808890], [G.sphere(0.015 * u, 0, 0.37 * u, 0), 0xff4040], [G.box(0.05 * u, 0.04 * u, 0.01 * u, 0, 0.1 * u, 0.061 * u), 0xffd040]], 0.6);
   const tag = textPlane('NEW', { h: 0.12 * u, color: '#ffffff', bg: '#e03030', pad: 0.3 }), spk = many(SPARK(u), 8, 1.8);
@@ -60,7 +60,7 @@ function newToy(ctx, spec, stage) {
   };
 }
 function newShoes(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.45 * u;
+  const u = 1.7 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.25 * u;
   const shoe = (c, lace) => [[G.sphere(0.1 * u, 0, 0.05 * u, 0, 1.6, 0.6, 0.8), c], [G.box(0.12 * u, 0.1 * u, 0.13 * u, -0.07 * u, 0.09 * u, 0), c], [G.box(0.26 * u, 0.02 * u, 0.15 * u, 0, 0.0, 0), 0xffffff], ...[0, 1].map((i) => [G.box(0.01 * u, 0.06 * u, 0.1 * u, (-0.02 + 0.04 * i) * u, 0.1 * u, 0, 0.5), lace])];
   const old = solidProp(shoe(0x7a6a58, 0x5a4a38), 0.25), fresh = solidProp(shoe(0xe03a3a, 0xffffff), 0.6), spk = many(SPARK(u), 8, 1.8), flies = many([[G.sphere(0.012 * u), 0x202020]], 2, 0.2);
   group.add(old, fresh, spk, flies);
@@ -99,7 +99,7 @@ function newspaper(ctx, spec, stage) {
 // ---- 聞 hear ----
 function earGate(ctx, spec, stage) {
   if (spec.outcome === 'shell') return seashell(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 0.75 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 1.0 * u;
   const gate = solidProp([[G.box(0.06 * u, 0.85 * u, 0.06 * u, -0.25 * u, 0.42 * u, 0), 0x8a3020], [G.box(0.06 * u, 0.85 * u, 0.06 * u, 0.25 * u, 0.42 * u, 0), 0x8a3020], [G.box(0.65 * u, 0.06 * u, 0.08 * u, 0, 0.82 * u, 0), 0x8a3020], [G.box(0.2 * u, 0.6 * u, 0.02 * u, -0.12 * u, 0.32 * u, -0.02 * u), 0xa86040], [G.box(0.2 * u, 0.6 * u, 0.02 * u, 0.12 * u, 0.32 * u, -0.02 * u), 0xa86040]], 0.4);
   const p = createPerson({ u: 0.9 * u, shirt: 0x5a8ad0 }), rings = many([[G.torus(0.1 * u, 0.01 * u, Math.PI * 0.6, 0, 0, 0, -0.3 * Math.PI), 0xffe060]], 4, 1.2), notes = emblemProp('note', 0.18 * u);
   gate.position.set(gx, floor, -0.15 * u);
@@ -119,7 +119,7 @@ function earGate(ctx, spec, stage) {
 }
 function seashell(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, kx = B.maxX + 0.45 * u;
-  const kid = createPerson({ u: 0.9 * u, shirt: 0x40b0e0 }), shell = solidProp([[G.cone(0.1 * u, 0.22 * u, 0, 0, 0, Math.PI / 2), 0xffc8b0], ...[0, 1, 2].map((i) => [G.torus((0.09 - 0.025 * i) * u, 0.012 * u, Math.PI * 2, (0.07 - 0.05 * i) * u, 0, 0).rotateY(Math.PI / 2), 0xf0a890])], 0.5);
+  const kid = createPerson({ u: 0.9 * u, shirt: 0x40b0e0 }), shell = solidProp([[G.cone(0.13 * u, 0.28 * u, 0, 0, 0, Math.PI / 2), 0xffb090], ...[0, 1, 2].map((i) => [G.torus((0.12 - 0.035 * i) * u, 0.016 * u, Math.PI * 2, (0.09 - 0.06 * i) * u, 0, 0).rotateY(Math.PI / 2), 0xe08060])], 0.6);
   const waves = many([[G.torus(0.08 * u, 0.015 * u, Math.PI, 0, 0, 0), 0x5ab0ff]], 3, 0.9);
   group.add(kid.group, shell, waves);
   const loop = 5.0;
@@ -128,7 +128,7 @@ function seashell(ctx, spec, stage) {
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, hold = pre ? 0 : between(v, 0.2, 0.7) * (1 - between(v, 4.3, 4.8));
       kid.reset().face('toward'); kid.group.position.set(kx, floor, 0.02 * u); kid.raise('R', 2.2 * hold); kid.bone('foreR').rotation.z = -1.9 * hold; kid.bone('head').rotation.z = 0.25 * hold; kid.update();
-      bonePoint(kid, 'head', 0.5, tmp); shell.position.set(tmp.x - 0.15 * u, tmp.y, tmp.z + 0.02 * u); shell.visible = !pre; shell.rotation.z = 0.2;
+      bonePoint(kid, 'handR', 0.6, tmp); shell.position.set(tmp.x - 0.06 * u, tmp.y, tmp.z + 0.08 * u); shell.visible = !pre; shell.rotation.z = 0.2;
       kid.rig.setColor('eyeL', hold > 0.6 ? 0xffd2b0 : 0x1a1a24); kid.rig.setColor('eyeR', hold > 0.6 ? 0xffd2b0 : 0x1a1a24);
       for (let i = 0; i < 3; i++) { const f = ((v * 0.5 + i / 3) % 1); waves.set(i, kx + 0.5 * u - 0.15 * u * f, floor + 0.85 * u + 0.08 * u * Math.sin(f * 6), 0.0, hold > 0.6 ? Math.sin(Math.PI * f) * 1.2 : 0); }
       waves.commit();
@@ -165,7 +165,7 @@ const heartsSet = (m, x, y, v, on, u) => { for (let i = 0; i < 3; i++) { const f
 function sayHello(ctx, spec, stage) {
   if (spec.outcome === 'parrot') return parrot(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.35 * u;
-  const p = createPerson({ u: 0.95 * u, shirt: 0xe07a3a }), bubble = textPlane('こんにちは', { h: 0.16 * u, color: '#202838', bg: '#ffffff', pad: 0.3 }), tail = solidProp([[G.cone(0.04 * u, 0.1 * u, 0, 0, 0, 2.6), 0xffffff]], 0.9);
+  const p = createPerson({ u: 0.95 * u, shirt: 0xe07a3a }), bubble = textPlane('こんにちは', { h: 0.22 * u, color: '#202838', bg: '#ffffff', pad: 0.3 }), tail = solidProp([[G.cone(0.04 * u, 0.1 * u, 0, 0, 0, 2.6), 0xffffff]], 0.9);
   group.add(p.group, bubble, tail);
   const loop = 5.0;
   return {
@@ -216,7 +216,7 @@ function odometer(ctx, spec, stage) {
 
 // ---- 知 know ----
 function wiseOwl(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ox = B.maxX + 0.45 * u, map = spec.outcome === 'map';
+  const u = 1.5 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ox = B.maxX + 0.3 * u, map = spec.outcome === 'map';
   const owl = solidProp([[G.sphere(0.17 * u, 0, 0.2 * u, 0, 1, 1.2, 0.9), 0x8a6a4a], [G.sphere(0.12 * u, 0, 0.17 * u, 0.06 * u, 1, 1.1, 0.6), 0xd8c0a0], [G.sphere(0.06 * u, -0.06 * u, 0.3 * u, 0.1 * u), 0xffffff], [G.sphere(0.06 * u, 0.06 * u, 0.3 * u, 0.1 * u), 0xffffff], [G.cone(0.025 * u, 0.05 * u, 0, 0.24 * u, 0.15 * u, Math.PI), 0xffa020], [G.cone(0.04 * u, 0.08 * u, -0.1 * u, 0.42 * u, 0, 0.4), 0x8a6a4a], [G.cone(0.04 * u, 0.08 * u, 0.1 * u, 0.42 * u, 0, -0.4), 0x8a6a4a]], 0.45);
   const pupils = many([[G.sphere(0.03 * u), 0x101010]], 2, 0.2), lids = many([[G.sphere(0.062 * u, 0, 0, 0, 1, 1, 0.5), 0x8a6a4a]], 2, 0.45), cap = solidProp([[G.box(0.24 * u, 0.02 * u, 0.24 * u, 0, 0.04 * u, 0), 0x202028], [G.cyl(0.08 * u, 0.09 * u, 0.05 * u, 0, 0.01 * u, 0), 0x202028], [G.cyl(0.004 * u, 0.004 * u, 0.1 * u, 0.1 * u, -0.01 * u, 0.1 * u), 0xffd040]], 0.45);
   const bang = textPlane('!', { h: 0.25 * u, color: '#ffe040', weight: 900 }), mapM = map ? solidProp([[G.box(0.4 * u, 0.3 * u, 0.01 * u, 0, 0, 0), 0xf0e0b0], [G.poly([[-0.15 * u, -0.1 * u], [-0.05 * u, 0.0], [0.05 * u, -0.05 * u], [0.13 * u, 0.08 * u]], 0.008 * u).translate(0, 0, 0.008 * u), 0xc03030], [G.sphere(0.05 * u, -0.1 * u, 0.06 * u, 0.006 * u, 1, 1, 0.1), 0x60b060]], 0.5) : null, pin = map ? solidProp([[G.cone(0.025 * u, 0.08 * u, 0, 0.04 * u, 0, Math.PI), 0xe03030], [G.sphere(0.04 * u, 0, 0.1 * u, 0), 0xe03030]], 0.6) : null;
@@ -262,7 +262,7 @@ function batteryUp(ctx, spec, stage) {
 
 // ---- 間 a gap ----
 function bookends(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.5 * u, gap = 0.16 * u;
+  const u = 1.3 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.38 * u, gap = 0.16 * u;
   const end = (s) => solidProp([[G.box(0.05 * u, 0.4 * u, 0.22 * u, s * (gap / 2 + 0.17 * u + 0.025 * u), 0.2 * u, 0), 0x8a5a30], [G.box(0.12 * u, 0.03 * u, 0.22 * u, s * (gap / 2 + 0.17 * u + 0.07 * u), 0.015 * u, 0), 0x8a5a30]], 0.4);
   const books = solidProp([[G.box(0.05 * u, 0.32 * u, 0.2 * u, -gap / 2 - 0.03 * u, 0.16 * u, 0), 0xe04848], [G.box(0.06 * u, 0.28 * u, 0.2 * u, -gap / 2 - 0.09 * u, 0.14 * u, 0), 0x3a7ae0], [G.box(0.04 * u, 0.3 * u, 0.2 * u, -gap / 2 - 0.145 * u, 0.15 * u, 0), 0x40b060], [G.box(0.05 * u, 0.3 * u, 0.2 * u, gap / 2 + 0.03 * u, 0.15 * u, 0), 0xffb030], [G.box(0.06 * u, 0.33 * u, 0.2 * u, gap / 2 + 0.09 * u, 0.165 * u, 0), 0x8a5ad0], [G.box(0.04 * u, 0.27 * u, 0.2 * u, gap / 2 + 0.145 * u, 0.135 * u, 0), 0xe06a9a]], 0.45);
   const book = solidProp([[G.box(gap * 0.96, 0.3 * u, 0.2 * u, 0, 0.15 * u, 0), 0x30c0c0], [G.box(gap * 0.97, 0.02 * u, 0.205 * u, 0, 0.25 * u, 0), 0xffd040]], 0.5), arrow = solidProp([[G.cone(0.05 * u, 0.1 * u, 0, 0, 0, Math.PI), 0xffe060]], 1.3), click = many([[G.sphere(0.02 * u), 0xffffff]], 6, 1.6);
@@ -329,9 +329,9 @@ function officeTower(ctx, spec, stage) {
 // ---- 名 a name ----
 function nameCard(ctx, spec, stage) {
   if (spec.outcome === 'write') return nameWrite(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, dx = B.maxX + 0.5 * u;
-  const door = solidProp([[G.box(0.45 * u, 0.9 * u, 0.04 * u, 0, 0.45 * u, 0), 0x8a5a30], [G.sphere(0.025 * u, 0.15 * u, 0.42 * u, 0.03 * u), 0xffd040], [G.box(0.3 * u, 0.13 * u, 0.02 * u, 0, 0.7 * u, 0.025 * u), 0xc8a050]], 0.4);
-  const card = textPlane('たなか', { h: 0.1 * u, w: 0.26 * u, color: '#202838', bg: '#fffaf0' }), hand = createHand({ u: 0.4 * u, sleeve: 0x3a7ae0 }), glow = solidProp([[G.box(0.34 * u, 0.17 * u, 0.005 * u), 0xffe060]], 1.4);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, dx = B.maxX + 0.45 * u;
+  const door = solidProp([[G.box(0.45 * u, 0.9 * u, 0.04 * u, 0, 0.45 * u, 0), 0x8a5a30], [G.sphere(0.025 * u, 0.15 * u, 0.42 * u, 0.03 * u), 0xffd040], [G.box(0.4 * u, 0.18 * u, 0.02 * u, 0, 0.7 * u, 0.025 * u), 0xc8a050]], 0.4);
+  const card = textPlane('たなか', { h: 0.14 * u, w: 0.36 * u, color: '#202838', bg: '#fffaf0' }), hand = createHand({ u: 0.4 * u, sleeve: 0x3a7ae0 }), glow = solidProp([[G.box(0.44 * u, 0.22 * u, 0.005 * u), 0xffe060]], 1.4);
   glow.material.transparent = true; door.position.set(dx, floor, -0.08 * u);
   group.add(door, glow, card, hand.group);
   const loop = 5.0;

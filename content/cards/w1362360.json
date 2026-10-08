@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["65b0", "805e"],
   "builtFrom": [{ "k": "新", "m": "new" }, { "k": "聞", "m": "hear" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "book", "backdrop": "sky:morning", "particles": ["dust"] },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "newspaper" },
   "sentences": [
     {
       "segments": [ { "text": "新聞", "reading": "しんぶん" }, { "text": "で" }, { "text": "読", "reading": "よ" }, { "text": "みましたよ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [10303545, 254832] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 新聞" },
+  "review": { "recipe": "reviewed", "rule": "word 新聞" },
   "source": { "jmdict": 1362360, "jlpt": 5 }
 }

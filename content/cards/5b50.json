@@ -5,7 +5,7 @@
   "primaryReading": "し",
   "readings": { "kun": ["こ", "こ", "ね"], "on": ["シ", "ス", "ツ"] },
   "mnemonic": "A baby wrapped up, arms out: child.",
-  "effect": { "material": "skin", "reveal": "draw", "backdrop": "sky:day", "motion": "bounce", "particles": ["sparks"] },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "kid-glyph" },
   "sentences": [
     {
       "segments": [ { "text": "あのハンサムな" }, { "text": "男の子", "reading": "おとこのこ" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "て。" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [231277, 68642] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

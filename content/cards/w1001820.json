@@ -8,14 +8,7 @@
   "pos": ["n"],
   "kanji": ["91d1"],
   "builtFrom": [{ "k": "金", "m": "gold" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["coins"],
-    "emblem": "yen",
-    "backdrop": "sky:indoor",
-    "motion": "count:3"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "coin-tower:wallet" },
   "sentences": [
     {
       "segments": [ { "text": "どうやってその" }, { "text": "お" }, { "text": "金", "reading": "かね", "base": "かね", "dict": true }, { "text": "を" }, { "text": "手", "reading": "て" }, { "text": "に" }, { "text": "入", "reading": "い" }, { "text": "れたんですか。" } ],

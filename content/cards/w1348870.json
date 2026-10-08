@@ -8,13 +8,7 @@
   "pos": ["adv"],
   "kanji": ["5c11"],
   "builtFrom": [{ "k": "少", "m": "few" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "motion": "shrink:0.85",
-    "emblem": "dots:1",
-    "backdrop": "sky:morning"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "few-grains:pinch" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "に" }, { "text": "水", "reading": "みず" }, { "text": "を" }, { "text": "少", "reading": "すこ" }, { "text": "しください。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [164359, 250150] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 少し" },
+  "review": { "recipe": "reviewed", "rule": "word 少し" },
   "source": { "jmdict": 1348870, "jlpt": 5 }
 }

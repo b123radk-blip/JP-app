@@ -8,7 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["571f", "66dc", "65e5"],
   "builtFrom": [{ "k": "土", "m": "soil" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["field"], "backdrop": "sky:noon", "emblem": "calendar" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "spade-dig:week" },
   "sentences": [
     {
       "segments": [ { "text": "土曜日", "reading": "どようび" }, { "text": "に" }, { "text": "学校", "reading": "がっこう" }, { "text": "はありますか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [124466, 279528] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 土曜日" },
+  "review": { "recipe": "reviewed", "rule": "word 土曜日" },
   "source": { "jmdict": 1445590, "jlpt": 5 }
 }

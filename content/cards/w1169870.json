@@ -8,7 +8,7 @@
   "pos": ["v5m", "vt"],
   "kanji": ["98f2"],
   "builtFrom": [{ "k": "飲", "m": "drink" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "cup", "particles": ["steam"], "backdrop": "sky:morning" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "gulp-drink:cat" },
   "sentences": [
     {
       "segments": [ { "text": "毎日", "reading": "まいにち" }, { "text": "お" }, { "text": "茶", "reading": "ちゃ" }, { "text": "を" }, { "text": "飲", "reading": "の" }, { "text": "みます。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 飲む" },
+  "review": { "recipe": "reviewed", "rule": "word 飲む" },
   "source": { "jmdict": 1169870, "jlpt": 5 }
 }

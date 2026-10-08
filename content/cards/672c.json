@@ -5,14 +5,7 @@
   "primaryReading": "ほん",
   "readings": { "kun": ["もと"], "on": ["ホン"] },
   "mnemonic": "A tree (木) with a mark at its root: origin; also book.",
-  "effect": {
-    "material": "paper",
-    "reveal": "draw",
-    "scene": ["tree:木"],
-    "backdrop": "plain",
-    "emblem": "book",
-    "parts": { "木": {} }
-  },
+  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": "popup-book", "parts": { "木": {} } },
   "sentences": [
     {
       "segments": [ { "text": "そっちの" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "のです。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [204732, 41972] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1522150"] }
 }

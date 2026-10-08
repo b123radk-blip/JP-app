@@ -8,7 +8,7 @@
   "pos": ["v5k", "vt"],
   "kanji": ["66f8"],
   "builtFrom": [{ "k": "書", "m": "write" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pen", "backdrop": "sky:noon" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "pencil-write:chalk" },
   "sentences": [
     {
       "segments": [ { "text": "一行", "reading": "いっこう" }, { "text": "おきに" }, { "text": "書", "reading": "か" }, { "text": "きなさい。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [190636, 27797] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 書く" },
+  "review": { "recipe": "reviewed", "rule": "word 書く" },
   "source": { "jmdict": 1343950, "jlpt": 5 }
 }

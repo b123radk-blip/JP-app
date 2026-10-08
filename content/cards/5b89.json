@@ -5,14 +5,7 @@
   "primaryReading": "あん",
   "readings": { "kun": ["やす(い)", "やす(まる)", "やす", "やす(らか)"], "on": ["アン"] },
   "mnemonic": "A woman (女) safe under a roof (宀): calm; also cheap.",
-  "effect": {
-    "material": "rose",
-    "reveal": "draw",
-    "scene": ["room"],
-    "backdrop": "sky:twilight",
-    "motion": "float",
-    "parts": { "宀": {}, "女": {} }
-  },
+  "effect": { "material": "rose", "backdrop": "sky:twilight", "vignette": "price-slash", "parts": { "宀": {}, "女": {} } },
   "sentences": [
     {
       "segments": [ { "text": "とても" }, { "text": "安", "reading": "やす" }, { "text": "かったのよ。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [200639, 37840] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

@@ -8,7 +8,7 @@
   "pos": ["adv", "n"],
   "kanji": ["534a", "5206"],
   "builtFrom": [{ "k": "半", "m": "half" }, { "k": "分", "m": "part" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:2", "motion": "pulse", "backdrop": "sky:snow" },
+  "effect": { "material": "ivory", "backdrop": "sky:snow", "vignette": "orange-half:share" },
   "sentences": [
     {
       "segments": [ { "text": "それを" }, { "text": "半分", "reading": "はんぶん" }, { "text": "にきりなさい。" } ],

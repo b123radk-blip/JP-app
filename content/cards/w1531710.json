@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["540d", "524d"],
   "builtFrom": [{ "k": "名", "m": "name" }, { "k": "前", "m": "in front" }],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:morning", "motion": "pulse", "emblem": "pen" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "name-card:write" },
   "sentences": [
     {
       "segments": [ { "text": "あなたのお" }, { "text": "名前", "reading": "なまえ" }, { "text": "は？" } ],

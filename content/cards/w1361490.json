@@ -8,13 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["65b0"],
   "builtFrom": [{ "k": "新", "m": "new" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["sparks"],
-    "motion": "pulse",
-    "backdrop": "sky:morning"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "new-toy:shoes" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "車", "reading": "くるま" }, { "text": "、" }, { "text": "見", "reading": "み" }, { "text": "た？" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [163261, 251251] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 新しい" },
+  "review": { "recipe": "reviewed", "rule": "word 新しい" },
   "source": { "jmdict": 1361490, "jlpt": 5 }
 }

@@ -100,9 +100,9 @@ function candyPile(ctx, spec, stage) {
   if (spec.outcome === 'birds') return birdsWire(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, jx = B.maxX + 0.3 * u, N = 30;
   const jar = solidProp([[G.cyl(0.13 * u, 0.13 * u, 0.3 * u, 0, 0.15 * u, 0, 0, 0, 0, 24), 0xc8e8ff]], 0.3); jar.material.transparent = true; jar.material.opacity = 0.5;
-  const candies = many([[G.sphere(0.04 * u), 0xffffff], [G.cone(0.025 * u, 0.04 * u, 0.05 * u, 0, 0, -Math.PI / 2), 0xffffff], [G.cone(0.025 * u, 0.04 * u, -0.05 * u, 0, 0, Math.PI / 2), 0xffffff]], N, 0.7), COL = [0xff5a7a, 0xffd040, 0x5ab0ff, 0x60d070, 0xc080ff];
+  const candies = many([[G.sphere(0.06 * u), 0xffffff], [G.cone(0.035 * u, 0.06 * u, 0.075 * u, 0, 0, -Math.PI / 2), 0xffffff], [G.cone(0.035 * u, 0.06 * u, -0.075 * u, 0, 0, Math.PI / 2), 0xffffff]], N, 0.7), COL = [0xff5a7a, 0xffd040, 0x5ab0ff, 0x60d070, 0xc080ff];
   for (let i = 0; i < N; i++) candies.setColorAt(i, new THREE.Color(COL[i % 5]));
-  const r = seeded(31), heap = Array.from({ length: N }, (_, i) => { const row = Math.floor(Math.sqrt(i * 2)), x = (r() - 0.5) * (0.9 - row * 0.1); return [x, row * 0.07 + r() * 0.02]; }).sort((a, b) => a[1] - b[1]);
+  const r = seeded(31), heap = Array.from({ length: N }, (_, i) => { const row = Math.floor(Math.sqrt(i * 2)), x = (r() - 0.5) * (1.0 - row * 0.14); return [x, row * 0.1 + r() * 0.02]; }).sort((a, b) => a[1] - b[1]);
   jar.position.set(jx, floor + 0.55 * u, 0); jar.rotation.z = -2.2;
   group.add(jar, candies);
   const loop = 6.4, hx = jx + 0.5 * u;
@@ -157,10 +157,10 @@ function maybeShrug(ctx, spec, stage) {
 // ---- 西 東 北 南 the compass ----
 function compassScene(dir) {
   return function (ctx, spec, stage) {
-    const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u, cy = B.cy - 0.05 * u, R = 0.3 * u;
+    const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u, cy = B.cy - 0.02 * u, R = 0.38 * u;
     const rose = solidProp([[G.cyl(R, R, 0.03 * u, 0, 0, 0, Math.PI / 2, 0, 0, 40), 0xf4ecd8], [G.torus(R, 0.025 * u), 0xb08a40], ...[0, 1, 2, 3].map((i) => [G.cone(0.05 * u, R * 0.7, Math.sin(i * Math.PI / 2) * R * 0.45, Math.cos(i * Math.PI / 2) * R * 0.45, 0.02 * u, -i * Math.PI / 2), 0xc8b088])], 0.45);
-    const letters = ['N', 'E', 'S', 'W'].map((l, i) => { const m = textPlane(l, { h: 0.1 * u, color: l === dir ? '#e02020' : '#404040', weight: 900 }); m.position.set(cx + Math.sin(i * Math.PI / 2) * R * 0.78, cy + Math.cos(i * Math.PI / 2) * R * 0.78, 0.03 * u); return m; });
-    const needle = solidProp([[G.cone(0.035 * u, R * 0.75, 0, R * 0.375, 0), 0xe02020], [G.cone(0.035 * u, R * 0.75, 0, -R * 0.375, 0, Math.PI), 0x3a4048], [G.sphere(0.03 * u), 0xffd040]], 0.6);
+    const letters = ['N', 'E', 'S', 'W'].map((l, i) => { const m = textPlane(l, { h: 0.13 * u, color: l === dir ? '#e02020' : '#404040', weight: 900 }); m.position.set(cx + Math.sin(i * Math.PI / 2) * R * 0.78, cy + Math.cos(i * Math.PI / 2) * R * 0.78, 0.03 * u); return m; });
+    const needle = solidProp([[G.cone(0.05 * u, R * 0.75, 0, R * 0.375, 0), 0xe02020], [G.cone(0.05 * u, R * 0.75, 0, -R * 0.375, 0, Math.PI), 0x3a4048], [G.sphere(0.03 * u), 0xffd040]], 0.6);
     rose.position.set(cx, cy, 0); needle.position.set(cx, cy, 0.04 * u);
     group.add(rose, needle, ...letters);
     const target = { N: 0, E: -Math.PI / 2, S: Math.PI, W: Math.PI / 2 }[dir], side = { N: 0, E: 1, S: 0, W: -1 }[dir];
@@ -171,10 +171,10 @@ function compassScene(dir) {
       if (dir === 'W') { const crow = solidProp([[G.sphere(0.05 * u, 0, 0, 0, 1.5, 0.8, 0.8), 0x101014], [G.poly([[-0.12 * u, 0.04 * u], [0, 0], [0.12 * u, 0.04 * u]], 0.012 * u), 0x101014]], 0.2); extra.add(crow); anim.push((v) => { const f = between(v, 1.5, 4.5); crow.visible = f > 0 && f < 1; crow.position.set(cx + 1.0 * u - 1.2 * u * f, floor + 0.9 * u + 0.05 * u * Math.sin(v * 9), -0.1 * u); crow.scale.y = 1 + 0.4 * Math.sin(v * 12); }); }
     } else if (dir === 'N') {
       const ice = solidProp([[G.box(0.6 * u, 0.08 * u, 0.3 * u, 0, -0.04 * u, 0), 0xe8f4ff]], 0.6), peng = solidProp([[G.sphere(0.1 * u, 0, 0.13 * u, 0, 0.9, 1.3, 0.9), 0x202028], [G.sphere(0.075 * u, 0, 0.12 * u, 0.04 * u, 0.85, 1.2, 0.7), 0xffffff], [G.sphere(0.06 * u, 0, 0.3 * u, 0), 0x202028], [G.cone(0.02 * u, 0.05 * u, 0, 0.29 * u, 0.07 * u, -Math.PI / 2), 0xffa020], [G.sphere(0.012 * u, -0.025 * u, 0.32 * u, 0.05 * u), 0xffffff], [G.sphere(0.012 * u, 0.025 * u, 0.32 * u, 0.05 * u), 0xffffff]], 0.45);
-      const flakes = many([[G.sphere(0.015 * u), 0xffffff]], 10, 1.2); ice.position.set(cx + 0.6 * u, floor, 0); extra.add(ice, peng, flakes);
-      anim.push((v, t) => { peng.position.set(cx + 0.6 * u, floor, 0.05 * u); peng.rotation.z = 0.15 * Math.sin(v * 5); for (let i = 0; i < 10; i++) { const f = ((v * 0.3 + i * 0.1) % 1); flakes.set(i, cx + 0.25 * u + (i % 5) * 0.18 * u, floor + 1.1 * u - 1.1 * u * f, 0.05 * u, 1); } flakes.commit(); });
+      const flakes = many([[G.sphere(0.015 * u), 0xffffff]], 10, 1.2); ice.position.set(cx + 0.65 * u, floor, 0); peng.scale.setScalar(1.5); extra.add(ice, peng, flakes);
+      anim.push((v, t) => { peng.position.set(cx + 0.68 * u, floor, 0.05 * u); peng.rotation.z = 0.15 * Math.sin(v * 5); for (let i = 0; i < 10; i++) { const f = ((v * 0.3 + i * 0.1) % 1); flakes.set(i, cx + 0.25 * u + (i % 5) * 0.18 * u, floor + 1.1 * u - 1.1 * u * f, 0.05 * u, 1); } flakes.commit(); });
     } else {
-      const palm = solidProp([[G.cyl(0.03 * u, 0.045 * u, 0.7 * u, 0, 0.35 * u, 0, 0, 0, -0.12), 0x8a5a30], ...[0, 1, 2, 3, 4].map((i) => [G.sphere(0.2 * u, 0.06 * u + Math.cos(i * 1.257) * 0.13 * u, 0.72 * u, Math.sin(i * 1.257) * 0.05 * u, 1.3, 0.2, 0.5).rotateZ(0), 0x3aa040]), [G.sphere(0.035 * u, 0.06 * u, 0.66 * u, 0.05 * u), 0x6a4020]], 0.45);
+      const palm = solidProp([[G.cyl(0.03 * u, 0.045 * u, 0.7 * u, 0, 0.35 * u, 0, 0, 0, -0.12), 0x8a5a30], ...[0, 1, 2, 3, 4, 5].map((i) => { const a = -0.5 + i * 0.75; return [G.sphere(0.2 * u, 0, 0, 0, 1.2, 0.12, 0.35).translate(0.2 * u, -0.04 * u, 0).rotateZ(-0.35).rotateY(a).translate(0.08 * u, 0.72 * u, 0), i % 2 ? 0x2e9a38 : 0x40b048]; }), [G.sphere(0.035 * u, 0.06 * u, 0.66 * u, 0.05 * u), 0x6a4020], [G.sphere(0.035 * u, 0.1 * u, 0.67 * u, -0.03 * u), 0x6a4020]], 0.45);
       const sand = solidProp([[G.sphere(0.4 * u, 0, 0, 0, 1.4, 0.2, 0.6), 0xf0d890]], 0.4); palm.position.set(cx + 0.6 * u, floor, -0.05 * u); sand.position.set(cx + 0.6 * u, floor - 0.02 * u, -0.1 * u); extra.add(sand, palm);
       anim.push((v, t) => { palm.rotation.z = 0.05 * Math.sin(t * 1.5); });
     }
@@ -222,7 +222,7 @@ function ringMiddle(ctx, spec, stage) {
 function leftL(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.55 * u, cy = B.cy - 0.15 * u;
   const L = createHand({ u: 0.6 * u, sleeve: 0x3a7ae0, side: -1 }), R = createHand({ u: 0.6 * u, sleeve: 0x3a7ae0, side: 1 });
-  const glow = solidProp([[G.sphere(0.3 * u), 0x60ff90]], 1.2), mark = textPlane('L', { h: 0.25 * u, color: '#20c050', weight: 900 });
+  const glow = solidProp([[G.torus(0.16 * u, 0.02 * u), 0x60ff90]], 1.4), mark = textPlane('L', { h: 0.3 * u, color: '#ffffff', bg: '#20a050', pad: 0.3 });
   glow.material.transparent = true;
   group.add(glow, L.group, R.group, mark);
   const LPOSE = { f: [0, 1, 1, 1], spread: 0.2, thumb: [-0.35, -0.1] };
@@ -234,8 +234,8 @@ function leftL(ctx, spec, stage) {
       L.group.visible = R.group.visible = up > 0.01;
       L.pose('open', LPOSE, T.l); R.pose('open');
       L.group.position.set(cx - 0.25 * u, cy - 0.5 * u * (1 - up), 0.05 * u); L.group.rotation.set(0, 0, 0.12); R.group.position.set(cx + 0.25 * u, cy - 0.5 * u * (1 - up), 0.05 * u); R.group.rotation.set(0, 0, -0.12);
-      const k = pre ? 0 : T.l * (1 - T.down); glow.visible = k > 0.01; glow.material.opacity = 0.35 * k; glow.position.set(cx - 0.25 * u, cy + 0.15 * u, 0); glow.scale.setScalar(1 + 0.08 * Math.sin(t * 5));
-      mark.visible = k > 0.01; mark.scale.setScalar(grow(k)); mark.position.set(cx - 0.25 * u, cy + 0.6 * u, 0.06 * u);
+      const k = pre ? 0 : T.l * (1 - T.down); glow.visible = k > 0.01; glow.material.opacity = 0.9 * k; glow.position.set(cx - 0.25 * u, cy + 0.12 * u, 0.04 * u); glow.scale.setScalar(1 + 0.08 * Math.sin(t * 5));
+      mark.visible = k > 0.01; mark.scale.setScalar(grow(k)); mark.position.set(cx - 0.62 * u, cy + 0.2 * u, 0.06 * u);
     },
   };
 }
@@ -247,7 +247,7 @@ function coinTower(ctx, spec, stage) {
   if (spec.outcome === 'week') return withWeek(coinTower, 4, ctx, spec, stage);
   if (spec.outcome === 'wallet') return walletSpill(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.45 * u, N = 9;
-  const coins = many(COIN(u), N, 0.8), shine = many([[G.sphere(0.02 * u), 0xffffff]], 4, 1.8);
+  const coins = many(COIN(1.5 * u), N, 0.8), shine = many([[G.sphere(0.02 * u), 0xffffff]], 4, 1.8);
   group.add(coins, shine);
   const loop = 6.4;
   return {
@@ -255,9 +255,9 @@ function coinTower(ctx, spec, stage) {
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, fall = pre ? 0 : between(v, 4.2, 4.9), off = pre ? 1 : between(v, 5.8, 6.3), sway = 0.04 * Math.sin(v * 3) * between(v, 3.0, 4.2);
       for (let i = 0; i < N; i++) {
-        const at = 0.2 + 0.3 * i, f = pre ? 0 : between(v, at, at + 0.3), y = floor + 0.015 * u + 0.033 * u * i, h = y - floor;
+        const at = 0.2 + 0.3 * i, f = pre ? 0 : between(v, at, at + 0.3), y = floor + 0.025 * u + 0.05 * u * i, h = y - floor;
         const ang = (sway + 1.2 * fall) * (h / (0.3 * u)), x = tx + Math.sin(ang) * h + 0.4 * u * fall * (i / N) * (i % 2 ? 1 : 0.6), yy = floor + Math.cos(ang) * h * (1 - fall) + 0.02 * u * fall + 0.2 * u * Math.sin(Math.PI * fall) * (i / N);
-        coins.set(i, x, f < 1 ? y + 0.8 * u * (1 - f) : yy, 0.02 * u, f > 0 ? 1 - off : 0, -ang * (1 - fall * 0.5) - fall * (i % 3), 0, 0);
+        coins.set(i, x, f < 1 ? y + 0.8 * u * (1 - f) : yy, 0.02 * u, f > 0 ? 1 - off : 0, -ang * (1 - fall * 0.5) - fall * (i % 3), 0, 0.5);
       }
       coins.commit();
       for (let i = 0; i < 4; i++) { const g = ((t * 0.8 + i / 4) % 1); shine.set(i, tx + 0.1 * u * Math.cos(i * 2), floor + (0.1 + 0.08 * i) * u, 0.12 * u, !pre && v > 2.5 && v < 4.2 ? Math.sin(Math.PI * g) * 1.5 : 0); }

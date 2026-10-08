@@ -7,9 +7,8 @@
   "mnemonic": "A brush (聿) over a sheet (曰): write.",
   "effect": {
     "material": "ink",
-    "reveal": "draw",
     "backdrop": "sky:snow",
-    "emblem": "book",
+    "vignette": "pencil-write",
     "parts": { "聿": { "motion": "wave" }, "日": {} }
   },
   "sentences": [

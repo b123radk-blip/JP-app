@@ -5,13 +5,7 @@
   "primaryReading": "めい",
   "readings": { "kun": ["な", "な"], "on": ["メイ", "ミョウ"] },
   "mnemonic": "In the dark evening (夕) you call out your name with your mouth (口).",
-  "effect": {
-    "material": "paper",
-    "reveal": "draw:dust",
-    "backdrop": "sky:night",
-    "emblem": "speech",
-    "parts": { "夕": {}, "口": {} }
-  },
+  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": "name-card", "parts": { "夕": {}, "口": {} } },
   "sentences": [
     {
       "segments": [ { "text": "それに" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "名前", "reading": "なまえ" }, { "text": "があります。" } ],

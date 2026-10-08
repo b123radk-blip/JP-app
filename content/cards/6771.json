@@ -5,13 +5,7 @@
   "primaryReading": "ひがし",
   "readings": { "kun": ["ひがし"], "on": ["トウ"] },
   "mnemonic": "The sun (日) rising behind a tree (木): east.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "backdrop": "sunrise",
-    "emblem": "compass:E",
-    "parts": { "木": {}, "日": {} }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:dawn", "vignette": "compass-east", "parts": { "木": {}, "日": {} } },
   "sentences": [
     {
       "segments": [ { "text": "月", "reading": "つき" }, { "text": "は" }, { "text": "東", "reading": "ひがし" }, { "text": "から" }, { "text": "上", "reading": "のぼ" }, { "text": "る。" } ],

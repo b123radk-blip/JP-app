@@ -5,14 +5,7 @@
   "primaryReading": "しょく",
   "readings": { "kun": ["く(う)", "く(らう)", "た(べる)", "は(む)"], "on": ["ショク", "ジキ"] },
   "mnemonic": "A lid over a bowl of steaming food: eat.",
-  "effect": {
-    "material": "rose",
-    "reveal": "draw",
-    "particles": ["steam"],
-    "scene": ["room:kitchen"],
-    "backdrop": "sky:indoor",
-    "motion": "float"
-  },
+  "effect": { "material": "rose", "backdrop": "sky:indoor", "vignette": "apple-bite" },
   "sentences": [
     {
       "segments": [ { "text": "ケーキを" }, { "text": "食", "reading": "た" }, { "text": "べないかい？" } ],

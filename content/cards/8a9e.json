@@ -5,15 +5,7 @@
   "primaryReading": "ご",
   "readings": { "kun": ["かた(る)", "かた(らう)"], "on": ["ゴ"] },
   "mnemonic": "Words (言) of my (吾) people: language.",
-  "effect": {
-    "material": "paper",
-    "reveal": "draw",
-    "backdrop": "sky:morning",
-    "motion": "wave",
-    "emblem": "speech",
-    "parts": { "言": {}, "吾": {} },
-    "particles": [{ "type": "kana", "color": "#3a3040" }]
-  },
+  "effect": { "material": "paper", "backdrop": "sky:morning", "vignette": "globe-hello", "parts": { "言": {}, "吾": {} } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "語", "reading": "ご" }, { "text": "はどうつづるのですか。" } ],

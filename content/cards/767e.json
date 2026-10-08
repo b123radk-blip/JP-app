@@ -5,14 +5,7 @@
   "primaryReading": "もも",
   "readings": { "kun": ["もも"], "on": ["ヒャク", "ビャク"] },
   "mnemonic": "One (一) white (白) sheet, stacked a hundred times.",
-  "effect": {
-    "material": "paper",
-    "reveal": "draw",
-    "backdrop": "sky:indoor",
-    "motion": "count:3",
-    "emblem": { "type": "yen", "color": "#d0d4dc" },
-    "parts": { "白": {} }
-  },
+  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": "centipede", "parts": { "白": {} } },
   "sentences": [
     {
       "segments": [ { "text": "このりんごは" }, { "text": "百", "reading": "ひゃく" }, { "text": "円", "reading": "えん" }, { "text": "です。" } ],

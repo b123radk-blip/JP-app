@@ -5,13 +5,7 @@
   "primaryReading": "きん",
   "readings": { "kun": ["かね", "かな", "がね"], "on": ["キン", "コン", "ゴン"] },
   "mnemonic": "A roof over nuggets of gold glinting in the ground.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw:sparks",
-    "particles": ["coins"],
-    "backdrop": "sky:dusk",
-    "motion": "pulse"
-  },
+  "effect": { "material": "gold", "backdrop": "sky:dusk", "vignette": "coin-tower" },
   "sentences": [
     {
       "segments": [ { "text": "それを" }, { "text": "買", "reading": "か" }, { "text": "うお" }, { "text": "金", "reading": "かね" }, { "text": "がない。" } ],

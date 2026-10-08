@@ -5,14 +5,7 @@
   "primaryReading": "しょう",
   "readings": { "kun": ["すく(ない)", "すこ(し)"], "on": ["ショウ"] },
   "mnemonic": "Small (小) with one more piece sliding away: a little, few.",
-  "effect": {
-    "material": "pearl",
-    "reveal": "draw",
-    "particles": ["dust"],
-    "backdrop": "sky:dawn",
-    "motion": "shrink:0.85",
-    "emblem": "dots:1"
-  },
+  "effect": { "material": "pearl", "backdrop": "sky:dawn", "vignette": "few-grains" },
   "sentences": [
     {
       "segments": [ { "text": "少", "reading": "すこ" }, { "text": "しテレビを" }, { "text": "見", "reading": "み" }, { "text": "てもいいですか。" } ],

@@ -8,7 +8,7 @@
   "pos": ["adj-na", "n"],
   "kanji": ["597d"],
   "builtFrom": [{ "k": "好", "m": "fond" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["hearts"], "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "hug-puppy:icecream" },
   "sentences": [
     {
       "segments": [ { "text": "ポップスは" }, { "text": "好", "reading": "す" }, { "text": "きですか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [196222, 33398] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 好き" },
+  "review": { "recipe": "reviewed", "rule": "word 好き" },
   "source": { "jmdict": 1277450, "jlpt": 5 }
 }

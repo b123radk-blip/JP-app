@@ -8,7 +8,7 @@
   "pos": ["v5u", "vt"],
   "kanji": ["8a00"],
   "builtFrom": [{ "k": "言", "m": "say" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "speech", "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "say-hello:parrot" },
   "sentences": [
     {
       "segments": [ { "text": "ばかげたことを" }, { "text": "言", "reading": "い", "base": "い", "dict": true }, { "text": "う" }, { "text": "な。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [198300, 35493] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 言う" },
+  "review": { "recipe": "reviewed", "rule": "word 言う" },
   "source": { "jmdict": 1587040, "jlpt": 5 }
 }

@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["5b89"],
   "builtFrom": [{ "k": "安", "m": "relax" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "yen", "motion": "shrink", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "price-slash:bin" },
   "sentences": [
     {
       "segments": [ { "text": "もっと" }, { "text": "安", "reading": "やす" }, { "text": "い" }, { "text": "本", "reading": "ほん" }, { "text": "はないですか。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [193307, 30471] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 安い" },
+  "review": { "recipe": "reviewed", "rule": "word 安い" },
   "source": { "jmdict": 1153670, "jlpt": 5 }
 }

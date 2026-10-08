@@ -5,13 +5,7 @@
   "primaryReading": "にし",
   "readings": { "kun": ["にし"], "on": ["セイ", "サイ", "ス"] },
   "mnemonic": "A window where the evening sun sinks: west.",
-  "effect": {
-    "material": "rose",
-    "reveal": "draw",
-    "backdrop": "sky:sunset",
-    "motion": "drift:down",
-    "emblem": "compass:W"
-  },
+  "effect": { "material": "rose", "backdrop": "sky:sunset", "vignette": "compass-west" },
   "sentences": [
     {
       "segments": [ { "text": "列車", "reading": "れっしゃ" }, { "text": "は" }, { "text": "西", "reading": "にし" }, { "text": "へ" }, { "text": "走", "reading": "はし" }, { "text": "っていた。" } ],

@@ -5,13 +5,7 @@
   "primaryReading": "ちょう",
   "readings": { "kun": ["なが(い)", "おさ"], "on": ["チョウ"] },
   "mnemonic": "An old person with long hair streaming down: long.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "particles": ["flow"],
-    "backdrop": "sky:golden",
-    "motion": "stretch"
-  },
+  "effect": { "material": "silver", "backdrop": "sky:golden", "vignette": "snake-long" },
   "sentences": [
     {
       "segments": [ { "text": "そう" }, { "text": "長", "reading": "なが" }, { "text": "くはかからない。" } ],

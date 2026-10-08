@@ -5,15 +5,7 @@
   "primaryReading": "ほ",
   "readings": { "kun": ["ある(く)", "あゆ(む)"], "on": ["ホ", "ブ", "フ"] },
   "mnemonic": "Stop (止) a little (少), then step again: walk.",
-  "effect": {
-    "material": "clay",
-    "reveal": "draw",
-    "particles": [{ "type": "footprints", "dir": "right", "color": "#e8d0a8" }],
-    "scene": ["road"],
-    "backdrop": "sky:day",
-    "motion": "walk",
-    "parts": { "止": {}, "少": {} }
-  },
+  "effect": { "material": "clay", "backdrop": "sky:day", "vignette": "walker-steps", "parts": { "止": {}, "少": {} } },
   "sentences": [
     {
       "segments": [ { "text": "ほとんど" }, { "text": "歩", "reading": "ある" }, { "text": "けないんだ。" } ],

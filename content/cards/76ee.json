@@ -5,14 +5,7 @@
   "primaryReading": "もく",
   "readings": { "kun": ["め", "め", "ま"], "on": ["モク", "ボク"] },
   "mnemonic": "An eye stood on its side.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "particles": ["motes"],
-    "backdrop": "sky:twilight",
-    "motion": "blink",
-    "emblem": "eye"
-  },
+  "effect": { "material": "silver", "backdrop": "sky:twilight", "vignette": "glyph-eye" },
   "sentences": [
     {
       "segments": [ { "text": "目", "reading": "め" }, { "text": "がヒリヒリします。" } ],

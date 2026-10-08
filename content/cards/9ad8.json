@@ -7,10 +7,8 @@
   "mnemonic": "A tall tower with two windows (口): tall, expensive.",
   "effect": {
     "material": "stone",
-    "reveal": "draw",
-    "particles": ["mist"],
     "backdrop": "sky:day",
-    "motion": "stretch:y",
+    "vignette": "giraffe-tall",
     "parts": { "口": { "material": "gold" } }
   },
   "sentences": [

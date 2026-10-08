@@ -5,7 +5,7 @@
   "primaryReading": "まん",
   "readings": { "kun": ["よろず"], "on": ["マン", "バン"] },
   "mnemonic": "Ten thousand coins pouring into a pile.",
-  "effect": { "material": "gold", "reveal": "draw", "particles": ["coins"], "backdrop": "halo", "emblem": "yen" },
+  "effect": { "material": "gold", "backdrop": "sky:night", "vignette": "odometer" },
   "sentences": [
     {
       "segments": [ { "text": "一千万", "reading": "いちせんまん" }, { "text": "円", "reading": "えん" }, { "text": "くらいかな？" } ],
@@ -14,6 +14,6 @@
       "source": { "tatoeba": [190376, 27535] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1584460"] }
 }

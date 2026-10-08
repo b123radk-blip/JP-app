@@ -5,7 +5,7 @@
   "primaryReading": "きた",
   "readings": { "kun": ["きた"], "on": ["ホク"] },
   "mnemonic": "Two people sitting back to back to keep warm in the cold north.",
-  "effect": { "material": "ice", "reveal": "draw", "particles": ["snow"], "backdrop": "sky:dawn", "emblem": "compass:N" },
+  "effect": { "material": "ice", "backdrop": "sky:snow", "vignette": "compass-north" },
   "sentences": [
     {
       "segments": [ { "text": "バスは" }, { "text": "北", "reading": "きた" }, { "text": "へ" }, { "text": "向", "reading": "む" }, { "text": "かっていた。" } ],

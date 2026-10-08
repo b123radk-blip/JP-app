@@ -5,14 +5,7 @@
   "primaryReading": "しゃ",
   "readings": { "kun": ["やしろ"], "on": ["シャ"] },
   "mnemonic": "An altar (礻) on the ground (土): shrine, company.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "particles": ["petals"],
-    "scene": ["gate"],
-    "backdrop": "sky:day",
-    "parts": { "礻": {}, "土": {} }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": "office-tower", "parts": { "礻": {}, "土": {} } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "金", "reading": "きん" }, { "text": "は" }, { "text": "会社", "reading": "かいしゃ" }, { "text": "のものだ。" } ],

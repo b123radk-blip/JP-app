@@ -5,16 +5,7 @@
   "primaryReading": "こう",
   "readings": { "kun": ["い(く)", "ゆ(く)", "ゆ(き)", "ゆき"], "on": ["コウ", "ギョウ", "アン"] },
   "mnemonic": "A crossroads seen from above: go.",
-  "effect": {
-    "material": "jade",
-    "reveal": "draw",
-    "particles": ["dust", "motes"],
-    "scene": ["road"],
-    "backdrop": "sky:golden",
-    "motion": "drift:right",
-    "emblem": "arrow:right",
-    "parts": { "彳": {} }
-  },
+  "effect": { "material": "jade", "backdrop": "sky:golden", "vignette": "go-light", "parts": { "彳": {} } },
   "sentences": [
     {
       "segments": [ { "text": "ビーチに" }, { "text": "行", "reading": "い" }, { "text": "きましょう。" } ],
@@ -23,6 +14,6 @@
       "source": { "tatoeba": [197681, 34867] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

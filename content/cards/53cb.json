@@ -5,13 +5,7 @@
   "primaryReading": "ゆう",
   "readings": { "kun": ["とも"], "on": ["ユウ"] },
   "mnemonic": "Two hands (one shaped like ナ, one like 又) reaching to shake: friend.",
-  "effect": {
-    "material": "jade",
-    "reveal": "draw:sparks",
-    "particles": ["hearts"],
-    "backdrop": "sky:golden",
-    "emblem": "hand"
-  },
+  "effect": { "material": "jade", "backdrop": "sky:golden", "vignette": "friends-five" },
   "sentences": [
     {
       "segments": [ { "text": "友人", "reading": "ゆうじん" }, { "text": "は" }, { "text": "少", "reading": "すこ" }, { "text": "ししかいない。" } ],

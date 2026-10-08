@@ -8,7 +8,7 @@
   "pos": ["v1", "vt"],
   "kanji": ["98df"],
   "builtFrom": [{ "k": "食", "m": "eat" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bowl", "particles": ["steam"], "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "apple-bite:sandwich" },
   "sentences": [
     {
       "segments": [ { "text": "りんごを" }, { "text": "食", "reading": "た" }, { "text": "べています。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [192448, 29612] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 食べる" },
+  "review": { "recipe": "reviewed", "rule": "word 食べる" },
   "source": { "jmdict": 1358280, "jlpt": 5 }
 }

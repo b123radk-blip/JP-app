@@ -5,7 +5,7 @@
   "primaryReading": "にく",
   "readings": { "kun": ["しし"], "on": ["ニク"] },
   "mnemonic": "A slab of meat with its marbling, cut at the butcher's.",
-  "effect": { "material": "rose", "reveal": "draw:dust", "particles": ["embers", "steam"], "backdrop": "sky:night" },
+  "effect": { "material": "rose", "backdrop": "sky:night", "vignette": "meat-spit" },
   "sentences": [
     {
       "segments": [ { "text": "お" }, { "text": "肉", "reading": "にく" }, { "text": "は" }, { "text": "食", "reading": "た" }, { "text": "べられません。" } ],

@@ -5,15 +5,7 @@
   "primaryReading": "てん",
   "readings": { "kun": ["あまつ", "あめ", "あま"], "on": ["テン"] },
   "mnemonic": "A big person (大) with the sky (一) resting on their head.",
-  "effect": {
-    "material": "ice",
-    "reveal": "draw",
-    "particles": ["motes:up"],
-    "backdrop": "sky:day",
-    "motion": "drift:up",
-    "emblem": "cloud",
-    "parts": { "大": {} }
-  },
+  "effect": { "material": "ice", "backdrop": "sky:day", "vignette": "sky-rainbow", "parts": { "大": {} } },
   "sentences": [
     {
       "segments": [ { "text": "あしたの" }, { "text": "天気", "reading": "てんき" }, { "text": "はどうですか。" } ],

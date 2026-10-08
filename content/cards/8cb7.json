@@ -5,15 +5,7 @@
   "primaryReading": "か",
   "readings": { "kun": ["か(う)"], "on": ["バイ"] },
   "mnemonic": "A net (罒) scooping up shiny shells to pay with: buy.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "particles": ["coins"],
-    "scene": ["room:shop"],
-    "backdrop": "sky:indoor",
-    "emblem": "yen",
-    "parts": { "貝": {} }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:indoor", "vignette": "cart-shop", "parts": { "貝": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はテープを" }, { "text": "買", "reading": "か" }, { "text": "います。" } ],

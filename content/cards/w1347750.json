@@ -8,13 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["5c0f"],
   "builtFrom": [{ "k": "小", "m": "little" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["mountains"],
-    "backdrop": "sky:dusk",
-    "motion": "shrink:0.6"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "ant-tiny:dolls" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "はとても" }, { "text": "小", "reading": "ちい" }, { "text": "さい。" } ],

@@ -8,14 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["5348", "524d"],
   "builtFrom": [{ "k": "午", "m": "noon" }, { "k": "前", "m": "in front" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "backdrop": "sky:day",
-    "emblem": "sun",
-    "motion": "drift:up",
-    "particles": ["sparks"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "noon-clock:am" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はきょうの" }, { "text": "午前", "reading": "ごぜん" }, { "text": "しばらくの" }, { "text": "間", "reading": "あいだ" }, { "text": "勉強", "reading": "べんきょう" }, { "text": "した。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [161125, 253393] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 午前" },
+  "review": { "recipe": "reviewed", "rule": "word 午前" },
   "source": { "jmdict": 1269060, "jlpt": 5 }
 }

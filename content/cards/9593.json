@@ -5,14 +5,7 @@
   "primaryReading": "ま",
   "readings": { "kun": ["あいだ", "ま", "あい"], "on": ["カン", "ケン"] },
   "mnemonic": "The sun (日) shining through the gap in a gate (門): between.",
-  "effect": {
-    "material": "metal",
-    "reveal": "draw",
-    "particles": ["motes:still"],
-    "scene": ["gate"],
-    "backdrop": "sky:morning",
-    "parts": { "門": {}, "日": {} }
-  },
+  "effect": { "material": "metal", "backdrop": "sky:morning", "vignette": "bookends", "parts": { "門": {}, "日": {} } },
   "sentences": [
     {
       "segments": [ { "text": "読書", "reading": "どくしょ" }, { "text": "をする" }, { "text": "時間", "reading": "じかん" }, { "text": "がない。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [154787, 259753] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

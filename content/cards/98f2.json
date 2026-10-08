@@ -5,14 +5,7 @@
   "primaryReading": "の",
   "readings": { "kun": ["の(む)", "の(み)"], "on": ["イン", "オン"] },
   "mnemonic": "Someone opening wide (欠) over a drink: drink.",
-  "effect": {
-    "material": "water",
-    "reveal": "draw:drops",
-    "particles": ["bubbles"],
-    "scene": ["room", "ripples"],
-    "backdrop": "sky:indoor",
-    "parts": { "欠": {} }
-  },
+  "effect": { "material": "water", "backdrop": "sky:indoor", "vignette": "gulp-drink", "parts": { "欠": {} } },
   "sentences": [
     {
       "segments": [ { "text": "コーヒーを" }, { "text": "飲", "reading": "の" }, { "text": "みますか。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [224861, 62196] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

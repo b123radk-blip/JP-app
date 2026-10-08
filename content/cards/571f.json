@@ -5,14 +5,7 @@
   "primaryReading": "ど",
   "readings": { "kun": ["つち"], "on": ["ド", "ト"] },
   "mnemonic": "A sprout pushing up out of the flat ground: soil.",
-  "effect": {
-    "material": "clay",
-    "reveal": "grow",
-    "particles": ["dust"],
-    "scene": [{ "type": "field", "color": "#7a5a3a" }],
-    "backdrop": "sky:golden",
-    "motion": "grow:1.1"
-  },
+  "effect": { "material": "clay", "backdrop": "sky:golden", "vignette": "spade-dig" },
   "sentences": [
     {
       "segments": [ { "text": "土曜日", "reading": "どようび" }, { "text": "は" }, { "text": "日曜日", "reading": "にちようび" }, { "text": "の" }, { "text": "前", "reading": "まえ" }, { "text": "に" }, { "text": "来", "reading": "く" }, { "text": "る。" } ],

@@ -5,14 +5,7 @@
   "primaryReading": "なか",
   "readings": { "kun": ["なか", "うち", "あた(る)"], "on": ["チュウ"] },
   "mnemonic": "A line straight through the middle of a box: inside, centre.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "backdrop": "sky:sunset",
-    "motion": "pulse",
-    "emblem": "target",
-    "parts": { "口": {} }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:sunset", "vignette": "ring-middle", "parts": { "口": {} } },
   "sentences": [
     {
       "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "水", "reading": "みず" }, { "text": "の" }, { "text": "中", "reading": "なか" }, { "text": "をのぞいた。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [175253, 239213] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1423310"] }
 }

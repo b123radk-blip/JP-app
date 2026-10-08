@@ -8,7 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["5348", "5f8c"],
   "builtFrom": [{ "k": "午", "m": "noon" }, { "k": "後", "m": "behind" }],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:golden", "emblem": "sun", "motion": "drift:down" },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "noon-clock:pm" },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "の" }, { "text": "午後", "reading": "ごご" }, { "text": "会", "reading": "あ" }, { "text": "いましょう。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [171920, 424861] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 午後" },
+  "review": { "recipe": "reviewed", "rule": "word 午後" },
   "source": { "jmdict": 1268990, "jlpt": 5 }
 }

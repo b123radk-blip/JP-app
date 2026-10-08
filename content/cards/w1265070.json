@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["53e4"],
   "builtFrom": [{ "k": "古", "m": "old" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["dust"], "backdrop": "sky:golden", "emblem": "clock" },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "old-box:car" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "いランプを" }, { "text": "買", "reading": "か" }, { "text": "った。" } ],

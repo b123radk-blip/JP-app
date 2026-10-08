@@ -526,61 +526,61 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [x] 学 study (C, P): a kid at a table flicks the beads of an abacus, counting, then a lightbulb lights (the Step 2 勉強 desk scene is taken). Built: `abacus-kid`.
 - [x] 駅 station (C): a station with a name board and a clock; a train pulls in, doors open, it leaves. Built: `station-train`.
 - [x] 花 flower (C): a bud swells and opens into a big flower; a bee visits. Built: `flower-bloom`.
-- [ ] 子 child (C): the glyph is a kid: its arms flap, it hops and bounces.
+- [x] 子 child (C): the glyph is a kid: its arms flap, it hops and bounces. Built: `kid-glyph`.
 - [x] 犬 dog (C): a dog wags its tail, runs after a thrown ball and brings it back. Built: `dog-fetch`.
-- [ ] 少 few (C): a hand shakes a bag over a bowl and only a few grains drop out.
-- [ ] 午 noon (C): a clock's hands meet at twelve, the sun reaches the top; ding.
-- [ ] 魚 fish (C): a fish leaps out of the water in an arc and splashes back.
-- [ ] 半 half (C): a knife cuts an orange exactly in half; the halves fall apart.
-- [ ] 分 divide (C): the knife (刀) of the kanji chops, and its top (八) splits into two halves.
-- [ ] 肉 meat (C): a big piece of meat on the bone turns on a spit over a fire, sizzling.
-- [ ] 千 thousand (C): a long string of paper cranes unrolls and a counter shows 1000.
-- [ ] 右 right (C): a car at a junction blinks its right indicator and turns right.
-- [ ] 本 book (C): a book opens and a pop-up castle unfolds out of it; pages turn.
-- [ ] 好 like (C, P): a kid hugs a puppy; hearts rise.
-- [ ] 多 many (C): candies pour from a jar into a heap that spills over.
-- [ ] 西 west (C): the sun sets on the west side of a compass, the needle swings to W, a crow flies home.
-- [ ] 中 middle (C): a ball drops into the middle of a ring and settles in the centre.
-- [ ] 左 left (C): two hands held up palms out, thumbs out; the left one makes an L and glows.
-- [ ] 金 gold (C): gold coins drop and stack into a tower that topples with a jingle; 金曜日 `week`.
-- [ ] 北 north (C): snow and ice; a penguin, the compass needle swings to N, the north star twinkles.
-- [ ] 東 east (C): dawn; the sun rises on the east side of a compass, the needle swings to E.
-- [ ] 南 south (C): a palm tree on a hot beach, the compass needle swings to S.
-- [ ] 耳 ear (C): a rabbit's long ears prick up at a sound and swivel.
-- [ ] 小 small (C): a magnifier slides over and finds a tiny ant waving.
-- [ ] 五 five (C): a hand counts up its fingers, one, two ... five.
-- [ ] 新 new (C): a box opens on a shiny new toy robot that sparkles.
-- [ ] 聞 hear (C, P): a person cups an ear at a gate and sound rings come through.
-- [ ] 会 meet (C, P): two people walk up from either side and bow to each other.
-- [ ] 言 say (C, P): a person says こんにちは and the word comes out in a speech bubble.
-- [ ] 万 ten thousand (C): a counter rolls past 9999 to 10000 and fireworks go up.
-- [ ] 知 know (C): a wise owl with a graduation cap blinks, a "!" pops over it.
-- [ ] 気 spirit (C, P): a droopy person, a battery over their head fills up and they jump with energy.
-- [ ] 間 gap (C): two bookends; a book slides into the gap between them.
-- [ ] 校 school (C): a school building with a clock tower; the bell swings and rings.
-- [ ] 社 company (C): an office tower; its windows light up floor by floor.
-- [ ] 名 name (C): a hand slides a name card into the nameplate on a door.
-- [ ] 高 tall (C): a giraffe stretches its neck up higher and higher.
-- [ ] 買 buy (C): a shopping cart rolls along, things drop in, a receipt prints.
-- [ ] 長 long (C): a snake stretches longer and longer.
-- [ ] 読 read (C, P): a person reads a book; a page turns and words float up.
-- [ ] 行 go (C): a traffic light turns green and a car zooms off.
-- [ ] 天 sky (C): clouds drift across a blue sky, a rainbow arcs and a bird flies across.
-- [ ] 古 old (C): a cracked old box under cobwebs; dust puffs when it creaks open.
-- [ ] 飲 drink (C, P): a person tips back a glass, gulp gulp, and wipes their mouth.
-- [ ] 食 eat (C): an apple gets bitten, chomp, chomp, down to the core.
-- [ ] 書 write (C): a pencil writes あいう on lined paper.
-- [ ] 歩 walk (B, P): keep the footprints; a person walks along the path leaving them.
-- [ ] 安 cheap (C): a price tag ¥1000 is crossed out and drops to ¥100, a SALE sign.
-- [ ] 土 soil (C): a spade digs, turns the soil over, a worm pops out; 土曜日 `week`.
-- [ ] 円 yen / circle (C): a ¥ coin spins on its edge, wobbles and settles, a circle drawn round it.
-- [ ] 目 eye (C): the glyph opens as an eye: a pupil looks left and right and it blinks.
-- [ ] 田 rice field (C): the 田 grid floods with water, seedlings pop up in rows, grow and turn gold.
-- [ ] 思 think (C, P): a person with a hand on their chin; a thought bubble shows a cake, then a home.
-- [ ] 百 hundred (C): a centipede crawls along, its many legs rippling, a counter running to 100.
-- [ ] 語 language (C): a globe spins; a speech bubble says Hello, こんにちは, Hola in turn.
-- [ ] 森 forest (C): rows of tall pines spring up layer behind layer; mist, an owl blinks.
-- [ ] 友 friend (C, P): two kids high-five, then walk off arm in arm.
+- [x] 少 few (C): a hand shakes a bag over a bowl and only a few grains drop out. Built: `few-grains`.
+- [x] 午 noon (C): a clock's hands meet at twelve, the sun reaches the top; ding. Built: `noon-clock`.
+- [x] 魚 fish (C): a fish leaps out of the water in an arc and splashes back. Built: `fish-leap`.
+- [x] 半 half (C): a knife cuts an orange exactly in half; the halves fall apart. Built: `orange-half`.
+- [x] 分 divide (C): the knife (刀) of the kanji chops, and its top (八) splits into two halves. Built: `glyph-split`.
+- [x] 肉 meat (C): a big piece of meat on the bone turns on a spit over a fire, sizzling. Built: `meat-spit`.
+- [x] 千 thousand (C): a long string of paper cranes unrolls and a counter shows 1000. Built: `crane-string`.
+- [x] 右 right (C): a car at a junction blinks its right indicator and turns right. Built: `turn-right`.
+- [x] 本 book (C): a book opens and a pop-up castle unfolds out of it; pages turn. Built: `popup-book`.
+- [x] 好 like (C, P): a kid hugs a puppy; hearts rise. Built: `hug-puppy`.
+- [x] 多 many (C): candies pour from a jar into a heap that spills over. Built: `candy-pile`.
+- [x] 西 west (C): the sun sets on the west side of a compass, the needle swings to W, a crow flies home. Built: `compass-west`.
+- [x] 中 middle (C): a ball drops into the middle of a ring and settles in the centre. Built: `ring-middle`.
+- [x] 左 left (C): two hands held up palms out, thumbs out; the left one makes an L and glows. Built: `left-l`.
+- [x] 金 gold (C): gold coins drop and stack into a tower that topples with a jingle; 金曜日 `week`. Built: `coin-tower`.
+- [x] 北 north (C): snow and ice; a penguin, the compass needle swings to N, the north star twinkles. Built: `compass-north`.
+- [x] 東 east (C): dawn; the sun rises on the east side of a compass, the needle swings to E. Built: `compass-east`.
+- [x] 南 south (C): a palm tree on a hot beach, the compass needle swings to S. Built: `compass-south`.
+- [x] 耳 ear (C): a rabbit's long ears prick up at a sound and swivel. Built: `bunny-ears`.
+- [x] 小 small (C): a magnifier slides over and finds a tiny ant waving. Built: `ant-tiny`.
+- [x] 五 five (C): a hand counts up its fingers, one, two ... five. Built: `hand-five`.
+- [x] 新 new (C): a box opens on a shiny new toy robot that sparkles. Built: `new-toy`.
+- [x] 聞 hear (C, P): a person cups an ear at a gate and sound rings come through. Built: `ear-gate`.
+- [x] 会 meet (C, P): two people walk up from either side and bow to each other. Built: `meet-bow`.
+- [x] 言 say (C, P): a person says こんにちは and the word comes out in a speech bubble. Built: `say-hello`.
+- [x] 万 ten thousand (C): a counter rolls past 9999 to 10000 and fireworks go up. Built: `odometer`.
+- [x] 知 know (C): a wise owl with a graduation cap blinks, a "!" pops over it. Built: `wise-owl`.
+- [x] 気 spirit (C, P): a droopy person, a battery over their head fills up and they jump with energy. Built: `battery-up`.
+- [x] 間 gap (C): two bookends; a book slides into the gap between them. Built: `bookends`.
+- [x] 校 school (C): a school building with a clock tower; the bell swings and rings. Built: `school-bell`.
+- [x] 社 company (C): an office tower; its windows light up floor by floor. Built: `office-tower`.
+- [x] 名 name (C): a hand slides a name card into the nameplate on a door. Built: `name-card`.
+- [x] 高 tall (C): a giraffe stretches its neck up higher and higher. Built: `giraffe-tall`.
+- [x] 買 buy (C): a shopping cart rolls along, things drop in, a receipt prints. Built: `cart-shop`.
+- [x] 長 long (C): a snake stretches longer and longer. Built: `snake-long`.
+- [x] 読 read (C, P): a person reads a book; a page turns and words float up. Built: `read-book`.
+- [x] 行 go (C): a traffic light turns green and a car zooms off. Built: `go-light`.
+- [x] 天 sky (C): clouds drift across a blue sky, a rainbow arcs and a bird flies across. Built: `sky-rainbow`.
+- [x] 古 old (C): a cracked old box under cobwebs; dust puffs when it creaks open. Built: `old-box`.
+- [x] 飲 drink (C, P): a person tips back a glass, gulp gulp, and wipes their mouth. Built: `gulp-drink`.
+- [x] 食 eat (C): an apple gets bitten, chomp, chomp, down to the core. Built: `apple-bite`.
+- [x] 書 write (C): a pencil writes あいう on lined paper. Built: `pencil-write`.
+- [x] 歩 walk (B, P): keep the footprints; a person walks along the path leaving them. Built: `walker-steps`.
+- [x] 安 cheap (C): a price tag ¥1000 is crossed out and drops to ¥100, a SALE sign. Built: `price-slash`.
+- [x] 土 soil (C): a spade digs, turns the soil over, a worm pops out; 土曜日 `week`. Built: `spade-dig`.
+- [x] 円 yen / circle (C): a ¥ coin spins on its edge, wobbles and settles, a circle drawn round it. Built: `coin-spin`.
+- [x] 目 eye (C): the glyph opens as an eye: a pupil looks left and right and it blinks. Built: `glyph-eye`.
+- [x] 田 rice field (C): the 田 grid floods with water, seedlings pop up in rows, grow and turn gold. Built: `paddy-grow`.
+- [x] 思 think (C, P): a person with a hand on their chin; a thought bubble shows a cake, then a home. Built: `think-bubble`.
+- [x] 百 hundred (C): a centipede crawls along, its many legs rippling, a counter running to 100. Built: `centipede`.
+- [x] 語 language (C): a globe spins; a speech bubble says Hello, こんにちは, Hola in turn. Built: `globe-hello`.
+- [x] 森 forest (C): rows of tall pines spring up layer behind layer; mist, an owl blinks. Built: `forest-rows`.
+- [x] 友 friend (C, P): two kids high-five, then walk off arm in arm. Built: `friends-five`.
 
 ## Step 1 words (deck order)
 - [x] 下さい please (C, P): a kid holds out both hands, a sweet drops into them, a bow. Built: `anchor-drop:please`.
@@ -651,47 +651,47 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [x] 生まれる be born (C): `sprout:stork`: a stork flies in with a bundle, a baby peeks out. Built: `sprout-life:stork`.
 - [x] 学生 student (C, P): `abacus-kid:backpack`: a student with a school bag and books walks along. Built: `abacus-kid:backpack`.
 - [x] 大学 university (C): `abacus-kid:caps`: graduation caps fly up in the air. Built: `abacus-kid:caps`.
-- [ ] 女の子 girl (C, P): `woman:girl`: a girl on a swing.
-- [ ] 男の子 boy (C, P): `plough:boy`: a boy flies a toy plane round his head.
-- [ ] 少し a little (C): `few:pinch`: a pinch of salt drops into a pot.
-- [ ] 少ない few (C): `few:jar`: a cookie jar tips: only two cookies left.
-- [ ] 午後 afternoon (C): `noon:pm`: the clock and the sun move past twelve into the afternoon.
-- [ ] 午前 morning (C): `noon:am`: the sun climbs towards twelve in the morning.
-- [ ] 分かる understand (C, P): a kid frowns at a tangle; it untangles into a straight line and they nod.
-- [ ] 半分 half (C): `half:share`: a cookie snaps in two and two hands take a half each.
-- [ ] 大好き love (C, P): `hug:love`: a heart swells huge and pulses.
-- [ ] 好き like (C): `hug:icecream`: an ice cream, heart eyes.
-- [ ] 多分 probably (C, P): a person looks at a cloud, shrugs, and opens an umbrella just in case.
-- [ ] 多い many (C): `pile:birds`: many birds flock onto a wire.
-- [ ] お金 money (C): `coins:wallet`: a wallet opens, coins and notes spill out.
-- [ ] 金曜日 Friday (C): `week` of 金.
-- [ ] 小さい small (C): `ant:dolls`: nesting dolls open into smaller and smaller ones.
-- [ ] 小さな small (C): `ant:seed`: a tiny seed in a big hand.
-- [ ] 五つ five (C): `count`: five stars.
-- [ ] 五日 5th (C): `day`, a hand.
-- [ ] 新しい new (C): `new:shoes`: an old shoe is swapped for a shiny new one.
-- [ ] 新聞 newspaper (C): a newspaper flies in, unfolds, the headline flashes.
-- [ ] 聞く hear (C, P): `ear:shell`: a kid holds a seashell to their ear; waves.
-- [ ] 会う meet (C, P): `meet:run`: two friends run to each other and hug.
-- [ ] 言う say (C): `say:parrot`: a parrot repeats a word.
-- [ ] 知る know (C): `owl:map`: the owl taps a map and nods.
-- [ ] 電気 electricity (C): `bolt:bulb`: lightning flows down a wire into a lamp.
-- [ ] 時間 time (C): `time:span`: a clock with a coloured wedge sweeping out the time that passed.
-- [ ] 学校 school (C, P): `school:kids`: kids run in through the gate as the bell rings.
-- [ ] 会社 company (C, P): `tower:commute`: people with briefcases walk into the office tower.
-- [ ] 名前 name (C): `name:write`: a pencil writes a name on a notebook label.
-- [ ] 高い high / expensive (C): `giraffe:price`: a price tag shoots up, ¥¥¥.
-- [ ] 買う buy (C): `cart:vending`: a coin goes into a vending machine and a can drops.
-- [ ] 長い long (C): `snake:noodle`: a very long noodle is slurped up.
-- [ ] 読む read (C): `read:worm`: a bookworm with glasses wriggles through a book.
-- [ ] 行く go (C, P): `go:set-off`: a person with a backpack waves and sets off.
-- [ ] 天気 weather (C): `sky:weather`: sun, cloud, rain and snow take turns over a little town.
-- [ ] 古い old (C): `old:car`: an old car coughs smoke and rattles.
-- [ ] 飲む drink (C): `drink:cat`: a cat laps milk from a saucer.
-- [ ] 食べる eat (C, P): `bite:sandwich`: a person munches a sandwich.
-- [ ] 書く write (C): `write:chalk`: chalk writes on a blackboard.
-- [ ] 歩く walk (C): `walk:penguin`: a penguin waddles along.
-- [ ] 安い cheap (C): `cheap:bin`: a bargain bin with a SALE sign.
-- [ ] 土曜日 Saturday (C): `week` of 土.
+- [x] 女の子 girl (C, P): `woman:girl`: a girl on a swing. Built: `woman-twirl:girl`.
+- [x] 男の子 boy (C, P): `plough:boy`: a boy flies a toy plane round his head. Built: `plough-man:boy`.
+- [x] 少し a little (C): `few:pinch`: a pinch of salt drops into a pot. Built: `few-grains:pinch`.
+- [x] 少ない few (C): `few:jar`: a cookie jar tips: only two cookies left. Built: `few-grains:jar`.
+- [x] 午後 afternoon (C): `noon:pm`: the clock and the sun move past twelve into the afternoon. Built: `noon-clock:pm`.
+- [x] 午前 morning (C): `noon:am`: the sun climbs towards twelve in the morning. Built: `noon-clock:am`.
+- [x] 分かる understand (C, P): a kid frowns at a tangle; it untangles into a straight line and they nod. Built: `glyph-split:untangle`.
+- [x] 半分 half (C): `half:share`: a cookie snaps in two and two hands take a half each. Built: `orange-half:share`.
+- [x] 大好き love (C, P): `hug:love`: a heart swells huge and pulses. Built: `hug-puppy:love`.
+- [x] 好き like (C): `hug:icecream`: an ice cream, heart eyes. Built: `hug-puppy:icecream`.
+- [x] 多分 probably (C, P): a person looks at a cloud, shrugs, and opens an umbrella just in case. Built: `maybe-shrug`.
+- [x] 多い many (C): `pile:birds`: many birds flock onto a wire. Built: `candy-pile:birds`.
+- [x] お金 money (C): `coins:wallet`: a wallet opens, coins and notes spill out. Built: `coin-tower:wallet`.
+- [x] 金曜日 Friday (C): `week` of 金. Built: `coin-tower:week`.
+- [x] 小さい small (C): `ant:dolls`: nesting dolls open into smaller and smaller ones. Built: `ant-tiny:dolls`.
+- [x] 小さな small (C): `ant:seed`: a tiny seed in a big hand. Built: `ant-tiny:seed`.
+- [x] 五つ five (C): `count`: five stars. Built: `hand-five:count`.
+- [x] 五日 5th (C): `day`, a hand. Built: `hand-five:day`.
+- [x] 新しい new (C): `new:shoes`: an old shoe is swapped for a shiny new one. Built: `new-toy:shoes`.
+- [x] 新聞 newspaper (C): a newspaper flies in, unfolds, the headline flashes. Built: `newspaper`.
+- [x] 聞く hear (C, P): `ear:shell`: a kid holds a seashell to their ear; waves. Built: `ear-gate:shell`.
+- [x] 会う meet (C, P): `meet:run`: two friends run to each other and hug. Built: `meet-bow:run`.
+- [x] 言う say (C): `say:parrot`: a parrot repeats a word. Built: `say-hello:parrot`.
+- [x] 知る know (C): `owl:map`: the owl taps a map and nods. Built: `wise-owl:map`.
+- [x] 電気 electricity (C): `bolt:bulb`: lightning flows down a wire into a lamp. Built: `lightning-bulb:bulb`.
+- [x] 時間 time (C): `time:span`: a clock with a coloured wedge sweeping out the time that passed. Built: `clock-hours:span`.
+- [x] 学校 school (C, P): `school:kids`: kids run in through the gate as the bell rings. Built: `school-bell:kids`.
+- [x] 会社 company (C, P): `tower:commute`: people with briefcases walk into the office tower. Built: `office-tower:commute`.
+- [x] 名前 name (C): `name:write`: a pencil writes a name on a notebook label. Built: `name-card:write`.
+- [x] 高い high / expensive (C): `giraffe:price`: a price tag shoots up, ¥¥¥. Built: `giraffe-tall:price`.
+- [x] 買う buy (C): `cart:vending`: a coin goes into a vending machine and a can drops. Built: `cart-shop:vending`.
+- [x] 長い long (C): `snake:noodle`: a very long noodle is slurped up. Built: `snake-long:noodle`.
+- [x] 読む read (C): `read:worm`: a bookworm with glasses wriggles through a book. Built: `read-book:worm`.
+- [x] 行く go (C, P): `go:set-off`: a person with a backpack waves and sets off. Built: `go-light:setoff`.
+- [x] 天気 weather (C): `sky:weather`: sun, cloud, rain and snow take turns over a little town. Built: `sky-rainbow:weather`.
+- [x] 古い old (C): `old:car`: an old car coughs smoke and rattles. Built: `old-box:car`.
+- [x] 飲む drink (C): `drink:cat`: a cat laps milk from a saucer. Built: `gulp-drink:cat`.
+- [x] 食べる eat (C, P): `bite:sandwich`: a person munches a sandwich. Built: `apple-bite:sandwich`.
+- [x] 書く write (C): `write:chalk`: chalk writes on a blackboard. Built: `pencil-write:chalk`.
+- [x] 歩く walk (C): `walk:penguin`: a penguin waddles along. Built: `walker-steps:penguin`.
+- [x] 安い cheap (C): `cheap:bin`: a bargain bin with a SALE sign. Built: `price-slash:bin`.
+- [x] 土曜日 Saturday (C): `week` of 土. Built: `spade-dig:week`.
 
 People: 20 of the 112 kanji scenes and 28 of the 110 word scenes plan a kit person (48 of 222, 22%); a few more use a hand only.

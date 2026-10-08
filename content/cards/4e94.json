@@ -5,14 +5,7 @@
   "primaryReading": "いつ",
   "readings": { "kun": ["いつ", "いつ(つ)"], "on": ["ゴ"] },
   "mnemonic": "One hand, five fingers, pressed down like a stamp.",
-  "effect": {
-    "material": "metal",
-    "reveal": "draw:dust",
-    "particles": ["sparks"],
-    "backdrop": "sky:morning",
-    "motion": "count:5",
-    "emblem": "hand"
-  },
+  "effect": { "material": "metal", "backdrop": "sky:morning", "vignette": "hand-five" },
   "sentences": [
     {
       "segments": [ { "text": "三", "reading": "さん" }, { "text": "に" }, { "text": "二", "reading": "に" }, { "text": "を" }, { "text": "足", "reading": "た" }, { "text": "すと" }, { "text": "五", "reading": "ご" }, { "text": "になる。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [169510, 244976] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

@@ -8,14 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": ["5206"],
   "builtFrom": [{ "k": "分", "m": "part" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "lightbulb",
-    "motion": "pulse",
-    "backdrop": "sky:dawn",
-    "particles": ["sparks"]
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "glyph-split:untangle" },
   "sentences": [
     {
       "segments": [ { "text": "分", "reading": "わ" }, { "text": "かるような" }, { "text": "気", "reading": "き" }, { "text": "がする。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [83713, 320004] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 分かる" },
+  "review": { "recipe": "reviewed", "rule": "word 分かる" },
   "source": { "jmdict": 1606560, "jlpt": 5 }
 }

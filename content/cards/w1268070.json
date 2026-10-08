@@ -8,7 +8,7 @@
   "pos": ["num"],
   "kanji": ["4e94"],
   "builtFrom": [{ "k": "五", "m": "five" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "dots:5", "particles": ["motes"], "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "hand-five:count" },
   "sentences": [
     {
       "segments": [ { "text": "彼女", "reading": "かのじょ" }, { "text": "はケーキを" }, { "text": "五", "reading": "いつ" }, { "text": "つに" }, { "text": "分", "reading": "わ" }, { "text": "けた。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [92925, 310784] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
+  "review": { "recipe": "reviewed", "rule": "meaning /^(one|two|three|four|five|six|seven|eight|nine|ten)( things| objects)?\\b/i" },
   "source": { "jmdict": 1268070, "jlpt": 5 }
 }

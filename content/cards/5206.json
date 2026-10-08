@@ -7,12 +7,9 @@
   "mnemonic": "A knife (刀) cuts something in two (八): divide; also minutes.",
   "effect": {
     "material": "metal",
-    "reveal": "draw",
-    "particles": ["sparks"],
     "backdrop": "sky:noon",
-    "emblem": "dots:2",
-    "parts": { "刀": { "motion": "wave" } },
-    "motion": { "type": "split", "dist": 0.07 }
+    "vignette": "glyph-split",
+    "parts": { "刀": { "motion": "wave" } }
   },
   "sentences": [
     {

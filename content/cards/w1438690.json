@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5929", "6c17"],
   "builtFrom": [{ "k": "天", "m": "heavens" }, { "k": "気", "m": "spirit" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["rain"], "backdrop": "sky:day", "emblem": "sun" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "sky-rainbow:weather" },
   "sentences": [
     {
       "segments": [ { "text": "いい" }, { "text": "天気", "reading": "てんき" }, { "text": "になりそうだ。" } ],

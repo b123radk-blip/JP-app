@@ -5,14 +5,7 @@
   "primaryReading": "ひだり",
   "readings": { "kun": ["ひだり"], "on": ["サ", "シャ"] },
   "mnemonic": "A hand holding a carpenter's tool (工) on the left.",
-  "effect": {
-    "material": "jade",
-    "reveal": "draw",
-    "backdrop": "sky:dusk",
-    "motion": "drift:left",
-    "emblem": "hand",
-    "parts": { "工": {} }
-  },
+  "effect": { "material": "jade", "backdrop": "sky:dusk", "vignette": "left-l", "parts": { "工": {} } },
   "sentences": [
     {
       "segments": [ { "text": "左", "reading": "ひだり" }, { "text": "を" }, { "text": "向", "reading": "む" }, { "text": "いてください。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [170924, 243552] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1290800"] }
 }

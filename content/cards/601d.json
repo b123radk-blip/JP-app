@@ -5,14 +5,7 @@
   "primaryReading": "おも",
   "readings": { "kun": ["おも(う)", "おもえら(く)", "おぼ(す)"], "on": ["シ"] },
   "mnemonic": "A field (田) on top of a heart (心): think, feel.",
-  "effect": {
-    "material": "rose",
-    "reveal": "draw",
-    "backdrop": "sky:morning",
-    "motion": "pulse",
-    "emblem": "heart",
-    "parts": { "田": {}, "心": {} }
-  },
+  "effect": { "material": "rose", "backdrop": "sky:morning", "vignette": "think-bubble", "parts": { "田": {}, "心": {} } },
   "sentences": [
     {
       "segments": [ { "text": "それでいいと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [205780, 43026] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

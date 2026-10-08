@@ -5,15 +5,7 @@
   "primaryReading": "せん",
   "readings": { "kun": ["ち"], "on": ["セン"] },
   "mnemonic": "A thousand footsteps crossing at the crossroads (十).",
-  "effect": {
-    "material": "clay",
-    "reveal": "draw",
-    "scene": ["road"],
-    "backdrop": "sky:golden",
-    "motion": "float",
-    "parts": { "十": {} },
-    "particles": [{ "type": "footprints", "dir": "away", "count": 1.4 }]
-  },
+  "effect": { "material": "clay", "backdrop": "sky:golden", "vignette": "crane-string", "parts": { "十": {} } },
   "sentences": [
     {
       "segments": [ { "text": "千", "reading": "せん" }, { "text": "人", "reading": "にん" }, { "text": "もの" }, { "text": "人", "reading": "ひと" }, { "text": "がそこにいた。" } ],

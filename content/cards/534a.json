@@ -5,14 +5,7 @@
   "primaryReading": "はん",
   "readings": { "kun": ["なか(ば)"], "on": ["ハン"] },
   "mnemonic": "A thing cut straight down the middle into halves.",
-  "effect": {
-    "material": "jade",
-    "reveal": "draw",
-    "particles": ["motes"],
-    "backdrop": "sky:forest",
-    "motion": { "type": "split", "dist": 0.07 },
-    "emblem": "clock"
-  },
+  "effect": { "material": "jade", "backdrop": "sky:forest", "vignette": "orange-half" },
   "sentences": [
     {
       "segments": [ { "text": "車", "reading": "くるま" }, { "text": "でそこへ" }, { "text": "行", "reading": "い" }, { "text": "くのに" }, { "text": "一", "reading": "いち" }, { "text": "時間", "reading": "じかん" }, { "text": "半", "reading": "はん" }, { "text": "かかった。" } ],

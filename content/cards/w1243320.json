@@ -8,14 +8,7 @@
   "pos": ["n", "adv"],
   "kanji": ["91d1", "66dc", "65e5"],
   "builtFrom": [{ "k": "金", "m": "gold" }, { "k": "曜", "m": "weekday" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["coins"],
-    "emblem": "calendar",
-    "backdrop": "sky:golden",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "coin-tower:week" },
   "sentences": [
     {
       "segments": [ { "text": "やっと" }, { "text": "金曜日", "reading": "きんようび" }, { "text": "だ。" } ],

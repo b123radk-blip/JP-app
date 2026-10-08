@@ -5,15 +5,7 @@
   "primaryReading": "き",
   "readings": { "kun": ["き(く)", "き(こえる)"], "on": ["ブン", "モン"] },
   "mnemonic": "An ear (耳) pressed to the gate (門): listen, hear.",
-  "effect": {
-    "material": "silver",
-    "reveal": "draw",
-    "particles": ["notes"],
-    "scene": ["gate"],
-    "backdrop": "sky:dusk",
-    "emblem": "ear",
-    "parts": { "門": {}, "耳": {} }
-  },
+  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "ear-gate", "parts": { "門": {}, "耳": {} } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "話", "reading": "はなし" }, { "text": "を" }, { "text": "聞", "reading": "き" }, { "text": "かせなさい。" } ],
@@ -22,6 +14,6 @@
       "source": { "tatoeba": [206009, 43255] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

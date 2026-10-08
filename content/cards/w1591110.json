@@ -8,14 +8,7 @@
   "pos": ["v5k", "vt"],
   "kanji": ["805e"],
   "builtFrom": [{ "k": "聞", "m": "hear" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "ear",
-    "particles": ["notes"],
-    "backdrop": "sky:twilight",
-    "motion": "float"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": "ear-gate:shell" },
   "sentences": [
     {
       "segments": [ { "text": "ちょっと" }, { "text": "聞", "reading": "き" }, { "text": "いてもいい？" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [202714, 39949] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 聞く" },
+  "review": { "recipe": "reviewed", "rule": "word 聞く" },
   "source": { "jmdict": 1591110, "jlpt": 5 }
 }

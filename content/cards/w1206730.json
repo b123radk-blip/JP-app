@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5b66", "6821"],
   "builtFrom": [{ "k": "学", "m": "study" }, { "k": "校", "m": "exam" }],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["gate"], "emblem": "book", "backdrop": "sky:morning" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "school-bell:kids" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "学校", "reading": "がっこう" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きません。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [157854, 256677] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 学校" },
+  "review": { "recipe": "reviewed", "rule": "word 学校" },
   "source": { "jmdict": 1206730, "jlpt": 5 }
 }

@@ -8,13 +8,7 @@
   "pos": ["adj-pn"],
   "kanji": ["5c0f"],
   "builtFrom": [{ "k": "小", "m": "little" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "backdrop": "sky:twilight",
-    "motion": "shrink:0.6",
-    "emblem": "house"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": "ant-tiny:seed" },
   "sentences": [
     {
       "segments": [ { "text": "小", "reading": "ちい" }, { "text": "さなことでくよくよするな。" } ],

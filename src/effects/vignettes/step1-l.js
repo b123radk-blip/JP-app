@@ -38,7 +38,7 @@ const writeText = (text, u, h, color) => { const m = textPlane(text, { h, color,
 function snakeLong(ctx, spec, stage) {
   if (spec.outcome === 'noodle') return noodle(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.15 * u, N = 40;
-  const body = many([[G.sphere(0.055 * u), 0x40a040]], N, 0.5), head = solidProp([[G.sphere(0.075 * u, 0, 0, 0, 1.4, 0.9, 1), 0x40a040], [G.sphere(0.018 * u, 0.04 * u, 0.04 * u, 0.04 * u), 0x101010], [G.sphere(0.018 * u, 0.04 * u, 0.04 * u, -0.04 * u), 0x101010], [G.cone(0.01 * u, 0.06 * u, 0.12 * u, -0.01 * u, 0, -Math.PI / 2), 0xe02040]], 0.5);
+  const body = many([[G.sphere(0.08 * u), 0x40a040]], N, 0.5), head = solidProp([[G.sphere(0.11 * u, 0, 0, 0, 1.4, 0.9, 1), 0x40a040], [G.sphere(0.025 * u, 0.06 * u, 0.06 * u, 0.06 * u), 0x101010], [G.sphere(0.025 * u, 0.06 * u, 0.06 * u, -0.06 * u), 0x101010], [G.cone(0.014 * u, 0.08 * u, 0.17 * u, -0.01 * u, 0, -Math.PI / 2), 0xe02040]], 0.5);
   for (let i = 0; i < N; i++) body.setColorAt(i, new THREE.Color(i % 4 < 2 ? 0x40a040 : 0x80c040));
   group.add(body, head);
   const loop = 6.4;
@@ -46,7 +46,7 @@ function snakeLong(ctx, spec, stage) {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, L = pre ? 0.1 : 0.1 + 0.9 * between(v, 0.2, 3.6) * (1 - between(v, 5.0, 6.0));
-      const P = (s) => [x0 + s * 1.3 * u, floor + 0.07 * u + 0.08 * u * Math.sin(s * 14 - v * 4) * Math.min(1, s * 4)];
+      const P = (s) => [x0 + s * 1.3 * u, floor + 0.1 * u + 0.14 * u * Math.sin(s * 12 - v * 4) * Math.min(1, s * 4)];
       for (let i = 0; i < N; i++) { const s = (i / (N - 1)) * L, [x, y] = P(s); body.set(i, x, y, 0.05 * u, 1 - 0.3 * (1 - i / N)); }
       body.commit();
       const [hx, hy] = P(L + 0.03); head.position.set(hx, hy, 0.05 * u); head.rotation.z = 0.3 * Math.cos(L * 14 - v * 4);
@@ -79,7 +79,7 @@ function readBook(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.45 * u;
   const p = createPerson({ u: 0.9 * u, shirt: 0x8a5ad0 }), book = solidProp([[G.box(0.24 * u, 0.16 * u, 0.01 * u, -0.12 * u, 0, 0, 0), 0xfaf4e4], [G.box(0.24 * u, 0.16 * u, 0.01 * u, 0.12 * u, 0, 0), 0xfaf4e4], [G.box(0.5 * u, 0.17 * u, 0.008 * u, 0, 0, -0.008 * u), 0xc03030]], 0.5);
   const page = new THREE.Group(), pageM = solidProp([[G.box(0.23 * u, 0.15 * u, 0.006 * u, 0.115 * u, 0, 0), 0xffffff]], 0.6); page.add(pageM);
-  const words = ['あ', 'い', 'う', 'え'].map((c) => textPlane(c, { h: 0.1 * u, color: '#ffe060', weight: 900 }));
+  const words = ['あ', 'い', 'う', 'え'].map((c) => textPlane(c, { h: 0.15 * u, color: '#ffe060', weight: 900 }));
   group.add(p.group, book, page, ...words);
   const loop = 5.6;
   return {
@@ -89,8 +89,8 @@ function readBook(ctx, spec, stage) {
       p.reset().face('toward'); sit(p, 1); p.group.position.set(px, floor - 0.2 * u, 0.0);
       for (const s of ['L', 'R']) { p.bone(`arm${s}`).rotation.x = 1.0; p.bone(`fore${s}`).rotation.x = 1.0; p.raise(s, 0.15); }
       p.bone('head').rotation.x = 0.3 + 0.05 * Math.sin(v * 2); p.update();
-      bonePoint(p, 'handL', 0.5, tmp); book.position.set(px, tmp.y + 0.06 * u, tmp.z + 0.06 * u); book.rotation.x = -0.6; book.visible = !pre;
-      const turn = pre ? 0 : between(v, 1.2, 1.8); page.position.copy(book.position).add(new THREE.Vector3(0, 0, 0.01 * u)); page.rotation.set(-0.6, -Math.PI * turn, 0, 'ZXY'); page.visible = turn > 0 && turn < 1;
+      bonePoint(p, 'handL', 0.5, tmp); book.position.set(px, tmp.y - 0.02 * u, tmp.z + 0.04 * u); book.rotation.x = -1.0; book.visible = !pre;
+      const turn = pre ? 0 : between(v, 1.2, 1.8); page.position.copy(book.position).add(new THREE.Vector3(0, 0, 0.01 * u)); page.rotation.set(-1.0, -Math.PI * turn, 0, 'ZXY'); page.visible = turn > 0 && turn < 1;
       words.forEach((w, i) => { const f = pre ? 0 : ((v * 0.45 + i / 4) % 1); w.visible = !pre; w.position.set(px + (i - 1.5) * 0.12 * u + 0.05 * u * Math.sin(f * 6 + i), book.position.y + 0.1 * u + 0.6 * u * f, 0.15 * u); w.scale.setScalar(grow(Math.sin(Math.PI * f))); });
     },
   };
@@ -197,7 +197,7 @@ function weatherTurns(ctx, spec, stage) {
 // ---- 古 old ----
 function oldBox(ctx, spec, stage) {
   if (spec.outcome === 'car') return oldCar(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.5 * u;
+  const u = 1.3 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.35 * u;
   const box = solidProp([[G.box(0.46 * u, 0.3 * u, 0.3 * u, 0, 0.15 * u, 0), 0x7a5a3a], [G.box(0.47 * u, 0.03 * u, 0.31 * u, 0, 0.08 * u, 0), 0x5a3a20], [G.poly([[-0.1 * u, 0.25 * u], [-0.05 * u, 0.18 * u], [-0.08 * u, 0.1 * u], [-0.02 * u, 0.04 * u]], 0.006 * u).translate(0, 0, 0.152 * u), 0x2a1a10], [G.poly([[0.15 * u, 0.28 * u], [0.12 * u, 0.2 * u], [0.16 * u, 0.14 * u]], 0.006 * u).translate(0, 0, 0.152 * u), 0x2a1a10]], 0.3);
   const lidP = new THREE.Group(), lid = solidProp([[G.box(0.48 * u, 0.04 * u, 0.32 * u, 0, 0, 0.16 * u), 0x6a4a2a]], 0.3), web = solidProp([...[0, 1, 2, 3, 4].map((i) => [G.cyl(0.003 * u, 0.003 * u, 0.25 * u, 0, 0, 0, 0, 0, i * 0.39 - 0.78).translate(0, 0, 0), 0xe0e0e8]), ...[0.06, 0.12, 0.18].map((r) => [G.torus(r * u, 0.003 * u, Math.PI / 2, 0, 0, 0, Math.PI), 0xe0e0e8])], 0.6);
   lidP.add(lid); lidP.position.set(bx, floor + 0.3 * u, -0.16 * u); web.position.set(bx + 0.23 * u, floor + 0.32 * u, 0.15 * u);
@@ -239,7 +239,7 @@ function oldCar(ctx, spec, stage) {
 function gulpDrink(ctx, spec, stage) {
   if (spec.outcome === 'cat') return catLap(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.4 * u;
-  const p = createPerson({ u: 0.95 * u, shirt: 0x40a0e0 }), glass = solidProp([[G.cyl(0.05 * u, 0.04 * u, 0.15 * u, 0, 0, 0), 0xd8f0ff]], 0.3), juice = solidProp([[G.cyl(0.045 * u, 0.037 * u, 1, 0, 0.5, 0), 0xffa020]], 0.7), gulps = many([[G.torus(0.04 * u, 0.008 * u), 0xffffff]], 2, 1.0);
+  const p = createPerson({ u: 0.95 * u, shirt: 0x40a0e0 }), glass = solidProp([[G.cyl(0.075 * u, 0.06 * u, 0.22 * u, 0, 0, 0), 0xd8f0ff]], 0.3), juice = solidProp([[G.cyl(0.068 * u, 0.055 * u, 1, 0, 0.5, 0), 0xffa020]], 0.7), gulps = many([[G.torus(0.04 * u, 0.008 * u), 0xffffff]], 2, 1.0);
   glass.material.transparent = true; glass.material.opacity = 0.5;
   group.add(p.group, glass, juice, gulps);
   const loop = 5.4;
@@ -250,7 +250,7 @@ function gulpDrink(ctx, spec, stage) {
       p.reset().face(0.5); p.group.position.set(px, floor, 0.02 * u); p.bone('armR').rotation.x = 1.0 + 1.0 * tip; p.bone('foreR').rotation.x = 1.5 * tip + 0.4; p.bone('head').rotation.x = -0.45 * tip;
       if (wipe > 0) { p.bone('armL').rotation.x = 1.2 * wipe; p.bone('foreL').rotation.x = 1.6 * wipe; } p.update();
       bonePoint(p, 'handR', 0.6, tmp); glass.position.set(tmp.x, tmp.y + 0.05 * u, tmp.z + 0.03 * u); glass.rotation.z = 1.4 * tip; glass.visible = !pre;
-      juice.position.copy(glass.position).add(new THREE.Vector3(Math.sin(1.4 * tip) * 0.07 * u, -Math.cos(1.4 * tip) * 0.07 * u, 0)); juice.rotation.z = glass.rotation.z; juice.scale.set(1, Math.max(1e-3, 0.13 * u * level), 1); juice.visible = level > 0.02 && !pre;
+      juice.position.copy(glass.position).add(new THREE.Vector3(Math.sin(1.4 * tip) * 0.1 * u, -Math.cos(1.4 * tip) * 0.1 * u, 0)); juice.rotation.z = glass.rotation.z; juice.scale.set(1, Math.max(1e-3, 0.19 * u * level), 1); juice.visible = level > 0.02 && !pre;
       for (let i = 0; i < 2; i++) { const g = ((v * 1.5 + i / 2) % 1); gulps.set(i, px + 0.25 * u, floor + 0.8 * u + 0.1 * u * g, 0.1 * u, tip > 0.8 && v < 2.9 ? 1 + g : 0); }
       gulps.commit();
     },

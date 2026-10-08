@@ -7,9 +7,8 @@
   "mnemonic": "Evening (夕) piled on evening: many.",
   "effect": {
     "material": "gold",
-    "reveal": "draw",
-    "particles": [{ "type": "motes", "dir": "still", "count": 2 }],
     "backdrop": "sky:night",
+    "vignette": "candy-pile",
     "parts": { "夕": { "motion": "count:2" } }
   },
   "sentences": [

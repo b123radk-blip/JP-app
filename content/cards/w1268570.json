@@ -8,13 +8,7 @@
   "pos": ["n"],
   "kanji": ["4e94", "65e5"],
   "builtFrom": [{ "k": "五", "m": "five" }, { "k": "日", "m": "sun" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "calendar",
-    "scene": ["lanterns:5"],
-    "backdrop": "sky:morning"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "hand-five:day" },
   "sentences": [
     {
       "segments": [ { "text": "五", "reading": "いつ" }, { "text": "日", "reading": "か" }, { "text": "待", "reading": "ま" }, { "text": "ってくれ。" } ],

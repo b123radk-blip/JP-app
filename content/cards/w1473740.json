@@ -8,14 +8,7 @@
   "pos": ["v5u", "vt"],
   "kanji": ["8cb7"],
   "builtFrom": [{ "k": "買", "m": "buy" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "yen",
-    "particles": ["coins"],
-    "backdrop": "sky:day",
-    "motion": "pulse"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "cart-shop:vending" },
   "sentences": [
     {
       "segments": [ { "text": "どこで" }, { "text": "本", "reading": "ほん" }, { "text": "が" }, { "text": "買", "reading": "か" }, { "text": "えますか。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [200944, 38148] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 買う" },
+  "review": { "recipe": "reviewed", "rule": "word 買う" },
   "source": { "jmdict": 1473740, "jlpt": 5 }
 }

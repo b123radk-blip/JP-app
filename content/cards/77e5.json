@@ -5,13 +5,7 @@
   "primaryReading": "ち",
   "readings": { "kun": ["し(る)", "し(らせる)"], "on": ["チ"] },
   "mnemonic": "The answer flies from the mouth (口) like an arrow (矢): know.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "backdrop": "plain",
-    "emblem": "lightbulb",
-    "parts": { "矢": {}, "口": {} }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:night", "vignette": "wise-owl", "parts": { "矢": {}, "口": {} } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "話", "reading": "はなし" }, { "text": "は" }, { "text": "知", "reading": "し" }, { "text": "っています。" } ],
@@ -20,6 +14,6 @@
       "source": { "tatoeba": [206034, 43281] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

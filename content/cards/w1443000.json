@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["96fb", "6c17"],
   "builtFrom": [{ "k": "電", "m": "electricity" }, { "k": "気", "m": "spirit" }],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:indoor", "motion": "blink", "emblem": "lightbulb" },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "lightning-bulb:bulb" },
   "sentences": [
     {
       "segments": [ { "text": "電気", "reading": "でんき" }, { "text": "をつけて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],

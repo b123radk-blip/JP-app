@@ -8,14 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["5c11"],
   "builtFrom": [{ "k": "少", "m": "few" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["dust"],
-    "backdrop": "sky:dusk",
-    "motion": "shrink",
-    "emblem": "dots:2"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "few-grains:jar" },
   "sentences": [
     {
       "segments": [ { "text": "そう" }, { "text": "思", "reading": "おも" }, { "text": "っている" }, { "text": "人", "reading": "ひと" }, { "text": "が" }, { "text": "少", "reading": "すく" }, { "text": "ない。" } ],

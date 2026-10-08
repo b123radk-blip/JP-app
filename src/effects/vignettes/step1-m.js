@@ -165,7 +165,7 @@ function globeHello(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 0.45 * u, gy = floor + 0.35 * u;
   const globe = solidProp([[G.sphere(0.24 * u), 0x3a8ae0], ...[[0.1, 0.08, 0.2], [-0.12, -0.05, 0.19], [0.05, -0.14, 0.17], [-0.05, 0.15, 0.16]].map(([x, y, z]) => [G.sphere(0.08 * u, x * u, y * u, z * u, 1.2, 0.8, 0.4), 0x50b050])], 0.5);
   const stand = solidProp([[G.torus(0.28 * u, 0.012 * u, Math.PI, 0, 0, 0, -Math.PI / 2), 0xc8a050], [G.cyl(0.015 * u, 0.015 * u, 0.1 * u, 0, -0.33 * u, 0), 0xc8a050], [G.cyl(0.1 * u, 0.12 * u, 0.03 * u, 0, -0.38 * u, 0), 0x8a6a30]], 0.4);
-  const words = ['Hello', 'こんにちは', 'Hola', 'Bonjour'].map((w) => textPlane(w, { h: 0.12 * u, color: '#202838', bg: '#ffffff', pad: 0.3 }));
+  const words = ['Hello', 'こんにちは', 'Hola', 'Bonjour'].map((w) => textPlane(w, { h: 0.18 * u, color: '#202838', bg: '#ffffff', pad: 0.3 }));
   globe.position.set(gx, gy, 0); stand.position.set(gx, gy, 0);
   group.add(stand, globe, ...words);
   const loop = 6.4;
@@ -186,7 +186,7 @@ function forestRows(ctx, spec, stage) {
   const rows = [], r = seeded(17); for (let i = 0; i < N; i++) { const row = Math.floor(i / 4); rows.push([B.maxX + (0.15 + (i % 4) * 0.28 + row * 0.12 + r() * 0.06) * u, row]); }
   rows.forEach(([, row], i) => pines.setColorAt(i, new THREE.Color([0x2e8a3a, 0x237030, 0x1a5a28][row])));
   const mist = many([[G.sphere(0.2 * u, 0, 0, 0, 2, 0.4, 0.6), 0xe8eef4]], 4, 0.6), owl = solidProp([[G.sphere(0.07 * u, 0, 0, 0, 1, 1.2, 0.9), 0x8a6a4a], [G.sphere(0.025 * u, -0.025 * u, 0.03 * u, 0.06 * u), 0xffe060], [G.sphere(0.025 * u, 0.025 * u, 0.03 * u, 0.06 * u), 0xffe060], [G.sphere(0.012 * u, -0.025 * u, 0.03 * u, 0.08 * u), 0x101010], [G.sphere(0.012 * u, 0.025 * u, 0.03 * u, 0.08 * u), 0x101010]], 0.5);
-  mist.material.transparent = true; mist.material.opacity = 0.5;
+  mist.material.transparent = true; mist.material.opacity = 0.22;
   group.add(pines, mist, owl);
   const loop = 6.6;
   return {

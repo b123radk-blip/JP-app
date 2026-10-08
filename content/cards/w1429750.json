@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["9577"],
   "builtFrom": [{ "k": "長", "m": "long" }],
-  "effect": { "material": "ivory", "reveal": "draw", "motion": "stretch", "scene": ["road"], "backdrop": "sky:morning" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "snake-long:noodle" },
   "sentences": [
     {
       "segments": [ { "text": "日", "reading": "ひ" }, { "text": "はだんだん" }, { "text": "長", "reading": "なが" }, { "text": "くなる。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [122906, 281096] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 長い" },
+  "review": { "recipe": "reviewed", "rule": "word 長い" },
   "source": { "jmdict": 1429750, "jlpt": 5 }
 }

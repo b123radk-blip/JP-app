@@ -8,7 +8,7 @@
   "pos": ["v5r", "vt"],
   "kanji": ["77e5"],
   "builtFrom": [{ "k": "知", "m": "know" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "lightbulb", "motion": "tilt", "backdrop": "sky:twilight" },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": "wise-owl:map" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "人", "reading": "ひと" }, { "text": "を" }, { "text": "知", "reading": "し" }, { "text": "っていますか。" } ],
@@ -17,6 +17,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 知る" },
+  "review": { "recipe": "reviewed", "rule": "word 知る" },
   "source": { "jmdict": 1420470, "jlpt": 5 }
 }

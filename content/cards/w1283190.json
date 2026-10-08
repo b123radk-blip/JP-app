@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["9ad8"],
   "builtFrom": [{ "k": "高", "m": "tall" }],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:golden", "motion": "stretch:y", "emblem": "yen" },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "giraffe-tall:price" },
   "sentences": [
     {
       "segments": [ { "text": "なんて" }, { "text": "高", "reading": "たか" }, { "text": "い" }, { "text": "木", "reading": "き" }, { "text": "でしょう。" } ],

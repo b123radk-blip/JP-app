@@ -8,14 +8,7 @@
   "pos": ["v5k-s", "vi"],
   "kanji": ["884c"],
   "builtFrom": [{ "k": "行", "m": "going" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "scene": ["road"],
-    "emblem": "arrow:up",
-    "motion": "drift:away",
-    "backdrop": "sky:dusk"
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "go-light:setoff" },
   "sentences": [
     {
       "segments": [ { "text": "すぐに" }, { "text": "行", "reading": "い" }, { "text": "ってください。" } ],
@@ -24,6 +17,6 @@
       "source": { "tatoeba": [214964, 591204] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 行く" },
+  "review": { "recipe": "reviewed", "rule": "word 行く" },
   "source": { "jmdict": 1578850, "jlpt": 5 }
 }

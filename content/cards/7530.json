@@ -5,7 +5,7 @@
   "primaryReading": "た",
   "readings": { "kun": ["た"], "on": ["デン"] },
   "mnemonic": "A rice field seen from above, split into four paddies.",
-  "effect": { "material": "jade", "reveal": "draw", "scene": ["field"], "backdrop": "sky:day", "particles": ["motes"] },
+  "effect": { "material": "jade", "backdrop": "sky:day", "vignette": "paddy-grow" },
   "sentences": [
     {
       "segments": [ { "text": "ここは" }, { "text": "田", "reading": "た" }, { "text": "んぼです。" } ],
@@ -14,6 +14,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

@@ -5,14 +5,7 @@
   "primaryReading": "ご",
   "readings": { "kun": ["うま"], "on": ["ゴ"] },
   "mnemonic": "The post of a sundial at high noon.",
-  "effect": {
-    "material": "gold",
-    "reveal": "draw",
-    "particles": ["motes:still"],
-    "scene": ["dial"],
-    "backdrop": "sky:noon",
-    "emblem": "clock"
-  },
+  "effect": { "material": "gold", "backdrop": "sky:noon", "vignette": "noon-clock" },
   "sentences": [
     {
       "segments": [ { "text": "午後", "reading": "ごご" }, { "text": "は" }, { "text": "外", "reading": "そと" }, { "text": "へ" }, { "text": "出", "reading": "で" }, { "text": "たくない。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [174391, 240078] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

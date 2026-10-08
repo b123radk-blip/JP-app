@@ -14,12 +14,12 @@ import { grow } from './step1-kit.js';
 const GOODS = [0xff5a5a, 0xffd040, 0x5ab0ff, 0x60d070];
 function cartShop(ctx, spec, stage) {
   if (spec.outcome === 'vending') return vending(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.3 * u;
+  const u = 1.3 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.15 * u;
   const shelf = solidProp([[G.box(1.0 * u, 0.03 * u, 0.2 * u, 0.5 * u, 0, 0), 0xc89a60], [G.box(0.03 * u, 0.7 * u, 0.2 * u, 0.0, -0.35 * u, 0), 0xa87a40], [G.box(0.03 * u, 0.7 * u, 0.2 * u, 1.0 * u, -0.35 * u, 0), 0xa87a40]], 0.35);
   const goods = many([[G.box(0.1 * u, 0.13 * u, 0.08 * u, 0, 0.065 * u, 0), 0xffffff]], 4, 0.6); GOODS.forEach((c, i) => goods.setColorAt(i, new THREE.Color(c)));
   const cart = solidProp([[G.box(0.32 * u, 0.02 * u, 0.2 * u, 0, 0.12 * u, 0), 0xb8c0cc], [G.box(0.32 * u, 0.16 * u, 0.01 * u, 0, 0.2 * u, 0.1 * u), 0xb8c0cc], [G.box(0.32 * u, 0.16 * u, 0.01 * u, 0, 0.2 * u, -0.1 * u), 0xb8c0cc], [G.box(0.01 * u, 0.16 * u, 0.2 * u, -0.16 * u, 0.2 * u, 0), 0xb8c0cc], [G.box(0.01 * u, 0.16 * u, 0.2 * u, 0.16 * u, 0.2 * u, 0), 0xb8c0cc], [G.cyl(0.012 * u, 0.012 * u, 0.2 * u, -0.22 * u, 0.32 * u, 0, Math.PI / 2), 0x3a7ae0], [G.box(0.08 * u, 0.012 * u, 0.012 * u, -0.19 * u, 0.29 * u, 0.1 * u, 0.6), 0xb8c0cc], ...[-0.12, 0.12].map((x) => [G.cyl(0.03 * u, 0.03 * u, 0.22 * u, x * u, 0.03 * u, 0, Math.PI / 2), 0x202428])], 0.45);
   const receipt = solidProp([[G.box(0.1 * u, 1, 0.004 * u, 0, -0.5, 0), 0xffffff]], 0.8), beep = textPlane('ピッ', { h: 0.1 * u, color: '#ffffff', bg: '#e04848', pad: 0.3 });
-  shelf.position.set(x0, floor + 0.72 * u, -0.25 * u);
+  shelf.position.set(x0, floor + 0.72 * u, -0.25 * u); shelf.scale.x = 0.9;
   group.add(shelf, goods, cart, receipt, beep);
   const loop = 6.4;
   return {

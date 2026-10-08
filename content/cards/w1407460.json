@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["591a"],
   "builtFrom": [{ "k": "多", "m": "many" }],
-  "effect": { "material": "ivory", "reveal": "draw", "particles": ["motes"], "emblem": "stars", "backdrop": "sky:golden" },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "candy-pile:birds" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "川", "reading": "かわ" }, { "text": "にはマスが" }, { "text": "多", "reading": "おお" }, { "text": "い。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [220830, 58152] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 多い" },
+  "review": { "recipe": "reviewed", "rule": "word 多い" },
   "source": { "jmdict": 1407460, "jlpt": 5 }
 }

@@ -5,14 +5,7 @@
   "primaryReading": "い",
   "readings": { "kun": ["い(う)", "こと"], "on": ["ゲン", "ゴン"] },
   "mnemonic": "Lines of words coming out of a mouth (口): say.",
-  "effect": {
-    "material": "paper",
-    "reveal": "draw",
-    "particles": ["notes"],
-    "backdrop": "sky:twilight",
-    "emblem": "speech",
-    "parts": { "口": {} }
-  },
+  "effect": { "material": "paper", "backdrop": "sky:twilight", "vignette": "say-hello", "parts": { "口": {} } },
   "sentences": [
     {
       "segments": [ { "text": "本気", "reading": "ほんき" }, { "text": "で" }, { "text": "言", "reading": "い" }, { "text": "ってるんです。" } ],
@@ -21,6 +14,6 @@
       "source": { "tatoeba": [163707, 250804] }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true }
 }

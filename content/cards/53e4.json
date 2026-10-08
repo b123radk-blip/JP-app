@@ -5,14 +5,7 @@
   "primaryReading": "ふる",
   "readings": { "kun": ["ふる(い)", "ふる", "ふる(す)"], "on": ["コ"] },
   "mnemonic": "Ten (十) mouths (口) have retold this story: old.",
-  "effect": {
-    "material": "stone",
-    "reveal": "draw",
-    "particles": ["dust"],
-    "backdrop": "sky:dusk",
-    "emblem": "book",
-    "parts": { "十": {}, "口": {} }
-  },
+  "effect": { "material": "stone", "backdrop": "sky:dusk", "vignette": "old-box", "parts": { "十": {}, "口": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "い" }, { "text": "車", "reading": "くるま" }, { "text": "を" }, { "text": "買", "reading": "か" }, { "text": "いました。" } ],

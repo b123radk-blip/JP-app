@@ -5,7 +5,7 @@
   "primaryReading": "みみ",
   "readings": { "kun": ["みみ"], "on": ["ジ"] },
   "mnemonic": "An ear with its folds.",
-  "effect": { "material": "skin", "reveal": "draw", "particles": ["notes"], "backdrop": "plain", "emblem": "ear" },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "bunny-ears" },
   "sentences": [
     {
       "segments": [ { "text": "うさぎは" }, { "text": "耳", "reading": "みみ" }, { "text": "が" }, { "text": "長", "reading": "なが" }, { "text": "い。" } ],
@@ -14,6 +14,6 @@
       "source": { "written": true }
     }
   ],
-  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "review": { "recipe": "reviewed", "mnemonic": "draft" },
   "source": { "kanjidic2": true, "words": ["w1317170"] }
 }

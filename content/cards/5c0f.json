@@ -5,13 +5,7 @@
   "primaryReading": "こ",
   "readings": { "kun": ["ちい(さい)", "こ", "お", "さ"], "on": ["ショウ"] },
   "mnemonic": "A tiny stick with two drops beside it: small.",
-  "effect": {
-    "material": "ice",
-    "reveal": "draw:drops",
-    "scene": ["ripples"],
-    "backdrop": "sky:twilight",
-    "motion": "shrink"
-  },
+  "effect": { "material": "ice", "backdrop": "sky:twilight", "vignette": "ant-tiny" },
   "sentences": [
     {
       "segments": [ { "text": "小", "reading": "ちい" }, { "text": "さな" }, { "text": "円", "reading": "えん" }, { "text": "を" }, { "text": "書", "reading": "か" }, { "text": "きなさい。" } ],

@@ -171,7 +171,7 @@ function orangeHalf(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ox = B.maxX + 0.55 * u, oy = floor + 0.2 * u, R = 0.2 * u;
   const halfGeo = () => [[new THREE.SphereGeometry(R, 24, 16, 0, Math.PI), 0xff9a20], [new THREE.CircleGeometry(R * 0.98, 24).rotateY(-Math.PI / 2).translate(0, 0, 0), 0xffd070], ...Array.from({ length: 8 }, (_, i) => [G.box(0.004 * u, R * 1.7, 0.01 * u, 0.001 * u, 0, 0, i * Math.PI / 8).rotateY(-Math.PI / 2), 0xffffff])];
   const L = solidProp(halfGeo(), 0.5), Rh = solidProp(halfGeo(), 0.5), knife = solidProp([[G.box(0.04 * u, 0.36 * u, 0.012 * u, 0, 0.18 * u, 0), 0xd8dde6], [G.box(0.05 * u, 0.15 * u, 0.03 * u, 0, 0.43 * u, 0), 0x5a3a20]], 0.5);
-  const board = solidProp([[G.box(0.8 * u, 0.04 * u, 0.4 * u, 0, -0.02 * u, 0), 0xc89a60]], 0.35), tag = textPlane('½', { h: 0.2 * u, color: '#ffffff', bg: '#e04848', pad: 0.3 });
+  const board = solidProp([[G.box(0.8 * u, 0.04 * u, 0.4 * u, 0, -0.02 * u, 0), 0xc89a60]], 0.35), tag = textPlane('½', { h: 0.3 * u, color: '#ffffff', bg: '#e04848', pad: 0.3 });
   L.rotation.y = Math.PI; board.position.set(ox, floor, -0.05 * u); board.rotation.x = 0.4;
   group.add(board, L, Rh, knife, tag);
   const loop = 5.6;
@@ -229,7 +229,7 @@ function glyphSplit(ctx, spec, stage) {
   };
 }
 function untangle(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.55 * u, cy = B.cy, N = 40;
+  const u = 1.4 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u, cy = B.cy, N = 40;
   const bits = many([[G.sphere(0.022 * u), 0xe04848]], N, 0.6), bang = textPlane('!', { h: 0.25 * u, color: '#ffe040', weight: 900 });
   group.add(bits, bang);
   const loop = 5.6;
