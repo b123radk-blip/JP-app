@@ -4,8 +4,7 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** done. All Step 2 cards are built (147 kanji and 173 words with scenes, plus the pilot); the
-checks and the log are in docs/BATCH-LOG.md. Next: the user's headset look, then Step 1's 112 kanji with the same prompt.
+**Where to continue:** Step 2b is done (below; checks and numbers in docs/BATCH-LOG.md). Step 1 (Step 2c) is in progress: see "Step 1 revamp" at the end of this file.
 
 ## Grades
 Triaged on frame strips of every card (`node scripts/look.mjs ids --times 1,3,6`, sheets in `.cache/revamp/`), plus the
@@ -408,3 +407,291 @@ Grades: **B** when the meaning *is* its kanji side by side (a word rule that doe
 - Step 1's 112 kanji get this same pass later. What carries over: the kit, the timeline, and the "kanji takes part"
   tricks (`poseGlyph` in vignettes/people.js turns or shifts the kanji about any point; `stage.offset` moves single
   strokes).
+
+# Step 1 revamp (Step 2c): a scene for every first-deck card
+
+The prompt: [docs/prompts/step-2c-step1-revamp.md](prompts/step-2c-step1-revamp.md). Scope: Step 1's 112 kanji (the first
+225 cards of `content/decks/n5.json`) and their 110 words (二人, 上手 and 下手 were done in the Step 2b pilot). Scenes go in
+`src/effects/vignettes/step1*.js`. (P) marks a scene with a kit person in it; the target is at most about half.
+
+## Step 1 grades
+Triaged on frame strips of every card (`node scripts/look.mjs <ids> --times 1,3,6`, sheets in `.cache/s1/`):
+
+| | Kanji (112) | Words (110) |
+|---|---|---|
+| A | 0 | 0 |
+| B | 6: 日 (the sunrise sky is there), 火 (the flames are there), 川 (the river prop), 雨 (the rain), 歩 (the footprints), 時 (the dial) | 0 |
+| C | 106 | 110 |
+
+Every Step 1 card is a material, a sky and an emblem or a static prop beside the kanji: 上 has an arrow, 犬 nothing at
+all, the numbers a row of dots or lanterns, the 〜日 words a calendar emblem, the weekdays a calendar or their element's
+emblem. The six B cards keep what they have underneath and get a scene on top. Every word is C: words were drafted from a
+rule table, so most are an emblem that repeats one of their kanji.
+
+## Family plans (designed as sets before building)
+
+**Numbers.** Each number counts real things or uses its own strokes, and every number has its own action:
+一 one candle on one cupcake, lit and blown out; 二 two birds land on the two strokes as if on wires; 三 three ducks
+waddle in a row; 四 a four-leaf clover unfolds leaf by leaf; 五 a hand counts up its five fingers; 六 a die tumbles and
+lands on six; 七 a rainbow builds its seven stripes; 八 an octopus waves its eight arms; 九 nine marks fill a
+noughts-and-crosses grid; 十 a bowling ball knocks down ten pins; 百 a centipede (百足) crawls while a counter runs to
+100; 千 a string of a thousand paper cranes (千羽鶴) unrolls; 万 a counter rolls past 9999 to 10000 and fireworks go up.
+The 〜つ words are the `count` variant of their number's scene: the number's thing drops into a row one at a time, a
+tag counting 1, 2, 3 (一つ an apple, 二つ two eggs, 三つ dango on a stick, 四つ four clovers, 五つ five stars, 六つ an egg box
+of six, 七つ seven rainbow balls, 八つ eight takoyaki, 九つ nine marbles in a tray). The 〜日 words are the `day` variant:
+a month grid lights its days one by one up to the date, which gets a red circle, and the number's thing hops onto it.
+一日 has two cards: ついたち (`first`: a calendar page tears off, a new month, day 1 circled) and いちにち (`allday`: one
+sun crosses the sky from sunrise to sunset over a single day). 二十日 is the `day` variant of 十's scene (20).
+
+**Weekdays.** 月曜日 … 日曜日 are the `week` variant of their element kanji's scene (月 the moon waxing, 火 the fire
+catching, 水 the tap filling a basin, 木 the tree sprouting, 金 coins stacking, 土 a spade turning soil, 日 the sunrise),
+played smaller and higher, with a strip 月火水木金土日 under it whose own day lights up. 曜 is a wheel of the seven day
+symbols turning until the pointer stops on one; 週 is the seven-day strip itself with a little sun hopping across it, day
+by day, and wrapping round.
+
+**Time words.** One picture for this / next / last / every, over the unit: a row of three unit tiles (years: a tree in
+its season with the year number; months: moon pages; weeks: seven-day strips; days: sun pages).
+`this-unit` (今): a spotlight lands on the middle tile, which glows "now"; `next-unit` (来): the row slides left and a
+new tile slides in from the right, the marker steps onto it; `last-unit` (先): the marker steps back onto the left
+tile, which turns sepia and rewinds; `every-unit` (毎): a stamp hops onto every tile in turn, thump, thump, thump. The
+unit is the variant: 今年 `this-unit:year`, 今月, 今週, 今日; 来年 `next-unit:year`, 来月, 来週; 先月 `last-unit:month`,
+先週; 毎日 `every-unit:day`, 毎週, 毎月, 毎年. The kanji themselves get their own scenes (今 `this-unit:now`: three
+clocks, past, now and future, and the middle one ticks and glows; 来 a beckoning hand and a puppy bounding over; 先 three
+paper boats race and one pulls ahead; 毎 `every-unit:cups`: a teapot fills every cup in a row).
+
+**Look-alikes.** 日 sunrise pushing the night away / 目 the glyph opens as an eye and blinks / 白 snow falls and covers
+everything white / 田 the grid floods and rice grows in it / 口 the glyph opens and shuts like a mouth / 中 a ball drops
+into the middle of a ring. 人 the glyph walks on its two strokes / 入 a dog goes into a tent / 八 an octopus with eight
+arms. 大 the glyph grows huge over a tiny mouse / 犬 a dog wags and fetches / 天 clouds drift and a rainbow arcs in the
+sky / 木 a tree sprouts / 本 a book opens into a pop-up castle (Step 2: 太 trunk, 夫 wedding, 丈 post). 千 paper cranes /
+午 the clock hands meet at twelve (Step 2: 牛 cow). 小 a magnifier finds a tiny ant / 少 only a few grains drop into a
+bowl. 四 a four-leaf clover / 西 the sun sets in the west. 休 resting against a tree (Step 2: 体 stretching). 間 a book
+slides into the gap between two bookends (Step 2: 問 a raised hand).
+
+## Step 1 kanji (deck order)
+- [ ] 日 sun (B): night with stars; the sun rises behind the kanji, pushes the dark away, rays spin out; 日曜日 `week`.
+- [ ] 火 fire (B): keep the flames; a match strikes, the logs under the kanji catch, it roars up; 火曜日 `week`.
+- [ ] 水 water (C): a tap above pours onto the kanji, water runs down it into a basin that fills and ripples; 水曜日 `week`.
+- [ ] 山 mountain (C): the kanji heaves up out of the ground with a rumble, a mountain rises behind, snow settles on the peak.
+- [ ] 川 river (B): the three strokes ripple like flowing water and a leaf floats down them; banks either side.
+- [ ] 木 tree (C): the kanji sprouts branches, a canopy of leaves bursts out, an apple drops; 木曜日 `week`.
+- [ ] 雨 rain (B): a cloud gathers over the kanji, its four dots fall out of it as rain and splash in puddles, then reappear.
+- [ ] 休 rest (C, P): a tired walker stops, sits down against the tree beside the kanji, closes their eyes, Zzz.
+- [ ] 明 bright (C): night; the 日 part glows gold and the 月 part silver, beams sweep out and the dark lifts.
+- [ ] 林 woods (C): both 木 grow canopies, then small trees pop up between them into a little wood; a squirrel runs along.
+- [ ] 上 up (C): a balloon tied to a box lifts off and floats up above the kanji, bobbing; the box stays down.
+- [ ] 下 down (C): a boat on the water; its anchor drops down on a chain to the sea bed below.
+- [ ] 何 what (C): a mystery box shakes and hops; a big "?" springs out on a spring like a jack-in-the-box.
+- [ ] 三 three (C): three ducks waddle in a row along the bottom stroke, each quacking in turn.
+- [ ] 時 time (B): a big clock face behind the kanji, the hands sweep round, and on each hour a bell rings out.
+- [ ] 二 two (C): two birds fly in and land on the two strokes as if on wires, chirp, and fly off.
+- [ ] 一 one (C): one cupcake with one candle sits on the stroke; the candle lights, flickers and is blown out.
+- [ ] 人 person (C): the glyph walks on its two strokes as legs, a head pops on top, it turns and waves.
+- [ ] 今 now (C): three clocks in a row (before, now, after); a spotlight lands on the middle one, which ticks and glows.
+- [ ] 手 hand (C): two big hands meet in a high five with a burst, then wave.
+- [ ] 四 four (C): a four-leaf clover grows beside the kanji and unfolds its four leaves one by one, a sparkle.
+- [ ] 十 ten (C): a bowling ball rolls into ten pins and knocks them all down: strike!
+- [ ] 年 year (C): a tree runs through the seasons (blossom, green, red, snow) while a year number ticks on.
+- [ ] 七 seven (C): a rainbow builds itself stripe by stripe, seven colours.
+- [ ] 話 talk (C, P): two people at a table chat; speech bubbles go back and forth.
+- [ ] 後 behind (C, P): a kid hides behind the kanji, peeks out round its side and ducks back.
+- [ ] 大 big (C): the kanji grows huge; a tiny mouse at its foot looks up and up.
+- [ ] 外 outside (C): a little house; the door opens and a dog runs out into the yard; the door shuts behind it.
+- [ ] 国 country (C): an island rises from the sea, a border draws round it and a flag plants on top.
+- [ ] 父 father (C, P): a dad lifts a kid up onto his shoulders, swaying.
+- [ ] 母 mother (C, P): a mum rocks a baby in her arms, hearts rising.
+- [ ] 八 eight (C): an octopus pops up and waves its eight arms.
+- [ ] 私 I (C, P): three lockers; one opens, a person steps out and points at themselves, a name tag lights.
+- [ ] 来 come (C): a hand beckons and a puppy bounds over from far away, wagging.
+- [ ] 月 moon (C): night sky; the moon waxes from a thin crescent to full and wanes again; 月曜日 `week`.
+- [ ] 先 ahead (C): three paper boats race on the water; one pulls ahead, a little flag on it.
+- [ ] 曜 weekday (C): a wheel of the seven day symbols turns until the pointer stops on one.
+- [ ] 週 week (C): a seven-day strip; a little sun hops across it day by day and wraps round.
+- [ ] 毎 every (C): `every-unit:cups`: a teapot hops along a row of cups and fills every one.
+- [ ] 六 six (C): a big die tumbles and lands showing six.
+- [ ] 白 white (C): snow falls; the ground, a little tree and the kanji turn white.
+- [ ] 車 car (C): a car drives a loop around the kanji, honks and parks.
+- [ ] 九 nine (C): a noughts-and-crosses grid fills with nine marks one by one.
+- [ ] 男 man (C, P): a man pulls a plough through the rice field, straining.
+- [ ] 出 exit (C): a turtle pokes its head and legs out of its shell and walks off.
+- [ ] 口 mouth (C): the glyph opens and shuts like a mouth: teeth, a tongue, it says "ah" and chomps.
+- [ ] 入 enter (C): a dog trots into a tent and the flap drops behind it.
+- [ ] 電 electricity (C): lightning arcs between two clouds and strikes a lightbulb, which lights.
+- [ ] 足 foot (C): two bare feet walk across leaving prints; the toes wiggle.
+- [ ] 女 woman (C, P): a woman with long hair in a dress twirls, a flower in her hair.
+- [ ] 前 in front (C): a mother duck walks in front, the ducklings following; a ring glows round the leader.
+- [ ] 道 road (C): a road unrolls into the distance; a car drives along it towards the horizon.
+- [ ] 見 see (C, P): a person lifts binoculars and spots a bird, which flies off.
+- [ ] 生 life (C): a seed in the soil sprouts, grows leaves and stands up alive.
+- [ ] 学 study (C, P): a kid at a desk reads, writes, and a lightbulb lights.
+- [ ] 駅 station (C): a station with a name board and a clock; a train pulls in, doors open, it leaves.
+- [ ] 花 flower (C): a bud swells and opens into a big flower; a bee visits.
+- [ ] 子 child (C): the glyph is a kid: its arms flap, it hops and bounces.
+- [ ] 犬 dog (C): a dog wags its tail, runs after a thrown ball and brings it back.
+- [ ] 少 few (C): a hand shakes a bag over a bowl and only a few grains drop out.
+- [ ] 午 noon (C): a clock's hands meet at twelve, the sun reaches the top; ding.
+- [ ] 魚 fish (C): a fish leaps out of the water in an arc and splashes back.
+- [ ] 半 half (C): a knife cuts an orange exactly in half; the halves fall apart.
+- [ ] 分 divide (C): the knife (刀) of the kanji chops, and its top (八) splits into two halves.
+- [ ] 肉 meat (C): a big piece of meat on the bone turns on a spit over a fire, sizzling.
+- [ ] 千 thousand (C): a long string of paper cranes unrolls and a counter shows 1000.
+- [ ] 右 right (C): a car at a junction blinks its right indicator and turns right.
+- [ ] 本 book (C): a book opens and a pop-up castle unfolds out of it; pages turn.
+- [ ] 好 like (C, P): a kid hugs a puppy; hearts rise.
+- [ ] 多 many (C): candies pour from a jar into a heap that spills over.
+- [ ] 西 west (C): the sun sets on the west side of a compass, the needle swings to W, a crow flies home.
+- [ ] 中 middle (C): a ball drops into the middle of a ring and settles in the centre.
+- [ ] 左 left (C): two hands held up palms out, thumbs out; the left one makes an L and glows.
+- [ ] 金 gold (C): gold coins drop and stack into a tower that topples with a jingle; 金曜日 `week`.
+- [ ] 北 north (C): snow and ice; a penguin, the compass needle swings to N, the north star twinkles.
+- [ ] 東 east (C): dawn; the sun rises on the east side of a compass, the needle swings to E.
+- [ ] 南 south (C): a palm tree on a hot beach, the compass needle swings to S.
+- [ ] 耳 ear (C): a rabbit's long ears prick up at a sound and swivel.
+- [ ] 小 small (C): a magnifier slides over and finds a tiny ant waving.
+- [ ] 五 five (C): a hand counts up its fingers, one, two ... five.
+- [ ] 新 new (C): a box opens on a shiny new toy robot that sparkles.
+- [ ] 聞 hear (C, P): a person cups an ear at a gate and sound rings come through.
+- [ ] 会 meet (C, P): two people walk up from either side and bow to each other.
+- [ ] 言 say (C, P): a person says こんにちは and the word comes out in a speech bubble.
+- [ ] 万 ten thousand (C): a counter rolls past 9999 to 10000 and fireworks go up.
+- [ ] 知 know (C): a wise owl with a graduation cap blinks, a "!" pops over it.
+- [ ] 気 spirit (C, P): a droopy person, a battery over their head fills up and they jump with energy.
+- [ ] 間 gap (C): two bookends; a book slides into the gap between them.
+- [ ] 校 school (C): a school building with a clock tower; the bell swings and rings.
+- [ ] 社 company (C): an office tower; its windows light up floor by floor.
+- [ ] 名 name (C): a hand slides a name card into the nameplate on a door.
+- [ ] 高 tall (C): a giraffe stretches its neck up higher and higher.
+- [ ] 買 buy (C): a shopping cart rolls along, things drop in, a receipt prints.
+- [ ] 長 long (C): a snake stretches longer and longer.
+- [ ] 読 read (C, P): a person reads a book; a page turns and words float up.
+- [ ] 行 go (C): a traffic light turns green and a car zooms off.
+- [ ] 天 sky (C): clouds drift across a blue sky, a rainbow arcs and a bird flies across.
+- [ ] 古 old (C): a cracked old box under cobwebs; dust puffs when it creaks open.
+- [ ] 飲 drink (C, P): a person tips back a glass, gulp gulp, and wipes their mouth.
+- [ ] 食 eat (C): an apple gets bitten, chomp, chomp, down to the core.
+- [ ] 書 write (C): a pencil writes あいう on lined paper.
+- [ ] 歩 walk (B, P): keep the footprints; a person walks along the path leaving them.
+- [ ] 安 cheap (C): a price tag ¥1000 is crossed out and drops to ¥100, a SALE sign.
+- [ ] 土 soil (C): a spade digs, turns the soil over, a worm pops out; 土曜日 `week`.
+- [ ] 円 yen / circle (C): a ¥ coin spins on its edge, wobbles and settles, a circle drawn round it.
+- [ ] 目 eye (C): the glyph opens as an eye: a pupil looks left and right and it blinks.
+- [ ] 田 rice field (C): the 田 grid floods with water, seedlings pop up in rows, grow and turn gold.
+- [ ] 思 think (C, P): a person with a hand on their chin; a thought bubble shows a cake, then a home.
+- [ ] 百 hundred (C): a centipede crawls along, its many legs rippling, a counter running to 100.
+- [ ] 語 language (C): a globe spins; a speech bubble says Hello, こんにちは, Hola in turn.
+- [ ] 森 forest (C): rows of tall pines spring up layer behind layer; mist, an owl blinks.
+- [ ] 友 friend (C, P): two kids high-five, then walk off arm in arm.
+
+## Step 1 words (deck order)
+- [ ] 下さい please (C, P): a kid holds out both hands, a sweet drops into them, a bow.
+- [ ] 時々 sometimes (C): `time:sometimes`: a clock ticks and now and then a little bird pops out of it.
+- [ ] 休み rest (C, P): `rest-tree:holiday`: a person stretches out in a hammock under the sun.
+- [ ] 休む take a day off (C, P): `rest-tree:bed`: a person in bed with the alarm clock pushed away.
+- [ ] 三つ three (C): `count`: three dango drop onto a stick, counted 1, 2, 3.
+- [ ] 上げる raise (C): `up:flag`: a flag is raised up a pole.
+- [ ] 三日 3rd (C): `day`: the month grid lights to 3, a duck hops onto it.
+- [ ] 二つ two (C): `count`: two eggs.
+- [ ] 二日 2nd (C): `day`, a bird.
+- [ ] 一つ one (C): `count`: one apple.
+- [ ] 一日 one day (C): `allday`: one sun crosses the sky from sunrise to sunset.
+- [ ] 一日 1st of the month (C): `first`: a calendar page tears off, a new month, day 1 circled.
+- [ ] 一人 one person (C, P): `walker:alone`: one person sits alone on a bench under a lamp.
+- [ ] 今日 today (C): `this-unit:day`.
+- [ ] 四つ four (C): `count`: four clovers.
+- [ ] 四日 4th (C): `day`, a clover.
+- [ ] 十日 10th (C): `day`, a bowling pin.
+- [ ] 二十日 20th (C): `day:20` of 十's scene.
+- [ ] 今年 this year (C): `this-unit:year`.
+- [ ] 七つ seven (C): `count`: seven rainbow balls.
+- [ ] 七日 7th (C): `day`, a rainbow.
+- [ ] 話す talk (C, P): `talk:phone`: a person talks with big gestures, squiggles in a bubble.
+- [ ] 後ろ behind (C, P): `peek:sneak`: a cat sneaks up behind a person, who turns round.
+- [ ] 大きい big (C): `grow:elephant`: an elephant beside a mouse.
+- [ ] 大人 adult (C, P): a tall grown-up with a briefcase beside a small kid, who stretches up to match.
+- [ ] 大きな big (C): `grow:whale`: a whale surfaces beside a little boat.
+- [ ] 外国 foreign country (C): `island:plane`: a plane flies from one island with a flag to another.
+- [ ] 外国人 foreigner (C, P): `island:visitor`: a traveller with a suitcase and a passport, a stamp thumps.
+- [ ] お父さん dad (C, P): `dad:home`: dad comes home with a briefcase, the kid runs to hug him.
+- [ ] お母さん mum (C, P): `mum:cook`: mum cooks at a pot, steam, a taste with the spoon.
+- [ ] 八日 8th (C): `day`, an octopus.
+- [ ] 八つ eight (C): `count`: eight takoyaki on a tray.
+- [ ] 来る come (C): `beckon:bird`: a bird flies in and lands on a held-out finger.
+- [ ] 来年 next year (C): `next-unit:year`.
+- [ ] 来月 next month (C): `next-unit:month`.
+- [ ] 今月 this month (C): `this-unit:month`.
+- [ ] 先月 last month (C): `last-unit:month`.
+- [ ] 火曜日 Tuesday (C): `week` of 火.
+- [ ] 日曜日 Sunday (C): `week` of 日.
+- [ ] 月曜日 Monday (C): `week` of 月.
+- [ ] 木曜日 Thursday (C): `week` of 木.
+- [ ] 水曜日 Wednesday (C): `week` of 水.
+- [ ] 来週 next week (C): `next-unit:week`.
+- [ ] 先週 last week (C): `last-unit:week`.
+- [ ] 今週 this week (C): `this-unit:week`.
+- [ ] 毎日 every day (C): `every-unit:day`.
+- [ ] 毎年 every year (C): `every-unit:year`.
+- [ ] 毎週 every week (C): `every-unit:week`.
+- [ ] 毎月 every month (C): `every-unit:month`.
+- [ ] 六日 6th (C): `day`, a die.
+- [ ] 六つ six (C): `count`: an egg box of six.
+- [ ] 白い white (C): `snow:rabbit`: a white rabbit hops through the snow.
+- [ ] 九つ nine (C): `count`: nine marbles in a tray.
+- [ ] 九日 9th (C): `day`, a cross.
+- [ ] 出る leave (C, P): `out:door`: a person walks out of a door with a wave.
+- [ ] 出す take out (C): `out:hat`: a hand pulls a rabbit out of a top hat.
+- [ ] 出口 exit (C, P): `out:exit`: a green exit sign glows, a person runs out under it.
+- [ ] 入る enter (C, P): `tent:house`: a person walks into a house and the door shuts.
+- [ ] 入り口 entrance (C, P): `tent:doors`: automatic doors slide open and a person walks in.
+- [ ] 入れる put in (C): `tent:coin`: a coin drops into a piggy bank.
+- [ ] 電話 phone (C): `bolt:phone`: an old phone rings and hops, sparks along its wire.
+- [ ] 電車 train (C): an electric train runs under the wires, sparks at the pantograph.
+- [ ] 見る see (C): `binoculars:stars`: a telescope turns to the stars.
+- [ ] 見せる show (C, P): `binoculars:show`: a kid holds up a drawing to show you.
+- [ ] 先生 teacher (C, P): a teacher with a pointer bows, kids bow back.
+- [ ] 生まれる be born (C): `sprout:stork`: a stork flies in with a bundle, a baby peeks out.
+- [ ] 学生 student (C, P): `desk:backpack`: a student with a school bag and books walks along.
+- [ ] 大学 university (C): `desk:cap`: graduation caps fly up in the air.
+- [ ] 女の子 girl (C, P): `woman:girl`: a girl on a swing.
+- [ ] 男の子 boy (C, P): `plough:boy`: a boy flies a toy plane round his head.
+- [ ] 少し a little (C): `few:pinch`: a pinch of salt drops into a pot.
+- [ ] 少ない few (C): `few:jar`: a cookie jar tips: only two cookies left.
+- [ ] 午後 afternoon (C): `noon:pm`: the clock and the sun move past twelve into the afternoon.
+- [ ] 午前 morning (C): `noon:am`: the sun climbs towards twelve in the morning.
+- [ ] 分かる understand (C, P): a kid frowns at a tangle; it untangles into a straight line and they nod.
+- [ ] 半分 half (C): `half:share`: a cookie snaps in two and two hands take a half each.
+- [ ] 大好き love (C, P): `hug:love`: a heart swells huge and pulses.
+- [ ] 好き like (C): `hug:icecream`: an ice cream, heart eyes.
+- [ ] 多分 probably (C, P): a person looks at a cloud, shrugs, and opens an umbrella just in case.
+- [ ] 多い many (C): `pile:birds`: many birds flock onto a wire.
+- [ ] お金 money (C): `coins:wallet`: a wallet opens, coins and notes spill out.
+- [ ] 金曜日 Friday (C): `week` of 金.
+- [ ] 小さい small (C): `ant:dolls`: nesting dolls open into smaller and smaller ones.
+- [ ] 小さな small (C): `ant:seed`: a tiny seed in a big hand.
+- [ ] 五つ five (C): `count`: five stars.
+- [ ] 五日 5th (C): `day`, a hand.
+- [ ] 新しい new (C): `new:shoes`: an old shoe is swapped for a shiny new one.
+- [ ] 新聞 newspaper (C): a newspaper flies in, unfolds, the headline flashes.
+- [ ] 聞く hear (C, P): `ear:shell`: a kid holds a seashell to their ear; waves.
+- [ ] 会う meet (C, P): `meet:run`: two friends run to each other and hug.
+- [ ] 言う say (C): `say:parrot`: a parrot repeats a word.
+- [ ] 知る know (C): `owl:map`: the owl taps a map and nods.
+- [ ] 電気 electricity (C): `bolt:bulb`: lightning flows down a wire into a lamp.
+- [ ] 時間 time (C): `time:span`: a clock with a coloured wedge sweeping out the time that passed.
+- [ ] 学校 school (C, P): `school:kids`: kids run in through the gate as the bell rings.
+- [ ] 会社 company (C, P): `tower:commute`: people with briefcases walk into the office tower.
+- [ ] 名前 name (C): `name:write`: a pencil writes a name on a notebook label.
+- [ ] 高い high / expensive (C): `giraffe:price`: a price tag shoots up, ¥¥¥.
+- [ ] 買う buy (C): `cart:vending`: a coin goes into a vending machine and a can drops.
+- [ ] 長い long (C): `snake:noodle`: a very long noodle is slurped up.
+- [ ] 読む read (C): `read:worm`: a bookworm with glasses wriggles through a book.
+- [ ] 行く go (C, P): `go:set-off`: a person with a backpack waves and sets off.
+- [ ] 天気 weather (C): `sky:weather`: sun, cloud, rain and snow take turns over a little town.
+- [ ] 古い old (C): `old:car`: an old car coughs smoke and rattles.
+- [ ] 飲む drink (C): `drink:cat`: a cat laps milk from a saucer.
+- [ ] 食べる eat (C, P): `bite:sandwich`: a person munches a sandwich.
+- [ ] 書く write (C): `write:chalk`: chalk writes on a blackboard.
+- [ ] 歩く walk (C): `walk:penguin`: a penguin waddles along.
+- [ ] 安い cheap (C): `cheap:bin`: a bargain bin with a SALE sign.
+- [ ] 土曜日 Saturday (C): `week` of 土.
+
+People: 20 of the 112 kanji scenes and 28 of the 110 word scenes plan a kit person (48 of 222, 22%); a few more use a hand only.
