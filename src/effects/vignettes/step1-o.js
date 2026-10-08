@@ -55,7 +55,7 @@ function planeHop(ctx, spec, stage) {
 function visitor(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, dx = B.maxX + 0.45 * u;
   const p = createPerson({ u: 0.9 * u, shirt: 0x3a9a8a, hair: 0xe0b040 }), bag = solidProp([[G.box(0.22 * u, 0.28 * u, 0.1 * u, 0, 0.14 * u, 0), 0xc04a3a], [G.box(0.08 * u, 0.02 * u, 0.02 * u, 0, 0.3 * u, 0), 0x303030], [G.cyl(0.02 * u, 0.02 * u, 0.1 * u, -0.07 * u, 0.0, 0, Math.PI / 2), 0x202020], [G.cyl(0.02 * u, 0.02 * u, 0.1 * u, 0.07 * u, 0.0, 0, Math.PI / 2), 0x202020]], 0.45);
-  const passport = solidProp([[G.box(0.18 * u, 0.24 * u, 0.01 * u, 0, 0, 0), 0x2a3a8a], [G.cyl(0.04 * u, 0.04 * u, 0.012 * u, 0, 0.03 * u, 0, Math.PI / 2), 0xffd040]], 0.5), inside = solidProp([[G.box(0.17 * u, 0.23 * u, 0.012 * u, 0, 0, 0), 0xf4f0e4]], 0.5), mark = solidProp([[G.torus(0.04 * u, 0.008 * u), 0xe02020], [G.box(0.05 * u, 0.008 * u, 0.008 * u, 0, 0, 0), 0xe02020]], 1.0);
+  const passport = solidProp([[G.box(0.25 * u, 0.33 * u, 0.01 * u, 0, 0, 0), 0x2a3a8a], [G.cyl(0.055 * u, 0.055 * u, 0.012 * u, 0, 0.04 * u, 0, Math.PI / 2), 0xffd040]], 0.5), inside = solidProp([[G.box(0.24 * u, 0.32 * u, 0.012 * u, 0, 0, 0), 0xf4f0e4], [G.box(0.08 * u, 0.1 * u, 0.014 * u, -0.06 * u, 0.06 * u, 0), 0x9ab0c8]], 0.5), mark = solidProp([[G.torus(0.06 * u, 0.012 * u), 0xe02020], [G.box(0.07 * u, 0.012 * u, 0.01 * u, 0, 0, 0), 0xe02020]], 1.0);
   const stamp = solidProp([[G.cyl(0.04 * u, 0.05 * u, 0.06 * u, 0, 0.03 * u, 0), 0xc03030], [G.cyl(0.015 * u, 0.015 * u, 0.1 * u, 0, 0.1 * u, 0), 0x6a3a1a], [G.sphere(0.03 * u, 0, 0.16 * u, 0), 0x6a3a1a]], 0.5);
   group.add(p.group, bag, passport, inside, mark, stamp);
   const loop = 6.0;
@@ -66,10 +66,10 @@ function visitor(ctx, spec, stage) {
       const x = dx + 0.7 * u * (1 - w);
       p.reset().face(w < 1 ? 'left' : 0.5); if (w > 0 && w < 1) p.walk(v * 9, 1); p.group.position.set(x, floor, 0.0); p.update();
       bag.position.set(x + 0.22 * u, floor, -0.02 * u); bag.rotation.z = w > 0 && w < 1 ? 0.05 * Math.sin(v * 9) : 0;
-      const px = dx - 0.12 * u, py = floor + 0.75 * u;
+      const px = dx - 0.3 * u, py = floor + 0.55 * u;
       passport.visible = !pre && open < 0.5; passport.position.set(px, py, 0.15 * u);
-      inside.visible = open >= 0.5; inside.position.set(px, py, 0.15 * u); mark.visible = open >= 0.5 && thump > 0.6; mark.position.set(px, py - 0.03 * u, 0.16 * u); mark.rotation.z = 0.3;
-      const sy = py + 0.35 * u - 0.33 * u * bump(v, 2.2, 0.6); stamp.visible = open >= 0.5 && v < 3.4; stamp.position.set(px, sy, 0.17 * u); stamp.rotation.x = Math.PI / 2;
+      inside.visible = open >= 0.5; inside.position.set(px, py, 0.15 * u); mark.visible = open >= 0.5 && thump > 0.6; mark.position.set(px + 0.04 * u, py - 0.06 * u, 0.16 * u); mark.rotation.z = 0.3;
+      const sy = py + 0.35 * u - 0.36 * u * bump(v, 2.2, 0.6); stamp.visible = open >= 0.5 && v < 3.4; stamp.position.set(px + 0.04 * u, sy, 0.17 * u); stamp.rotation.x = Math.PI / 2;
     },
   };
 }

@@ -361,5 +361,6 @@ export const VIGNETTES = {
   'forest-rows': V(3, '森: rows of tall pines spring up, layer behind layer, into a deep forest; mist drifts in and an owl blinks'),
   'cart-shop': V((o) => (o.outcome === 'vending' ? 4 : 5), '買: a shopping cart rolls along under a shelf; goods hop off into it, the till goes ピッ and a receipt curls out; outcome vending: a coin goes into a vending machine, a button lights and a can drops out (買う)', { outcome: 'cart' }, 'outcome'),
   'friends-five': V(6, '友: two kids run up to each other, high-five with a burst, then walk off together arm in arm'),
+  'island-flag': V((o) => (o.outcome === 'visitor' ? 7 : 4), '国: an island rises out of the sea, a dotted border draws itself round it and a flag plants on top, waving; outcome plane: a little plane flies from one island with a flag over the sea to another with a different flag (外国); visitor: a traveller with a suitcase walks up, a passport opens and a stamp thumps down on it (外国人)', { outcome: 'island' }, 'outcome'),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),
 };

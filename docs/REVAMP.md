@@ -4,7 +4,9 @@ The prompt: [docs/prompts/step-2b-revamp.md](prompts/step-2b-revamp.md). This fi
 The test for every card: **would someone who has never seen this kanji (a kid, say) guess its meaning from the scene
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
-**Where to continue:** Step 2b is done (below; checks and numbers in docs/BATCH-LOG.md). Step 1 (Step 2c) is in progress: see "Step 1 revamp" at the end of this file.
+**Where to continue:** Step 2b (Step 2 cards) and Step 2c (Step 1 cards, "Step 1 revamp" at the end of this file) are done:
+every card in the N5 deck has a scene. Checks and numbers: docs/BATCH-LOG.md. Next: the user's headset look (the weakest
+scenes are listed in the log), then N4 with the same pattern.
 
 ## Grades
 Triaged on frame strips of every card (`node scripts/look.mjs ids --times 1,3,6`, sheets in `.cache/revamp/`), plus the
@@ -411,8 +413,10 @@ Grades: **B** when the meaning *is* its kanji side by side (a word rule that doe
 # Step 1 revamp (Step 2c): a scene for every first-deck card
 
 The prompt: [docs/prompts/step-2c-step1-revamp.md](prompts/step-2c-step1-revamp.md). Scope: Step 1's 112 kanji (the first
-225 cards of `content/decks/n5.json`) and their 110 words (二人, 上手 and 下手 were done in the Step 2b pilot). Scenes go in
-`src/effects/vignettes/step1*.js`. (P) marks a scene with a kit person in it; the target is at most about half.
+225 cards of `content/decks/n5.json`) and their 110 words (二人, 上手 and 下手 were done in the Step 2b pilot). Scenes are in
+`src/effects/vignettes/step1-*.js` (word variants in `step1-*v.js`, shared family pieces in `step1-kit.js`, time words in
+`step1-time.js`). (P) marks a scene with a kit person in it; the target is at most about half. Status: all built, ticked
+below; strips `docs/screenshots/revamp-s1-*.jpg`, contact sheet `docs/screenshots/revamp-s1-contact/`.
 
 ## Step 1 grades
 Triaged on frame strips of every card (`node scripts/look.mjs <ids> --times 1,3,6`, sheets in `.cache/s1/`):
@@ -449,11 +453,12 @@ played smaller and higher, with a strip 月火水木金土日 under it whose own
 symbols turning until the pointer stops on one; 週 is the seven-day strip itself with a little sun hopping across it, day
 by day, and wrapping round.
 
-**Time words.** One picture for this / next / last / every, over the unit: a row of three unit tiles (years: a tree in
-its season with the year number; months: moon pages; weeks: seven-day strips; days: sun pages).
-`this-unit` (今): a spotlight lands on the middle tile, which glows "now"; `next-unit` (来): the row slides left and a
-new tile slides in from the right, the marker steps onto it; `last-unit` (先): the marker steps back onto the left
-tile, which turns sepia and rewinds; `every-unit` (毎): a stamp hops onto every tile in turn, thump, thump, thump. The
+**Time words.** One picture for this / next / last / every, over the unit: a row of three unit tiles beside the word
+(years 2025 2026 2027; months 9月 10月 11月; weeks 月〜日; days as suns; the middle tile is now).
+`this-unit` (今): a spotlight comes down on the middle tile and a frame lands round it; `next-unit` (来): the frame sits
+on the middle tile, an arrow points right and the frame steps onto the next tile, which pops; `last-unit` (先): the left
+tile is faded like an old photo, an arrow points back and the frame steps onto it; `every-unit` (毎): a stamp hops along
+and ticks every tile. The
 unit is the variant: 今年 `this-unit:year`, 今月, 今週, 今日; 来年 `next-unit:year`, 来月, 来週; 先月 `last-unit:month`,
 先週; 毎日 `every-unit:day`, 毎週, 毎月, 毎年. The kanji themselves get their own scenes (今 `this-unit:now`: three
 clocks, past, now and future, and the middle one ticks and glows; 来 a beckoning hand and a puppy bounding over; 先 three
@@ -497,7 +502,7 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [x] 後 behind (C, P): a kid hides behind the kanji, peeks out round its side and ducks back. Built: `peek-behind`.
 - [x] 大 big (C): the kanji grows huge; a tiny mouse at its foot looks up and up. Built: `grow-big`.
 - [x] 外 outside (C): a little house; the door opens and a dog runs out into the yard; the door shuts behind it. Built: `house-out`.
-- [ ] 国 country (C): an island rises from the sea, a border draws round it and a flag plants on top.
+- [x] 国 country (C): an island rises from the sea, a border draws round it and a flag plants on top. Built: `island-flag`.
 - [x] 父 father (C, P): a dad lifts a kid up onto his shoulders, swaying. Built: `dad-shoulders`.
 - [x] 母 mother (C, P): a mum rocks a baby in her arms, hearts rising. Built: `mum-cradle`.
 - [x] 八 eight (C): an octopus pops up and waves its eight arms. Built: `octopus-eight`.
@@ -609,8 +614,8 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [x] 大きい big (C): `grow:elephant`: an elephant beside a mouse. Built: `grow-big:elephant`.
 - [x] 大人 adult (C, P): a tall grown-up with a briefcase beside a small kid, who stretches up to match. Built: `adult-kid`.
 - [x] 大きな big (C): `grow:whale`: a whale surfaces beside a little boat. Built: `grow-big:whale`.
-- [ ] 外国 foreign country (C): `island:plane`: a plane flies from one island with a flag to another.
-- [ ] 外国人 foreigner (C, P): `island:visitor`: a traveller with a suitcase and a passport, a stamp thumps.
+- [x] 外国 foreign country (C): `island:plane`: a plane flies from one island with a flag to another. Built: `island-flag:plane`.
+- [x] 外国人 foreigner (C, P): `island:visitor`: a traveller with a suitcase and a passport, a stamp thumps. Built: `island-flag:visitor`.
 - [x] お父さん dad (C, P): `dad:home`: dad comes home with a briefcase, the kid runs to hug him. Built: `dad-shoulders:home`.
 - [x] お母さん mum (C, P): `mum:cook`: mum cooks at a pot, steam, a taste with the spoon. Built: `mum-cradle:cook`.
 - [x] 八日 8th (C): `day`, an octopus. Built: `octopus-eight:day`.
@@ -694,4 +699,5 @@ slides into the gap between two bookends (Step 2: 問 a raised hand).
 - [x] 安い cheap (C): `cheap:bin`: a bargain bin with a SALE sign. Built: `price-slash:bin`.
 - [x] 土曜日 Saturday (C): `week` of 土. Built: `spade-dig:week`.
 
-People: 20 of the 112 kanji scenes and 28 of the 110 word scenes plan a kit person (48 of 222, 22%); a few more use a hand only.
+People (as built): 20 of the 112 kanji scenes and 30 of the 113 word scenes have a kit person (50 of 225, 22%); 12 more use a
+hand only.

@@ -3,6 +3,65 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 2c revamp: a scene for every Step 1 card, 2026-10-08
+
+**Made:** 222 cards changed (only `effect`, plus `mnemonic` on 八 二 一 三 四 七 下 年 月 出 国 and the `review` mark from
+`set-recipes.mjs`): all 112 Step 1 kanji and their 110 words (二人 上手 下手 were done in the Step 2b pilot). Triage grades
+(docs/REVAMP.md, "Step 1 revamp"): kanji A 0, B 6 (日 火 川 雨 歩 時: the right ingredient was there but static), C 106;
+words A 0, B 0, C 110. All six B cards got scenes too (川 keeps its river prop underneath; 歩's footprints now come from its walker).
+
+**Built:**
+- 119 new scene types in 16 theme modules (`src/effects/vignettes/step1-a.js` ... `step1-o.js`, `step1-time.js`, with the
+  word variants split into `step1-*v.js`; about 4,600 lines), 69 of them with variants. Scenes cost 1-10 draw calls.
+- `step1-kit.js`, the pieces the families share: `weekStrip` / `withWeek` (an element scene played smaller with the strip
+  月火水木金土日 lighting its day: 月 火 水 木 金 土 日曜日), `countScene` and `countTag` (the 〜つ words: the number's thing
+  dropping into place under a counting badge), `monthGrid` / `dayScene` (the 〜日 words: a month whose days light up to
+  the date, a red ring, the number's thing hopping on), and `seeded`.
+- `step1-time.js`: one picture for this / next / last / every over a row of unit tiles (years 2025-2027, months 9月-11月,
+  weeks 月〜日, days as suns, now as clocks): `this-unit` (spotlight and frame on the middle tile), `next-unit` (an arrow,
+  the frame steps right), `last-unit` (the left tile faded like an old photo, the frame steps back), `every-unit` (a stamp
+  ticks every tile; the kanji 毎 is a teapot filling every cup). 今日 今年 今月 今週 来年 来月 来週 先月 先週 毎日 毎年 毎週
+  毎月 are its variants, so the grid reads as one system.
+- Numbers each count their own thing and act differently: 一 one candle, 二 two birds on the strokes as wires, 三 three
+  ducks, 四 a clover's four leaves, 五 a hand's fingers, 六 a die, 七 a rainbow's stripes, 八 an octopus's arms, 九 a
+  noughts-and-crosses grid, 十 a bowling strike, 百 a centipede with a counter, 千 a thousand paper cranes, 万 a counter
+  rolling to 10000 with fireworks. 一日 is two variants (ついたち: a new month's page; いちにち: one sun's arc).
+- The glyph acts in 川 (rippling strokes), 口 (opens as a mouth), 人 (walks on its legs), 子 (a kid hopping), 目 (an eye
+  that looks and blinks), 雨 (its dots fall as rain), 分 (its 刀 chops its 八 apart), 大 (swells over a mouse), 田 (the grid
+  floods and grows rice), 明 (the 日 half glows gold, the 月 half silver), 木 / 林 (crowns grow on the trunks).
+- Unit tests now pin the old Step 1 recipes they exercise (the cards carry scenes now).
+
+**People:** 50 of the 225 Step 1 scenes have a person (20 kanji, 30 words; 22%), 12 more use a hand only. The rest are
+nature and weather (sunrise, moon phases, fire catching, rain, snow, a mountain rising, rivers, rainbows), animals (dog,
+fish, octopus, owl, bunny, centipede, penguin, hen and chicks), objects and machines (car, trains, compass, coins, clocks,
+dice, traffic lights) and the glyph itself.
+
+**Process:** a pilot of 11 cards with no person (三 三つ 三日 月 月曜日 川 上 上げる 犬 車 口), then four batches. Each scene
+was written, rendered as a trial strip (`look.mjs --recipes`, 4 frames), fixed and applied. About half the scenes needed
+one fix round, again almost always framing:
+- too small: the default `u` is a kanji card's glyph height, and small props (shoes, a coin stack, a piggy bank) needed
+  1.3-1.7x; scenes that build from `u` take a local `u = 1.4 * stage.u` rather than a recipe `size`;
+- overlapping the kanji (a car, a boat race, a person by a gate): start the actors 0.35-0.5 glyph heights right;
+- flat things edge-on again (coins, a lane, water, a road): tilt them 0.3-0.55 rad, or turn instanced coins on x;
+- a dark disc meant to cover the moon read as a black ball: the moon is now a canvas-painted phase disc;
+- a label plane with an opaque background hid the weekday strip's highlight; and the font subset has no "➜" (use →);
+- the look strips crop the right edge of word cards (`--clip 90,60,660,300` shows what the app shows).
+
+**Checks:** `npm test` passes: 0 deck pairs at or above 0.72, every look-alike pair under 0.5 (56 look-alike pairs touch a
+Step 1 kanji, all now 0.00: every Step 1 kanji has its own scene type). `npm run e2e` passes after every batch (built
+cost equals the estimate for all 835 cards); `node scripts/check-piece-costs.mjs`: 0 mismatches. Frame strips:
+`docs/screenshots/revamp-s1-*.jpg` (pilot, b1-b4 kanji and words); contact sheet of all 222 changed cards:
+`docs/screenshots/revamp-s1-contact/`.
+
+**Weakest scenes (check these first in the headset):** 左 (two hands, the left one makes an L: relies on the English
+letter), 私 (a kid pointing at their chest, わたし!), 先 (a boat pulling ahead), 前 (a hen in front of her chicks), 気
+(a battery filling over a person), 間 (a book sliding into a gap), 足 (two bare feet: the shape is rough), 時々 (a bird
+popping out of a clock now and then), 多分 (a shrug and an umbrella), 曜 (a wheel of day symbols).
+
+**Carry into N4:** plan families first (numbers, counters, days, time words), give each kanji its own scene type and
+the words variants of it; build the shared parts (strips, grids, counters) once in a kit module; size props 1.3-1.7x a
+kanji's glyph; keep at most about half the scenes with a person, using animals, weather, machines and the glyph itself.
+
 ## Step 2b revamp: a scene for every Step 2 card, 2026-10-07
 
 **Made:** 323 cards changed (only `effect`, plus the `review` mark from `set-recipes.mjs`): 147 of the 150 Step 2 kanji,

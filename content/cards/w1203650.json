@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5916", "56fd", "4eba"],
   "builtFrom": [{ "k": "外", "m": "outside" }, { "k": "国", "m": "country" }, { "k": "人", "m": "person" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "person", "scene": ["road"], "backdrop": "sky:sunset" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "island-flag:visitor" },
   "sentences": [
     {
       "segments": [ { "text": "日本食", "reading": "にほんしょく" }, { "text": "が" }, { "text": "好", "reading": "す" }, { "text": "きな" }, { "text": "外国人", "reading": "がいこくじん" }, { "text": "は" }, { "text": "少", "reading": "すく" }, { "text": "なくない。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [122306, 281694] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 外国人" },
+  "review": { "recipe": "reviewed", "rule": "word 外国人" },
   "source": { "jmdict": 1203650, "jlpt": 5 }
 }

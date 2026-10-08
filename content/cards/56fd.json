@@ -4,15 +4,8 @@
   "meaning": "country",
   "primaryReading": "くに",
   "readings": { "kun": ["くに"], "on": ["コク"] },
-  "mnemonic": "A jewel (玉) inside the border (囗): country.",
-  "effect": {
-    "material": "jade",
-    "reveal": "draw",
-    "scene": ["mountains", "river"],
-    "backdrop": "sky:day",
-    "parts": { "囗": {}, "玉": { "material": "gold", "motion": "pulse" } },
-    "emblem": { "type": "flag", "color": "#d83040" }
-  },
+  "mnemonic": "A jewel (玉) inside a border (囗): a country, its flag planted inside.",
+  "effect": { "material": "jade", "backdrop": "sky:day", "vignette": "island-flag" },
   "sentences": [
     {
       "segments": [ { "text": "お" }, { "text": "国", "reading": "くに" }, { "text": "では" }, { "text": "何語", "reading": "なにご" }, { "text": "を" }, { "text": "話", "reading": "はな" }, { "text": "すのですか。" } ],
