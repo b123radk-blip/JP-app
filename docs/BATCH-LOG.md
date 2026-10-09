@@ -3,6 +3,17 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 3a: things held against the palm, 2026-10-09
+- **User's headset look at the gestures:** the motions look good, but a held cup sat inside the fist. The fist has no
+  fingers, so a held thing must rest where the palm would be. Also: use the static Everything Library animals only when
+  nothing animated fits.
+- **Kit:** measured the fist (a flat paddle 0.074 h thick, its middle 0.05 h past the wrist bone, the palm facing the
+  bone's -x / +x). New `grip(side, middle, toward, r, k)` (IK so the palm touches the thing, then the forearm and wrist
+  twist so the palm faces it), `hold(prop, side, space, r)`, `twist`, `palm`, `fistMid`; `carry` kept for old scenes.
+- **Scenes:** 飲む: the hand holds the glass from its side (the glass pivots on its middle and tips at the mouth). 食べる:
+  the bowl sits on the upturned left palm; the chopsticks start at the palm's edge. ペット: restaged: she scoops the cat
+  onto her palm, holds it at her chest and strokes its head with her palm down (crouching hid the hand under her head).
+
 ## Step 3a: food and the missing animals arrive, 2026-10-09
 - **From the user:** the Sushi Restaurant Kit's `Food/glTF` folder (Quaternius, CC0) and "Everything Library: Animals" by
   David O'Reilly (one .fbx of 239 static animals, **CC BY 4.0**: credited in the page footer, README and

@@ -2,7 +2,7 @@
 // stretch, wings that flap through a vertex bend (flap()). Animals face +z like every model.
 //   q-cat    猫: a cat pads in, turns to you, stretches and meows ニャー, rubs against the kanji (hearts), pads off
 //   q-bird   鳥: a pigeon flies in flapping, lands on a branch growing out of the kanji, pecks and coos ポッポー, flies off
-//   q-pet    ペット: a person crouches by a cat and strokes its back; the cat leans into the hand, hearts
+//   q-pet    ペット: a person scoops a cat up onto her palm, holds it at her chest and strokes its head, hearts; sets it down
 //   q-egg    卵: a hen fluffs up, hops, and an egg is under her; she looks down at it (!), コケコッコー
 import * as THREE from 'three';
 import { acts, timeline, bump } from './timeline.js';
@@ -108,23 +108,30 @@ function bird(ctx, spec, stage) {
 
 // ---- ペット ----
 function pet(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.45 * u, px = cx + 0.4 * u;
-  const c = createModel('cat', { height: 0.42 * u }), who = actor(spec.who, 0.85 * u), love = many(HEART(u, 0.08), 3, 1);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.65 * u;
+  const hc = 0.28 * u, c = createModel('cat', { height: hc }), who = actor(spec.who, 0.9 * u), love = many(HEART(u, 0.08), 3, 1);
   group.add(c.group, who.group, love);
-  const back = new THREE.Vector3(), loop = 6.4;
+  const UP = new THREE.Vector3(0, 1, 0), DOWN = new THREE.Vector3(0, -1, 0), seat = new THREE.Vector3(), head = new THREE.Vector3(), ground = new THREE.Vector3(), loop = 7.2;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { down: [0.2, 0.7], up: [5.0, 0.8] }), k = T.down * (1 - T.up);
-      // crouching: the PickUp clip held at its lowest, the hand strokes along the cat's back
-      who.pose(k > 0.05 ? 'PickUp' : 'Idle', k > 0.05 ? 0.45 * k : t, false);
-      who.group.position.set(px, floor, 0.05 * u); who.group.rotation.y = LEFT + 0.6;
-      c.group.position.set(cx, floor, 0.12 * u); c.group.rotation.set(0, 0.6, (pre ? 0 : 0.08 * k * Math.sin(v * 2.6)));
+      const T = timeline(v, { bend: [0.2, 0.6], lift: [0.8, 0.7], rise: [0.8, 0.7], set: [5.4, 0.7], bend2: [5.2, 0.5], up2: [6.1, 0.6] });
+      const crouch = Math.max(T.bend * (1 - T.rise), T.bend2 * (1 - T.up2)), held = T.lift * (1 - T.set);
+      // she crouches (PickUp held low), scoops the cat up onto her left palm, holds it at her chest and strokes its head
+      // with her right palm, then crouches again and sets it down
+      who.pose(crouch > 0.02 ? 'PickUp' : 'Idle', crouch > 0.02 ? 0.5 * crouch : t, false);
+      who.group.position.set(px, floor, 0.05 * u); who.group.rotation.y = -0.3;
+      ground.copy(who.local(0.05, 0, 0.32)); who.local(0.0, 0.31, 0.3, seat);
+      const feet = ground.lerp(seat, held), reach = pre ? 0 : between(v, 0.4, 0.8) * (1 - between(v, 6.0, 6.4));
+      who.grip('L', feet, UP, 0, reach, { out: 0.8, down: 0.6 });
+      if (reach > 0.5) who.hold(c.group, 'L', group, 0); else c.group.position.copy(group.worldToLocal(feet.clone()));
+      c.group.rotation.set(0, -0.3 - 1.1 * held, 0.06 * held * Math.sin(v * 2.6));
+      // the stroke: from the top of its head down its neck, the palm flat
       const stroke = Math.sin(v * 2.6) * 0.5 + 0.5;
-      group.localToWorld(back.set(cx + lerp(0.06, -0.06, stroke) * u, floor + 0.37 * u, 0.12 * u + lerp(0.06, -0.06, stroke) * u));
-      who.handTo('R', back, pre ? 0 : between(v, 0.7, 1.1) * (1 - between(v, 4.7, 5.0)), { out: 0.3, down: 0.6 });
-      hearts(love, 3, cx, floor + 0.5 * u, 0.2 * u, pre ? -1 : v, 2.0, u);
+      c.group.updateWorldMatrix(true, false); c.group.localToWorld(head.set(0, lerp(0.95, 0.78, stroke) * hc, lerp(0.36, 0.12, stroke) * hc));
+      who.grip('R', head, DOWN, 0, pre ? 0 : between(v, 1.6, 2.0) * (1 - between(v, 4.8, 5.2)), { out: 0.5, down: 0.6 });
+      hearts(love, 3, px - 0.1 * u, floor + 0.8 * u, 0.25 * u, pre ? -1 : v, 2.4, u);
     },
   };
 }

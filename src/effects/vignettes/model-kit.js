@@ -2,7 +2,7 @@
 // point, read, write, listen, look, sleep), layered on a clip. Every frame: a.pose(clip, t), then gestures, each with a
 // 0..1 amount (0 = the clip's own pose). Arms reach with two-bone IK in world space, so a gesture works from any clip and
 // any facing; heads and backs turn about the actor's own axes. pose() restores what was written, so nothing piles up.
-//   const a = actor('guy', 0.85 * u); ...  a.pose('Idle', t); a.handTo('R', a.at('mouth'), k); a.carry(cup, 'R', grip);
+//   const a = actor('guy', 0.85 * u); ...  a.pose('Idle', t); a.grip('R', cupMiddle, towardCup, cupRadius, k); a.hold(cup, 'R', group, cupRadius);
 // Landmarks (a.at): mouth, earR / earL, eyes, chest, front (a hand held out), lap, over (above the head), in the actor's
 // own frame, following the head. People share one rig, so this works on all 16 (docs/MODELS.md).
 import * as THREE from 'three';
@@ -14,6 +14,10 @@ const SIDE = { R: -1, L: 1 };                   // the actor's right hand is on 
 // landmarks in heights, relative to the Head bone (head ones) or the feet; x is to the actor's left
 const HEAD = { mouth: [0, 0.07, 0.17], eyes: [0, 0.15, 0.2], earR: [-0.2, 0.12, 0.02], earL: [0.2, 0.12, 0.02], over: [0, 0.42, 0.06] };
 const BODY = { chest: [0, 0.5, 0.2], front: [0, 0.48, 0.34], lap: [0, 0.32, 0.22] };
+// The fist is a flat paddle with no fingers: its middle sits FIST_MID (heights, in the Fist bone's frame) from the wrist
+// bone, it is 2 * FIST_HALF thick from palm to back, and the palm faces the bone's -x (right hand) / +x (left hand), toward
+// the thigh in the rest pose. A held thing rests against the palm (grip / hold), never inside the fist.
+const FIST_MID = [0, 0.053, 0.015], FIST_HALF = 0.037, PALM = { R: -1, L: 1 };
 
 const v1 = new THREE.Vector3(), v2 = new THREE.Vector3(), v3 = new THREE.Vector3(), v4 = new THREE.Vector3(), v5 = new THREE.Vector3();
 const q1 = new THREE.Quaternion(), q2 = new THREE.Quaternion(), q3 = new THREE.Quaternion(), qa = new THREE.Quaternion();
@@ -82,7 +86,42 @@ export function actor(name, h, { tint = SKIN } = {}) {
       refresh();
     },
     fist(side, out = new THREE.Vector3()) { return ok ? bones[`Fist${side}`].getWorldPosition(out) : g.getWorldPosition(out); },
-    // put a prop (a child of `space`, usually the scene group) in the hand: grip [x, y, z] in heights in the actor's frame
+    // the middle of the fist and the way its palm faces (world)
+    fistMid(side, out = new THREE.Vector3()) {
+      if (!ok) return g.getWorldPosition(out);
+      const f = bones[`Fist${side}`];
+      return f.getWorldPosition(out).add(v1.set(...FIST_MID).multiplyScalar(scale()).applyQuaternion(f.getWorldQuaternion(q2)));
+    },
+    palm(side, out = new THREE.Vector3()) { return ok ? out.set(PALM[side], 0, 0).applyQuaternion(bones[`Fist${side}`].getWorldQuaternion(q2)) : out.set(0, 0, 1); },
+    // the palm against a thing: the hand reaches so its palm faces `toward` (world unit vector, from the hand to the thing)
+    // and touches a thing of radius r (world units) whose middle is `centre`; the forearm and wrist twist to turn the palm
+    grip(side, centre, toward, r, k = 1, opts) {
+      if (!ok || k <= 0) return;
+      const fist = bones[`Fist${side}`], want = centre.clone().addScaledVector(toward, -(r + FIST_HALF * scale()));
+      for (let i = 0; i < 2; i++) {                        // the wrist sits a little off the fist's middle: aim twice
+        const off = a.fistMid(side, new THREE.Vector3()).sub(fist.getWorldPosition(v3));
+        a.handTo(side, want.clone().sub(off), k, opts);
+        a.twist(side, toward, k);
+      }
+    },
+    // turn the forearm (half) and wrist (half) about the forearm so the palm faces `toward` as far as it can
+    twist(side, toward, k = 1) {
+      const lo = bones[`LowerArm${side}`], fist = bones[`Fist${side}`];
+      const f = fist.getWorldPosition(new THREE.Vector3()).sub(lo.getWorldPosition(v3)).normalize();
+      const p = a.palm(side, new THREE.Vector3()), d = toward.clone();
+      p.addScaledVector(f, -p.dot(f)); d.addScaledVector(f, -d.dot(f));
+      if (p.lengthSq() < 1e-8 || d.lengthSq() < 1e-8) return;
+      const ang = Math.atan2(f.dot(v2.crossVectors(p, d)), p.dot(d)) * k;
+      turnWorld(lo, q1.setFromAxisAngle(f, ang / 2)); turnWorld(fist, q1.setFromAxisAngle(f, ang / 2));
+      refresh();
+    },
+    // a prop resting against the palm: its middle r (world units) out from the palm's surface. Returns the palm direction.
+    hold(prop, side, space, r, out = new THREE.Vector3()) {
+      const n = a.palm(side, out), p = a.fistMid(side, new THREE.Vector3()).addScaledVector(n, FIST_HALF * scale() + r);
+      prop.position.copy(space.worldToLocal(p));
+      return n;
+    },
+    // (older) a prop at the wrist bone plus an offset in heights in the actor's frame; prefer grip + hold
     carry(prop, side, space, grip = [0, 0, 0]) {
       const k = scale(), p = a.fist(side, new THREE.Vector3()).add(v1.set(grip[0], grip[1], grip[2]).multiplyScalar(k).applyQuaternion(g.getWorldQuaternion(qa)));
       prop.position.copy(space.worldToLocal(p));
@@ -107,7 +146,7 @@ export function actor(name, h, { tint = SKIN } = {}) {
       a.handTo(side, S.add(d), k, { out: 0.3, down: 1 });
     },
     // both hands in front of the chest, apart (holding a book open, a bowl, a box)
-    hold(k, { apart = 0.2, y = 0.44, z = 0.3 } = {}) {
+    holdOut(k, { apart = 0.2, y = 0.44, z = 0.3 } = {}) {
       a.handTo('R', a.local(-apart / 2, y, z), k); a.handTo('L', a.local(apart / 2, y, z), k);
     },
     // bow (お辞儀): the back and head tip forward; hands stay at the sides

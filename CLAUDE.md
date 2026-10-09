@@ -125,7 +125,7 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   counters and time words. Word variants of a theme module live in its `step1-*v.js` (keeps modules near 300 lines).
 - 3D models: `src/effects/models.js` loads glTF files from `assets/models/` (names in `src/effects/model-list.js`, clips
   and draw calls in docs/MODELS.md). Style: Quaternius for people and animals, Kenney for vehicles and objects, the
-  Everything Library (CC BY 4.0, static, `vignettes/q-animals.js`) for animals Quaternius lacks, shapes for the abstract. A scene names its models in the catalog (`VM(dc, desc, ['shiba'])`), clones with
+  Everything Library (CC BY 4.0, static, `vignettes/q-animals.js`) only when no animated model fits, shapes for the abstract. A scene names its models in the catalog (`VM(dc, desc, ['shiba'])`), clones with
   `createModel('shiba', { height, tint })` and calls `pose('Gallop', t)` every frame before any bone tweak. Trials of new
   recipes for existing cards: `content/trials/<name>.json`, viewed with `?preview=1&trial=<name>` (Old / New button).
   New models: `node scripts/fbx-to-glb.mjs` (FBX only), `node scripts/prep-model.mjs in out.glb --keep Idle,Walk` (one model out of a library file:
@@ -133,8 +133,10 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   the name to model-list.js, `node scripts/list-models.mjs --write`. Quaternius downloads must come from the user.
 - Gestures (actions the people's clips lack: eat, drink, phone, wave, bow, nod, point, read, write, listen, look):
   `vignettes/model-kit.js`. `actor(name, h)`, then every frame `a.pose(clip, t)` and gestures with a 0..1 amount
-  (`a.toMouth('R', k)`, `a.bow(k)`, `a.handTo('L', a.local(x, y, z), k)` reaches any point by IK; `a.carry(prop, 'R',
-  group)` puts a prop in the fist). Review: `{ "vignette": { "type": "q-gesture", "g": "wave" } }`; examples `q-eat`
+  (`a.toMouth('R', k)`, `a.bow(k)`, `a.handTo('L', a.local(x, y, z), k)` reaches any point by IK). **Held things rest
+  against the palm, never inside the fist** (the fist has no fingers; the user checks this): `a.grip('R', middle, toward,
+  r, k)` brings the palm against a thing of radius r, twisting the forearm so the palm faces `toward` (hand -> thing: a
+  glass from the side, a bowl from below, a head from above), then `a.hold(prop, 'R', group, r)` places it there. Review: `{ "vignette": { "type": "q-gesture", "g": "wave" } }`; examples `q-eat`
   `q-drink` `q-meet` (vignettes/q-gestures.js). Let a recipe pick the person (`who`) and cost it with `pdc()`.
 - Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2
   --clip 150,20,560,340`, fix, then `scripts/set-recipes.mjs`. Word cards: `--clip 90,60,660,300` (the default crops their right edge). Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
