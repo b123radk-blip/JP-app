@@ -18,6 +18,175 @@ decides whether new scenes default to models (then: move the winners into the ca
 A second trial, `?preview=1&trial=quaternius` (`content/trials/quaternius.json`, `vignettes/models-b.js`), does 犬 休 歩
 with Quaternius models plus 牛 女 医者 走る 座る, so the two styles can be compared.
 
+## Model pass (Step 3a)
+Every card whose scene has a person or an animal, re-staged with Quaternius people and animals (scan: scene modules that
+build a person or a hand, animals named in the scene descriptions; 329 cards, 232 planned below in 149 scenes). One line
+per scene: its cards (`word:variant`), the models, the beats. The story stays the old one unless the line says
+otherwise; the test is the same: a child who has never seen the kanji guesses the meaning. Children are adults scaled to
+about 0.6 ("small"). New scenes go into `vignettes/q-*.js` as `q-<old name>` with the same variants. Tick a line when its
+cards are in the deck. Batch 1 also moves the gesture trial (食べる 飲む 会う) and the animal trial (猫 鳥 ペット 卵) into
+the deck.
+### 1. Family and people (30 cards)
+- [ ] `dad-shoulders` 父 お父さん: guy3 + kid (gal 0.6); he lifts the kid onto his shoulders, she cheers, arms up; home: he walks in with a briefcase, she runs to him and is swung up
+- [ ] `mum-cradle` 母 お母さん: gal2 + baby bundle; she rocks the baby in both arms, a lullaby note, hearts; cook: she stirs a pot and tastes
+- [ ] `big-brother` 兄 お兄さん: guy + small guy2; he holds a ball high, the small one hops for it, he hands it down and pats his head; piggyback: carries him on his back
+- [ ] `sister-help` 姉 お姉さん: gal3 + small gal; she crouches and ties the little one's shoe (a bow pops), then they walk off hand in hand; hair: a ribbon
+- [ ] `little-follow` 弟: guy3 + small guy2; the big one walks; the little one runs after; the big one waits, hand out; they go on hand in hand
+- [ ] `play-catch` 兄弟: guy + small guy2; big and little brother throw a ball back and forth
+- [ ] `parent-watch` 親: gal2 + small guy; walking together, the kid runs ahead; the parent stops, shades her eyes and watches over him
+- [ ] `two-buckets` 両 両親: worker; parents: guy3 + gal2 + kid; a bucket in each hand, balanced; parents: mum and dad swing their kid up between them
+- [ ] `family-wave` 家族: guy3 + gal2 + small guy2; dad, mum and kid walk out, stand in a row and wave, hearts
+- [ ] `house-heart` 家庭: gal + small guy2, house front; the house front swings open: parent and kid at the table inside, a heart
+- [ ] `adult-kid` 大人: suitMan + small gal3; the kid stretches on tiptoe and reaches his waist; he pats her head
+- [ ] `plough-man` 男 男の子:boy: worker; boy: small guy2; he leans into a plough through the field; boy: a boy runs holding a toy plane up
+- [ ] `woman-twirl` 女の子:girl: small gal3; girl: a girl swings high on a swing
+- [ ] `hand-in-hand` 二人: guy2 + gal; they walk in from either side, take hands and swing them, hearts
+- [ ] `friends-five` 友: small guy + small gal2; two kids run up, high-five with a burst, walk off together
+- [ ] `me-me` 私: small gal2; she jumps waving a hand high, then points at her own chest: わたし!
+- [ ] `me-spotlight` 自分: guy + gal3 + guy2; three people, a "?"; one steps forward, hand on chest, a spotlight lands on him
+- [ ] `mirror-me` 自: gal + her reflection (mirrored copy); she points at her nose in a standing mirror; the reflection does the same
+- [ ] `meet-bow` 会 会う:run: suitMan + gal (q-meet variant); 会: the approved 会う scene with three people gathering; 会う keeps q-meet
+- [ ] `teacher-bow` 先生: suitWoman + two small pupils; the teacher with a pointer bows; two pupils bow back
+- [ ] `abacus-kid` 学 学生:backpack 大学:caps: small guy2; caps: three students; a kid at a table flicks abacus beads, a bulb lights; backpack: a student walks to school with a bag; caps: caps fly up
+
+### 2. Animals (animated Quaternius only) (20 cards)
+- [ ] `house-out` 外: shiba; the door opens, the dog bounds out, sniffs a flower, trots back in
+- [ ] `tent-in` 入 入る:house 入り口:doors 入れる:coin: shiba; house: guy; coin: hand; the dog trots into the tent, the flap drops, it pokes its head out; variants re-staged with a person
+- [ ] `grow-big` 大 大きい:elephant 大きな:whale: whale (大きな); elephant / mouse stay; whale: a huge whale swims past a tiny boat
+- [ ] `animal-parade` 動物: cow + sheep + shiba; a cow, a sheep and a dog walk past in a row, each stops and calls
+- [ ] `cow-moo` 牛乳 牛肉: cow (q-cow variants) + kid; milk: the cow, a pail fills, a kid drinks; beef: a steak sizzles beside the cow
+- [ ] `hug-puppy` 好 大好き:love 好き:icecream: small gal + pug; a kid kneels and hugs a puppy, which wags; hearts; love / icecream as before
+- [ ] `bird-sing` 鳴 鳴く: pets: shiba barks; pets (鳴く): the dog barks ワン, a bird answers
+- [ ] `pool-swim` 泳 泳ぐ: guy2 swimmer; fish: fishOrange; a swimmer does the crawl across the pool; fish: a fish swims
+- [ ] `peek-behind` 後 後ろ:sneak: small guy2; sneak: fox behind a person; a kid hides behind the kanji and peeks out; sneak: a fox creeps up behind a person
+
+### 3. Verbs of the body, feelings and weather felt by a person (81 cards)
+- [ ] `binoculars` 見 見る:stars 見せる:show: guy3; he lifts binoculars, looks left and right, sees a bird, waves; stars / show as before
+- [ ] `ear-gate` 聞 聞く:shell: grandpa; he cups an ear (cupEar), sound rings come to him; shell: a kid holds a shell to her ear
+- [ ] `say-hello` 言 言う:parrot: gal3; she waves and says こんにちは in a big bubble; parrot stays
+- [ ] `read-book` 読 読む:worm: grandma on a stool; she reads an open book (holdOut), turns a page, letters float up
+- [ ] `gulp-drink` 飲 飲む:cat: guy (q-drink variant); a person gulps a glass down (the 飲む scene, another person and juice)
+- [ ] `go-to-bed` 夜: guy2 on a futon; he yawns, lies down, pulls up the blanket; moon, stars, Zzz
+- [ ] `alarm-wake` 起 起きる: gal2 in bed; the alarm rings, she sits bolt upright and stretches
+- [ ] `stand-up` 立 立つ: grandpa on a stool; he stands up from the stool (StandUp clip) as the kanji springs upright
+- [ ] `body-stretch` 体: worker; arms up, touches toes, twists; each part lights
+- [ ] `think-bubble` 思: gal; hand on chin, a thought bubble shows cake, house, heart
+- [ ] `think-click` 意: guy3; scratches his head, "?" turns to "!", a finger up
+- [ ] `battery-up` 気: guy; slumped (Defeat), a battery fills, he jumps up (Victory)
+- [ ] `sing-mic` 歌 歌う: gal2; she sings into a mic on a stage, swaying, notes, arm flung up
+- [ ] `banana-trip` 転: guy2; steps on a peel, falls (Death clip / Roll), sits up dazed, stars
+- [ ] `heart-beat` 心: gal3; a heart glows in her chest, she hugs herself, it beats bigger
+- [ ] `shiver-frost` 冷: guy3; hugs himself and shivers by the frosty kanji, breath puffs
+- [ ] `taste-spoon` 味: chef; dips a spoon in the pot, tastes, lights up, rubs his belly
+- [ ] `refuse-spoon` 嫌 嫌い: small guy2 + a hand; turns away from a spoon of greens, arms crossed, head shake
+- [ ] `flower-gasp` 美 美味しい: gal; gasps at a blooming flower, hands to cheeks; yum: bites a rice ball (onigiri), cheeks glow
+- [ ] `toast-run` 遅 遅い: gal2; runs (Run) with toast in her mouth under a spinning clock
+- [ ] `mud-splash` 汚 汚い: guy2; steps in a puddle, mud splashes him brown
+- [ ] `sick-bed` 病 病気: guy in bed; pale, red nose, ice bag, sneezes; pills on the stand
+- [ ] `maybe-shrug` 多分: gal3; looks up at a grey cloud, shrugs "?", opens an umbrella
+- [ ] `lift-heavy` 重: worker; squats, grips the kanji, strains; it barely lifts and he falls on his bottom
+- [ ] `drag-suitcase` 重い: guy3; drags a huge suitcase that barely moves, flops onto it
+- [ ] `barbell-flex` 強 強い: worker; lifts a barbell overhead, flexes; car variant
+- [ ] `jump-rope` 度: small gal; skips rope (Jump clip), a counter counts
+- [ ] `mirror-dance` 同 同じ: guy + guy (same model); two people do the same jumping jacks side by side, = glows
+- [ ] `post-kick` 丈 大丈夫 丈夫: small guy2; ok: + grandma; kicks a post that does not budge, hops holding his foot; ok: falls, gets up fine, thumbs up
+- [ ] `chat-table` 話 話す:phone: gal2 + guy3 sitting; two people at a little table talk, bubbles; phone: one talks on the phone (toEar)
+- [ ] `talk-bubbles` 言葉: guy + kimono; they chat, bubbles in different scripts
+- [ ] `hand-question` 問 質問 問題 答 答える: small gal3 + suitMan; a kid raises a hand under a "?"; variants as before
+- [ ] `come-near` 近 近い: gal; walks up the path toward you, growing, leans in close
+- [ ] `walk-far` 遠 遠い: hiker-like guy3; waves and walks away down a long road, smaller and smaller
+- [ ] `turn-around` 向 向こう: guy2; back to you, turns round, waves, points over there
+- [ ] `which-way` 方: gal3; by a signpost looks one way, then the other, scratches head, walks off
+- [ ] `walk-through` 通: guy; walks into a tunnel through a hill and out the other side
+- [ ] `bridge-walk` 渡 渡る: gal2; zebra: small guy2; walks over an arched bridge; zebra: crosses at the green light
+- [ ] `stairs-down` 降: guy3; walks down a staircase step by step
+- [ ] `gust-hat` 風: grandpa; leans into the gust, his hat flies off
+- [ ] `clouds-part` 晴 晴れる: gal; clouds part, the sun beams out, she throws her arms up (Victory)
+- [ ] `rain-umbrella` 降る: guy2; rain starts, he pops open an umbrella
+- [ ] `parasol-up` 差す: kimono; sweating in the sun, she holds a parasol up, shade
+- [ ] `stove-warm` 暖 暖かい: grandma; shivering, holds her hands to a stove, relaxes
+- [ ] `onsen-soak` 温 温い: guy3 in a hot spring; sinks in with a towel on his head, steam, sigh
+- [ ] `bath-tub` お風呂: small guy2 in a tub; relaxes in the tub, bubbles, rubber duck
+- [ ] `fog-glass` 曇る: small gal3; breathes on the window, draws a smiley
+- [ ] `noon-sun` 昼 昼ご飯: guy; looks up as the sun climbs overhead, opens a lunchbox
+- [ ] `home-time` 夕 夕方: two small kids; sunset, they wave goodbye and walk home, crows fly past
+
+### 4. Verbs with things (49 cards)
+- [ ] `shop-basket` 買い物: gal2 + basket; walks along a shelf, things hop into her basket
+- [ ] `luggage-pile` 荷物: guy3 (Walk_Carry); staggers in under a pile of bags, the top one teetering
+- [ ] `hug-treasure` 大切: guy2; a chest opens on a gem; he hugs it tight, hearts
+- [ ] `coat-on` 着 着る 上着: suitWoman; arrives on a mat, a coat drops onto her, she tugs it straight and twirls
+- [ ] `wardrobe-dress` 服: gal3; a wardrobe opens, clothes fly onto her, she twirls
+- [ ] `suit-up` 背広: suitMan; straightens his tie, picks up a briefcase, walks off
+- [ ] `shoe-step` 靴 靴下: small gal2; shoes hop onto a mat; she steps in and walks off; socks variant
+- [ ] `hand-over` 渡す: worker + gal; one hands a parcel to the other, who bows thanks
+- [ ] `paper-fold` 紙 手紙: small guy2; a sheet folds into a hat that hops onto a kid; letter as before
+- [ ] `rope-pull` 引 引く: worker; leans back and hauls the kanji in three heaves; drawer as before
+- [ ] `boomerang-throw` 返 返す: guy2; throws a boomerang, it loops back to his hand; book: a kid returns a book
+- [ ] `photo-snap` 写 写真: gal + camera; she poses with a peace sign, flash, a photo develops
+- [ ] `map-read` 地図: guy3; holds a map, turns it upside down, "?", points, walks off
+- [ ] `lost-key` 無くす: gal2; a key drops from her pocket, she pats her pockets, "?", looks back
+- [ ] `empty-box` 無: small guy2; a box tips, shakes, nothing falls out; the kid shrugs
+- [ ] `errand-run` 用: gal + small guy; mum hands a note, the kid runs off and back with milk
+- [ ] `apple-sell` 売 売る: worker + gal3; a seller holds up an apple, a buyer pays a coin and gets it
+- [ ] `memory-bubble` 覚 覚える: guy; reads; pictures float into a thought bubble and stay
+- [ ] `letter-blocks` 字 漢字: small gal; blocks drop into a row and a kid points at each
+- [ ] `study-desk` 勉強: small guy3 at a desk; writes line after line (write gesture), a test pops 100
+- [ ] `office-work` 業 授業: suitWoman at a laptop; types, papers stack up, the clock spins; class as before
+- [ ] `juggle-crash` 大変: guy3; juggles plates, wobbles, crash
+- [ ] `mask-off` 本当: guy; a disguise pops off, he smiles, a check
+- [ ] `practice-kick` 練習: small guy2; kicks a ball at a wall again and again
+- [ ] `piano-lesson` 習う: grandma + small gal3; the teacher plays three notes, the kid copies them
+- [ ] `drum-fun` 楽: small guy; drums on the kanji, it squashes, notes
+- [ ] `headphones-dance` 音楽: gal2; dances with big headphones, notes
+- [ ] `bell-ring` 音: grandpa; a bell rings, he turns and cups an ear
+- [ ] `gift-bow` 御: kimono; bows deeply offering a wrapped gift with both hands
+- [ ] `dinner-table` 夕飯 晩御飯: family sitting (gal2 + small guy2); dishes pop onto the table, the kid says いただきます and eats
+- [ ] `devil-vase` 悪 悪い: kit devil stays + a person who frowns
+- [ ] `soot-puff` 黒: guy2 tinted black; a chimney puffs soot over him, he comes out black, blinks, shakes it off
+- [ ] `frog-prince` 変: kit frog + kimonoMan with a crown; POOF frog, POOF prince
+- [ ] `back-to-back` 背: two small kids; back to back at a height chart, the short one on tiptoe
+- [ ] `room-expand` 広い: small gal; the walls slide apart, she spreads her arms and twirls
+- [ ] `year-hop` 再来年: small guy2; hops two calendar blocks ahead and cheers
+
+### 5. People in places, occupations, vehicles (52 cards)
+- [ ] `teach-board` 教 教える: suitWoman + small pupil; writes 1+1=2, a pupil shoots a hand up, a bulb
+- [ ] `classroom-kids` 教室: three small kids; file in and sit at desks
+- [ ] `school-bell` 校 学校:kids: kids: small kids run; kids: the bell rings, kids run in
+- [ ] `office-tower` 社 会社:commute: commute: suitMan + suitWoman; commute: people with briefcases walk in
+- [ ] `police-box` 交番: worker as officer (cap) + small gal; the officer bends down and points a lost kid the way
+- [ ] `shop-open` 屋 八百屋 閉まる: chef as shopkeeper; the shutter rolls up, the shopkeeper waves
+- [ ] `shop-counter` 店 喫茶店: worker + gal; pays a coin, the till dings, gets a bag; cafe: a waiter brings coffee
+- [ ] `butler-door` 仕 仕事: suitMan + gal; hardhat: worker; bows and holds the door; hardhat: a worker carries a plank
+- [ ] `hall-rise` 館 大使館 映画館: visitors guy + gal; visitors walk up the steps and in
+- [ ] `library-shelf` 図書館: small guy3 at a table; a book floats from the shelf to the kid
+- [ ] `queue-number` 番: three people; they queue under a number sign, each served in turn
+- [ ] `race-win` 一番: three runners; the first breaks the tape, arms up (Victory), gold 1
+- [ ] `podium-win` 最: three runners; the winner on the top step lifts a trophy
+- [ ] `race-start` 始: two runners; crouch at the line, the flag drops, they dash off
+- [ ] `curtain-close` 始まる 終: kimonoMan actor; the actor bows, curtains close; open as before
+- [ ] `line-up` 並 並ぶ: five small kids (2 models); run in, line up shoulder to shoulder, bow together
+- [ ] `inn-sleep` 宿: guy3 with a suitcase; walks into an inn, the window lights, Zzz
+- [ ] `travel-road` 旅 旅行: gal3 with a backpack; walks while scenery slides past
+- [ ] `move-in` 住 住む: guy2 (Walk_Carry) with a box; carries a box into a house, the window lights
+- [ ] `home-greet` 帰 帰る: suitMan + small gal; walks up at dusk, the door opens, the kid runs out for a hug
+- [ ] `house-build` 家: guy; walks home, goes in, the window lights
+- [ ] `my-room` 部屋: small gal2; walks into her room and jumps for joy
+- [ ] `toilet-dash` お手洗い: guy3; hops by the WC door, dashes in, strolls out relieved
+- [ ] `knock-door` 誰 誰か: guy (dark tint) behind the door; knock, the door opens a crack, a dark figure peeks out, "?"
+- [ ] `train-arrive` 着く: tramCar + gal; a train glides in, she steps off and waves
+- [ ] `bus-off` 降りる: Kenney bus + guy; the bus pulls up, he steps down
+- [ ] `bus-ride` 乗 乗る: Kenney bus + gal2; bike: small guy; gets on, waves from the window; bike: rides off
+- [ ] `bike-bell` 自転車: small guy2 on a bike (sitting pose); rides across ringing the bell
+- [ ] `subway-cut` 地下鉄: tramCar underground + guy on top
+- [ ] `merry-go-round` 楽しい: small kids riding; ride round and round, bobbing
+- [ ] `beach-day` 夏休み: small gal in a swim ring; bobbing on the waves, a beach ball
+- [ ] `pin-drop` 所: gal3; a pin drops, she runs over and waves from the spot
+- [ ] `rest-tree` 休み:holiday 休む:bed: q-rest variants; holiday: a hammock; bed: in bed with a thermometer
+- [ ] `stop-sign` 止 止まる: guy2; runs up to 止まれ and skids to a stop
+
+**Kept as they are** (hand-only scenes (the hand is the actor), and animals with no animated model (ducks, birds, hen, owl, snake, turtle, giraffe, rabbit, mouse, cat, frog: the kit animals move better than the static ones)): `three-ducks` 三 三つ 三日; `clock-hours` 時 時々 時間; `two-birds` 二 二つ 二日; `high-five` 手; `hammer-nail` 上手 下手; `come-here` 来 来る; `snow-white` 白 白い; `turtle-out` 出 出る 出す 出口; `mouth-open` 口; `feet-walk` 足; `hen-lead` 前; `flower-bloom` 花; `few-grains` 少 少し 少ない; `noon-clock` 午 午後 午前; `popup-book` 本; `compass-west` 西; `left-l` 左; `compass-north` 北; `compass-east` 東; `compass-south` 南; `hand-five` 五 五つ 五日; `wise-owl` 知 知る; `name-card` 名 名前; `giraffe-tall` 高 高い; `snake-long` 長 長い; `sky-rainbow` 天 天気; `walker-steps` 歩く; `price-slash` 安 安い; `forest-rows` 森; `food-row` 食べ物; `ticket-gate` 切符; `paint-pour` 茶色; `scrub-wash` 洗; `hand-wash` 洗う; `eraser-rub` 消; `switch-off` 消す; `egg-hatch` 初 初めて; `touch-ice` 冷たい; `roller-blue` 青 青い; `arrange-row` 並べる; `window-shut` 閉める; `paper-plane` 飛ぶ; `build-toy` 作; `black-cat` 黒い; `learn-fly` 習; `cage-open` 空; `ice-melt` 夏; `yellow-things` 黄 黄色 黄色い; `stretch-wide` 広; `gears-click` 理; `tool-use` 使 使う; `stopwatch-exact` 丁度; `bag-carry` 持 持つ; `cuckoo-clock` 時計; `phone-charge` 要 要る; `pot-cook` 料 料理; `title-stamp` 題 宿題; `grab-apple` 取 取る; `button-press` 押す; `stand-vase` 台 台所; `coin-keep` 有 有名.
+
 ## Grades
 Triaged on frame strips of every card (`node scripts/look.mjs ids --times 1,3,6`, sheets in `.cache/revamp/`), plus the
 recipe of each card:
