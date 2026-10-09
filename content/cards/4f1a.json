@@ -5,7 +5,12 @@
   "primaryReading": "かい",
   "readings": { "kun": ["あ(う)", "あ(わせる)", "あつ(まる)"], "on": ["カイ", "エ"] },
   "mnemonic": "People (人) under one roof, talking (云): meet.",
-  "effect": { "material": "jade", "backdrop": "sky:forest", "vignette": "meet-bow", "parts": { "人": {}, "云": {} } },
+  "effect": {
+    "material": "jade",
+    "backdrop": "sky:forest",
+    "vignette": { "type": "q-meet", "outcome": "shake", "who": "guy3", "other": "suitWoman" },
+    "parts": { "人": {}, "云": {} }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "古", "reading": "ふる" }, { "text": "い" }, { "text": "友人", "reading": "ゆうじん" }, { "text": "に" }, { "text": "会", "reading": "あ" }, { "text": "った。" } ],

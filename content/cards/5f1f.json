@@ -5,7 +5,7 @@
   "primaryReading": "おとうと",
   "readings": { "kun": ["おとうと"], "on": ["テイ", "ダイ", "デ"] },
   "mnemonic": "A little boy bouncing along behind: younger brother.",
-  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": "little-follow" },
+  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": "q-follow" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "弟", "reading": "おとうと" }, { "text": "を" }, { "text": "駅", "reading": "えき" }, { "text": "に" }, { "text": "行", "reading": "い" }, { "text": "かせた。" } ],

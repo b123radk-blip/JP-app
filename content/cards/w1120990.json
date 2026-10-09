@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "heart", "motion": "bounce", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "q-pet" },
   "sentences": [
     {
       "segments": [ { "text": "ペットのネコが" }, { "text": "昨日", "reading": "きのう" }, { "text": "しんじゃったの。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [196795, 33974] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word ペット" },
+  "review": { "recipe": "reviewed", "rule": "word ペット" },
   "source": { "jmdict": 1120990, "jlpt": 5 }
 }

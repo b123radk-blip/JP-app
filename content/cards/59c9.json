@@ -5,7 +5,7 @@
   "primaryReading": "あね",
   "readings": { "kun": ["あね", "はは"], "on": ["シ"] },
   "mnemonic": "A woman (女) who goes to the market (市) for the family: older sister.",
-  "effect": { "material": "rose", "backdrop": "sky:day", "vignette": "sister-help" },
+  "effect": { "material": "rose", "backdrop": "sky:day", "vignette": "q-sister" },
   "sentences": [
     {
       "segments": [ { "text": "姉", "reading": "あね" }, { "text": "はタイプが" }, { "text": "上手", "reading": "じょうず" }, { "text": "です。" } ],

@@ -5,7 +5,7 @@
   "primaryReading": "しん",
   "readings": { "kun": ["おや", "おや", "した(しい)", "した(しむ)"], "on": ["シン"] },
   "mnemonic": "Standing (立) on a tree (木) to watch (見) over the children: parent.",
-  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "parent-watch", "parts": { "見": {} } },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "q-watch", "parts": { "見": {} } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "子", "reading": "こ" }, { "text": "は" }, { "text": "両親", "reading": "りょうしん" }, { "text": "を" }, { "text": "重", "reading": "おも" }, { "text": "んじた。" } ],

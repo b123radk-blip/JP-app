@@ -5,7 +5,7 @@
   "primaryReading": "りょう",
   "readings": { "kun": ["てる", "ふたつ"], "on": ["リョウ"] },
   "mnemonic": "Two equal pans hung from one beam: both.",
-  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": "two-buckets" },
+  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": "q-buckets" },
   "sentences": [
     {
       "segments": [ { "text": "両親", "reading": "りょうしん" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "にそこへ" }, { "text": "行", "reading": "い" }, { "text": "かせた。" } ],

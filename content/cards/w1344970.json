@@ -8,7 +8,7 @@
   "pos": ["exp", "n"],
   "kanji": ["5973", "5b50"],
   "builtFrom": [{ "k": "女", "m": "woman" }, { "k": "子", "m": "child" }],
-  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "woman-twirl:girl" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "q-swing" },
   "sentences": [
     {
       "segments": [ { "text": "男の子", "reading": "おとこのこ" }, { "text": "ですか" }, { "text": "女の子", "reading": "おんなのこ" }, { "text": "ですか。" } ],

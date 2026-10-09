@@ -8,7 +8,7 @@
   "pos": ["v5u", "vi"],
   "kanji": ["4f1a"],
   "builtFrom": [{ "k": "会", "m": "meeting" }],
-  "effect": { "material": "ivory", "backdrop": "sky:deep", "vignette": "meet-bow:run" },
+  "effect": { "material": "ivory", "backdrop": "sky:deep", "vignette": "q-meet" },
   "sentences": [
     {
       "segments": [ { "text": "友人", "reading": "ゆうじん" }, { "text": "とは" }, { "text": "会", "reading": "あ" }, { "text": "っていない。" } ],

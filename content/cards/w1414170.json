@@ -8,7 +8,7 @@
   "pos": ["n", "adj-no", "adj-na"],
   "kanji": ["5927", "4eba"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "人", "m": "person" }],
-  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "adult-kid" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "q-grownup" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "本", "reading": "ほん" }, { "text": "は" }, { "text": "大人", "reading": "おとな" }, { "text": "によく" }, { "text": "読", "reading": "よ" }, { "text": "まれている。" } ],

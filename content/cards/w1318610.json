@@ -8,7 +8,7 @@
   "pos": ["pn"],
   "kanji": ["81ea", "5206"],
   "builtFrom": [{ "k": "自", "m": "oneself" }, { "k": "分", "m": "part" }],
-  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "type": "me-spotlight", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "type": "q-spot", "size": 1.1 } },
   "sentences": [
     {
       "segments": [ { "text": "自分", "reading": "じぶん" }, { "text": "の" }, { "text": "仕事", "reading": "しごと" }, { "text": "をしなさい。" } ],

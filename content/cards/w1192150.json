@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5bb6"],
   "builtFrom": [{ "k": "家", "m": "house" }],
-  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "type": "family-wave", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "type": "q-family", "size": 1.1 } },
   "sentences": [
     {
       "segments": [ { "text": "あなたの" }, { "text": "家族", "reading": "かぞく" }, { "text": "はきっと" }, { "text": "親切", "reading": "しんせつ" }, { "text": "でしょう。" } ],

@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5b66", "751f"],
   "builtFrom": [{ "k": "学", "m": "study" }, { "k": "生", "m": "life" }],
-  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "abacus-kid:backpack" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:golden",
+    "vignette": { "type": "q-abacus", "outcome": "backpack", "who": "gal3" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "あなたも" }, { "text": "私", "reading": "わたし" }, { "text": "も" }, { "text": "学生", "reading": "がくせい" }, { "text": "です。" } ],

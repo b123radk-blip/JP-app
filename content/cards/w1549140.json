@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "pot", "backdrop": "sky:indoor", "particles": ["steam"] },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "q-egg" },
   "sentences": [
     {
       "segments": [ { "text": "卵", "reading": "たまご" }, { "text": "は" }, { "text": "硬", "reading": "かた" }, { "text": "くゆでてください。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [78488, 325228] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 卵" },
+  "review": { "recipe": "reviewed", "rule": "word 卵" },
   "source": { "jmdict": 1549140, "jlpt": 5 }
 }

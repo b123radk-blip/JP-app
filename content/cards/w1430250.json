@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "bird", "backdrop": "sky:forest" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "q-bird" },
   "sentences": [
     {
       "segments": [ { "text": "鳥", "reading": "とり" }, { "text": "は" }, { "text": "南", "reading": "みなみ" }, { "text": "へ" }, { "text": "飛", "reading": "と" }, { "text": "んで" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [125781, 278211] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 鳥" },
+  "review": { "recipe": "reviewed", "rule": "word 鳥" },
   "source": { "jmdict": 1430250, "jlpt": 5 }
 }

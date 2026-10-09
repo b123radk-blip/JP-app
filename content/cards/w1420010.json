@@ -8,7 +8,11 @@
   "pos": ["exp", "n"],
   "kanji": ["7537", "5b50"],
   "builtFrom": [{ "k": "男", "m": "male" }, { "k": "子", "m": "child" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "plough-man:boy" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "type": "q-plough", "outcome": "boy", "who": "guy2" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "男の子", "reading": "おとこのこ" }, { "text": "は" }, { "text": "大", "reading": "おお" }, { "text": "きくなりました。" } ],

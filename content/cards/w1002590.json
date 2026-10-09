@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:dusk",
-    "vignette": { "type": "dad-shoulders", "outcome": "home", "size": 0.9 }
+    "vignette": { "type": "q-dad", "outcome": "home", "who": "suitMan", "size": 0.9 }
   },
   "sentences": [
     {

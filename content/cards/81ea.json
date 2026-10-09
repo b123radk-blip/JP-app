@@ -5,7 +5,7 @@
   "primaryReading": "じ",
   "readings": { "kun": ["みずか(ら)", "おの(ずから)", "おの(ずと)"], "on": ["ジ", "シ"] },
   "mnemonic": "Point at your own nose and look in the mirror: oneself.",
-  "effect": { "material": "pearl", "backdrop": "sky:morning", "vignette": "mirror-me" },
+  "effect": { "material": "pearl", "backdrop": "sky:morning", "vignette": "q-mirror" },
   "sentences": [
     {
       "segments": [ { "text": "自分", "reading": "じぶん" }, { "text": "を" }, { "text": "大切", "reading": "たいせつ" }, { "text": "にしなさい。" } ],

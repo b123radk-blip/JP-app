@@ -5,7 +5,7 @@
   "primaryReading": "あに",
   "readings": { "kun": ["あに"], "on": ["ケイ", "キョウ"] },
   "mnemonic": "A big mouth (口) on long legs (儿): the older brother, tallest and loudest.",
-  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "big-brother" },
+  "effect": { "material": "skin", "backdrop": "sky:day", "vignette": "q-brother" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "兄", "reading": "あに" }, { "text": "は" }, { "text": "音楽", "reading": "おんがく" }, { "text": "が" }, { "text": "好", "reading": "す" }, { "text": "きだ。" } ],

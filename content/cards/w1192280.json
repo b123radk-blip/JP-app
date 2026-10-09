@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5bb6", "5ead"],
   "builtFrom": [{ "k": "家", "m": "house" }, { "k": "庭", "m": "garden" }],
-  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "size": 1, "type": "house-heart" } },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "q-home" },
   "sentences": [
     {
       "segments": [ { "text": "食事", "reading": "しょくじ" }, { "text": "は" }, { "text": "家庭", "reading": "かてい" }, { "text": "で" }, { "text": "食", "reading": "た" }, { "text": "べますか、" }, { "text": "外食", "reading": "がいしょく" }, { "text": "ですか。" } ],

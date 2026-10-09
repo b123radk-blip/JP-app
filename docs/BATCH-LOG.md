@@ -3,6 +3,27 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 3a: model pass, batch 1 (family and people), 2026-10-09
+- **Plan:** "Model pass (Step 3a)" in docs/REVAMP.md: a scan of the scene modules (who builds a person or a hand) and
+  the scene descriptions (animals) finds 329 deck cards with a person or an animal. 232 of them are planned in 149
+  scenes and 5 families. The other 97 are kept as they are: hand-only scenes, and animals with no animated model.
+- **Batch 1 (36 cards):** 30 family and people cards on 21 new scenes in `vignettes/q-family.js`, `q-family2.js`,
+  `q-people.js` and `q-school.js` (helpers in `q-common.js`): 父 お父さん 母 お母さん 兄 お兄さん 姉 お姉さん 弟 兄弟 親 両 両親 家族 家庭
+  大人 男 男の子 女の子 二人 友 私 自分 自 先生 学 学生 大学 会. The user approved the gesture trial (食べる 飲む 会う) and the animal
+  trial (猫 鳥 ペット 卵), so those 7 cards are in the deck too. 会 is a q-meet variant: a handshake, はじめまして.
+- **New staging:**
+  - Children are adults scaled to 0.5-0.6.
+  - A child is lifted by the sides (`liftKid`), and two people hold hands (`handInHand`).
+  - A sitter is placed by the Hips bone: on a back for the piggyback, on a swing seat.
+  - A mirror reflection copies the person's bones onto a second copy, flattened behind the glass (scale z -0.08).
+- **Checks:**
+  - npm test ok, 0 pairs >= 0.72.
+  - Cost check on the q- scenes (`check-piece-costs.mjs vignette '^q-'`, a new filter): 0 mismatches.
+  - e2e: see below.
+- **Strips:** docs/screenshots/models-family.jpg and models-people.jpg.
+- **Weakest:** 学 (the child sits behind his abacus, small); お母さん (the stove hides her stirring hand from the seat);
+  男 (a man ploughing a field reads as "a man working", not "male").
+
 ## Step 3a: things held against the palm, 2026-10-09
 - **User's headset look at the gestures:** the motions look good, but a held cup sat inside the fist. The fist has no
   fingers, so a held thing must rest where the palm would be. Also: use the static Everything Library animals only when

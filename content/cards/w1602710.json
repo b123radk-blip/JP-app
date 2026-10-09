@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "two-buckets", "outcome": "parents" }
+    "vignette": { "type": "q-buckets", "outcome": "parents", "who": "guy3" }
   },
   "sentences": [
     {

@@ -125,9 +125,9 @@ function drink(ctx, spec, stage) {
 
 // ---- 会う ----
 function meet(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mid = B.maxX + 0.68 * u, gap = 0.38 * u;
+  const shake = spec.outcome === 'shake', u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mid = B.maxX + 0.68 * u, gap = (shake ? 0.27 : 0.38) * u;
   const a = actor(spec.who, 0.88 * u), b = actor(spec.other, 0.86 * u);
-  const bangA = label(u, '!', '#e0a020', 0.2), bangB = label(u, '!', '#e0a020', 0.2), hello = label(u, 'こんにちは', '#3a8a5a', 0.12);
+  const bangA = label(u, '!', '#e0a020', 0.2), bangB = label(u, '!', '#e0a020', 0.2), hello = label(u, shake ? 'はじめまして' : 'こんにちは', '#3a8a5a', 0.12);
   group.add(a.group, b.group, bangA, bangB, hello);
   const loop = 8.0;
   return {
@@ -146,7 +146,13 @@ function meet(ctx, spec, stage) {
         p.group.rotation.y = pre ? 0 : T.turn > 0 ? lerp(facing, s > 0 ? away : Math.PI - 0.1, T.turn) : lerp(walkIn, facing, between(v, 1.5, 1.9));
         const w = pre ? 0 : between(v, 2.0, 2.25) * (1 - between(v, 3.0, 3.3));
         p.wave(s > 0 ? 'R' : 'L', w, v + (s > 0 ? 0 : 0.3));
-        p.bow(0.85 * T.bow * (1 - T.up));
+        if (!shake) p.bow(0.85 * T.bow * (1 - T.up));
+      }
+      // outcome shake (会): right hands meet half-way and pump instead of the bow
+      if (shake) {
+        const k = T.bow * (1 - T.up), P = a.local(-0.16, 0.4, 0.2, new THREE.Vector3()).lerp(b.local(-0.16, 0.4, 0.2, W2), 0.5);
+        P.y += 0.03 * u * group.getWorldScale(W).y * Math.sin(v * 12) * k;
+        for (const p of [a, b]) { p.handTo('R', P, k, { out: 0.5, down: 0.8 }); p.turn('Head', 0.15 * k); }
       }
       pop(bangA, pre ? 0 : bump(v, 1.7, 0.6) * 1.2, mid + gap, floor + 1.05 * u, 0.15 * u);
       pop(bangB, pre ? 0 : bump(v, 1.8, 0.6) * 1.2, mid - gap, floor + 1.05 * u, 0.0);

@@ -27,27 +27,27 @@ about 0.6 ("small"). New scenes go into `vignettes/q-*.js` as `q-<old name>` wit
 cards are in the deck. Batch 1 also moves the gesture trial (食べる 飲む 会う) and the animal trial (猫 鳥 ペット 卵) into
 the deck.
 ### 1. Family and people (30 cards)
-- [ ] `dad-shoulders` 父 お父さん: guy3 + kid (gal 0.6); he lifts the kid onto his shoulders, she cheers, arms up; home: he walks in with a briefcase, she runs to him and is swung up
-- [ ] `mum-cradle` 母 お母さん: gal2 + baby bundle; she rocks the baby in both arms, a lullaby note, hearts; cook: she stirs a pot and tastes
-- [ ] `big-brother` 兄 お兄さん: guy + small guy2; he holds a ball high, the small one hops for it, he hands it down and pats his head; piggyback: carries him on his back
-- [ ] `sister-help` 姉 お姉さん: gal3 + small gal; she crouches and ties the little one's shoe (a bow pops), then they walk off hand in hand; hair: a ribbon
-- [ ] `little-follow` 弟: guy3 + small guy2; the big one walks; the little one runs after; the big one waits, hand out; they go on hand in hand
-- [ ] `play-catch` 兄弟: guy + small guy2; big and little brother throw a ball back and forth
-- [ ] `parent-watch` 親: gal2 + small guy; walking together, the kid runs ahead; the parent stops, shades her eyes and watches over him
-- [ ] `two-buckets` 両 両親: worker; parents: guy3 + gal2 + kid; a bucket in each hand, balanced; parents: mum and dad swing their kid up between them
-- [ ] `family-wave` 家族: guy3 + gal2 + small guy2; dad, mum and kid walk out, stand in a row and wave, hearts
-- [ ] `house-heart` 家庭: gal + small guy2, house front; the house front swings open: parent and kid at the table inside, a heart
-- [ ] `adult-kid` 大人: suitMan + small gal3; the kid stretches on tiptoe and reaches his waist; he pats her head
-- [ ] `plough-man` 男 男の子:boy: worker; boy: small guy2; he leans into a plough through the field; boy: a boy runs holding a toy plane up
-- [ ] `woman-twirl` 女の子:girl: small gal3; girl: a girl swings high on a swing
-- [ ] `hand-in-hand` 二人: guy2 + gal; they walk in from either side, take hands and swing them, hearts
-- [ ] `friends-five` 友: small guy + small gal2; two kids run up, high-five with a burst, walk off together
-- [ ] `me-me` 私: small gal2; she jumps waving a hand high, then points at her own chest: わたし!
-- [ ] `me-spotlight` 自分: guy + gal3 + guy2; three people, a "?"; one steps forward, hand on chest, a spotlight lands on him
-- [ ] `mirror-me` 自: gal + her reflection (mirrored copy); she points at her nose in a standing mirror; the reflection does the same
-- [ ] `meet-bow` 会 会う:run: suitMan + gal (q-meet variant); 会: the approved 会う scene with three people gathering; 会う keeps q-meet
-- [ ] `teacher-bow` 先生: suitWoman + two small pupils; the teacher with a pointer bows; two pupils bow back
-- [ ] `abacus-kid` 学 学生:backpack 大学:caps: small guy2; caps: three students; a kid at a table flicks abacus beads, a bulb lights; backpack: a student walks to school with a bag; caps: caps fly up
+- [x] `dad-shoulders` 父 お父さん: guy3 + kid (gal 0.6); he lifts the kid onto his shoulders, she cheers, arms up; home: he walks in with a briefcase, she runs to him and is swung up
+- [x] `mum-cradle` 母 お母さん: gal2 + baby bundle; she rocks the baby in both arms, a lullaby note, hearts; cook: she stirs a pot and tastes
+- [x] `big-brother` 兄 お兄さん: guy + small guy2; he holds a ball high, the small one hops for it, he hands it down and pats his head; piggyback: carries him on his back
+- [x] `sister-help` 姉 お姉さん: gal3 + small gal; she crouches and ties the little one's shoe (a bow pops), then they walk off hand in hand; hair: a ribbon
+- [x] `little-follow` 弟: guy3 + small guy2; the big one walks; the little one runs after; the big one waits, hand out; they go on hand in hand
+- [x] `play-catch` 兄弟: guy + small guy2; big and little brother throw a ball back and forth
+- [x] `parent-watch` 親: gal2 + small guy; walking together, the kid runs ahead; the parent stops, shades her eyes and watches over him
+- [x] `two-buckets` 両 両親: worker; parents: guy3 + gal2 + kid; a bucket in each hand, balanced; parents: mum and dad swing their kid up between them
+- [x] `family-wave` 家族: guy3 + gal2 + small guy2; dad, mum and kid walk out, stand in a row and wave, hearts
+- [x] `house-heart` 家庭: gal + small guy2, house front; the house front swings open: parent and kid at the table inside, a heart
+- [x] `adult-kid` 大人: suitMan + small gal3; the kid stretches on tiptoe and reaches his waist; he pats her head
+- [x] `plough-man` 男 男の子:boy: worker; boy: small guy2; he leans into a plough through the field; boy: a boy runs holding a toy plane up
+- [x] `woman-twirl` 女の子:girl: small gal3; girl: a girl swings high on a swing
+- [x] `hand-in-hand` 二人: guy2 + gal; they walk in from either side, take hands and swing them, hearts
+- [x] `friends-five` 友: small guy + small gal2; two kids run up, high-five with a burst, walk off together
+- [x] `me-me` 私: small gal2; she jumps waving a hand high, then points at her own chest: わたし!
+- [x] `me-spotlight` 自分: guy + gal3 + guy2; three people, a "?"; one steps forward, hand on chest, a spotlight lands on him
+- [x] `mirror-me` 自: gal + her reflection (mirrored copy); she points at her nose in a standing mirror; the reflection does the same
+- [x] `meet-bow` 会 会う:run: suitMan + gal (q-meet variant); 会: the approved 会う scene with three people gathering; 会う keeps q-meet
+- [x] `teacher-bow` 先生: suitWoman + two small pupils; the teacher with a pointer bows; two pupils bow back
+- [x] `abacus-kid` 学 学生:backpack 大学:caps: small guy2; caps: three students; a kid at a table flicks abacus beads, a bulb lights; backpack: a student walks to school with a bag; caps: caps fly up
 
 ### 2. Animals (animated Quaternius only) (20 cards)
 - [ ] `house-out` 外: shiba; the door opens, the dog bounds out, sniffs a flower, trots back in

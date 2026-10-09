@@ -8,7 +8,7 @@
   "effect": {
     "material": "gold",
     "backdrop": "sky:golden",
-    "vignette": "me-me",
+    "vignette": "q-me",
     "parts": { "禾": { "motion": "sway" }, "厶": { "material": "skin" } }
   },
   "sentences": [

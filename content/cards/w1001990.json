@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "type": "sister-help", "size": 1, "outcome": "hair" }
+    "vignette": { "type": "q-sister", "outcome": "hair", "who": "gal2", "kid": "gal3" }
   },
   "sentences": [
     {

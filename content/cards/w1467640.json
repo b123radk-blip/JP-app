@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "motion": "wag", "backdrop": "sky:day", "emblem": "heart" },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "q-cat" },
   "sentences": [
     {
       "segments": [ { "text": "ほら！" }, { "text": "台所", "reading": "だいどころ" }, { "text": "に" }, { "text": "猫", "reading": "ねこ" }, { "text": "がいる。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [195971, 33146] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 猫" },
+  "review": { "recipe": "reviewed", "rule": "word 猫" },
   "source": { "jmdict": 1467640, "jlpt": 5 }
 }

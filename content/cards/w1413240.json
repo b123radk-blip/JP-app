@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5927", "5b66"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "学", "m": "study" }],
-  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": "abacus-kid:caps" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:golden",
+    "vignette": { "type": "q-abacus", "outcome": "caps", "who": "guy" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "大学", "reading": "だいがく" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きたい。" } ],

@@ -5,7 +5,7 @@
   "primaryReading": "はは",
   "readings": { "kun": ["はは", "も"], "on": ["ボ"] },
   "mnemonic": "Mother's arms around two little ones.",
-  "effect": { "material": "rose", "backdrop": "sky:dusk", "vignette": "mum-cradle" },
+  "effect": { "material": "rose", "backdrop": "sky:dusk", "vignette": "q-mum" },
   "sentences": [
     {
       "segments": [ { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "毎日", "reading": "まいにち" }, { "text": "うちにいます。" } ],

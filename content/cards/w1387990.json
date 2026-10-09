@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5148", "751f"],
   "builtFrom": [{ "k": "先", "m": "before" }, { "k": "生", "m": "life" }],
-  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": "teacher-bow" },
+  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": "q-teacher" },
   "sentences": [
     {
       "segments": [ { "text": "あれはきっと" }, { "text": "校長", "reading": "こうちょう" }, { "text": "先生", "reading": "せんせい" }, { "text": "だ。" } ],

@@ -5,7 +5,7 @@
   "primaryReading": "がく",
   "readings": { "kun": ["まな(ぶ)"], "on": ["ガク"] },
   "mnemonic": "A child (子) under a roof, sparks of ideas (⺍) above: study.",
-  "effect": { "material": "pearl", "backdrop": "sky:indoor", "vignette": "abacus-kid", "parts": { "子": {} } },
+  "effect": { "material": "pearl", "backdrop": "sky:indoor", "vignette": "q-abacus", "parts": { "子": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "学校", "reading": "がっこう" }, { "text": "へ" }, { "text": "歩", "reading": "ある" }, { "text": "いていく。" } ],

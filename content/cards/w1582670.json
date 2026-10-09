@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["4e8c", "4eba"],
   "builtFrom": [{ "k": "二", "m": "two" }, { "k": "人", "m": "person" }],
-  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "hand-in-hand" },
+  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "q-pair" },
   "sentences": [
     {
       "segments": [ { "text": "ケーキを" }, { "text": "二人", "reading": "ふたり" }, { "text": "に" }, { "text": "分", "reading": "わ" }, { "text": "けた。" } ],

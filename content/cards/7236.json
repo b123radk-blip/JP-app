@@ -5,7 +5,7 @@
   "primaryReading": "ちち",
   "readings": { "kun": ["ちち"], "on": ["フ"] },
   "mnemonic": "Father with two crossed sticks (乂) to chop firewood.",
-  "effect": { "material": "wood", "backdrop": "sky:indoor", "vignette": "dad-shoulders" },
+  "effect": { "material": "wood", "backdrop": "sky:indoor", "vignette": "q-dad" },
   "sentences": [
     {
       "segments": [ { "text": "父", "reading": "ちち" }, { "text": "はビジネスマンです。" } ],

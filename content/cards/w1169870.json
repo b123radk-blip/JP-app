@@ -8,7 +8,7 @@
   "pos": ["v5m", "vt"],
   "kanji": ["98f2"],
   "builtFrom": [{ "k": "飲", "m": "drink" }],
-  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "gulp-drink:cat" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "q-drink" },
   "sentences": [
     {
       "segments": [ { "text": "毎日", "reading": "まいにち" }, { "text": "お" }, { "text": "茶", "reading": "ちゃ" }, { "text": "を" }, { "text": "飲", "reading": "の" }, { "text": "みます。" } ],

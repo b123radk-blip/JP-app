@@ -141,7 +141,7 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
 - Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2
   --clip 150,20,560,340`, fix, then `scripts/set-recipes.mjs`. Word cards: `--clip 90,60,660,300` (the default crops their right edge). Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
   (pools, roads) toward the viewer, a lit doorway behind a silhouette, fake depth on a flat picture. Log: docs/BATCH-LOG.md.
-- Check costs: `node scripts/check-piece-costs.mjs vignette`, then `npm run e2e`.
+- Check costs: `node scripts/check-piece-costs.mjs vignette` (`vignette '^q-'` checks only the types that match), then `npm run e2e`.
 
 ## Add a piece
 Implementation in `src/effects/pieces/`, registered in `catalog.js` (options with defaults, `cost`, `desc`) and wired in
