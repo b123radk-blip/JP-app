@@ -5,12 +5,7 @@
   "primaryReading": "お",
   "readings": { "kun": ["お(きる)", "お(こる)", "お(こす)", "おこ(す)"], "on": ["キ"] },
   "mnemonic": "Run (走) as soon as you (己) are up: wake up, get up.",
-  "effect": {
-    "material": "gold",
-    "backdrop": "sky:morning",
-    "vignette": { "type": "alarm-wake", "size": 1.2 },
-    "parts": { "走": {} }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:morning", "vignette": "q-wake", "parts": { "走": {} } },
   "sentences": [
     {
       "segments": [ { "text": "もう" }, { "text": "起", "reading": "お" }, { "text": "きる" }, { "text": "時間", "reading": "じかん" }, { "text": "ですよ。" } ],

@@ -8,11 +8,7 @@
   "pos": ["v5k", "vi"],
   "kanji": ["9cf4"],
   "builtFrom": [{ "k": "鳴", "m": "chirp" }],
-  "effect": {
-    "material": "ivory",
-    "backdrop": "sky:dusk",
-    "vignette": { "size": 1.3, "type": "bird-sing", "outcome": "pets" }
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": { "size": 1.1, "type": "q-pets" } },
   "sentences": [
     {
       "segments": [ { "text": "カエルが" }, { "text": "鳴", "reading": "な" }, { "text": "いたら" }, { "text": "帰", "reading": "かえ" }, { "text": "ろう。" } ],

@@ -5,7 +5,7 @@
   "primaryReading": "つう",
   "readings": { "kun": ["とお(る)", "とお(り)", "とお(り)", "どお(り)"], "on": ["ツウ", "ツ"] },
   "mnemonic": "Walking (⻌) straight through the tunnel (甬): pass through, commute.",
-  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "walk-through" },
+  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "q-tunnel" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "歩", "reading": "ある" }, { "text": "いて" }, { "text": "学校", "reading": "がっこう" }, { "text": "に" }, { "text": "通", "reading": "かよ" }, { "text": "う。" } ],

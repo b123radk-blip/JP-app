@@ -5,7 +5,7 @@
   "primaryReading": "あと",
   "readings": { "kun": ["のち", "うし(ろ)", "うしろ", "あと"], "on": ["ゴ", "コウ"] },
   "mnemonic": "Slow steps (彳 夂) trailing behind: behind, after.",
-  "effect": { "material": "gold", "backdrop": "sky:dusk", "vignette": "peek-behind" },
+  "effect": { "material": "gold", "backdrop": "sky:dusk", "vignette": "q-peek" },
   "sentences": [
     {
       "segments": [ { "text": "いぬが" }, { "text": "後", "reading": "あと" }, { "text": "についてきた。" } ],

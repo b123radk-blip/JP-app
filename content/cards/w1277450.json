@@ -8,7 +8,11 @@
   "pos": ["adj-na", "n"],
   "kanji": ["597d"],
   "builtFrom": [{ "k": "好", "m": "fond" }],
-  "effect": { "material": "ivory", "backdrop": "sky:dawn", "vignette": "hug-puppy:icecream" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:dawn",
+    "vignette": { "type": "q-hug", "outcome": "icecream", "who": "gal" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ポップスは" }, { "text": "好", "reading": "す" }, { "text": "きですか。" } ],

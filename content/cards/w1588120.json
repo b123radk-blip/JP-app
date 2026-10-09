@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:indoor",
-    "vignette": { "type": "sing-mic", "size": 1.2, "outcome": "shower" }
+    "vignette": { "type": "q-sing", "outcome": "shower", "who": "guy3", "size": 1.1 }
   },
   "sentences": [
     {

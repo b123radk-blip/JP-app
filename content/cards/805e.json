@@ -5,7 +5,7 @@
   "primaryReading": "き",
   "readings": { "kun": ["き(く)", "き(こえる)"], "on": ["ブン", "モン"] },
   "mnemonic": "An ear (耳) pressed to the gate (門): listen, hear.",
-  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "ear-gate", "parts": { "門": {}, "耳": {} } },
+  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "q-listen", "parts": { "門": {}, "耳": {} } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "話", "reading": "はなし" }, { "text": "を" }, { "text": "聞", "reading": "き" }, { "text": "かせなさい。" } ],

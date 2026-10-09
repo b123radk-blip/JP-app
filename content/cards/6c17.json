@@ -5,7 +5,7 @@
   "primaryReading": "き",
   "readings": { "kun": ["いき", "き"], "on": ["キ", "ケ"] },
   "mnemonic": "Steam curling up from a pot of rice: air, and your mood.",
-  "effect": { "material": "cloud", "backdrop": "sky:day", "vignette": "battery-up" },
+  "effect": { "material": "cloud", "backdrop": "sky:day", "vignette": "q-energy" },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "が" }, { "text": "天気", "reading": "てんき" }, { "text": "ならいいのに。" } ],

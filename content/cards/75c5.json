@@ -8,7 +8,7 @@
   "effect": {
     "material": "chalk",
     "backdrop": "sky:indoor",
-    "vignette": { "type": "sick-bed", "size": 1.3 },
+    "vignette": { "type": "q-sick", "size": 1.15 },
     "parts": { "疒": { "material": "clay" } }
   },
   "sentences": [

@@ -50,66 +50,66 @@ the deck.
 - [x] `abacus-kid` 学 学生:backpack 大学:caps: small guy2; caps: three students; a kid at a table flicks abacus beads, a bulb lights; backpack: a student walks to school with a bag; caps: caps fly up
 
 ### 2. Animals (animated Quaternius only) (20 cards)
-- [ ] `house-out` 外: shiba; the door opens, the dog bounds out, sniffs a flower, trots back in
-- [ ] `tent-in` 入 入る:house 入り口:doors 入れる:coin: shiba; house: guy; coin: hand; the dog trots into the tent, the flap drops, it pokes its head out; variants re-staged with a person
-- [ ] `grow-big` 大 大きい:elephant 大きな:whale: whale (大きな); elephant / mouse stay; whale: a huge whale swims past a tiny boat
-- [ ] `animal-parade` 動物: cow + sheep + shiba; a cow, a sheep and a dog walk past in a row, each stops and calls
-- [ ] `cow-moo` 牛乳 牛肉: cow (q-cow variants) + kid; milk: the cow, a pail fills, a kid drinks; beef: a steak sizzles beside the cow
-- [ ] `hug-puppy` 好 大好き:love 好き:icecream: small gal + pug; a kid kneels and hugs a puppy, which wags; hearts; love / icecream as before
-- [ ] `bird-sing` 鳴 鳴く: pets: shiba barks; pets (鳴く): the dog barks ワン, a bird answers
-- [ ] `pool-swim` 泳 泳ぐ: guy2 swimmer; fish: fishOrange; a swimmer does the crawl across the pool; fish: a fish swims
-- [ ] `peek-behind` 後 後ろ:sneak: small guy2; sneak: fox behind a person; a kid hides behind the kanji and peeks out; sneak: a fox creeps up behind a person
+- [x] `house-out` 外: shiba; the door opens, the dog bounds out, sniffs a flower, trots back in
+- [x] `tent-in` 入 入る:house 入り口:doors 入れる:coin: shiba; house: guy; coin: hand; the dog trots into the tent, the flap drops, it pokes its head out; variants re-staged with a person
+- [x] `grow-big` 大 大きい:elephant 大きな:whale: whale (大きな); elephant / mouse stay; whale: a huge whale swims past a tiny boat
+- [x] `animal-parade` 動物: cow + sheep + shiba; a cow, a sheep and a dog walk past in a row, each stops and calls
+- [x] `cow-moo` 牛乳 牛肉: cow (q-cow variants) + kid; milk: the cow, a pail fills, a kid drinks; beef: a steak sizzles beside the cow
+- [x] `hug-puppy` 好 大好き:love 好き:icecream: small gal + pug; a kid kneels and hugs a puppy, which wags; hearts; love / icecream as before
+- [x] `bird-sing` 鳴 鳴く: pets: shiba barks; pets (鳴く): the dog barks ワン, a bird answers
+- [x] `pool-swim` 泳 泳ぐ: guy2 swimmer; fish: fishOrange; a swimmer does the crawl across the pool; fish: a fish swims
+- [x] `peek-behind` 後 後ろ:sneak: small guy2; sneak: fox behind a person; a kid hides behind the kanji and peeks out; sneak: a fox creeps up behind a person
 
 ### 3. Verbs of the body, feelings and weather felt by a person (81 cards)
-- [ ] `binoculars` 見 見る:stars 見せる:show: guy3; he lifts binoculars, looks left and right, sees a bird, waves; stars / show as before
-- [ ] `ear-gate` 聞 聞く:shell: grandpa; he cups an ear (cupEar), sound rings come to him; shell: a kid holds a shell to her ear
-- [ ] `say-hello` 言 言う:parrot: gal3; she waves and says こんにちは in a big bubble; parrot stays
-- [ ] `read-book` 読 読む:worm: grandma on a stool; she reads an open book (holdOut), turns a page, letters float up
-- [ ] `gulp-drink` 飲 飲む:cat: guy (q-drink variant); a person gulps a glass down (the 飲む scene, another person and juice)
-- [ ] `go-to-bed` 夜: guy2 on a futon; he yawns, lies down, pulls up the blanket; moon, stars, Zzz
-- [ ] `alarm-wake` 起 起きる: gal2 in bed; the alarm rings, she sits bolt upright and stretches
-- [ ] `stand-up` 立 立つ: grandpa on a stool; he stands up from the stool (StandUp clip) as the kanji springs upright
-- [ ] `body-stretch` 体: worker; arms up, touches toes, twists; each part lights
-- [ ] `think-bubble` 思: gal; hand on chin, a thought bubble shows cake, house, heart
-- [ ] `think-click` 意: guy3; scratches his head, "?" turns to "!", a finger up
-- [ ] `battery-up` 気: guy; slumped (Defeat), a battery fills, he jumps up (Victory)
-- [ ] `sing-mic` 歌 歌う: gal2; she sings into a mic on a stage, swaying, notes, arm flung up
-- [ ] `banana-trip` 転: guy2; steps on a peel, falls (Death clip / Roll), sits up dazed, stars
-- [ ] `heart-beat` 心: gal3; a heart glows in her chest, she hugs herself, it beats bigger
-- [ ] `shiver-frost` 冷: guy3; hugs himself and shivers by the frosty kanji, breath puffs
-- [ ] `taste-spoon` 味: chef; dips a spoon in the pot, tastes, lights up, rubs his belly
-- [ ] `refuse-spoon` 嫌 嫌い: small guy2 + a hand; turns away from a spoon of greens, arms crossed, head shake
-- [ ] `flower-gasp` 美 美味しい: gal; gasps at a blooming flower, hands to cheeks; yum: bites a rice ball (onigiri), cheeks glow
-- [ ] `toast-run` 遅 遅い: gal2; runs (Run) with toast in her mouth under a spinning clock
-- [ ] `mud-splash` 汚 汚い: guy2; steps in a puddle, mud splashes him brown
-- [ ] `sick-bed` 病 病気: guy in bed; pale, red nose, ice bag, sneezes; pills on the stand
-- [ ] `maybe-shrug` 多分: gal3; looks up at a grey cloud, shrugs "?", opens an umbrella
-- [ ] `lift-heavy` 重: worker; squats, grips the kanji, strains; it barely lifts and he falls on his bottom
-- [ ] `drag-suitcase` 重い: guy3; drags a huge suitcase that barely moves, flops onto it
-- [ ] `barbell-flex` 強 強い: worker; lifts a barbell overhead, flexes; car variant
-- [ ] `jump-rope` 度: small gal; skips rope (Jump clip), a counter counts
-- [ ] `mirror-dance` 同 同じ: guy + guy (same model); two people do the same jumping jacks side by side, = glows
-- [ ] `post-kick` 丈 大丈夫 丈夫: small guy2; ok: + grandma; kicks a post that does not budge, hops holding his foot; ok: falls, gets up fine, thumbs up
-- [ ] `chat-table` 話 話す:phone: gal2 + guy3 sitting; two people at a little table talk, bubbles; phone: one talks on the phone (toEar)
-- [ ] `talk-bubbles` 言葉: guy + kimono; they chat, bubbles in different scripts
-- [ ] `hand-question` 問 質問 問題 答 答える: small gal3 + suitMan; a kid raises a hand under a "?"; variants as before
-- [ ] `come-near` 近 近い: gal; walks up the path toward you, growing, leans in close
-- [ ] `walk-far` 遠 遠い: hiker-like guy3; waves and walks away down a long road, smaller and smaller
-- [ ] `turn-around` 向 向こう: guy2; back to you, turns round, waves, points over there
-- [ ] `which-way` 方: gal3; by a signpost looks one way, then the other, scratches head, walks off
-- [ ] `walk-through` 通: guy; walks into a tunnel through a hill and out the other side
-- [ ] `bridge-walk` 渡 渡る: gal2; zebra: small guy2; walks over an arched bridge; zebra: crosses at the green light
-- [ ] `stairs-down` 降: guy3; walks down a staircase step by step
-- [ ] `gust-hat` 風: grandpa; leans into the gust, his hat flies off
-- [ ] `clouds-part` 晴 晴れる: gal; clouds part, the sun beams out, she throws her arms up (Victory)
-- [ ] `rain-umbrella` 降る: guy2; rain starts, he pops open an umbrella
-- [ ] `parasol-up` 差す: kimono; sweating in the sun, she holds a parasol up, shade
-- [ ] `stove-warm` 暖 暖かい: grandma; shivering, holds her hands to a stove, relaxes
-- [ ] `onsen-soak` 温 温い: guy3 in a hot spring; sinks in with a towel on his head, steam, sigh
-- [ ] `bath-tub` お風呂: small guy2 in a tub; relaxes in the tub, bubbles, rubber duck
-- [ ] `fog-glass` 曇る: small gal3; breathes on the window, draws a smiley
-- [ ] `noon-sun` 昼 昼ご飯: guy; looks up as the sun climbs overhead, opens a lunchbox
-- [ ] `home-time` 夕 夕方: two small kids; sunset, they wave goodbye and walk home, crows fly past
+- [x] `binoculars` 見 見る:stars 見せる:show: guy3; he lifts binoculars, looks left and right, sees a bird, waves; stars / show as before
+- [x] `ear-gate` 聞 聞く:shell: grandpa; he cups an ear (cupEar), sound rings come to him; shell: a kid holds a shell to her ear
+- [x] `say-hello` 言 言う:parrot: gal3; she waves and says こんにちは in a big bubble; parrot stays
+- [x] `read-book` 読 読む:worm: grandma on a stool; she reads an open book (holdOut), turns a page, letters float up
+- [x] `gulp-drink` 飲 飲む:cat: guy (q-drink variant); a person gulps a glass down (the 飲む scene, another person and juice)
+- [x] `go-to-bed` 夜: guy2 on a futon; he yawns, lies down, pulls up the blanket; moon, stars, Zzz
+- [x] `alarm-wake` 起 起きる: gal2 in bed; the alarm rings, she sits bolt upright and stretches
+- [x] `stand-up` 立 立つ: grandpa on a stool; he stands up from the stool (StandUp clip) as the kanji springs upright
+- [x] `body-stretch` 体: worker; arms up, touches toes, twists; each part lights
+- [x] `think-bubble` 思: gal; hand on chin, a thought bubble shows cake, house, heart
+- [x] `think-click` 意: guy3; scratches his head, "?" turns to "!", a finger up
+- [x] `battery-up` 気: guy; slumped (Defeat), a battery fills, he jumps up (Victory)
+- [x] `sing-mic` 歌 歌う: gal2; she sings into a mic on a stage, swaying, notes, arm flung up
+- [x] `banana-trip` 転: guy2; steps on a peel, falls (Death clip / Roll), sits up dazed, stars
+- [x] `heart-beat` 心: gal3; a heart glows in her chest, she hugs herself, it beats bigger
+- [x] `shiver-frost` 冷: guy3; hugs himself and shivers by the frosty kanji, breath puffs
+- [x] `taste-spoon` 味: chef; dips a spoon in the pot, tastes, lights up, rubs his belly
+- [x] `refuse-spoon` 嫌 嫌い: small guy2 + a hand; turns away from a spoon of greens, arms crossed, head shake
+- [x] `flower-gasp` 美 美味しい: gal; gasps at a blooming flower, hands to cheeks; yum: bites a rice ball (onigiri), cheeks glow
+- [x] `toast-run` 遅 遅い: gal2; runs (Run) with toast in her mouth under a spinning clock
+- [x] `mud-splash` 汚 汚い: guy2; steps in a puddle, mud splashes him brown
+- [x] `sick-bed` 病 病気: guy in bed; pale, red nose, ice bag, sneezes; pills on the stand
+- [x] `maybe-shrug` 多分: gal3; looks up at a grey cloud, shrugs "?", opens an umbrella
+- [x] `lift-heavy` 重: worker; squats, grips the kanji, strains; it barely lifts and he falls on his bottom
+- [x] `drag-suitcase` 重い: guy3; drags a huge suitcase that barely moves, flops onto it
+- [x] `barbell-flex` 強 強い: worker; lifts a barbell overhead, flexes; car variant
+- [x] `jump-rope` 度: small gal; skips rope (Jump clip), a counter counts
+- [x] `mirror-dance` 同 同じ: guy + guy (same model); two people do the same jumping jacks side by side, = glows
+- [x] `post-kick` 丈 大丈夫 丈夫: small guy2; ok: + grandma; kicks a post that does not budge, hops holding his foot; ok: falls, gets up fine, thumbs up
+- [x] `chat-table` 話 話す:phone: gal2 + guy3 sitting; two people at a little table talk, bubbles; phone: one talks on the phone (toEar)
+- [x] `talk-bubbles` 言葉: guy + kimono; they chat, bubbles in different scripts
+- [x] `hand-question` 問 質問 問題 答 答える: small gal3 + suitMan; a kid raises a hand under a "?"; variants as before
+- [x] `come-near` 近 近い: gal; walks up the path toward you, growing, leans in close
+- [x] `walk-far` 遠 遠い: hiker-like guy3; waves and walks away down a long road, smaller and smaller
+- [x] `turn-around` 向 向こう: guy2; back to you, turns round, waves, points over there
+- [x] `which-way` 方: gal3; by a signpost looks one way, then the other, scratches head, walks off
+- [x] `walk-through` 通: guy; walks into a tunnel through a hill and out the other side
+- [x] `bridge-walk` 渡 渡る: gal2; zebra: small guy2; walks over an arched bridge; zebra: crosses at the green light
+- [x] `stairs-down` 降: guy3; walks down a staircase step by step
+- [x] `gust-hat` 風: grandpa; leans into the gust, his hat flies off
+- [x] `clouds-part` 晴 晴れる: gal; clouds part, the sun beams out, she throws her arms up (Victory)
+- [x] `rain-umbrella` 降る: guy2; rain starts, he pops open an umbrella
+- [x] `parasol-up` 差す: kimono; sweating in the sun, she holds a parasol up, shade
+- [x] `stove-warm` 暖 暖かい: grandma; shivering, holds her hands to a stove, relaxes
+- [x] `onsen-soak` 温 温い: guy3 in a hot spring; sinks in with a towel on his head, steam, sigh
+- [x] `bath-tub` お風呂: small guy2 in a tub; relaxes in the tub, bubbles, rubber duck
+- [x] `fog-glass` 曇る: small gal3; breathes on the window, draws a smiley
+- [x] `noon-sun` 昼 昼ご飯: guy; looks up as the sun climbs overhead, opens a lunchbox
+- [x] `home-time` 夕 夕方: two small kids; sunset, they wave goodbye and walk home, crows fly past
 
 ### 4. Verbs with things (49 cards)
 - [ ] `shop-basket` 買い物: gal2 + basket; walks along a shelf, things hop into her basket

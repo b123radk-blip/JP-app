@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["8a00", "8449"],
   "builtFrom": [{ "k": "言", "m": "say" }, { "k": "葉", "m": "leaf" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "talk-bubbles", "size": 1.2 } },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "type": "q-words", "who": "guy", "other": "kimono" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "言葉", "reading": "ことば" }, { "text": "が" }, { "text": "出", "reading": "で" }, { "text": "てこなかった。" } ],

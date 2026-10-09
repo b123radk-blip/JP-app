@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:morning",
-    "vignette": { "size": 1.2, "type": "alarm-wake", "outcome": "sun" }
+    "vignette": { "type": "q-wake", "outcome": "sun", "size": 1.1 }
   },
   "sentences": [
     {

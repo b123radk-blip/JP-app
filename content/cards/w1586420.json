@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:morning",
-    "vignette": { "size": 1, "type": "stove-warm", "outcome": "spring" }
+    "vignette": { "type": "q-stove", "outcome": "spring", "who": "gal" }
   },
   "sentences": [
     {

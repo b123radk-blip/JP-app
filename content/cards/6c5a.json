@@ -5,12 +5,7 @@
   "primaryReading": "きたな",
   "readings": { "kun": ["けが(す)", "けが(れる)", "けが(らわしい)", "よご(す)"], "on": ["オ"] },
   "mnemonic": "Muddy water (氵) splashed everywhere: dirty.",
-  "effect": {
-    "material": "clay",
-    "backdrop": "sky:day",
-    "vignette": "mud-splash",
-    "parts": { "氵": { "material": "clay" } }
-  },
+  "effect": { "material": "clay", "backdrop": "sky:day", "vignette": "q-mud", "parts": { "氵": { "material": "clay" } } },
   "sentences": [
     {
       "segments": [ { "text": "手", "reading": "て" }, { "text": "が" }, { "text": "汚", "reading": "きたな" }, { "text": "いです。" } ],

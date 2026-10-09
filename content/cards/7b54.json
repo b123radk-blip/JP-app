@@ -8,7 +8,7 @@
   "effect": {
     "material": "jade",
     "backdrop": "sky:day",
-    "vignette": { "type": "hand-question", "outcome": "answer" },
+    "vignette": { "type": "q-ask", "outcome": "answer" },
     "parts": { "竹": {} }
   },
   "sentences": [

@@ -5,7 +5,7 @@
   "primaryReading": "ちか",
   "readings": { "kun": ["ちか(い)"], "on": ["キン", "コン"] },
   "mnemonic": "Walk (⻌) up the road until you are right beside the axe (斤): near.",
-  "effect": { "material": "jade", "backdrop": "sky:golden", "vignette": "come-near" },
+  "effect": { "material": "jade", "backdrop": "sky:golden", "vignette": "q-near" },
   "sentences": [
     {
       "segments": [ { "text": "クリスマスが" }, { "text": "近", "reading": "ちか" }, { "text": "くなってきた。" } ],

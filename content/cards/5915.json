@@ -5,7 +5,7 @@
   "primaryReading": "ゆう",
   "readings": { "kun": ["ゆう"], "on": ["セキ"] },
   "mnemonic": "Half a moon (月) rising at dusk: evening.",
-  "effect": { "material": "gold", "backdrop": "sky:sunset", "vignette": "home-time" },
+  "effect": { "material": "gold", "backdrop": "sky:sunset", "vignette": "q-dusk" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "昨日", "reading": "きのう" }, { "text": "夕飯", "reading": "ゆうはん" }, { "text": "を" }, { "text": "作", "reading": "つく" }, { "text": "った。" } ],

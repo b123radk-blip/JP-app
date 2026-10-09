@@ -8,7 +8,11 @@
   "pos": ["v1", "vt"],
   "kanji": ["898b"],
   "builtFrom": [{ "k": "見", "m": "see" }],
-  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "binoculars:show" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:noon",
+    "vignette": { "type": "q-look", "outcome": "show", "who": "gal2", "mum": "gal" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ちょっと" }, { "text": "見", "reading": "み" }, { "text": "せて" }, { "text": "下", "reading": "くだ" }, { "text": "さい。" } ],

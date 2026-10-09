@@ -8,7 +8,11 @@
   "pos": ["adj-i"],
   "kanji": ["91cd"],
   "builtFrom": [{ "k": "重", "m": "heavy" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "drag-suitcase", "size": 1.2 } },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "type": "q-heavy", "outcome": "case", "who": "guy3", "size": 1.1 }
+  },
   "sentences": [
     {
       "segments": [ { "text": "重", "reading": "おも" }, { "text": "くて" }, { "text": "私", "reading": "わたし" }, { "text": "にはもてない。" } ],

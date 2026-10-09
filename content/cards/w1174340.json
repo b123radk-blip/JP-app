@@ -8,11 +8,7 @@
   "pos": ["v5g", "vi"],
   "kanji": ["6cf3"],
   "builtFrom": [{ "k": "泳", "m": "swim" }],
-  "effect": {
-    "material": "ivory",
-    "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "pool-swim", "outcome": "fish" }
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-swim", "outcome": "fish" } },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "泳", "reading": "およ" }, { "text": "げますよね。" } ],

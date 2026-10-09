@@ -5,7 +5,7 @@
   "primaryReading": "おな",
   "readings": { "kun": ["おな(じ)"], "on": ["ドウ"] },
   "mnemonic": "One mouth (口) under the same roof (冂): the same.",
-  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "mirror-dance" },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "q-same" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "靴", "reading": "くつ" }, { "text": "は" }, { "text": "同", "reading": "おな" }, { "text": "じ" }, { "text": "大", "reading": "おお" }, { "text": "きさだ。" } ],

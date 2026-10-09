@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:twilight",
-    "vignette": { "size": 1, "type": "hand-question", "outcome": "quiz" }
+    "vignette": { "type": "q-ask", "outcome": "quiz", "who": "guy3" }
   },
   "sentences": [
     {

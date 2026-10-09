@@ -8,7 +8,11 @@
   "pos": ["v5k", "vt"],
   "kanji": ["805e"],
   "builtFrom": [{ "k": "聞", "m": "hear" }],
-  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": "ear-gate:shell" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:twilight",
+    "vignette": { "type": "q-listen", "outcome": "shell", "who": "gal" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ちょっと" }, { "text": "聞", "reading": "き" }, { "text": "いてもいい？" } ],

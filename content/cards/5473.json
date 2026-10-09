@@ -5,7 +5,7 @@
   "primaryReading": "み",
   "readings": { "kun": ["あじ", "あじ(わう)"], "on": ["ミ"] },
   "mnemonic": "A mouth (口) trying something not yet (未) tasted: flavour, taste.",
-  "effect": { "material": "rose", "backdrop": "sky:indoor", "vignette": "taste-spoon" },
+  "effect": { "material": "rose", "backdrop": "sky:indoor", "vignette": "q-taste" },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "語", "reading": "ご" }, { "text": "にはいくつかの" }, { "text": "意味", "reading": "いみ" }, { "text": "がある。" } ],

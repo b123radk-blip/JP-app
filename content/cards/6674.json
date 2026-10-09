@@ -8,7 +8,7 @@
   "effect": {
     "material": "gold",
     "backdrop": "sky:noon",
-    "vignette": "clouds-part",
+    "vignette": "q-clear",
     "parts": { "日": { "material": "gold" }, "青": { "material": "water" } }
   },
   "sentences": [

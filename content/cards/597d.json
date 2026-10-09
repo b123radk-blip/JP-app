@@ -5,7 +5,7 @@
   "primaryReading": "す",
   "readings": { "kun": ["この(む)", "す(く)", "よ(い)", "い(い)"], "on": ["コウ"] },
   "mnemonic": "A woman (女) with a child (子): someone you like.",
-  "effect": { "material": "rose", "backdrop": "sky:dawn", "vignette": "hug-puppy", "parts": { "女": {}, "子": {} } },
+  "effect": { "material": "rose", "backdrop": "sky:dawn", "vignette": "q-hug", "parts": { "女": {}, "子": {} } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "好", "reading": "す" }, { "text": "きではない。" } ],

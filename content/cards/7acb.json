@@ -5,7 +5,7 @@
   "primaryReading": "た",
   "readings": { "kun": ["た(つ)", "た(つ)", "た(ち)", "た(てる)"], "on": ["リツ", "リュウ", "リットル"] },
   "mnemonic": "A person standing on the ground, arms out: stand.",
-  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": "stand-up" },
+  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": "q-stand" },
   "sentences": [
     {
       "segments": [ { "text": "誰", "reading": "だれ" }, { "text": "かが" }, { "text": "入り口", "reading": "いりぐち" }, { "text": "に" }, { "text": "立", "reading": "た" }, { "text": "っています。" } ],

@@ -5,7 +5,7 @@
   "primaryReading": "うた",
   "readings": { "kun": ["うた", "うた(う)"], "on": ["カ"] },
   "mnemonic": "Two mouths (哥) and a wide-open yawn (欠): singing a song.",
-  "effect": { "material": "rose", "backdrop": "sky:golden", "vignette": "sing-mic" },
+  "effect": { "material": "rose", "backdrop": "sky:golden", "vignette": "q-sing" },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "歌", "reading": "うた" }, { "text": "を" }, { "text": "歌", "reading": "うた" }, { "text": "えます。" } ],

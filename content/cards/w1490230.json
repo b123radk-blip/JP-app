@@ -10,8 +10,8 @@
   "builtFrom": [{ "k": "病", "m": "ill" }, { "k": "気", "m": "spirit" }],
   "effect": {
     "material": "ivory",
-    "backdrop": "sky:dusk",
-    "vignette": { "size": 1, "type": "sick-bed", "outcome": "germs" }
+    "backdrop": "sky:indoor",
+    "vignette": { "type": "q-sick", "outcome": "germs", "size": 1.1 }
   },
   "sentences": [
     {

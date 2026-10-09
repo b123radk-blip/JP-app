@@ -5,7 +5,7 @@
   "primaryReading": "び",
   "readings": { "kun": ["うつく(しい)"], "on": ["ビ", "ミ"] },
   "mnemonic": "A big (大) sheep (羊), the finest of the flock: beautiful.",
-  "effect": { "material": "pearl", "backdrop": "sky:dawn", "vignette": "flower-gasp" },
+  "effect": { "material": "pearl", "backdrop": "sky:dawn", "vignette": "q-flower" },
   "sentences": [
     {
       "segments": [ { "text": "このワインすごく" }, { "text": "美味", "reading": "おい" }, { "text": "しい。" } ],

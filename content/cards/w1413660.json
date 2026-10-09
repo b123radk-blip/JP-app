@@ -8,7 +8,11 @@
   "pos": ["adj-na"],
   "kanji": ["5927", "597d"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "好", "m": "fond" }],
-  "effect": { "material": "ivory", "backdrop": "sky:deep", "vignette": "hug-puppy:love" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:deep",
+    "vignette": { "type": "q-hug", "outcome": "love", "who": "guy2" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はオペラが" }, { "text": "大好", "reading": "だいす" }, { "text": "きだ。" } ],

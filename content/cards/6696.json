@@ -5,12 +5,7 @@
   "primaryReading": "あたた",
   "readings": { "kun": ["あたた(か)", "あたた(かい)", "あたた(まる)", "あたた(める)"], "on": ["ダン", "ノン"] },
   "mnemonic": "The sun (日) lending a warm hand (爰) to the spring: warm weather.",
-  "effect": {
-    "material": "gold",
-    "backdrop": "sky:snow",
-    "vignette": "stove-warm",
-    "parts": { "日": { "motion": "pulse" } }
-  },
+  "effect": { "material": "gold", "backdrop": "sky:snow", "vignette": "q-stove", "parts": { "日": { "motion": "pulse" } } },
   "sentences": [
     {
       "segments": [ { "text": "だんだん" }, { "text": "暖", "reading": "あたた" }, { "text": "かくなります。" } ],

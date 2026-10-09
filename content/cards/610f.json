@@ -8,7 +8,7 @@
   "effect": {
     "material": "pearl",
     "backdrop": "sky:twilight",
-    "vignette": "think-click",
+    "vignette": "q-idea",
     "parts": { "心": { "material": "rose" } }
   },
   "sentences": [

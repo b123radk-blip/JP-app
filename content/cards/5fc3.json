@@ -5,7 +5,7 @@
   "primaryReading": "しん",
   "readings": { "kun": ["こころ", "ごころ"], "on": ["シン"] },
   "mnemonic": "A heart with drops of feeling around it: heart, mind.",
-  "effect": { "material": "rose", "backdrop": "sky:dusk", "vignette": "heart-beat" },
+  "effect": { "material": "rose", "backdrop": "sky:dusk", "vignette": "q-heart" },
   "sentences": [
     {
       "segments": [ { "text": "心", "reading": "こころ" }, { "text": "がやさしい" }, { "text": "人", "reading": "ひと" }, { "text": "です。" } ],

@@ -5,7 +5,7 @@
   "primaryReading": "いや",
   "readings": { "kun": ["きら(う)", "きら(い)", "いや"], "on": ["ケン", "ゲン"] },
   "mnemonic": "A woman (女) handed two of something (兼) she doesn't want: dislike.",
-  "effect": { "material": "silver", "backdrop": "sky:storm", "vignette": "refuse-spoon" },
+  "effect": { "material": "silver", "backdrop": "sky:storm", "vignette": "q-refuse" },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "水", "reading": "みず" }, { "text": "は" }, { "text": "嫌", "reading": "いや" }, { "text": "なにおいがする。" } ],

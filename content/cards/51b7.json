@@ -5,7 +5,7 @@
   "primaryReading": "れい",
   "readings": { "kun": ["つめ(たい)", "ひ(える)", "ひ(や)", "ひ(ややか)"], "on": ["レイ"] },
   "mnemonic": "Ice (冫) by order (令): cold.",
-  "effect": { "material": "water", "backdrop": "sky:snow", "vignette": "shiver-frost" },
+  "effect": { "material": "water", "backdrop": "sky:snow", "vignette": "q-shiver" },
   "sentences": [
     {
       "segments": [ { "text": "もう" }, { "text": "手", "reading": "て" }, { "text": "が" }, { "text": "冷", "reading": "つめ" }, { "text": "たくって。" } ],

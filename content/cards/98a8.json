@@ -5,7 +5,7 @@
   "primaryReading": "かぜ",
   "readings": { "kun": ["かぜ", "かざ"], "on": ["フウ", "フ"] },
   "mnemonic": "An insect (虫) blown about under a sail (几) in the gust: wind.",
-  "effect": { "material": "cloud", "backdrop": "sky:day", "vignette": "gust-hat" },
+  "effect": { "material": "cloud", "backdrop": "sky:day", "vignette": "q-gust" },
   "sentences": [
     {
       "segments": [ { "text": "カーテンが" }, { "text": "風", "reading": "かぜ" }, { "text": "になびいた。" } ],

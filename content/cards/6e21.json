@@ -8,7 +8,7 @@
   "effect": {
     "material": "lacquer",
     "backdrop": "sky:day",
-    "vignette": "bridge-walk",
+    "vignette": "q-bridge",
     "parts": { "氵": { "material": "water" } }
   },
   "sentences": [

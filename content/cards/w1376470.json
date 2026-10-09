@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "type": "clouds-part", "size": 1, "outcome": "rainbow" }
+    "vignette": { "type": "q-clear", "outcome": "rainbow", "who": "gal2" }
   },
   "sentences": [
     {

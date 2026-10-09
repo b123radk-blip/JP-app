@@ -8,7 +8,11 @@
   "pos": ["v5s", "vt"],
   "kanji": ["8a71"],
   "builtFrom": [{ "k": "話", "m": "tale" }],
-  "effect": { "material": "rose", "backdrop": "sky:morning", "vignette": "chat-table:phone" },
+  "effect": {
+    "material": "rose",
+    "backdrop": "sky:morning",
+    "vignette": { "type": "q-chat", "outcome": "phone", "who": "gal2" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "ドイツ" }, { "text": "語", "reading": "ご" }, { "text": "を" }, { "text": "話", "reading": "はな" }, { "text": "せますか？" } ],

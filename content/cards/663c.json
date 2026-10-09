@@ -5,7 +5,7 @@
   "primaryReading": "ひる",
   "readings": { "kun": ["ひる"], "on": ["チュウ"] },
   "mnemonic": "The sun (日) stands highest over the horizon line (一): noon, daytime.",
-  "effect": { "material": "gold", "backdrop": "sky:noon", "vignette": "noon-sun" },
+  "effect": { "material": "gold", "backdrop": "sky:noon", "vignette": "q-noon" },
   "sentences": [
     {
       "segments": [ { "text": "昼", "reading": "ひる" }, { "text": "はホットドッグを" }, { "text": "食", "reading": "た" }, { "text": "べたんだ。" } ],

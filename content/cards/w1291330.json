@@ -8,7 +8,7 @@
   "pos": ["v5s", "vi"],
   "kanji": ["5dee"],
   "builtFrom": [{ "k": "差", "m": "difference" }],
-  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "size": 1, "type": "parasol-up" } },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "q-parasol" },
   "sentences": [
     {
       "segments": [ { "text": "雨", "reading": "あめ" }, { "text": "なので、" }, { "text": "傘", "reading": "かさ" }, { "text": "を" }, { "text": "差", "reading": "さ" }, { "text": "しました。" } ],

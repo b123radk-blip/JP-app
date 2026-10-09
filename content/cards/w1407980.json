@@ -8,7 +8,7 @@
   "pos": ["adv"],
   "kanji": ["591a", "5206"],
   "builtFrom": [{ "k": "多", "m": "many" }, { "k": "分", "m": "part" }],
-  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "maybe-shrug" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "q-shrug" },
   "sentences": [
     {
       "segments": [ { "text": "多分", "reading": "たぶん" }, { "text": "うまく" }, { "text": "行", "reading": "い" }, { "text": "くさ。" } ],

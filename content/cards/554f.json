@@ -5,12 +5,7 @@
   "primaryReading": "もん",
   "readings": { "kun": ["と(う)", "と(い)", "とん"], "on": ["モン"] },
   "mnemonic": "A mouth (口) at the gate (門) asking: a question.",
-  "effect": {
-    "material": "chalk",
-    "backdrop": "sky:dusk",
-    "vignette": "hand-question",
-    "parts": { "口": { "material": "rose" } }
-  },
+  "effect": { "material": "chalk", "backdrop": "sky:dusk", "vignette": "q-ask", "parts": { "口": { "material": "rose" } } },
   "sentences": [
     {
       "segments": [ { "text": "それらは" }, { "text": "重要", "reading": "じゅうよう" }, { "text": "な" }, { "text": "問題", "reading": "もんだい" }, { "text": "だ。" } ],

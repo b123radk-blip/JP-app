@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["5165", "53e3"],
   "builtFrom": [{ "k": "入", "m": "enter" }, { "k": "口", "m": "mouth" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": "tent-in:doors" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:day",
+    "vignette": { "type": "q-tent", "outcome": "doors", "who": "gal2" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "入り口", "reading": "いりぐち" }, { "text": "のところまで" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],

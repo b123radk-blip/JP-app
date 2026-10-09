@@ -5,7 +5,7 @@
   "primaryReading": "はなし",
   "readings": { "kun": ["はな(す)", "はなし"], "on": ["ワ"] },
   "mnemonic": "Words (言) rolling off the tongue (舌): talk.",
-  "effect": { "material": "rose", "backdrop": "sky:indoor", "vignette": "chat-table" },
+  "effect": { "material": "rose", "backdrop": "sky:indoor", "vignette": "q-chat" },
   "sentences": [
     {
       "segments": [ { "text": "それはたいへんな" }, { "text": "話", "reading": "はなし" }, { "text": "だ。" } ],

@@ -74,9 +74,20 @@ import { SCENES as QF2 } from './q-family2.js';
 import { SCENES as QP } from './q-people.js';
 import { SCENES as QS } from './q-school.js';
 import { SCENES as QA2 } from './q-animals2.js';
+import { SCENES as QA3 } from './q-animals3.js';
+import { SCENES as QSE } from './q-senses.js';
+import { SCENES as QB } from './q-bed.js';
+import { SCENES as QFE } from './q-feel.js';
+import { SCENES as QT } from './q-taste.js';
+import { SCENES as QL } from './q-likes.js';
+import { SCENES as QST } from './q-strength.js';
+import { SCENES as QTK } from './q-talk.js';
+import { SCENES as QMV } from './q-move.js';
+import { SCENES as QW } from './q-weather.js';
+import { SCENES as QWM } from './q-warm.js';
 import { SCENES as KIT } from './kit-sheet.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...W5A, ...B6A, ...B6B, ...B6C, ...S1A, ...S1B, ...S1C, ...S1T, ...S1D, ...S1E, ...S1G, ...S1H, ...S1F, ...S1I, ...S1J, ...S1K, ...S1L, ...S1M, ...S1N, ...S1O, ...MA, ...MB, ...QG, ...QA, ...QF, ...QF2, ...QP, ...QS, ...QA2, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...W5A, ...B6A, ...B6B, ...B6C, ...S1A, ...S1B, ...S1C, ...S1T, ...S1D, ...S1E, ...S1G, ...S1H, ...S1F, ...S1I, ...S1J, ...S1K, ...S1L, ...S1M, ...S1N, ...S1O, ...MA, ...MB, ...QG, ...QA, ...QF, ...QF2, ...QP, ...QS, ...QA2, ...QA3, ...QSE, ...QB, ...QFE, ...QT, ...QL, ...QST, ...QTK, ...QMV, ...QW, ...QWM, ...KIT };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

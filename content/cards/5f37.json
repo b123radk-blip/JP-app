@@ -8,7 +8,7 @@
   "effect": {
     "material": "metal",
     "backdrop": "sky:noon",
-    "vignette": "barbell-flex",
+    "vignette": "q-barbell",
     "parts": { "弓": { "material": "wood" } }
   },
   "sentences": [

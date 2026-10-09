@@ -5,7 +5,7 @@
   "primaryReading": "おも",
   "readings": { "kun": ["おも(う)", "おもえら(く)", "おぼ(す)"], "on": ["シ"] },
   "mnemonic": "A field (田) on top of a heart (心): think, feel.",
-  "effect": { "material": "rose", "backdrop": "sky:morning", "vignette": "think-bubble", "parts": { "田": {}, "心": {} } },
+  "effect": { "material": "rose", "backdrop": "sky:morning", "vignette": "q-think", "parts": { "田": {}, "心": {} } },
   "sentences": [
     {
       "segments": [ { "text": "それでいいと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],

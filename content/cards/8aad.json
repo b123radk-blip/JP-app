@@ -5,7 +5,7 @@
   "primaryReading": "よ",
   "readings": { "kun": ["よ(む)", "よ(み)"], "on": ["ドク", "トク", "トウ"] },
   "mnemonic": "Words (言) you buy (売) in a shop and take home: read.",
-  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": "read-book", "parts": { "言": {} } },
+  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": "q-read", "parts": { "言": {} } },
   "sentences": [
     {
       "segments": [ { "text": "読", "reading": "よ" }, { "text": "みやすい" }, { "text": "本", "reading": "ほん" }, { "text": "だったよ。" } ],

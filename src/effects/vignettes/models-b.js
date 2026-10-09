@@ -18,6 +18,7 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, puffs } from './helpers.js';
 import { grow } from './step1-kit.js';
+import { COW } from './q-animals3.js';
 
 const RIGHT = Math.PI / 2, LEFT = -Math.PI / 2;
 const lerp = (a, b, f) => a + (b - a) * f;
@@ -56,6 +57,7 @@ function dogFetch(ctx, spec, stage) {
 
 // ---- 牛 ----
 function cow(ctx, spec, stage) {
+  if (COW[spec.outcome]) return COW[spec.outcome](ctx, spec, stage);       // 牛乳 牛肉 (q-animals3.js)
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.8 * u;
   const c = createModel('cow', { height: 0.85 * u }), moo = label(u, 'モー', '#6a4a2a');
   const tufts = [0, 1, 2].map(() => createModel('grass', { height: 0.12 * u, tint: { grass: 0x58b848 } }));

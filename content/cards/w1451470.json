@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["52d5", "7269"],
   "builtFrom": [{ "k": "動", "m": "move" }, { "k": "物", "m": "thing" }],
-  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": { "type": "animal-parade", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:forest", "vignette": { "type": "q-parade", "size": 1.1 } },
   "sentences": [
     {
       "segments": [ { "text": "牛", "reading": "うし" }, { "text": "は" }, { "text": "有用", "reading": "ゆうよう" }, { "text": "な" }, { "text": "動物", "reading": "どうぶつ" }, { "text": "である。" } ],

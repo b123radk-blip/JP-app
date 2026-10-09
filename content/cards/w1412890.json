@@ -8,7 +8,7 @@
   "pos": ["adj-pn"],
   "kanji": ["5927"],
   "builtFrom": [{ "k": "大", "m": "large" }],
-  "effect": { "material": "ivory", "backdrop": "sky:lake", "vignette": "grow-big:whale" },
+  "effect": { "material": "ivory", "backdrop": "sky:lake", "vignette": "q-whale" },
   "sentences": [
     {
       "segments": [ { "text": "なんと" }, { "text": "大", "reading": "おお" }, { "text": "きな" }, { "text": "犬", "reading": "いぬ" }, { "text": "だろう。" } ],

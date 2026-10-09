@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["98a8"],
   "builtFrom": [{ "k": "風", "m": "wind" }],
-  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "bath-tub", "size": 1 } },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": "q-bath" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はほとんど" }, { "text": "毎日", "reading": "まいにち" }, { "text": "お" }, { "text": "風呂", "reading": "ふろ" }, { "text": "に" }, { "text": "入", "reading": "はい" }, { "text": "ります。" } ],

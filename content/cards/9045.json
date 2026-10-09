@@ -5,7 +5,7 @@
   "primaryReading": "おそ",
   "readings": { "kun": ["おく(れる)", "おく(らす)", "おそ(い)"], "on": ["チ"] },
   "mnemonic": "A sheep (羊) dawdling along the road (⻌): slow, late.",
-  "effect": { "material": "clay", "backdrop": "sky:golden", "vignette": "toast-run" },
+  "effect": { "material": "clay", "backdrop": "sky:golden", "vignette": "q-late" },
   "sentences": [
     {
       "segments": [ { "text": "とにかく" }, { "text": "遅", "reading": "おそ" }, { "text": "すぎますよ。" } ],

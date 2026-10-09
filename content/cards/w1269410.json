@@ -8,7 +8,11 @@
   "pos": ["n", "adj-no"],
   "kanji": ["5f8c"],
   "builtFrom": [{ "k": "後", "m": "behind" }],
-  "effect": { "material": "ivory", "backdrop": "sky:dusk", "vignette": "peek-behind:sneak" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:dusk",
+    "vignette": { "type": "q-peek", "outcome": "sneak", "who": "gal2" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "後", "reading": "うし" }, { "text": "ろに" }, { "text": "下", "reading": "さ" }, { "text": "がってください。" } ],

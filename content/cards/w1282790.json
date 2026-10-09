@@ -8,7 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": ["964d"],
   "builtFrom": [{ "k": "降", "m": "descend" }],
-  "effect": { "material": "ivory", "backdrop": "sky:storm", "vignette": { "type": "rain-umbrella", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:storm", "vignette": { "type": "q-rain", "size": 1.1 } },
   "sentences": [
     {
       "segments": [ { "text": "今夜", "reading": "こんや" }, { "text": "は" }, { "text": "雨", "reading": "あめ" }, { "text": "が" }, { "text": "降", "reading": "ふ" }, { "text": "るだろう。" } ],

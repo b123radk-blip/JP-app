@@ -61,3 +61,12 @@ export function onHead(a, prop, space, name, dx = 0, dy = 0, dz = 0) {
   prop.position.copy(space.worldToLocal(a.at(name, w2, dx, dy, dz)));
   prop.rotation.y = a.group.rotation.y;
 }
+// a speech bubble: white card with dark text and a little tail at its lower left (flip: lower right); origin at its middle
+export function speech(u, text, { h = 0.15, color = '#20242c', bg = '#ffffff', flip = false } = {}) {
+  const g = new THREE.Group(), card = textPlane(text, { h: h * u, color, bg, pad: 0.35 });
+  const tail = solidProp([[G.cone(0.04 * u, 0.12 * u, 0, 0, 0, flip ? -2.6 : 2.6), new THREE.Color(bg).getHex()]], 1.0);
+  tail.position.set((flip ? 1 : -1) * 0.12 * u, -h * u * 0.75, -0.005 * u); g.add(card, tail);
+  return g;
+}
+// show bubble b (k 0..1) at (x, y, z), popping
+export const say = (b, k, x, y, z) => pop(b, k, x, y, z);

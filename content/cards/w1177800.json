@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "walk-far", "outcome": "scope" }
+    "vignette": { "type": "q-far", "outcome": "scope", "who": "grandpa" }
   },
   "sentences": [
     {

@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:morning",
-    "vignette": { "size": 1, "type": "turn-around", "outcome": "across" }
+    "vignette": { "type": "q-turn", "outcome": "across", "who": "gal", "other": "guy3" }
   },
   "sentences": [
     {

@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1.2, "type": "cow-moo", "outcome": "milk" }
+    "vignette": { "size": 1.1, "type": "q-cow", "outcome": "milk" }
   },
   "sentences": [
     {

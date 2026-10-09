@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:noon",
-    "vignette": { "type": "noon-sun", "outcome": "eat", "size": 1 }
+    "vignette": { "type": "q-noon", "outcome": "eat", "who": "guy2" }
   },
   "sentences": [
     {

@@ -78,12 +78,12 @@ function eat(ctx, spec, stage) {
 }
 
 // ---- 飲む ----
-function drink(ctx, spec, stage) {
+export function drink(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.6 * u;
   const who = actor(spec.who, 0.9 * u);
   const R = 0.058 * u, glass = solidProp([[G.cyl(0.062 * u, 0.052 * u, 0.2 * u, 0, 0, 0), 0xcfe8ff]], 0.25);   // pivot: its middle
   glass.material.transparent = true; glass.material.opacity = 0.45; glass.material.depthWrite = false;
-  const milk = solidProp([[G.cyl(0.054 * u, 0.047 * u, 0.17 * u, 0, 0.085 * u, 0), 0xffffff]], 0.7);
+  const milk = solidProp([[G.cyl(0.054 * u, 0.047 * u, 0.17 * u, 0, 0.085 * u, 0), spec.drink === 'juice' ? 0xffa020 : 0xffffff]], 0.7);
   const gulp = label(u, 'ごくごく', '#3a7ac0', 0.13), ahh = label(u, 'ぷはー', '#c0603a', 0.15);
   glass.add(milk); milk.position.y = -0.088 * u;
   group.add(who.group, glass, gulp, ahh);

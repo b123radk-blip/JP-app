@@ -5,7 +5,7 @@
   "primaryReading": "ど",
   "readings": { "kun": ["たび", "た(い)"], "on": ["ド", "ト", "タク"] },
   "mnemonic": "A hand (又) under the eaves (广) reading the degrees: degrees, times.",
-  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "jump-rope" },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "q-rope" },
   "sentences": [
     {
       "segments": [ { "text": "温度", "reading": "おんど" }, { "text": "は" }, { "text": "七十", "reading": "ななじゅう" }, { "text": "度", "reading": "ど" }, { "text": "です。" } ],

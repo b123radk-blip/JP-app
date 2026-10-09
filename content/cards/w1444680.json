@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "bridge-walk", "outcome": "zebra" }
+    "vignette": { "type": "q-bridge", "outcome": "zebra", "who": "guy2" }
   },
   "sentences": [
     {

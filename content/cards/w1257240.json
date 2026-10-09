@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "type": "refuse-spoon", "size": 1.2, "outcome": "stink" }
+    "vignette": { "type": "q-refuse", "outcome": "stink", "size": 1.1 }
   },
   "sentences": [
     {

@@ -3,6 +3,26 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 3a: model pass, batches 2 and 3 (animals; verbs of the body, feelings, weather), 2026-10-09
+- **Batch 2 (17 cards):** animated Quaternius animals in `vignettes/q-animals3.js` and the q-tent / q-cow / q-hug
+  variants: 入 外 入る 入り口 入れる 大きな 動物 鳴く 牛乳 牛肉 好 大好き 好き 泳 泳ぐ 後 後ろ.
+- **Batch 3 (73 cards):** 49 new scene types in `q-senses.js` (見 聞 言 読), `q-bed.js` (夜 起 立), `q-feel.js` (体 思 意 気 心
+  冷), `q-taste.js` (歌 転 味), `q-likes.js` (嫌 美 遅 汚 病 多分), `q-strength.js` (重 強 度 同 丈), `q-talk.js` (話 言葉 問 答
+  質問 問題), `q-move.js` (近 遠 向 方 通 渡 降), `q-weather.js` (風 晴 降る 差す 曇る 昼) and `q-warm.js` (暖 温 お風呂 夕).
+  Four word variants that still had stick people were remade with models: 見せる (a child shows mum her drawing,
+  じょうず!), 病気 (germs circle over the sick bed), 汚い (flies over dirty dishes, she holds her nose), 強い (he lifts a car).
+  Kept on their old scenes (no person needed): 見る stars, 言う parrot, 読む worm, 遅い tortoise, 同じ match, 丈夫 weight, 夕方 clock.
+- **New kit:** `speech()` bubbles with a tail (q-common.js); `bed()` (lie down, sit up, cover) in q-bed.js; a standing
+  kanji (`poseGlyph`) for 立. Chibi arms are short: a raised hand reaches `local(-0.24, 1.05, 0.06)`, not a point over the head.
+- **Checks:**
+  - npm test ok, 0 pairs >= 0.72.
+  - Cost mismatches found by the cost check and e2e (q-hug love, q-sing shower, q-think, q-taste, q-ask, q-noon) were
+    fixed in the catalog; then 0 mismatches.
+  - e2e passed.
+- **Strips:** docs/screenshots/models-animals2.jpg, models-body.jpg, models-weather.jpg.
+- **Weakest:** 通 (the tunnel is a green mound; the person passing through is only seen at the ends); 夕 (the hills are a
+  dark band, the sunset carries it); 体 (a person exercising reads as "exercise" more than "body").
+
 ## Step 3a: model pass, batch 1 (family and people), 2026-10-09
 - **Plan:** "Model pass (Step 3a)" in docs/REVAMP.md: a scan of the scene modules (who builds a person or a hand) and
   the scene descriptions (animals) finds 329 deck cards with a person or an animal. 232 of them are planned in 149
@@ -19,7 +39,7 @@ here feed the prompt for the next step (docs/prompts/). Newest first.
 - **Checks:**
   - npm test ok, 0 pairs >= 0.72.
   - Cost check on the q- scenes (`check-piece-costs.mjs vignette '^q-'`, a new filter): 0 mismatches.
-  - e2e: see below.
+  - e2e passed.
 - **Strips:** docs/screenshots/models-family.jpg and models-people.jpg.
 - **Weakest:** 学 (the child sits behind his abacus, small); お母さん (the stove hides her stirring hand from the seat);
   男 (a man ploughing a field reads as "a man working", not "male").

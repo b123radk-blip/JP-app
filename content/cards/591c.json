@@ -5,7 +5,7 @@
   "primaryReading": "よる",
   "readings": { "kun": ["よ", "よる"], "on": ["ヤ"] },
   "mnemonic": "A person (亻) under a roof (亠) as the evening moon (夕) rises: night.",
-  "effect": { "material": "neon", "backdrop": "sky:twilight", "vignette": "go-to-bed" },
+  "effect": { "material": "neon", "backdrop": "sky:twilight", "vignette": "q-night" },
   "sentences": [
     {
       "segments": [ { "text": "楽", "reading": "たの" }, { "text": "しい" }, { "text": "夜", "reading": "よる" }, { "text": "をありがとう。" } ],

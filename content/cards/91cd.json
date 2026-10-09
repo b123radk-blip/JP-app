@@ -5,7 +5,7 @@
   "primaryReading": "おも",
   "readings": { "kun": ["え", "おも(い)", "おも(り)", "おも(なう)"], "on": ["ジュウ", "チョウ"] },
   "mnemonic": "A thousand (千) villages (里) piled into one block: too heavy to lift.",
-  "effect": { "material": "stone", "reveal": "draw:dust", "backdrop": "sky:day", "vignette": "lift-heavy" },
+  "effect": { "material": "stone", "reveal": "draw:dust", "backdrop": "sky:day", "vignette": "q-heavy" },
   "sentences": [
     {
       "segments": [ { "text": "金", "reading": "きん" }, { "text": "は" }, { "text": "水", "reading": "みず" }, { "text": "よりずっと" }, { "text": "重", "reading": "おも" }, { "text": "い。" } ],

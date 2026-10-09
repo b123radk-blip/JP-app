@@ -5,7 +5,7 @@
   "primaryReading": "とお",
   "readings": { "kun": ["とお(い)"], "on": ["エン", "オン"] },
   "mnemonic": "Walking (⻌) off in a long robe (袁), smaller and smaller: far.",
-  "effect": { "material": "jade", "backdrop": "sky:golden", "vignette": "walk-far" },
+  "effect": { "material": "jade", "backdrop": "sky:golden", "vignette": "q-far" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "家", "reading": "いえ" }, { "text": "はここから" }, { "text": "遠", "reading": "とお" }, { "text": "い。" } ],
