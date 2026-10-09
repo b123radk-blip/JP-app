@@ -3,6 +3,19 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Model library for Step 3a, 2026-10-09
+- **Verdict on the trials (user, headset):** Quaternius for people and animals, Kenney for vehicles (objects and places
+  may be Kenney too), shapes and the glyph for the abstract. Next step: docs/prompts/step-3a-models.md.
+- **Added** (all CC0, slimmed with `scripts/prep-model.mjs`, every clip kept except weapon ones): 7 Quaternius animals
+  (shiba cow horse fox deer wolf husky), 4 farm animals and 6 sea creatures converted from FBX (new
+  `scripts/fbx-to-glb.mjs`: three's FBXLoader + GLTFExporter in headless Chromium), 16 people on one rig, 15 sushi-kit
+  decorations. 59 models in `src/effects/model-list.js` (moved out of models.js), 15 MB of Quaternius files in all;
+  docs/MODELS.md lists clips, lengths and draw calls (`node scripts/list-models.mjs --write`).
+- **Notes:** FBX exports name clips `Armature|Idle`; prep-model strips that. The farm animals have only Idle and Jump;
+  the sea creatures only Swim. Still missing: a cat, a bird, children, Quaternius food (the sushi kit's Food folder).
+- **Checks:** npm test ok; cost check 0 mismatches on the model scenes; e2e all checks passed. Run e2e on its own: while
+  other headless browsers ran at the same time, "day 1 shows the first 10 cards in order" failed once (timing).
+
 ## 3D model trial 2: Quaternius models on 8 cards, 2026-10-08
 - **What:** CC0 models from Quaternius's Ultimate Animated Animal Pack and Ultimate Animated Character Pack (the user
   downloaded the glTF folders: Google Drive refuses downloads from this cloud server, itch.io and poly.pizza are not

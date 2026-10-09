@@ -1,7 +1,11 @@
 Models by Quaternius (https://quaternius.com), CC0 1.0 Universal (public domain):
 https://creativecommons.org/publicdomain/zero/1.0/
 
-animals/     from "Ultimate Animated Animal Pack"   https://quaternius.com/packs/ultimateanimatedanimals.html
-characters/  from "Ultimate Animated Character Pack" https://quaternius.com/packs/ultimatedanimatedcharacter.html
+animals/     "Ultimate Animated Animal Pack"    https://quaternius.com/packs/ultimateanimatedanimals.html
+characters/  "Ultimate Animated Character Pack" https://quaternius.com/packs/ultimatedanimatedcharacter.html
+farm/        "Farm Animal Pack" (FBX)           https://quaternius.com/packs/farmanimal.html
+sea/         "Animated Fish Pack" (FBX)         https://quaternius.com/packs/animatedfish.html
+sushi/       "Sushi Restaurant Kit" (Decoration) https://quaternius.com/packs/sushirestaurantkit.html
 
-Slimmed for this app with scripts/prep-model.mjs (only the animation clips the scenes use; quantized; binary .glb).
+Slimmed for this app with scripts/prep-model.mjs (weapon clips dropped; quantized; binary .glb). FBX packs converted
+with scripts/fbx-to-glb.mjs first.

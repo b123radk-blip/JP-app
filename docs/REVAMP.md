@@ -5,8 +5,9 @@ The test for every card: **would someone who has never seen this kanji (a kid, s
 alone?** Scenes act the meaning out (a beginning, an action, an end) and the kanji takes part when its shape allows.
 
 **Where to continue:** Step 2b (Step 2 cards) and Step 2c (Step 1 cards, "Step 1 revamp" at the end of this file) are done:
-every card in the N5 deck has a scene. Checks and numbers: docs/BATCH-LOG.md. Next: the user's headset look (the weakest
-scenes are listed in the log), then N4 with the same pattern.
+every card in the N5 deck has a scene. Checks and numbers: docs/BATCH-LOG.md. The user chose the 3D-model style after two
+trials (below): **next is Step 3a, docs/prompts/step-3a-models.md** (gesture test, promote the trial winners, then the
+people and animal scenes family by family with Quaternius / Kenney models). N4 comes after that.
 **3D model trial (Kenney, CC0):** 8 Step 1 cards (犬 三 休 車 電車 魚 歩 大きい) have a second version built from glTF
 models (`content/trials/kenney.json`, scenes `m-*` in `vignettes/models-a.js`). The deck still uses the old scenes. Open
 `?preview=1&trial=kenney` (footer link "3D model trial"); the Old / New button flips each card. Next: the user's verdict

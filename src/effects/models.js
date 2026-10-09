@@ -9,18 +9,9 @@ import { appUrl } from '../core/urls.js';
 import { MODELS as CFG } from '../config.js';
 import { VIGNETTES } from './vignette-catalog.js';
 import { parseSpec } from './catalog.js';
+import { MODELS } from './model-list.js';
 
-export const MODELS = {
-  dog: 'kenney/cube-pets/animal-dog.glb', chick: 'kenney/cube-pets/animal-chick.glb', fish: 'kenney/cube-pets/animal-fish.glb',
-  elephant: 'kenney/cube-pets/animal-elephant.glb',
-  man: 'kenney/mini-characters/character-male-b.glb', hiker: 'kenney/mini-characters/character-male-e.glb',
-  oak: 'kenney/nature-kit/tree_oak.glb', grass: 'kenney/nature-kit/grass_large.glb', sedan: 'kenney/car-kit/sedan.glb',
-  tramCar: 'kenney/train-kit/train-electric-city-b.glb', track: 'kenney/train-kit/track.glb',
-  // Quaternius (natural low-poly animals, chibi people; packs named in assets/models/quaternius/License.txt)
-  shiba: 'quaternius/animals/shiba.glb', cow: 'quaternius/animals/cow.glb',
-  guy: 'quaternius/characters/casual-male.glb', gal: 'quaternius/characters/casual-female.glb',
-  kimono: 'quaternius/characters/kimono-female.glb', doctor: 'quaternius/characters/doctor.glb',
-};
+export { MODELS };
 
 const loaded = new Map();               // name -> Promise<{ scene, animations, box }>
 const ready = new Map();                // name -> { scene, animations, box } once loaded
