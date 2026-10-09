@@ -130,6 +130,11 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   recipes for existing cards: `content/trials/<name>.json`, viewed with `?preview=1&trial=<name>` (Old / New button).
   New models: `node scripts/fbx-to-glb.mjs` (FBX only), `node scripts/prep-model.mjs in out.glb --keep Idle,Walk`, add
   the name to model-list.js, `node scripts/list-models.mjs --write`. Quaternius downloads must come from the user.
+- Gestures (actions the people's clips lack: eat, drink, phone, wave, bow, nod, point, read, write, listen, look):
+  `vignettes/model-kit.js`. `actor(name, h)`, then every frame `a.pose(clip, t)` and gestures with a 0..1 amount
+  (`a.toMouth('R', k)`, `a.bow(k)`, `a.handTo('L', a.local(x, y, z), k)` reaches any point by IK; `a.carry(prop, 'R',
+  group)` puts a prop in the fist). Review: `{ "vignette": { "type": "q-gesture", "g": "wave" } }`; examples `q-eat`
+  `q-drink` `q-meet` (vignettes/q-gestures.js). Let a recipe pick the person (`who`) and cost it with `pdc()`.
 - Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2
   --clip 150,20,560,340`, fix, then `scripts/set-recipes.mjs`. Word cards: `--clip 90,60,660,300` (the default crops their right edge). Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
   (pools, roads) toward the viewer, a lit doorway behind a silhouette, fake depth on a flat picture. Log: docs/BATCH-LOG.md.

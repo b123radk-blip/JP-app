@@ -1,0 +1,21 @@
+{
+ "title": "Gesture test (Step 3a)",
+ "note": "Verbs the Quaternius clips do not have, made with the gesture kit (src/effects/vignettes/model-kit.js): arms reach by IK, heads and backs turn, props ride in the hands. Open with ?preview=1&trial=gestures; the Old / New button flips to the card's current scene.",
+ "cards": {
+  "w1358280": {
+   "material": "ivory",
+   "backdrop": "sky:indoor",
+   "vignette": "q-eat"
+  },
+  "w1169870": {
+   "material": "ivory",
+   "backdrop": "sky:morning",
+   "vignette": "q-drink"
+  },
+  "w1198180": {
+   "material": "ivory",
+   "backdrop": "sky:deep",
+   "vignette": "q-meet"
+  }
+ }
+}

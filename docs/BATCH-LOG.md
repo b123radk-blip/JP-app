@@ -3,6 +3,24 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 3a part 1: the gesture kit and the gesture test, 2026-10-09
+- **Kit:** `src/effects/vignettes/model-kit.js`. `actor(name, h)` is a Quaternius person (skin tint built in) with
+  two-bone IK for the arms in world space (`handTo(side, point, k)`: the fist reaches any point, the elbow bends out and
+  down), `turn(bone, ax, ay, az)` about the actor's own axes, landmarks that follow the head (`at('mouth' | 'eyes' |
+  'earR' | 'earL' | 'over' | 'chest' | 'front' | 'lap')`), `local(x, y, z)` in heights, and `carry(prop, side, space)`
+  (a prop rides in the fist). Gestures, each with a 0..1 amount over any clip: `toMouth sip toEar cupEar shadeEyes wave
+  hold bow nod shake point write`. Sheet: docs/screenshots/models-gesture-kit.jpg (the `q-gesture` review scene).
+- **Gesture test (go):** 食べる `q-eat` (holds a rice bowl up and eats with chopsticks, three bites, もぐもぐ, the rice
+  goes down, a happy nod), 飲む `q-drink` (lifts a glass of milk, tips it back with the head, ごくごく as the milk drops,
+  ぷはー), 会う `q-meet` (one walks in from the right, the other up out of the distance, both see each other "!", wave,
+  bow お辞儀 with こんにちは, walk back). Recipes in `content/trials/gestures.json` (`?preview=1&trial=gestures`, Old /
+  New). Strips: docs/screenshots/models-gestures.jpg. **Verdict:** gestures read clearly from the seat and nothing
+  looked broken in the frames; IK keeps hands on target from any clip and facing. Limits: the chibi arms are short (the
+  hand reaches the mouth with the arm nearly straight, so a held bowl sits just under the chin, which happens to be the
+  Japanese way), fingers do not move (fists only), and big heads collide when two people bow closer than about 0.75 u.
+- **Catalog:** `PERSON_DC` / `pdc()` in vignette-catalog.js cost a scene by the person a recipe picks (`who`, `other`).
+- **Checks:** npm test ok (0 pairs >= 0.72).
+
 ## Model library for Step 3a, 2026-10-09
 - **Verdict on the trials (user, headset):** Quaternius for people and animals, Kenney for vehicles (objects and places
   may be Kenney too), shapes and the glyph for the abstract. Next step: docs/prompts/step-3a-models.md.

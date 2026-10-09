@@ -9,6 +9,9 @@ const rowDc = (unit) => 1 + (({ day: 1, now: 2 })[unit] ?? 3);
 const V = (dc, desc, opts = {}, variant = null) => ({ dc, desc, opts: { at: null, size: null, ...opts }, variant });
 // a scene built from glTF models (effects/models.js): `models` names what must be loaded before it is built
 const VM = (dc, desc, models, opts = {}, variant = null) => ({ ...V(dc, desc, opts, variant), models });
+// draw calls of each Quaternius person (docs/MODELS.md): scenes that let a recipe pick the actor (`who`) cost by name
+const PERSON_DC = { guy: 6, gal: 6, guy2: 6, gal2: 6, guy3: 6, gal3: 6, kimono: 5, kimonoMan: 4, doctor: 6, doctorWoman: 6, chef: 6, suitMan: 7, suitWoman: 7, worker: 6, grandpa: 8, grandma: 8 };
+const pdc = (...names) => names.reduce((s, n) => s + (PERSON_DC[n] ?? 0), 0);
 
 export const VIGNETTES = {
   'hammer-nail': V(10, 'a hand swings a hammer at a nail standing in a board; outcome clean: three blows drive it in flush, a sparkle, thumbs up (skilled); bend: the nail bends over, the hammer hits the thumb, stars (unskilled)', { outcome: 'clean' }, 'outcome'),
@@ -382,6 +385,11 @@ export const VIGNETTES = {
   'q-doctor': VM(16, '医者 (models): a patient sits slumped under a grey cloud; a doctor walks up carrying a red-cross kit and sets it down; the patient jumps up cheering', ['guy', 'doctor']),
   'q-run': VM(8, '走る (models): a runner laps a little track beside the kanji, dust kicking up behind', ['guy']),
   'q-sit': VM(7, '座る (models): a person walks up to a chair, turns, sits down, rests, stands up and walks off', ['gal'], { seatLift: 0.11 }),
+  // ---- model scenes with gestures (Step 3a gesture test, vignettes/q-gestures.js + model-kit.js); who / other: a person model ----
+  'q-eat': VM((o) => pdc(o.who) + 6, '食べる (models): a person holds a rice bowl and eats with chopsticks, bite after bite, chewing もぐもぐ, until the bowl is empty; a happy nod and hearts', (o) => [o.who], { who: 'guy2' }),
+  'q-drink': VM((o) => pdc(o.who) + 4, '飲む (models): a person raises a glass of milk, tips it back and gulps ごくごく as the milk goes down, lowers it: ぷはー', (o) => [o.who], { who: 'gal2' }),
+  'q-meet': VM((o) => pdc(o.who, o.other) + 3, '会う (models): one person walks in from the right, the other up out of the distance; they see each other (!), wave, bow to each other (お辞儀) saying こんにちは, and walk back the way they came', (o) => [o.who, o.other], { who: 'suitMan', other: 'gal' }),
+  'q-gesture': VM((o) => pdc(o.who), 'review of the gesture kit (not for cards): one person doing one gesture g (toMouth sip toEar cupEar shadeEyes wave hold bow point write nod shake) at amount k over a clip', (o) => [o.who], { who: 'guy', g: 'wave', k: 1, clip: 'Idle', yaw: 0 }),
   'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards; names: other models)', (o) => o.names ?? ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),
 };
