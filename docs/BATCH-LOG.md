@@ -10,7 +10,8 @@ here feed the prompt for the next step (docs/prompts/). Newest first.
 - **Kit:** measured the fist (a flat paddle 0.074 h thick, its middle 0.05 h past the wrist bone, the palm facing the
   bone's -x / +x). New `grip(side, middle, toward, r, k)` (IK so the palm touches the thing, then the forearm and wrist
   twist so the palm faces it), `hold(prop, side, space, r)`, `twist`, `palm`, `fistMid`; `carry` kept for old scenes.
-- **Scenes:** 飲む: the hand holds the glass from its side (the glass pivots on its middle and tips at the mouth). 食べる:
+- **Scenes:** 飲む: the hand holds the glass from its side; at the mouth the glass is placed by its rim (the near edge of the
+  tipped rim on the lips, so the arm lifts higher; the user saw it at the neck before). Side view: docs/screenshots/models-drink-side.jpg. 食べる:
   the bowl sits on the upturned left palm; the chopsticks start at the palm's edge. ペット: restaged: she scoops the cat
   onto her palm, holds it at her chest and strokes its head with her palm down (crouching hid the hand under her head).
 

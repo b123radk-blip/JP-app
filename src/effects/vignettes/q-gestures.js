@@ -98,12 +98,17 @@ function drink(ctx, spec, stage) {
       // the glass rests against the right palm (the hand on its right side): at the chest, then up at the mouth, tipped
       // back with the head; the hand follows the glass, never the other way round
       const sip = T.lift * (1 - T.lower), tip = T.tip * (1 - T.down), ws = group.getWorldScale(W).y;
-      const chest = who.local(-0.03, 0.4, 0.27, new THREE.Vector3()), mouth = who.at('mouth', new THREE.Vector3(), 0.01, -0.07, 0.13 - 0.03 * tip);
+      // at the mouth the glass is placed by its rim: the near edge of the tipped rim touches the lips
+      const fwd = who.local(0, 0, 1, W).sub(who.local(0, 0, 0, W2)).normalize(), turn = new THREE.Euler(-1.5 * tip, yaw, 0, 'YXZ');
+      const axis = new THREE.Vector3(0, 1, 0).applyEuler(turn), face = fwd.clone().negate().addScaledVector(axis, axis.dot(fwd)).normalize();
+      const lips = who.at('mouth', new THREE.Vector3(), 0, -0.01, 0.03);
+      const atLips = lips.addScaledVector(axis, -0.1 * u * ws).addScaledVector(face, -R * ws);
+      const chest = who.local(-0.03, 0.4, 0.27, new THREE.Vector3());
       const toward = who.local(1, 0, 0, W).sub(who.local(0, 0, 0, W2)).normalize();
       who.turn('Head', -0.35 * tip);
-      who.grip('R', chest.lerp(mouth, sip), toward, R * ws, pre ? A.setup : 1, { out: 0.7, down: 0.7 });
+      who.grip('R', chest.lerp(atLips, sip), toward, R * ws, pre ? A.setup : 1, { out: 0.7, down: 0.5 });
       who.hold(glass, 'R', group, R * ws);
-      glass.rotation.set(-1.5 * tip, yaw, 0, 'YXZ');
+      glass.rotation.copy(turn);
       // the milk goes down while tipped, fills again at the end
       const left = pre ? 1 : Math.max(0.04, 1 - between(v, 1.4, 3.2) * 0.96 + T.fill * 0.96);
       milk.scale.set(1, left, 1); milk.position.y = -0.088 * u;
