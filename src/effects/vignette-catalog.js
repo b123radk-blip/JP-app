@@ -390,6 +390,11 @@ export const VIGNETTES = {
   'q-eat': VM((o) => pdc(o.who) + 6, '食べる (models): a person holds a rice bowl and eats with chopsticks, bite after bite, chewing もぐもぐ, until the bowl is empty; a happy nod and hearts', (o) => [o.who], { who: 'guy2' }),
   'q-drink': VM((o) => pdc(o.who) + 4, '飲む (models): a person raises a glass of milk, tips it back and gulps ごくごく as the milk goes down, lowers it: ぷはー', (o) => [o.who], { who: 'gal2' }),
   'q-meet': VM((o) => pdc(o.who, o.other) + 3, '会う (models): one person walks in from the right, the other up out of the distance; they see each other (!), wave, bow to each other (お辞儀) saying こんにちは, and walk back the way they came', (o) => [o.who, o.other], { who: 'suitMan', other: 'gal' }),
+  // ---- Everything Library animals (static models moved by hand, vignettes/q-animals.js) ----
+  'q-cat': VM(3, '猫 (models): a cat pads in, turns to you, stretches and meows ニャー, rubs against the kanji (hearts) and pads off', ['cat']),
+  'q-bird': VM(4, '鳥 (models): a pigeon flies in flapping, lands on a branch growing out of the kanji, pecks twice, puffs up and coos ポッポー, flies off', ['pigeonFlying', 'pigeon']),
+  'q-pet': VM((o) => pdc(o.who) + 2, 'ペット (models): a person crouches by a cat and strokes its back; the cat leans into the hand, hearts', (o) => ['cat', o.who], { who: 'gal3' }),
+  'q-egg': VM(5, '卵 (models): a hen fluffs up on a nest and hops off: an egg is under her; she looks down at it (!), it rocks, she crows コケコッコー', ['chicken']),
   'q-gesture': VM((o) => pdc(o.who), 'review of the gesture kit (not for cards): one person doing one gesture g (toMouth sip toEar cupEar shadeEyes wave hold bow point write nod shake) at amount k over a clip', (o) => [o.who], { who: 'guy', g: 'wave', k: 1, clip: 'Idle', yaw: 0 }),
   'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards; names: other models)', (o) => o.names ?? ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),

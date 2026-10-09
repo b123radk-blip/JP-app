@@ -1,0 +1,26 @@
+{
+ "title": "Everything Library animals (Step 3a)",
+ "note": "Cards whose animal Quaternius does not have, rebuilt with the Everything Library animals by David O'Reilly (CC BY 4.0): static models moved by hand (a walking bob, a stretch, wings that flap through a vertex bend). Open with ?preview=1&trial=animals; the Old / New button flips to the card's current look.",
+ "cards": {
+  "w1467640": {
+   "material": "ivory",
+   "backdrop": "sky:day",
+   "vignette": "q-cat"
+  },
+  "w1430250": {
+   "material": "ivory",
+   "backdrop": "sky:day",
+   "vignette": "q-bird"
+  },
+  "w1120990": {
+   "material": "ivory",
+   "backdrop": "sky:day",
+   "vignette": "q-pet"
+  },
+  "w1549140": {
+   "material": "ivory",
+   "backdrop": "sky:morning",
+   "vignette": "q-egg"
+  }
+ }
+}

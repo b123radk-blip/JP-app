@@ -124,6 +124,15 @@ function kitLook(mat, glow, own) {
   m.emissive = new THREE.Color(m.map ? 0xffffff : m.color);
   if (m.map) m.emissiveMap = m.map;
   m.emissiveIntensity = glow; m.roughness = Math.max(m.roughness, 0.6); m.metalness = Math.min(m.metalness, 0.1);
+  if (m.vertexColors) {                                  // coloured per vertex (Everything Library): the glow takes that colour
+    m.emissive.setHex(0); const k = { value: glow };
+    m.onBeforeCompile = (sh) => {
+      sh.uniforms.uVGlow = k;
+      sh.fragmentShader = sh.fragmentShader.replace('#include <common>', '#include <common>\nuniform float uVGlow;')
+        .replace('#include <emissivemap_fragment>', '#include <emissivemap_fragment>\ntotalEmissiveRadiance += diffuseColor.rgb * uVGlow;');
+    };
+    m.customProgramCacheKey = () => 'model-vglow';
+  }
   if (!own) looks.set(key, m);
   return m;
 }

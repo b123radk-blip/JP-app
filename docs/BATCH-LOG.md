@@ -3,6 +3,26 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 3a: food and the missing animals arrive, 2026-10-09
+- **From the user:** the Sushi Restaurant Kit's `Food/glTF` folder (Quaternius, CC0) and "Everything Library: Animals" by
+  David O'Reilly (one .fbx of 239 static animals, **CC BY 4.0**: credited in the page footer, README and
+  `assets/models/everything/License.txt`).
+- **Added:** 36 foods in `assets/models/quaternius/food/` (onigiri, ramen, udon, gyoza, dango, chukaman, nigiri and rolls,
+  fish, rice, nori ...; one textured part each, 1.2 MB in all) and 17 animals in `assets/models/everything/animals/`
+  (cat, chicken, pigeon and a flying pigeon, a flying swallow, crow and a flying crow, duck, mouse, rabbit, elephant
+  `grayElephant`, panda, monkey, bear, lion, giraffe, penguin; 1.4 MB). New `scripts/split-library.mjs` takes single
+  models out of a library .glb (after `fbx-to-glb.mjs`). 112 models in model-list.js.
+- **The Everything Library animals** are realistic low-poly, coloured per vertex, with no clips and no rig. The FBX left
+  placeholder base colours (red); split-library sets them white, and `models.js` makes a vertex-coloured model glow in its
+  own colours (the usual emissive glow washed them white; Quaternius deer, pig, sheep and llama are vertex-coloured too, unused so far).
+- **Checks:** npm test ok; cost check 0 mismatches (523 recipes). They move by hand: a walking bob, squash and stretch, turns,
+  and wings that flap through a vertex bend (`flap()` in `vignettes/q-animals.js`).
+- **Scenes (trial, `content/trials/animals.json`, `?preview=1&trial=animals`):** 猫 `q-cat` (pads in, stretches, ニャー,
+  rubs against the kanji), 鳥 `q-bird` (a pigeon flies in flapping, lands on a branch growing out of the kanji, pecks,
+  ポッポー, flies off), ペット `q-pet` (a person crouches and strokes a cat with the gesture kit), 卵 `q-egg` (a hen hops
+  off her nest: an egg, "!", コケコッコー). These four cards had no scene before. Not in the deck until the user has seen
+  the style next to the Quaternius animals in the headset.
+
 ## Step 3a part 1: the gesture kit and the gesture test, 2026-10-09
 - **Kit:** `src/effects/vignettes/model-kit.js`. `actor(name, h)` is a Quaternius person (skin tint built in) with
   two-bone IK for the arms in world space (`handTo(side, point, k)`: the fist reaches any point, the elbow bends out and

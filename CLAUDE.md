@@ -124,11 +124,12 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   and `this-unit` / `next-unit` / `last-unit` / `every-unit` with `unit` cover 今 来 先 毎 × 年 月 週 日. Reuse them for N4's
   counters and time words. Word variants of a theme module live in its `step1-*v.js` (keeps modules near 300 lines).
 - 3D models: `src/effects/models.js` loads glTF files from `assets/models/` (names in `src/effects/model-list.js`, clips
-  and draw calls in docs/MODELS.md). Style: Quaternius for people and animals, Kenney for vehicles and objects, shapes
-  for the abstract. A scene names its models in the catalog (`VM(dc, desc, ['shiba'])`), clones with
+  and draw calls in docs/MODELS.md). Style: Quaternius for people and animals, Kenney for vehicles and objects, the
+  Everything Library (CC BY 4.0, static, `vignettes/q-animals.js`) for animals Quaternius lacks, shapes for the abstract. A scene names its models in the catalog (`VM(dc, desc, ['shiba'])`), clones with
   `createModel('shiba', { height, tint })` and calls `pose('Gallop', t)` every frame before any bone tweak. Trials of new
   recipes for existing cards: `content/trials/<name>.json`, viewed with `?preview=1&trial=<name>` (Old / New button).
-  New models: `node scripts/fbx-to-glb.mjs` (FBX only), `node scripts/prep-model.mjs in out.glb --keep Idle,Walk`, add
+  New models: `node scripts/fbx-to-glb.mjs` (FBX only), `node scripts/prep-model.mjs in out.glb --keep Idle,Walk` (one model out of a library file:
+  `node scripts/split-library.mjs lib.glb outdir Name=file`), add
   the name to model-list.js, `node scripts/list-models.mjs --write`. Quaternius downloads must come from the user.
 - Gestures (actions the people's clips lack: eat, drink, phone, wave, bow, nod, point, read, write, listen, look):
   `vignettes/model-kit.js`. `actor(name, h)`, then every frame `a.pose(clip, t)` and gestures with a 0..1 amount

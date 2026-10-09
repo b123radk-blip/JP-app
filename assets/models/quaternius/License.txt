@@ -6,6 +6,7 @@ characters/  "Ultimate Animated Character Pack" https://quaternius.com/packs/ult
 farm/        "Farm Animal Pack" (FBX)           https://quaternius.com/packs/farmanimal.html
 sea/         "Animated Fish Pack" (FBX)         https://quaternius.com/packs/animatedfish.html
 sushi/       "Sushi Restaurant Kit" (Decoration) https://quaternius.com/packs/sushirestaurantkit.html
+food/        "Sushi Restaurant Kit" (Food)       https://quaternius.com/packs/sushirestaurantkit.html
 
 Slimmed for this app with scripts/prep-model.mjs (weapon clips dropped; quantized; binary .glb). FBX packs converted
 with scripts/fbx-to-glb.mjs first.

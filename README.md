@@ -40,6 +40,7 @@ a memorable 3D animation while you are learning it. Runs as a WebXR web app in t
 8. The new motions (立 stands up, 返 flips, 転 rolls, 無 vanishes, 消 erases itself, 切 / 八 split): smooth and comfortable?
 
 ## Credits
+- Animals (cat, birds, mouse ...): [Everything Library: Animals](https://davidoreilly.itch.io/everything-library-animals) by David O'Reilly, CC BY 4.0 (`assets/models/everything/License.txt`). Other 3D models: Kenney and Quaternius, CC0.
 - Stroke data: [KanjiVG](https://kanjivg.org) © Ulrich Apel, CC BY-SA 3.0 (derived `data/kanji-*.json` same licence).
 - Dictionaries: [JMdict](https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project) and
   [KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project), property of the Electronic Dictionary Research and

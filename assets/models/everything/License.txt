@@ -1,0 +1,6 @@
+Everything Library: Animals, by David O'Reilly (https://davidoreilly.itch.io/everything-library-animals)
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+Credit: "Everything Library: Animals" by David O'Reilly, CC BY 4.0 (shown in the app's footer).
+
+Changes: single animals taken out of EverythingLibrary_Animals_001.fbx (converted with scripts/fbx-to-glb.mjs, split with
+scripts/split-library.mjs: meshes joined, base colour set to white so the vertex colours show, quantized).

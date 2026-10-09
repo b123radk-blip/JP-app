@@ -7,7 +7,8 @@ alone?** Scenes act the meaning out (a beginning, an action, an end) and the kan
 **Where to continue:** Step 3a (docs/prompts/step-3a-models.md) parts 1 and 2 are done: the gesture kit
 (`vignettes/model-kit.js`) passed the gesture test (食べる 飲む 会う, still a trial: `?preview=1&trial=gestures`, waiting on
 the user's headset look before they go into the deck), and the trial winners are in the deck: 犬 牛 休 歩 女 医者 走る 座る
-(Quaternius `q-*`), 車 電車 (Kenney), 魚 (Quaternius fish, `q-fish-leap`). **Next: part 3**, plan the model pass (a
+(Quaternius `q-*`), 車 電車 (Kenney), 魚 (Quaternius fish, `q-fish-leap`). Food (Quaternius sushi kit) and the missing
+animals (Everything Library, CC BY 4.0) are in the library; 猫 鳥 ペット 卵 have new scenes as a trial (`?preview=1&trial=animals`). **Next: part 3**, plan the model pass (a
 "Model pass (Step 3a)" section here, one line per card with a person or an animal: models and beats, by family; a rough
 scan of the scene descriptions finds about 300 such cards), then the batches. Every scene before Step 2b/2c stays as is.
 **3D model trial (Kenney, CC0):** 8 Step 1 cards (犬 三 休 車 電車 魚 歩 大きい) have a second version built from glTF
