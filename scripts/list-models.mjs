@@ -5,7 +5,7 @@ import { MODELS } from '../src/effects/model-list.js';
 
 const rows = Object.entries(MODELS).map(([name, file]) => {
   const path = `assets/models/${file}`, b = readFileSync(path), j = JSON.parse(b.slice(20, 20 + b.readUInt32LE(12)).toString());
-  const dc = (j.nodes ?? []).filter((n) => n.mesh !== undefined).reduce((s, n) => s + j.meshes[n.mesh].primitives.length, 0);
+  const dc = (j.nodes ?? []).filter((n) => n.mesh !== undefined).reduce((s, n) => s + new Set(j.meshes[n.mesh].primitives.map((pr) => pr.material)).size, 0);   // models.js merges a mesh's parts by material
   const len = (a) => Math.max(...a.samplers.map((s) => j.accessors[s.input].max?.[0] ?? 0));
   const clips = (j.animations ?? []).map((a) => `${a.name} ${len(a).toFixed(1)}`).join(', ') || 'static';
   return { name, file, kb: Math.round(statSync(path).size / 1024), dc, mats: (j.materials ?? []).map((m) => m.name).join(', '), clips };

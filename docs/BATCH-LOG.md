@@ -19,7 +19,13 @@ here feed the prompt for the next step (docs/prompts/). Newest first.
   hand reaches the mouth with the arm nearly straight, so a held bowl sits just under the chin, which happens to be the
   Japanese way), fingers do not move (fists only), and big heads collide when two people bow closer than about 0.75 u.
 - **Catalog:** `PERSON_DC` / `pdc()` in vignette-catalog.js cost a scene by the person a recipe picks (`who`, `other`).
-- **Checks:** npm test ok (0 pairs >= 0.72).
+- **Promoted into the deck** (`set-recipes`): 女 犬 牛 休 歩 医者 走る 座る (their Quaternius trial scenes), 車 `m-car-beep`,
+  電車 `m-tram`, and 魚 `q-fish-leap` (the Kenney fish leap with a Quaternius fish, 0.3 u tall: the model is long). 三's
+  chicks and 大きい's elephant keep their current scenes (no Quaternius chick or elephant).
+- **Draw calls of the FBX models:** the sea creatures and farm animals came as one mesh of many parts (the orange fish: 95
+  draw calls for 3 materials). `models.js` now merges a model's sibling parts that share a material when it loads
+  (`mergeParts`), so they cost one draw call per material (fish 2-3, farm animals 2-3); list-models counts the same way.
+- **Checks:** npm test ok (0 pairs >= 0.72); cost check 0 mismatches (519 recipes); e2e all checks passed (built = catalog for all 835 cards).
 
 ## Model library for Step 3a, 2026-10-09
 - **Verdict on the trials (user, headset):** Quaternius for people and animals, Kenney for vehicles (objects and places

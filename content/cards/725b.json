@@ -5,7 +5,7 @@
   "primaryReading": "ぎゅう",
   "readings": { "kun": ["うし"], "on": ["ギュウ"] },
   "mnemonic": "A cow's head with its horns: cow.",
-  "effect": { "material": "fur", "backdrop": "sky:day", "vignette": { "type": "cow-moo", "size": 1.2 } },
+  "effect": { "material": "fur", "backdrop": "sky:day", "vignette": "q-cow" },
   "sentences": [
     {
       "segments": [ { "text": "牛肉", "reading": "ぎゅうにく" }, { "text": "にしてください。" } ],

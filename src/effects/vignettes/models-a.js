@@ -6,7 +6,8 @@
 //   m-rest-tree     休: a walker comes up to a tree, sits down against it and dozes, Zzz, then gets up and walks on
 //   m-car-beep      車: a car drives up out of the distance, parks beside the kanji, beeps twice with its lights, backs away
 //   m-tram          電車: a tram rolls in along its track under the wire, sparks at the pantograph, and rolls back
-//   m-fish-leap     魚: a fish leaps out of a pond in an arc, splashes down, and leaps back the other way
+//   m-fish-leap     魚: a fish leaps out of a pond in an arc, splashes down, and leaps back the other way (q-fish-leap: the same
+//                   with a Quaternius fish, options model clip h)
 //   m-walker        歩: a person walks along beside the kanji leaving footprints, turns, nods and walks back
 //   m-elephant      大きい: an elephant grows huge beside a tiny chick, trumpets パオーン; the chick jumps, "!"
 import * as THREE from 'three';
@@ -154,10 +155,10 @@ function tram(ctx, spec, stage) {
 
 // ---- 魚 ----
 function fishLeap(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.75 * u, h = 0.6 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.75 * u, h = (spec.h ?? 0.6) * u;
   const pond = solidProp([[G.cyl(0.75 * u, 0.75 * u, 0.02 * u, 0, 0, 0, 0, 0, 0, 40), 0x3a9ae8], [G.torus(0.75 * u, 0.04 * u).rotateX(Math.PI / 2), 0xb8a888]], 0.5);
   pond.position.set(px, floor, 0); pond.scale.set(1, 1, 0.5); pond.rotation.x = 0.6;
-  const fish = createModel('fish', { height: h }), arm = new THREE.Group(); arm.add(fish.group); fish.group.position.y = -h / 2;
+  const fish = createModel(spec.model ?? 'fish', { height: h }), arm = new THREE.Group(); arm.add(fish.group); fish.group.position.y = -h / 2;
   const rings = many([[G.torus(0.1 * u, 0.012 * u).rotateX(Math.PI / 2), 0xffffff]], 4, 0.8), drops = many(DROP(u), 10, 0.8);
   group.add(pond, arm, rings, drops);
   const loop = 6.0, P = [px - 0.5 * u, px + 0.5 * u], J = [[0.4, 1.4], [3.4, 1.4]];
@@ -170,7 +171,7 @@ function fishLeap(ctx, spec, stage) {
         const f = pre ? 0 : between(v, at, at + dur); if (!(f > 0 && f < 1)) return;
         shown = true; const [a, b] = j ? [P[1], P[0]] : P, x = lerp(a, b, f), y = floor + 1.1 * u * 4 * f * (1 - f), slope = 1.1 * u * 4 * (1 - 2 * f) / (b - a);
         arm.position.set(x, y, 0.02 * u); fish.group.rotation.y = j ? LEFT + 0.7 : RIGHT - 0.7; arm.rotation.z = Math.atan(slope) * (j ? 1 : 1);
-        fish.pose('run', v);
+        fish.pose(spec.clip ?? 'run', v);
       });
       arm.visible = shown;
       for (let i = 0; i < 4; i++) { const [at, s] = [[0.4, 0], [1.8, 1], [3.4, 1], [4.8, 0]][i], f = pre ? 0 : between(v, at, at + 0.9); rings.set(i, P[s], floor + 0.03 * u, 0.02 * u, f > 0 && f < 1 ? 0.5 + 2.5 * f : 0); }
@@ -245,5 +246,5 @@ function lineup(ctx, spec, stage) {
 
 export const SCENES = {
   'm-dog-fetch': dogFetch, 'm-three-chicks': threeChicks, 'm-rest-tree': restTree, 'm-car-beep': carBeep, 'm-tram': tram,
-  'm-fish-leap': fishLeap, 'm-walker': walker, 'm-elephant': elephant, 'm-lineup': lineup,
+  'm-fish-leap': fishLeap, 'q-fish-leap': fishLeap, 'm-walker': walker, 'm-elephant': elephant, 'm-lineup': lineup,
 };

@@ -8,7 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "scene": ["room"], "motion": "sink", "backdrop": "sky:indoor" },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:day", "vignette": "q-sit" },
   "sentences": [
     {
       "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "男", "reading": "おとこ" }, { "text": "のそばに" }, { "text": "座", "reading": "すわ" }, { "text": "った。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [175248, 239218] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 座る" },
+  "review": { "recipe": "reviewed", "rule": "word 座る" },
   "source": { "jmdict": 1291800, "jlpt": 5 }
 }

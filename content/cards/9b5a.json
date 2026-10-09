@@ -5,7 +5,7 @@
   "primaryReading": "さかな",
   "readings": { "kun": ["うお", "さかな", "ざかな"], "on": ["ギョ"] },
   "mnemonic": "A fish: head on top, scaly body (田) and a fanned tail (灬) below.",
-  "effect": { "material": "silver", "backdrop": "sky:lake", "vignette": "fish-leap", "parts": { "灬": {} } },
+  "effect": { "material": "silver", "backdrop": "sky:lake", "vignette": "q-fish-leap", "parts": { "灬": {} } },
   "sentences": [
     {
       "segments": [ { "text": "魚", "reading": "さかな" }, { "text": "はまだ" }, { "text": "生", "reading": "い" }, { "text": "きているの。" } ],

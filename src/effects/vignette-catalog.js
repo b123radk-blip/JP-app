@@ -383,6 +383,7 @@ export const VIGNETTES = {
   'q-walker': VM(7, '歩 (models): a person walks along beside the kanji leaving footprints, turns to you, cheers and walks back', ['gal']),
   'q-kimono': VM(6, '女 (models): a woman in a kimono walks up, turns to you, cheers and twirls under falling petals', ['kimono']),
   'q-doctor': VM(16, '医者 (models): a patient sits slumped under a grey cloud; a doctor walks up carrying a red-cross kit and sets it down; the patient jumps up cheering', ['guy', 'doctor']),
+  'q-fish-leap': VM(6, '魚 (models): a Quaternius fish leaps out of a pond in an arc, splashes down, then leaps back the other way (models-a.js fishLeap with a model and clip)', (o) => [o.model], { model: 'fishOrange', clip: 'Swim', h: 0.3 }),
   'q-run': VM(8, '走る (models): a runner laps a little track beside the kanji, dust kicking up behind', ['guy']),
   'q-sit': VM(7, '座る (models): a person walks up to a chair, turns, sits down, rests, stands up and walks off', ['gal'], { seatLift: 0.11 }),
   // ---- model scenes with gestures (Step 3a gesture test, vignettes/q-gestures.js + model-kit.js); who / other: a person model ----

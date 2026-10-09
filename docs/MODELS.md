@@ -22,20 +22,20 @@ L R; three.js drops the dots: `FootL`), so a gesture made by turning bones after
 | shiba | quaternius/animals/shiba.glb | 550 | 6 | Main, Black, Main_Light, Eyes_Black, Eyes_White, Eyes_Pupil | Attack 1.2, Death 1.1, Eating 2.7, Gallop 0.6, Gallop_Jump 0.9, Idle 3.3, Idle_2 3.3, Idle_2_HeadLow 4.0, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_ToIdle 1.3, Walk 1.1 |
 | cow | quaternius/animals/cow.glb | 641 | 7 | Main, Main_Light, Hooves, Muzzle, Eye_Black, Eye_White, Horns | Attack_Headbutt 1.0, Attack_Kick 1.0, Death 1.0, Eating 6.0, Gallop 0.6, Gallop_Jump 1.5, Idle 3.3, Idle_2 3.3, Idle_Headlow 3.3, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_toIdle 1.7, Walk 1.2 |
 | horse | quaternius/animals/horse.glb | 702 | 8 | Main, Main_Dark, Main_Light, Hooves, Hair, Muzzle, Eye_White, Eye_Black | Attack_Headbutt 1.0, Attack_Kick 1.0, Death 1.0, Eating 6.0, Gallop 0.6, Gallop_Jump 1.5, Idle 3.3, Idle_2 3.3, Idle_Headlow 3.3, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_toIdle 1.7, Walk 1.2 |
-| fox | quaternius/animals/fox.glb | 613 | 5 | Main, Black, Main_Light, Grey | Attack 1.3, Death 1.1, Eating 2.5, Gallop 0.6, Gallop_Jump 0.9, Idle 3.3, Idle_2 3.3, Idle_2_HeadLow 4.0, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_ToIdle 1.3, Walk 1.1 |
+| fox | quaternius/animals/fox.glb | 613 | 4 | Main, Black, Main_Light, Grey | Attack 1.3, Death 1.1, Eating 2.5, Gallop 0.6, Gallop_Jump 0.9, Idle 3.3, Idle_2 3.3, Idle_2_HeadLow 4.0, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_ToIdle 1.3, Walk 1.1 |
 | deer | quaternius/animals/deer.glb | 615 | 7 | Main, Hooves, Main_Light, Main_Dark, Eye_Lighter, Eye_Black, Eye_White | Attack_Headbutt 0.8, Attack_Kick 0.8, Death 0.8, Eating 6.0, Gallop 0.5, Gallop_Jump 1.4, Idle 3.3, Idle_2 3.3, Idle_Headlow 3.3, Idle_HitReact1 0.5, Idle_HitReact2 0.5, Jump_toIdle 1.5, Walk 1.2 |
 | wolf | quaternius/animals/wolf.glb | 617 | 4 | Main, Nose, Main_Light, Eyes_Black | Attack 1.3, Death 1.1, Eating 2.5, Gallop 0.6, Gallop_Jump 0.9, Idle 3.3, Idle_2 3.3, Idle_2_HeadLow 4.0, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_ToIdle 1.3, Walk 1.1 |
 | husky | quaternius/animals/husky.glb | 580 | 5 | Material, Material.006, Material.001, Material.002, Material.003 | Attack 1.2, Death 1.1, Eating 2.7, Gallop 0.6, Gallop_Jump 0.9, Idle 3.3, Idle_2 3.3, Idle_2_HeadLow 4.0, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_ToIdle 1.3, Walk 1.1 |
-| pig | quaternius/farm/pig.glb | 132 | 17 | Material.003, Material | Jump 1.5, Idle 6.3 |
-| sheep | quaternius/farm/sheep.glb | 138 | 32 | White, Black | Jump 1.1, Idle 6.3 |
-| pug | quaternius/farm/pug.glb | 137 | 28 | Beige, Brown | Jump 1.5, Idle 6.3 |
-| llama | quaternius/farm/llama.glb | 161 | 59 | Brown, White, Grey | Jump 1.1, Idle 6.3 |
-| fishOrange | quaternius/sea/fish-orange.glb | 114 | 95 | Bottom, Top, Fins | Swim 1.3 |
-| fishBlue | quaternius/sea/fish-blue.glb | 93 | 66 | Body, Fins, Front | Swim 1.3 |
-| fishClown | quaternius/sea/fish-clown.glb | 112 | 83 | Outline, Body, Stripes | Swim 1.3 |
-| whale | quaternius/sea/whale.glb | 70 | 5 | Top, Bottom | Swim 2.8 |
-| dolphin | quaternius/sea/dolphin.glb | 87 | 44 | Bottom, Top | Swim 1.0 |
-| shark | quaternius/sea/shark.glb | 116 | 84 | Bottom, Top | Swim 1.3 |
+| pig | quaternius/farm/pig.glb | 132 | 2 | Material.003, Material | Jump 1.5, Idle 6.3 |
+| sheep | quaternius/farm/sheep.glb | 138 | 2 | White, Black | Jump 1.1, Idle 6.3 |
+| pug | quaternius/farm/pug.glb | 137 | 2 | Beige, Brown | Jump 1.5, Idle 6.3 |
+| llama | quaternius/farm/llama.glb | 161 | 3 | Brown, White, Grey | Jump 1.1, Idle 6.3 |
+| fishOrange | quaternius/sea/fish-orange.glb | 114 | 3 | Bottom, Top, Fins | Swim 1.3 |
+| fishBlue | quaternius/sea/fish-blue.glb | 93 | 3 | Body, Fins, Front | Swim 1.3 |
+| fishClown | quaternius/sea/fish-clown.glb | 112 | 3 | Outline, Body, Stripes | Swim 1.3 |
+| whale | quaternius/sea/whale.glb | 70 | 2 | Top, Bottom | Swim 2.8 |
+| dolphin | quaternius/sea/dolphin.glb | 87 | 2 | Bottom, Top | Swim 1.0 |
+| shark | quaternius/sea/shark.glb | 116 | 2 | Bottom, Top | Swim 1.3 |
 | guy | quaternius/characters/casual-male.glb | 582 | 6 | Skin, Shirt, Pants, Belt, Face, Hair | Death 2.3, Defeat 2.5, Idle 4.2, Jump 1.0, PickUp 1.3, Punch 0.8, RecieveHit 0.6, Roll 0.9, Run 0.9, Run_Carry 0.9, SitDown 1.0, StandUp 1.3, Victory 1.9, Walk 1.3, Walk_Carry 1.3 |
 | gal | quaternius/characters/casual-female.glb | 586 | 6 | Skin, Shirt, Pants, Belt, Face, Hair | Death 2.3, Defeat 2.5, Idle 4.2, Jump 1.0, PickUp 1.3, Punch 0.8, RecieveHit 0.6, Roll 0.9, Run 0.9, Run_Carry 0.9, SitDown 1.0, StandUp 1.3, Victory 1.9, Walk 1.3, Walk_Carry 1.3 |
 | guy2 | quaternius/characters/casual2-male.glb | 483 | 6 | Skin, Shirt, Pants, Belt, Face, Hair | Death 2.3, Defeat 2.5, Idle 4.2, Jump 1.0, PickUp 1.3, Punch 0.8, RecieveHit 0.6, Roll 0.9, Run 0.9, Run_Carry 0.9, SitDown 1.0, StandUp 1.3, Victory 1.9, Walk 1.3, Walk_Carry 1.3 |

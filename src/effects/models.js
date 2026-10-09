@@ -5,6 +5,7 @@
 import * as THREE from 'three';
 import { GLTFLoader } from '../../vendor/three/addons/loaders/GLTFLoader.js';
 import { clone as cloneSkinned } from '../../vendor/three/addons/utils/SkeletonUtils.js';
+import { mergeGeometries } from '../../vendor/three/addons/utils/BufferGeometryUtils.js';
 import { appUrl } from '../core/urls.js';
 import { MODELS as CFG } from '../config.js';
 import { VIGNETTES } from './vignette-catalog.js';
@@ -22,7 +23,7 @@ export function loadModel(name) {
   if (!loaded.has(name)) {
     loader ??= new GLTFLoader();
     loaded.set(name, loader.loadAsync(appUrl(`${CFG.root}${MODELS[name]}`)).then((g) => {
-      g.scene.updateMatrixWorld(true);
+      mergeParts(g.scene); g.scene.updateMatrixWorld(true);
       const m = { scene: g.scene, animations: g.animations, box: new THREE.Box3().setFromObject(g.scene) };
       ready.set(name, m); return m;
     }).catch((e) => { loaded.delete(name); throw e; }));
@@ -91,6 +92,25 @@ export function createModel(name, { height = null, width = null, glow = CFG.glow
       post = rest.flatMap(([o]) => ['position', 'quaternion', 'scale'].filter((key) => driven.has(`${o.name}.${key}`)).map((key) => [o, key, o[key].clone()]));
     },
   };
+}
+
+// Models converted from FBX come as one mesh of many primitives (three: one mesh each; the fish has 95 for 3 materials).
+// Siblings with the same material (and skeleton) become one mesh, so a model costs a draw call per material.
+export function mergeParts(root) {
+  const parents = new Set(); root.traverse((o) => { if (o.isMesh && o.parent) parents.add(o.parent); });
+  for (const p of parents) {
+    const sets = new Map();
+    for (const o of p.children) if (o.isMesh && !o.children.length) { const k = `${o.material.uuid}:${o.isSkinnedMesh ? o.skeleton.uuid : '-'}:${o.matrix.elements.join()}`; sets.set(k, [...(sets.get(k) ?? []), o]); }
+    for (const list of sets.values()) {
+      if (list.length < 2) continue;
+      const geo = mergeGeometries(list.map((o) => o.geometry)), a = list[0];
+      if (!geo) continue;                                   // different attributes: leave them
+      const m = a.isSkinnedMesh ? new THREE.SkinnedMesh(geo, a.material) : new THREE.Mesh(geo, a.material);
+      m.name = a.name; m.position.copy(a.position); m.quaternion.copy(a.quaternion); m.scale.copy(a.scale);
+      if (a.isSkinnedMesh) m.bind(a.skeleton, a.bindMatrix);
+      list.forEach((o) => p.remove(o)); p.add(m);
+    }
+  }
 }
 
 function hasSkin(o) { let s = false; o.traverse((x) => { if (x.isSkinnedMesh) s = true; }); return s; }

@@ -8,13 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": [],
   "builtFrom": [],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "particles": ["footprints", "wind"],
-    "motion": "walk",
-    "backdrop": "sky:morning"
-  },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:morning", "vignette": "q-run" },
   "sentences": [
     {
       "segments": [ { "text": "あの" }, { "text": "走", "reading": "はし" }, { "text": "ってる" }, { "text": "少年", "reading": "しょうねん" }, { "text": "をごらんなさい。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [230641, 68010] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 走る" },
+  "review": { "recipe": "reviewed", "rule": "word 走る" },
   "source": { "jmdict": 1402540, "jlpt": 5 }
 }

@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hospital", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:day", "vignette": "q-doctor" },
   "sentences": [
     {
       "segments": [ { "text": "医者", "reading": "いしゃ" }, { "text": "はなんて" }, { "text": "言", "reading": "い" }, { "text": "ったの？" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [190845, 416946] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 医者" },
+  "review": { "recipe": "reviewed", "rule": "word 医者" },
   "source": { "jmdict": 1159980, "jlpt": 5 }
 }

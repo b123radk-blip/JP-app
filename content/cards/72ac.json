@@ -5,7 +5,7 @@
   "primaryReading": "いぬ",
   "readings": { "kun": ["いぬ", "いぬ"], "on": ["ケン"] },
   "mnemonic": "A big (大) dog with one floppy ear (丶).",
-  "effect": { "material": "fur", "backdrop": "sky:day", "vignette": "dog-fetch" },
+  "effect": { "material": "fur", "backdrop": "sky:day", "vignette": "q-dog-fetch" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "犬", "reading": "いぬ" }, { "text": "はしっぽが" }, { "text": "長", "reading": "なが" }, { "text": "い。" } ],

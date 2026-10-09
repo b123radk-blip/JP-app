@@ -5,7 +5,7 @@
   "primaryReading": "やす",
   "readings": { "kun": ["やす(む)", "やす(まる)", "やす(める)"], "on": ["キュウ"] },
   "mnemonic": "A person (亻) leans against a tree (木) to rest.",
-  "effect": { "material": "wood", "backdrop": "sky:golden", "parts": { "亻": {}, "木": {} }, "vignette": "rest-tree" },
+  "effect": { "material": "wood", "backdrop": "sky:golden", "parts": { "亻": {}, "木": {} }, "vignette": "q-rest-tree" },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "休", "reading": "やす" }, { "text": "み" }, { "text": "です" }, { "text": "。" } ],
