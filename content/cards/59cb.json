@@ -5,7 +5,7 @@
   "primaryReading": "はじ",
   "readings": { "kun": ["はじ(める)", "はじ(める)", "はじ(まる)"], "on": ["シ"] },
   "mnemonic": "A woman (女) at the platform (台) waves the start flag: begin.",
-  "effect": { "material": "rose", "backdrop": "sky:dawn", "vignette": "race-start", "parts": { "女": {} } },
+  "effect": { "material": "rose", "backdrop": "sky:dawn", "vignette": "q-race-start", "parts": { "女": {} } },
   "sentences": [
     {
       "segments": [ { "text": "それはいつ" }, { "text": "始", "reading": "はじ" }, { "text": "まりますか。" } ],

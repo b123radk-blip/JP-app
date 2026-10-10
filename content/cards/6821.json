@@ -5,7 +5,12 @@
   "primaryReading": "こう",
   "readings": { "kun": [], "on": ["コウ", "キョウ"] },
   "mnemonic": "Wooden (木) buildings where children mix (交): school.",
-  "effect": { "material": "wood", "backdrop": "sky:day", "vignette": "school-bell", "parts": { "木": {}, "交": {} } },
+  "effect": {
+    "material": "wood",
+    "backdrop": "sky:day",
+    "vignette": { "type": "q-school-bell" },
+    "parts": { "木": {}, "交": {} }
+  },
   "sentences": [
     {
       "segments": [ { "text": "学校", "reading": "がっこう" }, { "text": "は" }, { "text": "休", "reading": "やす" }, { "text": "んでください。" } ],

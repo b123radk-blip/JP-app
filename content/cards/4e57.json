@@ -5,7 +5,7 @@
   "primaryReading": "の",
   "readings": { "kun": ["の(る)", "の(り)", "の(せる)"], "on": ["ジョウ", "ショウ"] },
   "mnemonic": "Someone perched on top of a tree (木), riding high: ride.",
-  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": "bus-ride" },
+  "effect": { "material": "silver", "backdrop": "sky:day", "vignette": { "type": "q-bus-ride" } },
   "sentences": [
     {
       "segments": [ { "text": "お" }, { "text": "乗", "reading": "の" }, { "text": "りになりませんか。" } ],

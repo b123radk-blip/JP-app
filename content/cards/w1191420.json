@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["590f", "4f11"],
   "builtFrom": [{ "k": "夏", "m": "summer" }, { "k": "休", "m": "rest" }],
-  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "size": 1, "type": "beach-day" } },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "size": 1, "type": "q-beach-day" } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "夏休", "reading": "なつやす" }, { "text": "みはどこかへ" }, { "text": "行", "reading": "い" }, { "text": "くのですか。" } ],

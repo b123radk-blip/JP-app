@@ -3,6 +3,24 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 3a: model pass, batch 5 (people in places, occupations, vehicles) and wrap-up, 2026-10-10
+- **52 cards** on 34 scene types, built by three parallel builders as in batch 4: `vignettes/q-town.js` / `q-town2.js`
+  (教 教える 教室 校 学校 社 会社 交番 図書館 屋 八百屋 閉まる 店 喫茶店 仕 仕事 館 大使館 映画館 番), `q-home.js` / `q-home2.js` (一番 最
+  始 始まる 終 並 並ぶ 宿 旅 旅行 住 住む 帰 帰る 家 部屋 お手洗い) and `q-ride.js` / `q-ride2.js` / `q-ride3.js` (誰 誰か 着く 降りる 乗 乗る
+  自転車 地下鉄 楽しい 夏休み 所 休み 休む 止 止まる). Catalog parts `vcat-q5a.js`, `vcat-q5b.js`, `vcat-q5c.js`.
+- **New kit:** houses with a real doorway, a hinged door and a window that lights (`shell()` in q-home2.js); a bus and a
+  bicycle from shapes with `seatAt()` (a seated person's hips on any seat) in q-ride.js; `maskBoxes()` (an invisible box
+  that hides the train beyond the tunnel ends) in q-ride2.js. 旅 was restaged once after review: she now walks out of
+  her house along a winding path into the distance instead of standing in front of sliding scenery.
+- **Kept on shape animals:** 住む (a hermit crab moves into a shell) and 帰る (a mother bird flies home): no animated model fits.
+- **Checks:** npm test ok, 0 pairs >= 0.72; cost check with every trial: 0 mismatches; e2e passed.
+- **Strips:** docs/screenshots/models-places.jpg, models-places2.jpg. Full contact sheet: docs/screenshots/preview-sheet-*.jpg.
+- **Weakest:** 大使館 (the second flag reads as France); 休む (the futon's edge shows from a low camera); 店 is close in
+  idea to 売 (a stall), the till and the paper bag set it apart.
+- **Model pass totals:** 227 cards re-staged with Quaternius people and animals over five batches (36 + 17 + 73 + 49 +
+  52); every line of "Model pass (Step 3a)" in docs/REVAMP.md is ticked. Cards kept on their old scenes: the hand-only
+  scenes, the animals with no animated model, and the 9 cards named in the batch 3 and 5 entries.
+
 ## Step 3a: model pass, batch 4 (verbs with things), 2026-10-10
 - **49 cards** on 36 new scene types, built by three parallel builders from one brief, then reviewed on the strips:
   `vignettes/q-wear.js` / `q-wear2.js` (着 着る 上着 服 背広 靴 靴下 紙 手紙 買い物 荷物 大切 渡す 引 引く 返 返す 写 写真),

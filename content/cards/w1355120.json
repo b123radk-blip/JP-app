@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "bus-ride", "outcome": "bike" }
+    "vignette": { "size": 1, "type": "q-bus-ride", "outcome": "bike", "who": "guy" }
   },
   "sentences": [
     {

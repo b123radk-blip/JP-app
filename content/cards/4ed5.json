@@ -5,7 +5,12 @@
   "primaryReading": "し",
   "readings": { "kun": ["つか(える)"], "on": ["シ", "ジ"] },
   "mnemonic": "A person (亻) serving the samurai (士): serve, work (仕事).",
-  "effect": { "material": "skin", "backdrop": "sky:indoor", "vignette": "butler-door", "parts": { "亻": {} } },
+  "effect": {
+    "material": "skin",
+    "backdrop": "sky:indoor",
+    "vignette": { "type": "q-butler-door" },
+    "parts": { "亻": {} }
+  },
   "sentences": [
     {
       "segments": [ { "text": "今", "reading": "いま" }, { "text": "の" }, { "text": "仕事", "reading": "しごと" }, { "text": "やめたいんだ。" } ],

@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:indoor",
-    "vignette": { "size": 1, "type": "shop-counter", "outcome": "cafe" }
+    "vignette": { "type": "q-shop-counter", "outcome": "cafe", "who": "suitMan", "size": 1 }
   },
   "sentences": [
     {

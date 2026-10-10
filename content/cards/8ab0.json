@@ -5,7 +5,7 @@
   "primaryReading": "だれ",
   "readings": { "kun": ["だれ", "たれ", "た"], "on": ["スイ"] },
   "mnemonic": "A bird (隹) asking (言), \"Who? Who?\": who.",
-  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": "knock-door" },
+  "effect": { "material": "silver", "backdrop": "sky:dusk", "vignette": { "type": "q-knock-door" } },
   "sentences": [
     {
       "segments": [ { "text": "あなたは" }, { "text": "誰", "reading": "だれ" }, { "text": "の" }, { "text": "味方", "reading": "みかた" }, { "text": "なの。" } ],

@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1.3, "type": "travel-road", "outcome": "suitcase" }
+    "vignette": { "size": 1.3, "type": "q-travel-road", "outcome": "suitcase" }
   },
   "sentences": [
     {

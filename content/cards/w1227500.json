@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["4f11"],
   "builtFrom": [{ "k": "休", "m": "rest" }],
-  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": "rest-tree:holiday" },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "type": "q-rest-day", "outcome": "holiday" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今週", "reading": "こんしゅう" }, { "text": "はお" }, { "text": "休", "reading": "やす" }, { "text": "みです。" } ],

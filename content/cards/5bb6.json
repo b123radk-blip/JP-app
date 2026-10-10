@@ -5,7 +5,7 @@
   "primaryReading": "いえ",
   "readings": { "kun": ["いえ", "や", "うち"], "on": ["カ", "ケ"] },
   "mnemonic": "A pig (豕) snug under the roof (宀) of the family house: home.",
-  "effect": { "material": "wood", "backdrop": "sky:dusk", "vignette": "house-build" },
+  "effect": { "material": "wood", "backdrop": "sky:dusk", "vignette": "q-house-build" },
   "sentences": [
     {
       "segments": [ { "text": "家", "reading": "いえ" }, { "text": "へついたら" }, { "text": "電話", "reading": "でんわ" }, { "text": "が" }, { "text": "鳴", "reading": "な" }, { "text": "っていた。" } ],

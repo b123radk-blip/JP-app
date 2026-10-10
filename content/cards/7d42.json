@@ -5,7 +5,7 @@
   "primaryReading": "お",
   "readings": { "kun": ["お(わる)", "お(わる)", "おわ(る)", "お(える)"], "on": ["シュウ"] },
   "mnemonic": "The thread (糸) runs out in winter (冬): the end.",
-  "effect": { "material": "silver", "backdrop": "sky:indoor", "vignette": "curtain-close", "parts": { "糸": {} } },
+  "effect": { "material": "silver", "backdrop": "sky:indoor", "vignette": "q-curtain-close", "parts": { "糸": {} } },
   "sentences": [
     {
       "segments": [ { "text": "花", "reading": "はな" }, { "text": "の" }, { "text": "水", "reading": "みず" }, { "text": "やり" }, { "text": "終", "reading": "お" }, { "text": "わったよ。" } ],

@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "butler-door", "outcome": "hardhat" }
+    "vignette": { "type": "q-butler-door", "outcome": "hardhat", "who": "worker", "size": 1 }
   },
   "sentences": [
     {

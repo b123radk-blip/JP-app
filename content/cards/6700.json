@@ -5,7 +5,7 @@
   "primaryReading": "さい",
   "readings": { "kun": ["もっと(も)", "つま"], "on": ["サイ", "シュ"] },
   "mnemonic": "Taking (取) the sun (日) itself: the most, the best.",
-  "effect": { "material": "gold", "backdrop": "sky:golden", "vignette": "podium-win", "parts": { "日": {} } },
+  "effect": { "material": "gold", "backdrop": "sky:golden", "vignette": "q-podium-win", "parts": { "日": {} } },
   "sentences": [
     {
       "segments": [ { "text": "これは" }, { "text": "最重要", "reading": "さいじゅうよう" }, { "text": "問題", "reading": "もんだい" }, { "text": "だ。" } ],

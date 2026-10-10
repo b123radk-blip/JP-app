@@ -8,7 +8,7 @@
   "effect": {
     "material": "skin",
     "backdrop": "sky:night",
-    "vignette": "move-in",
+    "vignette": "q-move-in",
     "parts": { "亻": {}, "主": { "material": "gold" } }
   },
   "sentences": [

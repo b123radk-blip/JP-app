@@ -5,7 +5,7 @@
   "primaryReading": "や",
   "readings": { "kun": ["や"], "on": ["オク"] },
   "mnemonic": "A body (尸) reaching (至) the shelter of a roof: house, room, shop.",
-  "effect": { "material": "wood", "backdrop": "sky:golden", "vignette": "shop-open" },
+  "effect": { "material": "wood", "backdrop": "sky:golden", "vignette": { "type": "q-shop-open" } },
   "sentences": [
     {
       "segments": [ { "text": "部屋", "reading": "へや" }, { "text": "を" }, { "text": "変", "reading": "か" }, { "text": "えられますか。" } ],

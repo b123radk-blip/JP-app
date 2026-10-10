@@ -5,7 +5,7 @@
   "primaryReading": "りょ",
   "readings": { "kun": ["たび"], "on": ["リョ"] },
   "mnemonic": "People (亻) under a banner (方) setting off: travel.",
-  "effect": { "material": "clay", "backdrop": "sky:morning", "vignette": { "type": "travel-road", "size": 1.3 } },
+  "effect": { "material": "clay", "backdrop": "sky:morning", "vignette": { "type": "q-travel-road", "size": 1.3 } },
   "sentences": [
     {
       "segments": [ { "text": "旅行", "reading": "りょこう" }, { "text": "にお" }, { "text": "出", "reading": "で" }, { "text": "かけですか。" } ],

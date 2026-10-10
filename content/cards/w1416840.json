@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:night",
-    "vignette": { "size": 1, "type": "knock-door", "outcome": "window" }
+    "vignette": { "size": 1, "type": "q-knock-door", "outcome": "window" }
   },
   "sentences": [
     {

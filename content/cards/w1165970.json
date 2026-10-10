@@ -8,7 +8,7 @@
   "pos": ["n", "adj-no"],
   "kanji": ["4e00", "756a"],
   "builtFrom": [{ "k": "一", "m": "one" }, { "k": "番", "m": "turn" }],
-  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "type": "race-win", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:noon", "vignette": { "type": "q-race-win", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "このネクタイにしましょう、" }, { "text": "一番", "reading": "いちばん" }, { "text": "よさそうだから。" } ],

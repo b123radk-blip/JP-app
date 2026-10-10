@@ -8,7 +8,7 @@
   "pos": ["v1", "vi"],
   "kanji": ["964d"],
   "builtFrom": [{ "k": "降", "m": "descend" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "bus-off", "size": 1 } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-bus-off", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "バスから" }, { "text": "降", "reading": "お" }, { "text": "りましょう。" } ],

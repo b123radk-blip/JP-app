@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "hall-rise", "outcome": "embassy" }
+    "vignette": { "type": "q-hall-rise", "outcome": "embassy", "size": 1 }
   },
   "sentences": [
     {

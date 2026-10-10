@@ -5,7 +5,7 @@
   "primaryReading": "かん",
   "readings": { "kun": ["やかた", "たて"], "on": ["カン"] },
   "mnemonic": "A large official (官) hall where meals (飠) are served: building, hall.",
-  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": "hall-rise" },
+  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": { "type": "q-hall-rise" } },
   "sentences": [
     {
       "segments": [ { "text": "図書館", "reading": "としょかん" }, { "text": "に" }, { "text": "本", "reading": "ほん" }, { "text": "を" }, { "text": "返", "reading": "かえ" }, { "text": "した。" } ],

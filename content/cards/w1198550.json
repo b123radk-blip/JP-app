@@ -8,7 +8,11 @@
   "pos": ["n"],
   "kanji": ["4f1a", "793e"],
   "builtFrom": [{ "k": "会", "m": "meeting" }, { "k": "社", "m": "company" }],
-  "effect": { "material": "ivory", "backdrop": "sky:lake", "vignette": "office-tower:commute" },
+  "effect": {
+    "material": "ivory",
+    "backdrop": "sky:lake",
+    "vignette": { "type": "q-office-tower", "outcome": "commute" }
+  },
   "sentences": [
     {
       "segments": [ { "text": "会社", "reading": "かいしゃ" }, { "text": "へ" }, { "text": "電話", "reading": "でんわ" }, { "text": "してください。" } ],

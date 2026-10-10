@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["697d"],
   "builtFrom": [{ "k": "楽", "m": "music" }],
-  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": { "type": "merry-go-round", "size": 1 } },
+  "effect": { "material": "ivory", "backdrop": "sky:golden", "vignette": { "type": "q-merry-go-round", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "楽", "reading": "たの" }, { "text": "しくやっていますか。" } ],

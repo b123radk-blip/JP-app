@@ -5,7 +5,7 @@
   "primaryReading": "ところ",
   "readings": { "kun": ["ところ", "ところ", "どころ", "とこ"], "on": ["ショ"] },
   "mnemonic": "An axe (斤) hung by the door (戸): this is the place.",
-  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": "pin-drop" },
+  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": { "type": "q-pin-drop" } },
   "sentences": [
     {
       "segments": [ { "text": "どこでも" }, { "text": "好", "reading": "す" }, { "text": "きな" }, { "text": "所", "reading": "ところ" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "け。" } ],

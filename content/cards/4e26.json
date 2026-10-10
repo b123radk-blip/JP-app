@@ -5,7 +5,7 @@
   "primaryReading": "なら",
   "readings": { "kun": ["な(み)", "なみ", "なら(べる)", "なら(ぶ)"], "on": ["ヘイ", "ホウ"] },
   "mnemonic": "People standing side by side on one line: line up, in a row.",
-  "effect": { "material": "chalk", "backdrop": "sky:dusk", "vignette": "line-up" },
+  "effect": { "material": "chalk", "backdrop": "sky:dusk", "vignette": "q-line-up" },
   "sentences": [
     {
       "segments": [ { "text": "人", "reading": "ひと" }, { "text": "が" }, { "text": "並", "reading": "なら" }, { "text": "んでいます。" } ],

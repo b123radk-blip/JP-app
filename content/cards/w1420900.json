@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5730", "4e0b"],
   "builtFrom": [{ "k": "地", "m": "ground" }, { "k": "下", "m": "down" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "subway-cut", "size": 1 } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-subway-cut", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "地下鉄", "reading": "ちかてつ" }, { "text": "で" }, { "text": "行", "reading": "い" }, { "text": "きたいのです。" } ],

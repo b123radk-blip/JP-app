@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "type": "line-up", "size": 1.2, "outcome": "height" }
+    "vignette": { "type": "q-line-up", "size": 1.2, "outcome": "height" }
   },
   "sentences": [
     {

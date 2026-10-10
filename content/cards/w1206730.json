@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5b66", "6821"],
   "builtFrom": [{ "k": "学", "m": "study" }, { "k": "校", "m": "exam" }],
-  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "school-bell:kids" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": { "type": "q-school-bell", "outcome": "kids" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "学校", "reading": "がっこう" }, { "text": "へ" }, { "text": "行", "reading": "い" }, { "text": "きません。" } ],

@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:dusk",
-    "vignette": { "type": "shop-open", "size": 1, "outcome": "closed" }
+    "vignette": { "type": "q-shop-open", "outcome": "closed", "size": 1 }
   },
   "sentences": [
     {

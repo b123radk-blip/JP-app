@@ -5,7 +5,7 @@
   "primaryReading": "かえ",
   "readings": { "kun": ["かえ(る)", "かえ(す)", "おく(る)", "とつ(ぐ)"], "on": ["キ"] },
   "mnemonic": "Sweeping (帚) the path back home: go home, return.",
-  "effect": { "material": "wood", "backdrop": "sky:dusk", "vignette": "home-greet" },
+  "effect": { "material": "wood", "backdrop": "sky:dusk", "vignette": "q-home-greet" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はすぐに" }, { "text": "帰", "reading": "かえ" }, { "text": "ってくる。" } ],

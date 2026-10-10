@@ -5,7 +5,7 @@
   "primaryReading": "きょう",
   "readings": { "kun": ["おし(える)", "おそ(わる)"], "on": ["キョウ"] },
   "mnemonic": "A teacher's hand (攵) taps the blackboard for the child (孝): teach.",
-  "effect": { "material": "chalk", "backdrop": "sky:indoor", "vignette": "teach-board" },
+  "effect": { "material": "chalk", "backdrop": "sky:indoor", "vignette": { "type": "q-teach-board" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "が" }, { "text": "道", "reading": "みち" }, { "text": "を" }, { "text": "教", "reading": "おし" }, { "text": "えましょう。" } ],

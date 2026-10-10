@@ -8,7 +8,7 @@
   "effect": {
     "material": "wood",
     "backdrop": "sky:dusk",
-    "vignette": { "type": "inn-sleep", "size": 1.2 },
+    "vignette": { "type": "q-inn-sleep", "size": 1.2 },
     "parts": { "宀": { "material": "lacquer" } }
   },
   "sentences": [

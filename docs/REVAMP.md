@@ -150,40 +150,40 @@ the deck.
 - [x] `year-hop` 再来年: small guy2; hops two calendar blocks ahead and cheers
 
 ### 5. People in places, occupations, vehicles (52 cards)
-- [ ] `teach-board` 教 教える: suitWoman + small pupil; writes 1+1=2, a pupil shoots a hand up, a bulb
-- [ ] `classroom-kids` 教室: three small kids; file in and sit at desks
-- [ ] `school-bell` 校 学校:kids: kids: small kids run; kids: the bell rings, kids run in
-- [ ] `office-tower` 社 会社:commute: commute: suitMan + suitWoman; commute: people with briefcases walk in
-- [ ] `police-box` 交番: worker as officer (cap) + small gal; the officer bends down and points a lost kid the way
-- [ ] `shop-open` 屋 八百屋 閉まる: chef as shopkeeper; the shutter rolls up, the shopkeeper waves
-- [ ] `shop-counter` 店 喫茶店: worker + gal; pays a coin, the till dings, gets a bag; cafe: a waiter brings coffee
-- [ ] `butler-door` 仕 仕事: suitMan + gal; hardhat: worker; bows and holds the door; hardhat: a worker carries a plank
-- [ ] `hall-rise` 館 大使館 映画館: visitors guy + gal; visitors walk up the steps and in
-- [ ] `library-shelf` 図書館: small guy3 at a table; a book floats from the shelf to the kid
-- [ ] `queue-number` 番: three people; they queue under a number sign, each served in turn
-- [ ] `race-win` 一番: three runners; the first breaks the tape, arms up (Victory), gold 1
-- [ ] `podium-win` 最: three runners; the winner on the top step lifts a trophy
-- [ ] `race-start` 始: two runners; crouch at the line, the flag drops, they dash off
-- [ ] `curtain-close` 始まる 終: kimonoMan actor; the actor bows, curtains close; open as before
-- [ ] `line-up` 並 並ぶ: five small kids (2 models); run in, line up shoulder to shoulder, bow together
-- [ ] `inn-sleep` 宿: guy3 with a suitcase; walks into an inn, the window lights, Zzz
-- [ ] `travel-road` 旅 旅行: gal3 with a backpack; walks while scenery slides past
-- [ ] `move-in` 住 住む: guy2 (Walk_Carry) with a box; carries a box into a house, the window lights
-- [ ] `home-greet` 帰 帰る: suitMan + small gal; walks up at dusk, the door opens, the kid runs out for a hug
-- [ ] `house-build` 家: guy; walks home, goes in, the window lights
-- [ ] `my-room` 部屋: small gal2; walks into her room and jumps for joy
-- [ ] `toilet-dash` お手洗い: guy3; hops by the WC door, dashes in, strolls out relieved
-- [ ] `knock-door` 誰 誰か: guy (dark tint) behind the door; knock, the door opens a crack, a dark figure peeks out, "?"
-- [ ] `train-arrive` 着く: tramCar + gal; a train glides in, she steps off and waves
-- [ ] `bus-off` 降りる: Kenney bus + guy; the bus pulls up, he steps down
-- [ ] `bus-ride` 乗 乗る: Kenney bus + gal2; bike: small guy; gets on, waves from the window; bike: rides off
-- [ ] `bike-bell` 自転車: small guy2 on a bike (sitting pose); rides across ringing the bell
-- [ ] `subway-cut` 地下鉄: tramCar underground + guy on top
-- [ ] `merry-go-round` 楽しい: small kids riding; ride round and round, bobbing
-- [ ] `beach-day` 夏休み: small gal in a swim ring; bobbing on the waves, a beach ball
-- [ ] `pin-drop` 所: gal3; a pin drops, she runs over and waves from the spot
-- [ ] `rest-tree` 休み:holiday 休む:bed: q-rest variants; holiday: a hammock; bed: in bed with a thermometer
-- [ ] `stop-sign` 止 止まる: guy2; runs up to 止まれ and skids to a stop
+- [x] `teach-board` 教 教える: suitWoman + small pupil; writes 1+1=2, a pupil shoots a hand up, a bulb
+- [x] `classroom-kids` 教室: three small kids; file in and sit at desks
+- [x] `school-bell` 校 学校:kids: kids: small kids run; kids: the bell rings, kids run in
+- [x] `office-tower` 社 会社:commute: commute: suitMan + suitWoman; commute: people with briefcases walk in
+- [x] `police-box` 交番: worker as officer (cap) + small gal; the officer bends down and points a lost kid the way
+- [x] `shop-open` 屋 八百屋 閉まる: chef as shopkeeper; the shutter rolls up, the shopkeeper waves
+- [x] `shop-counter` 店 喫茶店: worker + gal; pays a coin, the till dings, gets a bag; cafe: a waiter brings coffee
+- [x] `butler-door` 仕 仕事: suitMan + gal; hardhat: worker; bows and holds the door; hardhat: a worker carries a plank
+- [x] `hall-rise` 館 大使館 映画館: visitors guy + gal; visitors walk up the steps and in
+- [x] `library-shelf` 図書館: small guy3 at a table; a book floats from the shelf to the kid
+- [x] `queue-number` 番: three people; they queue under a number sign, each served in turn
+- [x] `race-win` 一番: three runners; the first breaks the tape, arms up (Victory), gold 1
+- [x] `podium-win` 最: three runners; the winner on the top step lifts a trophy
+- [x] `race-start` 始: two runners; crouch at the line, the flag drops, they dash off
+- [x] `curtain-close` 始まる 終: kimonoMan actor; the actor bows, curtains close; open as before
+- [x] `line-up` 並 並ぶ: five small kids (2 models); run in, line up shoulder to shoulder, bow together
+- [x] `inn-sleep` 宿: guy3 with a suitcase; walks into an inn, the window lights, Zzz
+- [x] `travel-road` 旅 旅行: gal3 with a backpack; walks while scenery slides past
+- [x] `move-in` 住 住む: guy2 (Walk_Carry) with a box; carries a box into a house, the window lights
+- [x] `home-greet` 帰 帰る: suitMan + small gal; walks up at dusk, the door opens, the kid runs out for a hug
+- [x] `house-build` 家: guy; walks home, goes in, the window lights
+- [x] `my-room` 部屋: small gal2; walks into her room and jumps for joy
+- [x] `toilet-dash` お手洗い: guy3; hops by the WC door, dashes in, strolls out relieved
+- [x] `knock-door` 誰 誰か: guy (dark tint) behind the door; knock, the door opens a crack, a dark figure peeks out, "?"
+- [x] `train-arrive` 着く: tramCar + gal; a train glides in, she steps off and waves
+- [x] `bus-off` 降りる: Kenney bus + guy; the bus pulls up, he steps down
+- [x] `bus-ride` 乗 乗る: Kenney bus + gal2; bike: small guy; gets on, waves from the window; bike: rides off
+- [x] `bike-bell` 自転車: small guy2 on a bike (sitting pose); rides across ringing the bell
+- [x] `subway-cut` 地下鉄: tramCar underground + guy on top
+- [x] `merry-go-round` 楽しい: small kids riding; ride round and round, bobbing
+- [x] `beach-day` 夏休み: small gal in a swim ring; bobbing on the waves, a beach ball
+- [x] `pin-drop` 所: gal3; a pin drops, she runs over and waves from the spot
+- [x] `rest-tree` 休み:holiday 休む:bed: q-rest variants; holiday: a hammock; bed: in bed with a thermometer
+- [x] `stop-sign` 止 止まる: guy2; runs up to 止まれ and skids to a stop
 
 **Kept as they are** (hand-only scenes (the hand is the actor), and animals with no animated model (ducks, birds, hen, owl, snake, turtle, giraffe, rabbit, mouse, cat, frog: the kit animals move better than the static ones)): `three-ducks` 三 三つ 三日; `clock-hours` 時 時々 時間; `two-birds` 二 二つ 二日; `high-five` 手; `hammer-nail` 上手 下手; `come-here` 来 来る; `snow-white` 白 白い; `turtle-out` 出 出る 出す 出口; `mouth-open` 口; `feet-walk` 足; `hen-lead` 前; `flower-bloom` 花; `few-grains` 少 少し 少ない; `noon-clock` 午 午後 午前; `popup-book` 本; `compass-west` 西; `left-l` 左; `compass-north` 北; `compass-east` 東; `compass-south` 南; `hand-five` 五 五つ 五日; `wise-owl` 知 知る; `name-card` 名 名前; `giraffe-tall` 高 高い; `snake-long` 長 長い; `sky-rainbow` 天 天気; `walker-steps` 歩く; `price-slash` 安 安い; `forest-rows` 森; `food-row` 食べ物; `ticket-gate` 切符; `paint-pour` 茶色; `scrub-wash` 洗; `hand-wash` 洗う; `eraser-rub` 消; `switch-off` 消す; `egg-hatch` 初 初めて; `touch-ice` 冷たい; `roller-blue` 青 青い; `arrange-row` 並べる; `window-shut` 閉める; `paper-plane` 飛ぶ; `build-toy` 作; `black-cat` 黒い; `learn-fly` 習; `cage-open` 空; `ice-melt` 夏; `yellow-things` 黄 黄色 黄色い; `stretch-wide` 広; `gears-click` 理; `tool-use` 使 使う; `stopwatch-exact` 丁度; `bag-carry` 持 持つ; `cuckoo-clock` 時計; `phone-charge` 要 要る; `pot-cook` 料 料理; `title-stamp` 題 宿題; `grab-apple` 取 取る; `button-press` 押す; `stand-vase` 台 台所; `coin-keep` 有 有名.
 

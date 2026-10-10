@@ -5,7 +5,7 @@
   "primaryReading": "と",
   "readings": { "kun": ["と(まる)", "ど(まり)", "と(める)", "と(める)"], "on": ["シ"] },
   "mnemonic": "A foot planted firmly at the line: stop. (Japan's stop sign says 止まれ.)",
-  "effect": { "material": "lacquer", "backdrop": "sky:day", "vignette": "stop-sign" },
+  "effect": { "material": "lacquer", "backdrop": "sky:day", "vignette": { "type": "q-stop-sign" } },
   "sentences": [
     {
       "segments": [ { "text": "男", "reading": "おとこ" }, { "text": "はぴたりと" }, { "text": "止", "reading": "と" }, { "text": "まった。" } ],

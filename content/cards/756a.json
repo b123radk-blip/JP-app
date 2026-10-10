@@ -5,7 +5,7 @@
   "primaryReading": "ばん",
   "readings": { "kun": ["つが(い)"], "on": ["バン"] },
   "mnemonic": "Seeds (釆) sown field (田) by field, in turn: your turn, your number.",
-  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": "queue-number" },
+  "effect": { "material": "paper", "backdrop": "sky:indoor", "vignette": { "type": "q-queue-number" } },
   "sentences": [
     {
       "segments": [ { "text": "次", "reading": "つぎ" }, { "text": "は" }, { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "番", "reading": "ばん" }, { "text": "です。" } ],

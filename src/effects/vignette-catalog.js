@@ -8,6 +8,9 @@ import { V, VM, pdc } from './vcat-kit.js';
 import { Q4A } from './vcat-q4a.js';
 import { Q4B } from './vcat-q4b.js';
 import { Q4C } from './vcat-q4c.js';
+import { Q5A } from './vcat-q5a.js';
+import { Q5B } from './vcat-q5b.js';
+import { Q5C } from './vcat-q5c.js';
 // the row of time tiles in step1-time.js: the cards, plus one mesh for suns, two for clocks, or a label per tile
 const rowDc = (unit) => 1 + (({ day: 1, now: 2 })[unit] ?? 3);
 
@@ -471,7 +474,7 @@ export const VIGNETTES = {
   'q-onsen': VM((o) => pdc(o.who) + (o.outcome === 'tepid' ? 3 : 4), '温 (models): a person sits up to his chest in a steaming hot spring ringed with rocks, a towel on his head, and sinks lower with a sigh: ふぅ〜; outcome tepid: a person dips a hand in a tub of water with no steam, shrugs and pulls a face: ぬるい… (温い)', (o) => [o.who], { who: 'guy3', outcome: 'hot' }, 'outcome'),
   'q-bath': VM((o) => pdc(o.who) + 4, 'お風呂 (models): a child sits in a bathtub full of bubbles, arms along the rim, a rubber duck bobbing, humming ♪', (o) => [o.who], { who: 'gal2' }),
   'q-dusk': VM((o) => pdc(o.who, o.other) + 4, '夕 (models): two children wave goodbye (バイバイ!) as the orange sun sinks behind the hills, then walk home opposite ways; crows fly past', (o) => [o.who, o.other], { who: 'gal', other: 'guy2' }),
-  ...Q4A, ...Q4B, ...Q4C,
+  ...Q4A, ...Q4B, ...Q4C, ...Q5A, ...Q5B, ...Q5C,
   'q-gesture': VM((o) => pdc(o.who), 'review of the gesture kit (not for cards): one person doing one gesture g (toMouth sip toEar cupEar shadeEyes wave hold bow point write nod shake) at amount k over a clip', (o) => [o.who], { who: 'guy', g: 'wave', k: 1, clip: 'Idle', yaw: 0 }),
   'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards; names: other models)', (o) => o.names ?? ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),

@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["90e8", "5c4b"],
   "builtFrom": [{ "k": "部", "m": "section" }, { "k": "屋", "m": "roof" }],
-  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "size": 1, "type": "my-room" } },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "size": 1, "type": "q-my-room" } },
   "sentences": [
     {
       "segments": [ { "text": "部屋", "reading": "へや" }, { "text": "には" }, { "text": "誰", "reading": "だれ" }, { "text": "かいますか。" } ],
