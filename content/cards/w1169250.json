@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:indoor",
-    "vignette": { "type": "rope-pull", "size": 1.2, "outcome": "drawer" }
+    "vignette": { "type": "q-rope-pull", "size": 1.2, "outcome": "drawer" }
   },
   "sentences": [
     {

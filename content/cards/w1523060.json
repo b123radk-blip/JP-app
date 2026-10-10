@@ -8,7 +8,7 @@
   "pos": ["n", "adj-no", "adj-na"],
   "kanji": ["672c", "5f53"],
   "builtFrom": [{ "k": "本", "m": "book" }, { "k": "当", "m": "hit" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "mask-off", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-mask-off" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "本当", "reading": "ほんとう" }, { "text": "だと" }, { "text": "思", "reading": "おも" }, { "text": "います。" } ],

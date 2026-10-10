@@ -3,15 +3,13 @@
 // Every vignette also takes `at` ([x, y] offset of its actors in glyph heights) and `size` (scale of its actors, about the
 // kanji's bottom-right corner: scenes that act on the kanji itself should keep it 1).
 // A vignette uses no particle slots and no lights of its own; draw calls must equal what it builds (npm run e2e checks).
-//   variant: the option that tells two uses of one type apart (上手 / 下手: one set-up, two outcomes)
+// Helpers (V, VM, pdc) live in vcat-kit.js; the Step 3a batches add their entries from vcat-q*.js.
+import { V, VM, pdc } from './vcat-kit.js';
+import { Q4A } from './vcat-q4a.js';
+import { Q4B } from './vcat-q4b.js';
+import { Q4C } from './vcat-q4c.js';
 // the row of time tiles in step1-time.js: the cards, plus one mesh for suns, two for clocks, or a label per tile
 const rowDc = (unit) => 1 + (({ day: 1, now: 2 })[unit] ?? 3);
-const V = (dc, desc, opts = {}, variant = null) => ({ dc, desc, opts: { at: null, size: null, ...opts }, variant });
-// a scene built from glTF models (effects/models.js): `models` names what must be loaded before it is built
-const VM = (dc, desc, models, opts = {}, variant = null) => ({ ...V(dc, desc, opts, variant), models });
-// draw calls of each Quaternius person (docs/MODELS.md): scenes that let a recipe pick the actor (`who`) cost by name
-const PERSON_DC = { guy: 6, gal: 6, guy2: 6, gal2: 6, guy3: 6, gal3: 6, kimono: 5, kimonoMan: 4, doctor: 6, doctorWoman: 6, chef: 6, suitMan: 7, suitWoman: 7, worker: 6, grandpa: 8, grandma: 8 };
-const pdc = (...names) => names.reduce((s, n) => s + (PERSON_DC[n] ?? 0), 0);
 
 export const VIGNETTES = {
   'hammer-nail': V(10, 'a hand swings a hammer at a nail standing in a board; outcome clean: three blows drive it in flush, a sparkle, thumbs up (skilled); bend: the nail bends over, the hammer hits the thumb, stars (unskilled)', { outcome: 'clean' }, 'outcome'),
@@ -473,6 +471,7 @@ export const VIGNETTES = {
   'q-onsen': VM((o) => pdc(o.who) + (o.outcome === 'tepid' ? 3 : 4), '温 (models): a person sits up to his chest in a steaming hot spring ringed with rocks, a towel on his head, and sinks lower with a sigh: ふぅ〜; outcome tepid: a person dips a hand in a tub of water with no steam, shrugs and pulls a face: ぬるい… (温い)', (o) => [o.who], { who: 'guy3', outcome: 'hot' }, 'outcome'),
   'q-bath': VM((o) => pdc(o.who) + 4, 'お風呂 (models): a child sits in a bathtub full of bubbles, arms along the rim, a rubber duck bobbing, humming ♪', (o) => [o.who], { who: 'gal2' }),
   'q-dusk': VM((o) => pdc(o.who, o.other) + 4, '夕 (models): two children wave goodbye (バイバイ!) as the orange sun sinks behind the hills, then walk home opposite ways; crows fly past', (o) => [o.who, o.other], { who: 'gal', other: 'guy2' }),
+  ...Q4A, ...Q4B, ...Q4C,
   'q-gesture': VM((o) => pdc(o.who), 'review of the gesture kit (not for cards): one person doing one gesture g (toMouth sip toEar cupEar shadeEyes wave hold bow point write nod shake) at amount k over a clip', (o) => [o.who], { who: 'guy', g: 'wave', k: 1, clip: 'Idle', yaw: 0 }),
   'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards; names: other models)', (o) => o.names ?? ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),

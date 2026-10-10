@@ -5,7 +5,7 @@
   "primaryReading": "き",
   "readings": { "kun": ["き(る)", "き(せる)", "つ(く)", "つ(ける)"], "on": ["チャク", "ジャク"] },
   "mnemonic": "A sheep (羊) arrives and puts on its woolly coat, eyes (目) shining: wear, arrive.",
-  "effect": { "material": "fur", "backdrop": "sky:morning", "vignette": "coat-on" },
+  "effect": { "material": "fur", "backdrop": "sky:morning", "vignette": "q-coat-on" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "今", "reading": "いま" }, { "text": "着", "reading": "つ" }, { "text": "いたばかりだ。" } ],

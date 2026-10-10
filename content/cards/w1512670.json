@@ -8,7 +8,7 @@
   "pos": ["n", "vs", "vt"],
   "kanji": ["5f37"],
   "builtFrom": [{ "k": "強", "m": "strong" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "study-desk" } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-study-desk" } },
   "sentences": [
     {
       "segments": [ { "text": "昨日", "reading": "きのう" }, { "text": "は" }, { "text": "勉強", "reading": "べんきょう" }, { "text": "しましたか？" } ],

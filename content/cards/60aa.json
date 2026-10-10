@@ -8,7 +8,7 @@
   "effect": {
     "material": "lacquer",
     "backdrop": "sky:storm",
-    "vignette": { "type": "devil-vase", "size": 1.3 },
+    "vignette": { "type": "q-devil-vase", "size": 1.3 },
     "parts": { "心": { "material": "heat" } }
   },
   "sentences": [

@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:night",
-    "vignette": { "size": 1.2, "type": "dinner-table", "time": "night" }
+    "vignette": { "type": "q-dinner-table", "size": 1.2, "time": "night" }
   },
   "sentences": [
     {

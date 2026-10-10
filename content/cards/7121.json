@@ -5,7 +5,7 @@
   "primaryReading": "な",
   "readings": { "kun": ["な(い)"], "on": ["ム", "ブ"] },
   "mnemonic": "Everything burned away in the fire (灬): nothing left.",
-  "effect": { "material": "chalk", "backdrop": "sky:twilight", "vignette": "empty-box" },
+  "effect": { "material": "chalk", "backdrop": "sky:twilight", "vignette": { "type": "q-empty-box" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はペンを" }, { "text": "無", "reading": "な" }, { "text": "くしてしまった。" } ],

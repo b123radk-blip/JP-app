@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1.2, "type": "photo-snap", "outcome": "wall" }
+    "vignette": { "size": 1.2, "type": "q-photo-snap", "outcome": "wall" }
   },
   "sentences": [
     {

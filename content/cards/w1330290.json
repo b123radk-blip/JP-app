@@ -8,11 +8,7 @@
   "pos": ["n", "vs", "vi"],
   "kanji": ["696d"],
   "builtFrom": [{ "k": "業", "m": "business" }],
-  "effect": {
-    "material": "ivory",
-    "backdrop": "sky:indoor",
-    "vignette": { "size": 1, "type": "office-work", "outcome": "class" }
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "q-office-work", "outcome": "class" } },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "の" }, { "text": "授業", "reading": "じゅぎょう" }, { "text": "はこれまで。" } ],

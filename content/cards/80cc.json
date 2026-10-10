@@ -5,7 +5,7 @@
   "primaryReading": "せい",
   "readings": { "kun": ["せ", "せい", "そむ(く)", "そむ(ける)"], "on": ["ハイ"] },
   "mnemonic": "Two people back to back (北) over a body (月): your back, your height.",
-  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": "back-to-back" },
+  "effect": { "material": "skin", "backdrop": "sky:morning", "vignette": { "type": "q-back-to-back" } },
   "sentences": [
     {
       "segments": [ { "text": "背", "reading": "せ" }, { "text": "はどれぐらいありますか。" } ],

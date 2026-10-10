@@ -5,7 +5,12 @@
   "primaryReading": "じ",
   "readings": { "kun": ["あざ", "あざな", "な"], "on": ["ジ"] },
   "mnemonic": "A child (子) under the roof (宀) learning letters: character.",
-  "effect": { "material": "paper", "backdrop": "sky:day", "vignette": "letter-blocks", "parts": { "子": {} } },
+  "effect": {
+    "material": "paper",
+    "backdrop": "sky:day",
+    "vignette": { "type": "q-letter-blocks" },
+    "parts": { "子": {} }
+  },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "母", "reading": "はは" }, { "text": "は" }, { "text": "字", "reading": "じ" }, { "text": "がきれいだ。" } ],

@@ -8,7 +8,7 @@
   "effect": {
     "material": "gold",
     "backdrop": "sky:golden",
-    "vignette": "drum-fun",
+    "vignette": { "type": "q-drum-fun" },
     "parts": { "木": { "material": "wood" } }
   },
   "sentences": [

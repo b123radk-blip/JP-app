@@ -5,7 +5,7 @@
   "primaryReading": "よう",
   "readings": { "kun": ["もち(いる)"], "on": ["ヨウ"] },
   "mnemonic": "A frame for hanging things ready to use: use, business, an errand.",
-  "effect": { "material": "silver", "backdrop": "sky:morning", "vignette": { "type": "errand-run", "size": 1.2 } },
+  "effect": { "material": "silver", "backdrop": "sky:morning", "vignette": { "type": "q-errand-run" } },
   "sentences": [
     {
       "segments": [ { "text": "今日", "reading": "きょう" }, { "text": "は" }, { "text": "用", "reading": "よう" }, { "text": "があります。" } ],

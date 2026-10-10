@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["5e83"],
   "builtFrom": [{ "k": "広", "m": "wide" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "room-expand" } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-room-expand", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "家", "reading": "いえ" }, { "text": "の" }, { "text": "台所", "reading": "だいどころ" }, { "text": "は" }, { "text": "大変", "reading": "たいへん" }, { "text": "広", "reading": "ひろ" }, { "text": "い。" } ],

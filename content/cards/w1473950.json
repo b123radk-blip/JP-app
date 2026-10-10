@@ -8,11 +8,7 @@
   "pos": ["v5r", "vt"],
   "kanji": ["58f2"],
   "builtFrom": [{ "k": "売", "m": "sell" }],
-  "effect": {
-    "material": "ivory",
-    "backdrop": "sky:day",
-    "vignette": { "size": 1.2, "type": "apple-sell", "outcome": "sold" }
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-apple-sell", "outcome": "sold" } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "家", "reading": "いえ" }, { "text": "は" }, { "text": "売", "reading": "う" }, { "text": "りに" }, { "text": "出", "reading": "で" }, { "text": "ている。" } ],

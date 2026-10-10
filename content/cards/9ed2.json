@@ -5,7 +5,7 @@
   "primaryReading": "くろ",
   "readings": { "kun": ["くろ", "くろ(ずむ)", "くろ(い)"], "on": ["コク"] },
   "mnemonic": "Soot from the fire (灬) under the village (里) blows over everything: black.",
-  "effect": { "material": "ink", "backdrop": "sky:snow", "vignette": "soot-puff" },
+  "effect": { "material": "ink", "backdrop": "sky:snow", "vignette": { "type": "q-soot-puff" } },
   "sentences": [
     {
       "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "黒", "reading": "くろ" }, { "text": "と" }, { "text": "白", "reading": "しろ" }, { "text": "の" }, { "text": "見分", "reading": "みわ" }, { "text": "けがつく。" } ],

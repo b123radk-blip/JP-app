@@ -8,7 +8,7 @@
   "effect": {
     "material": "silver",
     "backdrop": "sky:morning",
-    "vignette": "office-work",
+    "vignette": { "type": "q-office-work" },
     "parts": { "木": { "material": "wood" } }
   },
   "sentences": [

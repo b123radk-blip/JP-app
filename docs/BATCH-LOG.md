@@ -3,6 +3,21 @@
 One entry per content batch: what was made, what the checks and the contact-sheet review found, what it cost. The numbers
 here feed the prompt for the next step (docs/prompts/). Newest first.
 
+## Step 3a: model pass, batch 4 (verbs with things), 2026-10-10
+- **49 cards** on 36 new scene types, built by three parallel builders from one brief, then reviewed on the strips:
+  `vignettes/q-wear.js` / `q-wear2.js` (着 着る 上着 服 背広 靴 靴下 紙 手紙 買い物 荷物 大切 渡す 引 引く 返 返す 写 写真),
+  `q-learn.js` / `q-learn2.js` (地図 無くす 無 用 売 売る 覚 覚える 字 漢字 勉強 業 授業 大変 本当 練習) and `q-music.js` /
+  `q-music2.js` (習う 楽 音楽 音 御 夕飯 晩御飯 悪 悪い 黒 変 背 広い 再来年). Catalog entries in `src/effects/vcat-q4a.js`,
+  `vcat-q4b.js`, `vcat-q4c.js` (helpers `V VM pdc` moved to `vcat-kit.js`), so parallel builders never edit one file.
+- **New staging:** clothes go on by a shape dropping onto the person, then `dyer()` recolouring the person's own
+  materials (服 着る 上着, soot in 黒); a prop handed palm to palm (`pass()`, 用 売); a hat / crown / headphones that turn
+  with the head (`wear()`).
+- **Checks:** npm test ok, 0 pairs >= 0.72; cost check with every trial's options: 0 mismatches; e2e passed.
+- **Strips:** docs/screenshots/models-things.jpg, models-things2.jpg.
+- **Weakest:** 本当 (truth is abstract: a disguise comes off, a check); 背 (the heads crowd the height chart); 習う (the
+  teacher's key presses are small; the coloured notes carry it); 渡す shows "hand over" while the card's meaning line
+  says "to ferry across; to carry across".
+
 ## Step 3a: model pass, batches 2 and 3 (animals; verbs of the body, feelings, weather), 2026-10-09
 - **Batch 2 (17 cards):** animated Quaternius animals in `vignettes/q-animals3.js` and the q-tent / q-cow / q-hug
   variants: 入 外 入る 入り口 入れる 大きな 動物 鳴く 牛乳 牛肉 好 大好き 好き 泳 泳ぐ 後 後ろ.

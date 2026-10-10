@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:day",
-    "vignette": { "size": 1, "type": "boomerang-throw", "outcome": "book" }
+    "vignette": { "size": 1, "type": "q-boomerang-throw", "outcome": "book", "who": "gal2" }
   },
   "sentences": [
     {

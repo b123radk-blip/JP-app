@@ -8,7 +8,7 @@
   "pos": ["n", "vs", "vt"],
   "kanji": ["7fd2"],
   "builtFrom": [{ "k": "習", "m": "learn" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "practice-kick", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-practice-kick" } },
   "sentences": [
     {
       "segments": [ { "text": "あなたはいつピアノの" }, { "text": "練習", "reading": "れんしゅう" }, { "text": "をしますか。" } ],

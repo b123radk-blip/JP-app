@@ -5,7 +5,7 @@
   "primaryReading": "ひ",
   "readings": { "kun": ["ひ(く)", "ひ(ける)"], "on": ["イン"] },
   "mnemonic": "A bow (弓) and its string (丨) hauled back on a rope: pull.",
-  "effect": { "material": "wood", "backdrop": "sky:day", "vignette": "rope-pull" },
+  "effect": { "material": "wood", "backdrop": "sky:day", "vignette": "q-rope-pull" },
   "sentences": [
     {
       "segments": [ { "text": "カーテンがゆっくり" }, { "text": "引", "reading": "ひ" }, { "text": "かれた。" } ],

@@ -85,9 +85,15 @@ import { SCENES as QTK } from './q-talk.js';
 import { SCENES as QMV } from './q-move.js';
 import { SCENES as QW } from './q-weather.js';
 import { SCENES as QWM } from './q-warm.js';
+import { SCENES as QWE } from './q-wear.js';
+import { SCENES as QWE2 } from './q-wear2.js';
+import { SCENES as QLE } from './q-learn.js';
+import { SCENES as QLE2 } from './q-learn2.js';
+import { SCENES as QMU } from './q-music.js';
+import { SCENES as QMU2 } from './q-music2.js';
 import { SCENES as KIT } from './kit-sheet.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...W5A, ...B6A, ...B6B, ...B6C, ...S1A, ...S1B, ...S1C, ...S1T, ...S1D, ...S1E, ...S1G, ...S1H, ...S1F, ...S1I, ...S1J, ...S1K, ...S1L, ...S1M, ...S1N, ...S1O, ...MA, ...MB, ...QG, ...QA, ...QF, ...QF2, ...QP, ...QS, ...QA2, ...QA3, ...QSE, ...QB, ...QFE, ...QT, ...QL, ...QST, ...QTK, ...QMV, ...QW, ...QWM, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...W5A, ...B6A, ...B6B, ...B6C, ...S1A, ...S1B, ...S1C, ...S1T, ...S1D, ...S1E, ...S1G, ...S1H, ...S1F, ...S1I, ...S1J, ...S1K, ...S1L, ...S1M, ...S1N, ...S1O, ...MA, ...MB, ...QG, ...QA, ...QF, ...QF2, ...QP, ...QS, ...QA2, ...QA3, ...QSE, ...QB, ...QFE, ...QT, ...QL, ...QST, ...QTK, ...QMV, ...QW, ...QWM, ...QWE, ...QWE2, ...QLE, ...QLE2, ...QMU, ...QMU2, ...KIT };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

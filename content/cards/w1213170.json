@@ -8,11 +8,7 @@
   "pos": ["n"],
   "kanji": ["5b57"],
   "builtFrom": [{ "k": "字", "m": "character" }],
-  "effect": {
-    "material": "ivory",
-    "backdrop": "sky:indoor",
-    "vignette": { "size": 1, "type": "letter-blocks", "letters": "山川木" }
-  },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "q-letter-blocks", "letters": "山川木" } },
   "sentences": [
     {
       "segments": [ { "text": "漢字", "reading": "かんじ" }, { "text": "を" }, { "text": "少", "reading": "すこ" }, { "text": "し" }, { "text": "教", "reading": "おし" }, { "text": "えてください。" } ],

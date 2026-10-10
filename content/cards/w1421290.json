@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["5730", "56f3"],
   "builtFrom": [{ "k": "地", "m": "ground" }, { "k": "図", "m": "map" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "map-read" } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-map-read" } },
   "sentences": [
     {
       "segments": [ { "text": "ちょっとこの" }, { "text": "地図", "reading": "ちず" }, { "text": "を" }, { "text": "見", "reading": "み" }, { "text": "なさい。" } ],

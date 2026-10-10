@@ -8,7 +8,7 @@
   "pos": ["n", "vs", "vi"],
   "kanji": ["8cb7", "7269"],
   "builtFrom": [{ "k": "買", "m": "buy" }, { "k": "物", "m": "thing" }],
-  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "shop-basket", "size": 1 } },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "q-shop-basket", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "いつ" }, { "text": "買い物", "reading": "かいもの" }, { "text": "に" }, { "text": "出", "reading": "で" }, { "text": "かけるの？" } ],

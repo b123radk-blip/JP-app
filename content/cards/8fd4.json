@@ -5,7 +5,7 @@
   "primaryReading": "かえ",
   "readings": { "kun": ["かえ(す)", "かえ(す)", "かえ(る)", "かえ(る)"], "on": ["ヘン"] },
   "mnemonic": "Walking (⻌) it back the other way (反): return, give back.",
-  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": { "type": "boomerang-throw", "size": 1.2 } },
+  "effect": { "material": "gold", "backdrop": "sky:day", "vignette": { "type": "q-boomerang-throw", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "あの" }, { "text": "本", "reading": "ほん" }, { "text": "を" }, { "text": "返", "reading": "かえ" }, { "text": "してくれ。" } ],

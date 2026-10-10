@@ -112,42 +112,42 @@ the deck.
 - [x] `home-time` 夕 夕方: two small kids; sunset, they wave goodbye and walk home, crows fly past
 
 ### 4. Verbs with things (49 cards)
-- [ ] `shop-basket` 買い物: gal2 + basket; walks along a shelf, things hop into her basket
-- [ ] `luggage-pile` 荷物: guy3 (Walk_Carry); staggers in under a pile of bags, the top one teetering
-- [ ] `hug-treasure` 大切: guy2; a chest opens on a gem; he hugs it tight, hearts
-- [ ] `coat-on` 着 着る 上着: suitWoman; arrives on a mat, a coat drops onto her, she tugs it straight and twirls
-- [ ] `wardrobe-dress` 服: gal3; a wardrobe opens, clothes fly onto her, she twirls
-- [ ] `suit-up` 背広: suitMan; straightens his tie, picks up a briefcase, walks off
-- [ ] `shoe-step` 靴 靴下: small gal2; shoes hop onto a mat; she steps in and walks off; socks variant
-- [ ] `hand-over` 渡す: worker + gal; one hands a parcel to the other, who bows thanks
-- [ ] `paper-fold` 紙 手紙: small guy2; a sheet folds into a hat that hops onto a kid; letter as before
-- [ ] `rope-pull` 引 引く: worker; leans back and hauls the kanji in three heaves; drawer as before
-- [ ] `boomerang-throw` 返 返す: guy2; throws a boomerang, it loops back to his hand; book: a kid returns a book
-- [ ] `photo-snap` 写 写真: gal + camera; she poses with a peace sign, flash, a photo develops
-- [ ] `map-read` 地図: guy3; holds a map, turns it upside down, "?", points, walks off
-- [ ] `lost-key` 無くす: gal2; a key drops from her pocket, she pats her pockets, "?", looks back
-- [ ] `empty-box` 無: small guy2; a box tips, shakes, nothing falls out; the kid shrugs
-- [ ] `errand-run` 用: gal + small guy; mum hands a note, the kid runs off and back with milk
-- [ ] `apple-sell` 売 売る: worker + gal3; a seller holds up an apple, a buyer pays a coin and gets it
-- [ ] `memory-bubble` 覚 覚える: guy; reads; pictures float into a thought bubble and stay
-- [ ] `letter-blocks` 字 漢字: small gal; blocks drop into a row and a kid points at each
-- [ ] `study-desk` 勉強: small guy3 at a desk; writes line after line (write gesture), a test pops 100
-- [ ] `office-work` 業 授業: suitWoman at a laptop; types, papers stack up, the clock spins; class as before
-- [ ] `juggle-crash` 大変: guy3; juggles plates, wobbles, crash
-- [ ] `mask-off` 本当: guy; a disguise pops off, he smiles, a check
-- [ ] `practice-kick` 練習: small guy2; kicks a ball at a wall again and again
-- [ ] `piano-lesson` 習う: grandma + small gal3; the teacher plays three notes, the kid copies them
-- [ ] `drum-fun` 楽: small guy; drums on the kanji, it squashes, notes
-- [ ] `headphones-dance` 音楽: gal2; dances with big headphones, notes
-- [ ] `bell-ring` 音: grandpa; a bell rings, he turns and cups an ear
-- [ ] `gift-bow` 御: kimono; bows deeply offering a wrapped gift with both hands
-- [ ] `dinner-table` 夕飯 晩御飯: family sitting (gal2 + small guy2); dishes pop onto the table, the kid says いただきます and eats
-- [ ] `devil-vase` 悪 悪い: kit devil stays + a person who frowns
-- [ ] `soot-puff` 黒: guy2 tinted black; a chimney puffs soot over him, he comes out black, blinks, shakes it off
-- [ ] `frog-prince` 変: kit frog + kimonoMan with a crown; POOF frog, POOF prince
-- [ ] `back-to-back` 背: two small kids; back to back at a height chart, the short one on tiptoe
-- [ ] `room-expand` 広い: small gal; the walls slide apart, she spreads her arms and twirls
-- [ ] `year-hop` 再来年: small guy2; hops two calendar blocks ahead and cheers
+- [x] `shop-basket` 買い物: gal2 + basket; walks along a shelf, things hop into her basket
+- [x] `luggage-pile` 荷物: guy3 (Walk_Carry); staggers in under a pile of bags, the top one teetering
+- [x] `hug-treasure` 大切: guy2; a chest opens on a gem; he hugs it tight, hearts
+- [x] `coat-on` 着 着る 上着: suitWoman; arrives on a mat, a coat drops onto her, she tugs it straight and twirls
+- [x] `wardrobe-dress` 服: gal3; a wardrobe opens, clothes fly onto her, she twirls
+- [x] `suit-up` 背広: suitMan; straightens his tie, picks up a briefcase, walks off
+- [x] `shoe-step` 靴 靴下: small gal2; shoes hop onto a mat; she steps in and walks off; socks variant
+- [x] `hand-over` 渡す: worker + gal; one hands a parcel to the other, who bows thanks
+- [x] `paper-fold` 紙 手紙: small guy2; a sheet folds into a hat that hops onto a kid; letter as before
+- [x] `rope-pull` 引 引く: worker; leans back and hauls the kanji in three heaves; drawer as before
+- [x] `boomerang-throw` 返 返す: guy2; throws a boomerang, it loops back to his hand; book: a kid returns a book
+- [x] `photo-snap` 写 写真: gal + camera; she poses with a peace sign, flash, a photo develops
+- [x] `map-read` 地図: guy3; holds a map, turns it upside down, "?", points, walks off
+- [x] `lost-key` 無くす: gal2; a key drops from her pocket, she pats her pockets, "?", looks back
+- [x] `empty-box` 無: small guy2; a box tips, shakes, nothing falls out; the kid shrugs
+- [x] `errand-run` 用: gal + small guy; mum hands a note, the kid runs off and back with milk
+- [x] `apple-sell` 売 売る: worker + gal3; a seller holds up an apple, a buyer pays a coin and gets it
+- [x] `memory-bubble` 覚 覚える: guy; reads; pictures float into a thought bubble and stay
+- [x] `letter-blocks` 字 漢字: small gal; blocks drop into a row and a kid points at each
+- [x] `study-desk` 勉強: small guy3 at a desk; writes line after line (write gesture), a test pops 100
+- [x] `office-work` 業 授業: suitWoman at a laptop; types, papers stack up, the clock spins; class as before
+- [x] `juggle-crash` 大変: guy3; juggles plates, wobbles, crash
+- [x] `mask-off` 本当: guy; a disguise pops off, he smiles, a check
+- [x] `practice-kick` 練習: small guy2; kicks a ball at a wall again and again
+- [x] `piano-lesson` 習う: grandma + small gal3; the teacher plays three notes, the kid copies them
+- [x] `drum-fun` 楽: small guy; drums on the kanji, it squashes, notes
+- [x] `headphones-dance` 音楽: gal2; dances with big headphones, notes
+- [x] `bell-ring` 音: grandpa; a bell rings, he turns and cups an ear
+- [x] `gift-bow` 御: kimono; bows deeply offering a wrapped gift with both hands
+- [x] `dinner-table` 夕飯 晩御飯: family sitting (gal2 + small guy2); dishes pop onto the table, the kid says いただきます and eats
+- [x] `devil-vase` 悪 悪い: kit devil stays + a person who frowns
+- [x] `soot-puff` 黒: guy2 tinted black; a chimney puffs soot over him, he comes out black, blinks, shakes it off
+- [x] `frog-prince` 変: kit frog + kimonoMan with a crown; POOF frog, POOF prince
+- [x] `back-to-back` 背: two small kids; back to back at a height chart, the short one on tiptoe
+- [x] `room-expand` 広い: small gal; the walls slide apart, she spreads her arms and twirls
+- [x] `year-hop` 再来年: small guy2; hops two calendar blocks ahead and cheers
 
 ### 5. People in places, occupations, vehicles (52 cards)
 - [ ] `teach-board` 教 教える: suitWoman + small pupil; writes 1+1=2, a pupil shoots a hand up, a bulb

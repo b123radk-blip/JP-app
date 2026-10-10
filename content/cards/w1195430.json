@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["7269"],
   "builtFrom": [{ "k": "物", "m": "thing" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "luggage-pile", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-luggage-pile", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "荷物", "reading": "にもつ" }, { "text": "を" }, { "text": "運", "reading": "はこ" }, { "text": "びましょうか？" } ],

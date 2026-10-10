@@ -8,7 +8,7 @@
   "pos": ["adv"],
   "kanji": ["5927", "5909"],
   "builtFrom": [{ "k": "大", "m": "large" }, { "k": "変", "m": "change" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "juggle-crash", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-juggle-crash" } },
   "sentences": [
     {
       "segments": [ { "text": "仕事", "reading": "しごと" }, { "text": "は" }, { "text": "大変", "reading": "たいへん" }, { "text": "面白", "reading": "おもしろ" }, { "text": "いです。" } ],

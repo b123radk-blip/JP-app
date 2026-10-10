@@ -5,7 +5,7 @@
   "primaryReading": "へん",
   "readings": { "kun": ["か(わる)", "か(わり)", "か(える)"], "on": ["ヘン"] },
   "mnemonic": "A frog on red (亦) feet (夂) turns into a prince and back: strange, change.",
-  "effect": { "material": "neon", "backdrop": "sky:twilight", "vignette": "frog-prince" },
+  "effect": { "material": "neon", "backdrop": "sky:twilight", "vignette": { "type": "q-frog-prince" } },
   "sentences": [
     {
       "segments": [ { "text": "これは" }, { "text": "大変", "reading": "たいへん" }, { "text": "古", "reading": "ふる" }, { "text": "い" }, { "text": "本", "reading": "ほん" }, { "text": "です。" } ],

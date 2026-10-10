@@ -8,7 +8,7 @@
   "pos": ["v5u", "vt"],
   "kanji": ["7fd2"],
   "builtFrom": [{ "k": "習", "m": "learn" }],
-  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "piano-lesson", "size": 1.2 } },
+  "effect": { "material": "ivory", "backdrop": "sky:indoor", "vignette": { "type": "q-piano-lesson", "size": 1.2 } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "はスキーを" }, { "text": "習", "reading": "なら" }, { "text": "いたい。" } ],

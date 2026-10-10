@@ -8,7 +8,7 @@
   "pos": ["v5s", "vt"],
   "kanji": ["7121"],
   "builtFrom": [{ "k": "無", "m": "nothingness" }],
-  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "size": 1, "type": "lost-key" } },
+  "effect": { "material": "ivory", "backdrop": "sky:day", "vignette": { "type": "q-lost-key" } },
   "sentences": [
     {
       "segments": [ { "text": "これは" }, { "text": "私", "reading": "わたし" }, { "text": "が" }, { "text": "無", "reading": "な" }, { "text": "くしたカメラだ。" } ],

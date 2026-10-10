@@ -5,7 +5,7 @@
   "primaryReading": "かみ",
   "readings": { "kun": ["かみ"], "on": ["シ"] },
   "mnemonic": "Threads (糸) pressed flat by the family (氏): paper, folded into a letter.",
-  "effect": { "material": "paper", "backdrop": "sky:day", "vignette": "paper-fold", "parts": { "糸": {} } },
+  "effect": { "material": "paper", "backdrop": "sky:day", "vignette": "q-paper-fold", "parts": { "糸": {} } },
   "sentences": [
     {
       "segments": [ { "text": "紙", "reading": "かみ" }, { "text": "は" }, { "text": "木", "reading": "き" }, { "text": "から" }, { "text": "作", "reading": "つく" }, { "text": "られる。" } ],

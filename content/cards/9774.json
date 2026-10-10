@@ -8,7 +8,7 @@
   "effect": {
     "material": "fur",
     "backdrop": "sky:day",
-    "vignette": "shoe-step",
+    "vignette": "q-shoe-step",
     "parts": { "革": { "material": "clay" } }
   },
   "sentences": [

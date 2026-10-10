@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["97f3", "697d"],
   "builtFrom": [{ "k": "音", "m": "sound" }, { "k": "楽", "m": "music" }],
-  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": { "size": 1, "type": "headphones-dance" } },
+  "effect": { "material": "ivory", "backdrop": "sky:twilight", "vignette": { "type": "q-headphones-dance", "size": 1 } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "音楽", "reading": "おんがく" }, { "text": "が" }, { "text": "分", "reading": "わ" }, { "text": "からない。" } ],
