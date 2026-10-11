@@ -2,6 +2,7 @@
 // handling, placing the card in front of the viewer, and routing the session's `select` events to the input system.
 import * as THREE from 'three';
 import { LAYOUT } from '../config.js';
+import { makeLabel } from './text.js';
 
 export function createXR({ kit, input, statusEl, buttonsEl, onPlaced, onSession }) {
   const { renderer, root } = kit;
@@ -31,12 +32,32 @@ export function createXR({ kit, input, statusEl, buttonsEl, onPlaced, onSession 
     kit.controls.enabled = false;
     placed = false; frames = 0; root.visible = false;                 // hidden until we know where the viewer is looking
     state.note = ''; state.hands = 'looking…'; render();
-    session.addEventListener('select', (e) => input.handleXRSelect(e));
-    session.addEventListener('inputsourceschange', () => hands(session));
-    hands(session);
+    session.addEventListener('select', (e) => { input.handleXRSelect(e); if (e.inputSource?.targetRayMode === 'transient-pointer') lookPinch(); });
+    session.addEventListener('inputsourceschange', () => { hands(session); showInputs(session); });
+    hands(session); gazeSeen = false; showInputs(session);
     onSession?.({ presenting: true, passthrough });
   });
+  // in the headset, a line under the buttons: which pointers the browser gives (hand rays, controllers) and whether look and
+  // pinch (a 'transient-pointer': the browser's ray from the eyes at the moment of a pinch) has reached the page yet
+  let inputLabel = null, gazeSeen = false, hideTimer = 0;
+  function setInputLabel(text, color = '#3a4256') {
+    inputLabel?.dispose(); inputLabel = null; clearTimeout(hideTimer);
+    if (!text) return;
+    inputLabel = makeLabel(text, { size: 0.024, weight: 400, color: '#ffffff', glow: null, panel: { pad: 0.01, radius: 0.014, color } });
+    inputLabel.mesh.position.set(0, LAYOUT.y.buttons - 0.1, 0.004); inputLabel.mesh.renderOrder = 20; root.add(inputLabel.mesh);
+  }
+  function showInputs(session) {
+    if (gazeSeen) return;
+    const kinds = [...session.inputSources].filter((s) => s.targetRayMode !== 'transient-pointer').map((s) => (s.hand ? 'hand ray' : s.targetRayMode === 'gaze' ? 'head gaze' : 'controller'));
+    setInputLabel(`Pointers: ${kinds.length ? [...new Set(kinds)].join(', ') : 'none yet'}  ·  Look and pinch: not seen yet (look at a button and pinch)`);
+  }
+  function lookPinch() {
+    if (gazeSeen) return;
+    gazeSeen = true; setInputLabel('Look and pinch works', '#1f7a4c'); hideTimer = setTimeout(() => setInputLabel(''), 4000);
+  }
+
   renderer.xr.addEventListener('sessionend', () => {
+    setInputLabel('');
     kit.setPassthrough(false);
     root.visible = true; root.position.copy(kit.desktopPos); root.rotation.set(0, 0, 0);
     kit.controls.enabled = true; placed = true; input.clearXR();

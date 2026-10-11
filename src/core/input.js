@@ -18,6 +18,7 @@ export function createInput({ renderer, camera, scene }) {
     for (const m of [...shownHover]) if (!now.has(m)) { shownHover.delete(m); items.get(m)?.onHover?.(false); }
     for (const m of now) if (!shownHover.has(m)) { shownHover.add(m); items.get(m)?.onHover?.(true); }
   }
+  let lastXRPress = -1e9;
   const activate = (hit) => { const h = hit && items.get(hit.object); if (h && h.enabled !== false) h.onSelect?.(hit); return !!h; };
 
   const api = {
@@ -28,12 +29,16 @@ export function createInput({ renderer, camera, scene }) {
     byId: (id) => targets().find((m) => m.userData.id === id && isShown(m)) || null,
     press(id) { const m = api.byId(id); if (m) items.get(m).onSelect?.({ object: m }); return !!m; },
     // XR: called from the session's `select` event. refSpace defaults to the renderer's.
+    // Look and pinch arrives as a 'transient-pointer' source whose ray runs from the eyes to where they looked as the pinch
+    // began, so it needs nothing extra. One pinch can also fire the hand's own ray: a second press within 0.25 s is ignored.
     handleXRSelect(event, refSpace = renderer.xr.getReferenceSpace()) {
       const space = event.inputSource && event.inputSource.targetRaySpace;
       const pose = space && event.frame && event.frame.getPose(space, refSpace);
       if (!pose) return false;
-      const { origin, direction } = rayFromPose(pose);
-      return activate(api.pickRay(origin, direction));
+      const { origin, direction } = rayFromPose(pose), hit = api.pickRay(origin, direction), now = performance.now();
+      if (hit && now - lastXRPress < 250) return false;
+      const pressed = activate(hit); if (pressed) lastXRPress = now;
+      return pressed;
     },
     // XR: each frame, hover feedback + a small reticle where each pointer lands.
     updateXR(frame) {
