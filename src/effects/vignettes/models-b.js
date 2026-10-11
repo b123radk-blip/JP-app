@@ -82,10 +82,10 @@ function cow(ctx, spec, stage) {
 // ---- 休 ----
 function restTree(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.8 * u, tz = -0.24 * u;
-  const tree = createModel('oak', { height: 1.5 * u, tint: { leafsGreen: 0x58b848 } }), man = actor('guy', 0.85 * u), head = man.node('Head'), hips = man.node('Hips');
+  const tree = createModel('oak', { height: 2.5 * u, tint: { leafsGreen: 0x58b848 } }), man = actor('guy', 0.85 * u), head = man.node('Head'), hips = man.node('Hips');
   const zs = ['Z', 'z', 'Z'].map((ch) => textPlane(ch, { h: 0.22 * u, color: '#ffffff', bg: '#4a5ac0', pad: 0.2, weight: 900 }));
   // a log lying on the ground right in front of the trunk, along it; he sits on it with his back against the trunk
-  const lr = 0.085 * u, lz = tz + 0.16 * u;
+  const lr = 0.085 * u, lz = tz + 0.2 * u;
   const log = solidProp([[G.cyl(lr, lr, 0.42 * u, 0, lr, 0, 0, 0, Math.PI / 2), 0x8a5a30], [G.cyl(lr * 0.78, lr * 0.78, 0.422 * u, 0, lr, 0, 0, 0, Math.PI / 2), 0xd8b080]], 0.35);
   tree.group.position.set(tx, floor, tz); log.position.set(tx, floor, lz);
   group.add(tree.group, log, man.group, ...zs);

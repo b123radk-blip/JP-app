@@ -119,7 +119,10 @@ export function crown(u, n, colors) {
 const CROWN = [[0, 0.22, 1.25, -0.04], [-0.2, 0.1, 1.0, 0.06], [0.2, 0.1, 1.0, -0.1], [-0.12, 0.34, 0.9, -0.12], [0.13, 0.33, 0.95, 0.07], [0, 0.02, 0.85, 0.1], [-0.3, -0.04, 0.7, -0.08], [0.3, -0.04, 0.7, 0.04], [-0.05, 0.14, 0.9, -0.2], [0.04, 0.12, 0.8, 0.17]];
 function treeSprout(ctx, spec, stage) {
   if (spec.outcome === 'week') return withWeek(treeSprout, 3, ctx, spec, stage, { scale: 1, stripAt: (st) => [st.glyphBox(0).cx + 1.05 * st.u, st.box.maxY + 0.22 * st.u], inner: { glyph: 0 } });
-  const u = stage.u, B = spec.glyph != null ? stage.glyphBox(spec.glyph) : stage.box, group = new THREE.Group(), floor = B.minY, top = B.maxY - 0.05 * u;
+  const u = stage.u, B = spec.glyph != null ? stage.glyphBox(spec.glyph) : stage.box, group = new THREE.Group(), floor = B.minY;
+  // the trunk is the kanji's own vertical stroke (tallest, narrowest box in this glyph): crown and twigs sit on its x and top
+  const gi = spec.glyph ?? 0, vb = ctx.strokes.map((s, i) => [s, stage.strokeBox(i)]).filter(([s]) => (s.glyph ?? 0) === gi).map(([, b]) => b).sort((a, b) => b.h / Math.max(b.w, 1e-4) - a.h / Math.max(a.w, 1e-4))[0] || B;
+  const vx = vb.cx, top = vb.maxY - 0.05 * u;
   const leaves = crown(u, CROWN.length, [0x3aa040, 0x48b848, 0x2e8a3a]);
   const twigs = many([[G.cyl(0.015 * u, 0.022 * u, 0.25 * u, 0, 0.125 * u, 0), 0x7a4a24]], 3, 0.3);
   const apple = solidProp([[G.sphere(0.07 * u), 0xe02828], [G.cyl(0.006 * u, 0.006 * u, 0.04 * u, 0, 0.08 * u, 0), 0x5a3a1a], [G.sphere(0.025 * u, 0.025 * u, 0.09 * u, 0, 1.4, 0.4, 0.8), 0x40a040]], 0.6);
@@ -135,15 +138,15 @@ function treeSprout(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { twig: [0, 0.5, 'out'], grow: [0.4, 1.4], ripe: [2.0, 0.6, 'back'], drop: [3.0, 0.45, 'in'], back: [5.4, 1.0] });
       const k = pre ? 0 : T.grow * (1 - T.back);
-      [[-0.6, 0.5], [0.6, 0.5], [0, 0]].forEach(([a, x], i) => twigs.set(i, B.cx + x * 0.1 * u, top - 0.05 * u, 0.0, pre ? 0 : T.twig * (1 - T.back), a));
+      [[-0.6, 0.5], [0.6, 0.5], [0, 0]].forEach(([a, x], i) => twigs.set(i, vx + x * 0.012 * u, top + 0.02 * u, 0.0, pre ? 0 : T.twig * (1 - T.back), a));
       twigs.commit();
-      CROWN.forEach(([x, y, s, z], i) => { const ki = between(k, i * 0.06, 0.5 + i * 0.06); leaves.set(i, B.cx + x * u, top + 0.18 * u + y * u + 0.01 * u * Math.sin(t * 2 + i), z * u, s * ki * (1 + 0.03 * Math.sin(t * 3 + i))); });
+      CROWN.forEach(([x, y, s, z], i) => { const ki = between(k, i * 0.06, 0.5 + i * 0.06); leaves.set(i, vx + x * u, top + 0.18 * u + y * u + 0.01 * u * Math.sin(t * 2 + i), z * u, s * ki * (1 + 0.03 * Math.sin(t * 3 + i))); });
       leaves.commit();
-      const ax = B.cx + 0.22 * u, ay = top + 0.15 * u, gy = floor + 0.075 * u;
+      const ax = vx + 0.22 * u, ay = top + 0.15 * u, gy = floor + 0.075 * u;
       apple.visible = !pre && T.ripe > 0.01 && T.back < 0.8;
       const bounce = v > 3.45 ? 0.12 * u * Math.abs(Math.sin((v - 3.45) * 6)) * Math.max(0, 1 - (v - 3.45) * 1.5) : 0;
       apple.position.set(ax + 0.25 * u * between(v, 3.45, 4.2), ay + (gy - ay) * T.drop + bounce, 0.18 * u); apple.rotation.z = -3 * between(v, 3.45, 4.2); apple.scale.setScalar(grow(T.ripe * (1 - T.back)));
-      for (let i = 0; i < 5; i++) { const f = pre ? 0 : between(v, 2.6 + i * 0.4, 4.6 + i * 0.4); fall.set(i, B.cx + (i - 2) * 0.18 * u + 0.08 * u * Math.sin(f * 9 + i), top + 0.3 * u - (top + 0.3 * u - floor - 0.01 * u) * f, (0.1 + 0.05 * (i % 3)) * u, f > 0 && (f < 1 || v < 5.4) ? 1 : 0, f < 1 ? f * 6 : 0); }
+      for (let i = 0; i < 5; i++) { const f = pre ? 0 : between(v, 2.6 + i * 0.4, 4.6 + i * 0.4); fall.set(i, vx + (i - 2) * 0.18 * u + 0.08 * u * Math.sin(f * 9 + i), top + 0.3 * u - (top + 0.3 * u - floor - 0.01 * u) * f, (0.1 + 0.05 * (i % 3)) * u, f > 0 && (f < 1 || v < 5.4) ? 1 : 0, f < 1 ? f * 6 : 0); }
       fall.commit();
     },
   };
