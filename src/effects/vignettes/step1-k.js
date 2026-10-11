@@ -27,9 +27,7 @@
 //                  as a height arrow grows up its side, a cloud and a pigeon pass below the top, ! (高い)
 import * as THREE from 'three';
 import { acts, timeline, bump, wobble } from './timeline.js';
-import { createModel } from '../models.js';
 import { actor } from './model-kit.js';
-import { speech } from './q-common.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
 import { many, HEART, PUFF } from '../pieces/kit-things.js';
