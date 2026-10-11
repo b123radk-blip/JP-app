@@ -34,7 +34,7 @@ async function previewProps(q, decks) {
   let recipe = null;
   if (q.get('recipe')) try { recipe = JSON.parse(q.get('recipe')); } catch (e) { $('msg').textContent = `recipe= is not valid JSON (${e.message})`; }
   const t = q.get('t');
-  return { ids, index: Math.max(0, ids.indexOf(q.get('card'))), recipe, trial, old: q.get('old') === '1', freeze: t === null ? null : Number(t) };
+  return { ids, index: Math.max(0, ids.indexOf(q.get('card'))), recipe, trial, old: q.get('old') === '1', review: q.get('review') === '1', freeze: t === null ? null : Number(t) };
 }
 
 export async function startApp() {

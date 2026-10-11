@@ -21,6 +21,9 @@ a memorable 3D animation while you are learning it. Runs as a WebXR web app in t
 - Progress is saved in the browser; **Export / Import progress** on the 2D page keeps a copy.
 - **Preview**: [?preview=1](https://b123radk-blip.github.io/JP-app/?preview=1) plays one card's animation on its own, looping;
   Prev / Next flip through the cards (also in the headset). Contact sheets of all cards: `docs/screenshots/preview-sheet-*.jpg`.
+- **Review**: [?preview=1&review=1](https://b123radk-blip.github.io/JP-app/?preview=1&review=1) is the same, but each card
+  opens fully drawn with its scene already playing. **Flag** marks a card to fix (kept in this browser), **Flagged** flips
+  through just the flagged cards and lists them.
 - Readings and sentences come from dictionaries and Tatoeba and are checked by two analysers, but no native speaker has
   confirmed them yet: [docs/REVIEW.md](docs/REVIEW.md) lists them for review.
 - Voice: none yet. You generate it with VOICEVOX on your PC: [docs/VOICEVOX.md](docs/VOICEVOX.md).
