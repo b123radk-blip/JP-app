@@ -32,11 +32,12 @@ import { between } from './helpers.js';
 import { grow } from './step1-kit.js';
 import { dogParts } from './step1-a.js';
 import { crown } from './step1-b.js';
+import { doorOut } from './step1-door-out.js';
 import { doorway, walkOut, hatRabbit, houseIn, autoDoors, piggyCoin, phoneRing, powerHouse, storkBaby } from './step1-hv.js';
 
 // ---- 出 out ----
 function turtleOut(ctx, spec, stage) {
-  if (spec.outcome === 'door') return walkOut(ctx, spec, stage, false);
+  if (spec.outcome === 'door') return doorOut(ctx, spec, stage);
   if (spec.outcome === 'exit') return walkOut(ctx, spec, stage, true);
   if (spec.outcome === 'hat') return hatRabbit(ctx, spec, stage);
   const B = stage.box, u = 1.4 * stage.u, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.45 * u;

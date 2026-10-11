@@ -29,10 +29,13 @@ export function everyUnit(ctx, spec, stage) {
   const stamp = solidProp([[G.cyl(0.08 * u, 0.09 * u, 0.06 * u, 0, 0.03 * u, 0), 0xc83030], [G.cyl(0.075 * u, 0.075 * u, 0.012 * u, 0, 0.003 * u, 0), 0x801818], [G.cyl(0.025 * u, 0.03 * u, sl - 0.1 * u, 0, 0.06 * u + (sl - 0.1 * u) / 2, 0), 0x8a5a30], [G.sphere(kr, 0, sl - kr * 0.6, 0), 0x8a5a30]], 0.5);
   const ticks = many([[G.poly([[-0.07 * u, 0], [-0.015 * u, -0.06 * u], [0.08 * u, 0.07 * u]], 0.018 * u), 0xe02020]], 3, 1.0);
   // a notice board the tiles are pinned to, on two legs
-  const bx0 = row.x(0) - row.W / 2 - 0.08 * u, bx1 = row.x(2) + row.W / 2 + 0.08 * u, by0 = row.y - row.H / 2 - 0.08 * u, by1 = row.y + row.H / 2 + 0.08 * u, bz = -0.045 * u;
+  const slotY = row.y + row.H / 2 + 0.17 * u;
+  const bx0 = row.x(0) - row.W / 2 - 0.08 * u, bx1 = row.x(2) + row.W / 2 + 0.08 * u, by0 = row.y - row.H / 2 - 0.08 * u, by1 = row.y + row.H / 2 + 0.3 * u, bz = -0.045 * u;
   const board = solidProp([[G.box(bx1 - bx0, by1 - by0, 0.03 * u, (bx0 + bx1) / 2, (by0 + by1) / 2, bz), 0xc8945a], [G.box(bx1 - bx0 + 0.05 * u, 0.04 * u, 0.05 * u, (bx0 + bx1) / 2, by1, bz), 0x7a5232], [G.box(bx1 - bx0 + 0.05 * u, 0.04 * u, 0.05 * u, (bx0 + bx1) / 2, by0, bz), 0x7a5232],
     ...[bx0 + 0.06 * u, bx1 - 0.06 * u].map((x) => [G.box(0.04 * u, by0 - floor, 0.04 * u, x, (floor + by0) / 2, bz - 0.01 * u), 0x7a5232]),
-    ...[0, 1, 2].map((i) => [G.sphere(0.018 * u, row.x(i), row.y + row.H / 2 - 0.03 * u, 0.0), 0x3a7ae0])], 0.35);
+    ...[0, 1, 2].map((i) => [G.sphere(0.018 * u, row.x(i), row.y + row.H / 2 - 0.03 * u, 0.0), 0x3a7ae0]),
+    // a white check box above each tile: the tick goes there, never onto the sun
+    ...[0, 1, 2].map((i) => [G.box(0.22 * u, 0.2 * u, 0.012 * u, row.x(i), slotY, bz + 0.02 * u), 0xfffaf0])], 0.35);
   const p = person(spec.who ?? 'gal2', u, 0.85);
   group.add(board, row.group, stamp, ticks, p.group);
   const loop = 6.4, AT = [0.9, 2.1, 3.3], xs = [0, 1, 2].map((i) => row.x(i) + 0.27 * u);
@@ -54,12 +57,12 @@ export function everyUnit(ctx, spec, stage) {
       if (!pre && v > AT[2] + 0.75) i = 2;
       const gap = 0.16 * u * (1 - Math.pow(press, 0.6)), hold = pre ? 0 : between(v, 0.3, 0.6) * (1 - between(v, 4.4, 4.8));
       const sx = go.walking ? go.x - 0.2 * u : row.x(i);
-      stamp.position.set(sx, row.y, 0.012 * u + gap); stamp.rotation.set(Math.PI / 2, 0, 0);
+      stamp.position.set(sx, slotY, 0.012 * u + gap); stamp.rotation.set(Math.PI / 2, 0, 0);
       stamp.visible = hold > 0.02; stamp.scale.setScalar(grow(hold));
       // her right hand pushes on the knob from behind (the palm against it, toward the board)
-      knob.set(sx, row.y, 0.012 * u + gap + sl - kr * 0.6); group.localToWorld(knob);
+      knob.set(sx, slotY, 0.012 * u + gap + sl - kr * 0.6); group.localToWorld(knob);
       p.grip('R', knob, W.copy(BACK).transformDirection(group.matrixWorld), kr * group.getWorldScale(W2).x, hold, { out: 0.5, down: 0.8 });
-      for (let j = 0; j < 3; j++) { const d = pre ? 0 : between(v, AT[j] + 0.4, AT[j] + 0.5) * (1 - T.off); ticks.set(j, row.x(j), row.y, 0.03 * u, d); }
+      for (let j = 0; j < 3; j++) { const d = pre ? 0 : between(v, AT[j] + 0.4, AT[j] + 0.5) * (1 - T.off); ticks.set(j, row.x(j), slotY, 0.02 * u, d); }
       ticks.commit();
     },
   };
