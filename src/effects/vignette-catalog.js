@@ -380,7 +380,7 @@ export const VIGNETTES = {
   // ---- model scenes (Quaternius trial, vignettes/models-b.js) ----
   'q-dog-fetch': VM(9, '犬 (models): a Shiba waits; a ball bounces past, it gallops after it, brings it back in its mouth and hops for joy, hearts', ['shiba']),
   'q-cow': VM((o) => ({ milk: 7 + pdc(o.who) + 4, steak: 10 })[o.outcome] ?? 11, '牛 (models): a cow walks up, grazes, lifts its head and moos モー, then wanders off; outcome milk: a cow grazes behind a person who drinks a glass of milk, ごくごく, ぷはー (牛乳); steak: a cow stands beside a table where a steak sizzles on a plate, ジュー (牛肉)', (o) => ({ milk: ['cow', o.who], steak: ['cow'] })[o.outcome] ?? ['cow', 'grass'], { outcome: 'moo', who: 'gal2' }, 'outcome'),
-  'q-rest-tree': VM(12, '休 (models): a walker reaches a tree, sits down on a log against it, nods off, Zzz, stands up and walks on', ['oak', 'guy']),
+  'q-rest-tree': VM(12, '休 (models): a walker reaches a tree, turns and sits on a log at its foot with his back against the trunk, nods off, Zzz, stands up and walks on', ['oak', 'guy']),
   'q-walker': VM(7, '歩 (models): a person walks along beside the kanji leaving footprints, turns to you, cheers and walks back', ['gal']),
   'q-kimono': VM(6, '女 (models): a woman in a kimono walks up, turns to you, cheers and twirls under falling petals', ['kimono']),
   'q-doctor': VM(16, '医者 (models): a patient sits slumped under a grey cloud; a doctor walks up carrying a red-cross kit and sets it down; the patient jumps up cheering', ['guy', 'doctor']),
