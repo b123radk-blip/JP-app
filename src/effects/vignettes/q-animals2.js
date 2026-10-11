@@ -29,19 +29,19 @@ const door = (u, dw = 0.18, dh = 0.3, color = 0x8a5a30) => solidProp([[G.box(dw 
 
 // ---- 外 ----
 function dogOut(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.5 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.7 * u, S = 1.4, hz = 0.0;   // S: house scale (the dog stays 0.42 u, the house is about 3 dogs tall)
   // the house stands at the back of a green lawn (one mesh with it), a stepping-stone path from the door
-  const lawn = [[G.box(1.5 * u, 0.02 * u, 1.0 * u, 0.4 * u, -0.01 * u, 0.36 * u), 0x5aa83a], [G.box(1.5 * u, 0.07 * u, 1.0 * u, 0.4 * u, -0.055 * u, 0.36 * u), 0x8a5a34],
-    ...[0, 1, 2].map((i) => [G.cyl(0.045 * u, 0.045 * u, 0.01 * u, -0.12 * u, 0.002 * u, (0.32 + 0.12 * i) * u), 0xd8d0c0])];
-  const house = cottage(u, { yard: lawn }), d = door(u), dog = createModel('shiba', { height: 0.42 * u });
+  const lawn = [[G.box(2.0 * u, 0.02 * u, 1.5 * u, 0.4 * u, -0.01 * u, 0.4 * u), 0x5aa83a], [G.box(2.0 * u, 0.07 * u, 1.5 * u, 0.4 * u, -0.055 * u, 0.4 * u), 0x8a5a34],
+    ...[0, 1, 2].map((i) => [G.cyl(0.05 * u, 0.05 * u, 0.01 * u, -0.17 * u, 0.002 * u, (0.45 + 0.15 * i) * u), 0xd8d0c0])];
+  const house = cottage(u, { w: 0.62 * S, h: 0.48 * S, d: 0.45 * S, dw: 0.18 * S, dh: 0.3 * S, dx: -0.12 * S, yard: lawn }), d = door(u, 0.18 * S, 0.3 * S), dog = createModel('shiba', { height: 0.42 * u });
   const flower = solidProp([[G.cyl(0.006 * u, 0.006 * u, 0.16 * u, 0, 0.08 * u, 0), 0x3a9a3a], [G.sphere(0.03 * u, 0.02 * u, 0.05 * u, 0, 1.4, 0.4, 0.8), 0x3a9a3a], ...[0, 1, 2, 3, 4].map((i) => [G.sphere(0.03 * u, 0.035 * u * Math.cos(i * 1.26), 0.17 * u + 0.035 * u * Math.sin(i * 1.26), 0), 0xff6a9a]), [G.sphere(0.025 * u, 0, 0.17 * u, 0.01 * u), 0xffd040]], 0.5);
-  house.position.set(hx, floor, -0.15 * u); d.position.set(hx - 0.21 * u, floor, -0.15 * u + 0.235 * u);
+  house.position.set(hx, floor, hz * u); d.position.set(hx - 0.21 * S * u, floor, hz * u + 0.235 * S * u);
   // the dog stops in the yard facing right and a little toward you; the flower stands just under its nose
   dog.group.updateWorldMatrix(true, true);
   const nose = new THREE.Box3().setFromObject(dog.group).max.z - dog.group.position.z, sniffYaw = RIGHT - 0.3;
   const sniff = label(u, 'クンクン', '#6a8a3a', 0.11);
   group.add(house, d, dog.group, flower, sniff);
-  const loop = 7.4, door0 = [hx - 0.12 * u, -0.15 * u + 0.26 * u], yard = [hx + 0.62 * u, 0.22 * u];
+  const loop = 7.4, door0 = [hx - 0.12 * S * u, hz * u + 0.26 * S * u], yard = [hx + 0.75 * u, 0.5 * u];
   flower.position.set(yard[0] + 0.92 * nose * Math.sin(sniffYaw), floor, yard[1] + 0.92 * nose * Math.cos(sniffYaw));
   return {
     group,
@@ -150,39 +150,41 @@ function post(ctx, spec, stage) {
 }
 
 // ---- 大きな ----
-// The sea is a wide flattened dome (tipped toward you) whose top is the surface: what is under it stays hidden from every
-// side. A little sailing boat rocks in front; behind it a whale many times its size rises in an arc, its back and head
-// breaking the surface, blows a spout, then dives tail last; the boat rocks in its wake.
+// The sea is a broad block of water with a flat surface, a lighter top skin and white wave crests that bob. A little
+// sailing boat rocks on it; a whale many times its size lies mostly UNDER the surface (only its back and head break it),
+// rises in an arc, blows a spout, then dives tail last; the boat rocks in its wake.
 function whale(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.85 * u, top = floor - 0.05 * u, tilt = 0.2;
-  const wh = createModel('whale', { width: 1.0 * u }), sea = solidProp([[G.sphere(0.5 * u, 0, -0.5 * u, 0, 3.0, 1.0, 2.2), 0x2f74c0], [G.sphere(0.5 * u, 0.15 * u, -0.496 * u, 0.1 * u, 2.4, 1.0, 1.6), 0x3c86d2]], 0.35);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.85 * u, top = floor + 0.02 * u;
+  const wh = createModel('whale', { width: 1.0 * u }), sx = B.maxX + 1.4 * u, sw = 2.5 * u, sd = 1.6 * u, sz = -0.1 * u;
+  const sea = solidProp([[G.box(sw, 0.9 * u, sd, 0, -0.45 * u, 0), 0x1f5fae], [G.box(sw * 1.001, 0.06 * u, sd * 1.001, 0, -0.03 * u, 0), 0x3f94de], [G.box(sw, 0.012 * u, sd, 0, -0.006 * u, 0), 0x6fb8f0]], 0.35);
   const boat = solidProp([[G.box(0.3 * u, 0.07 * u, 0.12 * u, 0, 0.035 * u, 0), 0xc8443a], [G.box(0.24 * u, 0.02 * u, 0.1 * u, 0, 0.08 * u, 0), 0xf3e2c4], [G.cyl(0.007 * u, 0.007 * u, 0.3 * u, 0, 0.23 * u, 0), 0x8a5a30], [G.extrude(tri(), 0.01).scale(0.1 * u, 0.22 * u, 1).translate(0.06 * u, 0.13 * u, 0), 0xffffff]], 0.5);
   const spout = many([[G.sphere(0.07 * u), 0xe8f6ff]], 10, 1.0), wake = many([[G.torus(0.2 * u, 0.012 * u), 0xcfe8ff]], 2, 0.6);
-  sea.position.set(B.maxX + 1.4 * u, top, -0.2 * u);           // its left edge stops at the word's end sea.rotation.x = tilt;
-  group.add(sea, wh.group, boat, spout, wake);
+  const NW = 14, crest = many([[G.box(0.22 * u, 0.018 * u, 0.04 * u), 0xf4fbff]], NW, 0.6);   // wave crests
+  sea.position.set(sx, top, sz);
+  group.add(sea, wh.group, boat, spout, wake, crest);
   const hW = new THREE.Box3().setFromObject(wh.group).getSize(new THREE.Vector3()).y;
-  const loop = 8.0, wz = -0.45 * u, surf = (z) => top - (z + 0.2 * u) * Math.sin(tilt);       // the surface height at depth z
+  const loop = 8.0, wz = -0.2 * u, surf = () => top;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       wh.pose('Swim', t * 0.7);
-      // under water while the strokes draw; then an arc: rises (0.4-2.2), lies along the surface and blows (2.2-4.4),
-      // dives head first and the tail goes last (4.4-6.4)
+      // lies in the water with its back out (0.55 of it under); rises (0.4-2.2), blows (2.2-4.4), dives (4.4-6.4)
       const T = timeline(v, { rise: [0.4, 1.8, 'out'], dive: [4.4, 2.0, 'in'] }), h = pre ? 0 : T.rise - T.dive;
-      const x = cx + 0.65 * u - 0.6 * u * (pre ? 0 : between(v, 0.4, 6.4));
-      wh.group.position.set(x, surf(wz) - 1.05 * hW + 0.6 * hW * h, wz);        // at the top about half of it is out
-      wh.group.rotation.order = 'YXZ'; wh.group.rotation.set(-0.35 * bump(v, 0.4, 2.0) + 0.3 * bump(v, 4.4, 2.0), LEFT + 0.25, 0);
+      const x = cx + 0.55 * u - 0.5 * u * (pre ? 0 : between(v, 0.4, 6.4));
+      wh.group.position.set(x, surf() - 0.95 * hW + 0.45 * hW * h, wz);
+      wh.group.rotation.order = 'YXZ'; wh.group.rotation.set(-0.3 * bump(v, 0.4, 2.0) + 0.25 * bump(v, 4.4, 2.0), LEFT + 0.2, 0);
       wh.group.visible = h > 0.01;
-      const roll = bump(v, 1.4, 1.6) + 0.6 * bump(v, 5.0, 1.6), bz = 0.3 * u, bx = B.maxX + 0.4 * u;
-      boat.position.set(bx, surf(bz) + 0.012 * u * Math.sin(t * 2.2) + 0.05 * u * roll * Math.sin(v * 5), bz); boat.rotation.set(0, 0.35, 0.1 * Math.sin(t * 1.7) + 0.25 * roll * Math.sin(v * 5));
-      // the spout from the blowhole while it lies at the surface
+      const roll = bump(v, 1.4, 1.6) + 0.6 * bump(v, 5.0, 1.6), bz = 0.4 * u, bx = B.maxX + 0.5 * u;
+      boat.position.set(bx, surf() - 0.01 * u + 0.012 * u * Math.sin(t * 2.2) + 0.05 * u * roll * Math.sin(v * 5), bz); boat.rotation.set(0, 0.35, 0.1 * Math.sin(t * 1.7) + 0.25 * roll * Math.sin(v * 5));
       const on = pre ? 0 : between(v, 2.4, 2.6) * (1 - between(v, 3.8, 4.2));
-      for (let i = 0; i < 10; i++) { const f = (v * 1.1 + i / 10) % 1; spout.set(i, x - 0.22 * u + (i % 2 ? 1 : -1) * 0.18 * u * f * f, surf(wz) + 0.2 * u + 0.7 * u * Math.sin(Math.PI * 0.5 * Math.min(1, f * 1.4)), wz + 0.05 * u, on * (1.4 - f)); }
+      for (let i = 0; i < 10; i++) { const f = (v * 1.1 + i / 10) % 1; spout.set(i, x - 0.2 * u + (i % 2 ? 1 : -1) * 0.18 * u * f * f, surf() + 0.2 * u + 0.7 * u * Math.sin(Math.PI * 0.5 * Math.min(1, f * 1.4)), wz + 0.05 * u, on * (1.4 - f)); }
       spout.commit();
-      // rings spreading on the surface where it rose and where it dived
-      [[1.2, 0.45], [4.8, 0.1]].forEach(([at, dx], i) => { const f = pre ? 0 : between(v, at, at + 1.6); wake.set(i, cx + dx * u, surf(wz) + 0.005 * u, wz, f > 0 && f < 1 ? 0.4 + 1.6 * f : 0, 0, 0, Math.PI / 2 + tilt); });
+      [[1.2, 0.45], [4.8, 0.1]].forEach(([at, dx], i) => { const f = pre ? 0 : between(v, at, at + 1.6); wake.set(i, cx + dx * u, surf() + 0.005 * u, wz, f > 0 && f < 1 ? 0.4 + 1.6 * f : 0, 0, 0, Math.PI / 2); });
       wake.commit();
+      // white wave crests drifting and bobbing over the surface
+      for (let i = 0; i < NW; i++) { const px = sx + ((((i * 0.37) % 1) * sw * 0.8 - sw * 0.4)) + 0.05 * u * Math.sin(t * 0.8 + i), pz = sz + ((i * 0.61) % 1 - 0.5) * sd * 0.8; crest.set(i, px, surf() + 0.012 * u + 0.012 * u * Math.sin(t * 1.6 + i * 1.7), pz, 1, 0, 0.3 * Math.sin(i), 0); }
+      crest.commit();
     },
   };
 }
