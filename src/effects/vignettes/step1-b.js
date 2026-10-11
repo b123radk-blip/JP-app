@@ -115,7 +115,8 @@ function mountainRise(ctx, spec, stage) {
 export function crown(u, n, colors) {
   const m = many([[G.sphere(0.16 * u), 0xffffff]], n, 0.45); for (let i = 0; i < n; i++) m.setColorAt(i, new THREE.Color(colors[i % colors.length])); return m;
 }
-const CROWN = [[0, 0.22, 1.25], [-0.2, 0.1, 1.0], [0.2, 0.1, 1.0], [-0.12, 0.34, 0.9], [0.13, 0.33, 0.95], [0, 0.02, 0.85], [-0.3, -0.04, 0.7], [0.3, -0.04, 0.7]];
+// x, y, size, z: a round crown with depth (balls in front of and behind the trunk), not a flat cut-out
+const CROWN = [[0, 0.22, 1.25, -0.04], [-0.2, 0.1, 1.0, 0.06], [0.2, 0.1, 1.0, -0.1], [-0.12, 0.34, 0.9, -0.12], [0.13, 0.33, 0.95, 0.07], [0, 0.02, 0.85, 0.1], [-0.3, -0.04, 0.7, -0.08], [0.3, -0.04, 0.7, 0.04], [-0.05, 0.14, 0.9, -0.2], [0.04, 0.12, 0.8, 0.17]];
 function treeSprout(ctx, spec, stage) {
   if (spec.outcome === 'week') return withWeek(treeSprout, 3, ctx, spec, stage, { scale: 1, stripAt: (st) => [st.glyphBox(0).cx + 1.05 * st.u, st.box.maxY + 0.22 * st.u], inner: { glyph: 0 } });
   const u = stage.u, B = spec.glyph != null ? stage.glyphBox(spec.glyph) : stage.box, group = new THREE.Group(), floor = B.minY, top = B.maxY - 0.05 * u;
@@ -123,7 +124,10 @@ function treeSprout(ctx, spec, stage) {
   const twigs = many([[G.cyl(0.015 * u, 0.022 * u, 0.25 * u, 0, 0.125 * u, 0), 0x7a4a24]], 3, 0.3);
   const apple = solidProp([[G.sphere(0.07 * u), 0xe02828], [G.cyl(0.006 * u, 0.006 * u, 0.04 * u, 0, 0.08 * u, 0), 0x5a3a1a], [G.sphere(0.025 * u, 0.025 * u, 0.09 * u, 0, 1.4, 0.4, 0.8), 0x40a040]], 0.6);
   const fall = many([[G.sphere(0.03 * u, 0, 0, 0, 1.4, 0.3, 1), 0x58c048]], 5, 0.5);
-  group.add(twigs, leaves, apple, fall);
+  // a patch of grass the kanji stands in: the apple and the leaves land on it
+  const grass = solidProp([[G.cyl(0.62 * u, 0.66 * u, 0.03 * u, 0, -0.015 * u, 0, 0, 0, 0, 28).scale(1, 1, 0.55), 0x4a9a34], ...[-0.45, -0.25, 0.3, 0.5].map((x, i) => [G.cone(0.035 * u, 0.09 * u, x * u, 0.04 * u, (i % 2 ? 0.12 : 0.2) * u), 0x5ab840])], 0.4);
+  grass.position.set(B.cx, floor, 0.04 * u); if (spec.glyph != null) grass.scale.x = 0.72;   // in a word: under its own glyph only
+  group.add(grass, twigs, leaves, apple, fall);
   const loop = 6.6;
   return {
     group,
@@ -133,13 +137,13 @@ function treeSprout(ctx, spec, stage) {
       const k = pre ? 0 : T.grow * (1 - T.back);
       [[-0.6, 0.5], [0.6, 0.5], [0, 0]].forEach(([a, x], i) => twigs.set(i, B.cx + x * 0.1 * u, top - 0.05 * u, 0.0, pre ? 0 : T.twig * (1 - T.back), a));
       twigs.commit();
-      CROWN.forEach(([x, y, s], i) => { const ki = between(k, i * 0.07, 0.5 + i * 0.07); leaves.set(i, B.cx + x * u, top + 0.18 * u + y * u + 0.01 * u * Math.sin(t * 2 + i), -0.02 * u - 0.01 * u * i, s * ki * (1 + 0.03 * Math.sin(t * 3 + i))); });
+      CROWN.forEach(([x, y, s, z], i) => { const ki = between(k, i * 0.06, 0.5 + i * 0.06); leaves.set(i, B.cx + x * u, top + 0.18 * u + y * u + 0.01 * u * Math.sin(t * 2 + i), z * u, s * ki * (1 + 0.03 * Math.sin(t * 3 + i))); });
       leaves.commit();
-      const ax = B.cx + 0.22 * u, ay = top + 0.15 * u, gy = floor + 0.07 * u;
+      const ax = B.cx + 0.22 * u, ay = top + 0.15 * u, gy = floor + 0.075 * u;
       apple.visible = !pre && T.ripe > 0.01 && T.back < 0.8;
       const bounce = v > 3.45 ? 0.12 * u * Math.abs(Math.sin((v - 3.45) * 6)) * Math.max(0, 1 - (v - 3.45) * 1.5) : 0;
-      apple.position.set(ax + 0.25 * u * between(v, 3.45, 4.2), ay + (gy - ay) * T.drop + bounce, 0.12 * u); apple.scale.setScalar(grow(T.ripe * (1 - T.back)));
-      for (let i = 0; i < 5; i++) { const f = pre ? 0 : between(v, 2.6 + i * 0.4, 4.6 + i * 0.4); fall.set(i, B.cx + (i - 2) * 0.18 * u + 0.08 * u * Math.sin(f * 9 + i), top + 0.3 * u - (top + 0.3 * u - floor) * f, 0.1 * u, f > 0 && f < 1 ? 1 : 0, f * 6); }
+      apple.position.set(ax + 0.25 * u * between(v, 3.45, 4.2), ay + (gy - ay) * T.drop + bounce, 0.18 * u); apple.rotation.z = -3 * between(v, 3.45, 4.2); apple.scale.setScalar(grow(T.ripe * (1 - T.back)));
+      for (let i = 0; i < 5; i++) { const f = pre ? 0 : between(v, 2.6 + i * 0.4, 4.6 + i * 0.4); fall.set(i, B.cx + (i - 2) * 0.18 * u + 0.08 * u * Math.sin(f * 9 + i), top + 0.3 * u - (top + 0.3 * u - floor - 0.01 * u) * f, (0.1 + 0.05 * (i % 3)) * u, f > 0 && (f < 1 || v < 5.4) ? 1 : 0, f < 1 ? f * 6 : 0); }
       fall.commit();
     },
   };
