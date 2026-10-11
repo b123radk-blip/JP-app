@@ -7,7 +7,7 @@
 //   q-swim     泳: a swimmer does the front crawl across a pool, arms turning over, splashes; turns and swims back;
 //              outcome fish: a fish swims along under the water, bubbles rising (泳ぐ)
 //   q-peek     後: a child hides behind the kanji, peeks out round its side, ducks back, then pops up over its top,
-//              くすくす; outcome sneak: a fox creeps up behind a person; she turns round (!) and it runs off (後ろ)
+//              くすくす; outcome sneak: a fox slinks out from behind the kanji up to a person's back; she turns round (!) and it runs off (後ろ)
 import * as THREE from 'three';
 import { acts, timeline, bump } from './timeline.js';
 import { createModel } from '../models.js';
@@ -185,9 +185,12 @@ function peek(ctx, spec, stage) {
   };
 }
 function sneak(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 1.0 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 1.0 * u, S = [B.maxX - 0.2 * u, -0.45 * u];
   const p = person(spec.who, u, 0.85), fox = createModel('fox', { height: 0.4 * u }), bang = label(u, '!', '#e0a020', 0.22);
   group.add(p.group, fox.group, bang);
+  // the fox's nose, ahead of its origin (it faces +z unturned): it stops with the nose just behind her heels
+  fox.group.updateWorldMatrix(true, true);
+  const nose = new THREE.Box3().setFromObject(fox.group).max.z - fox.group.position.z, stop = px - 0.18 * u - nose;
   const loop = 7.6;
   return {
     group,
@@ -195,14 +198,15 @@ function sneak(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { creep: [0.2, 3.0, 'linear'], turn: [3.6, 0.35], flee: [4.3, 1.4, 'in'], back: [6.6, 0.6] });
       p.pose('Idle', t);
-      p.group.position.set(px, floor, 0.05 * u); p.group.rotation.y = turnTo(RIGHT + 0.25, LEFT + 0.4, T.turn * (1 - T.back));
+      // she stands side-on, looking ahead (right), her back to the left where the fox comes from
+      p.group.position.set(px, floor, 0.0); p.group.rotation.y = turnTo(RIGHT, LEFT + 0.35, T.turn * (1 - T.back));
       p.turn('Torso', -0.15 * T.turn * (1 - T.back));
-      // the fox creeps low toward her back, stops, and bolts when she turns
+      // the fox slinks out from behind the kanji, creeps low up to her back, stops right behind her, and bolts when she turns
       const fleeing = !pre && T.flee > 0 && T.flee < 1, creeping = !pre && T.creep > 0 && T.creep < 1;
       fox.pose(fleeing ? 'Gallop' : creeping ? 'Walk' : 'Idle', fleeing ? v : creeping ? v * 0.6 : t);
-      const fx = lerp(B.maxX + 0.2 * u, px - 0.42 * u, pre ? 0 : T.creep) - (pre ? 0 : T.flee) * 1.0 * u;
-      fox.group.position.set(fx, floor, -0.05 * u - 0.35 * u * T.flee); fox.group.rotation.y = fleeing || T.flee >= 1 ? LEFT - 0.3 : RIGHT - 0.2;
-      fox.group.visible = T.flee < 0.98;
+      const c = pre ? 0 : T.creep, f = pre ? 0 : T.flee, fx = lerp(S[0], stop, c) - 1.0 * u * f, fz = lerp(S[1], 0, c) - 0.45 * u * f;
+      fox.group.position.set(fx, floor, fz); fox.group.rotation.y = f > 0 ? Math.atan2(-1.0, -0.45) : Math.atan2(stop - S[0], -S[1]);
+      fox.group.visible = !pre && T.creep > 0 && f < 0.98;
       if (creeping) fox.group.scale.y = fox.group.scale.x * 0.85; else fox.group.scale.y = fox.group.scale.x;
       pop(bang, pre ? 0 : bump(v, 3.6, 0.9) * 1.2, px, floor + 1.0 * u, 0.1 * u);
     },

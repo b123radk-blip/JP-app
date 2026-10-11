@@ -1,6 +1,6 @@
 // Model scenes, talking, asking and answering (Step 3a model pass).
 //   q-chat   話: two people on stools at a little table talk in turn, speech bubbles back and forth, nodding and
-//            waving their hands; outcome phone: a person talks on the phone, pacing, もしもし and うんうん (話す)
+//            waving their hands; outcome phone: a person talks on a phone held flat to her ear, もしもし and うんうん (話す)
 //   q-words  言葉: two people meet and talk; their bubbles say hello in other languages: Hello! こんにちは! Hola! 你好!
 //   q-ask    問: a child shoots a hand up under a big "?" and asks; the teacher at the board turns, points to her and
 //            nods; outcome answer: the board asks 1+1=?, the child's hand goes up, 2!, and a red ○ pops on the board (答);
@@ -14,29 +14,37 @@ import { G } from '../pieces/shape-kit.js';
 import { textPlane, blackboard } from '../pieces/kit-props.js';
 import { between } from './helpers.js';
 import { grow } from './step1-kit.js';
-import { RIGHT, LEFT, label, pop, person, KID, speech } from './q-common.js';
+import { RIGHT, LEFT, label, pop, person, KID, speech, axisOf } from './q-common.js';
 
 const W = new THREE.Vector3();
-const stoolOf = (u, h) => solidProp([[G.cyl(0.08 * u, 0.08 * u, 0.02 * u, 0, h - 0.01 * u, 0), 0x8a5a30], [G.cyl(0.012 * u, 0.012 * u, h, 0, h / 2, 0), 0x6a4020]], 0.35);
+const SEAT = 0.075;      // the seat of the trousers below the Hips bone, in heights (SitDown pose)
+// a three-legged stool 0.18u tall (scale.y sets its height)
+const stoolOf = (u) => solidProp([[G.cyl(0.09 * u, 0.09 * u, 0.025 * u, 0, 0.1675 * u, 0), 0x8a5a30], ...[0, 1, 2].map((i) => [G.cyl(0.012 * u, 0.016 * u, 0.16 * u, 0.06 * u * Math.cos(i * 2.09), 0.08 * u, 0.06 * u * Math.sin(i * 2.09)), 0x6a4020])], 0.35);
 // talking: the head bobs a little and a hand opens out now and then (k: talking amount)
 function talk(p, k, v, side = 'R') { p.turn('Head', 0.05 * k * Math.sin(v * 13), 0.06 * k * Math.sin(v * 3)); p.handTo(side, p.local(side === 'R' ? -0.22 : 0.22, 0.5 + 0.04 * Math.sin(v * 5), 0.25, W), k * (0.6 + 0.4 * Math.sin(v * 2.5)), { out: 0.8, down: 0.8 }); }
 
 // ---- 話 / 話す ----
 function chat(ctx, spec, stage) {
   if (spec.outcome === 'phone') return phone(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, xa = B.maxX + 0.35 * u, xb = xa + 0.78 * u, s = 0.8, sh = 0.12 * s * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, s = 0.8, xa = B.maxX + 0.55 * u, xb = xa + 0.86 * u;
   const a = person(spec.who, u, s), b = person(spec.other, u, s);
-  const table = solidProp([[G.cyl(0.17 * u, 0.17 * u, 0.025 * u, 0, 0.32 * u, 0), 0xc89a60], [G.cyl(0.02 * u, 0.03 * u, 0.32 * u, 0, 0.16 * u, 0), 0x8a5a30], [G.cyl(0.03 * u, 0.025 * u, 0.06 * u, -0.07 * u, 0.36 * u, 0.02 * u), 0xf4f0e8], [G.cyl(0.03 * u, 0.025 * u, 0.06 * u, 0.07 * u, 0.36 * u, -0.02 * u), 0xe06a5a]], 0.4);
-  const stools = [stoolOf(u, sh), stoolOf(u, sh)], lines = [['あのね…', 0], ['へえ!', 1], ['それでね!', 0], ['あはは!', 1]].map(([t, w]) => [speech(u, t, { h: 0.17, flip: w === 1 }), w]);
-  table.position.set((xa + xb) / 2, floor, 0); stools[0].position.set(xa, floor, 0); stools[1].position.set(xb, floor, 0);
+  // a round rug under a little cafe table with two cups; each stool stands under its sitter's hips (placed per frame)
+  const table = solidProp([[G.cyl(0.46 * u, 0.46 * u, 0.012 * u, 0, 0.006 * u, 0, 0, 0, 0, 32), 0x8a4a5a], [G.cyl(0.17 * u, 0.17 * u, 0.025 * u, 0, 0.33 * u, 0), 0xc89a60], [G.cyl(0.02 * u, 0.03 * u, 0.33 * u, 0, 0.165 * u, 0), 0x8a5a30], [G.cyl(0.08 * u, 0.09 * u, 0.015 * u, 0, 0.018 * u, 0), 0x8a5a30], [G.cyl(0.03 * u, 0.025 * u, 0.06 * u, -0.07 * u, 0.375 * u, 0.02 * u), 0xf4f0e8], [G.cyl(0.03 * u, 0.025 * u, 0.06 * u, 0.07 * u, 0.375 * u, -0.02 * u), 0xe06a5a]], 0.4);
+  const stools = [stoolOf(u), stoolOf(u)], lines = [['あのね…', 0], ['へえ!', 1], ['それでね!', 0], ['あはは!', 1]].map(([t, w]) => [speech(u, t, { h: 0.17, flip: w === 1 }), w]);
+  table.position.set((xa + xb) / 2, floor, 0);
   group.add(table, ...stools, a.group, b.group, ...lines.map(([m]) => m));
-  const loop = 7.2;
+  const loop = 7.2, hip = new THREE.Vector3();
+  const stoolUnder = (p, st) => {
+    group.updateWorldMatrix(true, false); p.group.updateWorldMatrix(true, true); group.worldToLocal(p.node('Hips').getWorldPosition(hip));
+    st.position.set(hip.x, floor + 0.012 * u, hip.z); st.scale.set(1, Math.max(0.05 * u, hip.y - floor - 0.012 * u - SEAT * s * u) / (0.18 * u), 1);
+  };
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       a.pose('SitDown', 1.0, false); b.pose('SitDown', 1.0, false);
-      a.group.position.set(xa, floor, 0); a.group.rotation.y = RIGHT - 0.55; b.group.position.set(xb, floor, 0); b.group.rotation.y = LEFT + 0.55;
+      a.group.position.set(xa, floor + 0.012 * u, 0.02 * u); a.group.rotation.y = RIGHT - 0.5; b.group.position.set(xb, floor + 0.012 * u, 0.02 * u); b.group.rotation.y = LEFT + 0.5;
+      stoolUnder(a, stools[0]); stoolUnder(b, stools[1]);
       // four turns: she speaks, he answers, she goes on, he laughs; the listener nods
       lines.forEach(([m, w], i) => {
         const k = pre ? 0 : between(v, 0.3 + i * 1.6, 0.5 + i * 1.6) * (1 - between(v, 1.6 + i * 1.6, 1.8 + i * 1.6));
@@ -49,21 +57,29 @@ function chat(ctx, spec, stage) {
 }
 function phone(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.5 * u;
-  const p = person(spec.who, u), set = solidProp([[G.box(0.07 * u, 0.15 * u, 0.015 * u, 0, 0, 0), 0x20242c], [G.box(0.06 * u, 0.13 * u, 0.002 * u, 0, 0, 0.009 * u), 0x6ab0ff]], 0.7);
+  const p = person(spec.who, u), set = solidProp([[G.box(0.085 * u, 0.18 * u, 0.016 * u, 0, 0, 0), 0xff5a8a], [G.box(0.072 * u, 0.155 * u, 0.002 * u, 0, 0, 0.009 * u), 0x6ab0ff], [G.box(0.072 * u, 0.155 * u, 0.002 * u, 0, 0, -0.009 * u), 0xffd0e0]], 0.7);
   const lines = ['もしもし?', 'うん、うん!', 'またね!'].map((t) => speech(u, t, { h: 0.16 }));
   group.add(p.group, set, ...lines);
-  const loop = 6.6;
+  const loop = 6.6, side = new THREE.Vector3(), up = new THREE.Vector3(), X = new THREE.Vector3(), Q = new THREE.Quaternion(), M = new THREE.Matrix4(), half = 0.008 * u;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      // phone at her right ear; she paces a little to and fro while she talks, the other hand gesturing
-      const walk = !pre && ((v > 1.8 && v < 2.8) || (v > 3.8 && v < 4.8)), dir = v < 3.3 ? 1 : -1;
-      p.pose(walk ? 'Walk' : 'Idle', walk ? v : t); p.group.position.set(x0 + 0.25 * u * (pre ? 0 : between(v, 1.8, 2.8) - between(v, 3.8, 4.8)), floor, 0.05 * u);
-      p.group.rotation.y = walk ? (dir > 0 ? RIGHT - 0.4 : LEFT + 0.4) : -0.3;
-      p.toEar('R', pre ? A.setup : 1);
-      p.at('earR', W, -0.05, -0.02, 0.03); set.position.copy(group.worldToLocal(W)); set.rotation.set(0, p.group.rotation.y - RIGHT, 0.3);
-      lines.forEach((m, i) => { const k = pre ? 0 : between(v, 0.3 + i * 2.0, 0.5 + i * 2.0) * (1 - between(v, 1.8 + i * 2.0, 2.0 + i * 2.0)); pop(m, k, p.group.position.x + 0.3 * u, floor + 1.08 * u, 0.12 * u); if (k > 0) talk(p, k, v, 'L'); });
+      // she stands with the phone at her right ear, turning a little to and fro as she talks, the other hand gesturing
+      p.pose('Idle', t); p.group.position.set(x0, floor, 0.05 * u); p.group.rotation.y = 0.3 + (pre ? 0 : 0.25 * Math.sin(2 * Math.PI * v / loop));
+      p.group.updateWorldMatrix(true, true);
+      lines.forEach((m, i) => { const k = pre ? 0 : between(v, 0.3 + i * 2.0, 0.5 + i * 2.0) * (1 - between(v, 1.8 + i * 2.0, 2.0 + i * 2.0)); pop(m, k, x0 + 0.3 * u, floor + 1.08 * u, 0.12 * u); if (k > 0) talk(p, k, v, 'L'); });
+      // the phone lies flat on her cheek, from the ear down toward the mouth; the palm holds it there from outside
+      const k = pre ? A.setup : 1;
+      p.turn('Head', 0, 0, 0.12 * k);
+      axisOf(p, 1, 0, 0, side);                            // her left: from the hand in toward her head
+      p.at('earR', W, -0.035, -0.05, 0.035); W.addScaledVector(side, -half);
+      p.grip('R', W, side, half, k, { out: 0.7, down: 0.9 });
+      // in her hand while it comes up; then flat on the cheek (screen in), the palm pressing it from outside
+      const n = k < 1 ? p.hold(set, 'R', group, half) : side;
+      if (k >= 1) set.position.copy(group.worldToLocal(W));
+      axisOf(p, 0, 1, -0.7, up); up.addScaledVector(n, -up.dot(n)).normalize(); X.crossVectors(up, n);
+      group.getWorldQuaternion(Q).invert(); set.quaternion.setFromRotationMatrix(M.makeBasis(X, up, n)).premultiply(Q);
     },
   };
 }

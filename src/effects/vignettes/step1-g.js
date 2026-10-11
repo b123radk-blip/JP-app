@@ -5,8 +5,8 @@
 //                  outcome count: six eggs drop into an egg box (六つ); day: the 6th, a die (六日)
 //   ttt-nine       九: a noughts-and-crosses grid fills with nine marks, X and O in turn, counted 1-9. outcome count: nine
 //                  marbles roll into a tray (九つ); day: the 9th, a cross (九日)
-//   come-here      来: a hand beckons, come here; far off a puppy hears, bounds closer and closer and jumps up to it,
-//                  wagging. outcome bird: a bird flies in from far away and lands on a held-out finger (来る)
+//   come-here      来 / 来る: model scenes in q-come.js (a person beckons; a Shiba gallops up a path / a bird lands on
+//                  her palm)
 //   boat-race      先: three paper boats race on the water; the red one pulls ahead and its little flag pops up: first
 //   weekday-wheel  曜: a wheel of the seven day symbols (moon, fire, water, tree, gold, soil, sun) spins and slows until
 //                  the pointer stops on one, which glows
@@ -16,16 +16,14 @@
 //                  white; then it melts away. outcome rabbit: a white rabbit hops through the snow leaving prints (白い)
 import * as THREE from 'three';
 import { acts, timeline, bump, wobble } from './timeline.js';
-import { createHand } from '../pieces/kit-hand.js';
 import { many, PUFF } from '../pieces/kit-things.js';
 import { textPlane } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, puffs } from './helpers.js';
 import { grow, countTag, countScene, dayScene, seeded, DAYS } from './step1-kit.js';
-import { dogParts } from './step1-a.js';
-import { birdThing } from './step1-c.js';
 import { crown } from './step1-b.js';
+import { comeHere } from './q-come.js';      // 来 / 来る (model scenes)
 
 const grid = (B, u, n, cols, y, gap = 0.22, x0 = 0.3) => Array.from({ length: n }, (_, i) => [B.maxX + (x0 + (i % cols) * gap) * u, y + Math.floor(i / cols) * gap * u]);
 const tray = (u, w, d, color = 0x8a5a30) => solidProp([[G.box(w * u, 0.03 * u, d * u, 0, 0, 0), color]], 0.35);
@@ -125,52 +123,6 @@ function tttNine(ctx, spec, stage) {
       });
       xs.commit(); os.commit();
       tag.show(Math.max(1, last), last ? 1 - off : 0); tag.position.set(cx + 2 * c, cy + 1.6 * c, 0.06 * u);
-    },
-  };
-}
-
-// ---- 来 come here ----
-function comeHere(ctx, spec, stage) {
-  if (spec.outcome === 'bird') return birdLand(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.35 * u;
-  const hand = createHand({ u: 0.55 * u, sleeve: 0x4a9ad8 }), dog = new THREE.Group(), { body, legs, tail } = dogParts(u), tp = new THREE.Group();
-  tp.position.set(-0.22 * u, 0.38 * u, 0); tp.add(tail); dog.add(body, legs, tp);
-  const hearts = many([[G.sphere(0.03 * u), 0xff6a8a]], 3, 1.0);
-  group.add(hand.group, dog, hearts);
-  const loop = 6.2, LEG = [[0.12, 0.15], [0.12, -0.15], [-0.12, 0.15], [-0.12, -0.15]];
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { run: [0.9, 2.4, 'in'], jump: [3.3, 0.5], leave: [5.4, 0.8] });
-      const curl = pre ? 0 : 0.5 + 0.5 * Math.sin(v * 7);
-      hand.pose('flat', 'grip', curl * (v < 3.3 ? 1 : 0)); hand.group.position.set(hx, floor + 0.35 * u, 0.12 * u); hand.group.rotation.set(-0.5, 0.4, -0.2);
-      // far up the road (small, high) -> right here (full size)
-      const d = pre ? 1 : 1 - T.run + T.leave, s = 1 - 0.8 * d, running = d > 0.01 && d < 0.99;
-      dog.visible = !pre && T.leave < 0.95; dog.scale.setScalar(grow(s) * 0.85); dog.position.set(hx + 0.4 * u + 0.5 * u * d, floor + 0.7 * u * d + 0.12 * u * bump(v, 3.3, 0.5) + (running ? 0.03 * u * Math.abs(Math.sin(v * 14)) : 0), -0.3 * u * d); dog.rotation.y = T.leave > 0 ? 0.6 : -Math.PI / 2 - 0.9;
-      LEG.forEach(([lx, lz], i) => legs.set(i, lx * u, 0.22 * u, lz * u, 1, running ? 0.7 * Math.sin(v * 14 + (i % 2 ? Math.PI : 0)) : 0));
-      legs.commit(); tp.rotation.z = 0.4 + 0.6 * Math.sin(t * 16);
-      for (let i = 0; i < 3; i++) { const f = pre ? 0 : between(v, 3.5 + i * 0.25, 4.7 + i * 0.25); hearts.set(i, hx + 0.35 * u + (i - 1) * 0.1 * u, floor + 0.7 * u + 0.35 * u * f, 0.1 * u, f > 0 && f < 1 ? 1.3 * Math.sin(Math.PI * f) : 0); }
-      hearts.commit();
-    },
-  };
-}
-function birdLand(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.3 * u;
-  const hand = createHand({ u: 0.55 * u, sleeve: 0xe0803a }), bird = birdThing(0.32 * u), wings = many([[G.sphere(0.07 * u, 0.05 * u, 0, 0, 1.4, 0.25, 0.8), 0x3a72c8]], 2, 0.5);
-  group.add(hand.group, bird, wings);
-  const loop = 6.0, perch = [hx + 0.32 * u, floor + 0.62 * u];
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      hand.pose('point'); hand.group.position.set(hx, floor + 0.45 * u, 0.1 * u); hand.group.rotation.set(0, 0, -Math.PI / 2 + 0.15);
-      const T = timeline(v, { fly: [0.2, 2.2, 'out'], off: [4.8, 1.0, 'in'] }), d = pre ? 1 : 1 - T.fly + T.off, flying = d > 0.01;
-      const x = perch[0] + 0.9 * u * d, y = perch[1] + 0.8 * u * d + 0.1 * u * Math.sin(d * 9) * d, s = 1 - 0.7 * d;
-      bird.visible = !pre; bird.position.set(x, y, -0.2 * u * d); bird.scale.setScalar(grow(s)); bird.rotation.y = T.off > 0 ? 0 : Math.PI;
-      const flap = flying ? Math.sin(t * 22) * 0.9 : 0.1 + 0.15 * bump(v, 3.0, 0.4);
-      for (const k of [0, 1]) wings.set(k, x, y + 0.08 * u * s, (k ? 0.05 : -0.05) * u * s, s, 0, T.off > 0 ? 0 : Math.PI, (k ? 1 : -1) * flap);
-      wings.commit();
     },
   };
 }

@@ -8,7 +8,7 @@
 //   what-box      何: a box with a "?" on it shakes and hops; the lid pops and a big "?" springs out on a spring, wobbling
 //   kanji-walker  人: the glyph walks on its two strokes as legs: a head pops on top, it steps along, turns to you and
 //                 waves. outcome alone: one person sits alone on a bench under a lamp, swinging their feet (一人)
-//   high-five     手: two big hands swing in and meet in a high five with a burst; they wave and swing out
+//   high-five     手: two people with big open cartoon hands slap a high five over their heads (a burst), then wave at you
 import * as THREE from 'three';
 import { acts, timeline, bump, wobble } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
@@ -20,6 +20,8 @@ import { G } from '../pieces/shape-kit.js';
 import { between, poseGlyph, puffs, strokeSides, bonePoint } from './helpers.js';
 import { grow } from './step1-kit.js';
 import { crown } from './step1-b.js';
+import { person, RIGHT, LEFT } from './q-common.js';
+import { SKIN } from './model-kit.js';
 
 const zzz = (u) => { const m = many([[G.poly([[-0.04 * u, 0.04 * u], [0.04 * u, 0.04 * u], [-0.04 * u, -0.04 * u], [0.04 * u, -0.04 * u]], 0.012 * u), 0xc8d8ff]], 3, 1.0); return m; };
 const floatZ = (m, x, y, v, on, u) => { for (let i = 0; i < 3; i++) { const f = ((v * 0.5 + i / 3) % 1); m.set(i, x + 0.12 * u * f + 0.03 * u * Math.sin(f * 6), y + 0.4 * u * f, 0.05 * u, on * Math.sin(Math.PI * f) * (0.7 + 0.5 * f)); } m.commit(); };
@@ -231,24 +233,47 @@ function benchAlone(ctx, spec, stage) {
 }
 
 // ---- 手 a high five ----
+// two people (models) whose hands are big open cartoon hands with fingers (the kit hand on each wrist, the model's own
+// fingerless fist hidden): they wind up and slap a high five over their heads, then both wave their hands at you
+const HAND = 0.55, CUFF = 0.12;                 // kit hand size (glyphs) and the bit of wrist below the palm (hand units)
 function highFive(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.6 * u, my = B.cy + 0.25 * u;
-  const L = createHand({ u: 0.75 * u, sleeve: 0x3a7ae0, side: 1 }), R = createHand({ u: 0.75 * u, sleeve: 0xe0603a, side: -1 }), boom = burst(u, { s: 0.45, n: 8, color: 0xffe060 });
-  group.add(L.group, R.group, boom);
-  const loop = 5.4;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.85 * u, hu = HAND * u;
+  const a = person(spec.who, u, 0.85), b = person(spec.other, u, 0.85), boom = burst(u, { s: 0.6, n: 10, color: 0xffe060 });
+  const hands = [createHand({ u: hu, sleeve: SKIN.Skin, skin: SKIN.Skin, side: 1, arm: CUFF, glow: 0.2 }), createHand({ u: hu, sleeve: SKIN.Skin, skin: SKIN.Skin, side: -1, arm: CUFF, glow: 0.2 })];
+  group.add(a.group, b.group, ...hands.map((h) => h.group), boom);
+  const loop = 5.4, M = new THREE.Vector3(), P = new THREE.Vector3(), E = new THREE.Vector3(), Y = new THREE.Vector3(), Z = new THREE.Vector3(), X = new THREE.Vector3(), Q = new THREE.Quaternion(), M4 = new THREE.Matrix4();
+  // put kit hand h on p's `side` wrist: fingers on along the forearm, palm turned toward `face` (world)
+  const glove = (p, side, h, face) => {
+    p.node(`Fist${side}`).scale.setScalar(0.01);
+    p.fist(side, P); p.node(`LowerArm${side}`).getWorldPosition(E); Y.subVectors(P, E).normalize();
+    Z.copy(face).addScaledVector(Y, -face.dot(Y)).normalize(); X.crossVectors(Y, Z);
+    group.updateWorldMatrix(true, false); group.getWorldQuaternion(Q).invert();
+    h.group.quaternion.setFromRotationMatrix(M4.makeBasis(X, Y, Z)).premultiply(Q);
+    h.group.position.copy(group.worldToLocal(P.addScaledVector(Y, -CUFF * hu * group.getWorldScale(E).y)));
+  };
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { in: [0, 0.7, 'out'], slap: [0.9, 0.25, 'in'], part: [1.2, 0.4, 'out'], wave: [1.8, 2.2], out: [4.5, 0.8, 'in'] });
-      const meet = T.slap - T.part, open = pre ? 0 : T.in - T.out;
-      L.pose('open'); R.pose('open');
-      L.group.visible = R.group.visible = open > 0.01;
-      const wave = 0.35 * Math.sin(v * 9) * T.wave * (1 - T.out);
-      L.group.position.set(mx - 0.42 * u + 0.28 * u * meet - 0.6 * u * (1 - open), my - 0.5 * u - 0.3 * u * (1 - open), 0.05 * u); L.group.rotation.set(0, 0.3, -0.5 + 0.45 * meet + wave);
-      R.group.position.set(mx + 0.42 * u - 0.28 * u * meet + 0.6 * u * (1 - open), my - 0.5 * u - 0.3 * u * (1 - open), 0.06 * u); R.group.rotation.set(0, -0.3, 0.5 - 0.45 * meet - wave);
-      const b = pre ? 0 : bump(v, 1.1, 0.5); boom.visible = b > 0.01; boom.scale.setScalar(grow(b)); boom.position.set(mx, my + 0.12 * u, 0.0); boom.rotation.z = v * 2;
-      stage.glyph.scale.setScalar(1 + 0.05 * b);
+      const T = timeline(v, { up: [0.2, 0.5], slap: [0.75, 0.25, 'in'], part: [1.15, 0.4, 'out'], wave: [1.7, 0.4], down: [4.3, 0.6] });
+      const up = pre ? 0 : T.up * (1 - T.down), meet = T.slap - T.part, w = T.wave * (1 - T.down);
+      a.pose('Idle', t); b.pose('Idle', t + 1.7);
+      // they face each other, turned a little toward you; for the wave they turn to you
+      a.group.position.set(mx - 0.36 * u, floor, 0); a.group.rotation.y = RIGHT - 0.5 - 0.7 * w;
+      b.group.position.set(mx + 0.36 * u, floor, 0); b.group.rotation.y = LEFT + 0.5 + 0.7 * w;
+      // the hands nearer you: her right, his left. Wound up beside the head, then they swing in and meet above, palm on palm
+      M.set(mx, floor + 1.0 * u, 0.12 * u); group.localToWorld(M);
+      const s = group.getWorldScale(E).y, slap = (p, side, dir) => {
+        const raised = p.local(dir * -0.36, 0.98, -0.02), hit = M.clone().add(Y.set(-dir * 0.075 * hu * s, -0.2 * hu * s, 0));
+        if (w > 0.01) p.wave(side, up * w, v); else p.handTo(side, raised.lerp(hit, meet), up, { out: 0.9, down: 0.3 });
+      };
+      slap(a, 'R', 1); slap(b, 'L', -1);
+      const toB = new THREE.Vector3(1, 0, 0).applyQuaternion(group.getWorldQuaternion(Q)), you = new THREE.Vector3(0, 0, 1).applyQuaternion(Q);
+      const show = Math.max(w, 1 - meet);         // palms to you while raised and waving, to each other for the slap
+      glove(a, 'R', hands[0], toB.clone().lerp(you, show).normalize()); glove(b, 'L', hands[1], toB.clone().negate().lerp(you, show).normalize());
+      for (const h of hands) h.pose('open', 'flat', meet);
+      const k = pre ? 0 : bump(v, 0.95, 0.5); boom.visible = k > 0.01; boom.scale.setScalar(grow(k)); boom.position.set(mx, floor + 0.98 * u, -0.08 * u); boom.rotation.z = v * 2;
+      stage.glyph.scale.setScalar(1 + 0.05 * k);
     },
   };
 }

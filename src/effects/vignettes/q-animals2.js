@@ -1,5 +1,5 @@
 // Model scenes, animals (Step 3a model pass): Quaternius animals with their own clips.
-//   q-dogout   外: a little house; the door swings open, a Shiba bounds out into the yard, sniffs a flower, trots back in
+//   q-dogout   外: a little house on a lawn; the door swings open, a Shiba bounds out into the yard, sniffs a flower, trots back in
 //              and the door shuts
 //   q-tent     入: a Shiba trots into a little tent, the flap drops, the tent wiggles, its head pokes out; outcome house: a
 //              person walks up to a house and in through the door, which shuts (入る); doors: glass doors under an
@@ -18,23 +18,29 @@ import { RIGHT, LEFT, lerp, label, pop, person, turnTo, axisOf } from './q-commo
 const W = new THREE.Vector3();
 const tri = () => { const s = new THREE.Shape(); s.moveTo(-1, 0); s.lineTo(1, 0); s.lineTo(0, 1); s.lineTo(-1, 0); return s; };
 // a little house facing you: walls, a roof, a dark doorway (the door is the scene's own, hinged at x = -dw / 2)
-function cottage(u, { w = 0.62, h = 0.48, d = 0.45, dw = 0.18, dh = 0.3, dx = -0.12 } = {}) {
+function cottage(u, { w = 0.62, h = 0.48, d = 0.45, dw = 0.18, dh = 0.3, dx = -0.12, yard = null } = {}) {
   const k = (x) => x * u, r = tri();
   return solidProp([[G.box(k(w), k(h), k(d), 0, k(h / 2), 0), 0xf3e2c4], [G.extrude(r, 1).scale(k(w / 2 + 0.05), k(0.26), k(d + 0.06)).translate(0, k(h), 0), 0xc8443a],
-    [G.box(k(dw), k(dh), k(0.01), k(dx), k(dh / 2), k(d / 2 + 0.002)), 0x2a1c14], [G.box(k(0.14), k(0.12), k(0.01), k(0.16), k(0.28), k(d / 2 + 0.002)), 0xffd070]], 0.35);
+    [G.box(k(dw), k(dh), k(0.01), k(dx), k(dh / 2), k(d / 2 + 0.002)), 0x2a1c14], [G.box(k(0.14), k(0.12), k(0.01), k(0.16), k(0.28), k(d / 2 + 0.002)), 0xffd070], ...(yard ?? [])], 0.35);
 }
 const door = (u, dw = 0.18, dh = 0.3, color = 0x8a5a30) => solidProp([[G.box(dw * u, dh * u, 0.02 * u, dw * u / 2, dh * u / 2, 0), color], [G.sphere(0.012 * u, dw * u * 0.82, dh * u * 0.5, 0.015 * u), 0xf0c040]], 0.35);
 
 // ---- 外 ----
 function dogOut(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.45 * u;
-  const house = cottage(u), d = door(u), dog = createModel('shiba', { height: 0.42 * u });
-  const flower = solidProp([[G.cyl(0.006 * u, 0.006 * u, 0.16 * u, 0, 0.08 * u, 0), 0x3a9a3a], ...[0, 1, 2, 3, 4].map((i) => [G.sphere(0.03 * u, 0.035 * u * Math.cos(i * 1.26), 0.17 * u + 0.035 * u * Math.sin(i * 1.26), 0), 0xff6a9a]), [G.sphere(0.025 * u, 0, 0.17 * u, 0.01 * u), 0xffd040]], 0.5);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.5 * u;
+  // the house stands at the back of a green lawn (one mesh with it), a stepping-stone path from the door
+  const lawn = [[G.box(1.5 * u, 0.02 * u, 1.0 * u, 0.4 * u, -0.01 * u, 0.36 * u), 0x5aa83a], [G.box(1.5 * u, 0.07 * u, 1.0 * u, 0.4 * u, -0.055 * u, 0.36 * u), 0x8a5a34],
+    ...[0, 1, 2].map((i) => [G.cyl(0.045 * u, 0.045 * u, 0.01 * u, -0.12 * u, 0.002 * u, (0.32 + 0.12 * i) * u), 0xd8d0c0])];
+  const house = cottage(u, { yard: lawn }), d = door(u), dog = createModel('shiba', { height: 0.42 * u });
+  const flower = solidProp([[G.cyl(0.006 * u, 0.006 * u, 0.16 * u, 0, 0.08 * u, 0), 0x3a9a3a], [G.sphere(0.03 * u, 0.02 * u, 0.05 * u, 0, 1.4, 0.4, 0.8), 0x3a9a3a], ...[0, 1, 2, 3, 4].map((i) => [G.sphere(0.03 * u, 0.035 * u * Math.cos(i * 1.26), 0.17 * u + 0.035 * u * Math.sin(i * 1.26), 0), 0xff6a9a]), [G.sphere(0.025 * u, 0, 0.17 * u, 0.01 * u), 0xffd040]], 0.5);
   house.position.set(hx, floor, -0.15 * u); d.position.set(hx - 0.21 * u, floor, -0.15 * u + 0.235 * u);
-  flower.position.set(hx + 0.85 * u, floor, 0.25 * u);
+  // the dog stops in the yard facing right and a little toward you; the flower stands just under its nose
+  dog.group.updateWorldMatrix(true, true);
+  const nose = new THREE.Box3().setFromObject(dog.group).max.z - dog.group.position.z, sniffYaw = RIGHT - 0.3;
   const sniff = label(u, 'クンクン', '#6a8a3a', 0.11);
   group.add(house, d, dog.group, flower, sniff);
-  const loop = 7.4, door0 = [hx - 0.12 * u, -0.15 * u + 0.26 * u], yard = [hx + 0.7 * u, 0.25 * u];
+  const loop = 7.4, door0 = [hx - 0.12 * u, -0.15 * u + 0.26 * u], yard = [hx + 0.62 * u, 0.22 * u];
+  flower.position.set(yard[0] + 0.92 * nose * Math.sin(sniffYaw), floor, yard[1] + 0.92 * nose * Math.cos(sniffYaw));
   return {
     group,
     step(t) {
@@ -46,8 +52,8 @@ function dogOut(ctx, spec, stage) {
       const running = !pre && (T.out > 0 && T.out < 1), trotting = !pre && T.back > 0 && T.back < 1;
       dog.pose(running ? 'Gallop' : trotting ? 'Walk' : (!pre && v > 1.8 && v < 4.4) ? 'Eating' : 'Idle', v);
       dog.group.position.set(lerp(door0[0], yard[0], out), floor, lerp(door0[1], yard[1], out));
-      dog.group.rotation.y = trotting ? LEFT - 0.2 : running ? RIGHT - 0.4 : turnTo(RIGHT - 0.4, RIGHT - 0.1, between(v, 1.6, 1.9));
-      pop(sniff, pre ? 0 : between(v, 2.2, 2.4) * (1 - between(v, 3.9, 4.1)), yard[0] + 0.1 * u, floor + 0.55 * u, 0.3 * u);
+      dog.group.rotation.y = trotting ? Math.atan2(door0[0] - yard[0], door0[1] - yard[1]) : running ? Math.atan2(yard[0] - door0[0], yard[1] - door0[1]) : turnTo(Math.atan2(yard[0] - door0[0], yard[1] - door0[1]), sniffYaw, between(v, 1.6, 1.9));
+      pop(sniff, pre ? 0 : between(v, 2.2, 2.4) * (1 - between(v, 3.9, 4.1)), yard[0] + 0.3 * u, floor + 0.55 * u, 0.3 * u);
     },
   };
 }

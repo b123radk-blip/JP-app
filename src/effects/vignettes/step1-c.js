@@ -7,8 +7,8 @@
 //                 and fly off. outcome count: two eggs (二つ); day: the 2nd, a bird (二日)
 //   four-clover   四: a stem grows; four heart leaves unfold one at a time, counted 1-4, and the lucky clover sparkles.
 //                 outcome count: four clovers (四つ); day: the 4th, a clover (四日)
-//   ten-strike    十: a bowling ball rolls up a lane into ten pins set in a triangle and knocks them all flying: STRIKE,
-//                 10. outcome day: the 10th, a pin (十日); day20: the 20th (二十日)
+//   ten-strike    十: a bowling lane on the floor runs away from you; a ball rolls down it into ten pins in a triangle and
+//                 knocks them all flying: STRIKE, 10. outcome day: the 10th, a pin (十日); day20: the 20th (二十日)
 //   rainbow-seven 七: a rainbow builds itself stripe by stripe, seven colours, counted 1-7, clouds puff at its feet.
 //                 outcome count: seven rainbow balls (七つ); day: the 7th, a little rainbow (七日)
 import * as THREE from 'three';
@@ -169,31 +169,42 @@ export const pinThing = (s) => solidProp(PIN(s / 0.25), 0.5);
 function tenStrike(ctx, spec, stage) {
   const u = stage.u, B = stage.box, floor = B.minY;
   if (spec.outcome === 'day' || spec.outcome === 'day20') return dayScene(ctx, stage, spec.outcome === 'day20' ? 20 : 10, pinThing);
-  const group = new THREE.Group(), lx = B.maxX + 0.45 * u;
-  const lane = new THREE.Shape(); lane.moveTo(-0.3, 0); lane.lineTo(0.3, 0); lane.lineTo(0.2, 1.0); lane.lineTo(-0.2, 1.0); lane.closePath();
-  const floorM = solidProp([[new THREE.ShapeGeometry(lane).scale(u, u, u), 0xd8a868]], 0.3), pins = many(PIN(1.15 * u), 10, 0.5), bowl = solidProp([[G.sphere(0.09 * u), 0x3040c0], [G.sphere(0.015 * u, 0.03 * u, 0.04 * u, 0.08 * u), 0x101020], [G.sphere(0.015 * u, -0.01 * u, 0.06 * u, 0.08 * u), 0x101020]], 0.6);
+  // a bowling lane lying on the floor and running away from you (tipped up a little so you see along it); the ten pins
+  // stand upright on it in a triangle and the ball rolls away down it into them
+  const group = new THREE.Group(), lx = B.maxX + 0.5 * u, z0 = 0.05 * u, TILT = 0.42, cT = Math.cos(TILT), sT = Math.sin(TILT);
+  const alley = solidProp([[G.box(0.5 * u, 0.02 * u, 1.5 * u, 0, -0.01 * u, -0.33 * u), 0xe0b070], [G.box(0.02 * u, 0.004 * u, 0.6 * u, -0.12 * u, 0.001 * u, 0.0), 0xc89858], [G.box(0.02 * u, 0.004 * u, 0.6 * u, 0.12 * u, 0.001 * u, 0.0), 0xc89858],
+    [G.box(0.5 * u, 0.006 * u, 0.025 * u, 0, 0.001 * u, 0.36 * u), 0xe04848], [G.box(0.07 * u, 0.03 * u, 1.5 * u, -0.285 * u, -0.02 * u, -0.33 * u), 0x40404c], [G.box(0.07 * u, 0.03 * u, 1.5 * u, 0.285 * u, -0.02 * u, -0.33 * u), 0x40404c],
+    [G.box(0.66 * u, 0.42 * u, 0.04 * u, 0, 0.19 * u, -1.1 * u), 0x2a2a34]], 0.3);
+  const pins = many(PIN(1.25 * u), 10, 0.5), bowl = solidProp([[G.sphere(0.09 * u), 0x3040c0], [G.sphere(0.015 * u, 0.03 * u, 0.04 * u, 0.08 * u), 0x101020], [G.sphere(0.015 * u, -0.01 * u, 0.06 * u, 0.08 * u), 0x101020]], 0.6);
   const strike = textPlane('STRIKE!', { h: 0.2 * u, color: '#ffffff', bg: '#e04848', pad: 0.2 }), tag = countTag(u, { s: 0.24 }), boom = burst(u, { s: 0.5, n: 10, color: 0xffe060 });
-  floorM.position.set(lx, floor - 0.05 * u, -0.3 * u);
-  group.add(floorM, pins, bowl, strike, tag, boom);
-  // pins 1 at the front, then rows of 2, 3, 4 further back (higher and smaller on the lane)
-  const P = []; [1, 2, 3, 4].forEach((n, r) => { for (let j = 0; j < n; j++) P.push([(j - (n - 1) / 2) * 0.11, 0.42 + r * 0.13, 1 - r * 0.08]); });
-  const loop = 6.4;
+  alley.position.set(lx, floor, z0); alley.rotation.x = TILT;
+  group.add(alley, pins, bowl, strike, tag, boom);
+  // a point on the lane (x across, h up off it, d along it: negative = away from you) -> group space
+  const on = (x, h, d) => [lx + x, floor + h * cT - d * sT, z0 + h * sT + d * cT];
+  // pins: the head pin nearest, then rows of 2, 3, 4 behind it
+  const P = []; [1, 2, 3, 4].forEach((n, r) => { for (let j = 0; j < n; j++) P.push([(j - (n - 1) / 2) * 0.13 * u, -0.56 * u - r * 0.12 * u]); });
+  const loop = 6.4, R = 0.09 * u;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { roll: [0.2, 1.3, 'in'], reset: [5.2, 0.6] }), hit = pre ? 0 : between(v, 1.5, 2.3);
-      bowl.visible = !pre && T.roll < 1 || (hit > 0 && hit < 1);
-      const f = T.roll; bowl.position.set(lx + 0.05 * u * Math.sin(f * 3), floor - 0.02 * u + 0.5 * u * f + 0.3 * u * hit, -0.3 * u + 0.09 * u); bowl.rotation.x = -f * 12; bowl.scale.setScalar(1 - 0.25 * f - 0.3 * hit);
-      P.forEach(([x, y, s], i) => {
-        const d = hit * (1 - T.reset), a = (i * 2.39) % (Math.PI * 2);
-        pins.set(i, lx + x * u + Math.cos(a) * 0.35 * u * d, floor + y * u + Math.abs(Math.sin(a)) * 0.35 * u * Math.sin(Math.PI * Math.min(1, d * 1.3)) - 0.1 * u * d, -0.3 * u + 0.1 * u, s * (T.reset > 0 && T.reset < 1 ? Math.abs(1 - 2 * T.reset) : 1), (Math.cos(a) > 0 ? -1 : 1) * 1.5 * d, 0, 0.4 * d);
+      const T = timeline(v, { roll: [0.2, 1.3, 'in'], on: [1.5, 0.5, 'linear'], reset: [5.2, 0.6] }), hit = pre ? 0 : between(v, 1.5, 2.3);
+      // the ball rolls from the near end down to the head pin, then on through the pins into the dark pit
+      const d = 0.3 * u - 0.78 * u * T.roll - 0.5 * u * T.on;
+      bowl.visible = !pre && T.roll > 0 && T.on < 1;
+      bowl.position.set(...on(0.02 * u * Math.sin(T.roll * 3), R, d)); bowl.rotation.x = TILT + d / R;
+      P.forEach(([x, z], i) => {
+        // each pin is knocked outward and back, tumbles over and lands on its side on the lane
+        const k = hit * (1 - T.reset), a = (i * 2.39) % (Math.PI * 2), side = x === 0 ? (i % 2 ? 1 : -1) : Math.sign(x);
+        const fly = Math.min(1, k * 1.3), up = 0.3 * u * Math.sin(Math.PI * fly) * (0.6 + 0.4 * Math.abs(Math.sin(a)));
+        const s = T.reset > 0 && T.reset < 1 ? Math.abs(1 - 2 * T.reset) : 1;
+        pins.set(i, ...on(x + side * (0.06 + 0.1 * Math.abs(Math.cos(a))) * u * fly, up + 0.03 * u * fly, z - (0.1 + 0.1 * Math.abs(Math.sin(a))) * u * fly), s, -side * (Math.PI / 2) * fly, a * fly, TILT * fly);
       });
       pins.commit();
       const k = pre ? 0 : between(v, 1.7, 2.0) * (1 - between(v, 4.8, 5.2));
-      strike.visible = k > 0.01; strike.scale.setScalar(grow(k)); strike.position.set(lx, floor + 1.05 * u, 0.05 * u);
+      strike.visible = k > 0.01; strike.scale.setScalar(grow(k)); strike.position.set(lx, floor + 1.0 * u, 0.05 * u);
       tag.show(10, k); tag.position.set(lx + 0.55 * u, floor + 0.75 * u, 0.06 * u);
-      const b = pre ? 0 : bump(v, 1.5, 0.6); boom.visible = b > 0.01; boom.scale.setScalar(grow(b)); boom.position.set(lx, floor + 0.65 * u, -0.1 * u);
+      const b = pre ? 0 : bump(v, 1.5, 0.6); boom.visible = b > 0.01; boom.scale.setScalar(grow(b)); boom.position.set(...on(0, 0.15 * u, -0.65 * u));
     },
   };
 }
