@@ -2,7 +2,7 @@
 // Run, SitDown, StandUp, Victory, Defeat, Walk_Carry, PickUp; animals: Idle, Walk, Gallop, Eating, Jump_ToIdle).
 //   q-dog-fetch   犬: a Shiba waits; a ball bounces past, it gallops after it, brings it back in its mouth, hops for joy
 //   q-cow         牛: a cow walks up, grazes, lifts its head and moos モー
-//   q-rest-tree   休: a walker reaches a tree, sits on a log against it, nods off (Zzz), stands up and walks on
+//   q-rest-tree   休: a walker reaches a tree, sits on a log at its foot, back against the trunk, nods off (Zzz), stands up and walks on
 //   q-walker      歩: a person walks along beside the kanji leaving footprints, turns, and walks back
 //   q-kimono      女: a woman in a kimono walks up, turns to you, cheers and twirls under falling petals
 //   q-doctor      医者: a patient sits slumped (sad cloud); a doctor walks up carrying a red-cross kit, sets it down; the
@@ -19,6 +19,7 @@ import { G } from '../pieces/shape-kit.js';
 import { between, puffs } from './helpers.js';
 import { grow } from './step1-kit.js';
 import { COW } from './q-animals3.js';
+import { actor } from './model-kit.js';
 
 const RIGHT = Math.PI / 2, LEFT = -Math.PI / 2;
 const lerp = (a, b, f) => a + (b - a) * f;
@@ -80,25 +81,35 @@ function cow(ctx, spec, stage) {
 
 // ---- 休 ----
 function restTree(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.85 * u, sitX = tx - 0.05 * u;
-  const tree = createModel('oak', { height: 1.5 * u, tint: { leafsGreen: 0x58b848 } }), man = person('guy', 0.85 * u), head = man.node('Head');
-  const zs = ['Z', 'z', 'Z'].map((ch) => textPlane(ch, { h: 0.24 * u, color: '#e8f0ff', weight: 900 }));
-  const log = solidProp([[G.cyl(0.11 * u, 0.11 * u, 0.3 * u, 0, 0.11 * u, 0, 0, 0, Math.PI / 2), 0x8a5a30], [G.cyl(0.085 * u, 0.085 * u, 0.302 * u, 0, 0.11 * u, 0, 0, 0, Math.PI / 2), 0xd8b080]], 0.35);
-  tree.group.position.set(tx + 0.12 * u, floor, -0.25 * u); log.position.set(sitX, floor - 0.08 * u, -0.07 * u);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.8 * u, tz = -0.24 * u;
+  const tree = createModel('oak', { height: 1.5 * u, tint: { leafsGreen: 0x58b848 } }), man = actor('guy', 0.85 * u), head = man.node('Head'), hips = man.node('Hips');
+  const zs = ['Z', 'z', 'Z'].map((ch) => textPlane(ch, { h: 0.22 * u, color: '#ffffff', bg: '#4a5ac0', pad: 0.2, weight: 900 }));
+  // a log lying on the ground right in front of the trunk, along it; he sits on it with his back against the trunk
+  const lr = 0.085 * u, lz = tz + 0.16 * u;
+  const log = solidProp([[G.cyl(lr, lr, 0.42 * u, 0, lr, 0, 0, 0, Math.PI / 2), 0x8a5a30], [G.cyl(lr * 0.78, lr * 0.78, 0.422 * u, 0, lr, 0, 0, 0, Math.PI / 2), 0xd8b080]], 0.35);
+  tree.group.position.set(tx, floor, tz); log.position.set(tx, floor, lz);
   group.add(tree.group, log, man.group, ...zs);
+  const seat = new THREE.Vector3(tx, floor + 2 * lr + 0.035 * u, lz - 0.01 * u), H = new THREE.Vector3(), S = new THREE.Vector3();
   const loop = 8.0;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { walkIn: [0, 1.8, 'out'], up: [5.4, 1.3, 'linear'], out: [6.4, 1.5, 'in'] });
+      const T = timeline(v, { walkIn: [0, 1.6, 'out'], turn: [1.6, 0.3], sit: [1.9, 0.7], up: [5.4, 0.8], out: [6.3, 1.6, 'in'] });
       const walking = !pre && ((T.walkIn > 0 && T.walkIn < 1) || (T.out > 0 && T.out < 1));
-      if (walking) man.pose('Walk', v); else if (!pre && v >= 1.8 && v < 5.4) man.pose('SitDown', v - 1.9, false); else if (!pre && v >= 5.4 && v < 6.4) man.pose('StandUp', v - 5.4, false); else man.pose('Idle', t);
-      man.group.position.set(sitX + (1 - T.walkIn) * 1.2 * u + T.out * 1.3 * u, floor, 0.05 * u);
-      man.group.rotation.y = pre ? 0 : T.walkIn < 1 ? LEFT + 0.5 : T.out > 0 || v > 6.3 ? (RIGHT - 0.5) * between(v, 6.2, 6.4) : 0;
+      if (walking) man.pose('Walk', v); else if (!pre && v >= 1.9 && v < 5.4) man.pose('SitDown', v - 1.9, false); else if (!pre && v >= 5.4 && v < 6.3) man.pose('StandUp', v - 5.4, false); else man.pose('Idle', t);
+      // he walks in from the right, turns to face you in front of the log, sits down on it, leans back on the trunk
+      man.group.position.set(tx + (1 - T.walkIn) * 1.1 * u + T.out * 1.3 * u, floor, lz + 0.06 * u);
+      man.group.rotation.y = pre ? 0 : T.walkIn < 1 ? LEFT + 0.5 : v < 5.9 ? (LEFT + 0.5) * (1 - T.turn) : (RIGHT - 0.5) * between(v, 5.9, 6.3);
+      const sat = pre ? 0 : T.sit * (1 - T.up);
+      if (sat > 0 && hips) {                                    // the hips land on the log (seatAt, eased in and out)
+        man.group.updateWorldMatrix(true, true); hips.getWorldPosition(H); group.worldToLocal(H);
+        man.group.position.add(S.copy(seat).sub(H).multiplyScalar(sat)); man.group.updateWorldMatrix(true, true);
+      }
+      man.turn('Abdomen', -0.18 * sat);
       const doze = pre ? 0 : between(v, 2.9, 3.3) * (1 - between(v, 5.1, 5.4));
       if (head) head.rotation.x += 0.35 * doze;
-      zs.forEach((z, i) => { const f = (v * 0.45 + i / 3) % 1, k = doze * Math.sin(Math.PI * f) * (0.6 + 0.6 * f); pop(z, k, sitX + 0.15 * u + 0.25 * u * f, floor + 0.55 * u + 0.5 * u * f, 0.2 * u); });
+      zs.forEach((z, i) => { const f = (v * 0.45 + i / 3) % 1, k = doze * Math.sin(Math.PI * f) * (0.6 + 0.6 * f); pop(z, k, tx + 0.3 * u + 0.3 * u * f, floor + 0.55 * u + 0.35 * u * f, 0.2 * u); });
     },
   };
 }

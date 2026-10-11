@@ -8,8 +8,6 @@
 //   come-here      来 / 来る: model scenes in q-come.js (a person beckons; a Shiba gallops up a path / a bird lands on
 //                  her palm)
 //   boat-race      先: three paper boats race on the water; the red one pulls ahead and its little flag pops up: first
-//   weekday-wheel  曜: a wheel of the seven day symbols (moon, fire, water, tree, gold, soil, sun) spins and slows until
-//                  the pointer stops on one, which glows
 //   week-hop       週: a strip of seven days; a little sun hops from day to day, each lighting as it lands, and after
 //                  Sunday hops back round to Monday: a week
 //   snow-white     白: snow falls; it settles on the kanji's top and on a little tree and the ground, until everything is
@@ -157,37 +155,6 @@ function boatRace(ctx, spec, stage) {
   };
 }
 
-// ---- 曜 the weekday wheel ----
-function weekdayWheel(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), cx = B.maxX + 0.55 * u, cy = B.cy + 0.05 * u, R = 0.42 * u, r = 0.27 * R / 0.42;
-  const sym = (i) => { const a = Math.PI / 2 - (i / 7) * Math.PI * 2, x = Math.cos(a) * r * 1.0, y = Math.sin(a) * r * 1.0, z = 0.03 * u, k = u;
-    return [
-      [[G.torus(0.06 * k, 0.022 * k, Math.PI * 1.1, x, y, z, 1.4), 0xfff0b0]],                                      // 月 moon
-      [[G.cone(0.05 * k, 0.13 * k, x, y, z), 0xff6a20], [G.cone(0.025 * k, 0.07 * k, x, y - 0.02 * k, z + 0.02 * k), 0xffe040]],   // 火 fire
-      [[G.sphere(0.045 * k, x, y - 0.015 * k, z), 0x3aa0ff], [G.cone(0.044 * k, 0.07 * k, x, y + 0.03 * k, z), 0x3aa0ff]],          // 水 water
-      [[G.cyl(0.012 * k, 0.012 * k, 0.07 * k, x, y - 0.04 * k, z), 0x7a4a24], [G.sphere(0.05 * k, x, y + 0.02 * k, z), 0x3aa040]],  // 木 tree
-      [[G.cyl(0.05 * k, 0.05 * k, 0.02 * k, x, y, z, Math.PI / 2), 0xffc030]],                                        // 金 gold
-      [[G.sphere(0.06 * k, x, y - 0.02 * k, z, 1, 0.6, 0.6), 0x8a5a30]],                                              // 土 soil
-      [[G.sphere(0.055 * k, x, y, z), 0xffa020]],                                                                    // 日 sun
-    ][i]; };
-  const wheel = solidProp([[G.cyl(R, R, 0.03 * u, 0, 0, 0, Math.PI / 2, 0, 0, 42), 0x2a3048], [G.torus(R, 0.02 * u), 0xc8ccd4], ...Array.from({ length: 7 }, (_, i) => [G.box(0.01 * u, R, 0.01 * u, Math.cos(Math.PI / 2 - (i + 0.5) / 7 * Math.PI * 2) * R / 2, Math.sin(Math.PI / 2 - (i + 0.5) / 7 * Math.PI * 2) * R / 2, 0.02 * u, -(i + 0.5) / 7 * Math.PI * 2), 0x505870]), ...Array.from({ length: 7 }, (_, i) => sym(i)).flat()], 0.6);
-  const pointer = solidProp([[G.cone(0.06 * u, 0.12 * u, 0, 0, 0, Math.PI), 0xe83a3a]], 0.8), ring = solidProp([[G.torus(0.09 * u, 0.012 * u), 0xffe060]], 1.4);
-  wheel.position.set(cx, cy, 0); pointer.position.set(cx, cy + R + 0.05 * u, 0.04 * u);
-  group.add(wheel, pointer, ring);
-  const loop = 5.6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, n = A.n < 0 ? 0 : A.n % 7;
-      // spin 0..3 s easing out to land symbol `stop` under the pointer
-      const stop = (n * 3) % 7, f = pre ? 0 : 1 - Math.pow(1 - between(v, 0.2, 3.2), 3), turns = 2 + stop / 7;
-      wheel.rotation.z = (pre ? 0 : f * turns * Math.PI * 2) + 0.03 * wobble(v, 3.2, 0.5, 5);
-      const k = pre ? 0 : between(v, 3.2, 3.5) * (1 - between(v, 5.0, 5.4)); ring.visible = k > 0.01; ring.scale.setScalar(grow(k) * (1 + 0.1 * Math.sin(t * 6))); ring.position.set(cx, cy + r, 0.05 * u);
-      pointer.position.y = cy + R + 0.05 * u + 0.02 * u * bump(v, 3.2, 0.3);
-    },
-  };
-}
-
 // ---- 週 a week ----
 function weekHop(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cell = 0.2 * u, x0 = B.maxX + 0.15 * u, y = B.cy - 0.05 * u;
@@ -238,4 +205,4 @@ function snowWhite(ctx, spec, stage) {
     },
   };
 }
-export const SCENES = { 'octopus-eight': octopusEight, 'dice-six': diceSix, 'ttt-nine': tttNine, 'come-here': comeHere, 'boat-race': boatRace, 'weekday-wheel': weekdayWheel, 'week-hop': weekHop, 'snow-white': snowWhite };
+export const SCENES = { 'octopus-eight': octopusEight, 'dice-six': diceSix, 'ttt-nine': tttNine, 'come-here': comeHere, 'boat-race': boatRace, 'week-hop': weekHop, 'snow-white': snowWhite };
