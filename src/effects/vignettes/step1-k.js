@@ -1,6 +1,8 @@
 // Step 1 scenes, part K: new, hearing, meeting, saying, ten thousand, knowing, spirit, gaps, school, company, names, tall.
 //   new-toy        新: a box opens and a shiny new toy robot pops up, sparkling, a NEW tag on it. outcome shoes: a worn
 //                  old shoe is swapped for a shiny new one that sparkles (新しい)
+//                  car (sedan model): a dusty, sagging grey-brown old car with flies slides away; a gleaming new blue one
+//                  rolls in with a big red bow on the roof, sparkles and a 新 NEW tag (新しい)
 //   newspaper      新聞: a rolled newspaper flies in, unrolls, and its headline flashes NEWS
 //   ear-gate       聞: a person at a gate cups a hand to their ear; sound rings come through the gate to them. outcome
 //                  shell: a kid holds a big seashell to their ear and little waves wash past (聞く)
@@ -18,14 +20,18 @@
 //   office-tower   社: an office tower; its windows light up floor by floor, a sign on the roof. outcome commute: people
 //                  with briefcases walk into the tower one after another (会社)
 //   name-card      名: a hand slides a name card into the name plate on a door; it glows. outcome write: a pencil writes
-//                  a name on a notebook's label (名前)
+//                  a name on a notebook's label (名前). outcome call (Quaternius people): at dusk under a crescent moon one
+//                  person calls だれ?, the other answers たなか です! and the name tag on their chest lights up at once
 //   giraffe-tall   高: a giraffe stretches its neck up higher and higher to reach a leaf. outcome price: a price tag's
 //                  number shoots up and up, ¥¥¥, and eyes pop (高い)
 import * as THREE from 'three';
 import { acts, timeline, bump, wobble } from './timeline.js';
+import { createModel } from '../models.js';
+import { actor } from './model-kit.js';
+import { speech } from './q-common.js';
 import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
-import { many, HEART } from '../pieces/kit-things.js';
+import { many, HEART, PUFF } from '../pieces/kit-things.js';
 import { textPlane, emblemProp } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
@@ -41,6 +47,7 @@ const SPARK = (u) => [[G.sphere(0.022 * u), 0xffffff]];
 // ---- 新 new ----
 function newToy(ctx, spec, stage) {
   if (spec.outcome === 'shoes') return newShoes(ctx, spec, stage);
+  if (spec.outcome === 'car') return newCar(ctx, spec, stage);
   const u = 1.35 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.35 * u;
   const box = solidProp([[G.box(0.4 * u, 0.26 * u, 0.3 * u, 0, 0.13 * u, 0), 0x3a7ae0], [G.box(0.06 * u, 0.265 * u, 0.305 * u, 0, 0.13 * u, 0), 0xffd040]], 0.45), flaps = many([[G.box(0.2 * u, 0.012 * u, 0.3 * u, 0.1 * u, 0, 0), 0x5a9af0]], 2, 0.45);
   const robot = solidProp([[G.box(0.16 * u, 0.18 * u, 0.12 * u, 0, 0.09 * u, 0), 0xd8dde6], [G.box(0.13 * u, 0.11 * u, 0.11 * u, 0, 0.25 * u, 0), 0xd8dde6], [G.sphere(0.02 * u, -0.035 * u, 0.26 * u, 0.056 * u), 0x40c0ff], [G.sphere(0.02 * u, 0.035 * u, 0.26 * u, 0.056 * u), 0x40c0ff], [G.cyl(0.006 * u, 0.006 * u, 0.06 * u, 0, 0.33 * u, 0), 0x808890], [G.sphere(0.015 * u, 0, 0.37 * u, 0), 0xff4040], [G.box(0.05 * u, 0.04 * u, 0.01 * u, 0, 0.1 * u, 0.061 * u), 0xffd040]], 0.6);
@@ -60,12 +67,73 @@ function newToy(ctx, spec, stage) {
     },
   };
 }
+
+// the Kenney sedan repainted: the red texels of its palette texture take `hex` (shading kept), windows and tyres stay
+const paints = new Map();
+function tintedSedan(h, hex) {
+  const m = createModel('sedan', { height: h, ownMaterials: true });
+  for (const mt of m.materials) {
+    const img = mt.map?.image; if (!img) continue;
+    if (!paints.has(hex)) {
+      const c = document.createElement('canvas'); c.width = img.width; c.height = img.height;
+      const g = c.getContext('2d'); g.drawImage(img, 0, 0); const d = g.getImageData(0, 0, c.width, c.height), px = d.data, T = new THREE.Color(hex);
+      for (let i = 0; i < px.length; i += 4) {
+        const r = px[i], gg = px[i + 1], bb = px[i + 2];
+        if (r > 1.6 * gg && r > 1.6 * bb && r > 60) { const k = r / 200; px[i] = Math.min(255, T.r * 255 * k); px[i + 1] = Math.min(255, T.g * 255 * k); px[i + 2] = Math.min(255, T.b * 255 * k); }
+      }
+      g.putImageData(d, 0, 0);
+      const tex = new THREE.CanvasTexture(c); tex.flipY = mt.map.flipY; tex.colorSpace = mt.map.colorSpace; tex.wrapS = mt.map.wrapS; tex.wrapT = mt.map.wrapT; paints.set(hex, tex);
+    }
+    mt.map = mt.emissiveMap = paints.get(hex); mt.needsUpdate = true;
+  }
+  return m;
+}
+// 新しい new: a dusty old car slides away, a gleaming new one with a big red bow rolls in
+function newCar(ctx, spec, stage) {
+  const u = 0.95 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.75 * u, H = 0.5 * u, ck = H / 1.3, rad = 0.3 * ck;
+  const old = tintedSedan(H, 0xa89c88), fresh = tintedSedan(H, 0x1e90ff);
+  const WH = ['wheel-front-left', 'wheel-front-right', 'wheel-back-left', 'wheel-back-right'], oldW = WH.map(old.node), newW = WH.map(fresh.node), oldBody = old.node('body');
+  const bow = solidProp([[G.torus(0.065 * u, 0.017 * u, Math.PI * 2, -0.075 * u, 0.07 * u, 0, 0.5), 0xe01830], [G.torus(0.065 * u, 0.017 * u, Math.PI * 2, 0.075 * u, 0.07 * u, 0, -0.5), 0xe01830], [G.sphere(0.03 * u, 0, 0.045 * u, 0), 0xb00c20], [G.box(0.03 * u, 0.11 * u, 0.012 * u, -0.03 * u, 0.0, 0, 0.35), 0xe01830], [G.box(0.03 * u, 0.11 * u, 0.012 * u, 0.03 * u, 0.0, 0, -0.35), 0xe01830],
+    [G.box(0.04 * u, 0.012 * u, 0.4 * u, 0, 0.0, 0), 0xe01830]], 0.7);
+  const tag = textPlane('新 NEW', { h: 0.13 * u, color: '#ffffff', bg: '#e03030', pad: 0.3 }), spk = many(SPARK(u), 10, 1.8), dust = many(PUFF(u, 0xa8a090), 4, 0.3), flies = many([[G.sphere(0.011 * u), 0x1a1a1a]], 3, 0.2);
+  group.add(old.group, fresh.group, bow, tag, spk, dust, flies);
+  old.group.rotation.y = fresh.group.rotation.y = -Math.PI / 2;     // side on, nose to the left
+  const loop = 6.8;
+  return {
+    group,
+    step(t) {
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
+      const L = pre ? 0 : between(v, 1.5, 2.5) - between(v, 6.0, 6.7), N = pre ? 0 : between(v, 2.6, 3.7) - between(v, 5.2, 6.0);
+      // the old car is pushed away to the right (no wheel spin); the new one drives in from the right
+      old.group.visible = L < 0.97; old.group.position.set(cx + 1.5 * u * L, floor, 0.02 * u);
+      oldBody.position.y = -0.05; oldBody.rotation.x = 0.035; oldBody.position.z = 0;
+      const nx = cx + 1.7 * u * (1 - N), spin = (1.7 * u * (1 - N)) / rad;
+      fresh.group.visible = N > 0.03; fresh.group.position.set(nx, floor + 0.004 * u * Math.sin(v * 20) * (N > 0.97 ? 0 : 1), 0.02 * u);
+      oldW.forEach((w) => w && (w.rotation.x = 0)); newW.forEach((w) => w && (w.rotation.x = -spin));
+      const got = pre ? 0 : between(v, 3.8, 4.2) - between(v, 5.0, 5.3);
+      bow.visible = tag.visible = got > 0.01; bow.scale.setScalar(1.7 * grow(got)); bow.position.set(cx + 0.04 * u, floor + H * 0.97, 0.02 * u);
+      tag.scale.setScalar(grow(got)); tag.position.set(cx + 0.04 * u, floor + H + 0.3 * u, 0.06 * u); tag.rotation.z = 0.08 * Math.sin(v * 3);
+      const f = pre ? 0 : ((v - 3.9) / 1.2) % 1 * (v > 3.9 && v < 5.2 ? 1 : 0);
+      for (let i = 0; i < 10; i++) { const a = i * 0.63 + f; spk.set(i, cx + Math.cos(a) * 0.5 * u * (0.5 + 0.5 * ((i * 37) % 10) / 10), floor + H * 0.3 + (((i * 53) % 10) / 10) * H * 0.9, 0.2 * u, f > 0 ? Math.max(0, Math.sin(Math.PI * ((f * 3 + i / 10) % 1))) * 1.4 : 0); }
+      spk.commit();
+      const sit = L < 0.05 && !pre;
+      for (let i = 0; i < 4; i++) { const g = ((v * 0.35 + i / 4) % 1); dust.set(i, cx + 0.5 * u + 0.1 * u * (i % 2) + 0.12 * u * g, floor + 0.04 * u + 0.1 * u * (i >> 1) + 0.1 * u * g, 0.1 * u, sit ? Math.sin(Math.PI * g) * 0.7 : 0); }
+      dust.commit();
+      for (let i = 0; i < 3; i++) flies.set(i, cx + 0.05 * u + 0.16 * u * Math.cos(t * 4 + i * 2.1), floor + H * 1.1 + 0.07 * u * Math.sin(t * 6 + i), 0.06 * u + 0.1 * u * Math.sin(t * 4 + i * 2.1), sit ? 1 : 0);
+      flies.commit();
+    },
+  };
+}
 function newspaper(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.55 * u, py = B.cy;
   const roll = solidProp([[G.cyl(0.05 * u, 0.05 * u, 0.4 * u, 0, 0, 0), 0xf0ece0], [G.cyl(0.052 * u, 0.052 * u, 0.04 * u, 0, 0, 0), 0xc03030]], 0.5);
   const sheet = solidProp([[G.box(0.5 * u, 0.62 * u, 0.008 * u, 0, 0, 0), 0xf4f0e4], ...[0, 1, 2, 3, 4].map((i) => [G.box(0.2 * u, 0.012 * u, 0.01 * u, -0.12 * u, (-0.05 - 0.05 * i) * u, 0.002 * u), 0x8a8a8a]), [G.box(0.18 * u, 0.2 * u, 0.01 * u, 0.12 * u, -0.12 * u, 0.002 * u), 0x9ab0c8]], 0.5);
   const head = textPlane('NEWS', { h: 0.13 * u, color: '#202020', weight: 900 }), title = textPlane('しんぶん', { h: 0.07 * u, color: '#c03030', weight: 900 });
-  group.add(roll, sheet, head, title);
+  // the headline and title are children of the sheet's own pivot, so they turn, sway and scale with the paper (as separate
+  // planes at a fixed z they cut through the sheet's edge whenever it swayed)
+  const paper = new THREE.Group(); head.position.set(0, 0.2 * u, 0.012 * u); title.position.set(0, 0.08 * u, 0.012 * u);
+  head.renderOrder = title.renderOrder = 2; paper.add(sheet, head, title);
+  group.add(roll, paper);
   const loop = 5.4;
   return {
     group,
@@ -73,8 +141,8 @@ function newspaper(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { fly: [0, 0.8, 'out'], open: [0.9, 0.5, 'back'], close: [4.5, 0.5] }), o = T.open - T.close;
       roll.visible = !pre && o < 0.5; roll.position.set(px + 1.0 * u * (1 - T.fly), py + 0.4 * u * (1 - T.fly), 0.04 * u); roll.rotation.z = Math.PI / 2 + v * 6 * (1 - T.fly);
-      sheet.visible = o > 0.02; sheet.scale.set(grow(o), 1, 1); sheet.position.set(px, py, 0.02 * u); sheet.rotation.y = 0.15 * Math.sin(t * 1.5);
-      const flash = 0.85 + 0.15 * Math.sin(t * 8); head.visible = o > 0.6; head.position.set(px, py + 0.2 * u, 0.03 * u); head.scale.setScalar(flash); title.visible = o > 0.6; title.position.set(px, py + 0.08 * u, 0.03 * u);
+      paper.visible = o > 0.02; paper.scale.set(grow(o), 1, 1); paper.position.set(px, py, 0.02 * u); paper.rotation.y = 0.15 * Math.sin(t * 1.5);
+      const flash = 0.85 + 0.15 * Math.sin(t * 8); head.visible = o > 0.6; head.scale.setScalar(flash); title.visible = o > 0.6;
     },
   };
 }
@@ -275,6 +343,7 @@ function officeTower(ctx, spec, stage) {
 // ---- 名 a name ----
 function nameCard(ctx, spec, stage) {
   if (spec.outcome === 'write') return nameWrite(ctx, spec, stage);
+  if (spec.outcome === 'call') return nameCall(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, dx = B.maxX + 0.45 * u;
   const door = solidProp([[G.box(0.45 * u, 0.9 * u, 0.04 * u, 0, 0.45 * u, 0), 0x8a5a30], [G.sphere(0.025 * u, 0.15 * u, 0.42 * u, 0.03 * u), 0xffd040], [G.box(0.4 * u, 0.18 * u, 0.02 * u, 0, 0.7 * u, 0.025 * u), 0xc8a050]], 0.4);
   const card = textPlane('たなか', { h: 0.14 * u, w: 0.36 * u, color: '#202838', bg: '#fffaf0' }), hand = createHand({ u: 0.4 * u, sleeve: 0x3a7ae0 }), glow = solidProp([[G.box(0.44 * u, 0.22 * u, 0.005 * u), 0xffe060]], 1.4);
@@ -292,6 +361,43 @@ function nameCard(ctx, spec, stage) {
     },
   };
 }
+// 名 a name (call): dusk, a crescent moon; she calls だれ?, he answers たなか です! and his chest name tag lights up
+const crescent = (S, depth) => {
+  const R = 1, dx = 0.35 * R, r = 0.85 * R, x = (R * R - r * r + dx * dx) / (2 * dx), a = Math.acos(x / R), f0 = Math.atan2(Math.sqrt(R * R - x * x), x - dx), sh = new THREE.Shape(), N = 28;
+  for (let i = 0; i <= N; i++) { const th = a + (2 * Math.PI - 2 * a) * i / N; (i ? sh.lineTo : sh.moveTo).call(sh, R * Math.cos(th), R * Math.sin(th)); }
+  for (let i = 0; i <= N; i++) { const ph = 2 * Math.PI - f0 - (2 * Math.PI - 2 * f0) * i / N; sh.lineTo(dx + r * Math.cos(ph), r * Math.sin(ph)); }
+  return G.extrude(sh, depth / S).scale(S, S, S);
+};
+function nameCall(ctx, spec, stage) {
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.95 * u;
+  const caller = actor('gal', 0.75 * u), me = actor('guy2', 0.75 * u);
+  const moon = solidProp([[crescent(0.15 * u, 0.04 * u), 0xfff0a8]], 1.6), stars = many([[G.sphere(0.012 * u), 0xffffff]], 7, 1.8);
+  const dim = textPlane('たなか', { h: 0.075 * u, w: 0.26 * u, color: '#5a5a66', bg: '#3a3a46' }), lit = textPlane('たなか', { h: 0.08 * u, w: 0.19 * u, color: '#202838', bg: '#fff4b0' });
+  const glow = solidProp([[G.box(0.25 * u, 0.12 * u, 0.004 * u), 0xffe060]], 1.4); glow.material.transparent = true; glow.material.depthWrite = false;
+  const who = speech(u, 'だれ?', { h: 0.15, flip: true }), ans = speech(u, 'たなか です!', { h: 0.15 });
+  moon.position.set(x0 + 0.05 * u, floor + 1.02 * u, -0.5 * u);
+  [[-0.55, 0.9], [-0.35, 1.2], [0.4, 1.15], [0.65, 0.95], [0.8, 1.25], [0.2, 1.3], [-0.7, 1.1]].forEach(([x, y], i) => stars.set(i, x0 + x * u, floor + y * u, -0.55 * u, 1)); stars.commit();
+  group.add(moon, stars, caller.group, me.group, glow, dim, lit, who, ans);
+  const loop = 6.4, W = new THREE.Vector3();
+  return {
+    group,
+    step(t) {
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
+      const ask = pre ? 0 : between(v, 0.5, 0.8) * (1 - between(v, 2.3, 2.6)), say = pre ? 0 : between(v, 2.4, 2.7) * (1 - between(v, 5.3, 5.7)), on = pre ? 0 : between(v, 2.4, 2.55) * (1 - between(v, 5.3, 5.7));
+      caller.pose('Idle', t); caller.group.position.set(x0 - 0.3 * u, floor, 0.02 * u); caller.group.rotation.y = 0.65; caller.turn('Head', 0, 0.1 * ask, 0.12 * ask);
+      me.pose('Idle', t); me.group.position.set(x0 + 0.32 * u, floor, 0.02 * u); me.group.rotation.y = -0.6; me.nod(say, v);
+      // bubbles rise from the speaker's head, tail toward it
+      pop2(who, ask, caller.at('over', W, -0.25, -0.05, 0.1), group); pop2(ans, say, me.at('over', W, 0.3, -0.03, 0.1), group);
+      // the name tag is flat on his chest (turned with him); it is dark until he answers
+      me.local(0.02, 0.56, 0.105, W); group.worldToLocal(W);
+      for (const m of [dim, lit, glow]) { m.position.copy(W); m.rotation.y = me.group.rotation.y; }
+      glow.position.addScaledVector(new THREE.Vector3(Math.sin(me.group.rotation.y), 0, Math.cos(me.group.rotation.y)), -0.004 * u);
+      lit.position.addScaledVector(new THREE.Vector3(Math.sin(me.group.rotation.y), 0, Math.cos(me.group.rotation.y)), 0.003 * u);
+      lit.visible = on > 0.5; dim.visible = !lit.visible; glow.visible = on > 0.01; glow.material.opacity = 0.55 * on * (0.8 + 0.2 * Math.sin(t * 6));
+    },
+  };
+}
+const pop2 = (m, k, w, space) => { m.visible = k > 0.01; m.scale.setScalar(grow(k)); m.position.copy(space.worldToLocal(w)); };
 // ---- 高 tall ----
 function giraffeTall(ctx, spec, stage) {
   if (spec.outcome === 'price') return priceUp(ctx, spec, stage);

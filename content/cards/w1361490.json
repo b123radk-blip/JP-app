@@ -8,7 +8,7 @@
   "pos": ["adj-i"],
   "kanji": ["65b0"],
   "builtFrom": [{ "k": "新", "m": "new" }],
-  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "new-toy:shoes" },
+  "effect": { "material": "ivory", "backdrop": "sky:morning", "vignette": "new-toy:car" },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "の" }, { "text": "新", "reading": "あたら" }, { "text": "しい" }, { "text": "車", "reading": "くるま" }, { "text": "、" }, { "text": "見", "reading": "み" }, { "text": "た？" } ],
