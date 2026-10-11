@@ -16,7 +16,8 @@ new cards always show up in it.
 1. **VOICEVOX**: download the Windows version from https://voicevox.hiroshiba.jp/ and install it (the GPU version is
    faster if you have an NVIDIA card; the CPU version works everywhere).
 2. **Node.js** (LTS, version 18 or newer): https://nodejs.org/ (default options).
-3. **Git**: https://git-scm.com/download/win (or GitHub Desktop, if you prefer clicking).
+3. **Git**: in PowerShell `winget install --id Git.Git -e`, then open a new window (or https://git-scm.com/download/win).
+   The first `git push` opens a browser to sign in to GitHub.
 4. Optional, recommended: **ffmpeg**, so clips are saved as small mp3 files instead of wav.
    In PowerShell: `winget install Gyan.FFmpeg` and then open a new PowerShell window. Without ffmpeg the script writes
    wav files, which also work but are about 10 times bigger.
@@ -45,7 +46,8 @@ node scripts/voicevox.mjs speakers
 ```
 
 This lists every voice as `style id  character / style`. Try voices in the VOICEVOX app first (a calm style at normal
-speed is easiest to learn from), then note the **style id**.
+speed is easiest to learn from), then note the **style id**. The default is **14 (冥鳴ひまり, ノーマル)**; to use another
+voice add `--speaker <id>` to the commands below.
 
 **Terms of use.** VOICEVOX itself asks for the credit "VOICEVOX:&lt;character name&gt;" wherever the audio is used, and every
 character has its *own* terms (利用規約), linked from its page on the VOICEVOX site. The app is published on GitHub Pages
@@ -56,10 +58,10 @@ character has its *own* terms (利用規約), linked from its page on the VOICEV
 ## 5. Check the readings (writes nothing)
 
 ```powershell
-node scripts/voicevox.mjs check --speaker 3
+node scripts/voicevox.mjs check
 ```
 
-(Replace 3 with your style id.) It ends with `Would render N ... mismatched M`. For each mismatch it shows (made-up example):
+(It uses voice 14, 冥鳴ひまり, unless you add `--speaker <id>`.) It ends with `Would render N ... mismatched M`. For each mismatch it shows (made-up example):
 
 ```
   706b-s1  火は熱い。
@@ -74,7 +76,7 @@ VOICEVOX version is fine after listening in the app, keep it with `--accept` (st
 ## 6. Generate
 
 ```powershell
-node scripts/voicevox.mjs generate --speaker 3
+node scripts/voicevox.mjs generate
 ```
 
 - Clips go to `audio/<id>.mp3` (`.wav` without ffmpeg); `audio/manifest.json` is updated with the voice and the credit.

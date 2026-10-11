@@ -3,8 +3,8 @@
 // Step-by-step guide: docs/VOICEVOX.md.
 //
 //   node scripts/voicevox.mjs speakers                       list voices: character, style and the style id to use
-//   node scripts/voicevox.mjs check --speaker 3              compare readings only (what VOICEVOX would say vs the cards)
-//   node scripts/voicevox.mjs generate --speaker 3           render every missing / changed clip into audio/, update the manifest
+//   node scripts/voicevox.mjs check [--speaker 14]           compare readings only (what VOICEVOX would say vs the cards)
+//   node scripts/voicevox.mjs generate [--speaker 14]        render every missing / changed clip into audio/, update the manifest
 //
 // Options: --speed normal|slow|<number>  (default normal: each clip's suggested speed)   --slow-too  also render "<id>-slow"
 //          --only id,id   --accept id,id (save even though the reading differs; listen first!)   --force (re-render all)
@@ -51,6 +51,7 @@ async function api(host, path, { method = 'GET', body } = {}) {
   return res;
 }
 // keep a credit you set with --credit earlier, as long as the character is the same
+const DEFAULT_SPEAKER = 14;                                           // 冥鳴ひまり ノーマル (calm), the user's pick; --speaker overrides
 const manifestCredit = (m, name) => (m.voice?.speaker?.character === name && m.voice?.credit) || `VOICEVOX: ${name}`;
 const hasFfmpeg = () => { try { return spawnSync('ffmpeg', ['-version'], { stdio: 'ignore' }).status === 0; } catch { return false; } };
 
@@ -75,7 +76,8 @@ async function speakers(o) {
 }
 
 async function generate(o, { dry }) {
-  if (!Number.isInteger(o.speaker)) throw new Error('--speaker <style id> is required (list them with: node scripts/voicevox.mjs speakers)');
+  o.speaker ??= DEFAULT_SPEAKER;
+  if (!Number.isInteger(o.speaker)) throw new Error('--speaker needs a style id (list them with: node scripts/voicevox.mjs speakers)');
   const version = (await (await api(o.host, '/version')).text()).replace(/"/g, '');
   const sp = (await (await api(o.host, '/speakers')).json()).find((s) => s.styles.some((st) => st.id === o.speaker));
   if (!sp) throw new Error(`no VOICEVOX style with id ${o.speaker} (see: node scripts/voicevox.mjs speakers)`);
