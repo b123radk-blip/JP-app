@@ -9,8 +9,37 @@ import { many, HEART } from '../pieces/kit-things.js';
 import { between } from './helpers.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
-import { UP, lerp, label, pop, hearts, person, KID, liftKid, handInHand, briefcase, onHead, turnTo } from './q-common.js';
+import { UP, lerp, label, pop, hearts, person, KID, handInHand, briefcase, onHead, turnTo } from './q-common.js';
 
+const EL = new THREE.Vector3(), ER = new THREE.Vector3(), OV = new THREE.Vector3(), MO = new THREE.Vector3(), BX = new THREE.Vector3(), BY = new THREE.Vector3(), BZ = new THREE.Matrix4();
+// fix a prop to the head: its position AND turn follow the head bone (nods, bows, the lift) via the ear / crown landmarks
+function onFace(a, prop, space, dx, dy, dz) {
+  a.at('earL', EL); a.at('earR', ER); a.at('over', OV); a.at('mouth', MO);
+  BX.copy(EL).sub(ER).normalize(); BY.copy(OV).sub(MO); BY.addScaledVector(BX, -BY.dot(BX)).normalize();
+  const z = new THREE.Vector3().crossVectors(BX, BY);
+  prop.quaternion.setFromRotationMatrix(BZ.makeBasis(BX, BY, z));
+  const s = a.h * space.getWorldScale(new THREE.Vector3()).y;
+  prop.position.copy(space.worldToLocal(a.at('mouth', MO, dx, dy, dz)));
+  prop.userData.s = s;
+}
+const MR = new THREE.Vector3(), ML = new THREE.Vector3(), SIDE = new THREE.Vector3(), CH = new THREE.Vector3();
+// she is held by the sides of the chest, her body against both palms: the kid is placed where the hands actually are
+// (their reach is limited), so she follows his arms every frame instead of hanging wherever the target was
+function holdKid(pa, kid, space, at, k) {
+  const kh = kid.h * space.getWorldScale(CH).y, r = 0.16 * kh;
+  SIDE.copy(pa.local(1, 0, 0, MR)).sub(pa.local(0, 0, 0, ML)).normalize();
+  CH.copy(at);
+  for (let i = 0; i < 3; i++) {
+    kid.group.position.copy(space.worldToLocal(CH.clone().addScaledVector(UP, -0.45 * kh)));
+    kid.group.rotation.y = pa.group.rotation.y + Math.PI;
+    kid.group.updateWorldMatrix(true, true);
+    pa.grip('R', CH, SIDE, r, k, { out: 0.9, down: 0.4 });
+    pa.grip('L', CH, SIDE.clone().negate(), r, k, { out: 0.9, down: 0.4 });
+    if (k < 1) break;
+    pa.fistMid('R', MR); pa.fistMid('L', ML);
+    CH.copy(MR).add(ML).multiplyScalar(0.5);
+  }
+}
 const W = new THREE.Vector3(), LOW = new THREE.Vector3(), HIGH = new THREE.Vector3(), AT = new THREE.Vector3();
 // a big dark moustache (two curled capsules), worn at the mouth landmark
 const tache = (u) => solidProp([[G.capsule(0.02 * u, 0.06 * u, -0.04 * u, -0.005 * u, 0, 1.25), 0x2a1810], [G.capsule(0.02 * u, 0.06 * u, 0.04 * u, -0.005 * u, 0, -1.25), 0x2a1810]], 0.25);
@@ -57,16 +86,16 @@ export function dad(ctx, spec, stage) {
       }
       pa.group.position.set(px, floor, pz); pa.group.rotation.y = py;
       pa.group.visible = !home || (!pre && v < 9.45);
-      onHead(pa, stache, group, 'mouth', 0, -0.005, 0.045); stache.visible = pa.group.visible;
+      onFace(pa, stache, group, 0, 0.02, -0.012); stache.scale.setScalar(1.3); stache.visible = pa.group.visible;
       // she is held by the sides: low in front of him, then high over his head, swayed
       const sway = 0.08 * Math.sin(w * 2.4) * between(w, 1.5, 1.9) * (1 - T.down);
-      pa.local(0, 0.27, 0.36, LOW); pa.local(sway, 0.98, 0.4 + 0.03 * Math.sin(w * 4.8), HIGH);
+      pa.local(0, 0.27, 0.36, LOW); pa.local(sway, 0.92, 0.58 + 0.03 * Math.sin(w * 4.8), HIGH);
       const up = pre ? 0 : T.lift * (1 - T.down), held = !pre && w > 0.1 && w < 4.9;
       AT.copy(LOW).lerp(HIGH, up);
       const cheer = !pre && up > 0.9, running = home && !pre && Th.run > 0 && Th.run < 1, going = home && !pre && w > 4.9 && Th.go > 0;
       kid.pose(cheer ? 'Victory' : running ? 'Run' : going ? 'Walk' : 'Idle', cheer ? 0.5 + 0.3 * Math.sin(w * 2) : going ? v + 0.3 : t + 1);
       kid.group.visible = true; kid.group.scale.setScalar(1);
-      if (held) liftKid(pa, kid, group, AT, Math.min(1, between(w, 0.1, 0.6) * (1 - between(w, 4.5, 4.9))), true);
+      if (held) holdKid(pa, kid, group, AT, Math.min(1, between(w, 0.1, 0.6) * (1 - between(w, 4.5, 4.9))));
       else if (home && !pre && w > 4.9) {                        // hand in hand at his left, back in through the door
         kid.group.position.copy(group.worldToLocal(pa.local(0.26, 0, -0.06, W))).setY(floor); kid.group.rotation.y = pa.group.rotation.y;
         handInHand(pa, 'L', kid, 'R', between(v, 7.2, 7.6));
