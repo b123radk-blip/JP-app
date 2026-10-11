@@ -3,7 +3,7 @@
 //             stops on it (!), lowers the binoculars and waves at it; it flies off; outcome show: a child brings a drawing out
 //             from behind her back and holds it up to her mum, who leans in (!): じょうず! and hearts (見せる)
 //   q-listen  聞: a person cups a hand to his ear toward a wind chime that rings; sound rings travel to his ear, he smiles
-//             and nods, ♪; outcome shell: a child holds a seashell to her ear, eyes shut, while little waves wash past, ザザー (聞く)
+//             and nods, ♪; outcome music: a child in big over-ear headphones stands by a little table with a radio; music notes flow from the radio up into the headphone cups, the cups pulse, and she bobs her head to the beat (聞く)
 //   q-hello   言: two people face each other; she speaks and lines of words (すき, こんにちは, ありがとう, またね) come out of her
 //             mouth one after another and stack up between them like the strokes of 言, while he nods
 //   q-read    読: a grandma on a stool holds an open book, her head bent over it; a page turns and letters float up out of it
@@ -16,6 +16,7 @@ import { G } from '../pieces/shape-kit.js';
 import { textPlane } from '../pieces/kit-props.js';
 import { between } from './helpers.js';
 import { grow } from './step1-kit.js';
+import { NOTE, wear } from './q-music.js';
 import { LEFT, RIGHT, lerp, label, pop, person, KID, turnTo, hearts, speech, say } from './q-common.js';
 
 const W = new THREE.Vector3(), W2 = new THREE.Vector3();
@@ -98,7 +99,7 @@ function show(ctx, spec, stage) {
 
 // ---- 聞 / 聞く ----
 function listen(ctx, spec, stage) {
-  if (spec.outcome === 'shell') return shell(ctx, spec, stage);
+  if (spec.outcome === 'music') return music(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.4 * u;
   const p = person(spec.who, u), note = label(u, '♪', '#3a8a5a', 0.16), cx = x0 + 0.85 * u, cy = floor + 1.0 * u;
   const post = solidProp([[G.cyl(0.02 * u, 0.025 * u, 1.25 * u, 0.12 * u, -0.62 * u + 0.1 * u, -0.05 * u), 0x6a4a2a], [G.box(0.18 * u, 0.025 * u, 0.025 * u, 0.04 * u, 0.1 * u, -0.05 * u), 0x6a4a2a], [G.cyl(0.003 * u, 0.003 * u, 0.06 * u, 0, 0.07 * u, 0), 0xdddddd]], 0.4);
@@ -129,29 +130,48 @@ function listen(ctx, spec, stage) {
     },
   };
 }
-function shell(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.45 * u;
-  const p = person(spec.who, u, KID + 0.1), say = label(u, 'ザザー', '#3a7ac0', 0.12);
-  const sh = solidProp([[G.cone(0.07 * u, 0.16 * u, 0, 0, 0, Math.PI / 2), 0xffb090], [G.sphere(0.07 * u, 0.0, 0, 0, 0.6, 1, 1), 0xffe0d0]], 0.6);
-  const sea = solidProp([[G.box(1.6 * u, 0.32 * u, 0.04 * u, 0, 0.16 * u, -0.5 * u), 0x2a6ac0], [G.box(1.6 * u, 0.04 * u, 0.4 * u, 0, -0.02 * u, -0.2 * u), 0xf0d8a0]], 0.45);
-  sea.position.set(x0 + 0.35 * u, floor, 0);
-  const waves = many([[G.torus(0.08 * u, 0.012 * u, Math.PI, 0, 0, 0), 0xe8f6ff]], 6, 0.8);
-  group.add(p.group, sh, sea, waves, say);
-  const loop = 6.0;
+function music(ctx, spec, stage) {
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.4 * u, tx = x0 + 0.5 * u, top = floor + 0.32 * u;
+  const p = person(spec.who, u, KID + 0.1), hh = p.h;
+  // big over-ear headphones: a band over the top and a cup on each side (worn on the Head bone)
+  const phones = solidProp([[G.torus(0.25 * hh, 0.025 * hh, Math.PI, 0, 0, 0), 0x2a2a34], [G.cyl(0.085 * hh, 0.085 * hh, 0.07 * hh, 0.25 * hh, 0, 0, 0, 0, Math.PI / 2), 0xff3a6a], [G.cyl(0.085 * hh, 0.085 * hh, 0.07 * hh, -0.25 * hh, 0, 0, 0, 0, Math.PI / 2), 0xff3a6a],
+    [G.cyl(0.06 * hh, 0.06 * hh, 0.075 * hh, 0.25 * hh, 0, 0, 0, 0, Math.PI / 2), 0xffe040], [G.cyl(0.06 * hh, 0.06 * hh, 0.075 * hh, -0.25 * hh, 0, 0, 0, 0, Math.PI / 2), 0xffe040]], 0.6);
+  // a little table with a radio on it (its speaker faces us)
+  const table = solidProp([[G.box(0.44 * u, 0.025 * u, 0.24 * u, 0, -0.0125 * u, 0), 0xa87a48], [G.box(0.03 * u, 0.32 * u, 0.03 * u, -0.19 * u, -0.175 * u, 0), 0x8a5a30], [G.box(0.03 * u, 0.32 * u, 0.03 * u, 0.19 * u, -0.175 * u, 0), 0x8a5a30]], 0.4);
+  const radio = solidProp([[G.box(0.22 * u, 0.12 * u, 0.08 * u, 0, 0.06 * u, 0), 0xe8604a], [G.cyl(0.036 * u, 0.036 * u, 0.012 * u, -0.05 * u, 0.06 * u, 0.04 * u, Math.PI / 2), 0x2a2a30], [G.cyl(0.02 * u, 0.02 * u, 0.012 * u, -0.05 * u, 0.06 * u, 0.045 * u, Math.PI / 2), 0x6a6a74],
+    [G.cyl(0.016 * u, 0.016 * u, 0.012 * u, 0.06 * u, 0.082 * u, 0.04 * u, Math.PI / 2), 0xfaf0d0], [G.cyl(0.012 * u, 0.012 * u, 0.012 * u, 0.06 * u, 0.04 * u, 0.04 * u, Math.PI / 2), 0xfaf0d0], [G.cyl(0.004 * u, 0.004 * u, 0.14 * u, 0.08 * u, 0.18 * u, -0.02 * u, 0, 0, -0.35), 0xc8ccd4]], 0.6);
+  table.position.set(tx, top, 0); radio.position.set(tx, top, 0.0);
+  const PAL = [0xff4a5a, 0xffd030, 0x3a8aff, 0x50d070], notes = many(NOTE(u, 0.75), 5, 0.9), rings = many([[G.torus(0.07 * u, 0.008 * u, Math.PI * 2, 0, 0, 0), 0xffe070]], 4, 0.9);
+  for (let i = 0; i < 5; i++) notes.setColorAt(i, new THREE.Color(PAL[i % 4]));
+  notes.instanceColor.needsUpdate = true;
+  group.add(p.group, table, radio, phones, notes, rings);
+  const loop = 6.0, BEAT = 0.6;
   return {
     group,
     step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      p.pose('Idle', t); p.group.position.set(x0, floor, 0.1 * u); p.group.rotation.y = -0.3;
-      // the shell is held against her left ear, the hand on its far side; her head tips into it, eyes shut (head down)
-      const k = pre ? A.setup : between(v, 0.3, 0.8) * (1 - between(v, 5.2, 5.7));
-      p.turn('Head', 0.15 * k, 0, -0.25 * k);
-      const ear = p.at('earL', W, 0.05, 0, 0), hand = p.at('earL', W2, 0.1, -0.02, 0);
-      sh.position.copy(group.worldToLocal(ear.lerp(p.local(0.15, 0.3, 0.1, new THREE.Vector3()), 1 - k))); sh.rotation.y = p.group.rotation.y;
-      p.handTo('L', hand, k, { out: 0.9, down: 0.6 });
-      for (let i = 0; i < 6; i++) { const f = ((pre ? 0 : v) * 0.35 + i / 6) % 1; waves.set(i, x0 - 0.3 * u + 1.3 * u * f, floor + 0.33 * u + 0.02 * u * Math.sin(v * 3 + i), -0.47 * u, k * Math.sin(Math.PI * f)); }
-      waves.commit();
-      pop(say, pre ? 0 : between(v, 1.0, 1.3) * (1 - between(v, 4.6, 4.9)), x0 + 0.35 * u, floor + 0.85 * u + 0.02 * u * Math.sin(v * 3), 0.1 * u);
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, on = pre ? 0 : between(v, 0.2, 0.6) * (1 - between(v, loop - 0.7, loop - 0.2));
+      const ph = (pre ? 0 : v) * TAU / BEAT, b = Math.sin(ph), pulse = on * Math.pow(Math.max(0, Math.cos(ph)), 3);
+      // she bobs her head to the beat and sways a little, smiling
+      p.pose('Idle', t); p.group.position.set(x0, floor + 0.012 * u * on * Math.abs(b), 0.05 * u); p.group.rotation.y = 0.3;
+      p.turn('Hips', 0, 0, 0.05 * on * b); p.turn('Torso', 0, 0, -0.05 * on * b);
+      p.turn('Head', 0.16 * on * Math.max(0, b), 0, 0.14 * on * Math.sin(ph / 2));
+      p.handTo('R', p.local(-0.2, 0.42, 0.14, W), on * 0.5 * Math.max(0, -b), { out: 0.6, down: 0.9 });
+      wear(p, phones, group);
+      phones.scale.setScalar(1 + 0.09 * pulse); radio.scale.set(1 + 0.04 * pulse, 1 + 0.07 * pulse, 1);
+      // notes flow from the radio up into her near headphone cup
+      const cup = group.worldToLocal(p.at('earL', W2, 0.07, 0, 0.02)).clone(), src = new THREE.Vector3(tx - 0.03 * u, top + 0.13 * u, 0.04 * u);
+      for (let i = 0; i < 5; i++) {
+        const f = (((pre ? 0 : v) * 0.4 + i / 5) % 1 + 1) % 1, k = on * Math.sin(Math.PI * f);
+        notes.set(i, lerp(src.x, cup.x, f), lerp(src.y, cup.y, f) + 0.08 * u * Math.sin(Math.PI * f), lerp(src.z, cup.z, f) + 0.04 * u * Math.sin(f * 6 + i), k, 0.4 * Math.sin(f * 8 + i));
+      }
+      notes.commit();
+      // sound rings pulse out of both cups on every beat
+      const cr = group.worldToLocal(p.at('earR', W2, -0.07, 0, 0.02)).clone();
+      for (let i = 0; i < 4; i++) {
+        const f = (((pre ? 0 : v) / BEAT + (i >> 1) * 0.5) % 1 + 1) % 1, c = i % 2 ? cr : cup, s = i % 2 ? -1 : 1;
+        rings.set(i, c.x + s * 0.03 * u * f, c.y, c.z, on * (0.7 + 0.9 * f) * Math.sin(Math.PI * Math.min(1, f * 1.3)), 0, Math.PI / 2);
+      }
+      rings.commit();
     },
   };
 }

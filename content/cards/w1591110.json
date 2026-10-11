@@ -11,7 +11,7 @@
   "effect": {
     "material": "ivory",
     "backdrop": "sky:twilight",
-    "vignette": { "type": "q-listen", "outcome": "shell", "who": "gal" }
+    "vignette": { "type": "q-listen", "outcome": "music", "who": "gal" }
   },
   "sentences": [
     {
