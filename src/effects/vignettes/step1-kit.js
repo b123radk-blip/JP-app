@@ -10,6 +10,7 @@ import { textPlane } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { many } from '../pieces/kit-things.js';
 import { G } from '../pieces/shape-kit.js';
+import { TEXT } from '../../config.js';
 import { between, liveText } from './helpers.js';
 
 export const DAYS = ['月', '火', '水', '木', '金', '土', '日'];
@@ -52,28 +53,40 @@ export function countTag(u, { color = '#ffffff', bg = '#e04848', s = 0.22 } = {}
   return m;
 }
 
-// a month on a wall calendar: 5 rows of 7 days; days 1..date light up in order (lit: 0..1 how far), then a red ring lands
-// on the date. Origin at the middle of the page. 4 draw calls (page, header, the day cells, the ring).
+// a month on a wall calendar: 5 rows of 7 numbered days; days 1..date light up in order (lit: 0..1 how far), then a red
+// ring lands on the date (its number bold). Origin at the middle of the page. 4 draw calls (page, header, the day cells,
+// the ring; the numbers are one see-through plane in front of the cells).
+const dayNumbers = (u, w, h, cw, date) => {
+  const px = 64, c = document.createElement('canvas'), g = c.getContext('2d');
+  c.width = 7 * px; c.height = 5 * px; g.textAlign = 'center'; g.textBaseline = 'middle';
+  for (let d = 1; d <= 31; d++) {
+    const i = d - 1, bold = d === date;
+    g.font = `${bold ? 900 : 600} ${Math.round(px * (bold ? 0.62 : 0.46))}px "${TEXT.fontFamily}", sans-serif`; g.fillStyle = bold ? '#101010' : '#5a5650';
+    g.fillText(String(d), (i % 7 + 0.5) * px, (Math.floor(i / 7) + 0.54) * px);
+  }
+  const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
+  return new THREE.Mesh(new THREE.PlaneGeometry(w * u, h * u), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false }));
+};
 export function monthGrid(u, date, { w = 0.78 } = {}) {
   const g = new THREE.Group(), cw = w / 7, h = cw * 5;
   const page = solidProp([[G.box(w * u + 0.06 * u, h * u + 0.24 * u, 0.03 * u, 0, 0.06 * u, -0.02 * u), 0xf8f4ea], [G.box(w * u + 0.06 * u, 0.13 * u, 0.035 * u, 0, h * u / 2 + 0.115 * u, -0.018 * u), 0xd83838]], 0.5);
   const cells = many([[G.box(cw * u * 0.84, cw * u * 0.84, 0.012 * u), 0xffffff]], 35, 0.6);
-  const off = new THREE.Color(0xd8d2c4), on = new THREE.Color(0xffc040), today = new THREE.Color(0xff6a4a);
+  const off = new THREE.Color(0xd8d2c4), on = new THREE.Color(0xffc040), today = new THREE.Color(0xff8a5a);
   const at = (d) => { const i = d - 1; return [(i % 7 - 3) * cw * u, (2 - Math.floor(i / 7)) * cw * u]; };
   for (let i = 0; i < 35; i++) { const [x, y] = at(i + 1); cells.set(i, x, y, 0.004 * u, 1); cells.setColorAt(i, off); }
   cells.commit();
-  const num = textPlane(String(date), { h: 0.24 * u, color: '#d02020', weight: 900 }), ring = solidProp([[G.torus(cw * u * 0.62, 0.014 * u), 0xe02020]], 0.9);
+  const nums = dayNumbers(u, w, h, cw, date), ring = solidProp([[G.torus(cw * u * 0.62, 0.014 * u), 0xe02020]], 0.9);
   const [rx, ry] = at(date); ring.position.set(rx, ry, 0.02 * u);
-  num.position.set(w * u / 2 - 0.12 * u, h * u / 2 + 0.115 * u, 0.01 * u);
-  g.add(page, cells, ring, num);
+  nums.position.set(0, 0, 0.012 * u);
+  g.add(page, cells, ring, nums);
   let shown = -1;
   return Object.assign(g, {
-    drawCalls: 4, cellAt: (d) => at(d),
+    drawCalls: 4, cellAt: (d) => at(d), top: 0.06 * u + (h * u + 0.24 * u) / 2,
     // lit 0..1: how many days are lit (up to the date); k: the ring's pop
     show(lit, k) {
       const n = Math.round(lit * date);
       if (n !== shown) { shown = n; for (let i = 0; i < 35; i++) cells.setColorAt(i, i < n ? (i === date - 1 ? today : on) : off); cells.instanceColor.needsUpdate = true; }
-      ring.visible = k > 0.01; ring.scale.setScalar(Math.max(1e-3, k)); num.visible = k > 0.01; num.scale.setScalar(Math.max(1e-3, k));
+      ring.visible = k > 0.01; ring.scale.setScalar(Math.max(1e-3, k));
     },
   });
 }
@@ -81,7 +94,7 @@ export function monthGrid(u, date, { w = 0.78 } = {}) {
 // The 〜日 word: the month grid beside the word lights day by day up to `date`, the ring pops, and the number's own thing
 // (a mesh from thing(u), origin at its feet) hops onto the date. Loop 5.6 s.
 export function dayScene(ctx, stage, date, thing) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), cal = monthGrid(u, date), cx = B.maxX + 0.46 * u, cy = B.cy - 0.06 * u, size = 1;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), cal = monthGrid(u, date), cx = B.maxX + 0.58 * u, cy = B.cy - 0.06 * u, size = 1;
   cal.position.set(cx, cy, 0); const mascot = thing(0.32 * u);
   group.add(cal, mascot);
   const loop = 5.6, [dx, dy] = cal.cellAt(date);
@@ -91,10 +104,12 @@ export function dayScene(ctx, stage, date, thing) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { lit: [0.1, Math.min(2.6, 0.5 + 0.12 * date), 'linear'], ring: [2.9, 0.4, 'back'], hop: [3.3, 0.6], fade: [5.1, 0.4] });
       cal.show(pre ? 0 : T.lit * (1 - T.fade), pre ? 0 : T.ring * (1 - T.fade));
-      const h = T.hop, sx = cx + 0.25 * u, sy = B.minY;
+      // it waits on the floor right of the page and hops up onto the page's top, over the date's column (the ringed
+      // number stays clear)
+      const h = T.hop, sx = cx + 0.62 * u, sy = B.minY, ty = cy + cal.top;
       mascot.visible = !pre && T.fade < 1;
-      mascot.position.set(sx + (cx + dx - sx) * h, sy + (cy + dy - 0.06 * u * size - sy) * h + 0.35 * u * size * Math.sin(Math.PI * h), 0.06 * u);
-      mascot.scale.setScalar(grow(1 - T.fade));
+      mascot.position.set(sx + (cx + dx - sx) * h, sy + (ty - sy) * h + 0.35 * u * size * Math.sin(Math.PI * h), 0.06 * u);
+      mascot.scale.setScalar(grow((1 - T.fade) * (1 - 0.25 * h)));
     },
   };
 }
