@@ -11,7 +11,8 @@
 //                                  through only the flagged cards and lists them on screen; Send opens a GitHub issue
 //                                  filled in with the flagged cards, to submit for fixing. On a flagged card, Talk / Stop
 //                                  record a spoken note (speech to text) that goes on that card's line; Type leaves the
-//                                  headset view for a text box (the system keyboard's own voice typing works there)
+//                                  headset view for a text box (the system keyboard's own voice typing works there);
+//                                  Unflag clears a card that now looks right (in Flagged mode the next one comes up)
 import * as THREE from 'three';
 import { LAYOUT, COLORS, EFFECTS, COMPONENT_LOOKS } from '../../config.js';
 import { makeLabel } from '../../core/text.js';
@@ -42,7 +43,7 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
   let onlyFlagged = false, flagText = null, listText = null, noteText = null, noteBase = '', live = '', speechError = '';
   // spoken notes: Talk appends what is said to the flagged card's note until Stop
   const speech = createSpeech({
-    onText(heard, interim) { const f = view && flags.get(view.card.id); if (!f) return; f.note = [noteBase, heard].filter(Boolean).join(' '); live = interim; saveFlags(flags); showNote(); },
+    onText(heard, interim) { const f = view && flags.get(view.card.id); if (!f) return; f.note = [noteBase, heard].filter(Boolean).join(' '); live = interim; saveFlags(flags); redrawNote(); },
     onState() { live = ''; showFlag(); },
     onError(m) { speechError = m; app.note(m); showFlag(); },              // shown in the scene too: app.note is 2D only
   });
@@ -52,9 +53,9 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
     ...(review ? [['flag', 'Flag', () => toggleFlag()], ['flagged', 'Flagged', () => toggleFlagged()], ['send', 'Send', () => send()]] : [])];
   const bw = review ? 0.155 : 0.17, gap = 0.02, row = bar.length * bw + (bar.length - 1) * gap;
   bar.forEach(([id, label, fn], k) => { const b = createButton(app.input, { id: `preview-${id}`, label, width: bw, height: 0.07, size: 0.032, onSelect: fn }); b.group.position.set(-row / 2 + bw / 2 + k * (bw + gap), Y.buttons, 0.004); group.add(b.group); buttons.push(b); });
-  const talkRow = review ? [['talk', 'Talk', '#1f7a4c', () => talk()], ['stop', 'Stop', '#8a2a2a', () => speech.stop()], ['type', 'Type', '#3a5a9a', () => typeNote()]].map(([id, label, color, fn], k) => {
+  const talkRow = review ? [['talk', 'Talk', '#1f7a4c', () => talk()], ['stop', 'Stop', '#8a2a2a', () => speech.stop()], ['type', 'Type', '#3a5a9a', () => typeNote()], ['unflag', 'Unflag', '#1f6f8f', () => unflag()]].map(([id, label, color, fn], k) => {
     const b = createButton(app.input, { id: `preview-${id}`, label, width: 0.2, height: 0.07, size: 0.032, color, onSelect: fn });
-    b.group.position.set((k - 1) * 0.22, Y.buttons + 0.09, 0.004); b.setVisible(false); group.add(b.group); buttons.push(b); return b;
+    b.group.position.set((k - 1.5) * 0.22, Y.buttons + 0.09, 0.004); b.setVisible(false); group.add(b.group); buttons.push(b); return b;
   }) : [];
   const exit = createButton(app.input, { id: 'exit', label: 'Exit', width: 0.16, height: 0.065, size: 0.032, onSelect: () => app.show('home') });
   exit.group.position.set(-0.62, Y.top, 0.004); group.add(exit.group); buttons.push(exit);
@@ -66,6 +67,18 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
     if (flags.has(id)) flags.delete(id); else flags.set(id, { w: cardText(view.card), note: '' });
     saveFlags(flags); showFlag();
   }
+  // the card looks right now: its flag (and note) goes, and in Flagged mode the next flagged card comes up
+  function unflag() {
+    if (!view || !flags.has(view.card.id)) return; const id = view.card.id; speech.stop();
+    flags.delete(id); saveFlags(flags); app.note(`Unflagged ${cardText(view.card)}`);
+    if (!onlyFlagged) { showFlag(); return; }
+    ids = allIds.filter((x) => flags.has(x));
+    if (!ids.length) { onlyFlagged = false; ids = allIds; i = Math.max(0, ids.indexOf(id)); } else i = Math.min(i, ids.length - 1);
+    recipe = null; show();
+  }
+  // the note is redrawn at most every 0.2 s while words come in (each redraw builds a new text texture)
+  let noteTimer = 0;
+  function redrawNote() { if (noteTimer) return; noteTimer = setTimeout(() => { noteTimer = 0; if (!disposed) showNote(); }, 200); }
   function talk() { const f = view && flags.get(view.card.id); if (!f) return; noteBase = f.note; speechError = ''; speech.start(); }
   // the note in a 2D text box: leaves the headset view, where the system keyboard (and its voice typing) can be used
   function typeNote() {
@@ -101,7 +114,7 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
   function showFlag() {
     flagText?.dispose(); listText?.dispose(); flagText = listText = null;
     const on = !!(review && view && flags.has(view.card.id));
-    talkRow.forEach((b, k) => { b.setVisible(on); if (on) b.setEnabled([!speech.listening, speech.listening, true][k]); });
+    talkRow.forEach((b, k) => { b.setVisible(on); if (on) b.setEnabled([!speech.listening, speech.listening, true, true][k]); });
     showNote();
     if (!review || !view) return;
     flagText = makeLabel(on ? `FLAGGED  ·  ${flags.size} flagged` : `${flags.size} flagged`, { size: 0.035, color: '#ffffff', glow: null, panel: { pad: 0.012, radius: 0.016, color: on ? '#c0392b' : '#3a4256' } });
