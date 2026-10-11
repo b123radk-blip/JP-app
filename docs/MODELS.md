@@ -19,6 +19,9 @@ L R; three.js drops the dots: `FootL`), so a gesture made by turning bones after
 | sedan | kenney/car-kit/sedan.glb | 168 | 5 | colormap | static |
 | tramCar | kenney/train-kit/train-electric-city-b.glb | 133 | 4 | colormap | static |
 | track | kenney/train-kit/track.glb | 8 | 1 | colormap | static |
+| tent | kenney/survival-kit/tent.glb | 14 | 1 | colormap | static |
+| tentCanvas | kenney/survival-kit/tent-canvas.glb | 16 | 1 | colormap | static |
+| campfire | kenney/survival-kit/campfire-pit.glb | 26 | 2 | colormap | static |
 | shiba | quaternius/animals/shiba.glb | 550 | 6 | Main, Black, Main_Light, Eyes_Black, Eyes_White, Eyes_Pupil | Attack 1.2, Death 1.1, Eating 2.7, Gallop 0.6, Gallop_Jump 0.9, Idle 3.3, Idle_2 3.3, Idle_2_HeadLow 4.0, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_ToIdle 1.3, Walk 1.1 |
 | cow | quaternius/animals/cow.glb | 641 | 7 | Main, Main_Light, Hooves, Muzzle, Eye_Black, Eye_White, Horns | Attack_Headbutt 1.0, Attack_Kick 1.0, Death 1.0, Eating 6.0, Gallop 0.6, Gallop_Jump 1.5, Idle 3.3, Idle_2 3.3, Idle_Headlow 3.3, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_toIdle 1.7, Walk 1.2 |
 | horse | quaternius/animals/horse.glb | 702 | 8 | Main, Main_Dark, Main_Light, Hooves, Hair, Muzzle, Eye_White, Eye_Black | Attack_Headbutt 1.0, Attack_Kick 1.0, Death 1.0, Eating 6.0, Gallop 0.6, Gallop_Jump 1.5, Idle 3.3, Idle_2 3.3, Idle_Headlow 3.3, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_toIdle 1.7, Walk 1.2 |

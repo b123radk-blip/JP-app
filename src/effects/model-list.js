@@ -8,6 +8,7 @@ export const MODELS = {
   man: 'kenney/mini-characters/character-male-b.glb', hiker: 'kenney/mini-characters/character-male-e.glb',
   oak: 'kenney/nature-kit/tree_oak.glb', grass: 'kenney/nature-kit/grass_large.glb', sedan: 'kenney/car-kit/sedan.glb',
   tramCar: 'kenney/train-kit/train-electric-city-b.glb', track: 'kenney/train-kit/track.glb',
+  tent: 'kenney/survival-kit/tent.glb', tentCanvas: 'kenney/survival-kit/tent-canvas.glb', campfire: 'kenney/survival-kit/campfire-pit.glb',
   // Quaternius (CC0; packs in assets/models/quaternius/License.txt). Animals
   shiba: 'quaternius/animals/shiba.glb', cow: 'quaternius/animals/cow.glb', horse: 'quaternius/animals/horse.glb',
   fox: 'quaternius/animals/fox.glb', deer: 'quaternius/animals/deer.glb', wolf: 'quaternius/animals/wolf.glb',

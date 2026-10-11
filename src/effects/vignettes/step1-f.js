@@ -9,7 +9,7 @@
 //   woman-twirl    女: a woman with long hair and a flower in it twirls round in her dress, the skirt flaring, petals.
 //                  outcome girl: a girl swings high on a swing (女の子)
 //   binoculars     見: a person lifts binoculars and looks left and right; a bird lands far off, they stop, look, and wave.
-//                  outcome stars: a telescope on a stand turns up to the stars and a shooting star streaks past (見る);
+//                  outcome stars: a telescope on a tripod (legs meeting a mount head the tube pivots on) turns up to the stars and a shooting star streaks past (見る);
 //                  show: a kid holds up a drawing to show you, bouncing proudly (見せる)
 //   abacus-kid     学: a kid flicks the beads of an abacus, counting, then lifts their hand: got it! outcome backpack:
 //                  a student in a cap with a school bag and books walks off to school (学生); caps: graduation caps fly up and spin

@@ -101,9 +101,14 @@ export function girlSwing(ctx, spec, stage) {
 
 export function telescope(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.45 * u;
-  const legs = solidProp([[G.cyl(0.012 * u, 0.012 * u, 0.5 * u, -0.1 * u, 0.24 * u, 0, 0, 0, 0.3), 0x606878], [G.cyl(0.012 * u, 0.012 * u, 0.5 * u, 0.1 * u, 0.24 * u, 0, 0, 0, -0.3), 0x606878], [G.cyl(0.012 * u, 0.012 * u, 0.5 * u, 0, 0.24 * u, -0.1 * u, 0.3), 0x606878]], 0.4);
+  // tripod: three legs meet at one mount head (a ball with a post); the tube's axle sits on top of the post and the tube pivots there
+  const H = 0.5 * u, PIV = H + 0.11 * u, Y = new THREE.Vector3(0, 1, 0);
+  const leg = (fx, fz) => { const top = new THREE.Vector3(0, H, 0), foot = new THREE.Vector3(fx * u, 0.005 * u, fz * u), d = foot.clone().sub(top), g = new THREE.CylinderGeometry(0.011 * u, 0.014 * u, d.length(), 8);
+    g.applyQuaternion(new THREE.Quaternion().setFromUnitVectors(Y, d.clone().normalize())); g.translate(...top.clone().addScaledVector(d, 0.5).toArray()); return g; };
+  const legs = solidProp([[leg(-0.2, 0.09), 0x606878], [leg(0.2, 0.09), 0x606878], [leg(0, -0.21), 0x606878],
+    [G.sphere(0.04 * u, 0, H, 0), 0x404858], [G.cyl(0.02 * u, 0.02 * u, PIV - H, 0, (H + PIV) / 2, 0), 0x404858], [G.cyl(0.018 * u, 0.018 * u, 0.2 * u, 0, PIV, 0, Math.PI / 2), 0x404858]], 0.4);
   const tubeP = new THREE.Group(), tube = solidProp([[G.cyl(0.05 * u, 0.07 * u, 0.5 * u, 0, 0, 0, 0, 0, Math.PI / 2), 0xe8ecf4], [G.cyl(0.072 * u, 0.072 * u, 0.04 * u, 0.25 * u, 0, 0, 0, 0, Math.PI / 2), 0x3a6ad0], [G.cyl(0.06 * u, 0.06 * u, 0.005 * u, 0.272 * u, 0, 0, 0, 0, Math.PI / 2), 0x9ad8ff]], 0.5);
-  tubeP.add(tube); tubeP.position.set(tx, floor + 0.5 * u, 0); legs.position.set(tx, floor, 0);
+  tubeP.add(tube); tubeP.position.set(tx, floor + PIV, 0); legs.position.set(tx, floor, 0);
   const stars = many([[G.sphere(0.018 * u), 0xfff6c0]], 10, 1.6), shoot = many([[G.sphere(0.02 * u), 0xffffff]], 6, 1.8);
   group.add(legs, tubeP, stars, shoot);
   const loop = 6.0, S = Array.from({ length: 10 }, (_, i) => [((i * 0.37) % 1), ((i * 0.61) % 1)]);

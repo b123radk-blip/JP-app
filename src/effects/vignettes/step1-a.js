@@ -272,34 +272,58 @@ function carBeep(ctx, spec, stage) {
 }
 
 // ---- 口 a mouth ----
+// The kanji turns into a face: a peach face with a nose, eyes and blushing cheeks fades in over the glyph (the strokes slip behind
+// it), and the mouth is real: a ring of red lips round a dark opening with a row of white teeth top and bottom and a pink tongue.
+// It opens a little and the tongue pokes out and waggles; it shuts; it opens wide for あー; it shuts and the glyph comes back.
 function mouthOpen(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group();
-  const flat = ctx.strokes.map((s, i) => [i, stage.strokeBox(i)]).filter(([, b]) => b.h < 0.3 * B.h).sort((a, b) => a[1].cy - b[1].cy);
-  const bottom = flat[0]?.[0] ?? ctx.strokes.length - 1, top = ctx.strokes.map((s, i) => [i, stage.strokeBox(i).maxY]).sort((a, b) => b[1] - a[1])[0][0];
-  const inside = solidProp([[G.box(B.w * 0.8, 1, 0.01 * u, 0, -0.5, 0), 0x5a0a14]], 0.3);
-  const teethTop = solidProp(Array.from({ length: 5 }, (_, i) => [G.box(B.w * 0.13, 0.07 * u, 0.02 * u, (i - 2) * B.w * 0.15, -0.035 * u, 0), 0xffffff]), 0.6);
-  const teethBot = teethTop.clone(); const tongue = solidProp([[G.sphere(0.15 * u, 0, 0, 0, 1.2, 0.6, 0.45), 0xff5a6a], [G.box(0.01 * u, 0.06 * u, 0.06 * u, 0, 0.0, 0.03 * u), 0xd83a4a]], 0.6);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), face = new THREE.Group(), N = 26, NT = 8, A0 = 0.17;
+  const skin = solidProp([
+    [G.sphere(1, 0, 0.11, -0.12, 0.46, 0.47, 0.12), 0xf3c29b],                                                              // the face, a shallow dome
+    [G.sphere(1, -0.3, 0.1, -0.026, 0.075, 0.07, 0.014), 0xf49aa0], [G.sphere(1, 0.3, 0.1, -0.026, 0.075, 0.07, 0.014), 0xf49aa0],   // cheeks
+    [G.sphere(0.05, 0, 0.19, 0.012, 1, 0.85, 0.85), 0xe9a07c], [G.sphere(0.011, -0.02, 0.172, 0.052), 0x6a2e22], [G.sphere(0.011, 0.02, 0.172, 0.052), 0x6a2e22],   // nose and nostrils
+    [G.sphere(1, -0.15, 0.34, -0.016, 0.034, 0.045, 0.02), 0x2a1a1a], [G.sphere(1, 0.15, 0.34, -0.016, 0.034, 0.045, 0.02), 0x2a1a1a],     // eyes
+    [G.sphere(0.01, -0.143, 0.352, 0.002), 0xffffff], [G.sphere(0.01, 0.157, 0.352, 0.002), 0xffffff],
+    [G.capsule(0.01, 0.07, -0.15, 0.42, -0.03, Math.PI / 2 - 0.12), 0x6a4a3a], [G.capsule(0.01, 0.07, 0.15, 0.42, -0.03, Math.PI / 2 + 0.12), 0x6a4a3a],   // brows
+  ], 0.5);
+  const unit = (c, z) => solidProp([[G.sphere(1, 0, 0, 0, 1, 1, z), c]], 0.3);
+  const inside = unit(0x3a0712, 0.02), throat = unit(0x1c0409, 0.02), tongueIn = unit(0xf0687e, 0.03);
+  const tongueOut = new THREE.Group(), tongueM = solidProp([[G.sphere(1, 0, -0.085, 0, 0.06, 0.1, 0.024), 0xf0687e], [G.box(0.006, 0.1, 0.006, 0, -0.07, 0.022), 0xc84a62]], 0.5);
+  tongueOut.add(tongueM);
+  const lipU = many([[G.sphere(1), 0xc8283e]], N, 0.55), lipL = many([[G.sphere(1), 0xe0405a]], N, 0.55), teeth = many([[G.box(0.037, 0.052, 0.022, 0, 0, 0), 0xffffff]], 2 * NT, 0.8);
   const ah = textPlane('あー', { h: 0.3 * u, color: '#ffffff', bg: '#d83a4a', pad: 0.3 });
-  const yTop = B.maxY - 0.08 * B.h, yBot = stage.strokeBox(bottom).cy;
-  group.add(inside, teethTop, teethBot, tongue, ah);
-  const loop = 6.0;
+  face.add(skin, inside, throat, tongueIn, tongueOut, lipU, lipL, teeth); face.position.set(B.cx, B.cy, 0);
+  group.add(face, ah);
+  const loop = 6.0, all = ctx.strokes.map((_, i) => i);
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { open1: [0.2, 0.4, 'back'], shut1: [2.4, 0.3, 'in'], open2: [3.0, 0.35, 'back'], shut2: [4.8, 0.3, 'in'] });
-      const o = pre ? 0 : 0.42 * u * (T.open1 - T.shut1) + 0.55 * u * (T.open2 - T.shut2) + 0.02 * u * Math.sin(v * 5) * (T.open1 - T.shut1);
-      const up = 0.6 * o, dn = 0.4 * o;
-      stage.offset(bottom, 0, -dn, 0.02 * u); if (top !== bottom) stage.offset(top, 0, up, 0.02 * u);
-      const gap = yTop - yBot + o, k = o > 0.01 * u;
-      inside.visible = teethTop.visible = teethBot.visible = k;
-      inside.position.set(B.cx, yTop + up, -0.03 * u); inside.scale.set(1, Math.max(1e-3, gap - 0.02 * u), 1);
-      teethTop.position.set(B.cx, yTop + up - 0.04 * u, -0.01 * u); teethBot.position.set(B.cx, yBot - dn + 0.11 * u, -0.01 * u); teethBot.rotation.z = Math.PI;
-      const stick = (pre ? 0 : between(v, 0.6, 0.9) * (1 - between(v, 2.0, 2.35)));
-      tongue.visible = k; tongue.position.set(B.cx + 0.03 * u * Math.sin(v * 9) * stick, yBot - dn + 0.1 * u - 0.12 * u * stick, 0.04 * u + 0.12 * u * stick);
-      tongue.rotation.set(0.6 * stick, 0, 0.3 * Math.sin(v * 9) * stick); tongue.scale.set(1, 1 + 0.8 * stick, 1);
-      const say = pre ? 0 : between(v, 3.3, 3.6) * (1 - between(v, 4.6, 4.8));
-      ah.visible = say > 0.01; ah.scale.setScalar(grow(say)); ah.position.set(B.maxX + 0.45 * u, B.maxY + 0.05 * u + 0.03 * u * Math.sin(v * 8), 0.05 * u);
+      const T = timeline(v, { open1: [0.9, 0.4, 'back'], shut1: [2.6, 0.3, 'in'], open2: [3.3, 0.4, 'back'], shut2: [4.9, 0.3, 'in'] });
+      const on = pre ? 0 : between(v, 0, 0.45) * (1 - between(v, 5.4, 5.8)), o1 = T.open1 - T.shut1, o2 = T.open2 - T.shut2;
+      face.visible = on > 0.01; face.scale.setScalar(Math.max(1e-3, grow(on)) * u / 0.26);
+      if (on > 0.05) for (const i of all) stage.offset(i, 0, 0, -0.5 * u);                    // the strokes slip behind the face
+      const b = 0.075 * o1 + 0.118 * o2 + 0.004 * Math.sin(v * 5) * o1, a = A0 * (1 - 0.1 * o2), open = Math.min(1, b / 0.035);
+      const stick = pre ? 0 : between(v, 1.3, 1.6) * (1 - between(v, 2.3, 2.6));
+      // the opening and what is in it
+      inside.scale.set(a, b + 0.016, 1); inside.position.set(0, 0, 0.003); inside.visible = open > 0;
+      throat.scale.set(a * 0.6, Math.max(1e-3, b * 0.7), 1); throat.position.set(0, 0.1 * b, 0.005); throat.visible = open > 0.2;
+      tongueIn.scale.set(a * 0.62, Math.max(1e-3, b * 0.42), 1); tongueIn.position.set(0, -0.5 * b, 0.008); tongueIn.visible = open > 0.3 && stick < 0.1;
+      tongueOut.visible = stick > 0.02; tongueOut.position.set(0, -(b + 0.014) + 0.012, 0.012 + 0.03 * stick); tongueOut.rotation.set(-0.3 * stick, 0, 0.4 * Math.sin(v * 9) * stick);
+      tongueOut.scale.set(1, 0.3 + 0.9 * stick, 1);
+      for (let i = 0; i < N; i++) {
+        const th = Math.PI * (i + 0.5) / N, c = Math.cos(th), s = Math.sin(th);
+        lipU.set(i, a * c, (b + 0.014) * s, 0.012, 0.026 + 0.007 * s);
+        lipL.set(i, a * c, -(b + 0.018) * s, 0.012, 0.03 + 0.009 * s);
+      }
+      lipU.commit(); lipL.commit();
+      for (let j = 0; j < NT; j++) {
+        const th = Math.PI * (0.14 + 0.72 * j / (NT - 1)), c = Math.cos(th), s = Math.sin(th), rz = (th - Math.PI / 2) * 0.35;
+        teeth.set(j, (a - 0.03) * c, (b + 0.014) * s - 0.05, 0.014, open, rz);
+        teeth.set(NT + j, (a - 0.03) * c, -(b + 0.018) * s + 0.05, 0.014, open, -rz);
+      }
+      teeth.commit();
+      const say = pre ? 0 : between(v, 3.6, 3.9) * (1 - between(v, 4.6, 4.8));
+      ah.visible = say > 0.01; ah.scale.setScalar(grow(say)); ah.position.set(B.cx + 0.58 * u / 0.26, B.cy + 0.28 * u / 0.26 + 0.02 * Math.sin(v * 8), 0.05);
     },
   };
 }
