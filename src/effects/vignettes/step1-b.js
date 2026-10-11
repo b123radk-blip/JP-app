@@ -1,8 +1,6 @@
 // Step 1 scenes, part B: nature and the sky.
 //   sun-rise      日: night with stars; the sun climbs out from behind a hill, pushes the dark away and spins out its rays,
 //                 then sinks and night comes back. outcome week: with the weekday strip lighting 日 (日曜日)
-//   fire-catch    火: a match strikes on a box, sparks, drops onto a pile of logs; small flames catch, grow and roar, sparks
-//                 fly; then it dies down to glowing embers. outcome week: 火曜日
 //   tap-fill      水: a tap above a glass basin turns on; water pours down, the basin fills with rings spreading and drops
 //                 jumping; the tap shuts and the water drains away. outcome week: 水曜日
 //   mountain-rise 山: a rumble shakes the kanji; a big mountain rises out of the ground behind it, dust puffing, snow falls
@@ -49,41 +47,6 @@ function sunRise(ctx, spec, stage) {
       twinkle(stars, B.minX - 0.3 * u, floor + 0.5 * u, 2.4 * u, 0.8 * u, 1 - h, t);
       const r = pre ? 0 : T.rays * (1 - T.set); shine.visible = r > 0.01; spin(shine, sun.position.x, sun.position.y, -0.34 * u, grow(r) * (1 + 0.1 * Math.sin(v * 5)), v * 0.6);
       stage.glyph.scale.setScalar(1 + 0.04 * (pre ? 0 : bump(v, 1.9, 0.6)));
-    },
-  };
-}
-
-// ---- 火 fire catching ----
-const FLAME = (u) => [[G.cone(0.07 * u, 0.24 * u, 0, 0.12 * u, 0), 0xff7a1a], [G.cone(0.04 * u, 0.15 * u, 0, 0.075 * u, 0.02 * u), 0xffe040]];
-function fireCatch(ctx, spec, stage) {
-  if (spec.outcome === 'week') return withWeek(fireCatch, 1, ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, fx = B.maxX + 0.5 * u;
-  const logs = solidProp([[G.cyl(0.05 * u, 0.05 * u, 0.5 * u, 0, 0.05 * u, 0.06 * u, 0, 0.3, Math.PI / 2 - 0.25), 0x7a4a24], [G.cyl(0.05 * u, 0.05 * u, 0.5 * u, 0, 0.05 * u, -0.06 * u, 0, -0.3, Math.PI / 2 + 0.25), 0x8a5428], [G.cyl(0.045 * u, 0.045 * u, 0.42 * u, 0, 0.12 * u, 0, 0, 0, Math.PI / 2), 0x6a3e1e]], 0.3);
-  const box = solidProp([[G.box(0.22 * u, 0.13 * u, 0.06 * u, 0, 0, 0), 0xd83030], [G.box(0.2 * u, 0.025 * u, 0.062 * u, 0, -0.03 * u, 0), 0x4a2a1a]], 0.4);
-  const match = solidProp([[G.cyl(0.012 * u, 0.012 * u, 0.3 * u, 0, 0.15 * u, 0), 0xf0d8a0], [G.sphere(0.025 * u, 0, 0.31 * u, 0, 1, 1.3, 1), 0xd02020]], 0.5);
-  const tip = solidProp([[G.cone(0.03 * u, 0.09 * u, 0, 0.045 * u, 0), 0xffb030]], 1.3);
-  const flames = many(FLAME(u), 7, 1.3), sparks = many([[G.sphere(0.012 * u), 0xffd060]], 10, 1.6), glow = many([[G.sphere(0.03 * u, 0, 0, 0, 1, 0.6, 1), 0xff4010]], 4, 1.4);
-  logs.position.set(fx, floor, 0); box.position.set(fx + 0.55 * u, floor + 0.55 * u, 0.05 * u);
-  group.add(logs, box, match, tip, flames, sparks, glow);
-  const loop = 6.8, F = [[0, 0, 1.2], [-0.1, 0.03, 0.85], [0.1, 0.02, 0.9], [-0.05, 0.05, 0.7], [0.06, 0.05, 0.75], [-0.16, 0, 0.55], [0.15, 0, 0.6]];
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { strike: [0.1, 0.4, 'in'], drop: [0.7, 0.5, 'in'], catch: [1.2, 1.4, 'out'], die: [5.0, 1.4] });
-      // the match: struck along the box's side, then tossed onto the logs
-      const lit = !pre && v > 0.45;
-      if (T.drop <= 0) { match.position.set(fx + 0.66 * u - 0.22 * u * T.strike, floor + 0.5 * u, 0.09 * u); match.rotation.z = 0.9; }
-      else { const f = T.drop; match.position.set(fx + 0.44 * u - 0.4 * u * f, floor + 0.5 * u - 0.38 * u * f + 0.15 * u * Math.sin(Math.PI * f), 0.09 * u); match.rotation.z = 0.9 + 1.2 * f; }
-      match.visible = !pre && T.catch < 0.6;
-      tip.visible = lit && match.visible; tip.position.copy(match.position).add(new THREE.Vector3(-Math.sin(match.rotation.z) * 0.31 * u, Math.cos(match.rotation.z) * 0.31 * u, 0)); tip.scale.setScalar(0.8 + 0.3 * Math.sin(t * 20));
-      const size = pre ? 0 : T.catch * (1 - 0.8 * T.die);
-      F.forEach(([x, z, s], i) => { const fl = 1 + 0.18 * Math.sin(t * (9 + i) + i * 2) + 0.1 * Math.sin(t * 17 + i); flames.set(i, fx + x * u, floor + 0.13 * u, z * u + 0.02 * u, size * s * fl * (i < 3 ? 1.4 : between(T.catch, 0.3, 1) * 1.2), 0.1 * Math.sin(t * 7 + i)); });
-      flames.commit();
-      for (let i = 0; i < 10; i++) { const f = ((t * 0.7 + i * 0.137) % 1); sparks.set(i, fx + 0.2 * u * Math.sin(i * 2.4 + f * 3), floor + 0.3 * u + 0.8 * u * f, 0.03 * u, size > 0.5 ? (1 - f) * 1.3 : 0); }
-      sparks.commit();
-      for (let i = 0; i < 4; i++) glow.set(i, fx + (i - 1.5) * 0.08 * u, floor + 0.06 * u, 0.09 * u, pre ? 0 : (T.catch > 0.2 ? 1 : 0) * (0.8 + 0.3 * Math.sin(t * 5 + i)));
-      glow.commit();
     },
   };
 }
@@ -263,4 +226,4 @@ function groveGrow(ctx, spec, stage) {
   };
 }
 
-export const SCENES = { 'sun-rise': sunRise, 'fire-catch': fireCatch, 'tap-fill': tapFill, 'mountain-rise': mountainRise, 'tree-sprout': treeSprout, 'rain-drops': rainDrops, 'sun-moon-glow': sunMoonGlow, 'grove-grow': groveGrow };
+export const SCENES = { 'sun-rise': sunRise, 'tap-fill': tapFill, 'mountain-rise': mountainRise, 'tree-sprout': treeSprout, 'rain-drops': rainDrops, 'sun-moon-glow': sunMoonGlow, 'grove-grow': groveGrow };
