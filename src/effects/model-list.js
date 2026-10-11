@@ -12,6 +12,7 @@ export const MODELS = {
   // Kenney mini market and food kit (CC0): the cart-shop scene
   marketCart: 'kenney/mini-market/shopping-cart.glb', marketTill: 'kenney/mini-market/cash-register.glb',
   foodCan: 'kenney/food-kit/can.glb', foodApple: 'kenney/food-kit/apple.glb', sodaCan: 'kenney/food-kit/soda-can.glb',
+  rowboat: 'kenney/pirate-kit/boat-row-small.glb', paddle: 'kenney/pirate-kit/tool-paddle.glb',
   // Quaternius (CC0; packs in assets/models/quaternius/License.txt). Animals
   shiba: 'quaternius/animals/shiba.glb', cow: 'quaternius/animals/cow.glb', horse: 'quaternius/animals/horse.glb',
   fox: 'quaternius/animals/fox.glb', deer: 'quaternius/animals/deer.glb', wolf: 'quaternius/animals/wolf.glb',

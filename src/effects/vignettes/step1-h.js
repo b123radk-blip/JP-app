@@ -1,18 +1,21 @@
 // Step 1 scenes, part H: out and in, electricity, feet, roads, growing things, the station.
 //   turtle-out      出: a turtle shell sits still; out pops its head, then its legs, it takes a few steps and pulls back
-//                   in. outcome door: a door opens and a person walks out, waving (出る); hat: a hand taps a top hat with a
-//                   wand and a rabbit rises out of it (出す); exit: a green 出口 sign glows over a door and a person runs out
-//                   under it (出口)
+//                   in. outcome door: you stand in a room; a man walks away from you to a door in the far wall, it opens outward
+//                   on daylight and he goes out (出る, step1-h2.js); hat: a hand taps a top hat with a wand and a rabbit
+//                   rises out of it (出す); exit: the big green 出口 sign over the door lights first, then a man runs under
+//                   it out into the daylight (出口, step1-h2.js)
 //   tent-in         入: a little tent; a dog trots up and goes in, the flap drops behind it and the tent wiggles; then the
 //                   dog pokes its head out again. outcome house: a person walks into a house, the door shuts, the window
 //                   lights (入る); doors: glass doors under an 入口 sign slide open, a person walks in, they close (入り口);
 //                   coin: a coin drops into a piggy bank's slot, clink, the pig jiggles (入れる)
 //   lightning-bulb  電: two dark clouds; a lightning bolt zaps between them and down into a light bulb on a stand, which
-//                   lights up. outcome phone: an old phone rings and hops, sparks running along its cord (電話); bulb: sparks
+//                   lights up. outcome phone: lightning strikes a junction post, a cable runs along the ground into an old phone, sparks run
+//                   along it and the phone rings and hops (電話, step1-h2.js); bulb: sparks
 //                   run along the wires of a power pole into a little house, whose windows light up (電気)
 //   electric-train  電車: a train runs along under an overhead wire and back, its pantograph sparking as it goes
-//   feet-walk       足: two bare feet walk across beside the kanji, leaving footprints; they stop and wiggle their toes
-//   hen-lead        前: a hen walks in front, three chicks behind her in a line; a glowing ring marks the one in front
+//   feet-walk       足: two smooth bare feet walk heel to toe on a sand slope, leaving footprints; they stop and wiggle their
+//                   toes (step1-feet.js)
+//   hen-lead        前: a boat race; two rowing boats with a rower each, one pulls ahead and a ring and an arrow mark it (step1-boat.js)
 //   road-unroll     道: a winding road unrolls from your feet over the hills to a far-off house, trees popping up along it
 //   sprout-life     生: a seed in a mound of soil cracks, a sprout pushes up, unfolds two leaves and stretches up alive,
 //                   wiggling. outcome stork: a stork flies in with a bundle and sets it in a basket; a baby peeks out (生まれる)
@@ -32,13 +35,14 @@ import { between } from './helpers.js';
 import { grow } from './step1-kit.js';
 import { dogParts } from './step1-a.js';
 import { crown } from './step1-b.js';
-import { doorOut } from './step1-door-out.js';
-import { doorway, walkOut, hatRabbit, houseIn, autoDoors, piggyCoin, phoneRing, powerHouse, storkBaby } from './step1-hv.js';
+import { awayDoor, phoneCable } from './step1-h2.js';
+import { feetWalk } from './step1-feet.js';
+import { boatRace } from './step1-boat.js';
+import { hatRabbit, houseIn, autoDoors, piggyCoin, powerHouse, storkBaby } from './step1-hv.js';
 
 // ---- 出 out ----
 function turtleOut(ctx, spec, stage) {
-  if (spec.outcome === 'door') return doorOut(ctx, spec, stage);
-  if (spec.outcome === 'exit') return walkOut(ctx, spec, stage, true);
+  if (spec.outcome === 'door' || spec.outcome === 'exit') return awayDoor(ctx, spec, stage);
   if (spec.outcome === 'hat') return hatRabbit(ctx, spec, stage);
   const B = stage.box, u = 1.4 * stage.u, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.45 * u;
   const shell = solidProp([[G.sphere(0.26 * u, 0, 0, 0, 1.2, 0.8, 1), 0x3a8a3a], ...Array.from({ length: 6 }, (_, i) => [G.sphere(0.07 * u, Math.cos(i * 1.05) * 0.16 * u, 0.12 * u, 0.13 * u + Math.sin(i * 1.05) * 0.06 * u, 1, 0.5, 0.6), 0x5aaa4a]), [G.cyl(0.3 * u, 0.3 * u, 0.04 * u, 0, -0.02 * u, 0), 0xc8b060]], 0.4);
@@ -92,7 +96,7 @@ function tentIn(ctx, spec, stage) {
 // ---- 電 lightning ----
 const ZIG = (u, pts, r = 0.02) => [G.poly(pts.map(([x, y]) => [x * u, y * u]), r * u), 0xfff060];
 function lightningBulb(ctx, spec, stage) {
-  if (spec.outcome === 'phone') return phoneRing(ctx, spec, stage);
+  if (spec.outcome === 'phone') return phoneCable(ctx, spec, stage);
   if (spec.outcome === 'bulb') return powerHouse(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.55 * u, cy = B.maxY + 0.1 * u;
   const clouds = many([[G.sphere(0.17 * u), 0x5a6070], [G.sphere(0.13 * u, 0.16 * u, -0.03 * u, 0), 0x5a6070], [G.sphere(0.13 * u, -0.16 * u, -0.03 * u, 0), 0x5a6070]], 2, 0.3);
@@ -132,53 +136,6 @@ function electricTrain(ctx, spec, stage) {
       train.visible = !pre; train.position.set(x, floor + 0.02 * u + 0.005 * u * Math.sin(t * 20), 0); panto.position.set(x, floor + 0.3 * u, 0); panto.visible = !pre;
       for (let i = 0; i < 5; i++) { const k = ((t * 4 + i * 0.37) % 1); sparks.set(i, x + 0.04 * u * Math.cos(i * 2.1 + k * 6), yWire + 0.04 * u * Math.sin(i * 1.7 + k * 5), 0.01 * u, !pre && f > 0.02 && f < 0.98 && k < 0.5 ? 1.3 : 0); }
       sparks.commit();
-    },
-  };
-}
-
-// ---- 足 feet ----
-const FOOT = (u) => [[G.sphere(0.1 * u, 0, 0, 0, 0.75, 0.35, 1.4), 0xffd2b0], ...[[-0.05, 0.13, 0.035], [-0.015, 0.145, 0.03], [0.02, 0.14, 0.027], [0.05, 0.125, 0.024], [0.075, 0.1, 0.022]].map(([x, z, r]) => [G.sphere(r * u, x * u, 0.01 * u, z * u), 0xffd2b0])];
-function feetWalk(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 1.3 * u, x1 = B.maxX + 0.35 * u;
-  const feet = many(FOOT(2.4 * u), 2, 0.45), prints = many([[G.sphere(0.1 * u, 0, 0, 0, 0.75, 0.05, 1.4), 0x8a6a50]], 8, 0.2);
-  group.add(prints, feet);
-  const loop = 6.0, steps = 6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0.1, 3.4), fade = pre ? 1 : between(v, 5.2, 5.8);
-      for (let s = 0; s < 2; s++) {
-        // each foot steps on its own beat: lift, move forward, put down
-        const ph = f * steps / 2 + s * 0.5, k = Math.floor(ph), g = ph - k, x = x0 + (x1 - x0) * Math.min(1, (k + Math.min(1, g * 1.4)) / (steps / 2 + 0.5));
-        const lift = f < 1 && f > 0 ? Math.sin(Math.PI * Math.min(1, g * 1.4)) * 0.12 * u : 0, wig = f >= 1 ? 0.15 * Math.sin(t * 12 + s) : 0;
-        feet.set(s, x, floor + 0.05 * u + 1.6 * lift, (s ? -0.14 : 0.14) * u + 0.1 * u, grow(1 - fade), wig, -Math.PI / 2, 0.9 - 0.4 * lift / (0.12 * u + 1e-6));
-      }
-      feet.commit();
-      for (let i = 0; i < 8; i++) { const at = (i + 1) / 9, x = x0 + (x1 - x0) * at; prints.set(i, x, floor + 0.003 * u, ((i % 2) ? -0.14 : 0.14) * u + 0.1 * u, f > at ? 1 - fade : 0, 0, -Math.PI / 2, 0.9); }
-      prints.commit();
-    },
-  };
-}
-
-// ---- 前 the hen in front ----
-const HEN = (u) => [[G.sphere(0.16 * u, 0, 0.18 * u, 0, 1.3, 1, 0.9), 0xfaf6ee], [G.sphere(0.09 * u, 0.15 * u, 0.36 * u, 0), 0xfaf6ee], [G.cone(0.03 * u, 0.07 * u, 0.25 * u, 0.36 * u, 0, -Math.PI / 2), 0xffb030], [G.sphere(0.04 * u, 0.15 * u, 0.47 * u, 0, 1, 0.8, 0.5), 0xe02020], [G.sphere(0.025 * u, 0.22 * u, 0.3 * u, 0, 0.6, 1.2, 0.5), 0xe02020], [G.sphere(0.018 * u, 0.2 * u, 0.39 * u, 0.06 * u), 0x101010], [G.cone(0.07 * u, 0.16 * u, -0.22 * u, 0.26 * u, 0, Math.PI / 2 + 0.7), 0xe8e0d0], [G.cyl(0.012 * u, 0.012 * u, 0.06 * u, 0, 0.03 * u, 0), 0xffb030]];
-const CHICK = (u) => [[G.sphere(0.07 * u, 0, 0.08 * u, 0), 0xffe040], [G.sphere(0.05 * u, 0.06 * u, 0.15 * u, 0), 0xffe040], [G.cone(0.015 * u, 0.04 * u, 0.115 * u, 0.15 * u, 0, -Math.PI / 2), 0xff8a20], [G.sphere(0.01 * u, 0.09 * u, 0.17 * u, 0.03 * u), 0x101010]];
-function henLead(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
-  const hen = solidProp(HEN(1.2 * u), 0.5), chicks = many(CHICK(1.3 * u), 3, 0.5), ring = solidProp([[G.torus(0.28 * u, 0.015 * u), 0xffe060]], 1.4), front = textPlane('→', { h: 0.18 * u, color: '#ffe060', weight: 900 });
-  ring.rotation.x = Math.PI / 2 - 0.4;
-  group.add(hen, chicks, ring, front);
-  const loop = 6.0;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0, 4.4), fade = pre ? 1 : between(v, 5.2, 5.8);
-      const hx = B.maxX + 0.55 * u + 0.8 * u * f, walking = f > 0 && f < 1;
-      hen.position.set(hx, floor + (walking ? 0.015 * u * Math.abs(Math.sin(v * 9)) : 0), 0.05 * u); hen.rotation.z = walking ? 0.08 * Math.sin(v * 9) : 0.1 * Math.sin(v * 4); hen.scale.setScalar(grow(1 - fade));
-      for (let i = 0; i < 3; i++) { const x = hx - (0.32 + 0.2 * i) * u; chicks.set(i, x, floor + (walking ? 0.03 * u * Math.abs(Math.sin(v * 12 + i)) : 0), 0.05 * u, grow(1 - fade), walking ? 0.15 * Math.sin(v * 12 + i) : 0); }
-      chicks.commit();
-      const k = pre ? 0 : between(v, 0.8, 1.2) * (1 - fade); ring.visible = k > 0.01; ring.scale.setScalar(grow(k) * (1 + 0.06 * Math.sin(t * 5))); ring.position.set(hx + 0.02 * u, floor + 0.02 * u, 0.05 * u);
-      front.visible = k > 0.01; front.scale.setScalar(grow(k)); front.position.set(hx + 0.38 * u, floor + 0.45 * u + 0.02 * u * Math.sin(t * 5), 0.05 * u);
     },
   };
 }
@@ -277,4 +234,4 @@ function flowerBloom(ctx, spec, stage) {
   };
 }
 
-export const SCENES = { 'turtle-out': turtleOut, 'tent-in': tentIn, 'lightning-bulb': lightningBulb, 'electric-train': electricTrain, 'feet-walk': feetWalk, 'hen-lead': henLead, 'road-unroll': roadUnroll, 'sprout-life': sproutLife, 'station-train': stationTrain, 'flower-bloom': flowerBloom };
+export const SCENES = { 'turtle-out': turtleOut, 'tent-in': tentIn, 'lightning-bulb': lightningBulb, 'electric-train': electricTrain, 'feet-walk': feetWalk, 'hen-lead': boatRace, 'road-unroll': roadUnroll, 'sprout-life': sproutLife, 'station-train': stationTrain, 'flower-bloom': flowerBloom };
