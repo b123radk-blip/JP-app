@@ -109,17 +109,23 @@ export function nestingDolls(ctx, spec, stage) {
 }
 
 export function tinySeed(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.45 * u;
-  const hand = createHand({ u: 0.7 * u, sleeve: 0x8a6a40 }), seed = solidProp([[G.sphere(0.018 * u, 0, 0, 0, 1.3, 0.9, 0.9), 0x8a5a30]], 0.6), ring = solidProp([[G.torus(0.05 * u, 0.006 * u), 0xffe060]], 1.4);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.62 * u, hu = 0.7 * u;
+  const hand = createHand({ u: hu, sleeve: 0x8a6a40 }), seed = solidProp([[G.sphere(0.03 * u, 0, 0, 0, 1.3, 0.9, 0.9), 0x8a5a30]], 0.6), ring = solidProp([[G.torus(0.05 * u, 0.006 * u), 0xffe060]], 1.4);
   group.add(hand.group, seed, ring);
-  const loop = 5.0;
+  // an open hand held palm up, fingers pointing left, forearm coming in from the right
+  hand.group.quaternion.setFromAxisAngle(new THREE.Vector3(1, 0, 0), 0.8).multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(-1.4, Math.PI / 2, 0, 'YXZ')));   // palm up and tipped toward the viewer
+  hand.group.position.set(hx + 0.28 * u, floor + 0.3 * u, 0.04 * u);
+  const spot = new THREE.Vector3(), loop = 5.0;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, open = pre ? 0 : between(v, 0.6, 1.2) * (1 - between(v, 4.2, 4.7));
-      hand.pose('grip', 'flat', open); hand.group.position.set(hx, floor + 0.05 * u, 0.1 * u); hand.group.rotation.set(-1.2, 0, 0); hand.group.visible = !pre;
-      seed.position.set(hx, floor + 0.12 * u, 0.28 * u); seed.visible = open > 0.6;
-      const p = pre ? 0 : between(v, 1.3, 2.3); ring.visible = open > 0.6; ring.position.set(hx, floor + 0.13 * u, 0.29 * u); ring.scale.setScalar(1 + 0.5 * Math.sin(t * 4) * 0.3); ring.rotation.x = -1.2; void p;
+      hand.pose('grip', 'flat', open); hand.group.visible = !pre; hand.group.updateMatrix();
+      // the seed lies on the middle of the palm's face (palm bone 62% along, out by the palm's half thickness plus the seed's radius)
+      spot.copy(hand.rig.pointOn('palm', 0.62, spot, [0, 0, 0.16 * 0.42 * hu + 0.027 * u])).applyMatrix4(hand.group.matrix);
+      const k = open > 0.15 ? between(open, 0.15, 0.6) : 0;
+      seed.visible = k > 0.01; seed.scale.setScalar(Math.max(0.01, k)); seed.position.copy(spot);
+      ring.visible = open > 0.6; ring.position.copy(spot); ring.scale.setScalar(1 + 0.15 * Math.sin(t * 4)); ring.quaternion.copy(hand.group.quaternion);   // lies in the palm's plane
     },
   };
 }

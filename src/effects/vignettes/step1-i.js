@@ -25,7 +25,7 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, poseGlyph, puffs, liveText, wisps } from './helpers.js';
 import { grow, countTag } from './step1-kit.js';
-import { carBody } from './step1-a.js';
+import { createModel } from '../models.js';
 import { saltPinch, cookieJar, cookieShare, untangle } from './step1-iv.js';
 
 const tmp = new THREE.Vector3();
@@ -129,23 +129,39 @@ function fishLeap(ctx, spec, stage) {
 }
 
 // ---- 半 half ----
+// An orange half is built with its cut face on the plane z = 0 (normal -z) and the round skin behind it, then the whole geometry
+// is turned so the face looks along +x (left half) or -x (right half): face and skin are one piece, so the face stays on its half.
+function orangeHalfParts(u, R, face) {
+  const turn = face > 0 ? -Math.PI / 2 : Math.PI / 2, T = (g) => g.rotateY(turn);
+  return [
+    [T(new THREE.SphereGeometry(R, 24, 16, 0, Math.PI)), 0xff9a20],
+    [T(new THREE.TorusGeometry(R * 0.985, 0.012 * u, 8, 36)), 0xffd9a0],
+    [T(new THREE.CircleGeometry(R * 0.975, 28).rotateY(Math.PI).translate(0, 0, -0.002 * u)), 0xffb84a],
+    [T(new THREE.CircleGeometry(R * 0.2, 16).rotateY(Math.PI).translate(0, 0, -0.004 * u)), 0xfff0c0],
+    ...Array.from({ length: 8 }, (_, i) => [T(G.box(0.006 * u, R * 1.9, 0.002 * u, 0, 0, -0.004 * u, i * Math.PI / 8)), 0xfff0c0]),
+  ];
+}
 function orangeHalf(ctx, spec, stage) {
   if (spec.outcome === 'share') return cookieShare(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ox = B.maxX + 0.55 * u, oy = floor + 0.2 * u, R = 0.2 * u;
-  const halfGeo = () => [[new THREE.SphereGeometry(R, 24, 16, 0, Math.PI), 0xff9a20], [new THREE.CircleGeometry(R * 0.98, 24).rotateY(-Math.PI / 2).translate(0, 0, 0), 0xffd070], ...Array.from({ length: 8 }, (_, i) => [G.box(0.004 * u, R * 1.7, 0.01 * u, 0.001 * u, 0, 0, i * Math.PI / 8).rotateY(-Math.PI / 2), 0xffffff])];
-  const L = solidProp(halfGeo(), 0.5), Rh = solidProp(halfGeo(), 0.5), knife = solidProp([[G.box(0.04 * u, 0.36 * u, 0.012 * u, 0, 0.18 * u, 0), 0xd8dde6], [G.box(0.05 * u, 0.15 * u, 0.03 * u, 0, 0.43 * u, 0), 0x5a3a20]], 0.5);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ox = B.maxX + 0.55 * u, R = 0.2 * u, oy = R;
+  const L = solidProp(orangeHalfParts(u, R, 1), 0.5), Rh = solidProp(orangeHalfParts(u, R, -1), 0.5);
+  const knife = solidProp([[G.box(0.05 * u, 0.36 * u, 0.012 * u, 0, 0.18 * u, 0), 0xd8dde6], [G.box(0.05 * u, 0.15 * u, 0.03 * u, 0, 0.43 * u, 0), 0x5a3a20]], 0.5);
   const board = solidProp([[G.box(0.8 * u, 0.04 * u, 0.4 * u, 0, -0.02 * u, 0), 0xc89a60]], 0.35), tag = textPlane('½', { h: 0.3 * u, color: '#ffffff', bg: '#e04848', pad: 0.3 });
-  L.rotation.y = Math.PI; board.position.set(ox, floor, -0.05 * u); board.rotation.x = 0.4;
-  group.add(board, L, Rh, knife, tag);
-  const loop = 5.6;
+  // everything on the board leans back a little so the learner looks down onto it
+  const tilt = new THREE.Group(); tilt.position.set(ox, floor, 0); tilt.rotation.x = 0.3; tilt.add(board, L, Rh, knife);
+  group.add(tilt, tag);
+  // once apart, each half has rocked back onto its round side: its cut face turns up and toward the viewer, still on its own half
+  const X = new THREE.Vector3(1, 0, 0), qL = new THREE.Quaternion().setFromUnitVectors(X, new THREE.Vector3(0.3, 0.42, 0.86).normalize()), qR = new THREE.Quaternion().setFromUnitVectors(X.clone().negate(), new THREE.Vector3(-0.3, 0.42, 0.86).normalize()), I = new THREE.Quaternion();
+  const loop = 5.6, sep = 0.22 * u;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { cut: [0.4, 0.5, 'in'], up: [1.0, 0.4], part: [1.0, 0.6, 'back'], back: [4.6, 0.6] }), p = T.part - T.back;
-      L.position.set(ox - 0.12 * u * p, oy, 0.02 * u); L.rotation.set(0, Math.PI + 0.9 * p, 0); Rh.position.set(ox + 0.12 * u * p, oy, 0.02 * u); Rh.rotation.set(0, -0.9 * p, 0);
-      knife.visible = !pre && v < 1.5; knife.position.set(ox, oy + 0.35 * u - 0.4 * u * T.cut + 0.4 * u * T.up, 0.05 * u);
-      const k = pre ? 0 : between(v, 1.5, 1.8) * (1 - T.back); tag.visible = k > 0.01; tag.scale.setScalar(grow(k)); tag.position.set(ox, oy + 0.42 * u, 0.06 * u);
+      // the knife comes straight down through the middle to the board, then lifts away; only then do the halves part
+      const T = timeline(v, { cut: [0.4, 0.5, 'in'], up: [1.0, 0.4], part: [1.1, 0.7, 'back'], back: [4.6, 0.6] }), p = T.part - T.back;
+      L.position.set(-sep * p, oy, 0); L.quaternion.copy(I).slerp(qL, p); Rh.position.set(sep * p, oy, 0); Rh.quaternion.copy(I).slerp(qR, p);
+      knife.visible = !pre && v < 1.5; knife.position.set(0, oy + 0.35 * u - 0.55 * u * T.cut + 0.55 * u * T.up, 0);
+      const k = pre ? 0 : between(v, 1.6, 1.9) * (1 - T.back); tag.visible = k > 0.01; tag.scale.setScalar(grow(k)); tag.position.set(ox, oy + 0.55 * u, 0.1 * u);
     },
   };
 }
@@ -213,19 +229,31 @@ function craneString(ctx, spec, stage) {
 }
 
 // ---- 右 turn right ----
+// The sedan's nose is its local +z; along a path it is yawed to face the direction of travel, so it never drives backwards or sideways.
 function turnRight(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, jx = B.maxX + 0.5 * u;
-  const roads = solidProp([[G.box(0.34 * u, 0.01 * u, 1.2 * u, 0, 0, -0.2 * u), 0x4a4d58], [G.box(1.0 * u, 0.01 * u, 0.34 * u, 0.33 * u, 0.001 * u, -0.45 * u), 0x4a4d58], ...[0, 1, 2].map((i) => [G.box(0.03 * u, 0.012 * u, 0.12 * u, 0, 0.0, (0.25 - 0.22 * i) * u), 0xffffff])], 0.3);
-  const car = carBody(0.75 * u, { color: 0x3a7ae0 }), blink = solidProp([[G.sphere(0.03 * u), 0xffa020]], 2.0), arrow = solidProp([[G.box(0.16 * u, 0.04 * u, 0.02 * u, -0.04 * u, 0, 0), 0xffa020], [G.cone(0.05 * u, 0.08 * u, 0.07 * u, 0, 0, -Math.PI / 2), 0xffa020]], 1.5);
-  const tilt = new THREE.Group(); tilt.position.set(jx, floor, 0); tilt.rotation.x = 0.55; tilt.add(roads, car, blink);
+  const roads = solidProp([[G.box(0.34 * u, 0.01 * u, 1.2 * u, 0, 0, -0.2 * u), 0x4a4d58], [G.box(1.0 * u, 0.01 * u, 0.34 * u, 0.33 * u, 0.001 * u, -0.45 * u), 0x4a4d58], ...[0, 1, 2].map((i) => [G.box(0.03 * u, 0.012 * u, 0.12 * u, 0, 0.0, (0.3 - 0.22 * i) * u), 0xffffff])], 0.3);
+  const cm = createModel('sedan', { height: 0.2 * u }), car = new THREE.Group(), ck = 0.2 * u / 1.3, wheels = ['wheel-front-left', 'wheel-front-right', 'wheel-back-left', 'wheel-back-right'].map(cm.node);
+  const blink = solidProp([[G.sphere(0.022 * u, -0.1 * u, 0.07 * u, 0.2 * u), 0xffa020], [G.sphere(0.022 * u, -0.1 * u, 0.07 * u, -0.2 * u), 0xffa020]], 2.0);
+  const arrow = solidProp([[G.box(0.16 * u, 0.04 * u, 0.02 * u, -0.04 * u, 0, 0), 0xffa020], [G.cone(0.05 * u, 0.08 * u, 0.07 * u, 0, 0, -Math.PI / 2), 0xffa020]], 1.5);
+  car.add(cm.group, blink);
+  const tilt = new THREE.Group(); tilt.position.set(jx, floor, 0); tilt.rotation.x = 0.55; tilt.add(roads, car);
   group.add(tilt, arrow);
-  const loop = 5.6, P = (f) => { if (f < 0.5) { const g = f / 0.5; return [0, 0.35 * u - 0.75 * u * g, Math.PI]; } const g = (f - 0.5) / 0.5, a = Math.PI / 2 * Math.min(1, g * 1.6); return [0.85 * u * g, -0.4 * u - 0.05 * u * Math.sin(a), Math.PI - a]; };
+  // path: straight up the road (away from us, -z), a quarter turn to the right (+x) onto the side road, then straight along it
+  const Z0 = 0.4 * u, R = 0.17 * u, ZC = -0.45 * u + R, L1 = Z0 - ZC, ARC = Math.PI / 2 * R, L2 = 0.75 * u, TOT = L1 + ARC + L2;
+  const P = (s) => {
+    if (s <= L1) return [0, Z0 - s, Math.PI];
+    if (s <= L1 + ARC) { const a = (s - L1) / R; return [R - R * Math.cos(a), ZC - R * Math.sin(a), Math.PI - a]; }
+    return [R + (s - L1 - ARC), ZC - R, Math.PI / 2];
+  };
   return {
     group,
     step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0, 1.2) * 0.5 + between(v, 2.2, 3.6) * 0.5, gone = pre ? 0 : between(v, 3.6, 4.0);
-      const [x, z, yaw] = P(f); car.position.set(x + 0.04 * u, 0.0, z); car.rotation.y = yaw + Math.PI / 2; car.visible = !pre && gone < 1; car.scale.setScalar(grow(1 - gone)); car.roll(v * 12 * (f > 0 && f < 1 ? 1 : 0), 0.3);
-      const on = !pre && v > 1.0 && v < 3.0 && (v * 3) % 1 < 0.5; blink.visible = on; blink.position.set(x + 0.18 * u * Math.sin(yaw + Math.PI / 2 + 0.6), 0.12 * u, z + 0.18 * u * Math.cos(yaw + Math.PI / 2 + 0.6));
+      const A = acts(ctx, t, 5.6), pre = A.u < 0, v = pre ? -1 : A.v, gone = pre ? 0 : between(v, 3.7, 4.1);
+      const s = (pre ? 0 : between(v, 0, 1.2) * L1 + between(v, 2.2, 3.7) * (TOT - L1)), [x, z, yaw] = P(s);
+      car.position.set(x, 0.005 * u, z); car.rotation.set(0, yaw, 0); car.visible = !pre && gone < 1; car.scale.setScalar(grow(1 - gone));
+      wheels.forEach((w) => w && (w.rotation.x = s / (0.3 * ck)));
+      blink.visible = !pre && v > 0.9 && v < 3.3 && (v * 3) % 1 < 0.5;
       const k = !pre && v > 1.0 && v < 3.6 ? 1 : 0; arrow.visible = k > 0; arrow.position.set(jx + 0.3 * u + 0.05 * u * Math.sin(v * 6), floor + 0.75 * u, 0.06 * u);
     },
   };
