@@ -6,8 +6,8 @@
 //                giggle. outcome sneak: a person stands looking ahead while a cat creeps up behind them; they spin round,
 //                "!" (後ろ)
 //   grow-big     大: the kanji swells up huge; a tiny mouse at its foot looks up and up, "!"; it shrinks back. outcome
-//                elephant: a huge elephant beside a tiny mouse raises its trunk and trumpets (大きい); whale: a huge whale
-//                surfaces beside a little boat and spouts (大きな)
+//                elephant: a huge elephant model strides up beside a tiny mouse, curls its trunk up and trumpets (大きい;
+//                q-animals4.js); whale: a huge whale surfaces beside a little boat and spouts (大きな)
 //   adult-kid    大人: a tall grown-up with a briefcase stands next to a small kid, who stretches up on tiptoe and still
 //                only reaches their waist; the grown-up pats their head
 //   house-out    外: a little house; its door swings open, a dog bounds out into the yard and the door shuts behind it; the
@@ -23,6 +23,7 @@ import { between, poseGlyph, puffs } from './helpers.js';
 import { grow } from './step1-kit.js';
 import { sit } from './step1-d.js';
 import { dogParts } from './step1-a.js';
+import { bigElephant } from './q-animals4.js';
 
 // a speech bubble (white oval with a tail) carrying a few dots or squiggles; origin at its middle
 const bubble = (u, w = 0.36, mark = 0x606878) => solidProp([[G.sphere(0.5 * u, 0, 0, 0, w, 0.36, 0.1), 0xffffff], [G.cone(0.04 * u, 0.1 * u, -0.08 * u, -0.17 * u, 0, 2.6), 0xffffff], ...[-1, 0, 1].map((i) => [G.sphere(0.025 * u, i * 0.07 * u, 0, 0.04 * u), mark])], 0.9);
@@ -118,7 +119,7 @@ function sneakUp(ctx, spec, stage) {
 // ---- 大 big ----
 const MOUSE = (u) => [[G.sphere(0.06 * u, 0, 0.05 * u, 0, 1.4, 0.9, 0.9), 0xb0b0b8], [G.sphere(0.04 * u, 0.08 * u, 0.07 * u, 0), 0xb0b0b8], [G.sphere(0.025 * u, 0.07 * u, 0.12 * u, -0.02 * u), 0xffb0c0], [G.sphere(0.025 * u, 0.07 * u, 0.12 * u, 0.02 * u), 0xffb0c0], [G.sphere(0.008 * u, 0.12 * u, 0.08 * u, 0.0), 0xff6080], [G.cyl(0.006 * u, 0.004 * u, 0.15 * u, -0.12 * u, 0.06 * u, 0, 0, 0, 1.2), 0xd08890]];
 function growBig(ctx, spec, stage) {
-  if (spec.outcome === 'elephant') return elephant(ctx, spec, stage);
+  if (spec.outcome === 'elephant') return bigElephant(ctx, spec, stage);
   if (spec.outcome === 'whale') return whale(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
   const mouse = solidProp(MOUSE(1.4 * u), 0.5), bang = textPlane('!', { h: 0.22 * u, color: '#ffe040', weight: 900 }), dust = many(PUFF(u), 6, 0.3);
@@ -134,25 +135,6 @@ function growBig(ctx, spec, stage) {
       mouse.position.set(mx, floor, 0.12 * u); mouse.rotation.set(0, Math.PI, -0.9 * k + 0.05 * Math.sin(v * 8)); mouse.visible = !pre;
       const b = pre ? 0 : between(v, 1.2, 1.4) * (1 - between(v, 4.0, 4.3)); bang.visible = b > 0.01; bang.scale.setScalar(grow(b)); bang.position.set(mx + 0.05 * u, floor + 0.38 * u, 0.12 * u);
       puffs(dust, 0, 6, B.cx, floor, pre ? 0 : (v - 0.6) / 0.9, u, 0.6); dust.commit();
-    },
-  };
-}
-function elephant(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ex = B.maxX + 0.55 * u;
-  const body = solidProp([[G.sphere(0.36 * u, 0, 0.5 * u, 0, 1.3, 1, 0.9), 0x9aa0ac], [G.sphere(0.24 * u, 0.42 * u, 0.68 * u, 0), 0x9aa0ac], [G.sphere(0.2 * u, 0.36 * u, 0.72 * u, 0.2 * u, 0.4, 1.1, 1), 0xb0b6c2], [G.sphere(0.03 * u, 0.56 * u, 0.76 * u, 0.13 * u), 0x101018], ...[[-0.25, 0.12], [-0.25, -0.12], [0.22, 0.12], [0.22, -0.12]].map(([x, z]) => [G.cyl(0.08 * u, 0.08 * u, 0.3 * u, x * u, 0.15 * u, z * u), 0x8a909c]), [G.cone(0.025 * u, 0.12 * u, 0.6 * u, 0.58 * u, 0.12 * u, -1.9), 0xfff8e8]], 0.4);
-  const trunk = many([[G.sphere(0.055 * u), 0x9aa0ac]], 7, 0.4), mouse = solidProp(MOUSE(1.4 * u), 0.5), toot = many([[G.torus(0.08 * u, 0.01 * u), 0xffe080]], 3, 1.0);
-  const holder = new THREE.Group(); holder.position.set(ex + 0.35 * u, floor, -0.1 * u); holder.rotation.y = Math.PI; holder.add(body, trunk);
-  group.add(holder, mouse, toot);
-  const loop = 5.4;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, up = pre ? 0 : bump(v, 1.0, 2.4);
-      for (let i = 0; i < 7; i++) { const f = i / 6, a = -1.2 + (2.4 * up) * f - 0.2 * Math.sin(v * 2) * (1 - up); trunk.set(i, (0.62 + 0.1 * f + 0.05 * Math.sin(a) * f * 3) * u, (0.62 - 0.4 * f * (1 - up) + 0.35 * f * up) * u, 0.0, 1 - 0.4 * f); }
-      trunk.commit();
-      for (let i = 0; i < 3; i++) { const f = up > 0.6 ? ((v * 1.5 + i / 3) % 1) : 0; toot.set(i, ex - 0.45 * u - 0.25 * u * f, floor + 1.05 * u + 0.15 * u * f, 0.05 * u, f > 0 ? 1 + 2 * f : 0, 0, -0.6); }
-      toot.commit();
-      mouse.position.set(B.maxX + 0.12 * u, floor, 0.2 * u); mouse.rotation.set(0, Math.PI, -0.5 * up); mouse.visible = !pre;
     },
   };
 }

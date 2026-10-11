@@ -4,13 +4,15 @@
 //   q-tent     入: a Shiba trots into a little tent, the flap drops, the tent wiggles, its head pokes out; outcome house: a
 //              person walks up to a house and in through the door, which shuts (入る); doors: glass doors under an
 //              いりぐち sign slide open as a person walks in (入り口); post: a person pushes a letter into a red postbox (入れる)
-//   q-whale    大きな: a huge whale swims slowly past a tiny boat, which bobs on its wake
+//   q-whale    大きな: behind a little sailing boat a whale many times its size rises out of the sea, blows a spout and
+//              dives, tail last; the boat rocks in its wake
 //   q-parade   動物: a cow, a sheep and a dog go past one after another, each stops and calls (モー メー ワン)
 //   q-pets     鳴く: a dog barks ワン! and a cow answers モー
 import * as THREE from 'three';
 import { acts, timeline, bump } from './timeline.js';
 import { createModel } from '../models.js';
 import { solidProp } from '../pieces/kit-rig.js';
+import { many } from '../pieces/kit-things.js';
 import { G } from '../pieces/shape-kit.js';
 import { between } from './helpers.js';
 import { RIGHT, LEFT, lerp, label, pop, person, turnTo, axisOf } from './q-common.js';
@@ -142,24 +144,39 @@ function post(ctx, spec, stage) {
 }
 
 // ---- 大きな ----
+// The sea is a wide flattened dome (tipped toward you) whose top is the surface: what is under it stays hidden from every
+// side. A little sailing boat rocks in front; behind it a whale many times its size rises in an arc, its back and head
+// breaking the surface, blows a spout, then dives tail last; the boat rocks in its wake.
 function whale(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 1.0 * u;
-  const wh = createModel('whale', { width: 1.5 * u }), sea = solidProp([[G.box(2.6 * u, 0.6 * u, 0.6 * u, 0, -0.15 * u, 0), 0x2a6ab0], [G.box(2.6 * u, 0.02 * u, 0.6 * u, 0, 0.15 * u, 0), 0x5a9ad8]], 0.35);
-  const boat = solidProp([[G.box(0.16 * u, 0.04 * u, 0.07 * u, 0, 0.02 * u, 0), 0xc8443a], [G.cyl(0.004 * u, 0.004 * u, 0.12 * u, 0, 0.1 * u, 0), 0x8a5a30], [G.extrude(tri(), 0.01).scale(0.05 * u, 0.09 * u, 1).translate(0.03 * u, 0.06 * u, 0), 0xffffff]], 0.5);
-  const spout = solidProp([[G.sphere(0.06 * u, 0, 0, 0, 1, 1.6, 1), 0xbfe8ff]], 0.7);
-  sea.position.set(cx, floor, -0.45 * u);                  // the sea seen from the side: the whale's belly is under the water
-  group.add(sea, wh.group, boat, spout);
-  const loop = 8.0;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.85 * u, top = floor - 0.05 * u, tilt = 0.2;
+  const wh = createModel('whale', { width: 1.0 * u }), sea = solidProp([[G.sphere(0.5 * u, 0, -0.5 * u, 0, 3.0, 1.0, 2.2), 0x2f74c0], [G.sphere(0.5 * u, 0.15 * u, -0.496 * u, 0.1 * u, 2.4, 1.0, 1.6), 0x3c86d2]], 0.35);
+  const boat = solidProp([[G.box(0.3 * u, 0.07 * u, 0.12 * u, 0, 0.035 * u, 0), 0xc8443a], [G.box(0.24 * u, 0.02 * u, 0.1 * u, 0, 0.08 * u, 0), 0xf3e2c4], [G.cyl(0.007 * u, 0.007 * u, 0.3 * u, 0, 0.23 * u, 0), 0x8a5a30], [G.extrude(tri(), 0.01).scale(0.1 * u, 0.22 * u, 1).translate(0.06 * u, 0.13 * u, 0), 0xffffff]], 0.5);
+  const spout = many([[G.sphere(0.07 * u), 0xe8f6ff]], 10, 1.0), wake = many([[G.torus(0.2 * u, 0.012 * u), 0xcfe8ff]], 2, 0.6);
+  sea.position.set(B.maxX + 1.4 * u, top, -0.2 * u);           // its left edge stops at the word's end sea.rotation.x = tilt;
+  group.add(sea, wh.group, boat, spout, wake);
+  const hW = new THREE.Box3().setFromObject(wh.group).getSize(new THREE.Vector3()).y;
+  const loop = 8.0, wz = -0.45 * u, surf = (z) => top - (z + 0.2 * u) * Math.sin(tilt);       // the surface height at depth z
   return {
     group,
     step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0.45 : v / loop;
-      wh.pose('Swim', t);
-      // the whale glides from right to left behind the boat, its back breaking the surface
-      wh.group.position.set(cx + lerp(1.2, -1.0, f) * u, floor - 0.42 * u + 0.04 * u * Math.sin(v * 1.5), -0.5 * u); wh.group.rotation.y = LEFT + 0.1;
-      boat.position.set(cx - 0.1 * u, floor + 0.16 * u + 0.025 * u * Math.sin(v * 3) + 0.04 * u * bump(f, 0.4, 0.3), -0.2 * u); boat.rotation.z = 0.12 * Math.sin(v * 2.4) * (0.5 + bump(f, 0.4, 0.3));
-      const s = pre ? 0 : bump(f, 0.42, 0.18);
-      spout.visible = s > 0.01; spout.scale.setScalar(s * 1.6); spout.position.set(wh.group.position.x - 0.25 * u, floor + 0.25 * u + 0.15 * u * s, -0.5 * u);
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
+      wh.pose('Swim', t * 0.7);
+      // under water while the strokes draw; then an arc: rises (0.4-2.2), lies along the surface and blows (2.2-4.4),
+      // dives head first and the tail goes last (4.4-6.4)
+      const T = timeline(v, { rise: [0.4, 1.8, 'out'], dive: [4.4, 2.0, 'in'] }), h = pre ? 0 : T.rise - T.dive;
+      const x = cx + 0.65 * u - 0.6 * u * (pre ? 0 : between(v, 0.4, 6.4));
+      wh.group.position.set(x, surf(wz) - 1.05 * hW + 0.6 * hW * h, wz);        // at the top about half of it is out
+      wh.group.rotation.order = 'YXZ'; wh.group.rotation.set(-0.35 * bump(v, 0.4, 2.0) + 0.3 * bump(v, 4.4, 2.0), LEFT + 0.25, 0);
+      wh.group.visible = h > 0.01;
+      const roll = bump(v, 1.4, 1.6) + 0.6 * bump(v, 5.0, 1.6), bz = 0.3 * u, bx = B.maxX + 0.4 * u;
+      boat.position.set(bx, surf(bz) + 0.012 * u * Math.sin(t * 2.2) + 0.05 * u * roll * Math.sin(v * 5), bz); boat.rotation.set(0, 0.35, 0.1 * Math.sin(t * 1.7) + 0.25 * roll * Math.sin(v * 5));
+      // the spout from the blowhole while it lies at the surface
+      const on = pre ? 0 : between(v, 2.4, 2.6) * (1 - between(v, 3.8, 4.2));
+      for (let i = 0; i < 10; i++) { const f = (v * 1.1 + i / 10) % 1; spout.set(i, x - 0.22 * u + (i % 2 ? 1 : -1) * 0.18 * u * f * f, surf(wz) + 0.2 * u + 0.7 * u * Math.sin(Math.PI * 0.5 * Math.min(1, f * 1.4)), wz + 0.05 * u, on * (1.4 - f)); }
+      spout.commit();
+      // rings spreading on the surface where it rose and where it dived
+      [[1.2, 0.45], [4.8, 0.1]].forEach(([at, dx], i) => { const f = pre ? 0 : between(v, at, at + 1.6); wake.set(i, cx + dx * u, surf(wz) + 0.005 * u, wz, f > 0 && f < 1 ? 0.4 + 1.6 * f : 0, 0, 0, Math.PI / 2 + tilt); });
+      wake.commit();
     },
   };
 }

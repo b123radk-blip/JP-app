@@ -1,8 +1,8 @@
 // Model scenes, people (Step 3a model pass): grown-ups and children, pairs, friends, "me".
 //   q-grownup  大人: a tall grown-up with a briefcase beside a small child; she stretches up on tiptoe and her hands only
 //              reach his chest; he looks down and pats her head
-//   q-plough   男: a man leans into a plough and pushes it along the field, a furrow opening behind; he stops, wipes his
-//              brow and cheers; outcome boy: a boy runs round holding a toy plane up high (男の子)
+//   q-plough   男: a man pushes a hand plough across a field (q-plough.js), wipes his brow, cheers and ploughs the next
+//              row back; outcome boy: a boy runs round holding a toy plane up high (男の子)
 //   q-swing    女の子: a girl swings high on a swing beside the kanji, legs out, hair flying
 //   q-pair     二人: two people walk in from either side, a badge 1 and 2 over each, take hands and swing them, hearts
 //   q-friends  友: two children run up to each other, high-five (a burst), and walk off together hand in hand
@@ -15,6 +15,7 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between } from './helpers.js';
 import { grow } from './step1-kit.js';
+import { ploughMan } from './q-plough.js';
 import { RIGHT, LEFT, UP, DOWN, lerp, label, pop, hearts, person, KID, TEEN, handInHand, briefcase, turnTo, axisOf } from './q-common.js';
 
 const W = new THREE.Vector3(), W2 = new THREE.Vector3();
@@ -50,36 +51,7 @@ function grownup(ctx, spec, stage) {
 // ---- 男 / 男の子 ----
 function plough(ctx, spec, stage) {
   if (spec.outcome === 'boy') return boyPlane(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, xs = B.maxX + 1.35 * u, xe = B.maxX + 0.25 * u;
-  const man = person(spec.who, u), cheer = burst(u, { s: 0.22, color: 0xffd040 });
-  const field = solidProp([[G.box(1.6 * u, 0.02 * u, 0.8 * u, 0, -0.01 * u, -0.1 * u), 0x7a5230], ...[-0.4, -0.25].flatMap((z) => [-0.6, -0.4, -0.2, 0, 0.2, 0.4, 0.6].map((x) => [G.cone(0.025 * u, 0.09 * u, x * u, 0.045 * u, z * u), 0x58b848]))], 0.3);
-  field.position.set((xs + xe) / 2 + 0.1 * u, floor, 0.05 * u); field.rotation.x = 0.35;
-  const furrow = solidProp([[G.box(1, 0.03 * u, 0.06 * u, 0.5, 0.0, 0), 0x3a2414]], 0.3);
-  const tool = solidProp([[G.cyl(0.014 * u, 0.014 * u, 0.5 * u, 0, 0, 0, 0, 0, 1.15), 0x9a6a3a], [G.cyl(0.012 * u, 0.012 * u, 0.24 * u, -0.06 * u, 0.06 * u, 0.1 * u, 1.2, 0, 0), 0x9a6a3a], [G.cyl(0.012 * u, 0.012 * u, 0.24 * u, -0.06 * u, 0.06 * u, -0.1 * u, -1.2, 0, 0), 0x9a6a3a], [G.cone(0.05 * u, 0.12 * u, -0.25 * u, -0.12 * u, 0, 2.6), 0xa8b0bc]], 0.4);
-  group.add(field, furrow, man.group, tool, cheer);
-  const loop = 7.6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { go: [0, 4.6, 'linear'], wipe: [4.8, 0.6], yay: [5.6, 0.4] });
-      const walking = !pre && T.go > 0 && T.go < 1, x = lerp(xs, xe + 0.35 * u, pre ? 0 : T.go);
-      const yay = !pre && v > 5.6 && v < 7.2;
-      man.pose(walking ? 'Walk' : yay ? 'Victory' : 'Idle', walking ? v * 0.7 : yay ? 0.4 + 0.25 * Math.sin((v - 5.6) * 3) : t);
-      man.group.position.set(x, floor, 0.05 * u); man.group.rotation.y = LEFT + 0.35;
-      // he leans into the plough's handles while walking; the plough's blade cuts the furrow ahead of him
-      if (walking || pre) { man.turn('Abdomen', 0.35); man.turn('Torso', 0.15); }
-      tool.position.copy(group.worldToLocal(man.local(0, 0.18, 0.42, W))); tool.rotation.y = man.group.rotation.y + Math.PI / 2;
-      const hR = man.local(-0.1, 0.38, 0.24, new THREE.Vector3()), hL = man.local(0.1, 0.38, 0.24, new THREE.Vector3());
-      if (walking || pre) { man.handTo('R', hR, 1, { out: 0.6, down: 0.8 }); man.handTo('L', hL, 1, { out: 0.6, down: 0.8 }); }
-      const wipe = T.wipe * (1 - T.yay);
-      man.handTo('R', man.at('eyes', W, -0.05, 0.08, 0.02), wipe, { out: 0.8, down: 0.5 });
-      tool.visible = true;
-      const tipX = tool.position.x - 0.2 * u; furrow.position.set(tipX, floor + 0.01 * u, 0.12 * u); furrow.scale.x = Math.max(0.001, xs + 0.4 * u - tipX); furrow.rotation.x = 0.35;
-      const c = yay ? Math.min(1, (v - 5.6) / 0.3) * (1 - between(v, 6.9, 7.2)) : 0;
-      cheer.visible = c > 0.01; cheer.scale.setScalar(grow(c)); cheer.position.set(x, floor + 1.1 * u, 0.1 * u); cheer.rotation.z = v;
-    },
-  };
+  return ploughMan(ctx, spec, stage);
 }
 function boyPlane(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.75 * u;

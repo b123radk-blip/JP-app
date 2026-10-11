@@ -1,8 +1,6 @@
 // Model scenes, the family (Step 3a model pass): Quaternius people as parents, brothers and sisters; children are adults
 // scaled down (q-common.js KID).
-//   q-dad      父: a dad with a moustache crouches, lifts his little girl high over his head (たかい たかい) and sways her
-//              while she cheers, then sets her down; outcome home: he comes home with a briefcase, she runs to him (おかえり!)
-//              and is lifted high, then they walk off hand in hand (お父さん)
+//   q-dad      父 / お父さん: in q-dad.js
 //   q-mum      母: a mum rocks a baby bundle in her arms, looking down at it, a lullaby ♪ and hearts; outcome cook: she
 //              stirs a steaming pot with a ladle, tastes from it and nods (お母さん)
 //   q-brother  兄: a big brother holds a ball up high, the little one jumps for it; he hands it down and pats his head;
@@ -21,62 +19,10 @@ import { textPlane } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { wisps } from './helpers.js';
-import { RIGHT, LEFT, UP, DOWN, lerp, label, pop, hearts, person, KID, TEEN, liftKid, handInHand, briefcase, babyBundle, moustache, onHead, turnTo, axisOf } from './q-common.js';
+import { dad } from './q-dad.js';
+import { RIGHT, LEFT, UP, DOWN, lerp, label, pop, hearts, person, KID, TEEN, handInHand, babyBundle, turnTo, axisOf } from './q-common.js';
 
 const W = new THREE.Vector3(), W2 = new THREE.Vector3();
-
-// ---- 父 / お父さん ----
-function dad(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.62 * u, home = spec.outcome === 'home';
-  const pa = person(spec.who, u, 0.92), kid = person(spec.kid, u, KID), tache = moustache(u), love = many(HEART(u, 0.09), 3, 1);
-  const bag = home ? briefcase(u) : null, hi = home ? label(u, 'おかえり!', '#d0603a', 0.13) : null;
-  group.add(pa.group, kid.group, tache, love, ...(home ? [bag, hi] : []));
-  const loop = home ? 9.0 : 6.6, yaw = LEFT + 0.6, chest = new THREE.Vector3(), low = new THREE.Vector3(), high = new THREE.Vector3();
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      // home: he walks in (0-1.6), she runs to him (1.2-2.2); then the same lift as 父, 2.2 s later; then off together
-      const d = home ? 2.2 : 0, w = v - d;
-      const T = timeline(w, { bend: [0.1, 0.5], lift: [0.6, 0.9], down: [3.8, 0.8], rise: [4.6, 0.5] });
-      const Th = timeline(v, { come: [0, 1.6, 'out'], run: [1.2, 1.0, 'linear'], turn: [7.0, 0.4], go: [7.2, 1.8, 'in'] });
-      const crouch = pre ? 0 : T.bend * (1 - T.lift) + between(w, 3.9, 4.4) * (1 - T.rise);
-      const walking = home && !pre && ((Th.come > 0 && Th.come < 1) || Th.go > 0);
-      pa.pose(walking ? 'Walk' : crouch > 0.02 ? 'PickUp' : 'Idle', walking ? v : crouch > 0.02 ? 0.55 * crouch : t, !(crouch > 0.02) || walking);
-      const px = x0 + (home ? (pre ? 0 : (1 - Th.come) * 0.9 * u + Th.go * 1.2 * u) : 0);
-      pa.group.position.set(px, floor, 0); pa.group.rotation.y = home && !pre ? (Th.come < 1 ? LEFT + 0.6 : turnTo(yaw, RIGHT - 0.5, Th.turn)) : yaw;
-      if (home && !pre && Th.come >= 1 && Th.turn <= 0) pa.group.rotation.y = turnTo(LEFT + 0.6, yaw, between(v, 1.6, 2.0));
-      onHead(pa, tache, group, 'mouth', 0, 0.03, 0.02);
-      // she stands in front of him; held by the sides, up high over his head, swayed
-      pa.local(0, 0.24, 0.3, low); pa.local(0.1 * Math.sin(w * 2.4) * between(w, 1.5, 1.9) * (1 - T.down), 0.84, 0.5 + 0.04 * Math.sin(w * 4.8), high);
-      const up = pre ? 0 : T.lift * (1 - T.down), held = !pre && w > 0.1 && w < 4.9;
-      chest.copy(low).lerp(high, up);
-      const cheer = !pre && up > 0.9;
-      kid.pose(cheer ? 'Victory' : (home && !pre && Th.run > 0 && Th.run < 1) ? 'Run' : 'Idle', cheer ? 0.5 + 0.3 * Math.sin(w * 2) : t + 1);
-      if (held) liftKid(pa, kid, group, chest, Math.min(1, between(w, 0.1, 0.6) * (1 - between(w, 4.5, 4.9))), true);
-      else {
-        kid.group.position.copy(group.worldToLocal(low.clone())).setY(floor); kid.group.rotation.y = pa.group.rotation.y + Math.PI;
-        if (home && !pre && w < 0.1) {                         // she waits by the kanji, then runs to him
-          kid.group.position.x = lerp(B.maxX - 0.1 * u, kid.group.position.x, Th.run); kid.group.position.z = lerp(0.4 * u, kid.group.position.z, Th.run);
-          kid.group.rotation.y = Th.run > 0 ? RIGHT - 0.4 : 0.2;
-        }
-        if (home && !pre && w > 4.9) {                         // off together, hand in hand
-          kid.group.position.copy(group.worldToLocal(pa.local(0.32, 0, 0.05, W))); kid.group.rotation.y = pa.group.rotation.y;
-          kid.pose(Th.go > 0 ? 'Walk' : 'Idle', v + 0.3);
-          handInHand(pa, 'L', kid, 'R', between(v, 6.9, 7.2));
-        }
-      }
-      if (home) {
-        // the briefcase: in his right hand, set down when he crouches for her, back in the hand when he sets her down
-        const inHand = pre || w < 0.3 || w > 4.3;
-        if (inHand) { pa.hold(bag, 'R', group, 0.004 * u); bag.rotation.y = pa.group.rotation.y; }
-        else bag.position.copy(group.worldToLocal(pa.local(-0.3, 0.2, 0.05, W))).setY(floor + 0.2 * u);
-        pop(hi, pre ? 0 : between(v, 1.3, 1.5) * (1 - between(v, 2.4, 2.6)), B.maxX + 0.1 * u, floor + 0.75 * u, 0.4 * u);
-      }
-      hearts(love, 3, x0 - 0.05 * u, floor + 1.25 * u, 0.2 * u, pre ? -1 : w, 1.7, u);
-    },
-  };
-}
 
 // ---- 母 / お母さん ----
 function mum(ctx, spec, stage) {

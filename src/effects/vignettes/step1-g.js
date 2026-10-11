@@ -13,7 +13,8 @@
 //   week-hop       週: a strip of seven days; a little sun hops from day to day, each lighting as it lands, and after
 //                  Sunday hops back round to Monday: a week
 //   snow-white     白: snow falls; it settles on the kanji's top and on a little tree and the ground, until everything is
-//                  white; then it melts away. outcome rabbit: a white rabbit hops through the snow leaving prints (白い)
+//                  white; then it melts away. outcome rabbit: a snow-white rabbit model hops over a snowfield leaving prints,
+//                  sits up and twitches its ears (白い; q-animals4.js)
 import * as THREE from 'three';
 import { acts, timeline, bump, wobble } from './timeline.js';
 import { createHand } from '../pieces/kit-hand.js';
@@ -26,6 +27,7 @@ import { grow, countTag, countScene, dayScene, seeded, DAYS } from './step1-kit.
 import { dogParts } from './step1-a.js';
 import { birdThing } from './step1-c.js';
 import { crown } from './step1-b.js';
+import { whiteRabbit } from './q-animals4.js';
 
 const grid = (B, u, n, cols, y, gap = 0.22, x0 = 0.3) => Array.from({ length: n }, (_, i) => [B.maxX + (x0 + (i % cols) * gap) * u, y + Math.floor(i / cols) * gap * u]);
 const tray = (u, w, d, color = 0x8a5a30) => solidProp([[G.box(w * u, 0.03 * u, d * u, 0, 0, 0), color]], 0.35);
@@ -74,7 +76,8 @@ function dieList(u, s) {
   face(3, (a, b) => G.sphere(s * 0.085 * u, h * u, b * u, a * u, 0.35, 1, 1)); face(4, (a, b) => G.sphere(s * 0.085 * u, -h * u, b * u, a * u, 0.35, 1, 1));
   return list;
 }
-export const dieThing = (s) => solidProp(dieList(s / 0.25, 0.22), 0.5);
+// the 六日 mascot: a die showing six, its origin at its bottom face (it stands on things)
+export const dieThing = (s) => { const g = new THREE.Group(), m = solidProp(dieList(s / 0.25, 0.22), 0.5); m.position.y = 0.11 * s / 0.25; g.add(m); return g; };
 function diceSix(ctx, spec, stage) {
   const u = stage.u, B = stage.box, floor = B.minY;
   if (spec.outcome === 'count') { const s = countScene(ctx, stage, 6, many([[G.sphere(0.1 * u, 0, 0.08 * u, 0, 0.82, 1.05, 0.82), 0xfff0d8]], 6, 0.6), grid(B, u, 6, 3, floor + 0.02 * u, 0.24, 0.32), { tagUp: 0.5 }); const box = solidProp([[G.box(0.78 * u, 0.1 * u, 0.3 * u, 0, 0.0, 0), 0xb8a888], ...[0, 1, 2].map((i) => [G.cyl(0.09 * u, 0.07 * u, 0.06 * u, (i - 1) * 0.24 * u, 0.05 * u, 0), 0xa89878])], 0.35); box.position.set(B.maxX + 0.56 * u, floor - 0.02 * u, -0.08 * u); box.rotation.x = 0.3; s.group.add(box); return s; }
@@ -259,7 +262,7 @@ function weekHop(ctx, spec, stage) {
 
 // ---- 白 snow ----
 function snowWhite(ctx, spec, stage) {
-  if (spec.outcome === 'rabbit') return rabbitSnow(ctx, spec, stage);
+  if (spec.outcome === 'rabbit') return whiteRabbit(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.55 * u;
   const flakes = many([[G.sphere(0.02 * u), 0xffffff]], 24, 1.2), r = seeded(21), spots = Array.from({ length: 24 }, () => [r(), r()]);
   const cap = solidProp([[G.sphere(0.5 * u, 0, 0, 0, 1, 0.12, 0.25), 0xffffff]], 0.9), tree = crown(0.9 * u, 3, [0x2e8a3a]), trunk = solidProp([[G.cyl(0.03 * u, 0.04 * u, 0.3 * u, 0, 0.15 * u, 0), 0x7a4a24]], 0.35);
@@ -283,25 +286,4 @@ function snowWhite(ctx, spec, stage) {
     },
   };
 }
-function rabbitSnow(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
-  const rabbit = solidProp([[G.sphere(0.13 * u, 0, 0.13 * u, 0, 1.2, 1, 0.9), 0xffffff], [G.sphere(0.09 * u, 0.13 * u, 0.25 * u, 0), 0xffffff], [G.sphere(0.035 * u, 0.1 * u, 0.42 * u, 0.03 * u, 0.6, 2.2, 0.6), 0xffffff], [G.sphere(0.035 * u, 0.15 * u, 0.42 * u, -0.03 * u, 0.6, 2.2, 0.6), 0xffffff], [G.sphere(0.02 * u, 0.2 * u, 0.27 * u, 0.06 * u), 0xe02040], [G.sphere(0.012 * u, 0.22 * u, 0.24 * u, 0.0), 0xff8aa0], [G.sphere(0.05 * u, -0.15 * u, 0.12 * u, 0), 0xffffff]], 0.6);
-  const ground = solidProp([[G.box(1.8 * u, 0.06 * u, 0.5 * u, 0, -0.03 * u, 0), 0xf4f8ff]], 0.6), prints = many([[G.sphere(0.03 * u, 0, 0, 0, 1, 0.2, 1.4), 0xa8b4d0]], 8, 0.4), flakes = many([[G.sphere(0.018 * u), 0xffffff]], 14, 1.2), r = seeded(4), spots = Array.from({ length: 14 }, () => [r(), r()]);
-  ground.position.set(B.maxX + 0.6 * u, floor - 0.02 * u, -0.05 * u); ground.rotation.x = 0.45;
-  group.add(ground, prints, rabbit, flakes);
-  const loop = 6.0, x0 = B.maxX + 1.4 * u, x1 = B.maxX + 0.1 * u;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0.2, 4.8), hops = 5;
-      const x = x0 + (x1 - x0) * f, ph = (f * hops) % 1;
-      rabbit.visible = !pre && f < 1; rabbit.position.set(x, floor + 0.22 * u * Math.sin(Math.PI * ph), 0.12 * u); rabbit.rotation.set(0, Math.PI, 0.25 * Math.cos(Math.PI * ph));
-      for (let i = 0; i < 8; i++) { const at = (Math.floor(i / 2) + 1) / hops; prints.set(i, x0 + (x1 - x0) * at + (i % 2 ? 0.05 : -0.05) * u, floor + 0.005 * u, 0.13 * u + (i % 2 ? 0.04 : -0.04) * u, f > at && v < 5.5 ? 1 : 0); }
-      prints.commit();
-      spots.forEach(([a, b], i) => { const g = ((v * 0.3 + b) % 1); flakes.set(i, B.maxX - 0.1 * u + a * 1.6 * u, floor + 1.1 * u - 1.1 * u * g, 0.08 * u, pre ? 0 : 1); });
-      flakes.commit();
-    },
-  };
-}
-
 export const SCENES = { 'octopus-eight': octopusEight, 'dice-six': diceSix, 'ttt-nine': tttNine, 'come-here': comeHere, 'boat-race': boatRace, 'weekday-wheel': weekdayWheel, 'week-hop': weekHop, 'snow-white': snowWhite };
