@@ -24,7 +24,8 @@ a memorable 3D animation while you are learning it. Runs as a WebXR web app in t
 - **Review**: [?preview=1&review=1](https://b123radk-blip.github.io/JP-app/?preview=1&review=1) is the same, but each card
   opens fully drawn with its scene already playing. **Flag** marks a card to fix (kept in this browser), **Flagged** flips
   through just the flagged cards and lists them, and **Send** opens a GitHub issue filled in with them, then Submit. On a
-  flagged card **Talk** / **Stop** record a spoken note (speech to text, needs the microphone) that goes on its line. `node scripts/orbit.mjs <card id>` renders one card's scene from six sides for fixing it.
+  flagged card **Talk** / **Stop** record a spoken note (speech to text, needs the microphone) that goes on its line; **Type** leaves the headset view for a
+  text box where the system keyboard's own voice typing works. `node scripts/orbit.mjs <card id>` renders one card's scene from six sides for fixing it.
 - Readings and sentences come from dictionaries and Tatoeba and are checked by two analysers, but no native speaker has
   confirmed them yet: [docs/REVIEW.md](docs/REVIEW.md) lists them for review.
 - Voice: none yet. You generate it with VOICEVOX on your PC: [docs/VOICEVOX.md](docs/VOICEVOX.md).

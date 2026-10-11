@@ -17,7 +17,8 @@ export function createSpeech({ onText, onState, onError, lang = 'en-US' } = {}) 
     rec.onerror = (e) => {
       if (e.error === 'no-speech' || e.error === 'aborted') return;
       want = false;
-      onError?.(e.error === 'not-allowed' ? 'The microphone is blocked for this page' : `Speech to text failed (${e.error})`);
+      const why = { 'not-allowed': 'Speech to text or the microphone is blocked here', 'service-not-allowed': 'Speech to text is not available in this browser', 'audio-capture': 'No microphone found', network: 'Speech to text needs a connection' }[e.error];
+      onError?.(why ?? `Speech to text failed (${e.error})`);
     };
     rec.onend = () => { done = heard; if (want) { try { rec.start(); return; } catch { want = false; } } rec = null; onText?.(heard, ''); onState?.(false); };
     rec.start();

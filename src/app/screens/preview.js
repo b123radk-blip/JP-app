@@ -10,7 +10,8 @@
 //                                  loops just the scene; Flag marks a card to fix (kept in this browser), Flagged flips
 //                                  through only the flagged cards and lists them on screen; Send opens a GitHub issue
 //                                  filled in with the flagged cards, to submit for fixing. On a flagged card, Talk / Stop
-//                                  record a spoken note (speech to text) that goes on that card's line
+//                                  record a spoken note (speech to text) that goes on that card's line; Type leaves the
+//                                  headset view for a text box (the system keyboard's own voice typing works there)
 import * as THREE from 'three';
 import { LAYOUT, COLORS, EFFECTS, COMPONENT_LOOKS } from '../../config.js';
 import { makeLabel } from '../../core/text.js';
@@ -21,6 +22,7 @@ import { loadCardAssets } from '../../content/loader.js';
 import { loadModelsFor } from '../../effects/models.js';
 import { addMnemonic, addPlainFurigana, cardText } from '../card-player.js';
 import { createSpeech } from '../speech.js';
+import { openNoteEditor } from '../note-editor.js';
 
 const LOOP_AFTER = 7;                    // seconds after the last stroke before the animation replays
 const FLAGS_KEY = 'jp-review-flags', ISSUES = 'https://github.com/b123radk-blip/JP-app/issues/new';
@@ -37,12 +39,12 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
   const group = new THREE.Group(), Y = LAYOUT.y, buttons = [];
   let i = Math.max(0, index), view = null, paused = freeze !== null, gen = 0, showOld = old;
   const allIds = ids, flags = loadFlags();
-  let onlyFlagged = false, flagText = null, listText = null, noteText = null, noteBase = '', live = '';
+  let onlyFlagged = false, flagText = null, listText = null, noteText = null, noteBase = '', live = '', speechError = '';
   // spoken notes: Talk appends what is said to the flagged card's note until Stop
   const speech = createSpeech({
     onText(heard, interim) { const f = view && flags.get(view.card.id); if (!f) return; f.note = [noteBase, heard].filter(Boolean).join(' '); live = interim; saveFlags(flags); showNote(); },
     onState() { live = ''; showFlag(); },
-    onError(m) { app.note(m); showFlag(); },
+    onError(m) { speechError = m; app.note(m); showFlag(); },              // shown in the scene too: app.note is 2D only
   });
   const start = () => (review ? view?.effect.strokesEnd ?? 0 : 0);          // review skips the strokes: the scene starts at once
   const bar = [['prev', 'Prev', () => go(-1)], ['replay', 'Replay', () => view?.seek(start())], ['pause', 'Pause', () => togglePause()], ['next', 'Next', () => go(1)],
@@ -50,21 +52,27 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
     ...(review ? [['flag', 'Flag', () => toggleFlag()], ['flagged', 'Flagged', () => toggleFlagged()], ['send', 'Send', () => send()]] : [])];
   const bw = review ? 0.155 : 0.17, gap = 0.02, row = bar.length * bw + (bar.length - 1) * gap;
   bar.forEach(([id, label, fn], k) => { const b = createButton(app.input, { id: `preview-${id}`, label, width: bw, height: 0.07, size: 0.032, onSelect: fn }); b.group.position.set(-row / 2 + bw / 2 + k * (bw + gap), Y.buttons, 0.004); group.add(b.group); buttons.push(b); });
-  const talkRow = review ? [['talk', 'Talk', () => talk()], ['stop', 'Stop', () => speech.stop()]].map(([id, label, fn], k) => {
-    const b = createButton(app.input, { id: `preview-${id}`, label, width: 0.2, height: 0.07, size: 0.032, color: id === 'talk' ? '#1f7a4c' : '#8a2a2a', onSelect: fn });
-    b.group.position.set((k - 0.5) * 0.22, Y.buttons + 0.09, 0.004); b.setVisible(false); group.add(b.group); buttons.push(b); return b;
+  const talkRow = review ? [['talk', 'Talk', '#1f7a4c', () => talk()], ['stop', 'Stop', '#8a2a2a', () => speech.stop()], ['type', 'Type', '#3a5a9a', () => typeNote()]].map(([id, label, color, fn], k) => {
+    const b = createButton(app.input, { id: `preview-${id}`, label, width: 0.2, height: 0.07, size: 0.032, color, onSelect: fn });
+    b.group.position.set((k - 1) * 0.22, Y.buttons + 0.09, 0.004); b.setVisible(false); group.add(b.group); buttons.push(b); return b;
   }) : [];
   const exit = createButton(app.input, { id: 'exit', label: 'Exit', width: 0.16, height: 0.065, size: 0.032, onSelect: () => app.show('home') });
   exit.group.position.set(-0.62, Y.top, 0.004); group.add(exit.group); buttons.push(exit);
 
   function togglePause() { paused = !paused; }
-  function go(d) { speech.stop(); i = (i + d + ids.length) % ids.length; recipe = null; show(); }
+  function go(d) { speech.stop(); speechError = ''; i = (i + d + ids.length) % ids.length; recipe = null; show(); }
   function toggleFlag() {
     if (!view) return; const id = view.card.id; speech.stop();
     if (flags.has(id)) flags.delete(id); else flags.set(id, { w: cardText(view.card), note: '' });
     saveFlags(flags); showFlag();
   }
-  function talk() { const f = view && flags.get(view.card.id); if (!f) return; noteBase = f.note; speech.start(); }
+  function talk() { const f = view && flags.get(view.card.id); if (!f) return; noteBase = f.note; speechError = ''; speech.start(); }
+  // the note in a 2D text box: leaves the headset view, where the system keyboard (and its voice typing) can be used
+  function typeNote() {
+    const f = view && flags.get(view.card.id); if (!f) return;
+    speech.stop(); app.kit.renderer.xr.getSession()?.end();
+    openNoteEditor({ title: `Note for ${f.w}`, text: f.note, onSave(text) { f.note = text; speechError = ''; saveFlags(flags); showFlag(); } });
+  }
   function toggleFlagged() {
     if (!onlyFlagged && !flags.size) { app.note('No flagged cards yet'); return; }
     const id = ids[i]; onlyFlagged = !onlyFlagged; ids = onlyFlagged ? allIds.filter((x) => flags.has(x)) : allIds;
@@ -83,8 +91,9 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
   function showNote() {
     noteText?.dispose(); noteText = null;
     const f = review && view && flags.get(view.card.id); if (!f) return;
-    const text = speech.listening ? `Listening…  ${[f.note, live].filter(Boolean).join(' ')}` : f.note ? `Note: ${f.note}` : 'Tap Talk and say what to fix';
-    noteText = makeLabel(text, { size: 0.028, weight: 400, color: '#ffffff', glow: null, maxWidth: 1.1, panel: { pad: 0.012, radius: 0.016, color: speech.listening ? '#1f7a4c' : '#3a4256' } });
+    const err = !speech.listening && speechError;
+    const text = speech.listening ? `Listening…  ${[f.note, live].filter(Boolean).join(' ')}` : err ? `${speechError}. Use Type instead.${f.note ? `  Note: ${f.note}` : ''}` : f.note ? `Note: ${f.note}` : 'Tap Talk and say what to fix (or Type)';
+    noteText = makeLabel(text, { size: 0.028, weight: 400, color: '#ffffff', glow: null, maxWidth: 1.1, panel: { pad: 0.012, radius: 0.016, color: speech.listening ? '#1f7a4c' : err ? '#a03030' : '#3a4256' } });
     noteText.mesh.position.set(0, Y.buttons + 0.2, 0.006); group.add(noteText.mesh);
   }
   // the card's flag mark and count (top right), the note and Talk / Stop on a flagged card, and in Flagged mode the list
@@ -92,7 +101,7 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
   function showFlag() {
     flagText?.dispose(); listText?.dispose(); flagText = listText = null;
     const on = !!(review && view && flags.has(view.card.id));
-    talkRow.forEach((b, k) => { b.setVisible(on); if (on) b.setEnabled(k === 0 ? !speech.listening : speech.listening); });
+    talkRow.forEach((b, k) => { b.setVisible(on); if (on) b.setEnabled([!speech.listening, speech.listening, true][k]); });
     showNote();
     if (!review || !view) return;
     flagText = makeLabel(on ? `FLAGGED  ·  ${flags.size} flagged` : `${flags.size} flagged`, { size: 0.035, color: '#ffffff', glow: null, panel: { pad: 0.012, radius: 0.016, color: on ? '#c0392b' : '#3a4256' } });
