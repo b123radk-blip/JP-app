@@ -7,21 +7,11 @@ import * as THREE from 'three';
 import { timeline, acts } from './timeline.js';
 import { many, HEART } from '../pieces/kit-things.js';
 import { between } from './helpers.js';
+import { onBone } from './bone-mount.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { UP, lerp, label, pop, hearts, person, KID, handInHand, briefcase, onHead, turnTo } from './q-common.js';
 
-const EL = new THREE.Vector3(), ER = new THREE.Vector3(), OV = new THREE.Vector3(), MO = new THREE.Vector3(), BX = new THREE.Vector3(), BY = new THREE.Vector3(), BZ = new THREE.Matrix4();
-// fix a prop to the head: its position AND turn follow the head bone (nods, bows, the lift) via the ear / crown landmarks
-function onFace(a, prop, space, dx, dy, dz) {
-  a.at('earL', EL); a.at('earR', ER); a.at('over', OV); a.at('mouth', MO);
-  BX.copy(EL).sub(ER).normalize(); BY.copy(OV).sub(MO); BY.addScaledVector(BX, -BY.dot(BX)).normalize();
-  const z = new THREE.Vector3().crossVectors(BX, BY);
-  prop.quaternion.setFromRotationMatrix(BZ.makeBasis(BX, BY, z));
-  const s = a.h * space.getWorldScale(new THREE.Vector3()).y;
-  prop.position.copy(space.worldToLocal(a.at('mouth', MO, dx, dy, dz)));
-  prop.userData.s = s;
-}
 const MR = new THREE.Vector3(), ML = new THREE.Vector3(), SIDE = new THREE.Vector3(), CH = new THREE.Vector3();
 // she is held by the sides of the chest, her body against both palms: the kid is placed where the hands actually are
 // (their reach is limited), so she follows his arms every frame instead of hanging wherever the target was
@@ -40,9 +30,10 @@ function holdKid(pa, kid, space, at, k) {
     CH.copy(MR).add(ML).multiplyScalar(0.5);
   }
 }
-const W = new THREE.Vector3(), LOW = new THREE.Vector3(), HIGH = new THREE.Vector3(), AT = new THREE.Vector3();
-// a big dark moustache (two curled capsules), worn at the mouth landmark
-const tache = (u) => solidProp([[G.capsule(0.02 * u, 0.06 * u, -0.04 * u, -0.005 * u, 0, 1.25), 0x2a1810], [G.capsule(0.02 * u, 0.06 * u, 0.04 * u, -0.005 * u, 0, -1.25), 0x2a1810]], 0.25);
+// on the suit-male head (Head bone units) the face is the flat plane z = 0.49, eyes at y 0.3-0.6, chin near y 0: the lip is at y 0.2
+const MOUSTACHE = [0, 0.2, 0.52], W = new THREE.Vector3(), LOW = new THREE.Vector3(), HIGH = new THREE.Vector3(), AT = new THREE.Vector3();
+// a big dark moustache (two drooping capsules meeting in the middle), built in the Head bone's units: lies on the upper lip
+const tache = () => solidProp([[G.capsule(0.07, 0.3, -0.17, 0, 0, -1.35), 0x2a1810], [G.capsule(0.07, 0.3, 0.17, 0, 0, 1.35), 0x2a1810]], 0.25);
 // an oval rug, its top at y = 0
 const rug = (u, w) => solidProp([[G.cyl(0.5 * u, 0.5 * u, 0.012 * u, 0, -0.006 * u, 0), 0x6a3028], [G.cyl(0.42 * u, 0.42 * u, 0.012 * u, 0, -0.004 * u, 0), 0xa87a48], [G.cyl(0.3 * u, 0.3 * u, 0.012 * u, 0, -0.002 * u, 0), 0x8a4a34]].map(([g, c]) => [g.scale(w, 1, 0.55), c]), 0.15);
 // a wall with a doorway full of warm light (someone behind the light is hidden: they are "inside"); origin at the doorway's
@@ -55,7 +46,7 @@ const doorway = (u, dw = 0.62) => solidProp([
 
 export function dad(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, home = spec.outcome === 'home', x0 = B.maxX + (home ? 0.85 : 0.8) * u;
-  const pa = person(spec.who, u, 0.92), kid = person(spec.kid, u, KID), stache = tache(u), love = many(HEART(u, 0.09), 3, 1), mat = rug(u, home ? 1.6 : 1.2);
+  const pa = person(spec.who, u, 0.92), kid = person(spec.kid, u, KID), stache = tache(), love = many(HEART(u, 0.09), 3, 1), mat = rug(u, home ? 1.6 : 1.2);
   const bag = home ? briefcase(u) : null, hi = home ? label(u, 'おかえり!', '#d0603a', 0.13) : null, door = home ? doorway(u) : null;
   mat.position.set(x0 - (home ? 0.25 : 0.1) * u, floor, 0.05 * u);
   group.add(mat, pa.group, kid.group, stache, love, ...(home ? [bag, hi, door] : []));
@@ -86,7 +77,7 @@ export function dad(ctx, spec, stage) {
       }
       pa.group.position.set(px, floor, pz); pa.group.rotation.y = py;
       pa.group.visible = !home || (!pre && v < 9.45);
-      onFace(pa, stache, group, 0, 0.02, -0.012); stache.scale.setScalar(1.3); stache.visible = pa.group.visible;
+      onBone(pa, 'Head', stache, group, MOUSTACHE); stache.visible = pa.group.visible;
       // she is held by the sides: low in front of him, then high over his head, swayed
       const sway = 0.08 * Math.sin(w * 2.4) * between(w, 1.5, 1.9) * (1 - T.down);
       pa.local(0, 0.27, 0.36, LOW); pa.local(sway, 0.92, 0.58 + 0.03 * Math.sin(w * 4.8), HIGH);

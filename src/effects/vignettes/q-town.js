@@ -22,11 +22,11 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between } from './helpers.js';
 import { grow } from './step1-kit.js';
-import { RIGHT, LEFT, lerp, label, pop, person, KID, turnTo, onHead, briefcase } from './q-common.js';
+import { RIGHT, LEFT, UP, lerp, label, pop, person, KID, turnTo, onHead, briefcase, axisOf } from './q-common.js';
 import { dyer } from './q-wear.js';
 import { wscale } from './q-learn.js';
 
-const W = new THREE.Vector3(), W2 = new THREE.Vector3();
+const W = new THREE.Vector3(), W2 = new THREE.Vector3(), Q = new THREE.Quaternion();
 // an actor walking from p to q ([x, z], group space) at f (0..1), facing the way it goes; clip while moving
 export function stroll(a, p, q, f, floor, t, clip = 'Walk', idle = 'Idle') {
   const moving = f > 0 && f < 1;
@@ -179,7 +179,7 @@ function officeTower(ctx, spec, stage) {
   tower.position.set(tx, floor, tz); sign.position.set(tx, floor + 1.56 * u, tz + 0.05 * u);
   for (let i = 0; i < 18; i++) wins.set(i, tx + ((i % 3) - 1) * 0.2 * u, floor + (0.4 + Math.floor(i / 3) * 0.17) * u, tz + 0.155 * u, 1);
   wins.commit(); const a = person(spec.who, u), b = person(spec.other, u), say = commute ? null : label(u, 'よろしく!', '#3a6ac0', 0.12);
-  const props = commute ? [briefcase(u), briefcase(u)] : [0, 1].map(() => solidProp([[G.box(0.11 * u, 0.065 * u, 0.006 * u, 0, 0, 0), 0xffffff], [G.box(0.07 * u, 0.01 * u, 0.007 * u, 0, 0.01 * u, 0), 0x404a60]], 0.7));
+  const props = commute ? [briefcase(u), briefcase(u)] : [0, 1].map(() => solidProp([[G.box(0.16 * u, 0.095 * u, 0.006 * u, 0, 0, 0), 0xffffff], [G.box(0.1 * u, 0.014 * u, 0.007 * u, 0, 0.016 * u, 0), 0x404a60], [G.box(0.07 * u, 0.009 * u, 0.007 * u, 0, -0.012 * u, 0), 0x8a94a8]], 0.7));
   group.add(tower, wins, sign, a.group, b.group, ...props, ...(say ? [say] : [])); const loop = commute ? 7.2 : 6.8, door = [tx, tz + 0.18 * u];
   return {
     group,
@@ -199,18 +199,28 @@ function officeTower(ctx, spec, stage) {
           p.hold(props[i], 'L', group, 0.03 * u * s); props[i].rotation.set(0, p.group.rotation.y + RIGHT, 0); props[i].visible = p.group.visible; props[i].scale.setScalar(p.group.scale.x);
         });
       } else {
-        // they face each other, hold a card out with both hands, bow, and the cards change hands
-        const T = timeline(v, { offer: [0.8, 0.5], bow: [1.5, 0.5], up: [2.5, 0.5], swap: [2.6, 0.8], down: [4.6, 0.5] });
-        [a, b].forEach((p, i) => {
-          p.pose('Idle', t + i * 2); p.group.position.set(B.maxX + 0.42 * u + 0.62 * u * i, floor, 0.2 * u); p.group.rotation.y = i ? LEFT + 0.55 : RIGHT - 0.55;
-          const off = T.offer * (1 - T.down); p.bow(0.6 * T.bow * (1 - T.up));
-          p.holdOut(off, { apart: 0.12, y: 0.5, z: 0.32 });
-          const mine = props[T.swap > 0.5 ? 1 - i : i];
-          p.local(0, 0.5, 0.32 + 0.12 * off, W); group.worldToLocal(W); mine.position.copy(W); mine.rotation.set(-0.3, p.group.rotation.y, 0);
-          if (off < 0.05) mine.position.copy(group.worldToLocal(p.local(0, 0.55, 0.12, W)));
+        // they face each other. Each holds a card at its two short edges, a fist against each edge (palms facing in), arms
+        // forward; before and after it hangs from the right hand at the side. They bow, then the cards travel across
+        // between the hands (one passing above the other) and each takes the other's card the same way.
+        const T = timeline(v, { offer: [0.8, 0.5], bow: [1.5, 0.5], up: [2.5, 0.5], swap: [2.6, 0.8], down: [4.6, 0.5] }), P = [], C = [], sw = pre ? 0 : T.swap, pass = sw * sw * (3 - 2 * sw), cross = Math.min(1, Math.max(0, (sw - 0.42) / 0.16)), half = 0.08 * u * s;
+        const people = [a, b], off = pre ? 0 : T.offer * (1 - T.down), ease = off * off * (3 - 2 * off);
+        people.forEach((p, i) => {
+          p.pose('Idle', t + i * 2); p.group.position.set(B.maxX + 0.35 * u + 0.75 * u * i, floor, 0.2 * u); p.group.rotation.y = i ? LEFT + 0.55 : RIGHT - 0.55;
+          p.bow(0.6 * T.bow * (1 - T.up)); P[i] = p.local(0, 0.5, 0.36, new THREE.Vector3());
         });
-        // mid-swap the cards travel across between them
-        if (T.swap > 0 && T.swap < 1) props.forEach((c, i) => { const p0 = (i ? b : a).local(0, 0.5, 0.42, W), p1 = (i ? a : b).local(0, 0.5, 0.42, W2); c.position.copy(group.worldToLocal(p0.lerp(p1, T.swap))).add(W.set(0, 0.06 * u * Math.sin(Math.PI * T.swap) * (i ? -1 : 1), 0)); });
+        // where card j is while they swap: from its giver's hands to the receiver's, passing above (a) or below (b) the other
+        [0, 1].forEach((j) => { C[j] = P[j].clone().lerp(P[1 - j], pass).addScaledVector(UP, (j ? -1 : 1) * 0.04 * u * s * Math.sin(Math.PI * sw)); });
+        people.forEach((p, i) => {
+          const hand = C[i].clone().lerp(C[1 - i], cross), xp = axisOf(p, 1, 0, 0, new THREE.Vector3());
+          p.grip('R', hand.clone().addScaledVector(xp, -half), xp, 0, ease, { out: 0.5, down: 0.7 });
+          p.grip('L', hand.clone().addScaledVector(xp, half), xp.clone().negate(), 0, ease, { out: 0.5, down: 0.7 });
+        });
+        props.forEach((c, j) => {
+          const hj = sw > 0.5 ? 1 - j : j, holder = people[hj];            // whose hands have it now
+          holder.hold(c, 'R', group, 0.006 * u * s);                       // hanging at the side
+          c.position.lerp(group.worldToLocal(C[j].clone()), ease);
+          c.quaternion.setFromAxisAngle(UP, holder.group.rotation.y + RIGHT).slerp(Q.setFromAxisAngle(UP, people[j].group.rotation.y), ease);
+        });
         pop(say, pre ? 0 : between(v, 1.6, 1.9) * (1 - between(v, 2.9, 3.2)), B.maxX + 0.73 * u, floor + 0.98 * u, 0.4 * u);
       }
     },

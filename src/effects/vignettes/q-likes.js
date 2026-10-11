@@ -19,10 +19,10 @@ import { G } from '../pieces/shape-kit.js';
 import { emblemProp } from '../pieces/kit-props.js';
 import { between, wisps } from './helpers.js';
 import { grow } from './step1-kit.js';
-import { RIGHT, LEFT, lerp, label, pop, hearts, person, KID } from './q-common.js';
+import { RIGHT, LEFT, lerp, label, pop, hearts, person, KID, axisOf } from './q-common.js';
 import { bed } from './q-bed.js';
 
-const W = new THREE.Vector3(), W2 = new THREE.Vector3();
+const W = new THREE.Vector3(), W2 = new THREE.Vector3(), AT = new THREE.Vector3(), TOWARD = new THREE.Vector3();
 const crossArms = (p, k) => { p.handTo('R', p.local(0.12, 0.52, 0.12, W), k, { out: 0.6, down: 0.9 }); p.handTo('L', p.local(-0.12, 0.5, 0.14, W), k, { out: 0.6, down: 0.9 }); };
 
 // ---- 嫌 / 嫌い ----
@@ -257,9 +257,16 @@ function sick(ctx, spec, stage) {
 }
 
 // ---- 多分 ----
+// an open umbrella, its origin where the hand holds the shaft (0.06 u above the crook): a wide dome of 8 flat panels over a
+// straight shaft that stands upright; the canopy sits 0.5 u above the hand, so it covers a head and shoulders
+const umbrella = (u) => solidProp([
+  [G.cyl(0.012 * u, 0.012 * u, 0.7 * u, 0, 0.25 * u, 0, 0, 0, 0, 8), 0x6a4a2a], [G.cyl(0.012 * u, 0.012 * u, 0.07 * u, -0.03 * u, -0.1 * u, 0, 0, 0, Math.PI / 2, 8), 0x6a4a2a],
+  [G.cyl(0.45 * u, 0.5 * u, 0.04 * u, 0, 0.5 * u, 0, 0, 0, 0, 8), 0xe04868], [G.cyl(0.34 * u, 0.45 * u, 0.05 * u, 0, 0.545 * u, 0, 0, 0, 0, 8), 0xf05878],
+  [G.cyl(0.19 * u, 0.34 * u, 0.05 * u, 0, 0.59 * u, 0, 0, 0, 0, 8), 0xe04868], [G.cyl(0.02 * u, 0.19 * u, 0.05 * u, 0, 0.635 * u, 0, 0, 0, 0, 8), 0xf05878], [G.cyl(0.012 * u, 0.012 * u, 0.06 * u, 0, 0.69 * u, 0, 0, 0, 0, 8), 0x6a4a2a],
+], 0.4);
 function shrug(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.5 * u;
-  const p = person(spec.who, u), q = label(u, '?', '#6a6a7a', 0.2), umb = emblemProp('umbrella', 0.5 * u, { color: '#e04868' }), rain = many(DROP(u), 10, 0.8);
+  const p = person(spec.who, u), q = label(u, '?', '#6a6a7a', 0.2), umb = umbrella(u), rain = many(DROP(u), 10, 0.8);
   const cloud = solidProp([[G.sphere(0.16 * u, 0, 0, 0, 1.5, 0.8, 0.7), 0x8a909c], [G.sphere(0.12 * u, -0.18 * u, -0.03 * u, 0, 1.2, 0.8, 0.7), 0x7a808c], [G.sphere(0.12 * u, 0.2 * u, -0.04 * u, 0, 1.2, 0.8, 0.7), 0x7a808c]], 0.4);
   cloud.position.set(x0 + 0.3 * u, floor + 1.35 * u, -0.2 * u);
   group.add(p.group, cloud, umb, rain, q);
@@ -278,9 +285,10 @@ function shrug(ctx, spec, stage) {
       p.twist('R', W2.set(0, 1, 0), sh); p.twist('L', W2.set(0, 1, 0), sh);
       pop(q, sh, x0, floor + 1.15 * u, 0.15 * u);
       // just in case: she opens an umbrella over her head; a few drops do start to fall
-      const o = T.open * (1 - T.close);
-      p.handTo('R', p.local(-0.08, 0.72, 0.15, W), o, { out: 0.6, down: 0.8 });
-      umb.visible = o > 0.02; umb.scale.setScalar(0.5 * u * grow(o)); p.local(-0.05, 1.15, 0.12, W); umb.position.copy(group.worldToLocal(W)); umb.idle(v);
+      // the shaft stands upright in front of her, just right of centre; her right fist holds it from the outside, the palm against it
+      const o = T.open * (1 - T.close), gs = group.getWorldScale(W).y;
+      p.local(-0.07, 0.6, 0.2, AT); p.grip('R', AT, axisOf(p, 1, 0, 0, TOWARD), 0.012 * u * gs, o, { out: 0.6, down: 0.8 });
+      umb.visible = o > 0.02; umb.scale.setScalar(Math.max(1e-3, grow(o))); umb.position.copy(group.worldToLocal(AT));
       for (let i = 0; i < 10; i++) { const f = (((pre ? 0 : v) * 0.9 + i * 0.37) % 1); rain.set(i, x0 + (((i * 0.53) % 1) - 0.3) * 0.8 * u, floor + 1.25 * u - 1.25 * u * f, -0.1 * u, !pre && v > 3.8 && v < 5.8 ? 1 : 0); }
       rain.commit();
     },

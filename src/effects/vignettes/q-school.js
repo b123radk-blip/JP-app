@@ -14,6 +14,8 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between } from './helpers.js';
 import { grow } from './step1-kit.js';
+import { actor, SKIN } from './model-kit.js';
+import { onBone } from './bone-mount.js';
 import { RIGHT, LEFT, UP, lerp, label, pop, person, KID, TEEN, turnTo, axisOf, onHead } from './q-common.js';
 
 const W = new THREE.Vector3(), W2 = new THREE.Vector3(), Q = new THREE.Quaternion();
@@ -134,11 +136,27 @@ function abacus(ctx, spec, stage) {
 }
 function pupil(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.75 * u;
-  const kid = person(spec.who, u, 0.66);
-  const bag = solidProp([[G.box(0.2 * u, 0.22 * u, 0.12 * u, 0, 0, 0), 0xd02a2a], [G.box(0.205 * u, 0.1 * u, 0.125 * u, 0, 0.07 * u, 0.003 * u), 0xb01a1a], [G.box(0.03 * u, 0.03 * u, 0.01 * u, 0, 0.02 * u, 0.065 * u), 0xf0c040]], 0.5);
-  const hat = solidProp([[G.sphere(0.13 * u, 0, 0, 0, 1, 0.55, 1), 0xffd820], [G.cyl(0.17 * u, 0.17 * u, 0.01 * u, 0, -0.01 * u, 0.02 * u, 0, 0, 0, 24), 0xffd820]], 0.6);
-  group.add(kid.group, bag, hat);
-  const loop = 7.2, rx = 0.45 * u, rz = 0.22 * u;
+  // the uniform: white shirt, navy trousers; the pack's people are tinted per part
+  const kid = actor(spec.who, 0.66 * u, { tint: { ...SKIN, Shirt: 0xf6f6f6, Pants: 0x1c2c64, Belt: 0x14204a } });
+  // the three props are built in the bone's own units (Torso: +y up, +z front; the shirt is ~0.76 wide, 1.0 tall, its back
+  // at z = -0.2): a randoseru (rounded box, a flap with a gold lock over its back, side pockets) with two straps that go
+  // over the shoulders and down the chest, the yellow school hat on the Head bone, and two books held to the chest
+  const RED = 0xb8262e, FLAP = 0x9a1c26, STRAP = 0x3a2420, X = 0.04;
+  const bag = solidProp([
+    [G.box(0.58, 0.72, 0.3, X, 0.1, -0.37), RED], [G.box(0.5, 0.8, 0.3, X, 0.1, -0.37), RED], [G.box(0.54, 0.76, 0.34, X, 0.1, -0.37), RED],
+    [G.box(0.6, 0.6, 0.04, X, 0.14, -0.55), FLAP], [G.box(0.12, 0.13, 0.03, X, -0.1, -0.58), 0xf0c040],
+    [G.box(0.06, 0.34, 0.2, X - 0.33, -0.08, -0.37), 0xd8444a], [G.box(0.06, 0.34, 0.2, X + 0.33, -0.08, -0.37), 0xd8444a],
+    ...[-0.2, 0.2].flatMap((dx) => [
+      [G.box(0.1, 0.035, 0.62, X + dx, 0.52, -0.03), STRAP],        // over the shoulder
+      [G.box(0.1, 0.74, 0.035, X + dx, 0.15, 0.25), STRAP],         // down the chest
+      [G.box(0.1, 0.035, 0.1, X + dx, -0.22, 0.25), 0xc8c0b0],      // its buckle
+    ]),
+  ], 0.5);
+  const YEL = 0xffd820, hat = solidProp([[G.cyl(0.56, 0.72, 0.46, 0, 0.88, 0.02, 0, 0, 0, 24), YEL], [G.sphere(0.56, 0, 1.1, 0.02, 1, 0.34, 1), YEL], [G.cyl(0.9, 0.9, 0.04, 0, 0.67, 0.1, 0, 0, 0, 28), YEL], [G.cyl(0.725, 0.725, 0.05, 0, 0.7, 0.02, 0, 0, 0, 24), 0xd03030]], 0.6);   // crown, cap, brim (all above the eyes), a red band
+  // two books, flat against the chest: covers toward you; each is 0.12 u wide, 0.16 u tall, 0.025 u thick
+  const books = solidProp([[G.box(0.12 * u, 0.16 * u, 0.026 * u, 0, 0, 0), 0x2a5aa8], [G.box(0.115 * u, 0.155 * u, 0.026 * u, 0, 0, 0.027 * u), 0x4aa05a], [G.box(0.01 * u, 0.15 * u, 0.054 * u, -0.055 * u, 0, 0.0135 * u), 0xf4ecd8]], 0.4);
+  group.add(kid.group, bag, hat, books);
+  const loop = 7.2, rx = 0.45 * u, rz = 0.22 * u, TOWARD = new THREE.Vector3(), AT = new THREE.Vector3();
   return {
     group,
     step(t) {
@@ -149,9 +167,11 @@ function pupil(ctx, spec, stage) {
       kid.group.position.set(cx + rx * Math.cos(g), floor, -0.05 * u + rz * Math.sin(g));
       kid.group.rotation.y = stop ? 0 : pre ? 0 : Math.atan2(-rx * Math.sin(g), rz * Math.cos(g));
       kid.wave('R', stop ? between(v, 3.2, 3.5) * (1 - between(v, 4.3, 4.6)) : 0, v);
-      // the bag on her back, the hat on her head
-      bag.position.copy(group.worldToLocal(kid.local(0, 0.42, -0.2, W))); bag.rotation.y = kid.group.rotation.y;
-      onHead(kid, hat, group, 'over', 0, -0.13, -0.04);
+      // the left hand cups the books' edge against her chest
+      kid.local(0.1, 0.5, 0.2, AT); axisOf(kid, -1, 0, 0, TOWARD);
+      kid.grip('L', AT, TOWARD, 0.06 * u * group.getWorldScale(W).y, 1, { out: 0.5, down: 0.7 });
+      books.position.copy(group.worldToLocal(AT)); books.rotation.y = kid.group.rotation.y;
+      onBone(kid, 'Torso', bag, group); onBone(kid, 'Head', hat, group);
     },
   };
 }

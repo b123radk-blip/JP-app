@@ -10,7 +10,7 @@
 //   q-run         走る: a runner laps a little track beside the kanji, dust kicking up
 //   q-sit         座る: a person walks up to a chair, turns, sits down, rests, stands up and walks off
 import * as THREE from 'three';
-import { acts, timeline, bump } from './timeline.js';
+import { acts, timeline } from './timeline.js';
 import { createModel } from '../models.js';
 import { many, ball, PUFF, HEART } from '../pieces/kit-things.js';
 import { textPlane } from '../pieces/kit-props.js';
@@ -20,6 +20,7 @@ import { between, puffs } from './helpers.js';
 import { grow } from './step1-kit.js';
 import { COW } from './q-animals3.js';
 import { actor } from './model-kit.js';
+import { onBone } from './bone-mount.js';
 
 const RIGHT = Math.PI / 2, LEFT = -Math.PI / 2;
 const lerp = (a, b, f) => a + (b - a) * f;
@@ -30,6 +31,8 @@ const label = (u, text, bg) => textPlane(text, { h: 0.16 * u, color: '#ffffff', 
 const pop = (m, k, x, y, z) => { m.visible = k > 0.01; m.scale.setScalar(grow(k)); m.position.set(x, y, z); };
 
 // ---- 犬 ----
+// the shiba's mouth in its Head bone's units (the snout runs along +y, tip at about y 0.65; measured on the model)
+const MOUTH = [0, 0.5, 0.05];
 function dogFetch(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, home = B.maxX + 0.5 * u, far = B.maxX + 1.35 * u, h = 0.75 * u;
   const dog = createModel('shiba', { height: h }), toy = ball(u, { r: 0.06, color: 0x40c0ff, stripe: 0xffffff }), dust = many(PUFF(u), 6, 0.3), hearts = many(HEART(u, 0.1), 3, 1);
@@ -39,16 +42,14 @@ function dogFetch(ctx, spec, stage) {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { throw: [0.3, 1.2, 'linear'], run: [0.9, 1.0, 'in'], back: [2.5, 1.1], drop: [3.7, 0.2] });
+      const T = timeline(v, { throw: [0.3, 1.2, 'linear'], run: [0.9, 1.0, 'in'], back: [2.5, 1.1] });
       const x = home + (far - home) * (T.run - T.back), running = (T.run > 0 && T.run < 1) || (T.back > 0 && T.back < 1);
       const yaw = pre ? -0.4 : -0.4 + (OUT + 0.4) * between(v, 0.75, 0.95) + (BACK - OUT) * between(v, 2.2, 2.45) - (BACK + 0.4) * between(v, 3.6, 3.8);
       if (running) dog.pose('Gallop', v); else if (!pre && v > 3.9 && v < 6.1) dog.pose('Jump_ToIdle', (v - 3.9) % 1.1); else if (!pre && T.run >= 1 && T.back <= 0) dog.pose('Eating', v - 1.9); else dog.pose('Idle', t);
       dog.group.position.set(x, floor, 0.05 * u); dog.group.rotation.y = yaw;
-      const fx = Math.sin(yaw), fz = Math.cos(yaw);
       toy.visible = !pre && T.throw > 0;
       if (T.run < 1) { const f = T.throw; toy.position.set(B.minX + (far + 0.3 * u - B.minX) * f, floor + 0.06 * u + Math.abs(Math.sin(f * Math.PI * 2.2)) * 0.9 * u * (1 - f), 0.1 * u); }
-      else if (T.drop < 1) toy.position.set(x + fx * 0.5 * h, floor + 0.62 * h, 0.05 * u + fz * 0.5 * h);
-      else toy.position.set(home - 0.15 * u, floor + 0.06 * u + 0.1 * u * bump(v, 3.7, 0.3), 0.05 * u + 0.45 * h);
+      else onBone(dog, 'Head', toy, group, MOUTH, { fit: false });       // caught: in the mouth, on the Head bone, to the end (the joy hops too)
       puffs(dust, 0, 6, far + 0.2 * u, floor, pre ? 0 : (v - 1.9) / 0.6, u, 0.4); dust.commit();
       for (let i = 0; i < 3; i++) { const f = pre ? 0 : between(v, 4.1 + i * 0.35, 5.3 + i * 0.35); hearts.set(i, home - 0.15 * u + 0.15 * u * i, floor + 0.85 * u + 0.4 * u * f, 0.05 * u, f > 0 && f < 1 ? 1.4 * Math.sin(Math.PI * f) : 0); }
       hearts.commit();
