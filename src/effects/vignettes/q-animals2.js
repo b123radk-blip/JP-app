@@ -150,40 +150,40 @@ function post(ctx, spec, stage) {
 }
 
 // ---- 大きな ----
-// The sea is a broad block of water with a flat surface, a lighter top skin and white wave crests that bob. A little
-// sailing boat rocks on it; a whale many times its size lies mostly UNDER the surface (only its back and head break it),
-// rises in an arc, blows a spout, then dives tail last; the boat rocks in its wake.
+// The sea is a block of water with a flat surface tipped toward you, a lighter top skin and white wave crests that bob.
+// Everything sits in one tipped rig (origin = the middle of the surface). A little sailing boat rocks on it; a whale many
+// times its size lies under the surface (the block is deeper than the whale's whole body), rises in an arc, blows a
+// spout, then dives tail last; the boat rocks in its wake.
 function whale(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.85 * u, top = floor + 0.02 * u;
-  const wh = createModel('whale', { width: 1.0 * u }), sx = B.maxX + 1.4 * u, sw = 2.5 * u, sd = 1.6 * u, sz = -0.1 * u;
-  const sea = solidProp([[G.box(sw, 0.9 * u, sd, 0, -0.45 * u, 0), 0x1f5fae], [G.box(sw * 1.001, 0.06 * u, sd * 1.001, 0, -0.03 * u, 0), 0x3f94de], [G.box(sw, 0.012 * u, sd, 0, -0.006 * u, 0), 0x6fb8f0]], 0.35);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, rig = new THREE.Group();
+  const wh = createModel('whale', { width: 0.65 * u }), sx = B.maxX + 1.15 * u, sw = 2.2 * u, sd = 1.4 * u, tilt = 0.5;
+  const hW = new THREE.Box3().setFromObject(wh.group).getSize(new THREE.Vector3()).y, depth = 1.5 * hW + 0.45 * u;
+  const sea = solidProp([[G.box(sw, depth, sd, 0, -depth / 2, 0), 0x1f5fae], [G.box(sw * 1.001, 0.05 * u, sd * 1.001, 0, -0.025 * u, 0), 0x3f94de], [G.box(sw, 0.012 * u, sd, 0, -0.006 * u, 0), 0x6fb8f0]], 0.35);
   const boat = solidProp([[G.box(0.3 * u, 0.07 * u, 0.12 * u, 0, 0.035 * u, 0), 0xc8443a], [G.box(0.24 * u, 0.02 * u, 0.1 * u, 0, 0.08 * u, 0), 0xf3e2c4], [G.cyl(0.007 * u, 0.007 * u, 0.3 * u, 0, 0.23 * u, 0), 0x8a5a30], [G.extrude(tri(), 0.01).scale(0.1 * u, 0.22 * u, 1).translate(0.06 * u, 0.13 * u, 0), 0xffffff]], 0.5);
   const spout = many([[G.sphere(0.07 * u), 0xe8f6ff]], 10, 1.0), wake = many([[G.torus(0.2 * u, 0.012 * u), 0xcfe8ff]], 2, 0.6);
-  const NW = 14, crest = many([[G.box(0.22 * u, 0.018 * u, 0.04 * u), 0xf4fbff]], NW, 0.6);   // wave crests
-  sea.position.set(sx, top, sz);
-  group.add(sea, wh.group, boat, spout, wake, crest);
-  const hW = new THREE.Box3().setFromObject(wh.group).getSize(new THREE.Vector3()).y;
-  const loop = 8.0, wz = -0.2 * u, surf = () => top;
+  const NW = 14, crest = many([[G.box(0.2 * u, 0.018 * u, 0.04 * u), 0xf4fbff]], NW, 0.6);   // wave crests
+  rig.position.set(sx, floor + 0.2 * u, -0.1 * u); rig.rotation.x = tilt;
+  rig.add(sea, wh.group, boat, spout, wake, crest); group.add(rig);
+  const loop = 8.0, wz = -0.1 * u;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       wh.pose('Swim', t * 0.7);
-      // lies in the water with its back out (0.55 of it under); rises (0.4-2.2), blows (2.2-4.4), dives (4.4-6.4)
+      // under the surface while the strokes draw; rises (0.4-2.2), lies along the surface and blows (2.2-4.4), dives (4.4-6.4)
       const T = timeline(v, { rise: [0.4, 1.8, 'out'], dive: [4.4, 2.0, 'in'] }), h = pre ? 0 : T.rise - T.dive;
-      const x = cx + 0.55 * u - 0.5 * u * (pre ? 0 : between(v, 0.4, 6.4));
-      wh.group.position.set(x, surf() - 0.95 * hW + 0.45 * hW * h, wz);
-      wh.group.rotation.order = 'YXZ'; wh.group.rotation.set(-0.3 * bump(v, 0.4, 2.0) + 0.25 * bump(v, 4.4, 2.0), LEFT + 0.2, 0);
-      wh.group.visible = h > 0.01;
-      const roll = bump(v, 1.4, 1.6) + 0.6 * bump(v, 5.0, 1.6), bz = 0.4 * u, bx = B.maxX + 0.5 * u;
-      boat.position.set(bx, surf() - 0.01 * u + 0.012 * u * Math.sin(t * 2.2) + 0.05 * u * roll * Math.sin(v * 5), bz); boat.rotation.set(0, 0.35, 0.1 * Math.sin(t * 1.7) + 0.25 * roll * Math.sin(v * 5));
+      const x = 0.15 * u - 0.4 * u * (pre ? 0 : between(v, 0.4, 6.4));
+      wh.group.position.set(x, -0.85 * hW + 0.5 * hW * h, wz);
+      wh.group.rotation.order = 'YXZ'; wh.group.rotation.set(-0.3 * bump(v, 0.4, 2.0) + 0.2 * bump(v, 4.4, 2.0), LEFT + 0.2, 0);
+      wh.group.visible = h > 0.08;
+      const roll = bump(v, 1.4, 1.6) + 0.6 * bump(v, 5.0, 1.6);
+      boat.position.set(-0.6 * u, -0.01 * u + 0.012 * u * Math.sin(t * 2.2) + 0.05 * u * roll * Math.sin(v * 5), 0.4 * u); boat.rotation.set(0, 0.35, 0.1 * Math.sin(t * 1.7) + 0.25 * roll * Math.sin(v * 5));
       const on = pre ? 0 : between(v, 2.4, 2.6) * (1 - between(v, 3.8, 4.2));
-      for (let i = 0; i < 10; i++) { const f = (v * 1.1 + i / 10) % 1; spout.set(i, x - 0.2 * u + (i % 2 ? 1 : -1) * 0.18 * u * f * f, surf() + 0.2 * u + 0.7 * u * Math.sin(Math.PI * 0.5 * Math.min(1, f * 1.4)), wz + 0.05 * u, on * (1.4 - f)); }
+      for (let i = 0; i < 10; i++) { const f = (v * 1.1 + i / 10) % 1; spout.set(i, x - 0.2 * u + (i % 2 ? 1 : -1) * 0.18 * u * f * f, 0.2 * u + 0.7 * u * Math.sin(Math.PI * 0.5 * Math.min(1, f * 1.4)), wz + 0.05 * u, on * (1.4 - f)); }
       spout.commit();
-      [[1.2, 0.45], [4.8, 0.1]].forEach(([at, dx], i) => { const f = pre ? 0 : between(v, at, at + 1.6); wake.set(i, cx + dx * u, surf() + 0.005 * u, wz, f > 0 && f < 1 ? 0.4 + 1.6 * f : 0, 0, 0, Math.PI / 2); });
+      [[1.2, 0.3], [4.8, -0.2]].forEach(([at, dx], i) => { const f = pre ? 0 : between(v, at, at + 1.6); wake.set(i, dx * u, 0.005 * u, wz, f > 0 && f < 1 ? 0.4 + 1.6 * f : 0, 0, 0, Math.PI / 2); });
       wake.commit();
-      // white wave crests drifting and bobbing over the surface
-      for (let i = 0; i < NW; i++) { const px = sx + ((((i * 0.37) % 1) * sw * 0.8 - sw * 0.4)) + 0.05 * u * Math.sin(t * 0.8 + i), pz = sz + ((i * 0.61) % 1 - 0.5) * sd * 0.8; crest.set(i, px, surf() + 0.012 * u + 0.012 * u * Math.sin(t * 1.6 + i * 1.7), pz, 1, 0, 0.3 * Math.sin(i), 0); }
+      for (let i = 0; i < NW; i++) { const px = ((i * 0.37) % 1 - 0.5) * sw * 0.8 + 0.05 * u * Math.sin(t * 0.8 + i), pz = ((i * 0.61) % 1 - 0.5) * sd * 0.8; crest.set(i, px, 0.012 * u + 0.012 * u * Math.sin(t * 1.6 + i * 1.7), pz, 1, 0, 0.3 * Math.sin(i), 0); }
       crest.commit();
     },
   };
