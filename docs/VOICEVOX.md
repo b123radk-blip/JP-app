@@ -70,6 +70,8 @@ node scripts/voicevox.mjs check
 ```
 
 Long vowels and particles are compared as spoken (今日 キョウ = キョオ, は = ワ), so what is listed is a real difference.
+When VOICEVOX misreads a clip, the script first retries with the kanji spelled out in kana (one word at a time, then all
+of them; a lone reading such as は goes in katakana) and keeps the first try that sounds as the card says.
 What to do: tell a Claude session which clip and what VOICEVOX planned (the card may be rephrased), or, if you are sure the
 VOICEVOX version is fine after listening in the app, keep it with `--accept` (step 6).
 

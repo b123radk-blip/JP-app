@@ -8,7 +8,7 @@
   "effect": { "material": "jade", "backdrop": "sky:day", "vignette": "lid-fit" },
   "sentences": [
     {
-      "segments": [ { "text": "十", "reading": "じゅう" }, { "text": "分間", "reading": "ふんかん" }, { "text": "に" }, { "text": "合", "reading": "あ" }, { "text": "いましたね。" } ],
+      "segments": [ { "text": "十分", "reading": "じゅうぶん" }, { "text": "間", "reading": "ま" }, { "text": "に" }, { "text": "合", "reading": "あ" }, { "text": "いましたね。" } ],
       "en": "You made it with time to spare.",
       "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-06", "needsNativeReview": true },
       "source": { "tatoeba": [148033, 12595945] }

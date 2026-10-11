@@ -23,7 +23,7 @@ import { pathToFileURL } from 'node:url';
 // VOICEVOX spells moras as pronounced (キョウ -> キョ・オ, セイ -> セ・エ, ー -> the vowel). Fold both sides the same way so
 // only real differences (another word, another reading) are reported.
 const ROWS = { a: 'アカガサザタダナハバパマヤラワャァ', i: 'イキギシジチヂニヒビピミリィ', u: 'ウクグスズツヅヌフブプムユルュゥヴ', e: 'エケゲセゼテデネヘベペメレェ', o: 'オコゴソゾトドノホボポモヨロヲョォ' };
-const VOWEL = {}; for (const [v, s] of Object.entries(ROWS)) for (const c of s) VOWEL[c] = v;
+const VOWEL = { ヮ: 'a', ヱ: 'e' }; for (const [v, s] of Object.entries(ROWS)) for (const c of s) VOWEL[c] = v;
 const VK = { a: 'ア', i: 'イ', u: 'ウ', e: 'エ', o: 'オ' };
 const SMALL = 'ャュョァィゥェォ';
 const toKata = (s) => [...s].map((c) => (c >= 'ぁ' && c <= 'ゖ' ? String.fromCharCode(c.charCodeAt(0) + 0x60) : c)).join('');
@@ -32,13 +32,27 @@ export function foldKana(s) {
   const out = []; let prev = null;                                    // prev = vowel of the previous mora
   for (let i = 0; i < chars.length; i++) {
     let c = chars[i];
+    if (chars[i + 1] && 'ァィゥェォ'.includes(chars[i + 1]) && VOWEL[chars[i + 1]] === VOWEL[c]) chars[i + 1] = VK[VOWEL[c]];   // ナァ = ナア
     if (chars[i + 1] && SMALL.includes(chars[i + 1])) { c += chars[++i]; prev = VOWEL[chars[i]]; out.push(c); continue; }
     if (c === 'ー' && prev) c = VK[prev];
     else if (c === 'ウ' && prev === 'o') c = 'オ';
     else if (c === 'イ' && prev === 'e') c = 'エ';
     out.push(c); prev = VOWEL[c] ?? null;
   }
-  return out.join('');
+  return out.join('').replace(/(^|[^ャュョ])ユウ/g, '$1イウ');            // 言う: イウ = ユウ (both sides, so 夕 ユウ still matches)
+}
+// Expected kana may hold ヮ / ヱ: a は / へ inside a kana segment of the card (usually the particle ワ / エ, sometimes not).
+export function kanaMatch(planned, expected) {
+  const a = [...foldKana(planned)], b = [...foldKana(expected)];
+  return a.length === b.length && b.every((c, i) => c === a[i] || (c === 'ヮ' && 'ハワ'.includes(a[i])) || (c === 'ヱ' && 'ヘエ'.includes(a[i])));
+}
+// What to send when VOICEVOX misreads the clip's own text: a reading as katakana; a sentence with one kanji segment at a
+// time spelled in hiragana (keeps the rest of the sentence natural), then every kanji segment in hiragana.
+export function fallbackTexts(clip) {
+  if (clip.kind === 'reading') return [toKata(clip.text)];
+  const seg = clip.seg ?? [], join = (f) => seg.map((g, i) => (Array.isArray(g) ? f(g, i) : g)).join('');
+  const one = seg.flatMap((g, i) => (Array.isArray(g) ? [join((h, k) => (k === i ? h[1] : h[0]))] : []));
+  return [...new Set([...one, join((h) => h[1])])].filter((t) => t !== clip.text);
 }
 export const plannedKana = (query) => query.accent_phrases.flatMap((ap) => ap.moras.map((m) => m.text)).join('');
 
@@ -103,9 +117,15 @@ async function generate(o, { dry }) {
   for (const j of jobs) {
     const old = manifest.clips[j.id];
     if (!dry && !o.force && !changedVoice && old && old.text === j.clip.text && old.speed === j.speed && existsSync(join(root, old.src))) { report.kept.push(j.id); continue; }
-    const query = await (await api(o.host, `/audio_query?text=${encodeURIComponent(j.clip.text)}&speaker=${o.speaker}`, { method: 'POST' })).json();
-    const planned = plannedKana(query);
-    if (foldKana(planned) !== foldKana(j.clip.spoken)) {
+    const ask = async (text) => (await api(o.host, `/audio_query?text=${encodeURIComponent(text)}&speaker=${o.speaker}`, { method: 'POST' })).json();
+    let query = await ask(j.clip.text), planned = plannedKana(query);
+    if (!kanaMatch(planned, j.clip.spoken)) {
+      for (const text of fallbackTexts(j.clip)) {                     // misread: try spelling the kanji out in kana
+        const q = await ask(text);
+        if (kanaMatch(plannedKana(q), j.clip.spoken)) { query = q; planned = plannedKana(q); break; }
+      }
+    }
+    if (!kanaMatch(planned, j.clip.spoken)) {
       if (!o.accept.includes(j.id) && !o.accept.includes(j.clip.id)) { report.mismatch.push({ ...j, planned }); continue; }
       report.accepted.push(j.id);
     }

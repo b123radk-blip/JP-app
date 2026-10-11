@@ -8,7 +8,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { spawnSync, execFile } from 'node:child_process';
 import { promisify } from 'node:util';
-import { foldKana, plannedKana } from '../scripts/voicevox.mjs';
+import { foldKana, plannedKana, kanaMatch, fallbackTexts } from '../scripts/voicevox.mjs';
 
 const run = promisify(execFile);
 // what the mock engine "says" for each text (pronunciation kana, as VOICEVOX spells moras)
@@ -59,7 +59,16 @@ test('kana folding: long vowels and particles compare as spoken, real difference
   assert.equal(foldKana('きょう'), foldKana('キョウ'));
   assert.notEqual(foldKana('ヒワアツイ'), foldKana('カワアツイ'));
   assert.notEqual(foldKana('ニチ'), foldKana('ヒ'));
+  assert.ok(kanaMatch('ワタシワイヌワ', 'ワタシヮイヌヮ') && kanaMatch('アレハ', 'アレヮ') && kanaMatch('イエエ', 'イエヱ'));   // は / へ in a kana segment
+  assert.ok(!kanaMatch('ワワ', 'ハハ') && !kanaMatch('ナニデスカ', 'ナンデスカ'));
+  assert.ok(kanaMatch('ナア', 'ナァ') && kanaMatch('コーユー', 'コウイウ') && kanaMatch('ユーガタ', 'ユウガタ'));
   assert.equal(plannedKana({ accent_phrases: [{ moras: [{ text: 'キョ' }, { text: 'オ' }] }, { moras: [{ text: 'ワ' }] }] }), 'キョオワ');
+});
+
+test('fallback texts spell one kanji segment at a time in kana, then all; a reading goes katakana', () => {
+  assert.deepEqual(fallbackTexts({ kind: 'reading', text: 'はち' }), ['ハチ']);
+  assert.deepEqual(fallbackTexts({ kind: 'sentence', text: 'これ何ですか。', seg: ['これ', ['何', 'なん'], 'ですか。'] }), ['これなんですか。']);
+  assert.deepEqual(fallbackTexts({ kind: 'sentence', text: '今日何日', seg: [['今日', 'きょう'], ['何日', 'なんにち']] }), ['きょう何日', '今日なんにち', 'きょうなんにち']);
 });
 
 test('generate: matching clips are rendered (wav), a misread one is reported and not saved; manifest carries the credit', async () => {
