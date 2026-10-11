@@ -6,8 +6,8 @@
 //                  shell: a kid holds a big seashell to their ear and little waves wash past (聞く)
 //   meet-bow       会: two people walk in from either side, meet in the middle and bow to each other. outcome run: two
 //                  friends run to each other and hug, hearts (会う)
-//   say-hello      言: a person waves and says こんにちは in a big speech bubble. outcome parrot: a parrot on a perch
-//                  squawks the same word back twice (言う)
+//   say-hello      言: a person waves and says こんにちは in a big speech bubble. outcome thanks: a friend hands a person a
+//                  gift on her palm; the person says ありがとう! in a speech bubble that floats to the friend, who nods, hearts (言う)
 //   odometer       万: a counter rolls up faster and faster, 9997, 9998, 9999 ... 10000! and fireworks burst
 //   wise-owl       知: a wise owl in a graduation cap blinks, nods and a "!" pops over it. outcome map: the owl taps a map
 //                  with its wing and a pin pops up: it knows the way (知る)
@@ -19,8 +19,9 @@
 //                  with briefcases walk into the tower one after another (会社)
 //   name-card      名: a hand slides a name card into the name plate on a door; it glows. outcome write: a pencil writes
 //                  a name on a notebook's label (名前)
-//   giraffe-tall   高: a giraffe stretches its neck up higher and higher to reach a leaf. outcome price: a price tag's
-//                  number shoots up and up, ¥¥¥, and eyes pop (高い)
+//   giraffe-tall   高: a giraffe stretches its neck up higher and higher until its mouth is at a leafy branch and eats a leaf.
+//                  outcome tower: a small person at the foot of a very tall tower tilts their head back to look up and up
+//                  as a height arrow grows up its side, a cloud and a pigeon pass below the top, ! (高い)
 import * as THREE from 'three';
 import { acts, timeline, bump, wobble } from './timeline.js';
 import { createPerson } from '../pieces/kit-person.js';
@@ -32,7 +33,9 @@ import { G } from '../pieces/shape-kit.js';
 import { between, bonePoint, liveText } from './helpers.js';
 import { grow } from './step1-kit.js';
 import { crown } from './step1-b.js';
-import { newShoes, seashell, parrot, nameWrite, priceUp } from './step1-kv.js';
+import { newShoes, seashell, nameWrite } from './step1-kv.js';
+import { createModel } from '../models.js';
+import { person, pop, hearts, speech, RIGHT, LEFT, UP } from './q-common.js';
 
 const tmp = new THREE.Vector3();
 const sparkle = (m, n, x, y, r, f, u) => { for (let i = 0; i < n; i++) { const a = i * (Math.PI * 2 / n) + f * 2; m.set(i, x + Math.cos(a) * r * u * (0.5 + f), y + Math.sin(a) * r * u * (0.5 + f), 0.08 * u, f > 0 && f < 1 ? Math.sin(Math.PI * f) * 1.3 : 0); } m.commit(); };
@@ -127,7 +130,7 @@ const heartsSet = (m, x, y, v, on, u) => { for (let i = 0; i < 3; i++) { const f
 
 // ---- 言 say ----
 function sayHello(ctx, spec, stage) {
-  if (spec.outcome === 'parrot') return parrot(ctx, spec, stage);
+  if (spec.outcome === 'thanks') return sayThanks(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.35 * u;
   const p = createPerson({ u: 0.95 * u, shirt: 0xe07a3a }), bubble = textPlane('こんにちは', { h: 0.22 * u, color: '#202838', bg: '#ffffff', pad: 0.3 }), tail = solidProp([[G.cone(0.04 * u, 0.1 * u, 0, 0, 0, 2.6), 0xffffff]], 0.9);
   group.add(p.group, bubble, tail);
@@ -141,6 +144,45 @@ function sayHello(ctx, spec, stage) {
     },
   };
 }
+// ---- 言う say: "thank you!" to a friend who has just handed over a gift ----
+const tmpFriend = new THREE.Object3D(), tmpSelf = new THREE.Object3D();
+function sayThanks(ctx, spec, stage) {
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.4 * u, fx = x0 + 0.95 * u, R = 0.045 * u;
+  const me = person(spec.who ?? 'guy3', u), friend = person(spec.other ?? 'gal2', u), W = new THREE.Vector3(), W2 = new THREE.Vector3(), P = new THREE.Vector3();
+  const gift = solidProp([[G.box(0.09 * u, 0.09 * u, 0.09 * u, 0, 0, 0), 0xe03a4a], [G.box(0.094 * u, 0.094 * u, 0.014 * u, 0, 0, 0), 0xffd040], [G.box(0.014 * u, 0.094 * u, 0.094 * u, 0, 0, 0), 0xffd040],
+    [G.sphere(0.02 * u, -0.017 * u, 0.058 * u, 0, 1.3, 0.8, 0.8), 0xffd040], [G.sphere(0.02 * u, 0.017 * u, 0.058 * u, 0, 1.3, 0.8, 0.8), 0xffd040]], 0.6);
+  const bubble = speech(u, 'ありがとう!', { h: 0.15 }), hs = many(HEART(u, 0.11), 3, 1);
+  group.add(me.group, friend.group, gift, bubble, hs);
+  const loop = 6.2;
+  return {
+    group,
+    step(t) {
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, ws = group.getWorldScale(W).y;
+      me.pose('Idle', t); friend.pose('Idle', t);
+      me.group.position.set(x0, floor, 0.05 * u); me.group.rotation.y = RIGHT - 0.55;
+      friend.group.position.set(fx, floor, 0.0); friend.group.rotation.y = LEFT + 0.55;
+      // the thanker bows a little as she speaks; the friend nods back
+      me.bow(0.3 * bump(v, 2.3, 1.6)); me.turn('Head', 0.22 * between(v, 1.6, 2.1) * (1 - between(v, 2.1, 2.5)));
+      friend.nod(bump(v, 3.2, 1.5), v);
+      // the gift lies on the friend's open palm, held out; she lowers her hand as the thanker's palm comes under it
+      const kf = (pre ? A.setup : 1) * (v < 5.4 ? 1 - between(v, 1.6, 2.1) : between(v, 5.4, 5.9)), ks = pre ? 0 : between(v, 0.5, 1.1) * (1 - between(v, 4.8, 5.3));
+      friend.grip('L', friend.local(0.13, 0.5, 0.4, P), UP, R * ws, kf, { out: 0.7, down: 0.8 }); friend.hold(tmpFriend, 'L', group, R * ws);
+      me.grip('R', me.local(-0.13, 0.5, 0.38, P), UP, R * ws, ks, { out: 0.7, down: 0.8 }); me.hold(tmpSelf, 'R', group, R * ws);
+      const g = v < 5.3 ? between(v, 1.2, 1.7) : 0;
+      gift.position.lerpVectors(tmpFriend.position, tmpSelf.position, g); gift.position.y += 0.04 * u * Math.sin(Math.PI * g);
+      gift.rotation.y = 0.5 * Math.sin(v * 0.8);
+      gift.visible = !pre ? (v < 5.3 || v > 5.4) : true; gift.scale.setScalar(grow(v > 5.3 ? between(v, 5.4, 5.9) : 1 - between(v, 4.8, 5.3)));
+      if (pre) gift.scale.setScalar(1);
+      // ありがとう! pops out at her mouth and floats across to the friend
+      const k = pre ? 0 : between(v, 2.3, 2.7) * (1 - between(v, 5.0, 5.4)), f = between(v, 2.3, 3.4), e = f * f * (3 - 2 * f);
+      me.at('mouth', W2); group.worldToLocal(W2);
+      const sx = W2.x + 0.12 * u, sy = W2.y + 0.1 * u, ex = x0 + 0.62 * u, ey = floor + 1.22 * u;
+      pop(bubble, k, sx + (ex - sx) * e, sy + (ey - sy) * e + 0.05 * u * Math.sin(Math.PI * f), 0.1 * u);
+      hearts(hs, 3, fx - 0.02 * u, floor + 1.0 * u, 0.12 * u, pre ? -1 : v, 3.6, u);
+    },
+  };
+}
+
 // ---- 万 ten thousand ----
 function odometer(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.6 * u, cy = B.cy;
@@ -294,23 +336,73 @@ function nameCard(ctx, spec, stage) {
 }
 // ---- 高 tall ----
 function giraffeTall(ctx, spec, stage) {
-  if (spec.outcome === 'price') return priceUp(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 0.45 * u;
+  if (spec.outcome === 'tower') return tallTower(ctx, spec, stage);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 0.35 * u, TIP = 0.145 * u;
   const body = solidProp([[G.sphere(0.16 * u, 0, 0.4 * u, 0, 1.5, 0.9, 0.8), 0xf0b040], ...[[-0.12, 0.08], [-0.12, -0.08], [0.12, 0.08], [0.12, -0.08]].map(([x, z]) => [G.cyl(0.025 * u, 0.025 * u, 0.36 * u, x * u, 0.18 * u, z * u), 0xf0b040]), ...[[-0.08, 0.45], [0.05, 0.38], [0.1, 0.47]].map(([x, y]) => [G.sphere(0.035 * u, x * u, y * u, 0.12 * u, 1, 1, 0.3), 0x8a4a20])], 0.45);
-  const neck = solidProp([[G.cyl(0.04 * u, 0.05 * u, 1, 0, 0.5, 0), 0xf0b040]], 0.45), head = solidProp([[G.sphere(0.07 * u, 0.04 * u, 0, 0, 1.4, 0.9, 0.9), 0xf0b040], [G.sphere(0.015 * u, 0.05 * u, 0.03 * u, 0.06 * u), 0x101010], [G.cyl(0.008 * u, 0.008 * u, 0.06 * u, -0.02 * u, 0.08 * u, 0), 0x8a4a20], [G.cyl(0.008 * u, 0.008 * u, 0.06 * u, 0.02 * u, 0.08 * u, 0), 0x8a4a20]], 0.45);
-  const tree = crown(0.7 * u, 3, [0x3aa040]), leaf = solidProp([[G.sphere(0.04 * u, 0, 0, 0, 1.4, 0.3, 1), 0x60d040]], 0.6);
-  body.position.set(gx, floor, 0);
-  [[0.4, 1.2, 1], [0.3, 1.1, 0.8], [0.52, 1.1, 0.8]].forEach(([x, y, s], i) => tree.set(i, gx + x * u, floor + y * u, -0.1 * u, s)); tree.commit();
+  const neck = solidProp([[G.cyl(0.04 * u, 0.05 * u, 1, 0, 0.5, 0), 0xf0b040]], 0.45);
+  const head = solidProp([[G.sphere(0.07 * u, 0.04 * u, 0, 0, 1.4, 0.9, 0.9), 0xf0b040], [G.sphere(0.035 * u, 0.115 * u, -0.012 * u, 0, 1, 0.9, 0.9), 0xc88a40], [G.sphere(0.015 * u, 0.05 * u, 0.03 * u, 0.06 * u), 0x101010], [G.cyl(0.008 * u, 0.008 * u, 0.06 * u, -0.02 * u, 0.08 * u, 0), 0x8a4a20], [G.cyl(0.008 * u, 0.008 * u, 0.06 * u, 0.02 * u, 0.08 * u, 0), 0x8a4a20]], 0.45);
+  // The tree stands to the right with one branch reaching toward the giraffe; the branch ends in a leaf cluster whose left
+  // edge is exactly where the stretched giraffe's mouth is (M0, worked out here), all in the giraffe's own plane (z 0).
+  const nb = [0.15, 0.46], nr = -0.12, nl = 0.95, hp = 0.35;                         // neck base, neck angle and length, head pitch when fully stretched
+  const M0 = [nb[0] - Math.sin(nr) * nl + (TIP / u) * Math.cos(hp), nb[1] + Math.cos(nr) * nl + (TIP / u) * Math.sin(hp)];   // the mouth, in u
+  const L0 = [M0[0] + 0.012, M0[1]], tx = 0.95, ty = 1.32, cx = L0[0] + 0.07, cy = L0[1] + 0.015;
+  const bl = Math.hypot(tx - cx, ty - cy), ba = Math.atan2(tx - cx, cy - ty);           // branch from the trunk to the cluster
+  const tree = solidProp([[G.cyl(0.05 * u, 0.065 * u, 1.45 * u, tx * u, 0.725 * u, 0), 0x7a4a24], [G.cyl(0.018 * u, 0.03 * u, bl * u, (tx + cx) / 2 * u, (ty + cy) / 2 * u, 0, 0, 0, ba + Math.PI), 0x7a4a24],
+    [G.sphere(0.24 * u, tx * u, 1.62 * u, 0, 1.1, 0.9, 0.9), 0x3aa040], [G.sphere(0.17 * u, (tx - 0.14) * u, 1.5 * u, 0.05 * u), 0x48b048], [G.sphere(0.16 * u, (tx + 0.15) * u, 1.52 * u, -0.05 * u), 0x2f9038],
+    [G.sphere(0.055 * u, cx * u, cy * u, 0), 0x3aa040], [G.sphere(0.045 * u, (cx + 0.04) * u, (cy + 0.05) * u, 0.02 * u), 0x48b048], [G.sphere(0.045 * u, (cx + 0.03) * u, (cy - 0.04) * u, -0.02 * u), 0x2f9038]], 0.4);
+  const leaf = solidProp([[G.sphere(0.04 * u, 0, 0, 0, 1.3, 0.6, 1), 0x7ae050]], 0.6);
+  body.position.set(gx, floor, 0); tree.position.set(gx, floor, 0);
   group.add(body, neck, head, tree, leaf);
   const loop = 5.6;
   return {
     group,
     step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, s = pre ? 0 : between(v, 0.3, 2.3) * (1 - between(v, 4.6, 5.4)), len = (0.35 + 0.55 * s) * u;
-      neck.position.set(gx + 0.15 * u, floor + 0.46 * u, 0.0); neck.rotation.z = -0.35 + 0.25 * s; neck.scale.set(1, len, 1);
-      const hx = gx + 0.15 * u - Math.sin(neck.rotation.z) * len, hy = floor + 0.46 * u + Math.cos(neck.rotation.z) * len;
-      head.position.set(hx, hy, 0.0); head.rotation.z = 0.1 * Math.sin(v * 4) * s;
-      const eat = pre ? 0 : between(v, 2.3, 2.8); leaf.visible = eat < 0.95; leaf.position.set(gx + 0.38 * u - 0.1 * u * eat, floor + 1.05 * u - 0.05 * u * eat, 0.0); leaf.scale.setScalar(grow(1 - eat));
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, s = pre ? 0 : between(v, 0.3, 2.3) * (1 - between(v, 4.6, 5.4)), len = (0.35 + (nl - 0.35) * s) * u;
+      const eat = pre ? 0 : between(v, 2.4, 2.9), chew = pre ? 0 : between(v, 2.9, 3.2) * (1 - between(v, 4.2, 4.5)) * Math.sin(v * 16);
+      neck.position.set(gx + nb[0] * u, floor + nb[1] * u, 0); neck.rotation.z = -0.35 + (0.35 + nr) * s; neck.scale.set(1, len, 1);
+      const hx = gx + nb[0] * u - Math.sin(neck.rotation.z) * len, hy = floor + nb[1] * u + Math.cos(neck.rotation.z) * len, pitch = hp * s + 0.07 * chew;
+      head.position.set(hx, hy, 0); head.rotation.z = pitch;
+      const mx = hx + TIP * Math.cos(pitch), my = hy + TIP * Math.sin(pitch);          // the mouth
+      // the leaf hangs at the cluster's left edge; it goes into the mouth and is gone
+      const lx = gx + L0[0] * u, ly = floor + L0[1] * u, e = eat * eat * (3 - 2 * eat);
+      leaf.visible = pre || eat < 0.98; leaf.position.set(lx + (mx - lx) * e, ly + (my - ly) * e, 0); leaf.scale.setScalar(grow(1 - 0.6 * e));
+    },
+  };
+}
+
+// ---- 高い tall: a small person at the foot of a very tall tower looks up and up ----
+function tallTower(ctx, spec, stage) {
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.75 * u, TH = 1.7 * u;
+  const parts = [[G.box(0.36 * u, TH, 0.26 * u, 0, TH / 2, 0), 0x5f6f92], [G.box(0.4 * u, 0.05 * u, 0.3 * u, 0, TH + 0.025 * u, 0), 0x3a4868], [G.box(0.24 * u, 0.2 * u, 0.18 * u, 0, TH + 0.15 * u, 0), 0x6a7aa0],
+    [G.cyl(0.008 * u, 0.008 * u, 0.3 * u, 0, TH + 0.4 * u, 0), 0x808890], [G.sphere(0.02 * u, 0, TH + 0.56 * u, 0), 0xff3030],
+    [G.box(0.1 * u, 0.16 * u, 0.01 * u, 0, 0.08 * u, 0.131 * u), 0x2a3550], [G.box(0.16 * u, 0.02 * u, 0.04 * u, 0, 0.18 * u, 0.15 * u), 0xd03030]];
+  for (let r = 0; r < 12; r++) for (let c = -1; c <= 1; c++) parts.push([G.box(0.055 * u, 0.07 * u, 0.01 * u, c * 0.1 * u, (0.3 + r * 0.115) * u, 0.131 * u), (r * 3 + c + 7) % 5 === 0 ? 0xffe080 : 0x9fd0f0]);
+  const tower = solidProp(parts, 0.35);
+  const shaft = solidProp([[G.box(0.035 * u, 1, 0.02 * u, 0, 0.5, 0), 0xe02020]], 1.0), tip = solidProp([[G.cone(0.06 * u, 0.1 * u, 0, 0.05 * u, 0), 0xe02020]], 1.0);
+  const cloud = solidProp([[G.sphere(0.07 * u, 0, 0, 0, 1.4, 0.8, 0.8), 0xffffff], [G.sphere(0.055 * u, 0.09 * u, 0.015 * u, 0, 1.3, 0.8, 0.8), 0xf4f8ff], [G.sphere(0.05 * u, -0.09 * u, 0.01 * u, 0, 1.3, 0.8, 0.8), 0xf4f8ff]], 0.7);
+  const pigeon = createModel('pigeonFlying', { width: 0.3 * u }), bang = textPlane('!', { h: 0.2 * u, color: '#ffffff', bg: '#e0a020', pad: 0.5 });
+  const p = person(spec.who ?? 'guy2', u, 0.6), W = new THREE.Vector3(), W2 = new THREE.Vector3();
+  tower.position.set(tx, floor, -0.02 * u);
+  group.add(tower, shaft, tip, cloud, pigeon.group, p.group, bang);
+  const loop = 6.0, ax = tx + 0.32 * u, px = tx - 0.45 * u, top = floor + TH + 0.05 * u;
+  return {
+    group,
+    step(t) {
+      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, f = pre ? 0 : between(v, 0.4, 3.0) * (1 - between(v, 5.0, 5.6));
+      // the arrow grows up the tower's side; her head tips further back as it climbs; at the top she points up and says !
+      const len = Math.max(0.001, (TH - 0.05 * u) * between(v, 0.4, 3.0) * (1 - between(v, 5.0, 5.6)));
+      shaft.visible = tip.visible = f > 0.01; shaft.position.set(ax, floor + 0.05 * u, 0.04 * u); shaft.scale.set(1, len, 1); tip.position.set(ax, floor + 0.05 * u + len, 0.04 * u);
+      p.pose('Idle', t); p.group.position.set(px, floor, 0.12 * u); p.group.rotation.y = 0.85;
+      p.turn('Abdomen', -0.2 * f); p.turn('Torso', -0.12 * f); p.turn('Head', -0.7 * f);
+      const pt = between(v, 3.0, 3.5) * (1 - between(v, 5.0, 5.5));
+      p.point('R', W2.set(tx, top, 0.1 * u), pt);
+      const k = pre ? 0 : between(v, 3.2, 3.5) * (1 - between(v, 5.0, 5.3));
+      p.at('over', W); group.worldToLocal(W); pop(bang, k, W.x + 0.1 * u, W.y + 0.08 * u, W.z + 0.05 * u);
+      // a cloud drifts by and a pigeon flaps across, both below the top
+      const c = pre ? 0 : between(v, 0.2, 5.6);
+      cloud.position.set(tx + 0.9 * u - 1.7 * u * c, floor + 1.15 * u, 0.3 * u); cloud.visible = !pre;
+      const b = pre ? 0 : between(v, 1.0, 4.2);
+      pigeon.group.visible = b > 0 && b < 1; pigeon.group.position.set(tx + 0.8 * u - 1.6 * u * b, floor + 1.4 * u + 0.05 * u * Math.sin(b * 9), 0.3 * u); pigeon.group.rotation.y = LEFT;
     },
   };
 }

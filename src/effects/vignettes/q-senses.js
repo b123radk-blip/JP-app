@@ -4,7 +4,8 @@
 //             from behind her back and holds it up to her mum, who leans in (!): じょうず! and hearts (見せる)
 //   q-listen  聞: a person cups a hand to his ear toward a wind chime that rings; sound rings travel to his ear, he smiles
 //             and nods, ♪; outcome shell: a child holds a seashell to her ear, eyes shut, while little waves wash past, ザザー (聞く)
-//   q-hello   言: a person waves and says こんにちは in a big speech bubble that pops out of her mouth, then bows a little
+//   q-hello   言: two people face each other; she speaks and lines of words (すき, こんにちは, ありがとう, またね) come out of her
+//             mouth one after another and stack up between them like the strokes of 言, while he nods
 //   q-read    読: a grandma on a stool holds an open book, her head bent over it; a page turns and letters float up out of it
 import * as THREE from 'three';
 import { acts, timeline, bump } from './timeline.js';
@@ -157,24 +158,29 @@ function shell(ctx, spec, stage) {
 
 // ---- 言 ----
 function hello(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.45 * u;
-  const p = person(spec.who, u), bubble = new THREE.Group(), text = textPlane('こんにちは!', { h: 0.17 * u, color: '#20242c', bg: '#ffffff', pad: 0.35 });
-  const tail = solidProp([[G.cone(0.05 * u, 0.14 * u, 0, 0, 0, 2.6), 0xffffff]], 1.0);
-  bubble.add(text, tail); tail.position.set(-0.22 * u, -0.12 * u, -0.005 * u);
-  group.add(p.group, bubble);
-  const loop = 5.6;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.4 * u, lx = x0 + 1.0 * u, mid = (x0 + lx) / 2;
+  const p = person(spec.who, u), l = person(spec.other ?? 'guy2', u);
+  // lines of words, like the strokes of 言: a short one on top, then longer ones, each a card of glowing text
+  const WORDS = ['すき', 'こんにちは', 'ありがとう', 'またね'], cards = WORDS.map((w) => textPlane(w, { h: 0.15 * u, color: '#20242c', bg: '#fff3c4', pad: 0.3 }));
+  group.add(p.group, l.group, ...cards);
+  const loop = 6.2, rowY = (i) => floor + (1.42 - 0.18 * i) * u, at = (i) => 0.5 + 0.85 * i;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      p.pose('Idle', t); p.group.position.set(x0, floor, 0.05 * u); p.group.rotation.y = -0.25;
-      p.wave('R', pre ? 0 : between(v, 0.2, 0.5) * (1 - between(v, 2.4, 2.7)), v);
-      // the bubble pops out of her mouth and floats up to the right of her head, then she bows a little
-      const s = pre ? 0 : between(v, 0.6, 1.0) * (1 - between(v, 4.6, 5.0));
+      p.pose('Idle', t); l.pose('Idle', t);
+      p.group.position.set(x0, floor, 0.05 * u); p.group.rotation.y = RIGHT - 0.75;
+      l.group.position.set(lx, floor, 0.05 * u); l.group.rotation.y = LEFT + 0.75;
+      // she speaks: her head dips a little with each word; he nods along
+      p.turn('Head', 0.1 * WORDS.reduce((s, _, i) => s + bump(v, at(i), 0.45), 0));
+      l.nod(pre ? 0 : between(v, 1.3, 1.7) * (1 - between(v, 4.6, 5.0)), v);
+      // each word starts at her mouth and flies across to its row between them
       p.at('mouth', W); group.worldToLocal(W);
-      bubble.visible = s > 0.01; bubble.scale.setScalar(grow(s)); bubble.position.set(W.x + 0.45 * u * s, W.y + 0.28 * u * s, W.z + 0.05 * u);
-      p.turn('Head', 0.06 * Math.max(0, Math.sin(v * 14)) * between(v, 0.6, 0.8) * (1 - between(v, 1.8, 2.0)));
-      p.bow(0.6 * bump(v, 3.0, 1.4));
+      cards.forEach((c, i) => {
+        const f = pre ? 0 : between(v, at(i), at(i) + 0.8), e = f * f * (3 - 2 * f), gone = pre ? 0 : between(v, 5.2, 5.6);
+        c.visible = f > 0.01 && gone < 0.98; c.scale.setScalar(grow(Math.min(1, f * 3)) * (1 - gone * 0.5));
+        c.position.set(W.x + 0.06 * u + (mid - W.x - 0.06 * u) * e, W.y + (rowY(i) - W.y) * e + 0.06 * u * Math.sin(Math.PI * f), W.z + 0.1 * u * e);
+      });
     },
   };
 }
