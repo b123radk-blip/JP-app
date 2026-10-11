@@ -8,7 +8,8 @@
 //                                  showing the new scene; the Old / New button shows the card's current one (old=1: start there)
 //   review=1                       quick review: each card opens fully drawn with its scene playing (no stroke order) and
 //                                  loops just the scene; Flag marks a card to fix (kept in this browser), Flagged flips
-//                                  through only the flagged cards and lists them on screen
+//                                  through only the flagged cards and lists them on screen; Send opens a GitHub issue
+//                                  filled in with the flagged cards (a line each for a note), to submit for fixing
 import * as THREE from 'three';
 import { LAYOUT, COLORS, EFFECTS, COMPONENT_LOOKS } from '../../config.js';
 import { makeLabel } from '../../core/text.js';
@@ -20,7 +21,7 @@ import { loadModelsFor } from '../../effects/models.js';
 import { addMnemonic, addPlainFurigana, cardText } from '../card-player.js';
 
 const LOOP_AFTER = 7;                    // seconds after the last stroke before the animation replays
-const FLAGS_KEY = 'jp-review-flags';
+const FLAGS_KEY = 'jp-review-flags', ISSUES = 'https://github.com/b123radk-blip/JP-app/issues/new';
 
 // the review flags: { cardId: its word }, kept in localStorage when it works
 function loadFlags() { try { return new Map(Object.entries(JSON.parse(localStorage.getItem(FLAGS_KEY) ?? '{}'))); } catch { return new Map(); } }
@@ -34,8 +35,8 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
   const start = () => (review ? view?.effect.strokesEnd ?? 0 : 0);          // review skips the strokes: the scene starts at once
   const bar = [['prev', 'Prev', () => go(-1)], ['replay', 'Replay', () => view?.seek(start())], ['pause', 'Pause', () => togglePause()], ['next', 'Next', () => go(1)],
     ...(trial ? [['swap', 'Old / New', () => { showOld = !showOld; show(); }]] : []),
-    ...(review ? [['flag', 'Flag', () => toggleFlag()], ['flagged', 'Flagged', () => toggleFlagged()]] : [])];
-  const bw = 0.17, gap = 0.02, row = bar.length * bw + (bar.length - 1) * gap;
+    ...(review ? [['flag', 'Flag', () => toggleFlag()], ['flagged', 'Flagged', () => toggleFlagged()], ['send', 'Send', () => send()]] : [])];
+  const bw = review ? 0.155 : 0.17, gap = 0.02, row = bar.length * bw + (bar.length - 1) * gap;
   bar.forEach(([id, label, fn], k) => { const b = createButton(app.input, { id: `preview-${id}`, label, width: bw, height: 0.07, size: 0.032, onSelect: fn }); b.group.position.set(-row / 2 + bw / 2 + k * (bw + gap), Y.buttons, 0.004); group.add(b.group); buttons.push(b); });
   const exit = createButton(app.input, { id: 'exit', label: 'Exit', width: 0.16, height: 0.065, size: 0.032, onSelect: () => app.show('home') });
   exit.group.position.set(-0.62, Y.top, 0.004); group.add(exit.group); buttons.push(exit);
@@ -47,6 +48,14 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
     if (!onlyFlagged && !flags.size) { app.note('No flagged cards yet'); return; }
     const id = ids[i]; onlyFlagged = !onlyFlagged; ids = onlyFlagged ? allIds.filter((x) => flags.has(x)) : allIds;
     i = Math.max(0, ids.indexOf(id)); show();
+  }
+  // a new GitHub issue with the flagged cards filled in; it leaves the headset view so the page can be read and submitted
+  function send() {
+    if (!flags.size) { app.note('No flagged cards yet'); return; }
+    const body = `Flagged in review mode. Add a note after any card (what looks wrong), then Submit.\n\n${[...flags].map(([id, w]) => `- ${w} (${id}): `).join('\n')}\n`;
+    const url = `${ISSUES}?title=${encodeURIComponent(`Review flags: ${flags.size} card${flags.size > 1 ? 's' : ''}`)}&body=${encodeURIComponent(body)}`;
+    if (!window.open(url, '_blank')) location.href = url;
+    app.kit.renderer.xr.getSession()?.end();
   }
   // the card's flag mark and count (top right), and in Flagged mode the list of flagged words (bottom)
   function showFlag() {
