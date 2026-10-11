@@ -194,30 +194,52 @@ function beach(ctx, spec, stage) {
 }
 
 // ---- 休み / 休む ----
+// a hammock's cloth in its own frame: the ends hang at (±len, 0), the middle sags by `sag`; across (z) it curls up into a
+// trough `w` wide and narrows to a gathered point at each end
+function hammockCloth(len, sag, w, curl) {
+  const g = new THREE.PlaneGeometry(1, 1, 24, 8), P = g.attributes.position;
+  for (let i = 0; i < P.count; i++) {
+    const a = P.getX(i) * 2, b = P.getY(i) * 2, e = 1 - a * a, half = w * Math.pow(e, 0.55);   // a, b in -1..1
+    P.setXYZ(i, a * len, -sag * e + curl * e * b * b, b * half);
+  }
+  g.computeVertexNormals();
+  return g;
+}
 function restDay(ctx, spec, stage) {
   if (spec.outcome === 'bed') return sickDay(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.95 * u, half = 0.55 * u, ty = 0.45 * u;
-  const trees = solidProp([...[-1, 1].flatMap((s) => [[G.cyl(0.035 * u, 0.05 * u, 0.75 * u, hx + s * half, 0.37 * u, -0.1 * u, 0, 0, -s * 0.08), 0x9a6a3a],
-    ...[0, 1, 2, 3, 4].map((i) => [G.sphere(0.2 * u, hx + s * half + 0.04 * u * s + 0.17 * u * Math.cos(i * 1.26), 0.76 * u, -0.1 * u + 0.17 * u * Math.sin(i * 1.26), 1.3, 0.3, 0.6), 0x3aa048])])], 0.35);
-  const swing = new THREE.Group(), sag = 0.22 * u;
-  const net = solidProp([[G.sphere(1, 0, -sag * 0.55, 0, half * 0.82, sag * 0.5, 0.15 * u), 0xf4d890], [G.poly([[-half, 0], [-half * 0.78, -sag * 0.45]], 0.008 * u), 0xf4f0e0], [G.poly([[half, 0], [half * 0.78, -sag * 0.45]], 0.008 * u), 0xf4f0e0]], 0.4);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.95 * u, half = 0.55 * u, tz = -0.1 * u;
+  const lean = 0.08, trunkR = (y) => 0.05 * u - 0.015 * u * (y / (0.75 * u));     // the trunks taper and lean outward
+  const trees = solidProp([...[-1, 1].flatMap((s) => [[G.cyl(0.035 * u, 0.05 * u, 0.75 * u, hx + s * half, 0.37 * u, tz, 0, 0, -s * lean), 0x9a6a3a],
+    ...[0, 1, 2, 3, 4].map((i) => [G.sphere(0.2 * u, hx + s * half + 0.04 * u * s + 0.17 * u * Math.cos(i * 1.26), 0.76 * u, tz + 0.17 * u * Math.sin(i * 1.26), 1.3, 0.3, 0.6), 0x3aa048])])], 0.35);
+  // tied high on each trunk, just under the leaves; the swing turns about the line between the two knots, so they stay put
+  const tieY = 0.6 * u, tieX = half + (tieY - 0.37 * u) * Math.sin(lean) - trunkR(tieY) * 0.9;
+  const len = 0.46 * u, drop = 0.13 * u, sag = 0.12 * u, low = -drop - sag;
+  const rope = (s) => [-0.05, 0, 0.05].map((dz) => [G.tube([[s * tieX, 0], [s * len, -drop + 0.004 * u]], 0.0045 * u).translate(0, 0, dz * u * 0.4), 0xe8dcc0]);
+  const ring = (s) => [new THREE.TorusGeometry(trunkR(tieY) + 0.006 * u, 0.008 * u, 6, 18).rotateX(Math.PI / 2).translate(s * (tieX + trunkR(tieY) * 0.9), 0, 0), 0xe8dcc0];
+  const net = solidProp([[hammockCloth(len, sag, 0.15 * u, 0.06 * u).translate(0, -drop, 0), 0xe85a4a],
+    [hammockCloth(len, sag - 0.002 * u, 0.15 * u * 0.55, 0.06 * u * 0.3).translate(0, -drop + 0.003 * u, 0), 0xf4d890],   // a pale stripe down the middle
+    ...rope(-1), ...rope(1), ring(-1), ring(1)], 0.4);
+  const swing = new THREE.Group(), bedFrame = new THREE.Group();
   const p = person(spec.who, u, 0.75), sun = emblemProp('sun', 0.42 * u), hum = label(u, 'のんびり〜', '#e0782a', 0.12), notes = many(NOTE(u, 1.0), 2, 0.9);
-  swing.position.set(hx, floor + ty, -0.1 * u); swing.add(net, p.group);
+  swing.position.set(hx, floor + tieY, tz); swing.add(net, bedFrame); bedFrame.add(p.group);
   sun.position.set(hx + 0.75 * u, floor + 1.1 * u, -0.5 * u);
   group.add(trees, swing, sun, hum, notes);
-  const loop = 6.0;
+  const loop = 6.0, hip = new THREE.Vector3();
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, s = pre ? 0 : v;
-      swing.rotation.x = 0.22 * Math.sin(s * TAU / 3);
+      swing.rotation.x = 0.13 * Math.sin(s * TAU / 3);
       sun.idle(s); sun.rotation.z = s * 0.2;
-      // lying back in the hammock, hands behind his head, one foot crossed; swinging gently
+      // lying on his back along the hammock, head to the left and propped up by the curve, hands behind his head; the
+      // hips sit in the lowest point of the cloth
       p.pose('Idle', 0.3);
-      p.group.rotation.order = 'YXZ'; p.group.rotation.set(-Math.PI / 2 + 0.2, RIGHT, 0.5); p.group.position.set(half * 0.6, -sag * 0.55, 0.06 * u);
-      p.turn('Head', -0.35);
+      bedFrame.rotation.z = -0.1; p.group.rotation.order = 'XYZ'; p.group.rotation.set(-Math.PI / 2, 0, Math.PI / 2); p.group.position.set(0, 0, 0);
+      p.turn('Abdomen', 0.22); p.turn('Head', 0.22);
+      p.turn('UpperLegR', -0.5); p.turn('LowerLegR', 0.4); p.turn('UpperLegL', -0.35); p.turn('LowerLegL', 0.3);   // knees up, following the cloth
       p.handTo('R', p.at('over', W, -0.12, -0.25, -0.12), 1, { out: 0.9, down: 0.1 }); p.handTo('L', p.at('over', W, 0.12, -0.25, -0.12), 1, { out: 0.9, down: 0.1 });
-      for (let i = 0; i < 2; i++) { const f = (s * 0.45 + i / 2) % 1; notes.set(i, hx - 0.35 * u + 0.1 * u * Math.sin(f * 6), floor + ty + 0.2 * u + 0.45 * u * f, 0.1 * u, pre ? 0 : Math.sin(Math.PI * f)); }
+      seatAt(p, bedFrame, swing.localToWorld(hip.set(0.06 * u, low + 0.08 * u, 0)));
+      for (let i = 0; i < 2; i++) { const f = (s * 0.45 + i / 2) % 1; notes.set(i, hx - 0.35 * u + 0.1 * u * Math.sin(f * 6), floor + tieY + 0.05 * u + 0.4 * u * f, 0.1 * u, pre ? 0 : Math.sin(Math.PI * f)); }
       notes.commit();
       pop(hum, pre ? 0 : between(v, 0.6, 0.9) * (1 - between(v, 5.2, 5.5)), hx, floor + 0.95 * u, 0.25 * u);
     },
