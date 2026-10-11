@@ -9,7 +9,8 @@
 //   review=1                       quick review: each card opens fully drawn with its scene playing (no stroke order) and
 //                                  loops just the scene; Flag marks a card to fix (kept in this browser), Flagged flips
 //                                  through only the flagged cards and lists them on screen; Send opens a GitHub issue
-//                                  filled in with the flagged cards (a line each for a note), to submit for fixing
+//                                  filled in with the flagged cards, to submit for fixing. On a flagged card, Talk / Stop
+//                                  record a spoken note (speech to text) that goes on that card's line
 import * as THREE from 'three';
 import { LAYOUT, COLORS, EFFECTS, COMPONENT_LOOKS } from '../../config.js';
 import { makeLabel } from '../../core/text.js';
@@ -19,31 +20,51 @@ import { normalizeRecipe, describeRecipe } from '../../effects/catalog.js';
 import { loadCardAssets } from '../../content/loader.js';
 import { loadModelsFor } from '../../effects/models.js';
 import { addMnemonic, addPlainFurigana, cardText } from '../card-player.js';
+import { createSpeech } from '../speech.js';
 
 const LOOP_AFTER = 7;                    // seconds after the last stroke before the animation replays
 const FLAGS_KEY = 'jp-review-flags', ISSUES = 'https://github.com/b123radk-blip/JP-app/issues/new';
 
-// the review flags: { cardId: its word }, kept in localStorage when it works
-function loadFlags() { try { return new Map(Object.entries(JSON.parse(localStorage.getItem(FLAGS_KEY) ?? '{}'))); } catch { return new Map(); } }
+// the review flags: { cardId: { w: its word, note: what to fix } }, kept in localStorage when it works (older saves kept
+// just the word)
+function loadFlags() {
+  try { return new Map(Object.entries(JSON.parse(localStorage.getItem(FLAGS_KEY) ?? '{}')).map(([id, f]) => [id, typeof f === 'string' ? { w: f, note: '' } : f])); }
+  catch { return new Map(); }
+}
 function saveFlags(map) { try { localStorage.setItem(FLAGS_KEY, JSON.stringify(Object.fromEntries(map))); } catch { /* not kept */ } }
 
 export function create(app, { ids, index = 0, recipe = null, trial = null, old = false, freeze = null, review = false }) {
   const group = new THREE.Group(), Y = LAYOUT.y, buttons = [];
   let i = Math.max(0, index), view = null, paused = freeze !== null, gen = 0, showOld = old;
   const allIds = ids, flags = loadFlags();
-  let onlyFlagged = false, flagText = null, listText = null;
+  let onlyFlagged = false, flagText = null, listText = null, noteText = null, noteBase = '', live = '';
+  // spoken notes: Talk appends what is said to the flagged card's note until Stop
+  const speech = createSpeech({
+    onText(heard, interim) { const f = view && flags.get(view.card.id); if (!f) return; f.note = [noteBase, heard].filter(Boolean).join(' '); live = interim; saveFlags(flags); showNote(); },
+    onState() { live = ''; showFlag(); },
+    onError(m) { app.note(m); showFlag(); },
+  });
   const start = () => (review ? view?.effect.strokesEnd ?? 0 : 0);          // review skips the strokes: the scene starts at once
   const bar = [['prev', 'Prev', () => go(-1)], ['replay', 'Replay', () => view?.seek(start())], ['pause', 'Pause', () => togglePause()], ['next', 'Next', () => go(1)],
     ...(trial ? [['swap', 'Old / New', () => { showOld = !showOld; show(); }]] : []),
     ...(review ? [['flag', 'Flag', () => toggleFlag()], ['flagged', 'Flagged', () => toggleFlagged()], ['send', 'Send', () => send()]] : [])];
   const bw = review ? 0.155 : 0.17, gap = 0.02, row = bar.length * bw + (bar.length - 1) * gap;
   bar.forEach(([id, label, fn], k) => { const b = createButton(app.input, { id: `preview-${id}`, label, width: bw, height: 0.07, size: 0.032, onSelect: fn }); b.group.position.set(-row / 2 + bw / 2 + k * (bw + gap), Y.buttons, 0.004); group.add(b.group); buttons.push(b); });
+  const talkRow = review ? [['talk', 'Talk', () => talk()], ['stop', 'Stop', () => speech.stop()]].map(([id, label, fn], k) => {
+    const b = createButton(app.input, { id: `preview-${id}`, label, width: 0.2, height: 0.07, size: 0.032, color: id === 'talk' ? '#1f7a4c' : '#8a2a2a', onSelect: fn });
+    b.group.position.set((k - 0.5) * 0.22, Y.buttons + 0.09, 0.004); b.setVisible(false); group.add(b.group); buttons.push(b); return b;
+  }) : [];
   const exit = createButton(app.input, { id: 'exit', label: 'Exit', width: 0.16, height: 0.065, size: 0.032, onSelect: () => app.show('home') });
   exit.group.position.set(-0.62, Y.top, 0.004); group.add(exit.group); buttons.push(exit);
 
   function togglePause() { paused = !paused; }
-  function go(d) { i = (i + d + ids.length) % ids.length; recipe = null; show(); }
-  function toggleFlag() { if (!view) return; const id = view.card.id; if (flags.has(id)) flags.delete(id); else flags.set(id, cardText(view.card)); saveFlags(flags); showFlag(); }
+  function go(d) { speech.stop(); i = (i + d + ids.length) % ids.length; recipe = null; show(); }
+  function toggleFlag() {
+    if (!view) return; const id = view.card.id; speech.stop();
+    if (flags.has(id)) flags.delete(id); else flags.set(id, { w: cardText(view.card), note: '' });
+    saveFlags(flags); showFlag();
+  }
+  function talk() { const f = view && flags.get(view.card.id); if (!f) return; noteBase = f.note; speech.start(); }
   function toggleFlagged() {
     if (!onlyFlagged && !flags.size) { app.note('No flagged cards yet'); return; }
     const id = ids[i]; onlyFlagged = !onlyFlagged; ids = onlyFlagged ? allIds.filter((x) => flags.has(x)) : allIds;
@@ -52,20 +73,32 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
   // a new GitHub issue with the flagged cards filled in; it leaves the headset view so the page can be read and submitted
   function send() {
     if (!flags.size) { app.note('No flagged cards yet'); return; }
-    const body = `Flagged in review mode. Add a note after any card (what looks wrong), then Submit.\n\n${[...flags].map(([id, w]) => `- ${w} (${id}): `).join('\n')}\n`;
+    speech.stop();
+    const body = `Flagged in review mode. Add or fix a note after any card (what looks wrong), then Submit.\n\n${[...flags].map(([id, f]) => `- ${f.w} (${id}): ${f.note}`).join('\n')}\n`;
     const url = `${ISSUES}?title=${encodeURIComponent(`Review flags: ${flags.size} card${flags.size > 1 ? 's' : ''}`)}&body=${encodeURIComponent(body)}`;
     if (!window.open(url, '_blank')) location.href = url;
     app.kit.renderer.xr.getSession()?.end();
   }
-  // the card's flag mark and count (top right), and in Flagged mode the list of flagged words (bottom)
+  // the flagged card's note (or a prompt to record one) above the Talk / Stop buttons
+  function showNote() {
+    noteText?.dispose(); noteText = null;
+    const f = review && view && flags.get(view.card.id); if (!f) return;
+    const text = speech.listening ? `Listening…  ${[f.note, live].filter(Boolean).join(' ')}` : f.note ? `Note: ${f.note}` : 'Tap Talk and say what to fix';
+    noteText = makeLabel(text, { size: 0.028, weight: 400, color: '#ffffff', glow: null, maxWidth: 1.1, panel: { pad: 0.012, radius: 0.016, color: speech.listening ? '#1f7a4c' : '#3a4256' } });
+    noteText.mesh.position.set(0, Y.buttons + 0.2, 0.006); group.add(noteText.mesh);
+  }
+  // the card's flag mark and count (top right), the note and Talk / Stop on a flagged card, and in Flagged mode the list
+  // of flagged words (bottom)
   function showFlag() {
     flagText?.dispose(); listText?.dispose(); flagText = listText = null;
+    const on = !!(review && view && flags.has(view.card.id));
+    talkRow.forEach((b, k) => { b.setVisible(on); if (on) b.setEnabled(k === 0 ? !speech.listening : speech.listening); });
+    showNote();
     if (!review || !view) return;
-    const on = flags.has(view.card.id);
     flagText = makeLabel(on ? `FLAGGED  ·  ${flags.size} flagged` : `${flags.size} flagged`, { size: 0.035, color: '#ffffff', glow: null, panel: { pad: 0.012, radius: 0.016, color: on ? '#c0392b' : '#3a4256' } });
     flagText.mesh.position.set(0.5, Y.top, 0.004); group.add(flagText.mesh);
     if (onlyFlagged) {
-      listText = makeLabel(`Flagged: ${[...flags.values()].join('  ')}`, { size: 0.026, weight: 400, color: '#ffffff', glow: null, maxWidth: 1.2, panel: { pad: 0.012, radius: 0.016, color: '#3a4256' } });
+      listText = makeLabel(`Flagged: ${[...flags.values()].map((f) => f.w).join('  ')}`, { size: 0.026, weight: 400, color: '#ffffff', glow: null, maxWidth: 1.2, panel: { pad: 0.012, radius: 0.016, color: '#3a4256' } });
       listText.mesh.position.set(0, Y.buttons - 0.1, 0.004); group.add(listText.mesh);
     }
     app.say(`Flagged (${flags.size}): ${[...flags.keys()].join(',')}`);
@@ -123,6 +156,6 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
     onPlaced: () => view?.seek(0),
     onEnvironment: (p) => view?.effect.setPassthrough(p),
     jump(id) { const k = ids.indexOf(id); if (k >= 0) { i = k; recipe = null; show(); } },
-    dispose() { disposed = true; view?.dispose(); flagText?.dispose(); listText?.dispose(); buttons.forEach((b) => b.dispose()); group.removeFromParent(); },
+    dispose() { disposed = true; speech.stop(); view?.dispose(); flagText?.dispose(); listText?.dispose(); noteText?.dispose(); buttons.forEach((b) => b.dispose()); group.removeFromParent(); },
   };
 }
