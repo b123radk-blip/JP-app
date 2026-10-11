@@ -5,8 +5,7 @@
 //   next-unit    来: the frame sits on the middle tile, an arrow points right, the frame steps onto the next tile, which
 //                pops (来週 来月 来年)
 //   last-unit    先: the left tile is faded like an old photo; an arrow points back, the frame steps onto it (先週 先月)
-//   every-unit   毎: a stamp hops along the row and stamps a red tick on every tile, thump, thump, thump. unit cups (毎):
-//                a teapot hops along a row of cups and fills every one; day / week / month / year: 毎日 毎週 毎月 毎年
+//   every-unit   毎: see step1-every.js
 //   year-seasons 年: a little tree runs through the seasons (pink blossom, green, red leaves, bare with snow), a counter
 //                ticks the year on when winter ends
 //   clock-hours  時: a clock beside the kanji: the long hand sweeps round, the short hand steps an hour each turn and a
@@ -27,7 +26,7 @@ const frame = (u, w, h, color) => solidProp([[G.box(w + 0.04 * u, 0.03 * u, 0.02
 const arrow = (u, color) => solidProp([[G.box(0.18 * u, 0.05 * u, 0.02 * u, -0.05 * u, 0, 0), color], [G.cone(0.06 * u, 0.1 * u, 0.08 * u, 0, 0, -Math.PI / 2), color]], 1.0);
 
 // the row of tiles: 4 tiles (the 4th waits off to the right for "next"); i = 0 left (past), 1 now, 2 next
-function tileRow(stage, unit, { n = 4 } = {}) {
+export function tileRow(stage, unit, { n = 4 } = {}) {
   const u = stage.u, B = stage.box, W = 0.3 * u, H = 0.36 * u, gap = 0.36 * u, x0 = B.maxX + 0.3 * u, y = B.minY + 0.42 * u;
   const g = new THREE.Group(), cards = many([[G.box(W, H, 0.02 * u), 0xffffff]], n, 0.5);
   const icons = [];
@@ -108,50 +107,6 @@ function lastUnit(ctx, spec, stage) {
   };
 }
 
-function everyUnit(ctx, spec, stage) {
-  if ((spec.unit ?? 'cups') === 'cups') return everyCup(ctx, spec, stage);
-  const u = stage.u, row = tileRow(stage, spec.unit, { n: 3 }), group = new THREE.Group();
-  const stamp = solidProp([[G.cyl(0.07 * u, 0.09 * u, 0.12 * u, 0, 0.06 * u, 0), 0xc83030], [G.cyl(0.03 * u, 0.03 * u, 0.12 * u, 0, 0.18 * u, 0), 0x8a5a30], [G.sphere(0.05 * u, 0, 0.26 * u, 0), 0x8a5a30]], 0.5);
-  const ticks = many([[G.poly([[-0.07 * u, 0], [-0.015 * u, -0.06 * u], [0.08 * u, 0.07 * u]], 0.018 * u), 0xe02020]], 3, 1.0);
-  group.add(row.group, stamp, ticks);
-  const loop = 5.6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { tiles: [0, 0.6, 'back'], off: [4.9, 0.6] }), k = pre ? 0 : T.tiles * (1 - T.off);
-      row.place([0, 1, 2].map(() => [0, 0, grow(k) * 0.95, 0]), v);
-      // hops: 0.8, 1.7, 2.6: lift, move over, slam
-      const hop = Math.min(2, Math.max(0, Math.floor((v - 0.8) / 0.9))), ph = pre ? 0 : ((v - 0.8) / 0.9) - hop;
-      const x = v > 3.5 ? row.x(2) + 0.6 * u * between(v, 3.5, 4.2) : row.x(Math.min(2, Math.floor(Math.max(0, (v - 0.8) / 0.9))));
-      const slam = v > 0.8 && v < 3.5 ? Math.abs(Math.sin(Math.PI * ph)) : 1;
-      stamp.visible = !pre && T.off < 1 && v < 4.2; stamp.position.set(x, row.y + row.H / 2 - 0.02 * u + 0.25 * u * slam, 0.08 * u); stamp.rotation.x = 0.4;
-      for (let i = 0; i < 3; i++) { const d = pre ? 0 : between(v, 0.8 + i * 0.9 + 0.45, 0.8 + i * 0.9 + 0.6) * (1 - T.off); ticks.set(i, row.x(i), row.y, 0.03 * u, d); }
-      ticks.commit();
-    },
-  };
-}
-function everyCup(ctx, spec, stage) {
-  const B = stage.box, u = 1.35 * stage.u, group = new THREE.Group(), floor = B.minY, X = (i) => B.maxX + (0.2 + 0.28 * i) * u;
-  const cups = many([[G.cyl(0.09 * u, 0.07 * u, 0.12 * u, 0, 0.06 * u, 0, 0, 0, 0, 20), 0xf4efe6], [G.torus(0.04 * u, 0.012 * u, Math.PI * 2, 0.1 * u, 0.06 * u, 0), 0xf4efe6]], 4, 0.5), tea = many([[G.cyl(0.08 * u, 0.08 * u, 0.01 * u, 0, 0, 0), 0x6aa040]], 4, 0.7);
-  const pot = solidProp([[G.sphere(0.14 * u, 0, 0.12 * u, 0, 1.1, 0.9, 1), 0x3a7a5a], [G.cyl(0.02 * u, 0.03 * u, 0.16 * u, -0.17 * u, 0.15 * u, 0, 0, 0, 0.9), 0x3a7a5a], [G.torus(0.07 * u, 0.015 * u, Math.PI * 1.2, 0.13 * u, 0.16 * u, 0, -0.6), 0x3a7a5a], [G.sphere(0.03 * u, 0, 0.24 * u, 0), 0xc8a050]], 0.45);
-  const stream = solidProp([[G.cyl(0.012 * u, 0.012 * u, 1, 0, -0.5, 0), 0x7ab050]], 0.8);
-  group.add(cups, tea, pot, stream);
-  const loop = 6.0;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, off = pre ? 1 : between(v, 5.3, 5.8);
-      for (let i = 0; i < 4; i++) { cups.set(i, X(i), floor, 0, pre ? 0 : 1 - off); const f = pre ? 0 : between(v, 0.7 + i * 1.0, 1.3 + i * 1.0) * (1 - off); tea.set(i, X(i), floor + 0.02 * u + 0.09 * u * f, 0, f > 0.01 ? 1 : 0); }
-      cups.commit(); tea.commit();
-      const i = Math.min(3, Math.max(0, Math.floor((v - 0.4) / 1.0))), ph = ((v - 0.4) / 1.0) - i, pour = !pre && v > 0.4 && v < 4.4 && ph > 0.3 && ph < 0.9;
-      const px = X(i) + 0.17 * u, py = floor + 0.32 * u + 0.12 * u * (ph < 0.3 ? Math.sin(Math.PI * ph / 0.3) : 0);
-      pot.visible = !pre && v < 4.6; pot.position.set(px, py, 0.02 * u); pot.rotation.z = pour ? 0.5 : 0.05;
-      stream.visible = pour; stream.position.set(X(i) + 0.02 * u, py + 0.05 * u, 0.02 * u); stream.scale.set(1, py - floor - 0.05 * u, 1);
-    },
-  };
-}
-
 // ---- 年 the seasons of a year ----
 const SEASON = [[0xffa0c8, 0x7a4a24], [0x3aa040, 0x7a4a24], [0xe86020, 0x7a4a24], [0xf8f8ff, 0x6a4a34]];
 function yearSeasons(ctx, spec, stage) {
@@ -212,4 +167,4 @@ function clockHours(ctx, spec, stage) {
   };
 }
 
-export const SCENES = { 'this-unit': thisUnit, 'next-unit': nextUnit, 'last-unit': lastUnit, 'every-unit': everyUnit, 'year-seasons': yearSeasons, 'clock-hours': clockHours };
+export const SCENES = { 'this-unit': thisUnit, 'next-unit': nextUnit, 'last-unit': lastUnit, 'year-seasons': yearSeasons, 'clock-hours': clockHours };
