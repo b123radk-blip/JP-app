@@ -8,7 +8,7 @@
 //   q-beach-day     夏休み: a girl in a pink swim ring bobs on the waves under the summer sun; she bats a beach ball up, it
 //                   splashes down and drifts back to her; a beach umbrella on the sand
 //   q-rest-day      休み: a man swings in a hammock between two palm trees in the sun, hands behind his head, humming
-//                   (のんびり〜); outcome bed: a girl in bed with a thermometer (38°) sits up, phones in sick (やすみます…),
+//                   (のんびり〜); outcome bed (q-sick.js): a girl in bed with a thermometer (38°) sits up, phones in sick (やすみます…),
 //                   lies back down and sleeps, Zzz (休む)
 import * as THREE from 'three';
 import { acts, timeline, bump } from './timeline.js';
@@ -18,11 +18,10 @@ import { G } from '../pieces/shape-kit.js';
 import { emblemProp } from '../pieces/kit-props.js';
 import { actor } from './model-kit.js';
 import { between } from './helpers.js';
-import { grow } from './step1-kit.js';
-import { RIGHT, LEFT, lerp, label, pop, person, speech, say, KID, ADULT } from './q-common.js';
+import { RIGHT, LEFT, lerp, label, pop, person, KID } from './q-common.js';
 import { NOTE } from './q-music.js';
-import { bed } from './q-bed.js';
 import { seatAt } from './q-ride.js';
+import { sickDay } from './q-sick.js';
 
 const W = new THREE.Vector3(), W2 = new THREE.Vector3(), TAU = Math.PI * 2;
 // a shadowy figure: dark all over, glowing yellow eyes
@@ -245,37 +244,4 @@ function restDay(ctx, spec, stage) {
     },
   };
 }
-function sickDay(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.38 * u;
-  const p = person(spec.who, u, 0.85), b = bed(u, p, x0, floor, 0.1 * u), temp = label(u, '38°', '#e03030', 0.14), zzz = label(u, 'Zzz', '#4a5ac0', 0.13);
-  const therm = solidProp([[G.cyl(0.011 * u, 0.011 * u, 0.2 * u, 0, 0.1 * u, 0), 0xf4f8fc], [G.cyl(0.006 * u, 0.006 * u, 0.12 * u, 0, 0.07 * u, 0.008 * u), 0xe02020], [G.sphere(0.018 * u, 0, 0, 0), 0xe02020]], 0.8);
-  const phone = solidProp([[G.box(0.07 * u, 0.14 * u, 0.02 * u, 0, 0, 0), 0xf4f4f8], [G.box(0.055 * u, 0.1 * u, 0.022 * u, 0, 0.008 * u, 0.001 * u), 0x3a8ae0]], 0.6);
-  const table = solidProp([[G.box(0.22 * u, 0.22 * u, 0.2 * u, 0, 0.11 * u, 0), 0xa87a50]], 0.35), tx = x0 - 0.2 * u;
-  const bubble = speech(u, 'やすみます…', { h: 0.12, flip: false });
-  table.position.set(tx, floor, -0.05 * u);
-  group.add(p.group, b.group, therm, phone, table, temp, zzz, bubble);
-  const loop = 8.0;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { up: [2.4, 0.6], grab: [3.0, 0.5], ear: [3.5, 0.4], down: [5.6, 0.4], lie: [6.0, 0.8] });
-      p.pose('Idle', 0.3);
-      // ill in bed, a thermometer in her mouth (38°); she sits up, phones in sick, lies back down and sleeps
-      const sit = pre ? 0 : 0.65 * T.up * (1 - T.lie);
-      b.place(sit, 0.85 - 0.4 * sit);
-      const th = pre || v < 2.4 || v > 6.8;
-      therm.visible = th; p.at('mouth', W, 0, -0.01, 0.04); therm.position.copy(group.worldToLocal(W)); therm.rotation.set(0, 0, -0.6);
-      pop(temp, th && !(v > 6.8) ? 1 : 0, x0 + 0.25 * u, floor + 0.5 * u + 0.01 * u * Math.sin(v * 2), 0.2 * u);
-      const rest = group.localToWorld(W2.set(tx, floor + 0.23 * u, -0.05 * u)), hold = T.grab * (1 - T.down);
-      const ear = p.at('earR', new THREE.Vector3(), -0.03, 0, 0.04), at = rest.clone().lerp(ear, T.ear * (1 - T.down));
-      p.handTo('R', at, Math.max(bump(v, 2.9, 0.6), hold), { out: 0.6, down: 0.7 });
-      phone.position.copy(group.worldToLocal(at.clone())); phone.position.y += 0.07 * u * (1 - hold); phone.rotation.set(0, 0, 0);
-      if (T.ear > 0) p.turn('Head', 0, 0, 0.15 * T.ear * (1 - T.down));
-      say(bubble, pre ? 0 : between(v, 3.8, 4.1) * (1 - between(v, 5.4, 5.6)), x0 + 0.55 * u, floor + 0.85 * u, 0.25 * u);
-      pop(zzz, pre ? 0 : between(v, 6.8, 7.0) * (1 - between(v, 7.8, 8.0)), x0 + 0.35 * u, floor + 0.5 * u + 0.05 * u * Math.sin(v * 2), 0.2 * u);
-    },
-  };
-}
-
 export const SCENES = { 'q-knock-door': knock, 'q-merry-go-round': merry, 'q-beach-day': beach, 'q-rest-day': restDay };
