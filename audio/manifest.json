@@ -29,11 +29,23 @@
    "kana": "シチ",
    "speed": 0.9
   },
+  "4e03-s1": {
+   "src": "audio/4e03-s1.wav",
+   "text": "ちょうど七時半です。",
+   "kana": "チョオドナナジハンデス",
+   "speed": 1
+  },
   "4e07-reading": {
    "src": "audio/4e07-reading.wav",
    "text": "まん",
    "kana": "マン",
    "speed": 0.9
+  },
+  "4e07-s1": {
+   "src": "audio/4e07-s1.wav",
+   "text": "一千万円くらいかな？",
+   "kana": "イッセンマンエンクライカナ",
+   "speed": 1
   },
   "4e08-reading": {
    "src": "audio/4e08-reading.wav",
@@ -88,6 +100,12 @@
    "text": "りょう",
    "kana": "リョオ",
    "speed": 0.9
+  },
+  "4e21-s1": {
+   "src": "audio/4e21-s1.wav",
+   "text": "両親は私にそこへ行かせた。",
+   "kana": "リョオシンワワタシニソコエイカセタ",
+   "speed": 1
   },
   "4e26-reading": {
    "src": "audio/4e26-reading.wav",
@@ -191,11 +209,23 @@
    "kana": "ヒト",
    "speed": 0.9
   },
+  "4eba-s1": {
+   "src": "audio/4eba-s1.wav",
+   "text": "あの人はだれですか。",
+   "kana": "アノヒトワダレデスカ",
+   "speed": 1
+  },
   "4eca-reading": {
    "src": "audio/4eca-reading.wav",
    "text": "いま",
    "kana": "イマ",
    "speed": 0.9
+  },
+  "4eca-s1": {
+   "src": "audio/4eca-s1.wav",
+   "text": "私は今お金はいらない。",
+   "kana": "ワタシワイマオカネワイラナイ",
+   "speed": 1
   },
   "4ed5-reading": {
    "src": "audio/4ed5-reading.wav",
@@ -251,11 +281,23 @@
    "kana": "カラダ",
    "speed": 0.9
   },
+  "4f53-s1": {
+   "src": "audio/4f53-s1.wav",
+   "text": "体全体がだるいです。",
+   "kana": "タイゼンタイガダルイデス",
+   "speed": 1
+  },
   "4f55-reading": {
    "src": "audio/4f55-reading.wav",
    "text": "なに",
    "kana": "ナニ",
    "speed": 0.9
+  },
+  "4f55-s1": {
+   "src": "audio/4f55-s1.wav",
+   "text": "これは何ですか。",
+   "kana": "コレワナンデスカ",
+   "speed": 1
   },
   "4f5c-reading": {
    "src": "audio/4f5c-reading.wav",
@@ -329,6 +371,18 @@
    "kana": "ソノホンゼンブヨンダカイ",
    "speed": 1
   },
+  "516b-reading": {
+   "src": "audio/516b-reading.wav",
+   "text": "はち",
+   "kana": "ハチ",
+   "speed": 0.9
+  },
+  "516b-s1": {
+   "src": "audio/516b-s1.wav",
+   "text": "そのハイキングは八時間もかかるでしょう。",
+   "kana": "ソノハイキングワハチジカンモカカルデショオ",
+   "speed": 1
+  },
   "516d-reading": {
    "src": "audio/516d-reading.wav",
    "text": "ろく",
@@ -346,6 +400,12 @@
    "text": "えん",
    "kana": "エン",
    "speed": 0.9
+  },
+  "5186-s1": {
+   "src": "audio/5186-s1.wav",
+   "text": "円はドルより安い。",
+   "kana": "エンワドルヨリヤスイ",
+   "speed": 1
   },
   "518d-reading": {
    "src": "audio/518d-reading.wav",
@@ -413,11 +473,23 @@
    "kana": "キ",
    "speed": 0.9
   },
+  "5207-s1": {
+   "src": "audio/5207-s1.wav",
+   "text": "パンは切ってください。",
+   "kana": "パンワキッテクダサイ",
+   "speed": 1
+  },
   "521d-reading": {
    "src": "audio/521d-reading.wav",
    "text": "はじ",
    "kana": "ハジ",
    "speed": 0.9
+  },
+  "521d-s1": {
+   "src": "audio/521d-s1.wav",
+   "text": "こういうの初めてだろ。",
+   "kana": "コオユウノハジメテダロ",
+   "speed": 1
   },
   "524d-reading": {
    "src": "audio/524d-reading.wav",
@@ -437,11 +509,23 @@
    "kana": "ドオ",
    "speed": 0.9
   },
+  "52d5-s1": {
+   "src": "audio/52d5-s1.wav",
+   "text": "私はその動物の名前を知っている。",
+   "kana": "ワタシワソノドオブツノナマエオシッテイル",
+   "speed": 1
+  },
   "5317-reading": {
    "src": "audio/5317-reading.wav",
    "text": "きた",
    "kana": "キタ",
    "speed": 0.9
+  },
+  "5317-s1": {
+   "src": "audio/5317-s1.wav",
+   "text": "バスは北へ向かっていた。",
+   "kana": "バスワキタエムカッテイタ",
+   "speed": 1
   },
   "5341-reading": {
    "src": "audio/5341-reading.wav",
@@ -485,11 +569,23 @@
    "kana": "ハン",
    "speed": 0.9
   },
+  "534a-s1": {
+   "src": "audio/534a-s1.wav",
+   "text": "車でそこへ行くのに一時間半かかった。",
+   "kana": "クルマデソコエイクノニイチジカンハンカカッタ",
+   "speed": 1
+  },
   "5357-reading": {
    "src": "audio/5357-reading.wav",
    "text": "みなみ",
    "kana": "ミナミ",
    "speed": 0.9
+  },
+  "5357-s1": {
+   "src": "audio/5357-s1.wav",
+   "text": "南ターミナルはどこですか。",
+   "kana": "ミナミタアミナルワドコデスカ",
+   "speed": 1
   },
   "53cb-reading": {
    "src": "audio/53cb-reading.wav",
@@ -545,6 +641,12 @@
    "kana": "ダイ",
    "speed": 0.9
   },
+  "53f0-s1": {
+   "src": "audio/53f0-s1.wav",
+   "text": "テレビは台の上にあります。",
+   "kana": "テレビワダイノウエニアリマス",
+   "speed": 1
+  },
   "53f3-reading": {
    "src": "audio/53f3-reading.wav",
    "text": "みぎ",
@@ -562,6 +664,12 @@
    "text": "あ",
    "kana": "ア",
    "speed": 0.9
+  },
+  "5408-s1": {
+   "src": "audio/5408-s1.wav",
+   "text": "十分間に合いましたね。",
+   "kana": "ジュウブンマニアイマシタネ",
+   "speed": 1
   },
   "540c-reading": {
    "src": "audio/540c-reading.wav",
@@ -605,11 +713,23 @@
    "kana": "ミ",
    "speed": 0.9
   },
+  "5473-s1": {
+   "src": "audio/5473-s1.wav",
+   "text": "その語にはいくつかの意味がある。",
+   "kana": "ソノゴニワイクツカノイミガアル",
+   "speed": 1
+  },
   "554f-reading": {
    "src": "audio/554f-reading.wav",
    "text": "もん",
    "kana": "モン",
    "speed": 0.9
+  },
+  "554f-s1": {
+   "src": "audio/554f-s1.wav",
+   "text": "それらは重要な問題だ。",
+   "kana": "ソレラワジュウヨオナモンダイダ",
+   "speed": 1
   },
   "56db-reading": {
    "src": "audio/56db-reading.wav",
@@ -629,11 +749,23 @@
    "kana": "ズ",
    "speed": 0.9
   },
+  "56f3-s1": {
+   "src": "audio/56f3-s1.wav",
+   "text": "図書館はどこですか。",
+   "kana": "トショカンワドコデスカ",
+   "speed": 1
+  },
   "56fd-reading": {
    "src": "audio/56fd-reading.wav",
    "text": "くに",
    "kana": "クニ",
    "speed": 0.9
+  },
+  "56fd-s1": {
+   "src": "audio/56fd-s1.wav",
+   "text": "お国では何語を話すのですか。",
+   "kana": "オクニデワナニゴオハナスノデスカ",
+   "speed": 1
   },
   "571f-reading": {
    "src": "audio/571f-reading.wav",
@@ -665,6 +797,12 @@
    "kana": "バ",
    "speed": 0.9
   },
+  "5834-s1": {
+   "src": "audio/5834-s1.wav",
+   "text": "入場料はいくらですか。",
+   "kana": "ニュウジョオリョオワイクラデスカ",
+   "speed": 1
+  },
   "58f2-reading": {
    "src": "audio/58f2-reading.wav",
    "text": "う",
@@ -682,6 +820,12 @@
    "text": "へん",
    "kana": "ヘン",
    "speed": 0.9
+  },
+  "5909-s1": {
+   "src": "audio/5909-s1.wav",
+   "text": "これは大変古い本です。",
+   "kana": "コレワタイヘンフルイホンデス",
+   "speed": 1
   },
   "590f-reading": {
    "src": "audio/590f-reading.wav",
@@ -725,6 +869,12 @@
    "kana": "タ",
    "speed": 0.9
   },
+  "591a-s1": {
+   "src": "audio/591a-s1.wav",
+   "text": "今日はすることが多い。",
+   "kana": "キョオワスルコトガオオイ",
+   "speed": 1
+  },
   "591c-reading": {
    "src": "audio/591c-reading.wav",
    "text": "よる",
@@ -754,6 +904,12 @@
    "text": "てん",
    "kana": "テン",
    "speed": 0.9
+  },
+  "5929-s1": {
+   "src": "audio/5929-s1.wav",
+   "text": "あしたの天気はどうですか。",
+   "kana": "アシタノテンキワドオデスカ",
+   "speed": 1
   },
   "592a-reading": {
    "src": "audio/592a-reading.wav",
@@ -797,17 +953,35 @@
    "kana": "ス",
    "speed": 0.9
   },
+  "597d-s1": {
+   "src": "audio/597d-s1.wav",
+   "text": "私は犬は好きではない。",
+   "kana": "ワタシワイヌワスキデワナイ",
+   "speed": 1
+  },
   "59c9-reading": {
    "src": "audio/59c9-reading.wav",
    "text": "あね",
    "kana": "アネ",
    "speed": 0.9
   },
+  "59c9-s1": {
+   "src": "audio/59c9-s1.wav",
+   "text": "姉はタイプが上手です。",
+   "kana": "アネワタイプガジョオズデス",
+   "speed": 1
+  },
   "59cb-reading": {
    "src": "audio/59cb-reading.wav",
    "text": "はじ",
    "kana": "ハジ",
    "speed": 0.9
+  },
+  "59cb-s1": {
+   "src": "audio/59cb-s1.wav",
+   "text": "それはいつ始まりますか。",
+   "kana": "ソレワイツハジマリマスカ",
+   "speed": 1
   },
   "5acc-reading": {
    "src": "audio/5acc-reading.wav",
@@ -874,6 +1048,12 @@
    "text": "いえ",
    "kana": "イエ",
    "speed": 0.9
+  },
+  "5bb6-s1": {
+   "src": "audio/5bb6-s1.wav",
+   "text": "家へついたら電話が鳴っていた。",
+   "kana": "イエエツイタラデンワガナッテイタ",
+   "speed": 1
   },
   "5bbf-reading": {
    "src": "audio/5bbf-reading.wav",
@@ -976,6 +1156,12 @@
    "text": "かえ",
    "kana": "カエ",
    "speed": 0.9
+  },
+  "5e30-s1": {
+   "src": "audio/5e30-s1.wav",
+   "text": "私はすぐに帰ってくる。",
+   "kana": "ワタシワスグニカエッテクル",
+   "speed": 1
   },
   "5e74-reading": {
    "src": "audio/5e74-reading.wav",
@@ -1090,6 +1276,12 @@
    "text": "とう",
    "kana": "トオ",
    "speed": 0.9
+  },
+  "5f53-s1": {
+   "src": "audio/5f53-s1.wav",
+   "text": "それは本当に違いない。",
+   "kana": "ソレワホントオニチガイナイ",
+   "speed": 1
   },
   "5f8c-reading": {
    "src": "audio/5f8c-reading.wav",
@@ -1337,6 +1529,12 @@
    "kana": "ヒル",
    "speed": 0.9
   },
+  "663c-s1": {
+   "src": "audio/663c-s1.wav",
+   "text": "昼はホットドッグを食べたんだ。",
+   "kana": "ヒルワホットドッグオタベタンダ",
+   "speed": 1
+  },
   "6642-reading": {
    "src": "audio/6642-reading.wav",
    "text": "じ",
@@ -1360,6 +1558,12 @@
    "text": "その晩は月が出ていた。",
    "kana": "ソノバンワツキガデテイタ",
    "speed": 1
+  },
+  "6674-reading": {
+   "src": "audio/6674-reading.wav",
+   "text": "は",
+   "kana": "ハ",
+   "speed": 0.9
   },
   "6674-s1": {
    "src": "audio/6674-s1.wav",
@@ -1421,6 +1625,12 @@
    "kana": "サイ",
    "speed": 0.9
   },
+  "6700-s1": {
+   "src": "audio/6700-s1.wav",
+   "text": "これは最重要問題だ。",
+   "kana": "コレワサイジュウヨオモンダイダ",
+   "speed": 1
+  },
   "6708-reading": {
    "src": "audio/6708-reading.wav",
    "text": "げつ",
@@ -1450,6 +1660,12 @@
    "text": "ふく",
    "kana": "フク",
    "speed": 0.9
+  },
+  "670d-s1": {
+   "src": "audio/670d-s1.wav",
+   "text": "私の新しい服はいかが？",
+   "kana": "ワタシノアタラシイフクワイカガ",
+   "speed": 1
   },
   "671d-reading": {
    "src": "audio/671d-reading.wav",
@@ -1492,6 +1708,12 @@
    "text": "らい",
    "kana": "ライ",
    "speed": 0.9
+  },
+  "6765-s1": {
+   "src": "audio/6765-s1.wav",
+   "text": "すぐにここへ来なさい。",
+   "kana": "スグニココエキナサイ",
+   "speed": 1
   },
   "6771-reading": {
    "src": "audio/6771-reading.wav",
@@ -1547,6 +1769,12 @@
    "kana": "ギョウ",
    "speed": 0.9
   },
+  "696d-s1": {
+   "src": "audio/696d-s1.wav",
+   "text": "それは授業の終わりだった。",
+   "kana": "ソレワジュギョオノオワリダッタ",
+   "speed": 1
+  },
   "697d-reading": {
    "src": "audio/697d-reading.wav",
    "text": "たの",
@@ -1577,11 +1805,23 @@
    "kana": "ウタ",
    "speed": 0.9
   },
+  "6b4c-s1": {
+   "src": "audio/6b4c-s1.wav",
+   "text": "あなたは歌を歌えます。",
+   "kana": "アナタワウタオウタエマス",
+   "speed": 1
+  },
   "6b62-reading": {
    "src": "audio/6b62-reading.wav",
    "text": "と",
    "kana": "ト",
    "speed": 0.9
+  },
+  "6b62-s1": {
+   "src": "audio/6b62-s1.wav",
+   "text": "男はぴたりと止まった。",
+   "kana": "オトコワピタリトトマッタ",
+   "speed": 1
   },
   "6b69-reading": {
    "src": "audio/6b69-reading.wav",
@@ -1599,6 +1839,18 @@
    "src": "audio/6bb5-reading.wav",
    "text": "だん",
    "kana": "ダン",
+   "speed": 0.9
+  },
+  "6bb5-s1": {
+   "src": "audio/6bb5-s1.wav",
+   "text": "その階段を上ってはいけません。",
+   "kana": "ソノカイダンオノボッテワイケマセン",
+   "speed": 1
+  },
+  "6bcd-reading": {
+   "src": "audio/6bcd-reading.wav",
+   "text": "はは",
+   "kana": "ハハ",
    "speed": 0.9
   },
   "6bcd-s1": {
@@ -1709,6 +1961,12 @@
    "kana": "ワタ",
    "speed": 0.9
   },
+  "6e21-s1": {
+   "src": "audio/6e21-s1.wav",
+   "text": "私はやっと川を渡った。",
+   "kana": "ワタシワヤットカワオワタッタ",
+   "speed": 1
+  },
   "6e29-reading": {
    "src": "audio/6e29-reading.wav",
    "text": "あたた",
@@ -1751,17 +2009,35 @@
    "kana": "ナ",
    "speed": 0.9
   },
+  "7121-s1": {
+   "src": "audio/7121-s1.wav",
+   "text": "私はペンを無くしてしまった。",
+   "kana": "ワタシワペンオナクシテシマッタ",
+   "speed": 1
+  },
   "71b1-reading": {
    "src": "audio/71b1-reading.wav",
    "text": "あつ",
    "kana": "アツ",
    "speed": 0.9
   },
+  "71b1-s1": {
+   "src": "audio/71b1-s1.wav",
+   "text": "このお茶はとても熱い。",
+   "kana": "コノオチャワトテモアツイ",
+   "speed": 1
+  },
   "7236-reading": {
    "src": "audio/7236-reading.wav",
    "text": "ちち",
    "kana": "チチ",
    "speed": 0.9
+  },
+  "7236-s1": {
+   "src": "audio/7236-s1.wav",
+   "text": "父はビジネスマンです。",
+   "kana": "チチワビジネスマンデス",
+   "speed": 1
   },
   "725b-reading": {
    "src": "audio/725b-reading.wav",
@@ -1781,11 +2057,23 @@
    "kana": "モノ",
    "speed": 0.9
   },
+  "7269-s1": {
+   "src": "audio/7269-s1.wav",
+   "text": "それは私が使う物です。",
+   "kana": "ソレワワタシガツカウモノデス",
+   "speed": 1
+  },
   "72ac-reading": {
    "src": "audio/72ac-reading.wav",
    "text": "いぬ",
    "kana": "イヌ",
    "speed": 0.9
+  },
+  "72ac-s1": {
+   "src": "audio/72ac-s1.wav",
+   "text": "私の犬はしっぽが長い。",
+   "kana": "ワタシノイヌワシッポガナガイ",
+   "speed": 1
   },
   "7406-reading": {
    "src": "audio/7406-reading.wav",
@@ -1793,11 +2081,23 @@
    "kana": "リ",
    "speed": 0.9
   },
+  "7406-s1": {
+   "src": "audio/7406-s1.wav",
+   "text": "料理することは面白い。",
+   "kana": "リョオリスルコトワオモシロイ",
+   "speed": 1
+  },
   "751f-reading": {
    "src": "audio/751f-reading.wav",
    "text": "せい",
    "kana": "セイ",
    "speed": 0.9
+  },
+  "751f-s1": {
+   "src": "audio/751f-s1.wav",
+   "text": "先生はいすにすわった。",
+   "kana": "センセエワイスニスワッタ",
+   "speed": 1
   },
   "7528-reading": {
    "src": "audio/7528-reading.wav",
@@ -1817,11 +2117,23 @@
    "kana": "タ",
    "speed": 0.9
   },
+  "7530-s1": {
+   "src": "audio/7530-s1.wav",
+   "text": "ここは田んぼです。",
+   "kana": "ココワタンボデス",
+   "speed": 1
+  },
   "7537-reading": {
    "src": "audio/7537-reading.wav",
    "text": "おとこ",
    "kana": "オトコ",
    "speed": 0.9
+  },
+  "7537-s1": {
+   "src": "audio/7537-s1.wav",
+   "text": "私はその男をじっと見た。",
+   "kana": "ワタシワソノオトコオジットミタ",
+   "speed": 1
   },
   "753b-reading": {
    "src": "audio/753b-reading.wav",
@@ -1853,11 +2165,23 @@
    "kana": "ビョオ",
    "speed": 0.9
   },
+  "75c5-s1": {
+   "src": "audio/75c5-s1.wav",
+   "text": "この近くに病院はありますか。",
+   "kana": "コノチカクニビョオインワアリマスカ",
+   "speed": 1
+  },
   "767d-reading": {
    "src": "audio/767d-reading.wav",
    "text": "しろ",
    "kana": "シロ",
    "speed": 0.9
+  },
+  "767d-s1": {
+   "src": "audio/767d-s1.wav",
+   "text": "白いドレスはありますか。",
+   "kana": "シロイドレスワアリマスカ",
+   "speed": 1
   },
   "767e-reading": {
    "src": "audio/767e-reading.wav",
@@ -1865,11 +2189,23 @@
    "kana": "モモ",
    "speed": 0.9
   },
+  "767e-s1": {
+   "src": "audio/767e-s1.wav",
+   "text": "このりんごは百円です。",
+   "kana": "コノリンゴワヒャクエンデス",
+   "speed": 1
+  },
   "76bf-reading": {
    "src": "audio/76bf-reading.wav",
    "text": "さら",
    "kana": "サラ",
    "speed": 0.9
+  },
+  "76bf-s1": {
+   "src": "audio/76bf-s1.wav",
+   "text": "私は、夕食後、お皿を洗った。",
+   "kana": "ワタシワユウショクゴオサラオアラッタ",
+   "speed": 1
   },
   "76ee-reading": {
    "src": "audio/76ee-reading.wav",
@@ -1948,6 +2284,12 @@
    "text": "そら",
    "kana": "ソラ",
    "speed": 0.9
+  },
+  "7a7a-s1": {
+   "src": "audio/7a7a-s1.wav",
+   "text": "そのグラスは空だった。",
+   "kana": "ソノグラスワソラダッタ",
+   "speed": 1
   },
   "7acb-reading": {
    "src": "audio/7acb-reading.wav",
@@ -2039,6 +2381,12 @@
    "kana": "ミミ",
    "speed": 0.9
   },
+  "8033-s1": {
+   "src": "audio/8033-s1.wav",
+   "text": "うさぎは耳が長い。",
+   "kana": "ウサギワミミガナガイ",
+   "speed": 1
+  },
   "805e-reading": {
    "src": "audio/805e-reading.wav",
    "text": "き",
@@ -2068,6 +2416,12 @@
    "text": "せい",
    "kana": "セイ",
    "speed": 0.9
+  },
+  "80cc-s1": {
+   "src": "audio/80cc-s1.wav",
+   "text": "背はどれぐらいありますか。",
+   "kana": "セワドレグライアリマスカ",
+   "speed": 1
   },
   "81ea-reading": {
    "src": "audio/81ea-reading.wav",
@@ -2099,6 +2453,12 @@
    "kana": "ハナ",
    "speed": 0.9
   },
+  "82b1-s1": {
+   "src": "audio/82b1-s1.wav",
+   "text": "この花は何と言いますか。",
+   "kana": "コノハナワナントイイマスカ",
+   "speed": 1
+  },
   "8336-reading": {
    "src": "audio/8336-reading.wav",
    "text": "ちゃ",
@@ -2110,6 +2470,12 @@
    "text": "お茶をもう少し下さい。",
    "kana": "オチャオモオスコシクダサイ",
    "speed": 1
+  },
+  "8449-reading": {
+   "src": "audio/8449-reading.wav",
+   "text": "は",
+   "kana": "ハ",
+   "speed": 0.9
   },
   "8449-s1": {
    "src": "audio/8449-s1.wav",
@@ -2158,6 +2524,12 @@
    "text": "み",
    "kana": "ミ",
    "speed": 0.9
+  },
+  "898b-s1": {
+   "src": "audio/898b-s1.wav",
+   "text": "私はテレビを見ません。",
+   "kana": "ワタシワテレビオミマセン",
+   "speed": 1
   },
   "899a-reading": {
    "src": "audio/899a-reading.wav",
@@ -2213,11 +2585,23 @@
    "kana": "ハナシ",
    "speed": 0.9
   },
+  "8a71-s1": {
+   "src": "audio/8a71-s1.wav",
+   "text": "それはたいへんな話だ。",
+   "kana": "ソレワタイヘンナハナシダ",
+   "speed": 1
+  },
   "8a9e-reading": {
    "src": "audio/8a9e-reading.wav",
    "text": "ご",
    "kana": "ゴ",
    "speed": 0.9
+  },
+  "8a9e-s1": {
+   "src": "audio/8a9e-s1.wav",
+   "text": "その語はどうつづるのですか。",
+   "kana": "ソノゴワドオツズルノデスカ",
+   "speed": 1
   },
   "8aad-reading": {
    "src": "audio/8aad-reading.wav",
@@ -2237,11 +2621,23 @@
    "kana": "ダレ",
    "speed": 0.9
   },
+  "8ab0-s1": {
+   "src": "audio/8ab0-s1.wav",
+   "text": "あなたは誰の味方なの。",
+   "kana": "アナタワダレノミカタナノ",
+   "speed": 1
+  },
   "8cb7-reading": {
    "src": "audio/8cb7-reading.wav",
    "text": "か",
    "kana": "カ",
    "speed": 0.9
+  },
+  "8cb7-s1": {
+   "src": "audio/8cb7-s1.wav",
+   "text": "私はテープを買います。",
+   "kana": "ワタシワテエプオカイマス",
+   "speed": 1
   },
   "8d64-reading": {
    "src": "audio/8d64-reading.wav",
@@ -2297,11 +2693,23 @@
    "kana": "テン",
    "speed": 0.9
   },
+  "8ee2-s1": {
+   "src": "audio/8ee2-s1.wav",
+   "text": "これは私の自転車です。",
+   "kana": "コレワワタシノジテンシャデス",
+   "speed": 1
+  },
   "8f9e-reading": {
    "src": "audio/8f9e-reading.wav",
    "text": "じ",
    "kana": "ジ",
    "speed": 0.9
+  },
+  "8f9e-s1": {
+   "src": "audio/8f9e-s1.wav",
+   "text": "これは誰の辞書ですか。",
+   "kana": "コレワダレノジショデスカ",
+   "speed": 1
   },
   "8fd1-reading": {
    "src": "audio/8fd1-reading.wav",
@@ -2381,6 +2789,12 @@
    "kana": "ミチ",
    "speed": 0.9
   },
+  "9053-s1": {
+   "src": "audio/9053-s1.wav",
+   "text": "この道はどこに出ますか。",
+   "kana": "コノミチワドコニデマスカ",
+   "speed": 1
+  },
   "9055-reading": {
    "src": "audio/9055-reading.wav",
    "text": "ちが",
@@ -2398,6 +2812,12 @@
    "text": "とお",
    "kana": "トオ",
    "speed": 0.9
+  },
+  "9060-s1": {
+   "src": "audio/9060-s1.wav",
+   "text": "私の家はここから遠い。",
+   "kana": "ワタシノイエワココカラトオイ",
+   "speed": 1
   },
   "90e8-reading": {
    "src": "audio/90e8-reading.wav",
@@ -2441,6 +2861,12 @@
    "kana": "チョウ",
    "speed": 0.9
   },
+  "9577-s1": {
+   "src": "audio/9577-s1.wav",
+   "text": "そう長くはかからない。",
+   "kana": "ソオナガクワカカラナイ",
+   "speed": 1
+  },
   "9589-reading": {
    "src": "audio/9589-reading.wav",
    "text": "し",
@@ -2458,6 +2884,12 @@
    "text": "あ",
    "kana": "ア",
    "speed": 0.9
+  },
+  "958b-s1": {
+   "src": "audio/958b-s1.wav",
+   "text": "ぐいと押すとドアは開いた。",
+   "kana": "グイトオストドアワヒライタ",
+   "speed": 1
   },
   "9593-reading": {
    "src": "audio/9593-reading.wav",
@@ -2669,11 +3101,23 @@
    "kana": "コオ",
    "speed": 0.9
   },
+  "9ad8-s1": {
+   "src": "audio/9ad8-s1.wav",
+   "text": "このドレスは高そうだ。",
+   "kana": "コノドレスワタカソオダ",
+   "speed": 1
+  },
   "9b5a-reading": {
    "src": "audio/9b5a-reading.wav",
    "text": "さかな",
    "kana": "サカナ",
    "speed": 0.9
+  },
+  "9b5a-s1": {
+   "src": "audio/9b5a-s1.wav",
+   "text": "魚はまだ生きているの。",
+   "kana": "サカナワマダイキテイルノ",
+   "speed": 1
   },
   "9cf4-reading": {
    "src": "audio/9cf4-reading.wav",
@@ -2692,6 +3136,12 @@
    "text": "き",
    "kana": "キ",
    "speed": 0.9
+  },
+  "9ec4-s1": {
+   "src": "audio/9ec4-s1.wav",
+   "text": "庭の花はすべて黄色だ。",
+   "kana": "ニワノハナワスベテキイロダ",
+   "speed": 1
   },
   "9ed2-reading": {
    "src": "audio/9ed2-reading.wav",
@@ -2783,6 +3233,12 @@
    "kana": "オニイサン",
    "speed": 0.9
   },
+  "w1001830-s1": {
+   "src": "audio/w1001830-s1.wav",
+   "text": "お兄さんは車の運転が出来ますか。",
+   "kana": "オニイサンワクルマノウンテンガデキマスカ",
+   "speed": 1
+  },
   "w1001990-reading": {
    "src": "audio/w1001990-reading.wav",
    "text": "おねえさん",
@@ -2801,11 +3257,23 @@
    "kana": "オテアライ",
    "speed": 0.9
   },
+  "w1002100-s1": {
+   "src": "audio/w1002100-s1.wav",
+   "text": "お手洗いはどこですか。",
+   "kana": "オテアライワドコデスカ",
+   "speed": 1
+  },
   "w1002120-reading": {
    "src": "audio/w1002120-reading.wav",
    "text": "おまわりさん",
    "kana": "オマワリサン",
    "speed": 0.9
+  },
+  "w1002120-s1": {
+   "src": "audio/w1002120-s1.wav",
+   "text": "すみません、おまわりさん。ここはどこですか。",
+   "kana": "スミマセンオマワリサンココワドコデスカ",
+   "speed": 1
   },
   "w1002320-reading": {
    "src": "audio/w1002320-reading.wav",
@@ -2813,11 +3281,23 @@
    "kana": "オジイサン",
    "speed": 0.9
   },
+  "w1002320-s1": {
+   "src": "audio/w1002320-s1.wav",
+   "text": "おじいさんは少し耳が遠いんだ。",
+   "kana": "オジイサンワスコシミミガトオインダ",
+   "speed": 1
+  },
   "w1002330-reading": {
    "src": "audio/w1002330-reading.wav",
    "text": "おばあさん",
    "kana": "オバアサン",
    "speed": 0.9
+  },
+  "w1002330-s1": {
+   "src": "audio/w1002330-s1.wav",
+   "text": "おばあさんはバスから降りた。",
+   "kana": "オバアサンワバスカラオリタ",
+   "speed": 1
   },
   "w1002430-reading": {
    "src": "audio/w1002430-reading.wav",
@@ -2836,6 +3316,12 @@
    "text": "おとうさん",
    "kana": "オトオサン",
    "speed": 0.9
+  },
+  "w1002590-s1": {
+   "src": "audio/w1002590-s1.wav",
+   "text": "お父さんはどこですか。",
+   "kana": "オトオサンワドコデスカ",
+   "speed": 1
   },
   "w1002610-reading": {
    "src": "audio/w1002610-reading.wav",
@@ -2866,6 +3352,12 @@
    "text": "こちら",
    "kana": "コチラ",
    "speed": 0.9
+  },
+  "w1004500-s1": {
+   "src": "audio/w1004500-s1.wav",
+   "text": "こちらへやってくる少年とその犬をごらんなさい。",
+   "kana": "コチラエヤッテクルショオネントソノイヌオゴランナサイ",
+   "speed": 1
   },
   "w1004880-reading": {
    "src": "audio/w1004880-reading.wav",
@@ -2921,11 +3413,23 @@
    "kana": "ソチラ",
    "speed": 0.9
   },
+  "w1006780-s1": {
+   "src": "audio/w1006780-s1.wav",
+   "text": "すぐそちらへまいります。",
+   "kana": "スグソチラエマイリマス",
+   "speed": 1
+  },
   "w1006830-reading": {
    "src": "audio/w1006830-reading.wav",
    "text": "その",
    "kana": "ソノ",
    "speed": 0.9
+  },
+  "w1006830-s1": {
+   "src": "audio/w1006830-s1.wav",
+   "text": "私はその家を出ました。",
+   "kana": "ワタシワソノイエオデマシタ",
+   "speed": 1
   },
   "w1006970-reading": {
    "src": "audio/w1006970-reading.wav",
@@ -2957,6 +3461,24 @@
    "kana": "ツマラナイ",
    "speed": 0.9
   },
+  "w1008190-s1": {
+   "src": "audio/w1008190-s1.wav",
+   "text": "このビデオはつまらないよ。",
+   "kana": "コノビデオワツマラナイヨ",
+   "speed": 1
+  },
+  "w1008450-reading": {
+   "src": "audio/w1008450-reading.wav",
+   "text": "では",
+   "kana": "デハ",
+   "speed": 0.9
+  },
+  "w1008450-s1": {
+   "src": "audio/w1008450-s1.wav",
+   "text": "では今晩またね、さようなら。",
+   "kana": "デワコンバンマタネサヨオナラ",
+   "speed": 1
+  },
   "w1008460-reading": {
    "src": "audio/w1008460-reading.wav",
    "text": "でも",
@@ -2975,17 +3497,35 @@
    "kana": "トテモ",
    "speed": 0.9
   },
+  "w1008630-s1": {
+   "src": "audio/w1008630-s1.wav",
+   "text": "この花はとても美しい。",
+   "kana": "コノハナワトテモウツクシイ",
+   "speed": 1
+  },
   "w1008910-reading": {
    "src": "audio/w1008910-reading.wav",
    "text": "どう",
    "kana": "ドオ",
    "speed": 0.9
   },
+  "w1008910-s1": {
+   "src": "audio/w1008910-s1.wav",
+   "text": "再来週の木曜日はどう？",
+   "kana": "サライシュウノモクヨオビワドオ",
+   "speed": 1
+  },
   "w1009000-reading": {
    "src": "audio/w1009000-reading.wav",
    "text": "どうも",
    "kana": "ドオモ",
    "speed": 0.9
+  },
+  "w1009000-s1": {
+   "src": "audio/w1009000-s1.wav",
+   "text": "それはご親切にどうも。",
+   "kana": "ソレワゴシンセツニドオモ",
+   "speed": 1
   },
   "w1009290-reading": {
    "src": "audio/w1009290-reading.wav",
@@ -3065,6 +3605,12 @@
    "kana": "ヤル",
    "speed": 0.9
   },
+  "w1012980-s1": {
+   "src": "audio/w1012980-s1.wav",
+   "text": "それは私のやることだ。",
+   "kana": "ソレワワタシノヤルコトダ",
+   "speed": 1
+  },
   "w1017760-reading": {
    "src": "audio/w1017760-reading.wav",
    "text": "アパート",
@@ -3082,6 +3628,12 @@
    "text": "エレベーター",
    "kana": "エレベエタア",
    "speed": 0.9
+  },
+  "w1030630-s1": {
+   "src": "audio/w1030630-s1.wav",
+   "text": "エレベーターはどこですか。",
+   "kana": "エレベエタアワドコデスカ",
+   "speed": 1
   },
   "w1037670-reading": {
    "src": "audio/w1037670-reading.wav",
@@ -3113,11 +3665,23 @@
    "kana": "カレエ",
    "speed": 0.9
   },
+  "w1039140-s1": {
+   "src": "audio/w1039140-s1.wav",
+   "text": "カレーはまあまあでした。",
+   "kana": "カレエワマアマアデシタ",
+   "speed": 1
+  },
   "w1039220-reading": {
    "src": "audio/w1039220-reading.wav",
    "text": "カレンダー",
    "kana": "カレンダア",
    "speed": 0.9
+  },
+  "w1039220-s1": {
+   "src": "audio/w1039220-s1.wav",
+   "text": "このカレンダーはどこにかけましょうか。",
+   "kana": "コノカレンダアワドコニカケマショオカ",
+   "speed": 1
   },
   "w1042610-reading": {
    "src": "audio/w1042610-reading.wav",
@@ -3137,11 +3701,23 @@
    "kana": "ギタア",
    "speed": 0.9
   },
+  "w1042820-s1": {
+   "src": "audio/w1042820-s1.wav",
+   "text": "私はギターをひきたい。",
+   "kana": "ワタシワギタアオヒキタイ",
+   "speed": 1
+  },
   "w1044070-reading": {
    "src": "audio/w1044070-reading.wav",
    "text": "クラス",
    "kana": "クラス",
    "speed": 0.9
+  },
+  "w1044070-s1": {
+   "src": "audio/w1044070-s1.wav",
+   "text": "クラスは意見が分かれた。",
+   "kana": "クラスワイケンガワカレタ",
+   "speed": 1
   },
   "w1046810-reading": {
    "src": "audio/w1046810-reading.wav",
@@ -3161,6 +3737,12 @@
    "kana": "コオト",
    "speed": 0.9
   },
+  "w1049000-s1": {
+   "src": "audio/w1049000-s1.wav",
+   "text": "このコートは暖かい。",
+   "kana": "コノコオトワアタタカイ",
+   "speed": 1
+  },
   "w1049180-reading": {
    "src": "audio/w1049180-reading.wav",
    "text": "コーヒー",
@@ -3179,11 +3761,23 @@
    "kana": "コップ",
    "speed": 0.9
   },
+  "w1050390-s1": {
+   "src": "audio/w1050390-s1.wav",
+   "text": "コップは水でいっぱいだ。",
+   "kana": "コップワミズデイッパイダ",
+   "speed": 1
+  },
   "w1061520-reading": {
    "src": "audio/w1061520-reading.wav",
    "text": "シャツ",
    "kana": "シャツ",
    "speed": 0.9
+  },
+  "w1061520-s1": {
+   "src": "audio/w1061520-s1.wav",
+   "text": "白いシャツはありますか。",
+   "kana": "シロイシャツワアリマスカ",
+   "speed": 1
   },
   "w1061820-reading": {
    "src": "audio/w1061820-reading.wav",
@@ -3202,6 +3796,12 @@
    "text": "スカート",
    "kana": "スカアト",
    "speed": 0.9
+  },
+  "w1067470-s1": {
+   "src": "audio/w1067470-s1.wav",
+   "text": "私のスカートは長すぎます。",
+   "kana": "ワタシノスカアトワナガスギマス",
+   "speed": 1
   },
   "w1070790-reading": {
    "src": "audio/w1070790-reading.wav",
@@ -3233,17 +3833,35 @@
    "kana": "スポオツ",
    "speed": 0.9
   },
+  "w1073210-s1": {
+   "src": "audio/w1073210-s1.wav",
+   "text": "ところであなたはどんなスポーツが好きですか。",
+   "kana": "トコロデアナタワドンナスポオツガスキデスカ",
+   "speed": 1
+  },
   "w1074260-reading": {
    "src": "audio/w1074260-reading.wav",
    "text": "ズボン",
    "kana": "ズボン",
    "speed": 0.9
   },
+  "w1074260-s1": {
+   "src": "audio/w1074260-s1.wav",
+   "text": "あなたは私のズボンをどうしたのですか。",
+   "kana": "アナタワワタシノズボンオドオシタノデスカ",
+   "speed": 1
+  },
   "w1074270-reading": {
    "src": "audio/w1074270-reading.wav",
    "text": "セーター",
    "kana": "セエタア",
    "speed": 0.9
+  },
+  "w1074270-s1": {
+   "src": "audio/w1074270-s1.wav",
+   "text": "このセーターは洗っても大丈夫です。",
+   "kana": "コノセエタアワアラッテモダイジョオブデス",
+   "speed": 1
   },
   "w1076190-reading": {
    "src": "audio/w1076190-reading.wav",
@@ -3263,17 +3881,35 @@
    "kana": "テエブル",
    "speed": 0.9
   },
+  "w1078630-s1": {
+   "src": "audio/w1078630-s1.wav",
+   "text": "このテーブルはぐらつく。",
+   "kana": "コノテエブルワグラツク",
+   "speed": 1
+  },
   "w1078750-reading": {
    "src": "audio/w1078750-reading.wav",
    "text": "テープ",
    "kana": "テエプ",
    "speed": 0.9
   },
+  "w1078750-s1": {
+   "src": "audio/w1078750-s1.wav",
+   "text": "私はテープを買います。",
+   "kana": "ワタシワテエプオカイマス",
+   "speed": 1
+  },
   "w1078810-reading": {
    "src": "audio/w1078810-reading.wav",
    "text": "テープレコーダー",
    "kana": "テエプレコオダア",
    "speed": 0.9
+  },
+  "w1078810-s1": {
+   "src": "audio/w1078810-s1.wav",
+   "text": "このテープレコーダーは新しくない。",
+   "kana": "コノテエプレコオダアワアタラシクナイ",
+   "speed": 1
   },
   "w1079760-reading": {
    "src": "audio/w1079760-reading.wav",
@@ -3292,6 +3928,12 @@
    "text": "テレビ",
    "kana": "テレビ",
    "speed": 0.9
+  },
+  "w1080510-s1": {
+   "src": "audio/w1080510-s1.wav",
+   "text": "テレビは毎日見ますよ。",
+   "kana": "テレビワマイニチミマスヨ",
+   "speed": 1
   },
   "w1083590-reading": {
    "src": "audio/w1083590-reading.wav",
@@ -3347,6 +3989,12 @@
    "kana": "ニュウス",
    "speed": 0.9
   },
+  "w1091500-s1": {
+   "src": "audio/w1091500-s1.wav",
+   "text": "このニュースは初耳です。",
+   "kana": "コノニュウスワハツミミデス",
+   "speed": 1
+  },
   "w1092820-reading": {
    "src": "audio/w1092820-reading.wav",
    "text": "ネクタイ",
@@ -3365,11 +4013,23 @@
    "kana": "ノオト",
    "speed": 0.9
   },
+  "w1093450-s1": {
+   "src": "audio/w1093450-s1.wav",
+   "text": "私はノートがほしい。",
+   "kana": "ワタシワノオトガホシイ",
+   "speed": 1
+  },
   "w1096420-reading": {
    "src": "audio/w1096420-reading.wav",
    "text": "ハンカチ",
    "kana": "ハンカチ",
    "speed": 0.9
+  },
+  "w1096420-s1": {
+   "src": "audio/w1096420-s1.wav",
+   "text": "このハンカチはいくらですか。",
+   "kana": "コノハンカチワイクラデスカ",
+   "speed": 1
   },
   "w1098390-reading": {
    "src": "audio/w1098390-reading.wav",
@@ -3401,6 +4061,12 @@
    "kana": "パアティイ",
    "speed": 0.9
   },
+  "w1100760-s1": {
+   "src": "audio/w1100760-s1.wav",
+   "text": "パーティーは終わった。",
+   "kana": "パアティイワオワッタ",
+   "speed": 1
+  },
   "w1103090-reading": {
    "src": "audio/w1103090-reading.wav",
    "text": "パン",
@@ -3431,17 +4097,35 @@
    "kana": "フォオク",
    "speed": 0.9
   },
+  "w1110110-s1": {
+   "src": "audio/w1110110-s1.wav",
+   "text": "その子はナイフとフォークをうまく使う。",
+   "kana": "ソノコワナイフトフォオクオウマクツカウ",
+   "speed": 1
+  },
   "w1115150-reading": {
    "src": "audio/w1115150-reading.wav",
    "text": "プール",
    "kana": "プウル",
    "speed": 0.9
   },
+  "w1115150-s1": {
+   "src": "audio/w1115150-s1.wav",
+   "text": "私はプールで泳ぐのは好きではない。",
+   "kana": "ワタシワプウルデオヨグノワスキデワナイ",
+   "speed": 1
+  },
   "w1119650-reading": {
    "src": "audio/w1119650-reading.wav",
    "text": "ベッド",
    "kana": "ベッド",
    "speed": 0.9
+  },
+  "w1119650-s1": {
+   "src": "audio/w1119650-s1.wav",
+   "text": "どんなベッドでもないよりはよい。",
+   "kana": "ドンナベッドデモナイヨリワヨイ",
+   "speed": 1
   },
   "w1120410-reading": {
    "src": "audio/w1120410-reading.wav",
@@ -3473,11 +4157,23 @@
    "kana": "ペン",
    "speed": 0.9
   },
+  "w1121380-s1": {
+   "src": "audio/w1121380-s1.wav",
+   "text": "ペンは持っていますか？",
+   "kana": "ペンワモッテイマスカ",
+   "speed": 1
+  },
   "w1122650-reading": {
    "src": "audio/w1122650-reading.wav",
    "text": "ホテル",
    "kana": "ホテル",
    "speed": 0.9
+  },
+  "w1122650-s1": {
+   "src": "audio/w1122650-s1.wav",
+   "text": "このホテルではだめだ。",
+   "kana": "コノホテルデワダメダ",
+   "speed": 1
   },
   "w1123590-reading": {
    "src": "audio/w1123590-reading.wav",
@@ -3509,11 +4205,23 @@
    "kana": "ポケット",
    "speed": 0.9
   },
+  "w1124970-s1": {
+   "src": "audio/w1124970-s1.wav",
+   "text": "このコートにはポケットがない。",
+   "kana": "コノコオトニワポケットガナイ",
+   "speed": 1
+  },
   "w1125150-reading": {
    "src": "audio/w1125150-reading.wav",
    "text": "ポスト",
    "kana": "ポスト",
    "speed": 0.9
+  },
+  "w1125150-s1": {
+   "src": "audio/w1125150-s1.wav",
+   "text": "ポストはどこにありますか。",
+   "kana": "ポストワドコニアリマスカ",
+   "speed": 1
   },
   "w1128430-reading": {
    "src": "audio/w1128430-reading.wav",
@@ -3545,17 +4253,35 @@
    "kana": "ラジオ",
    "speed": 0.9
   },
+  "w1138860-s1": {
+   "src": "audio/w1138860-s1.wav",
+   "text": "そのニュースはラジオで聞いたよ。",
+   "kana": "ソノニュウスワラジオデキイタヨ",
+   "speed": 1
+  },
   "w1144940-reading": {
    "src": "audio/w1144940-reading.wav",
    "text": "レコード",
    "kana": "レコオド",
    "speed": 0.9
   },
+  "w1144940-s1": {
+   "src": "audio/w1144940-s1.wav",
+   "text": "あのレコードはこの店で買ったんだ。",
+   "kana": "アノレコオドワコノミセデカッタンダ",
+   "speed": 1
+  },
   "w1145310-reading": {
    "src": "audio/w1145310-reading.wav",
    "text": "レストラン",
    "kana": "レストラン",
    "speed": 0.9
+  },
+  "w1145310-s1": {
+   "src": "audio/w1145310-s1.wav",
+   "text": "このレストランはダメだ。",
+   "kana": "コノレストランワダメダ",
+   "speed": 1
   },
   "w1148640-reading": {
    "src": "audio/w1148640-reading.wav",
@@ -3598,6 +4324,12 @@
    "text": "やすい",
    "kana": "ヤスイ",
    "speed": 0.9
+  },
+  "w1153670-s1": {
+   "src": "audio/w1153670-s1.wav",
+   "text": "もっと安い本はないですか。",
+   "kana": "モットヤスイホンワナイデスカ",
+   "speed": 1
   },
   "w1154330-reading": {
    "src": "audio/w1154330-reading.wav",
@@ -3653,17 +4385,35 @@
    "kana": "スル",
    "speed": 0.9
   },
+  "w1157170-s1": {
+   "src": "audio/w1157170-s1.wav",
+   "text": "私は夏には水泳をする。",
+   "kana": "ワタシワナツニワスイエエオスル",
+   "speed": 1
+  },
   "w1158880-reading": {
    "src": "audio/w1158880-reading.wav",
    "text": "ちがう",
    "kana": "チガウ",
    "speed": 0.9
   },
+  "w1158880-s1": {
+   "src": "audio/w1158880-s1.wav",
+   "text": "それは違うと思います。",
+   "kana": "ソレワチガウトオモイマス",
+   "speed": 1
+  },
   "w1159980-reading": {
    "src": "audio/w1159980-reading.wav",
    "text": "いしゃ",
    "kana": "イシャ",
    "speed": 0.9
+  },
+  "w1159980-s1": {
+   "src": "audio/w1159980-s1.wav",
+   "text": "医者はなんて言ったの？",
+   "kana": "イシャワナンテイッタノ",
+   "speed": 1
   },
   "w1160820-reading": {
    "src": "audio/w1160820-reading.wav",
@@ -3767,6 +4517,12 @@
    "kana": "オヨグ",
    "speed": 0.9
   },
+  "w1174340-s1": {
+   "src": "audio/w1174340-s1.wav",
+   "text": "あなたは泳げますよね。",
+   "kana": "アナタワオヨゲマスヨネ",
+   "speed": 1
+  },
   "w1174420-reading": {
    "src": "audio/w1174420-reading.wav",
    "text": "えいご",
@@ -3784,6 +4540,12 @@
    "text": "とおい",
    "kana": "トオイ",
    "speed": 0.9
+  },
+  "w1177800-s1": {
+   "src": "audio/w1177800-s1.wav",
+   "text": "その駅はここから遠い。",
+   "kana": "ソノエキワココカラトオイ",
+   "speed": 1
   },
   "w1178590-reading": {
    "src": "audio/w1178590-reading.wav",
@@ -3863,6 +4625,12 @@
    "kana": "ヌルイ",
    "speed": 0.9
   },
+  "w1183300-s1": {
+   "src": "audio/w1183300-s1.wav",
+   "text": "このお茶は温いです。",
+   "kana": "コノオチャワヌルイデス",
+   "speed": 1
+  },
   "w1183720-reading": {
    "src": "audio/w1183720-reading.wav",
    "text": "おんがく",
@@ -3893,17 +4661,35 @@
    "kana": "ヘタ",
    "speed": 0.9
   },
+  "w1185200-s1": {
+   "src": "audio/w1185200-s1.wav",
+   "text": "私はテニスが下手だ。",
+   "kana": "ワタシワテニスガヘタダ",
+   "speed": 1
+  },
   "w1188760-reading": {
    "src": "audio/w1188760-reading.wav",
    "text": "いつ",
    "kana": "イツ",
    "speed": 0.9
   },
+  "w1188760-s1": {
+   "src": "audio/w1188760-s1.wav",
+   "text": "問題はいつ始めるかだ。",
+   "kana": "モンダイワイツハジメルカダ",
+   "speed": 1
+  },
   "w1188890-reading": {
    "src": "audio/w1188890-reading.wav",
    "text": "いつも",
    "kana": "イツモ",
    "speed": 0.9
+  },
+  "w1188890-s1": {
+   "src": "audio/w1188890-s1.wav",
+   "text": "私は日曜日にはいつも家にいない。",
+   "kana": "ワタシワニチヨオビニワイツモイエニイナイ",
+   "speed": 1
   },
   "w1189130-reading": {
    "src": "audio/w1189130-reading.wav",
@@ -3923,17 +4709,35 @@
    "kana": "ドチラ",
    "speed": 0.9
   },
+  "w1189360-s1": {
+   "src": "audio/w1189360-s1.wav",
+   "text": "私はどちらも好きです。",
+   "kana": "ワタシワドチラモスキデス",
+   "speed": 1
+  },
   "w1189370-reading": {
    "src": "audio/w1189370-reading.wav",
    "text": "どなた",
    "kana": "ドナタ",
    "speed": 0.9
   },
+  "w1189370-s1": {
+   "src": "audio/w1189370-s1.wav",
+   "text": "あの方はどなたですか。",
+   "kana": "アノカタワドナタデスカ",
+   "speed": 1
+  },
   "w1191420-reading": {
    "src": "audio/w1191420-reading.wav",
    "text": "なつやすみ",
    "kana": "ナツヤスミ",
    "speed": 0.9
+  },
+  "w1191420-s1": {
+   "src": "audio/w1191420-s1.wav",
+   "text": "この夏休みはどこかへ行くのですか。",
+   "kana": "コノナツヤスミワドコカエイクノデスカ",
+   "speed": 1
   },
   "w1191740-reading": {
    "src": "audio/w1191740-reading.wav",
@@ -3952,6 +4756,12 @@
    "text": "かぞく",
    "kana": "カゾク",
    "speed": 0.9
+  },
+  "w1192150-s1": {
+   "src": "audio/w1192150-s1.wav",
+   "text": "あなたの家族はきっと親切でしょう。",
+   "kana": "アナタノカゾクワキットシンセツデショオ",
+   "speed": 1
   },
   "w1192280-reading": {
    "src": "audio/w1192280-reading.wav",
@@ -4018,6 +4828,12 @@
    "text": "あう",
    "kana": "アウ",
    "speed": 0.9
+  },
+  "w1198180-s1": {
+   "src": "audio/w1198180-s1.wav",
+   "text": "友人とは会っていない。",
+   "kana": "ユウジントワアッテイナイ",
+   "speed": 1
   },
   "w1198550-reading": {
    "src": "audio/w1198550-reading.wav",
@@ -4121,6 +4937,12 @@
    "kana": "ホカ",
    "speed": 0.9
   },
+  "w1203260-s1": {
+   "src": "audio/w1203260-s1.wav",
+   "text": "他の誰もだめなのです。",
+   "kana": "ホカノダレモダメナノデス",
+   "speed": 1
+  },
   "w1203620-reading": {
    "src": "audio/w1203620-reading.wav",
    "text": "がいこく",
@@ -4139,6 +4961,12 @@
    "kana": "ガイコクジン",
    "speed": 0.9
   },
+  "w1203650-s1": {
+   "src": "audio/w1203650-s1.wav",
+   "text": "日本食が好きな外国人は少なくない。",
+   "kana": "ニホンショクガスキナガイコクジンワスクナクナイ",
+   "speed": 1
+  },
   "w1206050-reading": {
    "src": "audio/w1206050-reading.wav",
    "text": "おぼえる",
@@ -4156,6 +4984,12 @@
    "text": "かど",
    "kana": "カド",
    "speed": 0.9
+  },
+  "w1206110-s1": {
+   "src": "audio/w1206110-s1.wav",
+   "text": "角の家は私たちの家です。",
+   "kana": "カドノイエワワタシタチノイエデス",
+   "speed": 1
   },
   "w1206730-reading": {
    "src": "audio/w1206730-reading.wav",
@@ -4223,6 +5057,12 @@
    "kana": "カバン",
    "speed": 0.9
   },
+  "w1208910-s1": {
+   "src": "audio/w1208910-s1.wav",
+   "text": "これは私のかばんです。",
+   "kana": "コレワワタシノカバンデス",
+   "speed": 1
+  },
   "w1210360-reading": {
    "src": "audio/w1210360-reading.wav",
    "text": "さむい",
@@ -4252,6 +5092,12 @@
    "text": "あまい",
    "kana": "アマイ",
    "speed": 0.9
+  },
+  "w1213400-s1": {
+   "src": "audio/w1213400-s1.wav",
+   "text": "このチョコレートはとっても甘くておいしい。",
+   "kana": "コノチョコレエトワトッテモアマクテオイシイ",
+   "speed": 1
   },
   "w1217730-reading": {
    "src": "audio/w1217730-reading.wav",
@@ -4283,11 +5129,23 @@
    "kana": "イクツ",
    "speed": 0.9
   },
+  "w1219960-s1": {
+   "src": "audio/w1219960-s1.wav",
+   "text": "あなたのお父さんはおいくつですか。",
+   "kana": "アナタノオトオサンワオイクツデスカ",
+   "speed": 1
+  },
   "w1219980-reading": {
    "src": "audio/w1219980-reading.wav",
    "text": "いくら",
    "kana": "イクラ",
    "speed": 0.9
+  },
+  "w1219980-s1": {
+   "src": "audio/w1219980-s1.wav",
+   "text": "所持金はいくらありますか。",
+   "kana": "ショジキンワイクラアリマスカ",
+   "speed": 1
   },
   "w1220210-reading": {
    "src": "audio/w1220210-reading.wav",
@@ -4319,11 +5177,23 @@
    "kana": "アナタ",
    "speed": 0.9
   },
+  "w1223615-s1": {
+   "src": "audio/w1223615-s1.wav",
+   "text": "あなたは間違えました。",
+   "kana": "アナタワマチガエマシタ",
+   "speed": 1
+  },
   "w1223640-reading": {
    "src": "audio/w1223640-reading.wav",
    "text": "おきる",
    "kana": "オキル",
    "speed": 0.9
+  },
+  "w1223640-s1": {
+   "src": "audio/w1223640-s1.wav",
+   "text": "お子さんはまだ起きているのですか。",
+   "kana": "オコサンワマダオキテイルノデスカ",
+   "speed": 1
   },
   "w1226440-reading": {
    "src": "audio/w1226440-reading.wav",
@@ -4331,17 +5201,35 @@
    "kana": "キッサテン",
    "speed": 0.9
   },
+  "w1226440-s1": {
+   "src": "audio/w1226440-s1.wav",
+   "text": "私たちは喫茶店で昼食をとった。",
+   "kana": "ワタシタチワキッサテンデチュウショクオトッタ",
+   "speed": 1
+  },
   "w1227500-reading": {
    "src": "audio/w1227500-reading.wav",
    "text": "やすみ",
    "kana": "ヤスミ",
    "speed": 0.9
   },
+  "w1227500-s1": {
+   "src": "audio/w1227500-s1.wav",
+   "text": "私は今週はお休みです。",
+   "kana": "ワタシワコンシュウワオヤスミデス",
+   "speed": 1
+  },
   "w1227560-reading": {
    "src": "audio/w1227560-reading.wav",
    "text": "やすむ",
    "kana": "ヤスム",
    "speed": 0.9
+  },
+  "w1227560-s1": {
+   "src": "audio/w1227560-s1.wav",
+   "text": "父はまだ休んでいる。",
+   "kana": "チチワマダヤスンデイル",
+   "speed": 1
   },
   "w1228260-reading": {
    "src": "audio/w1228260-reading.wav",
@@ -4360,6 +5248,12 @@
    "text": "ぎゅうにく",
    "kana": "ギュウニク",
    "speed": 0.9
+  },
+  "w1231580-s1": {
+   "src": "audio/w1231580-s1.wav",
+   "text": "私の好みはどちらかというと牛肉ですね。",
+   "kana": "ワタシノコノミワドチラカトイウトギュウニクデスネ",
+   "speed": 1
   },
   "w1231590-reading": {
    "src": "audio/w1231590-reading.wav",
@@ -4475,6 +5369,12 @@
    "kana": "チカイ",
    "speed": 0.9
   },
+  "w1242130-s1": {
+   "src": "audio/w1242130-s1.wav",
+   "text": "病院はここから近い。",
+   "kana": "ビョオインワココカラチカイ",
+   "speed": 1
+  },
   "w1242160-reading": {
    "src": "audio/w1242160-reading.wav",
    "text": "ちかく",
@@ -4541,11 +5441,23 @@
    "kana": "クツシタ",
    "speed": 0.9
   },
+  "w1246740-s1": {
+   "src": "audio/w1246740-s1.wav",
+   "text": "この靴下の片方はどこだ。",
+   "kana": "コノクツシタノカタホオワドコダ",
+   "speed": 1
+  },
   "w1249960-reading": {
    "src": "audio/w1249960-reading.wav",
    "text": "きょうだい",
    "kana": "キョオダイ",
    "speed": 0.9
+  },
+  "w1249960-s1": {
+   "src": "audio/w1249960-s1.wav",
+   "text": "私には兄弟がいない。",
+   "kana": "ワタシニワキョオダイガイナイ",
+   "speed": 1
   },
   "w1252330-reading": {
    "src": "audio/w1252330-reading.wav",
@@ -4576,6 +5488,12 @@
    "text": "とりにく",
    "kana": "トリニク",
    "speed": 0.9
+  },
+  "w1253020-s1": {
+   "src": "audio/w1253020-s1.wav",
+   "text": "この鶏肉はよく揚げられている。",
+   "kana": "コノトリニクワヨクアゲラレテイル",
+   "speed": 1
   },
   "w1254760-reading": {
    "src": "audio/w1254760-reading.wav",
@@ -4679,6 +5597,12 @@
    "kana": "ゲンキ",
    "speed": 0.9
   },
+  "w1260720-s1": {
+   "src": "audio/w1260720-s1.wav",
+   "text": "元気ですよ。あなたは？",
+   "kana": "ゲンキデスヨアナタワ",
+   "speed": 1
+  },
   "w1263400-reading": {
    "src": "audio/w1263400-reading.wav",
    "text": "げんかん",
@@ -4745,6 +5669,12 @@
    "kana": "イツツ",
    "speed": 0.9
   },
+  "w1268070-s1": {
+   "src": "audio/w1268070-s1.wav",
+   "text": "彼女はケーキを五つに分けた。",
+   "kana": "カノジョワケエキオイツツニワケタ",
+   "speed": 1
+  },
   "w1268570-reading": {
    "src": "audio/w1268570-reading.wav",
    "text": "いつか",
@@ -4774,6 +5704,12 @@
    "text": "ごぜん",
    "kana": "ゴゼン",
    "speed": 0.9
+  },
+  "w1269060-s1": {
+   "src": "audio/w1269060-s1.wav",
+   "text": "私はきょうの午前しばらくの間勉強した。",
+   "kana": "ワタシワキョオノゴゼンシバラクノアイダベンキョオシタ",
+   "speed": 1
   },
   "w1269410-reading": {
    "src": "audio/w1269410-reading.wav",
@@ -4829,17 +5765,35 @@
    "kana": "アツイ",
    "speed": 0.9
   },
+  "w1275320-s1": {
+   "src": "audio/w1275320-s1.wav",
+   "text": "その氷はとても厚い。",
+   "kana": "ソノコオリワトテモアツイ",
+   "speed": 1
+  },
   "w1277140-reading": {
    "src": "audio/w1277140-reading.wav",
    "text": "むこう",
    "kana": "ムコオ",
    "speed": 0.9
   },
+  "w1277140-s1": {
+   "src": "audio/w1277140-s1.wav",
+   "text": "山の向こうはもっと暖かい。",
+   "kana": "ヤマノムコオワモットアタタカイ",
+   "speed": 1
+  },
   "w1277450-reading": {
    "src": "audio/w1277450-reading.wav",
    "text": "すき",
    "kana": "スキ",
    "speed": 0.9
+  },
+  "w1277450-s1": {
+   "src": "audio/w1277450-s1.wav",
+   "text": "ポップスは好きですか。",
+   "kana": "ポップスワスキデスカ",
+   "speed": 1
   },
   "w1278410-reading": {
    "src": "audio/w1278410-reading.wav",
@@ -4895,11 +5849,23 @@
    "kana": "クロイ",
    "speed": 0.9
   },
+  "w1287420-s1": {
+   "src": "audio/w1287420-s1.wav",
+   "text": "あの黒いのは私のです。",
+   "kana": "アノクロイノワワタシノデス",
+   "speed": 1
+  },
   "w1288810-reading": {
    "src": "audio/w1288810-reading.wav",
    "text": "ここ",
    "kana": "ココ",
    "speed": 0.9
+  },
+  "w1288810-s1": {
+   "src": "audio/w1288810-s1.wav",
+   "text": "すぐにここへ来なさい。",
+   "kana": "スグニココエキナサイ",
+   "speed": 1
   },
   "w1289100-reading": {
    "src": "audio/w1289100-reading.wav",
@@ -4943,6 +5909,12 @@
    "kana": "コマル",
    "speed": 0.9
   },
+  "w1289590-s1": {
+   "src": "audio/w1289590-s1.wav",
+   "text": "僕はしばしばお金に困る。",
+   "kana": "ボクワシバシバオカネニコマル",
+   "speed": 1
+  },
   "w1291330-reading": {
    "src": "audio/w1291330-reading.wav",
    "text": "さす",
@@ -4984,6 +5956,12 @@
    "text": "さらいねん",
    "kana": "サライネン",
    "speed": 0.9
+  },
+  "w1293660-s1": {
+   "src": "audio/w1293660-s1.wav",
+   "text": "祖父は、再来年引退する予定です。",
+   "kana": "ソフワサライネンインタイスルヨテエデス",
+   "speed": 1
   },
   "w1295510-reading": {
    "src": "audio/w1295510-reading.wav",
@@ -5051,11 +6029,23 @@
    "kana": "トル",
    "speed": 0.9
   },
+  "w1298790-s1": {
+   "src": "audio/w1298790-s1.wav",
+   "text": "これは私の妹を撮った写真です。",
+   "kana": "コレワワタシノイモオトオトッタシャシンデス",
+   "speed": 1
+  },
   "w1299400-reading": {
    "src": "audio/w1299400-reading.wav",
    "text": "ざっし",
    "kana": "ザッシ",
    "speed": 0.9
+  },
+  "w1299400-s1": {
+   "src": "audio/w1299400-s1.wav",
+   "text": "その雑誌はどこで買えますか。",
+   "kana": "ソノザッシワドコデカエマスカ",
+   "speed": 1
   },
   "w1299685-reading": {
    "src": "audio/w1299685-reading.wav",
@@ -5128,6 +6118,12 @@
    "text": "父は昨日仕事を休んだ。",
    "kana": "チチワキノオシゴトオヤスンダ",
    "speed": 1
+  },
+  "w1305990-reading": {
+   "src": "audio/w1305990-reading.wav",
+   "text": "つかう",
+   "kana": "ツカウ",
+   "speed": 0.9
   },
   "w1305990-s1": {
    "src": "audio/w1305990-s1.wav",
@@ -5207,6 +6203,12 @@
    "kana": "ニワノフルイキガシニマシタ",
    "speed": 1
   },
+  "w1313000-reading": {
+   "src": "audio/w1313000-reading.wav",
+   "text": "は",
+   "kana": "ハ",
+   "speed": 0.9
+  },
   "w1313000-s1": {
    "src": "audio/w1313000-s1.wav",
    "text": "毎晩、歯をみがきます。",
@@ -5267,6 +6269,12 @@
    "kana": "ツギ",
    "speed": 0.9
   },
+  "w1316380-s1": {
+   "src": "audio/w1316380-s1.wav",
+   "text": "この次来るときは、花を持ってきてあげよう。",
+   "kana": "コノツギクルトキワハナオモッテキテアゲヨオ",
+   "speed": 1
+  },
   "w1318290-reading": {
    "src": "audio/w1318290-reading.wav",
    "text": "じてんしゃ",
@@ -5285,6 +6293,12 @@
    "kana": "ジドオシャ",
    "speed": 0.9
   },
+  "w1318400-s1": {
+   "src": "audio/w1318400-s1.wav",
+   "text": "これは誰の自動車ですか。",
+   "kana": "コレワダレノジドオシャデスカ",
+   "speed": 1
+  },
   "w1318610-reading": {
    "src": "audio/w1318610-reading.wav",
    "text": "じぶん",
@@ -5302,6 +6316,12 @@
    "text": "じしょ",
    "kana": "ジショ",
    "speed": 0.9
+  },
+  "w1318970-s1": {
+   "src": "audio/w1318970-s1.wav",
+   "text": "私はよい辞書がほしい。",
+   "kana": "ワタシワヨイジショガホシイ",
+   "speed": 1
   },
   "w1319220-reading": {
    "src": "audio/w1319220-reading.wav",
@@ -5357,17 +6377,35 @@
    "kana": "ワカイ",
    "speed": 0.9
   },
+  "w1324300-s1": {
+   "src": "audio/w1324300-s1.wav",
+   "text": "もっと若ければなぁ。",
+   "kana": "モットワカケレバナア",
+   "speed": 1
+  },
   "w1324520-reading": {
    "src": "audio/w1324520-reading.wav",
    "text": "よわい",
    "kana": "ヨワイ",
    "speed": 0.9
   },
+  "w1324520-s1": {
+   "src": "audio/w1324520-s1.wav",
+   "text": "そのひもはとても弱い。",
+   "kana": "ソノヒモワトテモヨワイ",
+   "speed": 1
+  },
   "w1326980-reading": {
    "src": "audio/w1326980-reading.wav",
    "text": "とる",
    "kana": "トル",
    "speed": 0.9
+  },
+  "w1326980-s1": {
+   "src": "audio/w1326980-s1.wav",
+   "text": "このソファーは場所を取りすぎる。",
+   "kana": "コノソファアワバショオトリスギル",
+   "speed": 1
   },
   "w1327720-reading": {
    "src": "audio/w1327720-reading.wav",
@@ -5399,17 +6437,35 @@
    "kana": "ジュギョオ",
    "speed": 0.9
   },
+  "w1330290-s1": {
+   "src": "audio/w1330290-s1.wav",
+   "text": "今日の授業はこれまで。",
+   "kana": "キョオノジュギョオワコレマデ",
+   "speed": 1
+  },
   "w1332650-reading": {
    "src": "audio/w1332650-reading.wav",
    "text": "あき",
    "kana": "アキ",
    "speed": 0.9
   },
+  "w1332650-s1": {
+   "src": "audio/w1332650-s1.wav",
+   "text": "秋には木の葉が落ちる。",
+   "kana": "アキニワコノハガオチル",
+   "speed": 1
+  },
   "w1333070-reading": {
    "src": "audio/w1333070-reading.wav",
    "text": "ならう",
    "kana": "ナラウ",
    "speed": 0.9
+  },
+  "w1333070-s1": {
+   "src": "audio/w1333070-s1.wav",
+   "text": "私はスキーを習いたい。",
+   "kana": "ワタシワスキイオナライタイ",
+   "speed": 1
   },
   "w1334040-reading": {
    "src": "audio/w1334040-reading.wav",
@@ -5453,6 +6509,12 @@
    "kana": "オモイ",
    "speed": 0.9
   },
+  "w1335750-s1": {
+   "src": "audio/w1335750-s1.wav",
+   "text": "重くて私にはもてない。",
+   "kana": "オモクテワタシニワモテナイ",
+   "speed": 1
+  },
   "w1337270-reading": {
    "src": "audio/w1337270-reading.wav",
    "text": "しゅくだい",
@@ -5471,17 +6533,35 @@
    "kana": "ダス",
    "speed": 0.9
   },
+  "w1338180-s1": {
+   "src": "audio/w1338180-s1.wav",
+   "text": "そんなに金は出せない。",
+   "kana": "ソンナニカネワダセナイ",
+   "speed": 1
+  },
   "w1338240-reading": {
    "src": "audio/w1338240-reading.wav",
    "text": "でる",
    "kana": "デル",
    "speed": 0.9
   },
+  "w1338240-s1": {
+   "src": "audio/w1338240-s1.wav",
+   "text": "電話には出なかったからメールしておきました。",
+   "kana": "デンワニワデナカッタカラメエルシテオキマシタ",
+   "speed": 1
+  },
   "w1338850-reading": {
    "src": "audio/w1338850-reading.wav",
    "text": "でぐち",
    "kana": "デグチ",
    "speed": 0.9
+  },
+  "w1338850-s1": {
+   "src": "audio/w1338850-s1.wav",
+   "text": "出口はどちらですか。",
+   "kana": "デグチワドチラデスカ",
+   "speed": 1
   },
   "w1340450-reading": {
    "src": "audio/w1340450-reading.wav",
@@ -5513,11 +6593,23 @@
    "kana": "ハジメ",
    "speed": 0.9
   },
+  "w1342540-s1": {
+   "src": "audio/w1342540-s1.wav",
+   "text": "初めは病気だと思った。",
+   "kana": "ハジメワビョオキダトオモッタ",
+   "speed": 1
+  },
   "w1342550-reading": {
    "src": "audio/w1342550-reading.wav",
    "text": "はじめて",
    "kana": "ハジメテ",
    "speed": 0.9
+  },
+  "w1342550-s1": {
+   "src": "audio/w1342550-s1.wav",
+   "text": "こちらは初めてですか。",
+   "kana": "コチラワハジメテデスカ",
+   "speed": 1
   },
   "w1343460-reading": {
    "src": "audio/w1343460-reading.wav",
@@ -5561,6 +6653,12 @@
    "kana": "チイサイ",
    "speed": 0.9
   },
+  "w1347750-s1": {
+   "src": "audio/w1347750-s1.wav",
+   "text": "この本はとても小さい。",
+   "kana": "コノホンワトテモチイサイ",
+   "speed": 1
+  },
   "w1348870-reading": {
    "src": "audio/w1348870-reading.wav",
    "text": "すこし",
@@ -5590,6 +6688,12 @@
    "text": "きえる",
    "kana": "キエル",
    "speed": 0.9
+  },
+  "w1350040-s1": {
+   "src": "audio/w1350040-s1.wav",
+   "text": "その音楽の音はしだいに消えていった。",
+   "kana": "ソノオンガクノオトワシダイニキエテイッタ",
+   "speed": 1
   },
   "w1350110-reading": {
    "src": "audio/w1350110-reading.wav",
@@ -5621,11 +6725,23 @@
    "kana": "ノボル",
    "speed": 0.9
   },
+  "w1352570-s1": {
+   "src": "audio/w1352570-s1.wav",
+   "text": "そのサルは木に登った。",
+   "kana": "ソノサルワキニノボッタ",
+   "speed": 1
+  },
   "w1353320-reading": {
    "src": "audio/w1353320-reading.wav",
    "text": "じょうず",
    "kana": "ジョオズ",
    "speed": 0.9
+  },
+  "w1353320-s1": {
+   "src": "audio/w1353320-s1.wav",
+   "text": "あなたは上手にバスケットボールができますか。",
+   "kana": "アナタワジョオズニバスケットボオルガデキマスカ",
+   "speed": 1
   },
   "w1355120-reading": {
    "src": "audio/w1355120-reading.wav",
@@ -5657,17 +6773,35 @@
    "kana": "タベモノ",
    "speed": 0.9
   },
+  "w1358340-s1": {
+   "src": "audio/w1358340-s1.wav",
+   "text": "食べ物はたっぷりある。",
+   "kana": "タベモノワタップリアル",
+   "speed": 1
+  },
   "w1358550-reading": {
    "src": "audio/w1358550-reading.wav",
    "text": "しょくどう",
    "kana": "ショクドオ",
    "speed": 0.9
   },
+  "w1358550-s1": {
+   "src": "audio/w1358550-s1.wav",
+   "text": "食堂はもう開いてますか。",
+   "kana": "ショクドオワモオヒライテマスカ",
+   "speed": 1
+  },
   "w1360010-reading": {
    "src": "audio/w1360010-reading.wav",
    "text": "ねる",
    "kana": "ネル",
    "speed": 0.9
+  },
+  "w1360010-s1": {
+   "src": "audio/w1360010-s1.wav",
+   "text": "赤ちゃんは寝ています。",
+   "kana": "アカチャンワネテイマス",
+   "speed": 1
   },
   "w1361490-reading": {
    "src": "audio/w1361490-reading.wav",
@@ -5759,6 +6893,12 @@
    "kana": "ハレ",
    "speed": 0.9
   },
+  "w1376460-s1": {
+   "src": "audio/w1376460-s1.wav",
+   "text": "その日は晴れだったので、私たちは泳ぎに行った。",
+   "kana": "ソノヒワハレダッタノデワタシタチワオヨギニイッタ",
+   "speed": 1
+  },
   "w1376470-reading": {
    "src": "audio/w1376470-reading.wav",
    "text": "はれる",
@@ -5788,6 +6928,12 @@
    "text": "せいと",
    "kana": "セイト",
    "speed": 0.9
+  },
+  "w1379380-s1": {
+   "src": "audio/w1379380-s1.wav",
+   "text": "私は生徒ではありません。",
+   "kana": "ワタシワセエトデワアリマセン",
+   "speed": 1
   },
   "w1380440-reading": {
    "src": "audio/w1380440-reading.wav",
@@ -5867,6 +7013,12 @@
    "kana": "キッテ",
    "speed": 0.9
   },
+  "w1385070-s1": {
+   "src": "audio/w1385070-s1.wav",
+   "text": "切手はどこで買えますか。",
+   "kana": "キッテワドコデカエマスカ",
+   "speed": 1
+  },
   "w1385170-reading": {
    "src": "audio/w1385170-reading.wav",
    "text": "きっぷ",
@@ -5921,6 +7073,18 @@
    "kana": "センセイ",
    "speed": 0.9
   },
+  "w1387990-s1": {
+   "src": "audio/w1387990-s1.wav",
+   "text": "あれはきっと校長先生だ。",
+   "kana": "アレワキットコオチョオセンセエダ",
+   "speed": 1
+  },
+  "w1390930-reading": {
+   "src": "audio/w1390930-reading.wav",
+   "text": "あらう",
+   "kana": "アラウ",
+   "speed": 0.9
+  },
   "w1390930-s1": {
    "src": "audio/w1390930-s1.wav",
    "text": "手をよく洗いなさいよ。",
@@ -5932,6 +7096,12 @@
    "text": "せんたく",
    "kana": "センタク",
    "speed": 0.9
+  },
+  "w1390980-s1": {
+   "src": "audio/w1390980-s1.wav",
+   "text": "日曜日には洗濯をする。",
+   "kana": "ニチヨオビニワセンタクオスル",
+   "speed": 1
   },
   "w1396130-reading": {
    "src": "audio/w1396130-reading.wav",
@@ -6005,6 +7175,18 @@
    "kana": "ハヤケレバハヤイホドイイ",
    "speed": 1
   },
+  "w1406050-reading": {
+   "src": "audio/w1406050-reading.wav",
+   "text": "それでは",
+   "kana": "ソレデハ",
+   "speed": 0.9
+  },
+  "w1406050-s1": {
+   "src": "audio/w1406050-s1.wav",
+   "text": "さあそれでは始めよう。",
+   "kana": "サアソレデワハジメヨオ",
+   "speed": 1
+  },
   "w1406820-reading": {
    "src": "audio/w1406820-reading.wav",
    "text": "むら",
@@ -6022,6 +7204,12 @@
    "text": "おおい",
    "kana": "オオイ",
    "speed": 0.9
+  },
+  "w1407460-s1": {
+   "src": "audio/w1407460-s1.wav",
+   "text": "この川にはマスが多い。",
+   "kana": "コノカワニワマスガオオイ",
+   "speed": 1
   },
   "w1407980-reading": {
    "src": "audio/w1407980-reading.wav",
@@ -6065,11 +7253,23 @@
    "kana": "カス",
    "speed": 0.9
   },
+  "w1411160-s1": {
+   "src": "audio/w1411160-s1.wav",
+   "text": "夏の間彼らは家を人に貸した。",
+   "kana": "ナツノアイダカレラワイエオヒトニカシタ",
+   "speed": 1
+  },
   "w1412640-reading": {
    "src": "audio/w1412640-reading.wav",
    "text": "だいどころ",
    "kana": "ダイドコロ",
    "speed": 0.9
+  },
+  "w1412640-s1": {
+   "src": "audio/w1412640-s1.wav",
+   "text": "お父さんは台所ですか。",
+   "kana": "オトオサンワダイドコロデスカ",
+   "speed": 1
   },
   "w1412890-reading": {
    "src": "audio/w1412890-reading.wav",
@@ -6101,11 +7301,23 @@
    "kana": "ダイスキ",
    "speed": 0.9
   },
+  "w1413660-s1": {
+   "src": "audio/w1413660-s1.wav",
+   "text": "私はオペラが大好きだ。",
+   "kana": "ワタシワオペラガダイスキダ",
+   "speed": 1
+  },
   "w1413890-reading": {
    "src": "audio/w1413890-reading.wav",
    "text": "たいしかん",
    "kana": "タイシカン",
    "speed": 0.9
+  },
+  "w1413890-s1": {
+   "src": "audio/w1413890-s1.wav",
+   "text": "大使館はどこですか。",
+   "kana": "タイシカンワドコデスカ",
+   "speed": 1
   },
   "w1414150-reading": {
    "src": "audio/w1414150-reading.wav",
@@ -6136,6 +7348,12 @@
    "text": "おおぜい",
    "kana": "オオゼイ",
    "speed": 0.9
+  },
+  "w1414220-s1": {
+   "src": "audio/w1414220-s1.wav",
+   "text": "そこには大勢の人がいた。",
+   "kana": "ソコニワオオゼエノヒトガイタ",
+   "speed": 1
   },
   "w1414340-reading": {
    "src": "audio/w1414340-reading.wav",
@@ -6203,11 +7421,23 @@
    "kana": "ミジカイ",
    "speed": 0.9
   },
+  "w1418620-s1": {
+   "src": "audio/w1418620-s1.wav",
+   "text": "あの犬はしっぽが短い。",
+   "kana": "アノイヌワシッポガミジカイ",
+   "speed": 1
+  },
   "w1419110-reading": {
    "src": "audio/w1419110-reading.wav",
    "text": "たんじょうび",
    "kana": "タンジョオビ",
    "speed": 0.9
+  },
+  "w1419110-s1": {
+   "src": "audio/w1419110-s1.wav",
+   "text": "今日は、妹の誕生日です。",
+   "kana": "キョオワイモオトノタンジョオビデス",
+   "speed": 1
   },
   "w1419370-reading": {
    "src": "audio/w1419370-reading.wav",
@@ -6383,6 +7613,12 @@
    "kana": "ナガイ",
    "speed": 0.9
   },
+  "w1429750-s1": {
+   "src": "audio/w1429750-s1.wav",
+   "text": "日はだんだん長くなる。",
+   "kana": "ヒワダンダンナガクナル",
+   "speed": 1
+  },
   "w1430250-reading": {
    "src": "audio/w1430250-reading.wav",
    "text": "とり",
@@ -6425,6 +7661,12 @@
    "kana": "ヒクイ",
    "speed": 0.9
   },
+  "w1434180-s1": {
+   "src": "audio/w1434180-s1.wav",
+   "text": "この机は私にはちょっと低い。",
+   "kana": "コノツクエワワタシニワチョットヒクイ",
+   "speed": 1
+  },
   "w1436560-reading": {
    "src": "audio/w1436560-reading.wav",
    "text": "しまる",
@@ -6442,6 +7684,12 @@
    "text": "しめる",
    "kana": "シメル",
    "speed": 0.9
+  },
+  "w1436570-s1": {
+   "src": "audio/w1436570-s1.wav",
+   "text": "運転手はベルトを締めるべきだ。",
+   "kana": "ウンテンシュワベルトオシメルベキダ",
+   "speed": 1
   },
   "w1438690-reading": {
    "src": "audio/w1438690-reading.wav",
@@ -6521,6 +7769,12 @@
    "kana": "ドヨオビ",
    "speed": 0.9
   },
+  "w1445590-s1": {
+   "src": "audio/w1445590-s1.wav",
+   "text": "土曜日に学校はありますか。",
+   "kana": "ドヨオビニガッコオワアリマスカ",
+   "speed": 1
+  },
   "w1446070-reading": {
    "src": "audio/w1446070-reading.wav",
    "text": "ふゆ",
@@ -6575,6 +7829,12 @@
    "kana": "オナジ",
    "speed": 0.9
   },
+  "w1451750-s1": {
+   "src": "audio/w1451750-s1.wav",
+   "text": "それらはみな同じ大きさだ。",
+   "kana": "ソレラワミナオナジオオキサダ",
+   "speed": 1
+  },
   "w1456360-reading": {
    "src": "audio/w1456360-reading.wav",
    "text": "よむ",
@@ -6592,6 +7852,12 @@
    "text": "ぶたにく",
    "kana": "ブタニク",
    "speed": 0.9
+  },
+  "w1457440-s1": {
+   "src": "audio/w1457440-s1.wav",
+   "text": "豚肉は私には合わない。",
+   "kana": "ブタニクワワタシニワアワナイ",
+   "speed": 1
   },
   "w1457560-reading": {
    "src": "audio/w1457560-reading.wav",
@@ -6611,11 +7877,23 @@
    "kana": "ムズカシイ",
    "speed": 0.9
   },
+  "w1460850-s1": {
+   "src": "audio/w1460850-s1.wav",
+   "text": "初めのうちは難しいよ。",
+   "kana": "ハジメノウチワムズカシイヨ",
+   "speed": 1
+  },
   "w1461160-reading": {
    "src": "audio/w1461160-reading.wav",
    "text": "ふたつ",
    "kana": "フタツ",
    "speed": 0.9
+  },
+  "w1461160-s1": {
+   "src": "audio/w1461160-s1.wav",
+   "text": "道はここで二つに分かれている。",
+   "kana": "ミチワココデフタツニワカレテイル",
+   "speed": 1
   },
   "w1462900-reading": {
    "src": "audio/w1462900-reading.wav",
@@ -6670,6 +7948,12 @@
    "text": "いれる",
    "kana": "イレル",
    "speed": 0.9
+  },
+  "w1465610-s1": {
+   "src": "audio/w1465610-s1.wav",
+   "text": "私はバケツに水を入れた。",
+   "kana": "ワタシワバケツニミズオイレタ",
+   "speed": 1
   },
   "w1466940-reading": {
    "src": "audio/w1466940-reading.wav",
@@ -6749,6 +8033,12 @@
    "kana": "シロイ",
    "speed": 0.9
   },
+  "w1474910-s1": {
+   "src": "audio/w1474910-s1.wav",
+   "text": "白いシャツはありますか。",
+   "kana": "シロイシャツワアリマスカ",
+   "speed": 1
+  },
   "w1475480-reading": {
    "src": "audio/w1475480-reading.wav",
    "text": "うすい",
@@ -6815,6 +8105,12 @@
    "kana": "ウルサイ",
    "speed": 0.9
   },
+  "w1481920-s1": {
+   "src": "audio/w1481920-s1.wav",
+   "text": "あの子はなんてうるさい子だろう。",
+   "kana": "アノコワナンテウルサイコダロオ",
+   "speed": 1
+  },
   "w1482290-reading": {
    "src": "audio/w1482290-reading.wav",
    "text": "ばんごう",
@@ -6857,17 +8153,35 @@
    "kana": "カブル",
    "speed": 0.9
   },
+  "w1484330-s1": {
+   "src": "audio/w1484330-s1.wav",
+   "text": "その男はトラの面をかぶっていた。",
+   "kana": "ソノオトコワトラノメンオカブッテイタ",
+   "speed": 1
+  },
   "w1485470-reading": {
    "src": "audio/w1485470-reading.wav",
    "text": "ひこうき",
    "kana": "ヒコオキ",
    "speed": 0.9
   },
+  "w1485470-s1": {
+   "src": "audio/w1485470-s1.wav",
+   "text": "あなたは飛行機で旅行したことがありますか。",
+   "kana": "アナタワヒコオキデリョコオシタコトガアリマスカ",
+   "speed": 1
+  },
   "w1486650-reading": {
    "src": "audio/w1486650-reading.wav",
    "text": "おいしい",
    "kana": "オイシイ",
    "speed": 0.9
+  },
+  "w1486650-s1": {
+   "src": "audio/w1486650-s1.wav",
+   "text": "これはとても美味しいですよ。",
+   "kana": "コレワトテモオイシイデスヨ",
+   "speed": 1
   },
   "w1486720-reading": {
    "src": "audio/w1486720-reading.wav",
@@ -6911,11 +8225,23 @@
    "kana": "マズイ",
    "speed": 0.9
   },
+  "w1495000-s1": {
+   "src": "audio/w1495000-s1.wav",
+   "text": "このパンはまずいです。",
+   "kana": "コノパンワマズイデス",
+   "speed": 1
+  },
   "w1499320-reading": {
    "src": "audio/w1499320-reading.wav",
    "text": "へや",
    "kana": "ヘヤ",
    "speed": 0.9
+  },
+  "w1499320-s1": {
+   "src": "audio/w1499320-s1.wav",
+   "text": "部屋には誰かいますか。",
+   "kana": "ヘヤニワダレカイマスカ",
+   "speed": 1
   },
   "w1499690-reading": {
    "src": "audio/w1499690-reading.wav",
@@ -6947,11 +8273,23 @@
    "kana": "シカシ",
    "speed": 0.9
   },
+  "w1505990-s1": {
+   "src": "audio/w1505990-s1.wav",
+   "text": "しかし、人間はちがっている。",
+   "kana": "シカシニンゲンワチガッテイル",
+   "speed": 1
+  },
   "w1507090-reading": {
    "src": "audio/w1507090-reading.wav",
    "text": "ひらがな",
    "kana": "ヒラガナ",
    "speed": 0.9
+  },
+  "w1507090-s1": {
+   "src": "audio/w1507090-s1.wav",
+   "text": "平仮名はやさしいです。",
+   "kana": "ヒラガナワヤサシイデス",
+   "speed": 1
   },
   "w1508380-reading": {
    "src": "audio/w1508380-reading.wav",
@@ -6970,6 +8308,12 @@
    "text": "ならべる",
    "kana": "ナラベル",
    "speed": 0.9
+  },
+  "w1508390-s1": {
+   "src": "audio/w1508390-s1.wav",
+   "text": "メイドはテーブルにナイフとフォークを並べた。",
+   "kana": "メイドワテエブルニナイフトフォオクオナラベタ",
+   "speed": 1
   },
   "w1508590-reading": {
    "src": "audio/w1508590-reading.wav",
@@ -7000,6 +8344,12 @@
    "text": "へん",
    "kana": "ヘン",
    "speed": 0.9
+  },
+  "w1512070-s1": {
+   "src": "audio/w1512070-s1.wav",
+   "text": "この辺だと思います。",
+   "kana": "コノヘンダトオモイマス",
+   "speed": 1
   },
   "w1512130-reading": {
    "src": "audio/w1512130-reading.wav",
@@ -7175,6 +8525,12 @@
    "kana": "マイニチ",
    "speed": 0.9
   },
+  "w1524720-s1": {
+   "src": "audio/w1524720-s1.wav",
+   "text": "テレビは毎日見ますよ。",
+   "kana": "テレビワマイニチミマスヨ",
+   "speed": 1
+  },
   "w1524730-reading": {
    "src": "audio/w1524730-reading.wav",
    "text": "まいばん",
@@ -7241,11 +8597,23 @@
    "kana": "ナクス",
    "speed": 0.9
   },
+  "w1529530-s1": {
+   "src": "audio/w1529530-s1.wav",
+   "text": "これは私が無くしたカメラだ。",
+   "kana": "コレワワタシガナクシタカメラダ",
+   "speed": 1
+  },
   "w1531710-reading": {
    "src": "audio/w1531710-reading.wav",
    "text": "なまえ",
    "kana": "ナマエ",
    "speed": 0.9
+  },
+  "w1531710-s1": {
+   "src": "audio/w1531710-s1.wav",
+   "text": "あなたのお名前は？",
+   "kana": "アナタノオナマエワ",
+   "speed": 1
   },
   "w1532350-reading": {
    "src": "audio/w1532350-reading.wav",
@@ -7277,6 +8645,12 @@
    "kana": "オモシロイ",
    "speed": 0.9
   },
+  "w1533580-s1": {
+   "src": "audio/w1533580-s1.wav",
+   "text": "これは私が読んだ中で一番面白い本です。",
+   "kana": "コレワワタシガヨンダナカデイチバンオモシロイホンデス",
+   "speed": 1
+  },
   "w1534890-reading": {
    "src": "audio/w1534890-reading.wav",
    "text": "もくようび",
@@ -7294,6 +8668,12 @@
    "text": "もんだい",
    "kana": "モンダイ",
    "speed": 0.9
+  },
+  "w1536010-s1": {
+   "src": "audio/w1536010-s1.wav",
+   "text": "その問題はほっておけ。",
+   "kana": "ソノモンダイワホッテオケ",
+   "speed": 1
   },
   "w1537370-reading": {
    "src": "audio/w1537370-reading.wav",
@@ -7360,6 +8740,12 @@
    "text": "ゆうびんきょく",
    "kana": "ユウビンキョク",
    "speed": 0.9
+  },
+  "w1542430-s1": {
+   "src": "audio/w1542430-s1.wav",
+   "text": "郵便局はどこですか。",
+   "kana": "ユウビンキョクワドコデスカ",
+   "speed": 1
   },
   "w1542790-reading": {
    "src": "audio/w1542790-reading.wav",
@@ -7439,6 +8825,12 @@
    "kana": "クル",
    "speed": 0.9
   },
+  "w1547720-s1": {
+   "src": "audio/w1547720-s1.wav",
+   "text": "バスはすぐ来るはずです。",
+   "kana": "バスワスグクルハズデス",
+   "speed": 1
+  },
   "w1547900-reading": {
    "src": "audio/w1547900-reading.wav",
    "text": "らいげつ",
@@ -7505,6 +8897,12 @@
    "kana": "リッパ",
    "speed": 0.9
   },
+  "w1551790-s1": {
+   "src": "audio/w1551790-s1.wav",
+   "text": "彼はその仕事をりっぱにやった。",
+   "kana": "カレワソノシゴトオリッパニヤッタ",
+   "speed": 1
+  },
   "w1552750-reading": {
    "src": "audio/w1552750-reading.wav",
    "text": "りゅうがくせい",
@@ -7559,6 +8957,12 @@
    "kana": "ミドリ",
    "speed": 0.9
   },
+  "w1555300-s1": {
+   "src": "audio/w1555300-s1.wav",
+   "text": "あなたは緑と青を見分けることができますか。",
+   "kana": "アナタワミドリトアオオミワケルコトガデキマスカ",
+   "speed": 1
+  },
   "w1555830-reading": {
    "src": "audio/w1555830-reading.wav",
    "text": "となり",
@@ -7589,6 +8993,12 @@
    "kana": "レイゾオコ",
    "speed": 0.9
   },
+  "w1557110-s1": {
+   "src": "audio/w1557110-s1.wav",
+   "text": "冷蔵庫にバターはありますか。",
+   "kana": "レエゾオコニバタアワアリマスカ",
+   "speed": 1
+  },
   "w1557630-reading": {
    "src": "audio/w1557630-reading.wav",
    "text": "れい",
@@ -7606,6 +9016,12 @@
    "text": "れんしゅう",
    "kana": "レンシュウ",
    "speed": 0.9
+  },
+  "w1559160-s1": {
+   "src": "audio/w1559160-s1.wav",
+   "text": "あなたはいつピアノの練習をしますか。",
+   "kana": "アナタワイツピアノノレンシュウオシマスカ",
+   "speed": 1
   },
   "w1560670-reading": {
    "src": "audio/w1560670-reading.wav",
@@ -7709,11 +9125,23 @@
    "kana": "シオ",
    "speed": 0.9
   },
+  "w1576630-s1": {
+   "src": "audio/w1576630-s1.wav",
+   "text": "このスープは塩が少し足りない。",
+   "kana": "コノスウプワシオガスコシタリナイ",
+   "speed": 1
+  },
   "w1576760-reading": {
    "src": "audio/w1576760-reading.wav",
    "text": "きいろ",
    "kana": "キイロ",
    "speed": 0.9
+  },
+  "w1576760-s1": {
+   "src": "audio/w1576760-s1.wav",
+   "text": "この花は黄色だが、ほかの花はみな青い。",
+   "kana": "コノハナワキイロダガホカノハナワミナアオイ",
+   "speed": 1
   },
   "w1577120-reading": {
    "src": "audio/w1577120-reading.wav",
@@ -7733,11 +9161,23 @@
    "kana": "ドコ",
    "speed": 0.9
   },
+  "w1577140-s1": {
+   "src": "audio/w1577140-s1.wav",
+   "text": "あなたはどこでテレビを見ますか。",
+   "kana": "アナタワドコデテレビオミマスカ",
+   "speed": 1
+  },
   "w1577200-reading": {
    "src": "audio/w1577200-reading.wav",
    "text": "かわいい",
    "kana": "カワイイ",
    "speed": 0.9
+  },
+  "w1577200-s1": {
+   "src": "audio/w1577200-s1.wav",
+   "text": "この猫はとても可愛いです。",
+   "kana": "コノネコワトテモカワイイデス",
+   "speed": 1
   },
   "w1577280-reading": {
    "src": "audio/w1577280-reading.wav",
@@ -7865,6 +9305,12 @@
    "kana": "ジョオブ",
    "speed": 0.9
   },
+  "w1580480-s1": {
+   "src": "audio/w1580480-s1.wav",
+   "text": "ロバは丈夫な動物だ。",
+   "kana": "ロバワジョオブナドオブツダ",
+   "speed": 1
+  },
   "w1580600-reading": {
    "src": "audio/w1580600-reading.wav",
    "text": "まっすぐ",
@@ -7918,6 +9364,12 @@
    "text": "この",
    "kana": "コノ",
    "speed": 0.9
+  },
+  "w1582920-s1": {
+   "src": "audio/w1582920-s1.wav",
+   "text": "私はこの本が読みたい。",
+   "kana": "ワタシワコノホンガヨミタイ",
+   "speed": 1
   },
   "w1583095-reading": {
    "src": "audio/w1583095-reading.wav",
@@ -8057,6 +9509,12 @@
    "kana": "アサゴハン",
    "speed": 0.9
   },
+  "w1586330-s1": {
+   "src": "audio/w1586330-s1.wav",
+   "text": "朝ごはんにはなにがよろしいですか。",
+   "kana": "アサゴハンニワナニガヨロシイデスカ",
+   "speed": 1
+  },
   "w1586420-reading": {
    "src": "audio/w1586420-reading.wav",
    "text": "あたたかい",
@@ -8099,11 +9557,23 @@
    "kana": "ウタウ",
    "speed": 0.9
   },
+  "w1588120-s1": {
+   "src": "audio/w1588120-s1.wav",
+   "text": "私はその歌を歌いたい。",
+   "kana": "ワタシワソノウタオウタイタイ",
+   "speed": 1
+  },
   "w1588880-reading": {
    "src": "audio/w1588880-reading.wav",
    "text": "おおきい",
    "kana": "オオキイ",
    "speed": 0.9
+  },
+  "w1588880-s1": {
+   "src": "audio/w1588880-s1.wav",
+   "text": "これらのイヌは大きい。",
+   "kana": "コレラノイヌワオオキイ",
+   "speed": 1
   },
   "w1589500-reading": {
    "src": "audio/w1589500-reading.wav",
@@ -8183,6 +9653,12 @@
    "kana": "コオサテン",
    "speed": 0.9
   },
+  "w1592970-s1": {
+   "src": "audio/w1592970-s1.wav",
+   "text": "その事故はあの交差点で起こった。",
+   "kana": "ソノジコワアノコオサテンデオコッタ",
+   "speed": 1
+  },
   "w1595020-reading": {
    "src": "audio/w1595020-reading.wav",
    "text": "しょうゆ",
@@ -8213,6 +9689,12 @@
    "kana": "タバコ",
    "speed": 0.9
   },
+  "w1597150-s1": {
+   "src": "audio/w1597150-s1.wav",
+   "text": "たばこは体に悪いよ。",
+   "kana": "タバコワカラダニワルイヨ",
+   "speed": 1
+  },
   "w1597350-reading": {
    "src": "audio/w1597350-reading.wav",
    "text": "だんだん",
@@ -8230,6 +9712,12 @@
    "text": "ちゃわん",
    "kana": "チャワン",
    "speed": 0.9
+  },
+  "w1597530-s1": {
+   "src": "audio/w1597530-s1.wav",
+   "text": "その茶碗にはひびがある。",
+   "kana": "ソノチャワンニワヒビガアル",
+   "speed": 1
   },
   "w1597890-reading": {
    "src": "audio/w1597890-reading.wav",
@@ -8284,6 +9772,12 @@
    "text": "はたち",
    "kana": "ハタチ",
    "speed": 0.9
+  },
+  "w1600790-s1": {
+   "src": "audio/w1600790-s1.wav",
+   "text": "彼女は二十歳だと言ったが、それは嘘だった。",
+   "kana": "カノジョワハタチダトイッタガソレワウソダッタ",
+   "speed": 1
   },
   "w1600850-reading": {
    "src": "audio/w1600850-reading.wav",
@@ -8351,6 +9845,12 @@
    "kana": "マルイ",
    "speed": 0.9
   },
+  "w1604230-s1": {
+   "src": "audio/w1604230-s1.wav",
+   "text": "ボールは丸い。",
+   "kana": "ボオルワマルイ",
+   "speed": 1
+  },
   "w1605870-reading": {
    "src": "audio/w1605870-reading.wav",
    "text": "よく",
@@ -8417,11 +9917,23 @@
    "kana": "コレ",
    "speed": 0.9
   },
+  "w1628530-s1": {
+   "src": "audio/w1628530-s1.wav",
+   "text": "これは面白い本だよ。",
+   "kana": "コレワオモシロイホンダヨ",
+   "speed": 1
+  },
   "w1920240-reading": {
    "src": "audio/w1920240-reading.wav",
    "text": "どの",
    "kana": "ドノ",
    "speed": 0.9
+  },
+  "w1920240-s1": {
+   "src": "audio/w1920240-s1.wav",
+   "text": "それはどのゲートですか。",
+   "kana": "ソレワドノゲエトデスカ",
+   "speed": 1
   },
   "w2136180-reading": {
    "src": "audio/w2136180-reading.wav",
@@ -8453,6 +9965,12 @@
    "kana": "オフロ",
    "speed": 0.9
   },
+  "w2220600-s1": {
+   "src": "audio/w2220600-s1.wav",
+   "text": "私はほとんど毎日お風呂に入ります。",
+   "kana": "ワタシワホトンドマイニチオフロニハイリマス",
+   "speed": 1
+  },
   "w2225040-reading": {
    "src": "audio/w2225040-reading.wav",
    "text": "ついたち",
@@ -8470,6 +9988,12 @@
    "text": "おばさん",
    "kana": "オバサン",
    "speed": 0.9
+  },
+  "w2261500-s1": {
+   "src": "audio/w2261500-s1.wav",
+   "text": "おばさんは先生です。",
+   "kana": "オバサンワセンセエデス",
+   "speed": 1
   },
   "w2820690-reading": {
    "src": "audio/w2820690-reading.wav",
@@ -8489,11 +10013,23 @@
    "kana": "ゼロ",
    "speed": 0.9
   },
+  "w2839962-s1": {
+   "src": "audio/w2839962-s1.wav",
+   "text": "私たちは商売をゼロから始めなければならなかった。",
+   "kana": "ワタシタチワショオバイオゼロカラハジメナケレバナラナカッタ",
+   "speed": 1
+  },
   "w2845606-reading": {
    "src": "audio/w2845606-reading.wav",
    "text": "いかが",
    "kana": "イカガ",
    "speed": 0.9
+  },
+  "w2845606-s1": {
+   "src": "audio/w2845606-s1.wav",
+   "text": "コンタクトを入れるというのはいかがでしょう？",
+   "kana": "コンタクトオイレルトイウノワイカガデショオ",
+   "speed": 1
   }
  }
 }
