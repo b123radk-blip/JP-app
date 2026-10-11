@@ -66,29 +66,33 @@ function tent(ctx, spec, stage) {
   if (o === 'house' || o === 'doors') return walkIn(ctx, spec, stage);
   if (o === 'post') return post(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.55 * u, r = tri();
-  const shell = solidProp([[G.extrude(r, 1).scale(0.3 * u, 0.42 * u, 0.6 * u).translate(0, 0, -0.08 * u), 0x3a8ae0], [G.extrude(r, 1).scale(0.2 * u, 0.3 * u, 0.01 * u).translate(0, 0, 0.225 * u), 0x10203a]], 0.4);
-  const flap = new THREE.Group(), flapM = solidProp([[G.extrude(r, 1).scale(0.2 * u, 0.3 * u, 0.012 * u).translate(0, -0.3 * u, 0), 0x5aa8f0]], 0.4);
-  flap.add(flapM); shell.add(flap); flap.position.set(0, 0.3 * u, 0.235 * u);
-  const dog = createModel('shiba', { height: 0.38 * u });
-  shell.position.set(tx, floor, -0.05 * u);
+  // the Kenney canvas tent (open A-frame, entrance toward you); a canvas flap hangs from its ridge over the entrance, and a
+  // back panel closes the rear so the dog is hidden once the flap is down
+  const TH = 0.62 * u, HW = 0.354 * u, canvas = 0xe39a3c, shell = new THREE.Group(), tentM = createModel('tentCanvas', { height: TH });
+  const back = solidProp([[G.extrude(r, 1).scale(HW * 0.96, TH * 0.94, 0.01 * u).translate(0, 0, 0), canvas]], 0.4), flap = new THREE.Group();
+  const flapM = solidProp([[G.extrude(r, 1).scale(HW * 0.95, TH * 0.95, 0.012 * u).translate(0, -TH * 0.95, 0), canvas]], 0.4);
+  flap.add(flapM); flap.position.set(0, TH * 0.95, HW + 0.004 * u); back.position.set(0, 0, -HW + 0.004 * u);
+  shell.add(tentM.group, back, flap);
+  const dog = createModel('shiba', { height: 0.38 * u }), tz = -0.05 * u, zIn = tz, zPeek = tz + 0.18 * u, z0 = tz + 0.62 * u, x0 = tx + 0.9 * u;
+  shell.position.set(tx, floor, tz);
   group.add(shell, dog.group);
   const loop = 6.6;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { come: [0, 1.6, 'linear'], drop: [1.7, 0.4, 'out'], peek: [3.2, 0.5, 'out'], hide: [4.8, 0.4], lift: [5.6, 0.4], go: [5.8, 0.8, 'linear'] });
-      // the flap is rolled up while the dog goes in, drops behind it, opens a little for the peek
-      flap.rotation.x = -1.4 * (1 - T.drop) - 0.6 * T.peek * (1 - T.hide) - 1.4 * T.lift;
-      const inZ = -0.05 * u, path = pre ? 0 : T.come;
-      const walking = !pre && (T.come > 0 && T.come < 1), wiggle = !pre ? bump(v, 2.2, 0.8) : 0;
+      const T = timeline(v, { x: [0, 0.9, 'linear'], turn: [0.9, 0.3], in: [1.2, 0.7, 'linear'], drop: [2.1, 0.4, 'out'], peek: [3.6, 0.7, 'out'], out: [5.0, 0.7, 'linear'], round: [5.7, 0.8] });
+      // the flap hangs over the entrance: rolled up while the dog goes in, down behind it, rolled up for the peek
+      const hang = T.drop * (1 - T.peek);
+      flap.visible = hang > 0.04; flap.scale.set(Math.max(0.04, hang), Math.max(0.04, hang), 1);
+      const wiggle = pre ? 0 : bump(v, 2.7, 0.8);
       shell.rotation.z = 0.06 * Math.sin(v * 25) * wiggle;
-      dog.pose(walking ? 'Walk' : 'Idle', v);
-      if (v < 2.0 || pre) { dog.group.position.set(lerp(tx + 0.9 * u, tx, path), floor, lerp(0.45 * u, inZ + 0.05 * u, path)); dog.group.rotation.y = turnTo(LEFT + 0.3, Math.PI - 0.1, between(v, 1.0, 1.4)); }
-      else { dog.group.position.set(tx, floor, inZ + 0.12 * u + 0.12 * u * T.peek * (1 - T.hide)); dog.group.rotation.y = 0; }
-      dog.group.visible = pre || v < 1.9 || (T.peek > 0.05 && T.hide < 0.95);
-      // it walks back out at the end and round to where it started
-      if (T.go > 0) { dog.group.visible = true; dog.pose('Walk', v); dog.group.position.set(lerp(tx, tx + 0.9 * u, T.go), floor, lerp(inZ + 0.3 * u, 0.45 * u, T.go)); dog.group.rotation.y = RIGHT - 0.3; }
+      let x, z, yaw, clip = 'Walk';
+      if (pre || v < 1.2) { x = lerp(x0, tx, pre ? 0 : T.x); z = z0; yaw = turnTo(LEFT, Math.PI, pre ? 0 : T.turn); clip = !pre && T.x >= 1 && T.turn <= 0 ? 'Idle' : 'Walk'; }
+      else if (v < 2.9) { x = tx; z = lerp(z0, zIn, T.in); yaw = Math.PI; clip = T.in < 1 ? 'Walk' : 'Idle'; }
+      else if (v < 5.0) { x = tx; yaw = 0; clip = 'Idle'; z = lerp(zIn, zPeek, T.peek); }
+      else { x = tx; z = lerp(zPeek, z0, T.out); yaw = 0; clip = T.out < 1 ? 'Walk' : 'Idle'; if (T.round > 0) { x = lerp(tx, x0, T.round); yaw = turnTo(0, RIGHT, between(v, 5.7, 5.9)); clip = 'Walk'; } }
+      dog.pose(clip, v); dog.group.position.set(x, floor, z); dog.group.rotation.y = yaw;
     },
   };
 }

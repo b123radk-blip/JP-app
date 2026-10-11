@@ -130,7 +130,7 @@ function carBeep(ctx, spec, stage) {
 // ---- 電車 ----
 function tram(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, h = 0.7 * u, k = h / 2.22, x0 = B.maxX + 0.05 * u, N = 6, z = -0.1 * u;
-  const car = createModel('tramCar', { height: h }), wheels = ['wheels-front', 'wheels-back'].map(car.node);
+  const car = createModel('tramCar', { height: h });
   const tracks = Array.from({ length: N }, (_, i) => { const m = createModel('track', { width: 1.0 * k }); m.group.rotation.y = RIGHT; m.group.position.set(x0 + (i + 0.5) * k, floor, z); return m; });
   const top = floor + h + 0.004 * u, x1 = x0 + N * k;
   const wire = solidProp([[G.box(x1 - x0, 0.008 * u, 0.008 * u, (x1 - x0) / 2, top - floor, 0), 0x303038], [G.cyl(0.02 * u, 0.02 * u, top - floor + 0.05 * u, 0, (top - floor) / 2, -0.25 * u), 0x8a8a94], [G.cyl(0.02 * u, 0.02 * u, top - floor + 0.05 * u, x1 - x0, (top - floor) / 2, -0.25 * u), 0x8a8a94],
@@ -145,7 +145,7 @@ function tram(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { come: [0, 2.2, 'out'], go: [4.2, 2.0, 'in'] }), x = pre ? start : lerp(start, stop, T.come - T.go);
       car.group.position.set(x, floor + 0.02 * u, z); car.group.rotation.y = LEFT;
-      wheels.forEach((w) => w && (w.rotation.x = (start - x) / (0.25 * k)));
+      // the bogies are one mesh each (frame + wheels): they ride with the car body, never spin on their own
       const moving = !pre && ((T.come > 0 && T.come < 1) || (T.go > 0 && T.go < 1)), rnd = seeded(1 + Math.floor(t * 14));
       for (let i = 0; i < 8; i++) { const on = moving || (!pre && bump(v, 2.6, 1.2) > 0.2) ? (rnd() < 0.6 ? 1 : 0) : 0; sparks.set(i, x + 0.25 * k + (rnd() - 0.5) * 0.12 * u, top + (rnd() - 0.3) * 0.08 * u, z + (rnd() - 0.5) * 0.06 * u, on * (0.6 + rnd())); }
       sparks.commit();
