@@ -151,12 +151,13 @@ function friends(ctx, spec, stage) {
       for (const [p, s] of [[a, 1], [b, -1]]) {
         p.pose(run ? 'Run' : walk ? 'Walk' : 'Idle', run || walk ? v + (s > 0 ? 0 : 0.4) : t + s);
         p.group.position.set(mid + s * (gap + off * 0.8 * u) + T.go * 1.0 * u, floor, 0.1 * u + (s > 0 ? 0 : 0.05 * u) * T.turn);
-        p.group.rotation.y = T.turn > 0 ? turnTo(s > 0 ? LEFT + 0.5 : RIGHT - 0.5, RIGHT - 0.5, T.turn) : s > 0 ? LEFT + 0.5 : RIGHT - 0.5;
+        p.group.rotation.y = T.turn > 0 ? turnTo(s > 0 ? LEFT + 0.12 : RIGHT - 0.12, RIGHT - 0.5, T.turn) : s > 0 ? LEFT + 0.12 : RIGHT - 0.12;
       }
       // high five: both hands up to one point between them, a burst; then hand in hand
-      a.local(-0.25, 0.95, 0.15, P).lerp(b.local(0.25, 0.95, 0.15, W), 0.5);
+      // each uses the arm on the side nearest the viewer (a's left, b's right), so no arm crosses its own body
+      a.local(0.12, 0.95, 0.14, P).lerp(b.local(-0.12, 0.95, 0.14, W), 0.5);
       const hi = T.five * (1 - T.down);
-      a.grip('R', P, axisOf(a, -1, 0, 0.6, W).normalize(), 0, hi, { out: 0.6, down: 0.2 }); b.grip('L', P, axisOf(b, 1, 0, 0.6, W).normalize(), 0, hi, { out: 0.6, down: 0.2 });
+      a.grip('L', P, axisOf(a, 0, 0, 1, W).normalize(), 0, hi, { out: 0.5, down: 0.2 }); b.grip('R', P, axisOf(b, 0, 0, 1, W).normalize(), 0, hi, { out: 0.5, down: 0.2 });
       const k = pre ? 0 : bump(v, 1.65, 0.6);
       bang.visible = k > 0.01; bang.scale.setScalar(grow(k)); bang.position.copy(group.worldToLocal(P.clone())); bang.position.z += 0.05 * u; bang.rotation.z = v * 2;
       handInHand(a, 'L', b, 'R', between(v, 2.9, 3.3));

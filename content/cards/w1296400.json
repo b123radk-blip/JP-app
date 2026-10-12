@@ -8,7 +8,7 @@
   "pos": ["v5r-i", "vi"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "box", "backdrop": "sky:day" },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:day", "vignette": "q-exist" },
   "sentences": [
     {
       "segments": [ { "text": "公園", "reading": "こうえん" }, { "text": "は" }, { "text": "駅", "reading": "えき" }, { "text": "の" }, { "text": "近", "reading": "ちか" }, { "text": "くに" }, { "text": "在", "reading": "あ" }, { "text": "ります。" } ],

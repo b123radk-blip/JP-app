@@ -6,6 +6,7 @@ export const MODELS = {
   dog: 'kenney/cube-pets/animal-dog.glb', chick: 'kenney/cube-pets/animal-chick.glb', fish: 'kenney/cube-pets/animal-fish.glb',
   elephant: 'kenney/cube-pets/animal-elephant.glb',
   man: 'kenney/mini-characters/character-male-b.glb', hiker: 'kenney/mini-characters/character-male-e.glb',
+  kidGirl: 'kenney/mini-characters/character-female-b.glb', kidBoy: 'kenney/mini-characters/character-male-f.glb',
   oak: 'kenney/nature-kit/tree_oak.glb', grass: 'kenney/nature-kit/grass_large.glb', sedan: 'kenney/car-kit/sedan.glb',
   tramCar: 'kenney/train-kit/train-electric-city-b.glb', track: 'kenney/train-kit/track.glb',
   tentCanvas: 'kenney/survival-kit/tent-canvas.glb', campfire: 'kenney/survival-kit/campfire-pit.glb',
