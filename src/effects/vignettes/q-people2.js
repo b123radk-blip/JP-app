@@ -19,11 +19,11 @@ const near = (d, u) => 1 - between(d, 0.07 * u, 0.3 * u);
 
 // ---- 友達 ----
 function buddies(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.65 * u, r = 0.045 * u;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, cx = B.maxX + 0.52 * u, r = 0.045 * u;
   const a = person(spec.who, u, TEEN), b = person(spec.other, u, TEEN), toy = ball(u, { r: 0.045, color: 0xe8503a, stripe: 0xffffff });
   const ha = label(u, 'あはは!', '#f08a3a', 0.12), love = many(HEART(u, 0.09), 3, 1);
   group.add(a.group, b.group, toy, ha, love);
-  const loop = 13.0, YI = [RIGHT - 0.4, LEFT + 0.4], P = [a, b];
+  const loop = 13.0, YI = [RIGHT - 0.8, LEFT + 0.8], P = [a, b];
   const yaw = (i, T, pre) => {
     const I = YI[i];
     if (pre) return Math.PI;
@@ -44,7 +44,7 @@ function buddies(ctx, spec, stage) {
       P.forEach((p, i) => {
         const s = i ? 1 : -1, moving = walkIn || walkOut || stepApart || stepTog;
         p.pose(moving ? 'Walk' : 'Idle', moving ? (stepApart ? -v : v) + 0.45 * i : t + i);
-        p.group.position.set(cx + s * (0.15 + 0.28 * spread) * u, floor, zz);
+        p.group.position.set(cx + s * (0.15 + 0.2 * spread) * u, floor, zz);
         p.group.rotation.y = yaw(i, T, pre);
         // laughing: shoulders and head bob
         const lf = Math.max(laugh, (pre ? 0 : between(v, 5.0, 5.4) * (1 - between(v, 10.0, 10.4))) * 0.5);
