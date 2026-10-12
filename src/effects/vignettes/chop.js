@@ -13,13 +13,14 @@ import { between } from './helpers.js';
 const YAW = -0.96;                                    // the handle points (sin 55 deg, 0, cos 55 deg): toward you, to the right
 // The knife: origin at the middle of the blade's cutting edge, edge down, handle toward the viewer (front right).
 // The model lies flat (length along x, handle +x, edge on +z); roll it on to its edge, then turn it about the vertical.
-export function knifeModel(len) {
-  const m = createModel('chopKnife', { width: len }), k = len / 0.6, rot = new THREE.Group(), g = new THREE.Group();
+export function knifeModel(len, steel = false) {
+  const m = createModel('chopKnife', { width: len, ownMaterials: steel }), k = len / 0.6, rot = new THREE.Group(), g = new THREE.Group();
+  if (steel) m.materials.forEach((q) => { q.emissiveIntensity = 0.12; q.color.setHex(0x7d8696); q.metalness = 0.45; q.roughness = 0.35; q.transparent = false; q.opacity = 1; });   // opaque mid-grey steel, not a pale glow
   m.group.position.set(0.125 * k, -0.02 * k, -0.11 * k);              // the blade-edge middle (x -0.125, y 0.02, z 0.11 in the model) to the origin
   rot.add(m.group); rot.rotation.order = 'YXZ'; rot.rotation.set(Math.PI / 2, YAW, 0);
   // detail on the plain model: steel bolster, brass end cap, two rivets, a bright edge bevel and a darker spine, in the model's frame
   const part = (w, h, d, x, y, z, c) => [G.box(w * k, h * k, d * k, x * k, y * k, z * k), c];
-  const trim = solidProp([part(0.34, 0.014, 0.014, -0.125, 0.02, 0.112, 0xf6faff), part(0.34, 0.046, 0.014, -0.125, 0.02, -0.098, 0x7a8696), part(0.022, 0.05, 0.1, 0.05, 0.02, -0.07, 0xc4ccd8), part(0.012, 0.046, 0.07, 0.3, 0.02, -0.07, 0xc8a050),
+  const trim = solidProp([part(0.34, 0.014, 0.014, -0.125, 0.02, 0.112, 0xffffff), part(0.34, 0.046, 0.014, -0.125, 0.02, -0.098, 0x3c4452), part(0.022, 0.05, 0.1, 0.05, 0.02, -0.07, 0xc4ccd8), part(0.012, 0.046, 0.07, 0.3, 0.02, -0.07, 0xc8a050),
     ...[0.13, 0.22].map((x) => [G.cyl(0.013 * k, 0.013 * k, 0.052 * k, x * k, 0.02 * k, -0.07 * k, 0, 0, 0, 10), 0xe8e8e8])], 0.4);
   m.group.add(trim);
   g.add(rot); g.userData.k = k;
@@ -29,7 +30,7 @@ export function knifeModel(len) {
 function chopSplit(ctx, spec, stage) {
   if (spec.food) return chopCarrot(ctx, spec, stage);
   const u = stage.u, B = stage.box, group = new THREE.Group(), xm = B.cx;
-  const knife = knifeModel(1.9 * u), flash = solidProp([[G.box(0.02 * u, B.h * 1.1, 0.01 * u, 0, 0, 0), 0xffffff]], 2);
+  const knife = knifeModel(1.9 * u, true), flash = solidProp([[G.box(0.02 * u, B.h * 1.1, 0.01 * u, 0, 0, 0), 0xffffff]], 2);
   const side = ctx.strokes.map((s) => (s.pts.reduce((a, p) => a + p.x, 0) / s.pts.length < xm ? -1 : 1));
   group.add(knife, flash);
   const loop = 4.2, top = B.maxY + 0.2 * u;
