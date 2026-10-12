@@ -45,6 +45,7 @@ export const hasModel = (name) => ready.has(name);
 // group (the cost check then reports it).
 export function createModel(name, { height = null, width = null, glow = CFG.glow, ownMaterials = false, tint = null } = {}) {
   const group = new THREE.Group(), m = ready.get(name);
+  group.userData.model = name;                         // scripts/inspect.mjs names actors by it
   if (!m) return { group, pose() {}, node: () => null, materials: [], dc: 0 };
   const inner = m.animations.length || hasSkin(m.scene) ? cloneSkinned(m.scene) : m.scene.clone(true), size = m.box.getSize(new THREE.Vector3());
   const k = height ? height / size.y : width ? width / size.x : 1;

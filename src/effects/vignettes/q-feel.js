@@ -1,6 +1,6 @@
 // Model scenes, the body and feelings (Step 3a model pass).
-//   q-exercise 体: head, shoulders, knees and toes: on a patch of grass a person touches each with both hands in turn;
-//              the touched spot glows and its name pops up (あたま、かた、ひざ、つまさき)
+//   q-exercise 体: head, shoulders, knees and legs: on a patch of grass a person touches each with both hands in turn;
+//              the touched spot glows and its name pops up (あたま、かた、ひざ、あし)
 //   q-think    思: a person, hand on her chin, head tilted; a thought bubble rises from her head and shows a house, then a
 //              heart
 //   q-idea     意: a person scratches his head under a "?"; a light bulb switches on over him and he points a finger up: !
@@ -29,7 +29,7 @@ const PARTS = [
   { name: 'あたま', bow: 0, at: (p, x) => p.at(x < 0 ? 'earR' : 'earL', W, 0.02 * x, 0.1, 0), out: 0.9, down: 0.2 },
   { name: 'かた', bow: 0, at: (p, x) => p.local(0.17 * x, 0.64, -0.01, W), out: 1.0, down: 0.9 },
   { name: 'ひざ', bow: 0.45, at: (p, x) => p.local(0.07 * x, 0.26, 0.13, W), out: 0.4, down: 0.6 },
-  { name: 'つまさき', bow: 1.6, at: (p, x) => p.local(0.07 * x, 0.02, 0.17, W), out: 0.3, down: 0.4 },
+  { name: 'あし', bow: 1.6, at: (p, x) => p.local(0.07 * x, 0.02, 0.17, W), out: 0.3, down: 0.4 },
 ];
 function exercise(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.6 * u, z0 = 0.05 * u;

@@ -131,6 +131,7 @@ export function create(ctx, spec, { group, glyph, parts }) {
   if (glyph) glyph.userData.base = glyph.position.clone();          // before the scene is built: it may hang things on the kanji
   const scene = SCENES[spec.type](ctx, spec, stage);
   if (scene.group) holder.add(scene.group);
+  holder.name = 'vignette'; holder.userData.inspect = { u: stage.u, floor: stage.box.minY, right: stage.box.maxX };   // for scripts/inspect.mjs
   group.add(holder);
   return { group: holder, step: (t) => scene.step(t) };
 }
