@@ -26,7 +26,7 @@ export function handWash(ctx, spec, stage) {
   const sink = solidProp([[new THREE.LatheGeometry(bowl, 36), 0xf4f4f8], [G.cyl(0.085 * u, 0.1 * u, yb - floor - 0.1 * u, 0, -(yb - floor) / 2 - 0.045 * u, 0, 0, 0, 0, 20), 0xe8ecf2], [G.cyl(0.2 * u, 0.2 * u, 0.025 * u, 0, -(yb - floor) + 0.0125 * u, 0, 0, 0, 0, 28), 0xe8ecf2],
     [spout, 0xc8ccd4], [G.cyl(0.035 * u, 0.04 * u, 0.06 * u, 0, 0.03 * u, -0.3 * u), 0xc8ccd4], [G.box(0.07 * u, 0.025 * u, 0.025 * u, -0.1 * u, 0.1 * u, -0.3 * u), 0x4a8ae0], [G.box(0.07 * u, 0.025 * u, 0.025 * u, 0.1 * u, 0.1 * u, -0.3 * u), 0xe05050]], 0.3);
   sink.material.side = THREE.DoubleSide; sink.position.set(hx, yb, 0);
-  const L = createHand({ u: 0.6 * u, side: 1, sleeve: 0x4a8a6a, arm: 2.2 }), R = createHand({ u: 0.6 * u, side: -1, sleeve: 0x4a8a6a, arm: 2.2 }), K = 0.6 * u;
+  const L = createHand({ u: 0.6 * u, side: 1, sleeve: 0x4a8a6a, arm: 7 }), R = createHand({ u: 0.6 * u, side: -1, sleeve: 0x4a8a6a, arm: 7 }), K = 0.6 * u;
   const midL = new THREE.Group(), midR = new THREE.Group(); midL.position.set(0, 0.19 * K, 0); midR.position.set(0, 0.19 * K, 0);
   L.bone('palm').add(midL); R.bone('palm').add(midR);
   const stream = solidProp([[G.cyl(0.014 * u, 0.014 * u, 1, 0, 0.5, 0, 0, 0, 0, 8), 0x8ad8ff]], 0.9);
@@ -44,11 +44,11 @@ export function handWash(ctx, spec, stage) {
       const flick = pre ? 0 : bump(v, 3.1, 1.1), s = Math.sin(vv * 13) * rub;
       const lift = 0.07 * u * T.shake * (1 - T.leave), spread = 0.1 * u * T.shake;
       // the viewer's own hands: forearms come from below the camera (bottom-front), fingers point away into the scene, palms face each other
-      const tilt = 0.3 - 0.35 * rinse, gap = 0.012 * u + 0.05 * u * rinse, back = 0.9 * u * (1 - pres);
+      const tilt = 0.6 + 0.1 * rinse, gap = 0.012 * u + 0.05 * u * rinse, back = 0.9 * u * (1 - pres);
       [[L, midL, 1], [R, midR, -1]].forEach(([h, mid, sg]) => {
-        const a = tilt + 0.35 * flick * Math.sin(vv * 26 + (sg > 0 ? 0 : 1.5));
+        const a = tilt + 0.12 * flick * Math.sin(vv * 26 + (sg > 0 ? 0 : 1.5));
         const f = F.set(sg * 0.1, Math.sin(a), -Math.cos(a)).normalize().clone(), n = N.set(sg, 0, 0).clone();
-        const x = hx - sg * (HALF + gap / 2 + spread) - f.x * back, y = HY + lift - f.y * back, z = sg * 0.05 * u * s - f.z * back;
+        const x = hx - sg * (HALF + gap / 2 + spread), y = HY + lift - 1.3 * back, z = sg * 0.05 * u * s + 0.4 * back;   // they come up from below and drop away again
         h.pose('flat', 'open', 0.25 * rinse); h.update();
         h.group.visible = pres > 0.01;
         place(h, mid, f, n, x, y, z);
