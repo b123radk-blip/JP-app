@@ -5,8 +5,8 @@
 //   q-onsen   温: a person sits up to his chest in a steaming hot spring among rocks, a towel on his head: ふぅ〜;
 //             outcome tepid: a person dips a hand in a tub of water with no steam and pulls a face: ぬるい… (温い)
 //   q-bath    お風呂: a child sits in a bathtub full of bubbles, arms on the rim, a rubber duck bobbing, humming ♪
-//   q-dusk    夕: two children wave goodbye as the orange sun sinks behind the hills, then walk home opposite ways;
-//             crows fly past
+//   q-dusk    夕: two children on a dirt road wave goodbye as the orange sun sinks behind the hills and the windows
+//             of their homes light up, then walk home opposite ways; crows fly past
 import * as THREE from 'three';
 import { acts, timeline, bump } from './timeline.js';
 import { many, PUFF } from '../pieces/kit-things.js';
@@ -155,10 +155,17 @@ function bath(ctx, spec, stage) {
 function dusk(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.75 * u;
   const a = person(spec.who, u, KID + 0.05), b = person(spec.other, u, KID + 0.05), bye = label(u, 'バイバイ!', '#e07a3a', 0.12);
-  const sun = solidProp([[G.sphere(0.2 * u), 0xff7a30]], 1.3), hills = solidProp([[G.box(3.4 * u, 0.12 * u, 0.04 * u, 0, 0.06 * u, 0), 0x3a2c38], [G.sphere(0.5 * u, -0.7 * u, 0.1 * u, 0, 1.3, 0.5, 0.05), 0x3a2c38], [G.sphere(0.45 * u, 0.5 * u, 0.1 * u, 0, 1.5, 0.45, 0.05), 0x45334a], [G.sphere(0.35 * u, 1.3 * u, 0.08 * u, 0, 1.4, 0.5, 0.05), 0x3a2c38]], 0.2);
+  const sun = solidProp([[G.sphere(0.2 * u), 0xff7a30]], 1.3);
+  const hx = [-0.55 * u, 0.95 * u], hz = -1.1 * u;
+  const land = solidProp([[G.box(2.75 * u, 0.04 * u, 3.4 * u, 0.43 * u, -0.02 * u, -1.2 * u), 0x4e6b3a], [G.box(1.9 * u, 0.012 * u, 0.28 * u, 0, 0.003 * u, 0.1 * u), 0xc9a46a],
+    [new THREE.SphereGeometry(0.6 * u, 24, 10, 0, Math.PI * 2, 0, Math.PI / 2).scale(1, 0.8, 0.4).translate(-0.3 * u, 0, -2.3 * u), 0x5a3d5c],
+    [new THREE.SphereGeometry(0.75 * u, 24, 10, 0, Math.PI * 2, 0, Math.PI / 2).scale(1, 0.9, 0.4).translate(0.3 * u, 0, -2.5 * u), 0x4a3350],
+    [new THREE.SphereGeometry(0.6 * u, 24, 10, 0, Math.PI * 2, 0, Math.PI / 2).scale(1, 0.7, 0.4).translate(1.2 * u, 0, -2.3 * u), 0x5a3d5c],
+    ...hx.flatMap(x => [[G.box(0.32 * u, 0.26 * u, 0.28 * u, x, 0.13 * u, hz), 0xe8d2b0], [new THREE.ConeGeometry(0.27 * u, 0.18 * u, 4).rotateY(Math.PI / 4).translate(x, 0.35 * u, hz), 0x8a3a2a], [G.box(0.08 * u, 0.14 * u, 0.01 * u, x + 0.06 * u, 0.07 * u, hz + 0.141 * u), 0x5a3a24]])], 0.2);
+  const windows = solidProp([...hx.map(x => [G.box(0.07 * u, 0.07 * u, 0.01 * u, x - 0.07 * u, 0.15 * u, hz + 0.141 * u), 0xffd060])], 1.5);
   const crows = many([[G.box(0.12 * u, 0.012 * u, 0.03 * u, -0.05 * u, 0, 0, 0.4), 0x101014], [G.box(0.12 * u, 0.012 * u, 0.03 * u, 0.05 * u, 0, 0, -0.4), 0x101014], [G.sphere(0.025 * u), 0x101014]], 3, 0.1);
-  hills.position.set(x0, floor, -2.3 * u);
-  group.add(sun, hills, crows, a.group, b.group, bye);
+  land.position.set(x0, floor, 0); windows.position.set(x0, floor, 0);
+  group.add(sun, land, windows, crows, a.group, b.group, bye);
   const loop = 7.0;
   return {
     group,
@@ -167,8 +174,9 @@ function dusk(ctx, spec, stage) {
       const T = timeline(v, { wave: [0.4, 0.4], unwave: [2.4, 0.3], go: [2.7, 3.0, 'linear'], back: [6.2, 0.6] });
       // the sun sinks behind the hills through the scene
       const s = pre ? 0.2 : between(v, 0, 6.0) * (1 - T.back);
-      sun.position.set(x0 + 0.15 * u, floor + 0.85 * u - 0.85 * u * s, -2.5 * u);
-      const walking = !pre && T.go > 0 && T.go < 1, d = 0.75 * u * T.go * (1 - T.back);
+      windows.visible = !pre && s > 0.5;
+      sun.position.set(x0 + 0.3 * u, floor + 1.0 * u - 0.75 * u * s, -3.0 * u);
+      const walking = !pre && T.go > 0 && T.go < 1, d = 0.6 * u * T.go * (1 - T.back);
       a.pose(walking ? 'Walk' : 'Idle', walking ? v : t); b.pose(walking ? 'Walk' : 'Idle', walking ? v + 0.4 : t + 1);
       a.group.position.set(x0 - 0.18 * u - d, floor, 0.1 * u); b.group.position.set(x0 + 0.18 * u + d, floor, 0.1 * u);
       a.group.rotation.y = walking ? LEFT : RIGHT - 0.7; b.group.rotation.y = walking ? RIGHT : LEFT + 0.7;
