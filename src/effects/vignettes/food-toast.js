@@ -35,20 +35,21 @@ function sliceMesh(s, th, bites) {
 }
 
 export function toaster(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.5 * u, px = tx + 0.8 * u;
-  const TK = 0.6 * u / 0.188, SLOT_TOP = 0.13 * TK, SLOT_Z = 0.025 * TK, SW = 0.3 * u, TH = 0.03 * u, YAW = -0.6;
-  const tk = createModel('toasterKit', { width: 0.6 * u });
-  tk.group.position.set(tx, floor, 0);
+  const u = stage.u * 1.4, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.2 * stage.u + 0.45 * u, px = tx + 0.72 * u, TY = 0.42 * u;   // everything a little bigger than the glyph so it reads from the seat
+  const TK = 0.25 * u / 0.188, SLOT_TOP = TY + 0.13 * TK, SLOT_Z = 0.025 * TK, SW = 0.14 * u, TH = 0.016 * u, YAW = -0.6, TX = tx - 0.06 * u;
+  const tk = createModel('toasterKit', { width: 0.25 * u });
+  tk.group.position.set(TX, floor + TY, 0);
   const slice = [sliceMesh(SW, TH, 0), sliceMesh(SW, TH, 0)], bit = [sliceMesh(SW, TH, 1), sliceMesh(SW, TH, 2)];
   const gal = actor('gal', 0.9 * u), PR = 0.15 * u, plate = new THREE.Group(), pm = createModel('foodPlate', { width: 2 * PR }), egg = createModel('foodEgg', { width: 0.95 * PR });
   const KP = 2 * PR / 0.89, PLATE_Y = 0.05 * KP;
   egg.group.position.set(-0.3 * PR, PLATE_Y, 0.15 * PR); plate.add(pm.group, egg.group);
-  const mat = solidProp([[G.box(2.0 * u, 0.04 * u, 0.7 * u, 0, -0.02 * u, 0), 0xc99560], [G.box(2.0 * u, 0.012 * u, 0.7 * u, 0, -0.046 * u, 0), 0x8a5a30]], 0.3);
-  mat.position.set(tx + 0.55 * u, floor, 0.0);
+  const legs = [-1, 1].flatMap((x) => [-1, 1].map((z) => [G.box(0.035 * u, TY, 0.035 * u, x * 0.3 * u - 0.24 * u, TY / 2, z * 0.14 * u), 0x9a6a3c]));
+  const mat = solidProp([[G.sphere(1, 0, -0.07 * u, 0, 1.45 * u, 0.07 * u, 0.62 * u), 0x5a7e3c], [G.box(0.76 * u, 0.04 * u, 0.4 * u, -0.24 * u, TY - 0.02 * u, 0), 0xc99560], [G.box(0.7 * u, 0.025 * u, 0.34 * u, -0.24 * u, TY - 0.0525 * u, 0), 0x8a5a30], ...legs], 0.3);   // a grassy patch of ground with the little table on it
+  mat.position.set(tx + 0.3 * u, floor, 0.0);
   group.add(mat, tk.group, ...slice, ...bit, gal.group, plate);
-  const loop = 6.4, SLOT = [new THREE.Vector3(tx, floor + SLOT_TOP, SLOT_Z), new THREE.Vector3(tx, floor + SLOT_TOP, -SLOT_Z)], REST = 0.12 * u - SW / 2, RISE = 0.36 * u;
+  const loop = 6.4, SLOT = [new THREE.Vector3(TX, floor + SLOT_TOP, SLOT_Z), new THREE.Vector3(TX, floor + SLOT_TOP, -SLOT_Z)], REST = 0.05 * u - SW / 2, RISE = 0.17 * u;
   const landed = new THREE.Vector3(), mouthW = new THREE.Vector3(), grab = new THREE.Vector3(), handW = new THREE.Vector3(), fist = new THREE.Vector3();
-  const SKIN_HELD = 0.45;
+  const SKIN_HELD = 0.8;
   return {
     group,
     step(t) {
@@ -74,12 +75,12 @@ export function toaster(ctx, spec, stage) {
       else if (v < 4.8) {
         const f = T.fly;
         if (T.reach < 1) {                                                              // in flight, then lying on the plate
-          const [x, y] = arc([top.x, top.y], [landed.x, landed.y], 0.22 * u, f);
+          const [x, y] = arc([top.x, top.y], [landed.x, landed.y], 0.14 * u, f);
           sa.position.set(x, y, lerp(top.z, landed.z, f)); sa.rotation.set(-(Math.PI / 2 + Math.PI * 2) * f, 0, 0); sa.scale.setScalar(lerp(1, SKIN_HELD, f));
         }
         // her right fist comes down to the toast, picks it up, takes it to the mouth, bites twice, and drops away
         const bite = Math.max(bump(v, 3.5, 0.45), bump(v, 4.2, 0.45)), eatK = T.lift * (1 - 0.2 * bite);
-        gal.at('mouth', mouthW, 0.0, -0.13, 0.2); grab.copy(group.localToWorld(W3.copy(landed))).add(W3.set(0, 0.045 * u * ws, 0));
+        gal.at('mouth', mouthW, -0.075, -0.1, 0.15); grab.copy(group.localToWorld(W3.copy(landed))).add(W3.set(0, 0.045 * u * ws, 0));
         handW.copy(grab).lerp(mouthW, eatK);
         const reach = T.reach * (1 - T.away);
         gal.handTo('R', handW, reach, { out: 0.6, down: 0.8 });

@@ -30,7 +30,11 @@ export function foodRow(ctx, spec, stage) {
   const forkG = new THREE.Group(); forkG.add(fork);
   forkG.updateMatrixWorld(true);
   const bb = new THREE.Box3().setFromObject(forkG), tipOff = bb.min.y, topOff = bb.max.y;       // tines end / handle end of the turned fork
-  const hand = createHand({ u: 0.62 * u, side: -1, sleeve: 0x4a8a6a, arm: 2.2 }); hand.pose('grip'); hand.group.rotation.z = Math.PI - 0.4;
+  const hand = createHand({ u: 0.62 * u, side: -1, sleeve: 0x4a8a6a, arm: 2.2 }); hand.pose('grip');
+  { // the viewer's own hand: the forearm comes from the bottom-front right (along the tray's +z, towards you and down), the fist round the upright handle
+    const y = new THREE.Vector3(-0.3, 0, -1).normalize(), x = new THREE.Vector3(0, 1, 0), z = new THREE.Vector3().crossVectors(x, y);
+    hand.group.quaternion.setFromRotationMatrix(new THREE.Matrix4().makeBasis(x, y, z));
+  }
   tray.add(board, forkG, hand.group);
   group.add(tray);
   const appleH = 1.7 * K * 0.19, loop = 5.2, RISE = 0.6 * u, stabY = FLOOR + 0.45 * appleH, hoverY = FLOOR + appleH + 0.4 * u;
