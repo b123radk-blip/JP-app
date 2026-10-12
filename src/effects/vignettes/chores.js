@@ -2,7 +2,7 @@
 //   shop-basket   買い物: a person with a basket walks along a shelf of goods; things hop off the shelf into the basket
 //   luggage-pile  荷物: a person staggers in under a tall pile of bags and cases, the top one teetering
 //   hug-treasure  大切: a treasure chest opens on a glowing gem; a person hugs the chest tight, hearts rising
-//   hand-wash     洗う: two hands rub together under a running tap, suds foaming, then shake dry
+//   hand-wash     洗う: (handwash.js) two hands rub palm to palm under a running tap over a basin, suds, rinse, flick dry
 //   laundry       洗濯: clothes tumble round in a washing machine's window; it stops, a shirt hops out onto a line and flaps
 //   toilet-dash   お手洗い: a person hops from foot to foot by a door marked WC, dashes in, the door shuts; it opens and they
 //                 stroll out, relieved
@@ -20,6 +20,7 @@ import { emblemProp, cardBox, textPlane, veil } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, wisps, arc, handTo, bonePoint } from './helpers.js';
+import { handWash } from './handwash.js';
 
 function shopBasket(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.75 * u;
@@ -91,33 +92,6 @@ function hugTreasure(ctx, spec, stage) {
       p.update();
       for (let i = 0; i < 4; i++) { const f = ((v * 0.5 + i / 4) % 1); hearts.set(i, cx + 0.2 * u + 0.15 * u * Math.sin(f * 7 + i), floor + 0.7 * u + 0.6 * u * f, 0.1 * u, hug > 0.5 ? Math.sin(Math.PI * f) : 0); }
       hearts.commit();
-    },
-  };
-}
-
-function handWash(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.5 * u, ty = floor + 0.85 * u;
-  const tap = solidProp([[G.cyl(0.035 * u, 0.035 * u, 0.3 * u, 0.15 * u, 0.15 * u, -0.05 * u), 0xc8ccd4], [G.cyl(0.03 * u, 0.03 * u, 0.2 * u, 0.05 * u, 0.3 * u, -0.05 * u, 0, 0, Math.PI / 2), 0xc8ccd4], [G.cyl(0.03 * u, 0.035 * u, 0.06 * u, -0.05 * u, 0.27 * u, -0.05 * u), 0xc8ccd4], [G.box(0.08 * u, 0.03 * u, 0.03 * u, 0.15 * u, 0.33 * u, -0.05 * u), 0x4a8ae0], [G.cyl(0.32 * u, 0.25 * u, 0.12 * u, 0, -0.55 * u, -0.05 * u, 0, 0, 0, 24), 0xf4f4f8]], 0.3);
-  tap.position.set(tx, ty - 0.3 * u, 0);
-  const L = createHand({ u: 0.6 * u, side: 1, sleeve: 0x4a8a6a }), R = createHand({ u: 0.6 * u, side: -1, sleeve: 0x4a8a6a });
-  L.pose('flat'); R.pose('flat');
-  const water = many([[G.sphere(0.02 * u, 0, 0, 0, 0.8, 1.8, 0.8), 0x7ad0ff]], 10, 0.9), suds = many([[G.sphere(0.035 * u), 0xffffff]], 10, 0.8);
-  group.add(tap, L.group, R.group, water, suds);
-  const loop = 4.2;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const rub = pre ? 0 : between(v, 0.3, 0.6) * (1 - between(v, 3.2, 3.6)), r = Math.sin(v * 12) * rub;
-      const hx = tx - 0.05 * u, hy = ty - 0.42 * u;
-      L.group.rotation.set(0, 0, -1.3 + 0.2 * r); R.group.rotation.set(0, 0, 1.3 - 0.2 * r);
-      handTo(L, hx - 0.04 * u + 0.03 * u * r, hy + 0.02 * u * r, 0.06 * u, L.bone('palm')); handTo(R, hx + 0.04 * u - 0.03 * u * r, hy - 0.02 * u * r, 0.03 * u, R.bone('palm'));
-      L.group.position.x -= (1 - rub) * 0.3 * u; R.group.position.x += (1 - rub) * 0.3 * u; L.update(); R.update();
-      L.group.position.y += 0.03 * u * Math.sin(v * 25) * bump(v, 3.6, 0.5); R.group.position.y += 0.03 * u * Math.sin(v * 25) * bump(v, 3.6, 0.5);   // shake dry
-      for (let i = 0; i < 10; i++) { const f = ((v * 2 + i / 10) % 1); water.set(i, tx - 0.05 * u, ty - 0.03 * u - 0.6 * u * f, 0.0, pre ? 0 : v < 3.3 ? 1 : 0); }
-      water.commit();
-      for (let i = 0; i < 10; i++) { const a = i * 2.4 + v * 2; suds.set(i, hx + 0.12 * u * Math.cos(a), hy + 0.1 * u * Math.sin(a * 1.3), 0.08 * u, rub * (0.6 + 0.4 * Math.sin(a * 3))); }
-      suds.commit();
     },
   };
 }

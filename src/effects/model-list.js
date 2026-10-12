@@ -13,6 +13,9 @@ export const MODELS = {
   marketCart: 'kenney/mini-market/shopping-cart.glb', marketTill: 'kenney/mini-market/cash-register.glb',
   foodCan: 'kenney/food-kit/can.glb', foodApple: 'kenney/food-kit/apple.glb', sodaCan: 'kenney/food-kit/soda-can.glb',
   chopKnife: 'kenney/food-kit/cooking-knife-chopping.glb', cuttingBoard: 'kenney/food-kit/cutting-board.glb', carrot: 'kenney/food-kit/carrot.glb',
+  // Kenney food kit and furniture kit (CC0): plate, fork, rice ball, fish, fried egg (food-row, toaster) and the toaster
+  foodPlate: 'kenney/food-kit/plate.glb', foodFork: 'kenney/food-kit/utensil-fork.glb', foodRiceBall: 'kenney/food-kit/rice-ball.glb',
+  foodFish: 'kenney/food-kit/fish.glb', foodEgg: 'kenney/food-kit/egg-cooked.glb', toasterKit: 'kenney/furniture-kit/toaster.glb',
   rowboat: 'kenney/pirate-kit/boat-row-small.glb', paddle: 'kenney/pirate-kit/tool-paddle.glb',
   // Quaternius (CC0; packs in assets/models/quaternius/License.txt). Animals
   shiba: 'quaternius/animals/shiba.glb', cow: 'quaternius/animals/cow.glb', horse: 'quaternius/animals/horse.glb',
