@@ -28,30 +28,34 @@ export function spadeBlade(W, L, T, dish) {
   return g;
 }
 
-// the whole spade, tip at the origin, standing up (+y), blade face to +z. 1 draw call.
+// the whole spade, tip at the origin, standing up (+y), blade face to +z: a steel mesh (metal look) + a wood mesh (2 draw calls)
 export function spadeProp(u) {
-  const L = 0.26 * u, steel = 0xb4bfcc, dark = 0x8a96a6, wood = 0xb5803f, top = L + 0.46 * u;
+  const L = 0.26 * u, steel = 0x8d98a6, dark = 0x5a6572, wood = 0xb5803f, top = L + 0.46 * u;
   const bar = (x0, y0, x1, y1, r) => { const len = Math.hypot(x1 - x0, y1 - y0); return G.cyl(r, r, len, (x0 + x1) / 2, (y0 + y1) / 2, -0.004 * u, 0, 0, -Math.atan2(x1 - x0, y1 - y0)); };
-  return solidProp([
-    [spadeBlade(0.2 * u, L, 0.008 * u, 0.03 * u), steel],
-    [G.cyl(0.024 * u, 0.034 * u, 0.07 * u, 0, L + 0.03 * u, -0.004 * u), dark],               // the socket the shaft sits in
-    [G.cyl(0.027 * u, 0.027 * u, 0.012 * u, 0, L + 0.066 * u, -0.004 * u), dark],
+  const metal = solidProp([
+    [spadeBlade(0.2 * u, L, 0.008 * u, 0.03 * u), steel], [spadeBlade(0.2 * u * 1.02, L * 1.0, 0.004 * u, 0.03 * u).translate(0, 0, -0.006 * u), dark],
+    [G.cyl(0.024 * u, 0.034 * u, 0.07 * u, 0, L + 0.03 * u, -0.004 * u), dark], [G.cyl(0.027 * u, 0.027 * u, 0.012 * u, 0, L + 0.066 * u, -0.004 * u), dark],
+  ], 0.18);
+  Object.assign(metal.material, { metalness: 0.55, roughness: 0.38 });
+  const wd = solidProp([
     [G.cyl(0.016 * u, 0.016 * u, top - L - 0.06 * u, 0, (top + L + 0.06 * u) / 2 - 0.03 * u, -0.004 * u), wood],
     [bar(-0.07 * u, top - 0.1 * u, 0.07 * u, top - 0.1 * u, 0.013 * u), wood], [bar(-0.07 * u, top - 0.1 * u, -0.07 * u, top + 0.01 * u, 0.013 * u), wood],
     [bar(0.07 * u, top - 0.1 * u, 0.07 * u, top + 0.01 * u, 0.013 * u), wood], [bar(-0.07 * u, top + 0.01 * u, 0.07 * u, top + 0.01 * u, 0.013 * u), wood],
     [G.sphere(0.014 * u, -0.07 * u, top + 0.01 * u, -0.004 * u), wood], [G.sphere(0.014 * u, 0.07 * u, top + 0.01 * u, -0.004 * u), wood],
     [G.sphere(0.014 * u, -0.07 * u, top - 0.1 * u, -0.004 * u), wood], [G.sphere(0.014 * u, 0.07 * u, top - 0.1 * u, -0.004 * u), wood],
   ], 0.4);
+  return new THREE.Group().add(metal, wd);
 }
 
 // a lump of soil that sits on the blade face (blade space: face +z, centre about y = 0.12 u)
 export function soilHeap(u) {
-  const c = [0x6a4428, 0x77502e, 0x5e3c22];
-  return solidProp([
-    [G.sphere(0.09 * u, 0, 0.13 * u, 0.03 * u, 1.05, 1.15, 0.5), c[0]], [G.sphere(0.055 * u, -0.035 * u, 0.15 * u, 0.045 * u, 1, 1, 0.55), c[1]],
-    [G.sphere(0.05 * u, 0.04 * u, 0.11 * u, 0.05 * u, 1, 1, 0.55), c[2]], [G.sphere(0.04 * u, 0.0, 0.2 * u, 0.045 * u, 1, 1, 0.5), c[1]],
-    [G.sphere(0.025 * u, 0.07 * u, 0.2 * u, 0.04 * u), c[0]], [G.sphere(0.022 * u, -0.07 * u, 0.09 * u, 0.04 * u), c[2]],
-  ], 0.3);
+  const c = [0x7a5230, 0x8a6038, 0x6a4428, 0x94683e, 0x75502e], list = []; let r = 7;
+  const rnd = () => { r = (r * 16807) % 2147483647; return r / 2147483647; };
+  for (let i = 0; i < 34; i++) {
+    const x = (rnd() * 2 - 1) * 0.07, y = 0.07 + rnd() * 0.12, edge = 1 - Math.hypot(x / 0.075, (y - 0.13) / 0.07) * 0.6, rad = (0.014 + rnd() * 0.014) * (0.7 + 0.5 * Math.max(0, edge));
+    list.push([G.sphere(rad * u, x * u, y * u, (0.03 + 0.03 * Math.max(0, edge) + rnd() * 0.012) * u, 1 + rnd() * 0.4, 0.8 + rnd() * 0.4, 0.7 + rnd() * 0.3), c[Math.floor(rnd() * c.length)]]);
+  }
+  return solidProp(list, 0.3);
 }
 
 // a pink worm as ONE live tube: wormMesh(u).pose(base, ext 0..1, v) wriggles it out of `base` (blade space) along +z
@@ -62,17 +66,18 @@ export function wormMesh(u, N = 18, M = 8) {
   const g = new THREE.BufferGeometry();
   g.setAttribute('position', new THREE.BufferAttribute(pos, 3)); g.setAttribute('color', new THREE.BufferAttribute(col, 3)); g.setIndex(idx);
   const m = new THREE.Mesh(g, kitMaterial(0.35)); m.frustumCulled = false;
-  const P = [...Array(N)].map(() => new THREE.Vector3()), T = new THREE.Vector3(), A = new THREE.Vector3(), B = new THREE.Vector3(), R = 0.019 * u, len = 0.24 * u;
+  const P = [...Array(N)].map(() => new THREE.Vector3()), T = new THREE.Vector3(), A = new THREE.Vector3(), B = new THREE.Vector3(), R = 0.0105 * u, len = 0.26 * u;
   m.pose = (base, ext, v) => {
     m.visible = ext > 0.02;
     for (let j = 0; j < N; j++) {
       const s = (j / (N - 1)) * ext;
-      P[j].set(base[0] + 0.03 * u * Math.sin(s * 9 - v * 8) * s, base[1] + 0.07 * u * s * s * Math.cos(v * 3) + 0.02 * u * Math.cos(s * 7 - v * 7) * s, base[2] + len * s);
+      const w = Math.sin(s * 8 - v * 9);
+      P[j].set(base[0] + (0.05 * u * w + 0.1 * u * Math.sin(s * 3.4)) * s, base[1] + (0.12 * u * Math.sin(s * 2.6 + 0.4) + 0.025 * u * Math.cos(s * 7 - v * 8)) * s, base[2] + len * (0.55 * s + 0.2 * Math.sin(s * 3)));
     }
     for (let j = 0; j < N; j++) {
       T.copy(P[Math.min(N - 1, j + 1)]).sub(P[Math.max(0, j - 1)]).normalize();
       A.set(0, 1, 0).cross(T); if (A.lengthSq() < 1e-4) A.set(1, 0, 0); A.normalize(); B.copy(T).cross(A);
-      const f = j / (N - 1), r = R * (j === 0 ? 0.2 : j === N - 1 ? 0.12 : f > 0.85 ? Math.sqrt(1 - ((f - 0.85) / 0.15) ** 2 * 0.9) : 1) * (1 + 0.12 * Math.sin(f * 40));
+      const f = j / (N - 1), r = R * (j === 0 ? 0.2 : j === N - 1 ? 0.12 : f > 0.85 ? Math.sqrt(1 - ((f - 0.85) / 0.15) ** 2 * 0.9) : 1) * (1 + 0.22 * Math.sin(f * 52));
       for (let k = 0; k < M; k++) { const a = (k / M) * Math.PI * 2, o = (j * M + k) * 3; pos[o] = P[j].x + r * (Math.cos(a) * A.x + Math.sin(a) * B.x); pos[o + 1] = P[j].y + r * (Math.cos(a) * A.y + Math.sin(a) * B.y); pos[o + 2] = P[j].z + r * (Math.cos(a) * A.z + Math.sin(a) * B.z); }
     }
     g.attributes.position.needsUpdate = true; g.computeVertexNormals();
@@ -100,7 +105,7 @@ export function spadeDig(ctx, spec, stage) {
       spadeP.visible = !pre;
       spadeP.position.set(mx - 0.04 * u + 0.1 * u * (T.lift - T.back), tipY, 0.04 * u); spadeP.rotation.set(0.12 - 0.35 * T.scoop - 0.4 * T.lift - 0.45 * T.tip + 1.2 * T.back, yaw, 0);
       heap.visible = k > 0.02; heap.scale.setScalar(Math.max(1e-3, k)); heap.position.set(0, 0.13 * u * K * (1 - Math.max(1e-3, k)), 0);
-      worm.pose([0.004 * u * K, 0.13 * u * K, 0.045 * u * K], ext, v);
+      worm.pose([0.0, 0.13 * u * K, 0.04 * u * K], ext, v);
       mound.scale.set(1, 1 - 0.3 * k, 1);
       for (let i = 0; i < 6; i++) { const f = pre ? 0 : between(v, 0.55 + 0.03 * i, 1.35), a = 0.5 + i * 0.5; crumbs.set(i, mx - 0.04 * u + Math.cos(a) * 0.3 * u * f, floor + 0.1 * u + Math.sin(a) * 0.3 * u * f - 0.4 * u * f * f, 0.06 * u, f > 0 && f < 1 ? 1 : 0, i); }
       crumbs.commit();

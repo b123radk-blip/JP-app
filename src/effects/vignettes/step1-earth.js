@@ -12,8 +12,12 @@ import { appUrl } from '../../core/urls.js';
 import { TEXT } from '../../config.js';
 
 let earthTex = null;
-const earthMap = () => {
-  if (!earthTex) { earthTex = new THREE.TextureLoader().load(appUrl('assets/textures/earth.jpg')); earthTex.colorSpace = THREE.SRGBColorSpace; earthTex.anisotropy = 4; }
+const earthMap = () => {                                                       // the photo, brightened so oceans read blue
+  if (!earthTex) {
+    const c = document.createElement('canvas'); c.width = 1024; c.height = 512; const g = c.getContext('2d'); g.fillStyle = '#2a6ad0'; g.fillRect(0, 0, 1024, 512);
+    earthTex = new THREE.CanvasTexture(c); earthTex.colorSpace = THREE.SRGBColorSpace; earthTex.anisotropy = 4;
+    const img = new Image(); img.onload = () => { g.filter = 'brightness(1.9) saturate(1.35) contrast(1.05)'; g.drawImage(img, 0, 0, 1024, 512); earthTex.needsUpdate = true; }; img.src = appUrl('assets/textures/earth.jpg');
+  }
   return earthTex;
 };
 // the point on a unit sphere at (lat, lon) in degrees, in the sphere's own space (lon 0 faces +x)
@@ -44,9 +48,9 @@ function pin(R, u, lat, lon) {
 
 export function globeHello(ctx, spec, stage) {
   const en = spec.outcome === 'english', u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
-  const R = (en ? 0.27 : 0.26) * u, Ra = R + 0.03 * u, tilt = en ? 0.41 : -0.41, gx = B.maxX + 0.48 * u, base = floor + 0.035 * u;
+  const R = (en ? 0.23 : 0.32) * u, Ra = R + 0.03 * u, tilt = en ? 0.3 : -0.41, gx = B.maxX + (en ? 0.36 : 0.52) * u, base = floor + 0.035 * u;
   const south = new THREE.Vector2(0, -Ra).rotateAround(new THREE.Vector2(), tilt), gy = base + 0.09 * u - south.y;
-  const mat = new THREE.MeshStandardMaterial({ map: earthMap(), emissive: 0xffffff, emissiveMap: earthMap(), emissiveIntensity: 0.85, roughness: 0.9, metalness: 0 });
+  const mat = new THREE.MeshBasicMaterial({ map: earthMap() });
   const earth = new THREE.Mesh(new THREE.SphereGeometry(R, 56, 36), mat); earth.frustumCulled = false;
   const spin = new THREE.Group(), tiltG = new THREE.Group();
   spin.add(earth);
@@ -63,13 +67,13 @@ export function globeHello(ctx, spec, stage) {
   const bubbles = words.map((w, i) => bubble(w, 0.2 * u, en ? { fill: i % 2 ? '#fff6d8' : '#e8f2ff', ink: i % 2 ? '#a02020' : '#1a3a80', edge: i % 2 ? '#e0a040' : '#80a8e0' } : undefined));
   group.add(...bubbles);
   const loop = 6.4, starts = en ? [0.4, 3.7] : [0.4, 1.8, 3.2, 4.6], dur = en ? [1.6, 1.9] : [1.4, 1.4, 1.4, 1.4];
-  const spots = en ? [[-0.02, 0.4], [0.02, 0.4]] : [[0.06, 0.4], [0.18, 0.34], [0.04, 0.42], [0.2, 0.36]];
+  const spots = en ? [[-0.02, 0.35], [0.02, 0.35]] : [[0.06, 0.47], [0.2, 0.42], [0.04, 0.49], [0.22, 0.44]];
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { turn: [2.1, 1.4] });
-      spin.rotation.y = en ? faceLon(8) + (faceLon(-88) - faceLon(8)) * T.turn * (1 - between(v, 5.7, 6.4)) : (pre ? 0.3 : 0.3 + v * ((Math.PI * 2) / loop));
+      spin.rotation.y = en ? faceLon(8) + (faceLon(-90) - faceLon(8)) * T.turn * (1 - between(v, 5.7, 6.4)) : (pre ? 0.3 : 0.3 + v * ((Math.PI * 2) / loop));
       bubbles.forEach((b, i) => {
         const at = starts[i], k = pre ? 0 : between(v, at, at + 0.3) * (1 - between(v, at + dur[i] - 0.2, at + dur[i])), [dx, dy] = spots[i];
         b.visible = k > 0.01; b.scale.setScalar(grow(k) * (1 + 0.06 * bump(v, at, 0.4)));
