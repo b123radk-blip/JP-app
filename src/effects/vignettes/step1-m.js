@@ -21,33 +21,9 @@ import { textPlane } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, puffs, liveText } from './helpers.js';
-import { grow, withWeek, seeded } from './step1-kit.js';
-
-// ---- 土 soil ----
-function spadeDig(ctx, spec, stage) {
-  if (spec.outcome === 'week') return withWeek(spadeDig, 5, ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.5 * u;
-  const mound = solidProp([[G.sphere(0.4 * u, 0, 0, 0, 1.2, 0.35, 0.6), 0x7a5230], [G.sphere(0.15 * u, -0.2 * u, 0.08 * u, 0.1 * u, 1, 0.5, 0.6), 0x8a6038]], 0.3);
-  const spadeP = new THREE.Group(), spade = solidProp([[G.box(0.16 * u, 0.2 * u, 0.02 * u, 0, -0.1 * u, 0), 0xb8c0cc], [G.cyl(0.018 * u, 0.018 * u, 0.5 * u, 0, 0.25 * u, 0), 0x8a5a30], [G.box(0.14 * u, 0.03 * u, 0.03 * u, 0, 0.5 * u, 0), 0x8a5a30]], 0.45);
-  spadeP.add(spade);
-  const clods = many([[G.sphere(0.035 * u, 0, 0, 0, 1.2, 0.9, 1), 0x6a4428]], 8, 0.3), worm = many([[G.sphere(0.022 * u), 0xff9aa8]], 6, 0.6);
-  mound.position.set(mx, floor, -0.05 * u);
-  group.add(mound, spadeP, clods, worm);
-  const loop = 5.6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { stab: [0.2, 0.3, 'in'], lever: [0.6, 0.4], lift: [1.0, 0.4], back: [4.6, 0.6] });
-      spadeP.visible = !pre; spadeP.position.set(mx + 0.05 * u, floor + 0.38 * u - 0.2 * u * T.stab + 0.25 * u * T.lift - 0.05 * u * T.back, 0.08 * u); spadeP.rotation.z = -0.25 - 0.6 * T.lever + 0.85 * T.back;
-      for (let i = 0; i < 8; i++) { const f = pre ? 0 : between(v, 1.0 + 0.04 * i, 1.8 + 0.04 * i), a = 0.4 + i * 0.3; clods.set(i, mx + 0.05 * u + Math.cos(a) * 0.35 * u * f, floor + 0.15 * u + Math.sin(a) * 0.4 * u * f - 0.5 * u * f * f, 0.08 * u, f > 0 && f < 1 ? 1 : 0, i); }
-      clods.commit();
-      const w = pre ? 0 : between(v, 1.8, 2.3) * (1 - between(v, 4.2, 4.6));
-      for (let i = 0; i < 6; i++) worm.set(i, mx - 0.1 * u + 0.025 * u * Math.sin(v * 6 + i * 0.8), floor + 0.1 * u + i * 0.035 * u * w, 0.12 * u, w > 0.02 ? 1 - 0.05 * i : 0);
-      worm.commit();
-    },
-  };
-}
+import { grow, seeded } from './step1-kit.js';
+import { spadeDig } from './step1-spade.js';
+import { globeHello } from './step1-earth.js';
 
 // ---- 円 a yen coin ----
 function coinSpin(ctx, spec, stage) {
@@ -156,25 +132,6 @@ function centipede(ctx, spec, stage) {
       segs.commit(); legs.commit();
       head.position.set(x0, floor + 0.09 * u, 0.05 * u); head.rotation.y = Math.PI; head.visible = true;
       count.set(String(Math.round(100 * Math.min(1, f * 1.3)))); count.position.set(B.maxX + 0.75 * u, floor + 0.55 * u, 0.04 * u); count.scale.setScalar(1 + 0.2 * bump(v, 3.4, 0.5));
-    },
-  };
-}
-
-// ---- 語 language ----
-function globeHello(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 0.45 * u, gy = floor + 0.35 * u;
-  const globe = solidProp([[G.sphere(0.24 * u), 0x3a8ae0], ...[[0.1, 0.08, 0.2], [-0.12, -0.05, 0.19], [0.05, -0.14, 0.17], [-0.05, 0.15, 0.16]].map(([x, y, z]) => [G.sphere(0.08 * u, x * u, y * u, z * u, 1.2, 0.8, 0.4), 0x50b050])], 0.5);
-  const stand = solidProp([[G.torus(0.28 * u, 0.012 * u, Math.PI, 0, 0, 0, -Math.PI / 2), 0xc8a050], [G.cyl(0.015 * u, 0.015 * u, 0.1 * u, 0, -0.33 * u, 0), 0xc8a050], [G.cyl(0.1 * u, 0.12 * u, 0.03 * u, 0, -0.38 * u, 0), 0x8a6a30]], 0.4);
-  const words = ['Hello', 'こんにちは', 'Hola', 'Bonjour'].map((w) => textPlane(w, { h: 0.18 * u, color: '#202838', bg: '#ffffff', pad: 0.3 }));
-  globe.position.set(gx, gy, 0); stand.position.set(gx, gy, 0);
-  group.add(stand, globe, ...words);
-  const loop = 6.4;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      globe.rotation.y = pre ? 0 : v * 1.4;
-      words.forEach((w, i) => { const at = 0.4 + 1.4 * i, k = pre ? 0 : between(v, at, at + 0.3) * (1 - between(v, at + 1.2, at + 1.4)), a = -0.6 + i * 0.45; w.visible = k > 0.01; w.scale.setScalar(grow(k)); w.position.set(gx + Math.cos(Math.PI / 2 + a) * -0.4 * u + 0.15 * u, gy + 0.45 * u + 0.05 * u * i % 2, 0.08 * u); });
     },
   };
 }
