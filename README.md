@@ -46,6 +46,7 @@ a memorable 3D animation while you are learning it. Runs as a WebXR web app in t
 
 ## Credits
 - Animals (cat, birds, mouse ...): [Everything Library: Animals](https://davidoreilly.itch.io/everything-library-animals) by David O'Reilly, CC BY 4.0 (`assets/models/everything/License.txt`). Other 3D models: Kenney and Quaternius, CC0.
+- Earth texture (`assets/textures/earth.jpg`): NASA Blue Marble (public domain), resampled to 1024x512.
 - Stroke data: [KanjiVG](https://kanjivg.org) © Ulrich Apel, CC BY-SA 3.0 (derived `data/kanji-*.json` same licence).
 - Dictionaries: [JMdict](https://www.edrdg.org/wiki/index.php/JMdict-EDICT_Dictionary_Project) and
   [KANJIDIC2](https://www.edrdg.org/wiki/index.php/KANJIDIC_Project), property of the Electronic Dictionary Research and
