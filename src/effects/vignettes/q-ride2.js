@@ -31,17 +31,19 @@ export function maskBoxes(list) {
 
 // ---- 着く ----
 function trainArrive(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, h = 1.1 * u, k = h / 2.22, len = 2.7 * k;
-  const cx = B.maxX + 0.3 * u + len / 2, tz = -0.15 * u - 0.68 * k, dx = cx - 0.18 * u, far = 3.4 * u, lo = floor - 0.17 * u;
+  // the tram model's own door (centre of its viewer-side wall, model units: opening 0.34 wide, y 0.45..1.22, wall at x 0.65,
+  // platform top at y 0.343) is where the doors slide open and where she steps out
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, h = 1.45 * u, k = h / 2.22, len = 2.7 * k;
+  const cx = B.maxX + 0.05 * u + len / 2, tz = -0.15 * u - 0.68 * k, far = 3.4 * u, drop = 0.343 * k, lo = floor - drop, zf = tz + 0.65 * k;
+  const sill = 0.107 * k, dh = 0.77 * k, ow = 0.34 * k, dx = cx;
   const train = createModel('tramCar', { height: h }), wheels = ['wheels-front', 'wheels-back'].map(train.node);
-  const p = person(spec.who, u, 0.8), hi = label(u, 'ついた!', '#e0782a', 0.15);
-  const x0 = B.maxX + 0.1 * u, x1 = B.maxX + 3.4 * u;
-  const platform = solidProp([[G.box(x1 - x0, 0.17 * u, 0.75 * u, (x0 + x1) / 2, -0.085 * u, 0.22 * u), 0xc8c4bc], [G.box(x1 - x0, 0.005 * u, 0.05 * u, (x0 + x1) / 2, 0.001 * u, -0.06 * u), 0xffd040],
-    [G.box(x1 - x0, 0.03 * u, 0.6 * u, (x0 + x1) / 2, -0.185 * u, tz), 0x6a5a4a], ...[-0.22, 0.22].map((z) => [G.box(x1 - x0, 0.025 * u, 0.025 * u, (x0 + x1) / 2, -0.16 * u, tz + z * u), 0xa8b0bc])], 0.3);
+  const p = person(spec.who, u, 0.8 * dh / u), hi = label(u, 'ついた!', '#e0782a', 0.15);
+  const x0 = B.maxX + 0.1 * u, x1 = B.maxX + 3.4 * u, pw = 0.7 * u, zc = zf + 0.02 * u + pw / 2;
+  const platform = solidProp([[G.box(x1 - x0, drop, pw, (x0 + x1) / 2, -drop / 2, zc), 0xc8c4bc], [G.box(x1 - x0, 0.005 * u, 0.05 * u, (x0 + x1) / 2, 0.001 * u, zf + 0.1 * u), 0xffd040],
+    [G.box(x1 - x0, 0.03 * u, 1.3 * k, (x0 + x1) / 2, -drop - 0.015 * u, tz), 0x6a5a4a], ...[-0.5, 0.5].map((z) => [G.box(x1 - x0, 0.025 * u, 0.025 * u, (x0 + x1) / 2, -drop - 0.002 * u, tz + z * k), 0xa8b0bc])], 0.3);
   platform.position.set(0, floor, 0);
-  const dh = 0.62 * u, gap = solidProp([[G.box(0.24 * u, dh, 0.01 * u, 0, dh / 2, 0), 0x1a2028]], 0.2), leaves = many([[G.box(0.12 * u, dh, 0.014 * u, 0, dh / 2, 0), 0xd8dce4], [G.box(0.07 * u, 0.22 * u, 0.016 * u, 0, dh * 0.65, 0), 0x9ad0f0]], 2, 0.4);
-  gap.position.set(dx, floor, tz + 0.66 * k);
-  group.add(platform, train.group, gap, leaves, p.group, hi);
+  const leaves = many([[G.box(ow / 2, dh * 0.97, 0.012 * u, 0, dh / 2, 0), 0xd8dce4], [G.box(ow * 0.3, dh * 0.3, 0.014 * u, 0, dh * 0.65, 0), 0x9ad0f0]], 2, 0.4);
+  group.add(platform, train.group, leaves, p.group, hi);
   const loop = 10.0;
   return {
     group,
@@ -51,20 +53,20 @@ function trainArrive(ctx, spec, stage) {
       const x = pre ? cx : cx + far * (1 - T.come) + far * T.go;
       train.group.position.set(x, lo, tz); train.group.rotation.y = LEFT;
       wheels.forEach((w) => w && (w.rotation.x = (x - cx) / (0.25 * k)));
+      // two leaves in the model's door recess slide apart behind its frame; shut again before she leaves
       const o = pre ? 0 : T.open * (1 - T.shut);
-      gap.visible = o > 0.02; gap.scale.x = Math.max(0.01, o);
-      for (let i = 0; i < 2; i++) leaves.set(i, dx + (i ? 1 : -1) * (0.06 * u + 0.12 * u * o), floor, tz + 0.66 * k + 0.01 * u, x === cx || pre ? 1 : 0);
+      for (let i = 0; i < 2; i++) leaves.set(i, x + (i ? 1 : -1) * (ow / 4 + (ow / 2) * o * 0.9), floor + sill, zf + 0.004 * u, 1);
       leaves.commit();
       // she steps out of the door onto the platform, turns to you and waves; then walks off along the platform
       const inside = !pre && v < 3.2;
       p.group.visible = !inside && !(v > 8.2);
       const wk = (T.out > 0 && T.out < 1) || (T.off > 0 && T.off < 1);
       p.pose(wk ? 'Walk' : 'Idle', wk ? v : t);
-      p.group.position.set(lerp(dx, x1 - 0.1 * u, T.off), floor, pre ? 0.2 * u : lerp(tz, 0.2 * u, T.out));
+      p.group.position.set(lerp(dx, x1 - 0.1 * u, T.off), floor + sill * (1 - between(T.out, 0.25, 0.45)), pre ? zc : lerp(zf - 0.02 * u, zc, T.out));
       p.group.rotation.y = T.off > 0 ? RIGHT : lerp(0, -0.2, T.face);
       const wave = pre ? 0 : between(v, 4.3, 4.6) * (1 - between(v, 6.0, 6.3));
       p.wave('R', wave, v);
-      pop(hi, wave, dx + 0.45 * u, floor + 0.85 * u, 0.3 * u);
+      pop(hi, wave, dx + 0.45 * u, floor + 0.7 * u, 0.3 * u);
     },
   };
 }
