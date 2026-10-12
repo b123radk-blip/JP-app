@@ -81,6 +81,8 @@ function footBody(L, { stump = true } = {}) {
 }
 // toes [length, width, height, tip x, centre z (toward the inside)] in foot lengths: big toe first, graded down to the little toe
 const TOES = [[0.105, 0.06, 0.047, 1.0, 0.13], [0.1, 0.04, 0.036, 0.985, 0.033], [0.085, 0.037, 0.033, 0.935, -0.04], [0.075, 0.034, 0.03, 0.88, -0.107], [0.065, 0.031, 0.027, 0.815, -0.17]];
+// where the foot body's front edge crosses a toe's centre line (foot lengths): the toes start there, outside the body, so they never sink into it
+const EDGE = TOES.map(([, , , , zc]) => { let e = 0.5; for (let s = 0.5; s <= 0.93; s += 0.002) { const cap = s > 0.85 ? Math.sqrt(Math.max(0, 1 - ((s - 0.85) / 0.08) ** 2)) : 1; if (FW(s) * cap >= Math.abs(zc) * 1.02) e = s; } return e; });
 // toe i: an ellipsoid with a nail, its hinge at the origin (the toe lies along +x from it, resting on y = 0)
 function toeGeo(i, L) {
   const [a, b, c] = TOES[i], k = 0.7 * a * L;
@@ -134,8 +136,8 @@ export function feetWalk(ctx, spec, stage) {
         M.makeTranslation(x0 + x, lift, zOff[F]).multiply(M2.makeRotationY(yaw[F])).multiply(M2.makeTranslation(px, 0, 0)).multiply(M2.makeRotationZ(pitch)).multiply(M2.makeTranslation(-px, 0, 0));
         M.decompose(bodies[F].position, bodies[F].quaternion, bodies[F].scale);
         for (let i = 0; i < 5; i++) {
-          const [a, , , tip, zc] = TOES[i], w = wig * (0.3 + 0.26 * Math.sin(t * 11 - i * 0.9 + F * 1.5)) + 0.12 * Math.max(0, -pitch);
-          M3.multiplyMatrices(M, M2.makeTranslation((tip - 1.7 * a) * L, 0, m * zc * L).multiply(new THREE.Matrix4().makeRotationZ(w)));
+          const [a, , , , zc] = TOES[i], w = wig * (0.3 + 0.26 * Math.sin(t * 11 - i * 0.9 + F * 1.5)) + 0.12 * Math.max(0, -pitch);
+          M3.multiplyMatrices(M, M2.makeTranslation((EDGE[i] + 0.3 * a - 0.004) * L, 0, m * zc * L).multiply(new THREE.Matrix4().makeRotationZ(w)));
           toes[i].setMatrixAt(F, M3);
         }
       }
