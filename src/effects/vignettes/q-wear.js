@@ -29,23 +29,18 @@ export function dyer(a) {
 // put a prop at a point of the actor's own frame (heights), turned with it
 export function stick(a, prop, space, x, y, z) { prop.position.copy(space.worldToLocal(a.local(x, y, z, W2))); prop.rotation.set(0, a.group.rotation.y, 0); }
 
-// a coat as a shape (dropping, hanging): body, sleeves, collar; origin at the shoulders' middle
-const coatProp = (u, c) => solidProp([[G.box(0.26 * u, 0.3 * u, 0.17 * u, 0, -0.14 * u, 0), c], [G.cyl(0.13 * u, 0.16 * u, 0.16 * u, 0, -0.35 * u, 0), c],
-  [G.cyl(0.04 * u, 0.045 * u, 0.24 * u, -0.16 * u, -0.12 * u, 0, 0, 0, -0.35), c], [G.cyl(0.04 * u, 0.045 * u, 0.24 * u, 0.16 * u, -0.12 * u, 0, 0, 0, 0.35), c],
-  [G.box(0.16 * u, 0.04 * u, 0.18 * u, 0, 0.01 * u, 0), new THREE.Color(c).multiplyScalar(0.7).getHex()]], 0.45);
-
 // ---- 着 / 着る / 上着 ----
 function coatOn(ctx, spec, stage) {
   const o = spec.outcome, u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.45 * u, xs = px + 0.85 * u;
   const C = new THREE.Color(spec.color ?? (o === 'jacket' ? 0x3a8a5a : o === 'wear' ? 0x2a6ad0 : 0xc8402a)).getHex();
-  const p = person(spec.who, u), coat = coatProp(u, C), worn = coatParts(p, C);
+  const p = person(spec.who, u), worn = coatParts(p, C);
   const extra = o === 'jacket' ? solidProp([[G.cyl(0.018 * u, 0.018 * u, 0.9 * u, 0, 0.45 * u, 0), 0x6a4a2a], [G.cyl(0.12 * u, 0.14 * u, 0.04 * u, 0, 0.02 * u, 0), 0x6a4a2a], [G.cyl(0.01 * u, 0.01 * u, 0.12 * u, 0.05 * u, 0.84 * u, 0, 0, 0, -0.9), 0x6a4a2a], [G.cyl(0.01 * u, 0.01 * u, 0.12 * u, -0.05 * u, 0.84 * u, 0, 0, 0, 0.9), 0x6a4a2a]], 0.35)
     : o === 'wear' ? null : solidProp([[G.box(0.55 * u, 0.02 * u, 0.32 * u, 0, 0.01 * u, 0), 0x8a5a30], [G.box(0.49 * u, 0.022 * u, 0.26 * u, 0, 0.012 * u, 0), 0xc8964a]], 0.3);
   const sx = px + 0.42 * u;
   if (extra) { extra.position.set(o === 'jacket' ? sx : px, floor, o === 'jacket' ? -0.1 * u : 0.1 * u); if (o !== 'jacket') extra.rotation.x = 0.45; group.add(extra); }
   const say = o === 'wear' ? null : label(u, o === 'jacket' ? 'さむい…' : 'ついた!', o === 'jacket' ? '#3a7ac0' : '#e0802a', 0.13), warm = o === 'jacket' ? label(u, 'ぽかぽか', '#e0702a', 0.13) : null;
   const puffs = o === 'jacket' ? many(PUFF(u, 0xf4f8ff), 4, 0.6) : null;
-  group.add(p.group, coat, ...worn.parts, ...[say, warm, puffs].filter(Boolean));
+  group.add(p.group, ...worn.parts, ...[say, warm, puffs].filter(Boolean));
   const loop = o === 'arrive' || !o ? 7.6 : o === 'wear' ? 6.6 : 7.2, hook = new THREE.Vector3(sx, floor + 0.8 * u, -0.04 * u);
   return {
     group,
@@ -103,8 +98,7 @@ function coatOn(ctx, spec, stage) {
   };
   // the coat shape (falling, swinging) or, once on, her own jacket in the coat's colour + its skirt and buttons
   function place(dressed, cp, nb) {
-    coat.visible = !!cp;
-    if (cp) { coat.position.copy(cp); coat.rotation.set(0, p.group.rotation.y, 0); }
+    worn.hung(group, cp ? cp.clone().sub(group.worldToLocal(p.local(0, 0.66, 0.0, W2.clone()))) : null);
     
     worn.mount(group, dressed, nb);
   }
