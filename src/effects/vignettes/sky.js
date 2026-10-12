@@ -19,38 +19,12 @@ import { G } from '../pieces/shape-kit.js';
 import { between, arc } from './helpers.js';
 import { noonEat } from './variants.js';
 import { smooth } from '../pieces/util.js';
+import { sunsetLights } from './sky-dusk.js';
 
 const sunBall = (u, r = 0.16) => solidProp([[G.sphere(r * u), 0xffa030]], 1.2);
 const starField = (u, n, rnd) => { const m = many([[G.sphere(0.012 * u), 0xfff6c0]], n, 1.5); m.spots = Array.from({ length: n }, () => [rnd(), rnd(), rnd()]); return m; };
 const twinkle = (m, x0, y0, w, h, on, t) => { m.spots.forEach(([a, b, c], i) => m.set(i, x0 + a * w, y0 + b * h, -0.3 * h, on * (0.6 + 0.6 * Math.abs(Math.sin(t * (1.5 + 2 * c) + i)))));  m.commit(); };
 function seeded(seed) { let a = seed; return () => { a = (a * 16807) % 2147483647; return a / 2147483647; }; }
-
-function sunsetLights(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.75 * u;
-  const hillList = [[G.sphere(1.0 * u, 0, 0, 0, 1.3, 0.38, 0.4), 0x1f4a2a]];
-  const HOUSES = [[-0.35, 0.3], [0.05, 0.36], [0.45, 0.28]];
-  HOUSES.forEach(([x, y]) => { hillList.push([G.box(0.2 * u, 0.16 * u, 0.12 * u, x * u, y * u, 0.25 * u), 0xd8c8a8], [G.cone(0.16 * u, 0.1 * u, x * u, y * u + 0.13 * u, 0.25 * u), 0x8a3a2a]); });
-  const hill = solidProp(hillList, 0.25); hill.position.set(hx, floor - 0.05 * u, -0.25 * u);
-  const wins = many([[G.box(0.07 * u, 0.07 * u, 0.01 * u), 0xffd060]], 3, 1.4), sun = sunBall(u), moon = emblemProp('crescent', 0.35 * u), dusk = veil(6 * u, 4 * u), stars = starField(u, 14, seeded(5));
-  dusk.position.set(B.cx + 0.5 * u, floor + 1.2 * u, -0.6 * u);
-  group.add(dusk, sun, hill, wins, moon, stars);
-  const loop = 5.6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { sink: [0, 1.8, 'in'], dusk: [0.8, 1.2], moon: [2.6, 0.9, 'out'], stars: [3.0, 0.6], morning: [4.8, 0.7] });
-      const night = pre ? 0 : T.dusk - T.morning;
-      sun.position.set(hx + 0.35 * u, floor + (pre ? 0.95 : 0.95 - 1.15 * T.sink + 1.15 * T.morning) * u, -0.45 * u);
-      dusk.material.opacity = 0.62 * night;
-      HOUSES.forEach(([x, y], i) => { const on = pre ? 0 : between(v, 1.9 + i * 0.35, 2.05 + i * 0.35) * (1 - T.morning); wins.set(i, hx + x * u, floor - 0.05 * u + y * u - 0.005 * u, -0.25 * u + 0.312 * u, on > 0 ? 1 : 0); });
-      wins.commit();
-      wins.material.userData.glow.value = 1.4 * night;
-      moon.visible = night > 0.05; moon.position.set(hx + 0.5 * u, floor + (0.35 + 0.65 * T.moon) * u, -0.2 * u); moon.idle(t);
-      twinkle(stars, B.maxX + 0.1 * u, floor + 0.7 * u, 1.3 * u, 0.6 * u, (pre ? 0 : T.stars) * (1 - T.morning), t);
-    },
-  };
-}
 
 function calendarBack(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), days = spec.days ?? 1, cx = B.maxX + 0.45 * u, cy = B.minY + 0.45 * u;

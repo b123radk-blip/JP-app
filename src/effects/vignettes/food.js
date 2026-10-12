@@ -1,9 +1,9 @@
 // Food scenes (mostly word cards).
-//   food-row      食べ物: three plates slide in one after another, each with a food on it (a rice ball, a fish, an apple);
-//                 a fork comes down and stabs one, lifts it away
+//   food-row      食べ物: (food-meals.js) a tilted tray of three plates (apple, rice ball, fish); a hand brings a fork down,
+//                 spears the apple and lifts it
 //   fruit-bowl    果物: a bowl; an apple, a banana and a bunch of grapes drop in one by one and settle
 //   drink-straw   飲み物: a glass of juice; a straw drops in, the level goes down with rising bubbles (slurp); it refills
-//   toaster       朝ごはん: a toaster in the morning light; two slices pop up high and land, an egg fries in a pan beside it
+//   toaster       朝ごはん: (food-toast.js) toast pops straight up from the slots; a woman catches a slice on her egg plate and eats it
 //   teabag        紅茶: a teabag dunks into a cup of hot water three times and the red-brown colour spreads; steam
 //   bowl-spin     茶碗: clay spins on a potter's wheel and rises into a bowl, then gets its blue glaze
 //   bento-open    お弁当: a lunchbox; its lid lifts off to show rice, an egg roll and a sausage; chopsticks pick one
@@ -15,30 +15,9 @@ import { emblemProp, bowl, teacup, disc, chopsticks, apple, stick } from '../pie
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, wisps, arc, mixColor } from './helpers.js';
+import { foodRow } from './food-meals.js';
+import { toaster } from './food-toast.js';
 
-const plateGeo = (u, r = 0.2) => [[G.cyl(r * u, r * 0.7 * u, 0.03 * u, 0, 0.015 * u, 0, 0, 0, 0, 28), 0xf6f4ee], [G.torus(r * 0.8 * u, 0.008 * u).rotateX(Math.PI / 2).translate(0, 0.03 * u, 0), 0x3a6ad0]];
-const riceBall = (u) => [[G.cone(0.1 * u, 0.15 * u, 0, 0.075 * u), 0xfbfbf4], [G.box(0.1 * u, 0.06 * u, 0.02 * u, 0, 0.035 * u, 0.06 * u), 0x1a2a1a]];
-const fish = (u) => [[G.sphere(0.12 * u, 0, 0.05 * u, 0, 1, 0.4, 0.45), 0x8aa0c0], [G.cone(0.06 * u, 0.08 * u, 0.14 * u, 0.05 * u, 0, Math.PI / 2), 0x6a80a0], [G.sphere(0.012 * u, -0.08 * u, 0.06 * u, 0.04 * u), 0x101010]];
-
-function foodRow(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY + 0.1 * u, S = 1.3;
-  const dishes = [riceBall(S * u), fish(S * u), [[G.sphere(0.1 * S * u, 0, 0.1 * S * u), 0xe03030], [G.cyl(0.008 * u, 0.008 * u, 0.06 * u, 0, 0.2 * S * u), 0x5a3a20]]].map((food) => solidProp([...plateGeo(S * u), ...food]));
-  const fork = solidProp([[G.box(0.025 * u, 0.4 * u, 0.02 * u, 0, 0.3 * u, 0), 0xc8ccd4], ...[-1, 0, 1].map((i) => [G.box(0.012 * u, 0.12 * u, 0.012 * u, i * 0.025 * u, 0.04 * u, 0), 0xc8ccd4]), [G.box(0.08 * u, 0.02 * u, 0.015 * u, 0, 0.1 * u, 0), 0xc8ccd4]], 0.4);
-  group.add(...dishes, fork);
-  const x0 = B.maxX + 0.35 * u, gap = 0.55 * u, loop = 4.6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { stab: [1.8, 0.35, 'in'], lift: [2.3, 0.6, 'out'], back: [3.8, 0.6] });
-      dishes.forEach((d, i) => { const f = pre ? between(A.setup, 0.3 + 0.2 * i, 0.55 + 0.2 * i) : 1 - between(v, 3.9 + 0.1 * i, 4.4 + 0.1 * i); d.position.set(x0 + i * gap + (1 - f) * 1.5 * u, floor, 0.03 * u); d.rotation.x = 0.4; d.visible = f > 0.01; });
-      // the fork stabs the fish (the middle plate) and lifts it up out of the scene
-      const fx = x0 + gap, top = floor + 0.08 * S * u, y = pre ? top + 0.9 * u : top + 0.9 * u - 0.85 * u * T.stab + 1.2 * u * T.lift - 1.25 * u * T.back;
-      fork.position.set(fx, y, 0.06 * u); fork.visible = !pre;
-      dishes[1].visible = dishes[1].visible && !(T.lift > 0 && T.back < 1);
-    },
-  };
-}
 
 function fruitBowl(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, S = 1.7, bx = B.maxX + 0.5 * u;
@@ -83,31 +62,6 @@ function drinkStraw(ctx, spec, stage) {
       straw.visible = !pre && v < 3.5; straw.position.set(gx + 0.02 * u, floor + 0.05 * u + (1 - T.straw) * 0.8 * u, 0.04 * u); straw.rotation.z = -0.15;
       for (let i = 0; i < 6; i++) { const f = ((v * 1.5 + i / 6) % 1); bubbles.set(i, gx + 0.04 * u * Math.sin(i * 2), floor + 0.03 * u + level * H * f, 0.04 * u, T.sip > 0 && T.sip < 1 ? 1 : 0); }
       bubbles.commit();
-    },
-  };
-}
-
-function toaster(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, tx = B.maxX + 0.45 * u;
-  const box = solidProp([[G.box(0.42 * u, 0.3 * u, 0.24 * u, 0, 0.15 * u, 0), 0xd8dde6], [G.box(0.08 * u, 0.02 * u, 0.25 * u, -0.1 * u, 0.3 * u, 0), 0x303030], [G.box(0.08 * u, 0.02 * u, 0.25 * u, 0.1 * u, 0.3 * u, 0), 0x303030], [G.box(0.03 * u, 0.08 * u, 0.04 * u, 0.22 * u, 0.2 * u, 0), 0x303030]], 0.3);
-  const slice = () => solidProp([[G.box(0.17 * u, 0.2 * u, 0.04 * u, 0, 0, 0), 0xe0a050], [G.box(0.14 * u, 0.17 * u, 0.042 * u, 0, -0.005 * u, 0), 0xfff0c8]], 0.4);
-  const slices = [slice(), slice()], pan = solidProp([[G.cyl(0.17 * u, 0.15 * u, 0.04 * u, 0, 0.02 * u, 0), 0x30343c], [G.cyl(0.02 * u, 0.02 * u, 0.25 * u, 0.28 * u, 0.04 * u, 0, 0, 0, Math.PI / 2), 0x30343c], [G.sphere(0.11 * u, 0, 0.045 * u, 0, 1, 0.15, 1), 0xffffff], [G.sphere(0.045 * u, 0, 0.06 * u, 0, 1, 0.6, 1), 0xffc020]], 0.4);
-  box.position.set(tx, floor, 0); pan.position.set(tx + 0.55 * u, floor + 0.02 * u, 0.05 * u);
-  const steam = many(PUFF(u, 0xf4f4f8), 4, 0.6);
-  group.add(box, ...slices, pan, steam);
-  const loop = 4.6;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { pop: [0.6, 0.6, 'out'], fall: [1.2, 0.6, 'bounce'], in: [3.8, 0.5] });
-      slices.forEach((s, i) => {
-        const up = pre ? 0 : T.pop * (1 - T.fall), down = T.fall, x = tx + (i ? 0.1 : -0.1) * u + (i ? 1 : -1) * 0.12 * u * down;
-        s.position.set(x, floor + 0.28 * u + 0.65 * u * up + (down > 0 ? 0.65 * u * (1 - down) - 0.18 * u * down : 0) - 0.12 * u * T.in, 0.0); s.rotation.z = (i ? -1 : 1) * 1.2 * down;
-        s.visible = T.in < 1;
-      });
-      wisps(steam, 0, 4, tx + 0.55 * u, floor + 0.1 * u, t, u, { period: 1.6, rise: 0.4 });
-      steam.commit();
     },
   };
 }
