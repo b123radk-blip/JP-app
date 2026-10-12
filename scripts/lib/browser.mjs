@@ -30,3 +30,13 @@ export async function ensureServer(base = BASE) {
   await new Promise((ok, fail) => srv.once('error', fail).listen(Number(new URL(base).port || 80), ok));
   srv.unref(); return srv;
 }
+
+// what went wrong on a page that never got ready: page errors, console errors, requests that failed or returned >= 400
+export function watchPage(page) {
+  const seen = [];
+  page.on('pageerror', (e) => seen.push(`page error: ${e.message}`));
+  page.on('console', (m) => { if (m.type() === 'error') seen.push(`console: ${m.text()}`); });
+  page.on('requestfailed', (r) => seen.push(`failed: ${r.url()} (${r.failure()?.errorText})`));
+  page.on('response', (r) => { if (r.status() >= 400) seen.push(`HTTP ${r.status()}: ${r.url()}`); });
+  return (why) => `${why}\n${[...new Set(seen)].slice(0, 30).join('\n') || '(no errors seen: the page may just be slow)'}`;
+}
