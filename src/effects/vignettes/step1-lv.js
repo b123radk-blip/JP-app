@@ -56,7 +56,9 @@ export function setOff(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.35 * u;
   const p = createPerson({ u: 0.9 * u, shirt: 0xe0603a }), pack = solidProp([[G.box(0.2 * u, 0.26 * u, 0.12 * u, 0, 0, 0), 0x3a7a40], [G.box(0.16 * u, 0.08 * u, 0.13 * u, 0, -0.05 * u, 0.0), 0x2a5a30]], 0.4);
   p.rig.attach('body', pack, 0.55); pack.position.set(0, 0, -0.14 * u);
-  const path = solidProp([[G.box(0.25 * u, 0.01 * u, 1.2 * u, 0, 0, -0.5 * u), 0xd0b080]], 0.3); path.position.set(px + 0.3 * u, floor, 0.1 * u);
+  // the path climbs away from you like a hill track (the walker rises 0.35u over 0.9u as he recedes), so his feet stay on it the whole way
+  const SLOPE = Math.atan2(0.35, 0.9), path = solidProp([[G.box(0.3 * u, 0.02 * u, 1.3 * u, 0, -0.01 * u, -0.5 * u), 0xd0b080], [G.box(0.03 * u, 0.026 * u, 1.3 * u, -0.165 * u, -0.01 * u, -0.5 * u), 0xa88858], [G.box(0.03 * u, 0.026 * u, 1.3 * u, 0.165 * u, -0.01 * u, -0.5 * u), 0xa88858]], 0.3);
+  path.position.set(px + 0.3 * u, floor, 0.1 * u); path.rotation.x = SLOPE;
   group.add(path, p.group);
   const loop = 6.0;
   return {

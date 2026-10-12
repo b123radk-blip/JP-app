@@ -30,7 +30,8 @@ import { grow, seeded } from './step1-kit.js';
 import { sit } from './step1-d.js';
 import { carBody } from './step1-a.js';
 import { birdThing } from './step1-c.js';
-import { noodle, bookworm, setOff, weatherTurns, oldCar, catLap, sandwich } from './step1-lv.js';
+import { noodle, bookworm, setOff, weatherTurns, catLap } from './step1-lv.js';
+import { oldBox, appleBite } from './step1-lx.js';
 
 const tmp = new THREE.Vector3();
 const writeText = (text, u, h, color) => { const m = textPlane(text, { h, color, weight: 700 }); m.geometry.translate(m.geometry.parameters.width / 2, 0, 0); m.width = m.geometry.parameters.width; m.reveal = (w) => { const k = Math.max(0.001, w); m.scale.x = k; m.material.map.repeat.x = k; m.visible = w > 0.01; }; return m; };
@@ -121,28 +122,6 @@ function skyRainbow(ctx, spec, stage) {
     },
   };
 }
-// ---- 古 old ----
-function oldBox(ctx, spec, stage) {
-  if (spec.outcome === 'car') return oldCar(ctx, spec, stage);
-  const u = 1.3 * stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.35 * u;
-  const box = solidProp([[G.box(0.46 * u, 0.3 * u, 0.3 * u, 0, 0.15 * u, 0), 0x7a5a3a], [G.box(0.47 * u, 0.03 * u, 0.31 * u, 0, 0.08 * u, 0), 0x5a3a20], [G.poly([[-0.1 * u, 0.25 * u], [-0.05 * u, 0.18 * u], [-0.08 * u, 0.1 * u], [-0.02 * u, 0.04 * u]], 0.006 * u).translate(0, 0, 0.152 * u), 0x2a1a10], [G.poly([[0.15 * u, 0.28 * u], [0.12 * u, 0.2 * u], [0.16 * u, 0.14 * u]], 0.006 * u).translate(0, 0, 0.152 * u), 0x2a1a10]], 0.3);
-  const lidP = new THREE.Group(), lid = solidProp([[G.box(0.48 * u, 0.04 * u, 0.32 * u, 0, 0, 0.16 * u), 0x6a4a2a]], 0.3), web = solidProp([...[0, 1, 2, 3, 4].map((i) => [G.cyl(0.003 * u, 0.003 * u, 0.25 * u, 0, 0, 0, 0, 0, i * 0.39 - 0.78).translate(0, 0, 0), 0xe0e0e8]), ...[0.06, 0.12, 0.18].map((r) => [G.torus(r * u, 0.003 * u, Math.PI / 2, 0, 0, 0, Math.PI), 0xe0e0e8])], 0.6);
-  lidP.add(lid); lidP.position.set(bx, floor + 0.3 * u, -0.16 * u); web.position.set(bx + 0.23 * u, floor + 0.32 * u, 0.15 * u);
-  const dust = many([[G.sphere(0.05 * u), 0xb8a890]], 8, 0.3), moth = solidProp([[G.sphere(0.02 * u, 0, 0, 0, 1, 1.6, 1), 0x8a8070], [G.sphere(0.04 * u, -0.03 * u, 0, 0, 1, 0.2, 0.7), 0xc8c0a8], [G.sphere(0.04 * u, 0.03 * u, 0, 0, 1, 0.2, 0.7), 0xc8c0a8]], 0.4);
-  box.position.set(bx, floor, 0);
-  group.add(box, lidP, web, dust, moth);
-  const loop = 6.0;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, creak = pre ? 0 : between(v, 0.6, 1.8) * (1 - between(v, 4.6, 5.2));
-      lidP.rotation.x = -0.9 * creak + 0.04 * Math.sin(v * 30) * (creak > 0 && creak < 1 ? 1 : 0);
-      for (let i = 0; i < 8; i++) { const f = pre ? 0 : between(v, 1.0 + 0.05 * i, 2.6 + 0.05 * i), a = (i / 8) * Math.PI; dust.set(i, bx + Math.cos(a) * 0.3 * u * f, floor + 0.35 * u + 0.35 * u * f * Math.sin(a), 0.05 * u, f > 0 && f < 1 ? 1.4 * Math.sin(Math.PI * f) : 0); }
-      dust.commit();
-      const m = pre ? 0 : between(v, 1.6, 4.4); moth.visible = m > 0 && m < 1; moth.position.set(bx + 0.6 * u * m, floor + 0.35 * u + 0.6 * u * m + 0.05 * u * Math.sin(m * 20), 0.05 * u); moth.scale.set(1 + 0.4 * Math.sin(t * 30), 1, 1);
-    },
-  };
-}
 // ---- 飲 drink ----
 function gulpDrink(ctx, spec, stage) {
   if (spec.outcome === 'cat') return catLap(ctx, spec, stage);
@@ -161,30 +140,6 @@ function gulpDrink(ctx, spec, stage) {
       juice.position.copy(glass.position).add(new THREE.Vector3(Math.sin(1.4 * tip) * 0.1 * u, -Math.cos(1.4 * tip) * 0.1 * u, 0)); juice.rotation.z = glass.rotation.z; juice.scale.set(1, Math.max(1e-3, 0.19 * u * level), 1); juice.visible = level > 0.02 && !pre;
       for (let i = 0; i < 2; i++) { const g = ((v * 1.5 + i / 2) % 1); gulps.set(i, px + 0.25 * u, floor + 0.8 * u + 0.1 * u * g, 0.1 * u, tip > 0.8 && v < 2.9 ? 1 + g : 0); }
       gulps.commit();
-    },
-  };
-}
-// ---- 食 eat ----
-const BITES = (u, R) => many([[G.sphere(R * 0.45), 0xfff4d8]], 6, 0.6);
-function appleBite(ctx, spec, stage) {
-  if (spec.outcome === 'sandwich') return sandwich(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, ax = B.maxX + 0.5 * u, ay = floor + 0.3 * u, R = 0.22 * u;
-  const apple = solidProp([[G.sphere(R), 0xe02828], [G.cyl(0.012 * u, 0.012 * u, 0.08 * u, 0, R + 0.03 * u, 0), 0x5a3a1a], [G.sphere(0.05 * u, 0.06 * u, R + 0.04 * u, 0, 1.6, 0.4, 0.8), 0x40a040]], 0.5);
-  const core = solidProp([[G.cyl(0.05 * u, 0.05 * u, 0.3 * u, 0, 0, 0), 0xfff4d8], [G.sphere(0.12 * u, 0, 0.15 * u, 0, 1, 0.4, 1), 0xe02828], [G.sphere(0.12 * u, 0, -0.15 * u, 0, 1, 0.4, 1), 0xe02828], [G.sphere(0.012 * u, 0.02 * u, 0, 0.05 * u), 0x3a2010], [G.cyl(0.012 * u, 0.012 * u, 0.08 * u, 0, 0.2 * u, 0), 0x5a3a1a]], 0.5);
-  const bites = BITES(u, R), crumbs = many([[G.sphere(0.012 * u), 0xfff4d8]], 8, 0.5), chomp = textPlane('もぐもぐ', { h: 0.12 * u, color: '#ffffff', bg: '#e04848', pad: 0.3 });
-  apple.position.set(ax, ay, 0); core.position.set(ax, ay, 0);
-  group.add(apple, bites, core, crumbs, chomp);
-  const loop = 6.0, SPOTS = [[1, 0.3], [-1, 0.2], [0.9, -0.4], [-0.9, -0.3], [0.2, 0.8], [0.1, -0.85]];
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v, n = pre ? 0 : Math.min(6, Math.floor(between(v, 0.4, 3.4) * 6.99)), done = pre ? 0 : between(v, 3.6, 3.8) * (1 - between(v, 5.4, 5.8));
-      apple.visible = done < 0.5; core.visible = done >= 0.5;
-      SPOTS.forEach(([x, y], i) => bites.set(i, ax + x * R * 0.95, ay + y * R * 0.9, 0.12 * u, i < n && done < 0.5 ? 1 : 0)); bites.commit();
-      apple.rotation.y = n * 0.5; apple.scale.setScalar(1 - 0.02 * n);
-      for (let i = 0; i < 8; i++) { const g = pre ? 0 : ((v * 1.3 + i / 8) % 1); crumbs.set(i, ax + (i - 3.5) * 0.04 * u, ay - 0.1 * u - 0.2 * u * g, 0.1 * u, v > 0.4 && v < 3.6 ? 1 - g : 0); }
-      crumbs.commit();
-      const k = !pre && v > 0.4 && v < 3.6 ? 1 : 0; chomp.visible = k > 0; chomp.position.set(ax, ay + 0.4 * u + 0.02 * u * Math.sin(v * 12), 0.06 * u);
     },
   };
 }
