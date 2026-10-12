@@ -181,13 +181,13 @@ function backs(ctx, spec, stage) {
       tall.pose('Idle', t); short.pose('Idle', t + 1.3);
       // back to back in pure profile (tall one to the left, facing left), backs together in front of the chart; then they turn to us and wave
       const f = T.face * (1 - T.unface), tip = T.tip * (1 - T.untip);
-      tall.group.position.set(bx - 0.12 * u, floor, 0.03 * u); tall.group.rotation.y = lerp(LEFT, -0.35, f);
-      short.group.position.set(bx + 0.12 * u, floor + 0.06 * u * tip, 0.03 * u); short.group.rotation.y = lerp(RIGHT, 0.35, f);
+      tall.group.position.set(bx - 0.18 * u, floor, 0.03 * u); tall.group.rotation.y = lerp(LEFT, -0.35, f);
+      short.group.position.set(bx + 0.16 * u, floor + 0.06 * u * tip, 0.03 * u); short.group.rotation.y = lerp(RIGHT, 0.35, f);
       short.turn('FootL', 0.6 * tip); short.turn('FootR', 0.6 * tip);
       short.turn('Head', -0.2 * tip); short.handTo('R', short.local(-0.25, 0.3, -0.05, W), tip * 0.7); short.handTo('L', short.local(0.25, 0.3, -0.05, W), tip * 0.7);
-      tall.at('earR', hT, 0, 0, 0); group.worldToLocal(hT);
-      const b = pre ? 0 : T.bar * (1 - T.barUp), barY = hT.y + 0.05 * u;
-      bar.visible = b > 0.01; bar.position.set(bx, barY + 0.5 * u * (1 - b), 0.03 * u);
+      tall.at('over', hT, 0, -0.16, 0); group.worldToLocal(hT);
+      const b = pre ? 0 : T.bar * (1 - T.barUp), barY = hT.y;
+      bar.visible = b > 0.01; bar.position.set(hT.x + 0.05 * u, barY + 0.5 * u * (1 - b), 0.03 * u);
       bar.rotation.z = 0.05 * Math.sin(v * 7) * tip;
       tall.wave('L', bump(v, 4.5, 1.6) * 0.6, v); short.wave('R', bump(v, 4.6, 1.6) * 0.6, v);
       pop(say1, pre ? 0 : between(v, 1.6, 1.9) * (1 - between(v, 3.8, 4.1)), bx + 0.45 * u, barY + 0.12 * u, 0.15 * u);
