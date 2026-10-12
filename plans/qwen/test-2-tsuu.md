@@ -125,7 +125,33 @@ Then fill in the report below (replace the placeholders), and commit that too wi
 ## Report (Qwen fills this in)
 
 - What I changed:
+  - `src/effects/vignettes/q-move.js`: replaced the whole body of `tunnel()` with the cut-away tunnel exactly as specified: two `THREE.Shape` outlines (`whole`, `roof`) from the `top` point list, one `hill` prop (glow 0.35) with ground, road, the two extruded hill solids, the brown cut face, the grass tube along the top, the stone back wall, and two stone portals via `flatMap` over `[-1, 1]`; a second `lamps` prop (glow 1.4) with three warm spheres; the person at scale 0.5 walking left to right at z -0.13u, always visible (no more `visible` hiding, no more `tun.rotation.y`). Also updated the `//   q-tunnel` header comment line.
+  - `src/effects/vignette-catalog.js`: the `'q-tunnel'` line now costs `pdc(o.who) + 2` (was + 4) and its description matches the header comment.
+  - Nothing else touched; `git diff --stat` lists only these two files.
 - Anything in the plan I could not follow, and why:
+  - Nothing. One note: `npm test` did report `docs/REVIEW.md: out of date` in the content check, which the plan identifies as the known line-ending issue from test 1; I ignored it and did not touch that file, as instructed. The unit tests themselves end with `fail 0`.
+  - I could not render the scene (no renderable checkout here), so no claim is made about how it looks.
 - Output of check 1:
+  ```
+  $ node --check src/effects/vignettes/q-move.js
+  (no output)
+  ```
 - Output of check 2 (last 10 lines):
+  ```
+  ℹ tests 64
+  ℹ suites 0
+  ℹ pass 63
+  ℹ fail 0
+  ℹ cancelled 0
+  ℹ skipped 1
+  ℹ todo 0
+  ℹ duration_ms 690.5813
+  content check FAILED (1):
+   - docs/REVIEW.md: out of date with the cards: run `npm run review:list`
+  ```
 - Output of check 3:
+  ```
+  src/effects/vignette-catalog.js |  2 +-
+  src/effects/vignettes/q-move.js | 29 ++++++++++++++++-------------
+  2 files changed, 17 insertions(+), 14 deletions(-)
+  ```
