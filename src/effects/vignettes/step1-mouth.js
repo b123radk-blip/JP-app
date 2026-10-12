@@ -14,10 +14,10 @@ import { grow } from './step1-kit.js';
 const NT = 6;                                                   // teeth per row
 // the cavity: the back half of a unit ellipsoid (open toward you), coloured by depth: raw red at the lips, nearly black in the throat
 function cavityGeo() {
-  const g = new THREE.SphereGeometry(1, 44, 24, Math.PI, Math.PI), P = g.attributes.position, C = new Float32Array(P.count * 3), c = new THREE.Color(), a = new THREE.Color(0xc42c40), b = new THREE.Color(0x80101f), d = new THREE.Color(0x2e0610);
+  const g = new THREE.SphereGeometry(1, 44, 24, Math.PI, Math.PI), P = g.attributes.position, C = new Float32Array(P.count * 3), c = new THREE.Color(), a = new THREE.Color(0x90152a), b = new THREE.Color(0x3c0810), d = new THREE.Color(0x090104);
   for (let i = 0; i < P.count; i++) {
     const z = -P.getZ(i), r = Math.hypot(P.getX(i), P.getY(i)), deep = Math.min(1, z * 1.1);
-    c.copy(a).lerp(b, Math.min(1, deep * 1.4)).lerp(d, Math.max(0, deep - 0.6) * 2).multiplyScalar(1 - 0.18 * Math.max(0, P.getY(i)) + 0.1 * (1 - r));
+    c.copy(a).lerp(b, Math.min(1, deep * 2.2)).lerp(d, Math.max(0, deep - 0.35) * 1.8).multiplyScalar(1 - 0.18 * Math.max(0, P.getY(i)) + 0.1 * (1 - r));
     C.set([c.r, c.g, c.b], i * 3);
   }
   g.setAttribute('color', new THREE.BufferAttribute(C, 3)); return g;
@@ -30,7 +30,7 @@ export function mouthOpen(ctx, spec, stage) {
   const jawUp = ctx.strokes.map((_, i) => i).filter((i) => i !== bottom);       // the upper jaw: the top stroke and the sides hanging from it
   const yTop = B.maxY, yBot = stage.strokeBox(bottom).cy;
   // the cavity, with a dark throat and a uvula
-  const cav = new THREE.Mesh(cavityGeo(), kitMaterial(0.5, { roughness: 1, metalness: 0 })); cav.frustumCulled = false;
+  const cav = new THREE.Mesh(cavityGeo(), kitMaterial(0.16, { roughness: 1, metalness: 0 })); cav.frustumCulled = false;
   const uvula = solidProp([[G.capsule(0.014 * u, 0.04 * u, 0, -0.03 * u, 0), 0xd8607a], [G.sphere(0.017 * u, 0, -0.07 * u, 0), 0xe27088]], 0.5);
   // lip rim (red) and gum (pink) for each jaw; the lower one is the upper one's mirror image
   const rim = (s) => solidProp([[G.sphere(1, 0, -s * 0.034 * u, 0.004 * u, hw * 1.02, 0.026 * u, 0.034 * u), 0xcc3a52], [G.sphere(1, 0, -s * 0.066 * u, 0, hw * 0.97, 0.03 * u, 0.04 * u), 0xe88a98], [G.sphere(1, 0, -s * 0.05 * u, 0.012 * u, hw * 0.93, 0.012 * u, 0.025 * u), 0xf2a8b2]], 0.45);
@@ -52,12 +52,12 @@ export function mouthOpen(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { open1: [0.2, 0.4, 'back'], shut1: [2.4, 0.3, 'in'], open2: [3.0, 0.35, 'back'], shut2: [4.8, 0.3, 'in'] });
       const o = pre ? 0 : 0.34 * u * (T.open1 - T.shut1) + 0.55 * u * (T.open2 - T.shut2) + 0.015 * u * Math.sin(v * 5) * (T.open1 - T.shut1);
-      const up = 0.3 * o, dn = 0.7 * o;
+      const up = 0.75 * o, dn = 0.25 * o;
       stage.offset(bottom, 0, -dn, 0.012 * u); for (const i of jawUp) stage.offset(i, 0, up, 0.012 * u);
       const yT = yTop + up, yB = yBot - dn, gap = yT - yB, cy = (yT + yB) / 2, k = o > 0.012 * u;
       cav.visible = uvula.visible = lipU.visible = lipL.visible = teeth.visible = tongue.visible = k;
       const ry = Math.max(1e-3, gap / 2 - 0.02 * u), rz = (0.1 + 0.9 * (gap / u - 0.4)) * u * 0.28 + 0.1 * u;
-      cav.position.set(B.cx, cy, -0.012 * u); cav.scale.set(hw * 1.06, ry + 0.012 * u, rz);
+      cav.position.set(B.cx, cy, -0.012 * u); cav.scale.set(hw * 0.88, ry - 0.008 * u, rz);
       const zc = -0.09 * u, ceil = cy + ry * Math.sqrt(Math.max(0, 1 - (zc / rz) ** 2));
       uvula.position.set(B.cx, ceil - 0.01 * u, zc); uvula.visible = k && o > 0.3 * u; uvula.scale.setScalar(0.8 + 0.4 * Math.sin(v * 3) * 0 + 0.2 * (o / u));
       lipU.position.set(B.cx, yT, 0.012 * u); lipL.position.set(B.cx, yB, 0.012 * u);

@@ -98,23 +98,25 @@ export function appleBite(ctx, spec, stage) {
   const body = new THREE.Group(); body.add(apple, stem); body.position.set(ax, ay, 0); core.position.set(ax, ay, 0);
   group.add(body, core, crumbs, chomp);
   // the bites: [azimuth round the apple, height (-1..1), size]; each is taken on the side facing you, then the apple turns
-  const BITES = [[0.5, 0.3, 0.54], [2.2, 0.2, 0.52], [3.9, 0.25, 0.52], [5.3, 0.15, 0.54], [1.35, -0.5, 0.5], [3.1, -0.55, 0.5]];
-  const C = BITES.map(([az, h, k]) => { const r = Math.sqrt(1 - h * h), c = new THREE.Vector3(r * Math.cos(az), h * 0.93, r * Math.sin(az)).multiplyScalar(R * 1.02); return { c, cl: c.length(), a: c.clone().normalize(), r: k * R, az }; });
+  // bites eat into the side facing your right: each overlaps the last, working inward, so a crescent-shaped chunk goes missing
+  const BITES = [[0.1, 0.35, 0.6, 1.12], [0.0, -0.05, 0.62, 1.08], [0.15, -0.4, 0.55, 1.08], [0.0, 0.2, 0.62, 0.88], [0.1, -0.25, 0.6, 0.82], [0.0, 0.0, 0.7, 0.62]];
+  const C = BITES.map(([az, h, k, cr], b) => { const r = Math.sqrt(1 - h * h), a = new THREE.Vector3(r * Math.cos(az), h * 0.93, r * Math.sin(az)).normalize(), c = a.clone().multiplyScalar(R * cr), e1 = new THREE.Vector3().crossVectors(a, new THREE.Vector3(0, 1, 0)).normalize(); return { c, cl: c.length(), a, e1, e2: new THREE.Vector3().crossVectors(a, e1), r: k * R, az, ph: b * 1.9 }; });
   const loop = 6.0, tmp = new THREE.Vector3(), tmp2 = new THREE.Vector3(), dir = new THREE.Vector3(), lastN = { n: -2 };
   const shape = (grow6) => {
     for (let i = 0, n = pos.count; i < n; i++) {
       tmp.set(base[3 * i], base[3 * i + 1], base[3 * i + 2]); let cut = 0;
       for (let b = 0; b < 6; b++) {
         const g = grow6[b]; if (g <= 0) continue;
-        const rb = C[b].r * g; tmp2.copy(tmp).sub(C[b].c);
+        const { a: ab, e1, e2, ph } = C[b]; tmp2.copy(tmp).sub(C[b].c); dir.copy(tmp).addScaledVector(ab, -tmp.dot(ab));
+        const m = 1 + 0.09 * Math.cos(3 * Math.atan2(dir.dot(e2), dir.dot(e1)) + ph), rb0 = C[b].r * g, rb = rb0 * m;   // a scalloped rim: three tooth-mark arcs
         if (tmp2.length() < rb) {
           // inside the bite sphere: lay the vertex on the sphere's inner wall at the same angle round the bite's axis, spreading the
           // angle from the bottom of the scoop (0) to its rim (1) evenly, so the scoop is smooth (no stretched streaks)
           const { a, cl } = C[b], ax = tmp.dot(a); dir.copy(tmp).addScaledVector(a, -ax); const rho = dir.length();
-          const zr = (R * R + cl * cl - rb * rb) / (2 * cl), rr = Math.sqrt(Math.max(1e-8, R * R - zr * zr));
-          const f = Math.min(1, Math.asin(Math.min(1, rho / R)) / Math.asin(Math.min(1, rr / R))), psi = f * Math.acos(Math.min(1, Math.max(-1, (cl - zr) / rb)));
+          const zr = (R * R + cl * cl - rb0 * rb0) / (2 * cl), rr = Math.sqrt(Math.max(1e-8, R * R - zr * zr)) * m;
+          const f = Math.min(1, Math.asin(Math.min(1, rho / R)) / Math.asin(Math.min(1, rr / R))), psi = f * Math.acos(Math.min(1, Math.max(-1, (cl - zr) / rb0)));
           if (rho > 1e-6) dir.divideScalar(rho); else dir.set(1, 0, 0).addScaledVector(a, -a.x).normalize();
-          tmp2.copy(C[b].c).addScaledVector(a, -Math.cos(psi) * rb).addScaledVector(dir, Math.sin(psi) * rb);
+          tmp2.copy(C[b].c).addScaledVector(a, -Math.cos(psi) * rb0).addScaledVector(dir, Math.sin(psi) * rb0);
           if (tmp2.lengthSq() < tmp.lengthSq()) { tmp.copy(tmp2); cut = 1; }
         }
       }
@@ -138,7 +140,7 @@ export function appleBite(ctx, spec, stage) {
       if (lastN.key !== key) { shape(gr); lastN.key = key; }
       // turn the apple so the bite being taken is on the side facing you (toward +z)
       const cur = Math.max(0, n - 1), target = C[cur].az - Math.PI / 2, prev = n > 1 ? C[cur - 1].az - Math.PI / 2 : target, f = between(v, bt(cur) - 0.2, bt(cur));
-      body.rotation.y = pre ? C[0].az - Math.PI / 2 : prev + (target - prev) * f;
+      body.rotation.y = -0.5;
       body.rotation.z = 0.04 * Math.sin(v * 12) * (n > 0 && n < 6 ? 1 : 0);
       for (let i = 0; i < 8; i++) { const g = pre ? 0 : ((v * 1.3 + i / 8) % 1); crumbs.set(i, ax + (i - 3.5) * 0.04 * u, ay - 0.2 * u - 0.2 * u * g, 0.1 * u, v > 0.45 && v < 3.9 ? 1 - g : 0); }
       crumbs.commit();
