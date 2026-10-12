@@ -8,7 +8,7 @@
   "pos": ["v1", "vi"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:noon", "vignette": { "type": "hurdle-jump", "who": "guy2", "size": 0.7, "at": [-0.12, 0] } },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:noon", "vignette": { "type": "hurdle-jump", "who": "guy2", "size": 1.0 } },
   "sentences": [
     {
       "segments": [ { "text": "日本語", "reading": "にほんご" }, { "text": "ができます。" } ],

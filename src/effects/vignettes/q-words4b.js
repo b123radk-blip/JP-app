@@ -32,7 +32,7 @@ function butterfly() {
 
 export function becomeButterfly(ctx, spec, stage) {
   const u = stage.u, B = stage.box, floor = B.minY, group = new THREE.Group();
-  const x0 = B.maxX + 0.1 * u, yb = floor + 1.0 * u, xt = x0 + 0.85 * u, tipX = x0 + 0.1 * u, rc = 0.06 * u, gap = 0.1 * u, N = 8, xp = tipX + 0.4 * u;
+  const x0 = B.maxX + 0.35 * u, yb = floor + 1.0 * u, xt = x0 + 0.85 * u, tipX = x0 + 0.1 * u, rc = 0.06 * u, gap = 0.1 * u, N = 8, xp = tipX + 0.4 * u;
   const rad = (x) => lerp(0.035 * u, 0.065 * u, Math.min(1, Math.max(0, (x - tipX) / (xt - tipX))));
   const leafA = x0 + 0.35 * u, leafB = x0 + 0.75 * u, sm = (a, b, x) => { const k = Math.min(1, Math.max(0, (x - a) / (b - a))); return k * k * (3 - 2 * k); };
   const tree = solidProp([

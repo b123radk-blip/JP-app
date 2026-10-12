@@ -16,16 +16,17 @@ const YAW = 0.55, DX = Math.sin(YAW), DZ = Math.cos(YAW), sm = (x) => x * x * (3
 
 export function hurdleJump(ctx, spec, stage) {
   const u = stage.u, B = stage.box, floor = B.minY, group = new THREE.Group(), h = 0.8 * u;
-  const p = person(spec.who, u, 0.8), xb = B.maxX + 0.6 * u, hb = 0.4 * u, half = 0.5 * u, matTop = 0.14 * u, s0 = -0.95 * u, sLand = 0.65 * u;
+  const p = person(spec.who, u, 0.8), xb = B.maxX + 1.3 * u, hb = 0.4 * u, half = 0.5 * u, matTop = 0.14 * u, s0 = -0.95 * u, sLand = 0.65 * u;
   const stripes = Array.from({ length: 8 }, (_, i) => [G.box(2 * half / 8, 0.035 * u, 0.035 * u, -half + (i + 0.5) * 2 * half / 8, 0, 0), i % 2 ? 0xffffff : 0xe03030]);
   const bar = solidProp([...stripes, ...[-1, 1].map((s) => [G.sphere(0.022 * u, s * (half + 0.005 * u), 0, 0), 0xc8ccd4])], 0.5);
   const posts = solidProp([...[-1, 1].flatMap((s) => [[G.cyl(0.02 * u, 0.02 * u, 0.62 * u, s * (half + 0.05 * u), 0.31 * u, 0), 0xf0f0f0], [G.cyl(0.05 * u, 0.06 * u, 0.025 * u, s * (half + 0.05 * u), 0.0125 * u, 0), 0x40444c], [G.box(0.06 * u, 0.02 * u, 0.05 * u, s * (half + 0.02 * u), hb - 0.03 * u, 0), 0xffd040]]),
     ...Array.from({ length: 5 }, (_, i) => [G.box(0.02 * u, 0.004 * u, 0.04 * u, (half + 0.075 * u) * (i % 2 ? 1 : -1), 0.1 * u + 0.1 * u * i, 0), 0x40444c])], 0.4);
   const mat = solidProp([[G.box(1.5 * u, matTop, 1.1 * u, 0, matTop / 2, 0), 0xe0603a], [G.box(1.52 * u, 0.02 * u, 1.12 * u, 0, matTop - 0.01 * u, 0), 0xf08a4a], [G.box(1.52 * u, 0.02 * u, 1.12 * u, 0, 0.01 * u, 0), 0xa0381e]], 0.4);
-  mat.position.set(xb, floor, 0.6 * u); posts.position.set(xb, floor, 0);
+  mat.position.set(xb, floor, 0.6 * u);
+  const grass = solidProp([[G.box(2.6 * u, 0.05 * u, 2.6 * u, xb, -0.025 * u, 0.1 * u), 0x58b048], [G.box(2.6 * u, 0.052 * u, 0.05 * u, xb, -0.025 * u, -0.5 * u), 0xffffff], [G.box(2.6 * u, 0.052 * u, 0.05 * u, xb, -0.025 * u, 1.2 * u), 0xffffff]], 0.4); grass.position.y = floor; posts.position.set(xb, floor, 0);
   const no = label(u, 'あっ!', '#d83030', 0.15), again = label(u, 'もういちど!', '#e0782a', 0.15), yes = label(u, 'できた!', '#2aa050', 0.2);
   const stars = many([[new THREE.ExtrudeGeometry(sparkleShape(), { depth: 0.06, bevelEnabled: false }).translate(0, 0, -0.03), 0xffe040]], 7, 1);
-  group.add(mat, posts, bar, p.group, no, again, yes, stars);
+  group.add(grass, mat, posts, bar, p.group, no, again, yes, stars);
   const loop = 15.0, pos = (s) => [xb + DX * s, DZ * s];
   const ground = (s) => matTop * sm(Math.min(1, Math.max(0, (s - 0.12 * u) / (0.15 * u))));
   return {
@@ -54,7 +55,7 @@ export function hurdleJump(ctx, spec, stage) {
       const fall = pre ? 0 : between(v, 2.7, 3.3), back = pre ? 1 : v < 5.9 ? 0 : sm(between(v, 5.9, 6.4)), up = v >= 5.9 || pre ? back : 1 - fall;
       const k = fall * (1 - (pre || v < 5.9 ? 0 : 1)), bounce = fall > 0.7 ? 0.03 * u * Math.abs(Math.sin((fall - 0.7) * 20)) : 0;
       if (!pre && v >= 5.9) { bar.position.set(xb, floor + hb, 0); bar.rotation.set(0, 0, 0); bar.scale.setScalar(Math.max(1e-3, back)); }
-      else { bar.scale.setScalar(1); bar.position.set(xb + 0.1 * u * k, floor + lerp(hb, 0.02 * u, k * k) + bounce, -0.55 * u * k); bar.rotation.set(2.6 * k, 0.3 * k, 0.1 * k); }
+      else { bar.scale.setScalar(1); bar.position.set(xb - 0.15 * u * k, floor + lerp(hb, 0.02 * u, k * k) + bounce, -0.4 * u * k); bar.rotation.set(2.6 * k, 0.3 * k, 0.1 * k); }
       bar.visible = !(v >= 5.9 && back < 0.01 && !pre);
       const head3 = floor + 0.98 * h + ground(s) + y;
       pop(no, pre ? 0 : between(v, 2.75, 3.0) * (1 - between(v, 4.8, 5.0)), px + 0.1 * u, head3 + 0.12 * u, pz + 0.1 * u);
