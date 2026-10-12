@@ -4,7 +4,7 @@
 // trials.json (`"id~a": effect`, as for look.mjs): also builds each trial's vignette, so a scene's variants are checked too
 import { readFileSync } from 'node:fs';
 import { PIECES, normalizeRecipe, estimateCost } from '../src/effects/catalog.js';
-import { launch, ensureServer, BASE } from './lib/browser.mjs';
+import { launch, serve } from './lib/browser.mjs';
 
 const ID = '5927', data = JSON.parse(readFileSync(`data/kanji-${ID}.json`, 'utf8'));
 const base = { material: 'chalk', backdrop: 'plain' };
@@ -21,7 +21,7 @@ const recipes = [
   ...Object.keys(PIECES.vignette).map((v) => ({ ...base, vignette: v })), { ...base, vignette: { type: 'hammer-nail', outcome: 'bend' } },
   ...trials.map((e) => ({ ...base, vignette: e.vignette })),
 ];
-const server = await ensureServer(), browser = await launch();
+const { base: BASE, server } = await serve(), browser = await launch();
 const page = await browser.newPage(), errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
 let bad = 0;
