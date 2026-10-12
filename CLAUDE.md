@@ -30,6 +30,7 @@ Read this file and docs/ARCHITECTURE.md first; open code only for the part you a
 | `.venv-tts/bin/python scripts/pick-sentences.py n5` | one verified Tatoeba sentence per new card (`scripts/data/manual-sentences.json`: written ones, `sentence-review.json`: rejects) |
 | `node scripts/draft-cards.mjs --level n5` | writes the new cards (`--dry` to try); kanji from `scripts/data/kanji-designs.json` when designed there, words from `scripts/lib/word-rules*.mjs`; varies drafts until no pair is >= 0.72 (two passes); log in `.cache/work/n5-draft-log.json` |
 | `node scripts/look.mjs id,id [--one] [--times -1,0.5,2] [--recipes try.json]` | quick review sheet while designing (needs the server): cropped frames per card; `--recipes` tries recipes from a JSON file (`"id~a": effect`) |
+| `node scripts/orbit.mjs <id>` | one card from six angles -> `.cache/orbit.jpg` (serves the repo itself; works on Windows after `npx playwright install chromium`). Qwen on brad's PC builds planned scenes: docs/QWEN.md |
 | `node scripts/check-piece-costs.mjs` | builds every emblem, prop, reveal and particle once and compares built cost with the catalog (e2e only covers deck cards) |
 | `node scripts/plan-from-designs.mjs` | regenerates the designed-kanji rows of docs/EFFECTS-PLAN.md from `kanji-designs.json` |
 | `node scripts/set-recipes.mjs fixes.json` | hand fixes after the contact sheet (`{ id: effect }` or `{ id: { merge: true, effect } }`) |

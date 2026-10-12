@@ -110,7 +110,7 @@ const list = existsSync('audio/clips.json') ? json('audio/clips.json') : null;
 if (!list) bad('audio/clips.json', 'missing: run `npm run voice:list`');
 else if (JSON.stringify(list.clips) !== JSON.stringify(buildClipList().clips)) bad('audio/clips.json', 'out of date with the cards: run `npm run voice:list`');
 // so does the native-review list
-if (!existsSync('docs/REVIEW.md') || readFileSync('docs/REVIEW.md', 'utf8') !== buildReviewList()) bad('docs/REVIEW.md', 'out of date with the cards: run `npm run review:list`');
+if (!existsSync('docs/REVIEW.md') || readFileSync('docs/REVIEW.md', 'utf8').replace(/\r\n/g, '\n') !== buildReviewList()) bad('docs/REVIEW.md', 'out of date with the cards: run `npm run review:list`');
 if (Object.keys(clips).length && !manifest.voice?.credit) bad('audio/manifest.json', 'has clips but no voice.credit (VOICEVOX requires "VOICEVOX: <character>")');
 
 if (problems.length) { console.error(`content check FAILED (${problems.length}):\n - ` + problems.join('\n - ')); process.exit(1); }

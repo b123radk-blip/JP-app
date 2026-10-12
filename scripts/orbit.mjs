@@ -1,22 +1,18 @@
 // One card's scene from six sides (front, right, top, back-left, front-right, low front), to catch what the learner's
 // front view hides: props floating or sunk, ropes and hands that miss what they hold, a body beside its seat instead of on it.
-// Usage: npm run serve (other shell), then node scripts/orbit.mjs <card id> [--out .cache/orbit.jpg] [--at x,y,z]
+// Usage: node scripts/orbit.mjs <card id> [--out .cache/orbit.jpg] [--at x,y,z]
 //   [--dist 0.6] [--times 0.5,1.5]
 // --at: the point to look at, in metres from the middle of the card (default: the middle of the scene's people and
 // animals, else 0.6,0.1,0); --dist: how far the camera is from it; --times: seconds after the last stroke (a row per view).
-import { createRequire } from 'node:module';
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-const { chromium } = createRequire('/opt/node22/lib/node_modules/_')('playwright');
+import { launch, ensureServer, BASE } from './lib/browser.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
-const BASE = process.env.BASE || 'http://localhost:8080/', id = process.argv[2], OUT = arg('--out', '.cache/orbit.jpg');
+const id = process.argv[2], OUT = arg('--out', '.cache/orbit.jpg');
 const dist = Number(arg('--dist', '0.6')), times = arg('--times', '0.5,1.5').split(',').map(Number), at = arg('--at')?.split(',').map(Number);
 const VIEWS = [['front', 0, 0.05], ['right side', 90, 0.1], ['top', 0, 1.45], ['back-left', 215, 0.25], ['front-right', 40, 0.3], ['low front', 0, -0.25]];
-const browser = await chromium.launch({
-  executablePath: process.env.CHROME || '/opt/pw-browsers/chromium',
-  args: ['--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-sandbox'],
-});
+const server = await ensureServer(), browser = await launch();
 const page = await browser.newPage({ viewport: { width: 700, height: 560 } }), errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
 await page.goto(`${BASE}?preview=1&cards=${id}&card=${id}&t=0`);
@@ -45,4 +41,4 @@ mkdirSync(dirname(OUT), { recursive: true });
 await sheet.screenshot({ path: OUT, type: 'jpeg', quality: 80, fullPage: true });
 console.log(`${OUT} (looking at ${target.map((v) => v.toFixed(2)).join(',')})`);
 if (errors.length) console.log(`PAGE ERRORS:\n${[...new Set(errors)].join('\n')}`);
-await browser.close();
+await browser.close(); server?.close();
