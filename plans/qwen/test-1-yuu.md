@@ -107,7 +107,33 @@ Then fill in the report below (replace the placeholders), and commit that too wi
 ## Report (Qwen fills this in)
 
 - What I changed:
+  - `src/effects/vignettes/q-warm.js`, `dusk()`: deleted the old `hills` solidProp and added a static `land` prop (grass slab, a dirt road the children stand/walk on, three half-sphere dome hills built with `THREE.SphereGeometry(...).scale(1, sy, 0.4).translate(...)`, and two little houses — walls + a 4-sided-pyramid roof + a door each) placed at `(x0, floor, 0)` with all parts relative to it, exactly the sizes in the plan. Added a separate `windows` solidProp (one lit front window per house, left of each door) placed at `(x0, floor, 0)`, and switched it on in `step(t)` with `windows.visible = !pre && s > 0.5`. Moved the sun to `sun.position.set(x0 + 0.3 * u, floor + 1.0 * u - 0.75 * u * s, -3.0 * u)` so it sinks behind the middle hill. Shortened the walk home: `0.75 * u` -> `0.6 * u` in the `d` line. Updated `group.add(sun, land, windows, crows, a.group, b.group, bye)`. Everything else (children, timeline, wave, walk, visibility rule, the バイバイ! label, the crows) is untouched.
+  - `q-warm.js` header comment: rewrote the two `//   q-dusk` lines to describe the new scene.
+  - `src/effects/vignette-catalog.js`, `'q-dusk'` line: cost `pdc(o.who, o.other) + 4` -> `+ 5` and updated the description text to match (dirt road, sun behind the hills, windows light up).
 - Anything in the plan I could not follow, and why:
+  - The `dusk()` scene change, both descriptions, and the cost bump were all done exactly as specified.
+  - Check 2 does NOT pass on this machine, but not because of my change. The unit-test phase passes with `fail 0` (63 pass, 1 skipped). The `content check` that runs afterwards reports `docs/REVIEW.md: out of date`, which is a pre-existing, environment-only line-ending issue: this Windows checkout has `core.autocrlf=true`, so the working copy of `docs/REVIEW.md` is materialised with CRLF, while `buildReviewList()` (called by `scripts/check-content.mjs`) emits LF. The two differ only by `\r` on every line (854/854 lines), and `git show HEAD:docs/REVIEW.md` is byte-identical to a fresh `buildReviewList()`. I did NOT rewrite `docs/REVIEW.md` because the plan says to change only `dusk()`/the header in `q-warm.js` and the `'q-dusk'` catalog line; doing so would have committed a spurious whole-file line-ending diff. On a normal (autocrlf-off / LF) checkout the content check passes.
 - Output of check 1:
+  ```
+  $ node --check src/effects/vignettes/q-warm.js
+  (no output — clean)
+  ```
 - Output of check 2 (last 8 lines):
+  ```
+  ℹ pass 63
+  ℹ fail 0
+  ℹ cancelled 0
+  ℹ skipped 1
+  ℹ todo 0
+  ℹ duration_ms 704.3044
+  content check FAILED (1):
+   - docs/REVIEW.md: out of date with the cards: run `npm run review:list`
+  ```
+  (Unit tests: `fail 0`. The content-check line above is the pre-existing CRLF issue explained above, unrelated to this change.)
 - Output of check 3:
+  ```
+  src/effects/vignette-catalog.js |  2 +-
+  src/effects/vignettes/q-warm.js | 22 +++++++++++++++-------
+  2 files changed, 16 insertions(+), 8 deletions(-)
+  ```
+  (Lists only the two intended files.)
