@@ -1,6 +1,6 @@
 // Model scenes, the body and feelings (Step 3a model pass).
-//   q-exercise 体: a person does morning exercises: arms up and stretch, bend down to touch the toes, twist side to
-//              side, counting いち、に!
+//   q-exercise 体: head, shoulders, knees and toes: on a patch of grass a person touches each with both hands in turn;
+//              the touched spot glows and its name pops up (あたま、かた、ひざ、つまさき)
 //   q-think    思: a person, hand on her chin, head tilted; a thought bubble rises from her head and shows a house, then a
 //              heart
 //   q-idea     意: a person scratches his head under a "?"; a light bulb switches on over him and he points a finger up: !
@@ -24,27 +24,41 @@ const arms = (p, k, side = 0.1, up = 0.25) => { p.handTo('R', p.at('over', W, -s
 const hugSelf = (p, k) => { p.handTo('R', p.local(0.11, 0.63, 0.1, W), k, { out: 0.5, down: 0.9 }); p.handTo('L', p.local(-0.11, 0.6, 0.12, W), k, { out: 0.5, down: 0.9 }); };
 
 // ---- 体 ----
+// the four touches: name, how far the person bends, where the hand goes (x = -1 right hand, +1 left hand; heights in the
+// actor's own frame, or a head landmark so the hands follow the head) and the elbow's bend (out to the side, down)
+const PARTS = [
+  { name: 'あたま', bow: 0, at: (p, x) => p.at(x < 0 ? 'earR' : 'earL', W, 0.02 * x, 0.1, 0), out: 0.9, down: 0.2 },
+  { name: 'かた', bow: 0, at: (p, x) => p.local(0.13 * x, 0.66, 0.03, W), out: 0.9, down: 0.6 },
+  { name: 'ひざ', bow: 0.45, at: (p, x) => p.local(0.07 * x, 0.26, 0.13, W), out: 0.4, down: 0.6 },
+  { name: 'つまさき', bow: 0.8, at: (p, x) => p.local(0.07 * x, 0.04, 0.14, W), out: 0.3, down: 0.4 },
+];
 function exercise(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.5 * u;
-  const p = person(spec.who, u), counts = ['いち', 'に', 'さん', 'し'].map((c) => label(u, c + '!', '#3a8a5a', 0.12));
-  const mat = solidProp([[G.box(0.5 * u, 0.012 * u, 0.3 * u, 0, 0.006 * u, 0), 0x3a9ae0]], 0.35);
-  mat.position.set(x0, floor, 0.05 * u);
-  group.add(mat, p.group, ...counts);
-  const loop = 8.0;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.6 * u, z0 = 0.05 * u;
+  const p = person(spec.who, u), names = PARTS.map((P) => label(u, P.name, '#d0603a', 0.13));
+  const grass = solidProp([[G.cyl(0.42 * u, 0.42 * u, 0.03 * u, 0, 0.015 * u, 0), 0x6ab04c]], 0.35);
+  const glow = many([[G.sphere(0.06 * u), 0xffe36a]], 2, 1.0);
+  grass.position.set(x0, floor, z0);
+  group.add(grass, p.group, glow, ...names);
+  const loop = 7.5;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      p.pose('Idle', 0.2); p.group.position.set(x0, floor, 0.05 * u); p.group.rotation.y = -0.2;
-      // 1 stretch up, 2 bend down to the toes, 3 twist left, 4 twist right; each with its count
-      const s1 = pre ? 0 : bump(v, 0.3, 1.6), s2 = pre ? 0 : bump(v, 2.1, 1.6), s3 = pre ? 0 : bump(v, 3.9, 1.6), s4 = pre ? 0 : bump(v, 5.7, 1.6);
-      arms(p, s1);
-      p.turn('Abdomen', 0.75 * s2); p.turn('Torso', 0.55 * s2); p.turn('Head', 0.2 * s2);
-      p.handTo('R', p.local(-0.08, 0.05, 0.12, W), s2, { out: 0.3, down: 0.4 }); p.handTo('L', p.local(0.08, 0.05, 0.12, W), s2, { out: 0.3, down: 0.4 });
-      const tw = s3 - s4;
-      p.turn('Abdomen', 0, 0.5 * tw); p.turn('Torso', 0, 0.35 * tw);
-      p.handTo('R', p.local(-0.45, 0.72, 0.02, W), Math.abs(tw), { out: 0.9, down: 0.3 }); p.handTo('L', p.local(0.45, 0.72, 0.02, W), Math.abs(tw), { out: 0.9, down: 0.3 });
-      [s1, s2, s3, s4].forEach((s, i) => pop(counts[i], s > 0.5 ? 1 : 0, x0 + 0.35 * u, floor + 1.05 * u, 0.15 * u));
+      p.pose('Idle', 0.2); p.group.position.set(x0, floor + 0.03 * u, z0); p.group.rotation.y = -0.2;
+      // one touch every 1.5 s, each held a moment at full reach (k = 1); nothing while the strokes draw
+      let on = -1, k1 = 0;
+      PARTS.forEach((P, i) => {
+        const k = pre ? 0 : Math.min(1, 1.6 * bump(v, 0.4 + 1.5 * i, 1.3));
+        pop(names[i], k > 0.3 ? k : 0, x0 + 0.95 * u, floor + 0.95 * u, z0);
+        if (k <= 0) return;
+        p.bow(P.bow * k);
+        p.handTo('R', P.at(p, -1), k, P); p.handTo('L', P.at(p, 1), k, P);
+        on = i; k1 = k;
+      });
+      // the touched spot glows, pulsing, while the hands are on it
+      const g = on < 0 ? 0 : Math.max(0, (k1 - 0.8) / 0.2) * (0.85 + 0.25 * Math.sin(v * 12));
+      ['R', 'L'].forEach((s, j) => { group.worldToLocal(p.fist(s, W2)); glow.set(j, W2.x, W2.y, W2.z, g); });
+      glow.commit();
     },
   };
 }
