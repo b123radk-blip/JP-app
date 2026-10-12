@@ -194,17 +194,18 @@ function ways(ctx, spec, stage) {
 
 // ---- 通 ----
 function tunnel(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.95 * u;
-  const top = [[-0.8, 0.6], [-0.7, 0.75], [-0.45, 0.86], [0, 0.9], [0.45, 0.86], [0.7, 0.75], [0.8, 0.6]].map(([x, y]) => new THREE.Vector2(x * u, y * u));
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 1.05 * u;
+  const mound = [[-0.85, 0.4], [-0.7, 0.62], [-0.45, 0.86], [0, 0.98], [0.45, 0.86], [0.7, 0.62], [0.85, 0.4]].map(([x, y]) => new THREE.Vector2(x * u, y * u));
   const whole = new THREE.Shape(), roof = new THREE.Shape();
-  whole.moveTo(-0.8 * u, 0); whole.lineTo(-0.8 * u, 0.6 * u); whole.splineThru(top.slice(1)); whole.lineTo(0.8 * u, 0); whole.closePath();
-  roof.moveTo(-0.8 * u, 0.56 * u); roof.lineTo(-0.8 * u, 0.6 * u); roof.splineThru(top.slice(1)); roof.lineTo(0.8 * u, 0.56 * u); roof.closePath();
-  const hill = solidProp([[G.box(2.5 * u, 0.03 * u, 1.1 * u, 0, -0.015 * u, -0.3 * u), 0x4e8a3a], [G.box(2.3 * u, 0.012 * u, 0.26 * u, 0.075 * u, 0.006 * u, -0.15 * u), 0xc8a878],
+  whole.moveTo(-1.0 * u, 0); whole.splineThru([...mound, new THREE.Vector2(1.0 * u, 0)]); whole.closePath();
+  const arch = mound.slice(1, 6);
+  roof.moveTo(-0.7 * u, 0.56 * u); roof.lineTo(-0.7 * u, 0.62 * u); roof.splineThru(arch.slice(1)); roof.lineTo(0.7 * u, 0.56 * u); roof.closePath();
+  const hill = solidProp([[G.box(2.2 * u, 0.03 * u, 1.1 * u, 0, -0.015 * u, -0.3 * u), 0x4e8a3a], [G.box(2.1 * u, 0.012 * u, 0.26 * u, 0, 0.006 * u, -0.15 * u), 0xc8a878],
     [new THREE.ExtrudeGeometry(whole, { depth: 0.4 * u, bevelEnabled: false }).translate(0, 0, -0.7 * u), 0x5aa048], [new THREE.ExtrudeGeometry(roof, { depth: 0.3 * u, bevelEnabled: false }).translate(0, 0, -0.3 * u), 0x5aa048],
-    [new THREE.ShapeGeometry(roof).translate(0, 0, 0.002 * u), 0x8a6a48], [G.tube(top.map((pt) => [pt.x, pt.y]), 0.025 * u).translate(0, 0, 0.004 * u), 0x3a8a30],
-    [G.box(1.6 * u, 0.56 * u, 0.02 * u, 0, 0.28 * u, -0.29 * u), 0x6a6a72],
-    ...[-1, 1].flatMap((sx) => [[G.box(0.05 * u, 0.56 * u, 0.05 * u, sx * 0.8 * u, 0.28 * u, -0.025 * u), 0x9a9aa0], [G.box(0.05 * u, 0.56 * u, 0.05 * u, sx * 0.8 * u, 0.28 * u, -0.275 * u), 0x9a9aa0], [G.box(0.05 * u, 0.05 * u, 0.3 * u, sx * 0.8 * u, 0.585 * u, -0.15 * u), 0x9a9aa0]])], 0.35);
-  const lamps = solidProp([[G.sphere(0.03 * u, -0.45 * u, 0.46 * u, -0.27 * u), 0xffd070], [G.sphere(0.03 * u, 0, 0.46 * u, -0.27 * u), 0xffd070], [G.sphere(0.03 * u, 0.45 * u, 0.46 * u, -0.27 * u), 0xffd070]], 1.4);
+    [new THREE.ShapeGeometry(roof).translate(0, 0, 0.002 * u), 0x8a6a48], [G.tube(arch.map((pt) => [pt.x, pt.y]), 0.025 * u).translate(0, 0, 0.004 * u), 0x3a8a30],
+    [G.box(1.4 * u, 0.56 * u, 0.02 * u, 0, 0.28 * u, -0.29 * u), 0x4a4a52],
+    ...[-1, 1].flatMap((sx) => [[G.box(0.05 * u, 0.56 * u, 0.05 * u, sx * 0.7 * u, 0.28 * u, -0.025 * u), 0x9a9aa0], [G.box(0.05 * u, 0.56 * u, 0.05 * u, sx * 0.7 * u, 0.28 * u, -0.275 * u), 0x9a9aa0], [G.box(0.05 * u, 0.05 * u, 0.3 * u, sx * 0.7 * u, 0.585 * u, -0.15 * u), 0x9a9aa0]])], 0.35);
+  const lamps = solidProp([[G.sphere(0.03 * u, -0.4 * u, 0.46 * u, -0.27 * u), 0xffd070], [G.sphere(0.03 * u, 0, 0.46 * u, -0.27 * u), 0xffd070], [G.sphere(0.03 * u, 0.4 * u, 0.46 * u, -0.27 * u), 0xffd070]], 1.4);
   const p = person(spec.who, u, 0.5), tun = new THREE.Group();
   tun.add(hill, lamps, p.group); tun.position.set(hx, floor, 0); group.add(tun);
   const loop = 6.4;
@@ -212,7 +213,7 @@ function tunnel(ctx, spec, stage) {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const f = pre ? 0 : between(v, 0.3, 5.6), x = lerp(-1.0 * u, 1.15 * u, f);
+      const f = pre ? 0 : between(v, 0.3, 5.6), x = lerp(-0.95 * u, 0.95 * u, f);
       p.pose(pre || f >= 1 ? 'Idle' : 'Walk', pre ? t : v); p.group.position.set(x, 0, -0.13 * u); p.group.rotation.y = RIGHT;
     },
   };
