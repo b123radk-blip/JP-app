@@ -1,0 +1,34 @@
+# Qwen on brad's PC: Opus plans, Qwen builds
+
+Opus (Claude, in the cloud) designs a card's scene and pushes a plan to `plans/qwen/queue/` on the branch
+`claude/project-thread-qtx77d`. On the PC, `scripts/qwen-watch.mjs` pulls every minute, hands each new plan to pi with
+Qwen, and pushes the result: code, a six-angle render (`plans/qwen/renders/`), Qwen's report (`plans/qwen/done/`) and
+pi's log (`plans/qwen/logs/`). Opus reviews it, merges what passes into the working branch, and writes a follow-up plan
+for the rest. Qwen's standing rules: `plans/qwen/README.md`.
+
+## One-time setup (PowerShell, in the JP-app folder, one command at a time)
+
+1. `git checkout claude/project-thread-qtx77d`
+2. `git pull`
+3. `npm install`
+4. `npx playwright install chromium` (downloads the browser the renders use)
+5. Test a render: `node scripts/orbit.mjs 5915`, then `start .cache\orbit.jpg`: a sheet of 夕 from six angles.
+6. Test pi without the chat window: `pi -p "Say hi"`. It should answer with Qwen and return to the prompt. If it uses
+   another model, find Qwen's name with `pi --list-models` and use it below as `$env:PI_ARGS = "--model <name>"`.
+
+## Each session
+
+1. Start the model (as usual).
+2. In the JP-app folder: `node scripts/qwen-watch.mjs`. Leave the window open; it prints a line when it starts and
+   finishes a plan. Ctrl+C stops it.
+3. Tell Opus when it says a plan is done (or just ask Opus to check).
+
+The watcher only touches the Qwen branch and skips its turn if the folder has uncommitted changes. For VOICEVOX
+work, stop it first and switch back: `git checkout claude/kanji-3d-galaxy-xr-uoi522`, then `git pull`.
+
+## Writing a plan (Opus)
+
+`plans/qwen/queue/<NNN>-<card>.md`, numbered so they run in order. Give: the card id, scene type, files and functions
+Qwen may change, what the scene must show, every position and size as numbers (multiples of `u`), the commit message,
+and any extra `orbit.mjs` flags. A plan runs once: the watcher writes a `NOT DONE` report when pi ends without one;
+delete that report to run the plan again. Old plans (tests 1 and 2) are in `plans/qwen/old/`.
