@@ -19,7 +19,6 @@ import { grow } from './step1-kit.js';
 import { label, pop, person } from './q-common.js';
 
 const W = new THREE.Vector3(), W2 = new THREE.Vector3();
-const arms = (p, k, side = 0.1, up = 0.25) => { p.handTo('R', p.at('over', W, -side, up, 0.02), k, { out: 0.4, down: 0.2 }); p.handTo('L', p.at('over', W, side, up, 0.02), k, { out: 0.4, down: 0.2 }); };
 // both arms crossed, each hand on the other shoulder (hugging yourself)
 const hugSelf = (p, k) => { p.handTo('R', p.local(0.11, 0.63, 0.1, W), k, { out: 0.5, down: 0.9 }); p.handTo('L', p.local(-0.11, 0.6, 0.12, W), k, { out: 0.5, down: 0.9 }); };
 
@@ -28,13 +27,13 @@ const hugSelf = (p, k) => { p.handTo('R', p.local(0.11, 0.63, 0.1, W), k, { out:
 // actor's own frame, or a head landmark so the hands follow the head) and the elbow's bend (out to the side, down)
 const PARTS = [
   { name: 'あたま', bow: 0, at: (p, x) => p.at(x < 0 ? 'earR' : 'earL', W, 0.02 * x, 0.1, 0), out: 0.9, down: 0.2 },
-  { name: 'かた', bow: 0, at: (p, x) => p.local(0.13 * x, 0.66, 0.03, W), out: 0.9, down: 0.6 },
+  { name: 'かた', bow: 0, at: (p, x) => p.local(0.17 * x, 0.64, -0.01, W), out: 1.0, down: 0.9 },
   { name: 'ひざ', bow: 0.45, at: (p, x) => p.local(0.07 * x, 0.26, 0.13, W), out: 0.4, down: 0.6 },
-  { name: 'つまさき', bow: 0.8, at: (p, x) => p.local(0.07 * x, 0.04, 0.14, W), out: 0.3, down: 0.4 },
+  { name: 'つまさき', bow: 1.0, at: (p, x) => p.local(0.07 * x, 0.02, 0.17, W), out: 0.3, down: 0.4 },
 ];
 function exercise(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.6 * u, z0 = 0.05 * u;
-  const p = person(spec.who, u), names = PARTS.map((P) => label(u, P.name, '#d0603a', 0.13));
+  const p = person(spec.who, u), names = PARTS.map((P) => label(u, P.name, '#d0603a', 0.17));
   const grass = solidProp([[G.cyl(0.42 * u, 0.42 * u, 0.03 * u, 0, 0.015 * u, 0), 0x6ab04c]], 0.35);
   const glow = many([[G.sphere(0.06 * u), 0xffe36a]], 2, 1.0);
   grass.position.set(x0, floor, z0);
