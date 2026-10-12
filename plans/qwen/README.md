@@ -23,10 +23,20 @@ plan is what you follow.
    - `node scripts/orbit.mjs <card id> --out plans/qwen/renders/<plan name>.jpg` (the plan may give extra flags such as
      `--times`). It renders the card from six angles (front, right side, top, back-left, front-right, low front), two
      moments each.
-4. **Look at the render** (open the .jpg with your read tool). Check what the plan says the scene must show, and these
+   - `node scripts/inspect.mjs <card id> --times <the plan's times> --out plans/qwen/renders/<plan name without .md>`:
+     measures the scene and takes big close-up pictures. Read its whole report first: it lists every thing (T1, T2 ...),
+     what each rests on (FLOATS ABOVE / SUNK INTO), bodies PASSING INTO things, where each hand is on the body, and how
+     much of each person the learner can see. Its POSSIBLE FAULTS are measured, so trust them over your impression of a
+     picture: a fault it lists is a fault unless the plan wants it (a jump, tiptoes, a bird in the air). Then open every
+     picture it lists (one at a time, they are large) and check the fault close-ups first.
+   - For any doubt, take your own close look: `node scripts/inspect.mjs <card id> --look T3 --from right --t 1.5
+     --zoom 2 --out plans/qwen/renders/<plan name without .md>` (any thing id from the report, or a point x,y,z in u).
+     Look at the thing in doubt from two sides before deciding.
+4. **Look at the render** (open the .jpg with your read tool) and the inspection pictures. Check what the plan says the scene must show, and these
    faults in every view: people or props floating above the ground or sunk into it; things passing through each other
    (a body through a wall, a hand through a cup); something hidden that should be seen; pieces in the wrong place.
-5. If the render shows such a fault and the fix is a number inside the code the plan gave you (a position, a size), you
+   After every change, run the inspection again: the next round starts from its new report.
+5. If the render or the inspection shows such a fault and the fix is a number inside the code the plan gave you (a position, a size), you
    may fix it: at most two tries, re-rendering after each. Say exactly what you changed and why in the report. Anything
    bigger (a new piece, a different design): don't do it; describe it in the report for Opus.
    The orbit sheet's framing is only a review camera: something cut off by a tile's edge or its header bar is not a
@@ -44,6 +54,7 @@ plan is what you follow.
 ## Where I left the plan, and why (or "Nowhere")
 ## Checks (paste the real last lines of each)
 ## What I see in the render (each of the six views, one line each, and any fault left)
+## Inspection (paste the POSSIBLE FAULTS lines of the last run, and say for each why it is fine or what is left)
 ```
 
 Be exact and honest: paste real output, and if you did not run a check or could not look at the render, say so. Opus

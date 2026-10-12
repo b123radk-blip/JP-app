@@ -30,6 +30,7 @@ export function textPlane(text, { h = 0.1, w: wm = null, color = '#ffffff', bg =
   g.font = font; g.fillStyle = color; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillText(text, w / 2, c.height / 2);
   const tex = new THREE.CanvasTexture(c); tex.colorSpace = THREE.SRGBColorSpace;
   const m = new THREE.Mesh(new THREE.PlaneGeometry(h * (w / c.height), h), new THREE.MeshBasicMaterial({ map: tex, transparent: true, depthWrite: false, side: THREE.DoubleSide }));
+  m.userData.label = text;
   return m;
 }
 // a see-through veil (dusk falling over the scene): origin at its middle, opacity 0 to start
