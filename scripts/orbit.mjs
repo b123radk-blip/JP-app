@@ -6,17 +6,19 @@
 // animals, else 0.6,0.1,0); --dist: how far the camera is from it; --times: seconds after the last stroke (a row per view).
 import { mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-import { launch, ensureServer, BASE } from './lib/browser.mjs';
+import { launch, serve, watchPage } from './lib/browser.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const id = process.argv[2], OUT = arg('--out', '.cache/orbit.jpg');
 const dist = Number(arg('--dist', '0.6')), times = arg('--times', '0.5,1.5').split(',').map(Number), at = arg('--at')?.split(',').map(Number);
 const VIEWS = [['front', 0, 0.05], ['right side', 90, 0.1], ['top', 0, 1.45], ['back-left', 215, 0.25], ['front-right', 40, 0.3], ['low front', 0, -0.25]];
-const server = await ensureServer(), browser = await launch();
+const { base: BASE, server } = await serve(), browser = await launch();
 const page = await browser.newPage({ viewport: { width: 700, height: 560 } }), errors = [];
 page.on('pageerror', (e) => errors.push(e.message));
+const why = watchPage(page);
 await page.goto(`${BASE}?preview=1&cards=${id}&card=${id}&t=0`);
-await page.waitForFunction((i) => window.__app?.ready === true && window.__app.info().player?.id === i, id, { timeout: 30000 });
+await page.waitForFunction((i) => window.__app?.ready === true && window.__app.info().player?.id === i, id, { timeout: 90000 })
+  .catch((e) => { console.log(why(`card ${id} never got ready at ${BASE}: ${e.message}`)); process.exit(1); });
 await page.addStyleTag({ content: '#ui, #footer { display: none !important; }' });
 const end = await page.evaluate(() => window.__app.info().player.strokesEnd);
 // default target: the middle of the skinned (model) meshes once the scene is playing

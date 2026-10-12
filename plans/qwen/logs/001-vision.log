@@ -1,0 +1,15 @@
+pi exit 0 after 0.8 min
+
+Done. Plan 001 complete, no push (per rules).
+
+**Summary**
+- Image reading works now — the render came back as a viewable JPEG.
+- **No code changed** (plan required none).
+- Checks all pass:
+  - `npm test`: 63 pass, 0 fail, 1 skipped (ffmpeg not installed) — `content check ok`, `recipe check ok`, 0 pairs ≥ 0.72.
+  - `check-piece-costs vignette "^q-dusk$"`: `675 recipes, 0 cost mismatches`.
+- Commit `d772d9f` "Qwen vision check render"; commit `b4671f6` "Qwen report: 001-vision.md".
+
+**Render read** — card 5915 夕 "evening": two small people on a green hill with houses, a glowing gold 夕, sunset sky, and a "バイバイ!" goodbye call-out (the taller one waves at t+1.5). Across all six views (front, right side, top, back-left, front-right, low front) I saw no one floating, sinking, or passing through another object; both people rest on the hill, props sit on the ground, and the 夕 floats as an intentional glyph. No leftover faults.
+
+Report written to `plans/qwen/done/001-vision.md`.

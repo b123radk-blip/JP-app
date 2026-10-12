@@ -1,0 +1,17 @@
+pi exit 0 after 26.0 min
+
+Plan 002 is complete. Summary:
+
+**Built** — `q-exercise` (体, card 4f53) is now "Head, shoulders, knees and toes": a person on a round grass patch touches head → shoulders → knees (bow 0.45) → toes (bow 0.8) with both hands; each touched spot glows yellow and its name (あたま、かた、ひざ、つまさき) pops up. Changed exactly the two plan-named files (`src/effects/vignettes/q-feel.js`, `src/effects/vignette-catalog.js`).
+
+**Number fixes (both allowed "label position" tries, re-rendered after each):**
+1. Label y `1.1u → 0.95u` — at 1.1u the label was above the orbit frame top (measured NDC y 1.03 front / 1.27 right side / 1.18 front-right / 1.01 back-left), clipped or invisible in 4 of 6 views.
+2. Label x `0.55u → 0.95u` — after lowering, it sat behind the orbit sheet's per-tile header bar in the front view; 0.4u further right it's fully visible.
+
+**Checks (all pass):** `node --check` clean; `npm test` 63 pass / 0 fail / 1 skipped + content & recipe check ok; cost check `0 cost mismatches`; render written to `plans/qwen/renders/002-karada.jpg`.
+
+**Render verified** (all four columns): hands beside the head with glow, hands on shoulders, knee bend, toe bend near the grass; feet exactly on the grass top (y 1.458); labels clear of person and kanji. Remaining honest limitation (in the report): the label isn't visible in the orbit right-side/back-left views (frame edge / header bar) — visible in front, front-right, low front and the learner's app view; that's a 0.6 m orbit-camera framing limit, not a scene defect. Also flagged: the old `arms` helper is now unused in q-feel.js (left in place per "nothing else in the file").
+
+**Committed, not pushed:**
+- `8456e3d` 体: head, shoulders, knees and toes (Qwen, plan 002) — code + render
+- `9c6d713` Qwen report: 002-karada.md
