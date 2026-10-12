@@ -163,12 +163,15 @@ function frog(ctx, spec, stage) {
 // ---- 背 ----
 function backs(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.6 * u;
-  const tall = person(spec.who, u, KID + 0.27), short = person(spec.other, u, KID + 0.12), say1 = label(u, 'せいくらべ', '#3a7ac0', 0.13);
-  const ticks = Array.from({ length: 11 }, (_, i) => [G.box((i % 5 ? 0.07 : 0.15) * u, 0.01 * u, 0.01 * u, -0.3 * u + (i % 5 ? 0.035 : 0.075) * u, (0.1 + 0.1 * i) * u, 0.012 * u), 0xffffff]);
-  const chart = solidProp([[G.box(0.7 * u, 1.2 * u, 0.02 * u, 0, 0.6 * u, 0), 0x5a9ad8], [G.box(0.7 * u, 0.25 * u, 0.021 * u, 0, 0.125 * u, 0), 0x3a7a3a], [G.box(0.7 * u, 0.06 * u, 0.025 * u, 0, 1.17 * u, 0), 0xffb040], ...ticks], 0.35);
-  chart.position.set(bx, floor, -0.2 * u);
+  const tall = person(spec.who, u, KID + 0.35), short = person(spec.other, u, KID + 0.05), say1 = label(u, 'せいくらべ', '#3a7ac0', 0.13);
+  // a wooden floor slab, its top exactly at floor; on it the height chart: a solid board (wood back and edges, painted front)
+  const ticks = Array.from({ length: 11 }, (_, i) => [G.box((i % 5 ? 0.07 : 0.15) * u, 0.01 * u, 0.004 * u, -0.3 * u + (i % 5 ? 0.035 : 0.075) * u, (0.1 + 0.1 * i) * u, 0.034 * u), 0xffffff]);
+  const slab = solidProp([[G.box(1.0 * u, 0.04 * u, 0.5 * u, 0, 0, 0), WOOD]], 0.3);
+  slab.position.set(bx, floor - 0.02 * u, 0);
+  const chart = solidProp([[G.box(0.7 * u, 1.2 * u, 0.05 * u, 0, 0.6 * u, 0), WOOD], [G.box(0.66 * u, 1.14 * u, 0.006 * u, 0, 0.6 * u, 0.028 * u), 0x5a9ad8], [G.box(0.66 * u, 0.22 * u, 0.007 * u, 0, 0.11 * u, 0.028 * u), 0x3a7a3a], [G.box(0.66 * u, 0.05 * u, 0.007 * u, 0, 1.175 * u, 0.028 * u), 0xffb040], ...ticks], 0.35);
+  chart.position.set(bx, floor, -0.13 * u);
   const bar = solidProp([[G.box(0.45 * u, 0.03 * u, 0.12 * u, 0, 0, 0), 0x8a5a30], [G.box(0.48 * u, 0.008 * u, 0.1 * u, 0, 0.018 * u, 0), 0xf0d080]], 0.35);
-  group.add(chart, tall.group, short.group, bar, say1);
+  group.add(slab, chart, tall.group, short.group, bar, say1);
   const loop = 6.4, hT = new THREE.Vector3();
   return {
     group,
@@ -176,18 +179,18 @@ function backs(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
       const T = timeline(v, { bar: [0.4, 0.7, 'out'], tip: [1.4, 0.4, 'back'], untip: [3.8, 0.3], barUp: [4.0, 0.5, 'in'], face: [4.4, 0.5], unface: [5.8, 0.5] });
       tall.pose('Idle', t); short.pose('Idle', t + 1.3);
-      // back to back in the middle of the chart, each turned a little toward us; then they turn to us and grin
+      // back to back in pure profile (tall one to the left, facing left), backs together in front of the chart; then they turn to us and wave
       const f = T.face * (1 - T.unface), tip = T.tip * (1 - T.untip);
-      tall.group.position.set(bx - 0.15 * u, floor, 0.0); tall.group.rotation.y = lerp(LEFT + 0.35, -0.3, f);
-      short.group.position.set(bx + 0.15 * u, floor + 0.06 * u * tip, 0.1 * u); short.group.rotation.y = lerp(RIGHT - 0.35, 0.3, f);
+      tall.group.position.set(bx - 0.18 * u, floor, 0.03 * u); tall.group.rotation.y = lerp(LEFT, -0.35, f);
+      short.group.position.set(bx + 0.16 * u, floor + 0.06 * u * tip, 0.03 * u); short.group.rotation.y = lerp(RIGHT, 0.35, f);
       short.turn('FootL', 0.6 * tip); short.turn('FootR', 0.6 * tip);
       short.turn('Head', -0.2 * tip); short.handTo('R', short.local(-0.25, 0.3, -0.05, W), tip * 0.7); short.handTo('L', short.local(0.25, 0.3, -0.05, W), tip * 0.7);
-      tall.at('over', hT, 0, 0, 0); group.worldToLocal(hT);
-      const b = pre ? 0 : T.bar * (1 - T.barUp), barY = hT.y - 0.06 * u;
-      bar.visible = b > 0.01; bar.position.set(bx, barY + 0.5 * u * (1 - b), 0.05 * u);
+      tall.at('over', hT, 0, -0.16, 0); group.worldToLocal(hT);
+      const b = pre ? 0 : T.bar * (1 - T.barUp), barY = hT.y;
+      bar.visible = b > 0.01; bar.position.set(hT.x + 0.05 * u, barY + 0.5 * u * (1 - b), 0.03 * u);
       bar.rotation.z = 0.05 * Math.sin(v * 7) * tip;
       tall.wave('L', bump(v, 4.5, 1.6) * 0.6, v); short.wave('R', bump(v, 4.6, 1.6) * 0.6, v);
-      pop(say1, pre ? 0 : between(v, 1.6, 1.9) * (1 - between(v, 3.8, 4.1)), bx + 0.45 * u, barY + 0.05 * u, 0.15 * u);
+      pop(say1, pre ? 0 : between(v, 1.6, 1.9) * (1 - between(v, 3.8, 4.1)), bx + 0.45 * u, barY + 0.12 * u, 0.15 * u);
     },
   };
 }

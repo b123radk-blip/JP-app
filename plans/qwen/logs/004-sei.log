@@ -1,0 +1,13 @@
+pi exit 0 after 3.9 min
+
+Plan 004 done. Summary:
+
+**Changes**
+- `src/effects/vignettes/q-music2.js` (`backs()`): added a wooden floor slab (1.0u × 0.5u, top at `floor`); rebuilt the height chart as a solid 0.05u-thick wood board with the painted front/ticks on it; put the children in pure profile at the same depth with backs together (tall left-facing `KID+0.35`, short right-facing `KID+0.05`); the measuring bar now rests on the tall child's hair (anchored to `earR` instead of the too-high `over` landmark); label raised clear of faces. End-of-loop turn-and-wave kept.
+- `src/effects/vcat-q4c.js`: cost `+3` → `+4` (extra slab mesh).
+
+**Rounds:** 2 render-fix rounds. Round 1 exposed the bar floating ~0.15u above the head; round 2 fixed the anchor and tucked the children to ±0.12u.
+
+**Checks:** `node --check` clean on both files, `npm test` 63 pass / 0 fail + content/recipe checks ok, cost check `0 cost mismatches`. Renders at `plans/qwen/renders/004-sei.jpg` and `004-sei-close.jpg` (used `--at 0.35,0.3,0` since the plan's 0.5/0.3 didn't centre the scene).
+
+**Commits** (not pushed): `0f84784` 背: back to back on a floor at a solid height chart (Qwen, plan 004), and `aed4778` Qwen report: 004-sei (report at `plans/qwen/done/004-sei.md`).
