@@ -26,6 +26,9 @@ L R; three.js drops the dots: `FootL`), so a gesture made by turning bones after
 | foodCan | kenney/food-kit/can.glb | 13 | 1 | colormap | static |
 | foodApple | kenney/food-kit/apple.glb | 14 | 1 | colormap | static |
 | sodaCan | kenney/food-kit/soda-can.glb | 16 | 1 | colormap | static |
+| chopKnife | kenney/food-kit/cooking-knife-chopping.glb | 8 | 1 | colormap | static |
+| cuttingBoard | kenney/food-kit/cutting-board.glb | 10 | 1 | colormap | static |
+| carrot | kenney/food-kit/carrot.glb | 16 | 1 | colormap | static |
 | rowboat | kenney/pirate-kit/boat-row-small.glb | 17 | 2 | colormap | static |
 | paddle | kenney/pirate-kit/tool-paddle.glb | 7 | 1 | colormap | static |
 | shiba | quaternius/animals/shiba.glb | 550 | 6 | Main, Black, Main_Light, Eyes_Black, Eyes_White, Eyes_Pupil | Attack 1.2, Death 1.1, Eating 2.7, Gallop 0.6, Gallop_Jump 0.9, Idle 3.3, Idle_2 3.3, Idle_2_HeadLow 4.0, Idle_HitReact1 0.7, Idle_HitReact2 0.7, Jump_ToIdle 1.3, Walk 1.1 |

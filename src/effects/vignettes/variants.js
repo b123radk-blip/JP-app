@@ -1,6 +1,5 @@
 // Other outcomes of a kanji's scene, for its words: the same type with an option, so the word reads as the kanji's
 // story told another way (the similarity check scores such a pair EFFECTS.similarity.sceneVariant, not 1).
-//   chop-split  food carrot   切る: a carrot on a board is chopped into rounds, one after another, slices tipping over
 //   coat-on     outcome wear  着る: the coat drops on and the person does up its buttons one by one, then admires it
 //   coat-on     outcome jacket 上着: a jacket hangs on a stand; the person lifts it off, swings it round onto their shoulders
 //   tea-pour    outcome serve お茶: after the pour, the cup slides forward to you on its saucer, steam curling up
@@ -17,32 +16,6 @@ import { emblemProp, cleaver, teacup, disc } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, wisps, arc, handTo, bonePoint } from './helpers.js';
-
-export function chopCarrot(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, bx = B.maxX + 0.6 * u, N = 5, seg = 0.13 * u;
-  const board = solidProp([[G.box(0.9 * u, 0.06 * u, 0.35 * u, 0, 0.03 * u, 0), 0xd8a868]]); board.position.set(bx, floor, 0); board.rotation.x = 0.3;
-  const slices = many([[G.cyl(0.055 * u, 0.06 * u, seg * 0.95, 0, 0, 0, 0, 0, Math.PI / 2), 0xff8a20], [G.cyl(0.03 * u, 0.03 * u, seg * 0.96, 0, 0, 0, 0, 0, Math.PI / 2), 0xffb050]], N, 0.45);
-  const top = solidProp([[G.cone(0.05 * u, 0.2 * u, 0, 0, 0, -Math.PI / 2 - 0.2), 0x40a040], [G.cone(0.04 * u, 0.18 * u, 0, 0.03 * u, 0, -Math.PI / 2 + 0.3), 0x50b050]]);
-  const knife = cleaver(1.4 * u);
-  group.add(board, slices, top, knife);
-  const loop = 4.6, CH = [0.4, 1.0, 1.6, 2.2], y0 = floor + 0.12 * u;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const cuts = pre ? 0 : CH.filter((c) => v >= c + 0.25).length, back = between(v, 3.9, 4.4);
-      for (let i = 0; i < N; i++) {
-        const cut = i >= N - cuts, k = cut ? between(v, CH[N - 1 - i] + 0.25, CH[N - 1 - i] + 0.6) : 0;
-        slices.set(i, bx - 0.25 * u + i * seg + 0.06 * u * k * (i - 1), y0 + 0.02 * u * k, 0.02 * u, 1 - back, 0, 1.4 * k);       // cut slices tip over: you see the rounds
-      }
-      slices.commit();
-      top.position.set(bx - 0.25 * u - 0.12 * u, y0, 0.02 * u); top.visible = back < 1;
-      // the cleaver chops at the next cut, moving left along the carrot
-      const ci = pre ? 0 : Math.min(3, Math.max(0, Math.floor((v - 0.1) / 0.6))), chop = pre ? 0 : bump(v, CH[ci] - 0.05, 0.6);
-      knife.position.set(bx - 0.25 * u + (N - 1 - ci) * seg + seg * 0.5, y0 - 0.05 * u + 0.45 * u * (1 - chop), 0.05 * u); knife.visible = !pre && v < 3.0;
-    },
-  };
-}
 
 export function coatVariant(ctx, spec, stage, base) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.45 * u, COAT = spec.color ?? 0x2a6ad0, jacket = spec.outcome === 'jacket';

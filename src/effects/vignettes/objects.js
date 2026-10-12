@@ -1,6 +1,5 @@
 // Scenes with objects acting on (or with) the kanji.
-//   chop-split     切: a cleaver chops straight down through the middle of the kanji; a flash along the cut and the two
-//                  halves slide apart, then ease back together and the cleaver comes up for the next chop
+//   (chop-split moved to chop.js)
 //   todo-list      事: a pencil ticks the boxes of a to-do list one by one; done, the list spins round and starts again
 //   pin-drop       所: a big map pin drops out of the sky and stabs into the ground beside the kanji (dust, a ring
 //                  pulses out: "here"); a person runs over and stands on the spot, waving
@@ -19,30 +18,6 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { pointAt } from '../../kanji/tube.js';
 import { poseGlyph, puffs, arc, handTo, between, mixColor } from './helpers.js';
-import { chopCarrot } from './variants.js';
-
-const centroidX = (s) => s.pts.reduce((a, p) => a + p.x, 0) / s.pts.length;
-
-function chopSplit(ctx, spec, stage) {
-  if (spec.food) return chopCarrot(ctx, spec, stage);
-  const u = stage.u, B = stage.box, group = new THREE.Group(), xm = B.cx;
-  const knife = cleaver(1.6 * u), flash = solidProp([[G.box(0.02 * u, B.h * 1.1, 0.01 * u, 0, 0, 0), 0xffffff]], 2);
-  const side = ctx.strokes.map((s) => (centroidX(s) < xm ? -1 : 1));
-  group.add(knife, flash);
-  const loop = 4.2;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { chop: [0.2, 0.35, 'in'], apart: [0.55, 0.45, 'back'], lift: [1.0, 0.6, 'out'], close: [2.8, 0.6], drop: [3.6, 0.5] });
-      const y = pre ? B.maxY + 0.3 * u : B.maxY + 0.3 * u - (B.h + 0.25 * u) * T.chop + (B.h + 0.6 * u) * T.lift - 0.35 * u * T.drop;   // waits above, chops, lifts, settles back
-      knife.position.set(xm, y, 0.06 * u); knife.visible = !pre || A.setup > 0.6;
-      const gap = pre ? 0 : 0.14 * u * (T.apart - T.close);
-      side.forEach((d, si) => stage.offset(si, d * gap, -0.02 * u * Math.abs(gap) / (0.14 * u) * (d < 0 ? 1 : 0.5), 0));
-      const fl = pre ? 0 : bump(v, 0.5, 0.35); flash.visible = fl > 0; flash.position.set(xm, B.cy, 0.08 * u); flash.scale.set(1 + 2 * fl, fl, 1);
-    },
-  };
-}
 
 function todoList(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), cx = B.maxX + 0.45 * u, cy = B.cy - 0.05 * u, S = 1.5;
@@ -189,4 +164,4 @@ function wheelsRoll(ctx, spec, stage) {
   };
 }
 
-export const SCENES = { 'chop-split': chopSplit, 'todo-list': todoList, 'pin-drop': pinDrop, 'dart-bullseye': dartBullseye, 'apple-ripen': appleRipen, 'eraser-rub': eraserRub, 'wheels-roll': wheelsRoll };
+export const SCENES = { 'todo-list': todoList, 'pin-drop': pinDrop, 'dart-bullseye': dartBullseye, 'apple-ripen': appleRipen, 'eraser-rub': eraserRub, 'wheels-roll': wheelsRoll };
