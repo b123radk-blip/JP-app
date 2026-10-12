@@ -8,13 +8,7 @@
   "pos": ["n"],
   "kanji": ["5b50"],
   "builtFrom": [{ "k": "子", "m": "child" }],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": { "type": "person", "color": "#ffd27a" },
-    "motion": "bounce",
-    "backdrop": "sky:noon"
-  },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:noon", "vignette": "q-child" },
   "sentences": [
     {
       "segments": [ { "text": "子供", "reading": "こども" }, { "text": "は" }, { "text": "入場", "reading": "にゅうじょう" }, { "text": "できません。" } ],

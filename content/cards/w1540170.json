@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": ["53cb"],
   "builtFrom": [{ "k": "友", "m": "friend" }],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "hand", "particles": ["hearts"], "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:dawn", "vignette": "q-buddies" },
   "sentences": [
     {
       "segments": [ { "text": "犬", "reading": "いぬ" }, { "text": "は" }, { "text": "人間", "reading": "にんげん" }, { "text": "の" }, { "text": "最", "reading": "もっと" }, { "text": "も" }, { "text": "親", "reading": "した" }, { "text": "しい" }, { "text": "友達", "reading": "ともだち" }, { "text": "である。" } ],
