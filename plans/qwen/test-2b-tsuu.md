@@ -61,7 +61,35 @@ below, and commit it as `Qwen test 2 round 2 report`.
 ## Report (Qwen fills this in)
 
 - What I changed:
+  In `tunnel()` in `src/effects/vignettes/q-move.js` only, per the plan:
+  - `hx` moved to `B.maxX + 1.05 * u`.
+  - Replaced the `top` array with `mound` (`[[-0.85, 0.4], [-0.7, 0.62], [-0.45, 0.86], [0, 0.98], [0.45, 0.86], [0.7, 0.62], [0.85, 0.4]]`); `whole` is now `moveTo(-1.0u, 0)`, `splineThru([...mound, Vector2(1.0u, 0)])`, `closePath()`; added `const arch = mound.slice(1, 6)`; `roof` is now `moveTo(-0.7u, 0.56u)`, `lineTo(-0.7u, 0.62u)`, `splineThru(arch.slice(1))`, `lineTo(0.7u, 0.56u)`, `closePath()`.
+  - Ground box width 2.2u; road box `G.box(2.1 * u, 0.012 * u, 0.26 * u, 0, 0.006 * u, -0.15 * u)` (its x went from 0.075u to 0 as written in the plan); grass tube now runs along `arch`.
+  - Tunnel back wall: width 1.4u, colour `0x4a4a52`; portal boxes at `sx * 0.7 * u`.
+  - Lamps at x -0.4u, 0, 0.4u; walk `lerp(-0.95 * u, 0.95 * u, f)`.
+  - Catalog line, header comment, back-hill and cut-face code, and everything else untouched; draw calls unchanged.
 - Anything in the plan I could not follow, and why:
+  - Nothing. Everything followed as written. (The plan's road line does also move the road's x-centre from 0.075u to 0, which I took as intended since the line was given in full.)
 - Output of check 1:
+  ```
+  (no output - clean parse; exit 0)
+  ```
 - Output of check 2 (last 10 lines):
+  ```
+  ℹ tests 64
+  ℹ suites 0
+  ℹ pass 63
+  ℹ fail 0
+  ℹ cancelled 0
+  ℹ skipped 1
+  ℹ todo 0
+  ℹ duration_ms 690.8014
+  content check FAILED (1):
+   - docs/REVIEW.md: out of date with the cards: run `npm run review:list`
+  ```
+  (the known out-of-date REVIEW.md line, ignored per the plan; unit tests: fail 0)
 - Output of check 3:
+  ```
+  src/effects/vignettes/q-move.js | 21 +++++++++++----------
+  1 file changed, 11 insertions(+), 10 deletions(-)
+  ```
