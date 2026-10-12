@@ -101,8 +101,11 @@ import { SCENES as QHO2 } from './q-home2.js';
 import { SCENES as QRI } from './q-ride.js';
 import { SCENES as QRI2 } from './q-ride2.js';
 import { SCENES as KIT } from './kit-sheet.js';
+import { SCENES as CHOP } from './chop.js';
+import { SCENES as TSTAMP } from './town-stamp.js';
+import { SCENES as TGATE } from './town-gate.js';
 
-export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...W5A, ...B6A, ...B6B, ...B6C, ...S1A, ...S1B, ...S1FIRE, ...S1C, ...S1T, ...S1EVERY, ...S1D, ...S1E, ...S1G, ...S1WHEEL, ...S1H, ...S1F, ...S1I, ...S1J, ...S1K, ...S1L, ...S1M, ...S1N, ...S1O, ...MA, ...MB, ...QG, ...QA, ...QF, ...QF2, ...QP, ...QS, ...QA2, ...QA3, ...QSE, ...QB, ...QFE, ...QT, ...QL, ...QST, ...QTK, ...QMV, ...QW, ...QWM, ...QWE, ...QWE2, ...QLE, ...QLE2, ...QMU, ...QMU2, ...QTO, ...QTO2, ...QHO, ...QHO2, ...QRI, ...QRI2, ...KIT };
+export const SCENES = { ...CRAFT, ...PEOPLE, ...THINGS, ...HOME, ...SKY, ...OBJECTS, ...FAMILY, ...SCHOOL, ...NATURE, ...FOOD, ...CHORES, ...TOWN, ...FOLK, ...GLYPHPLAY, ...ACTIONS, ...WORLD, ...EVERYDAY2, ...PLAY2, ...BATCH3A, ...BATCH3B, ...BATCH3C, ...WORDS3A, ...WORDS3B, ...B4A, ...B4B, ...B4C, ...B4D, ...W4A, ...B5A, ...B5B, ...B5C, ...B5D, ...W5A, ...B6A, ...B6B, ...B6C, ...S1A, ...S1B, ...S1FIRE, ...S1C, ...S1T, ...S1EVERY, ...S1D, ...S1E, ...S1G, ...S1WHEEL, ...S1H, ...S1F, ...S1I, ...S1J, ...S1K, ...S1L, ...S1M, ...S1N, ...S1O, ...MA, ...MB, ...QG, ...QA, ...QF, ...QF2, ...QP, ...QS, ...QA2, ...QA3, ...QSE, ...QB, ...QFE, ...QT, ...QL, ...QST, ...QTK, ...QMV, ...QW, ...QWM, ...QWE, ...QWE2, ...QLE, ...QLE2, ...QMU, ...QMU2, ...QTO, ...QTO2, ...QHO, ...QHO2, ...QRI, ...QRI2, ...KIT, ...CHOP, ...TSTAMP, ...TGATE };
 
 const boxOf = (pts) => {
   const b = new THREE.Box3().setFromPoints(pts);

@@ -1,6 +1,6 @@
 // Out in town (word cards).
-//   ticket-gate    切符: a ticket slides out of a machine's slot, a hand takes it, the gate's flaps swing open
-//   stamp-letter   切手: a stamp flies onto the corner of an envelope with a thump, then a postmark stamps over it
+//   (ticket-gate moved to town-gate.js)
+//   (stamp-letter moved to town-stamp.js)
 //   train-arrive   着く: a train glides in along the platform, slows, stops; a person steps off and waves
 //   car-park       自動車: a car drives in by itself, backs into a parking space, beep beep
 //   traffic-red    赤い: a traffic light changes green, yellow, RED; a car rolling up stops at the line
@@ -14,60 +14,13 @@ import { createPerson } from '../pieces/kit-person.js';
 import { createHand } from '../pieces/kit-hand.js';
 import { many, burst } from '../pieces/kit-things.js';
 import { emblemProp } from '../pieces/kit-props.js';
+import { createModel } from '../models.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, arc, handTo, liveText } from './helpers.js';
 
 // a fingertip to steer a pointing hand by (handTo(hand, x, y, z, tip))
 function fingertip(hand, u) { const o = new THREE.Object3D(); hand.bone('f0b').add(o); o.position.y = 0.13 * u; return o; }
-
-function ticketGate(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, mx = B.maxX + 0.35 * u;
-  const machine = solidProp([[G.box(0.36 * u, 0.85 * u, 0.3 * u, 0, 0.42 * u, 0), 0x3a7ad0], [G.box(0.24 * u, 0.16 * u, 0.02 * u, 0, 0.66 * u, 0.15 * u), 0x9ae0ff], [G.box(0.16 * u, 0.02 * u, 0.03 * u, 0, 0.42 * u, 0.15 * u), 0x101820]]);
-  machine.position.set(mx, floor, -0.05 * u);
-  const ticket = solidProp([[G.box(0.14 * u, 0.09 * u, 0.006 * u, 0, 0, 0), 0xf8e8a0], [G.box(0.14 * u, 0.02 * u, 0.007 * u, 0, -0.025 * u, 0), 0x3a7ad0]], 0.5);
-  const hand = createHand({ u: 0.55 * u, side: -1, sleeve: 0x8a5ad0 }); hand.pose('pinch'); hand.group.rotation.z = 1.2;
-  const gx = mx + 0.6 * u, flap = (s) => { const p = new THREE.Group(), m = solidProp([[G.box(0.18 * u, 0.12 * u, 0.02 * u, s * 0.09 * u, 0, 0), 0xe04848]]); p.position.set(gx - s * 0.2 * u, floor + 0.4 * u, 0.05 * u); p.add(m); return p; };
-  const flaps = [flap(1), flap(-1)], posts = solidProp([[G.box(0.08 * u, 0.5 * u, 0.25 * u, -0.24 * u, 0.25 * u, 0), 0xb8c0cc], [G.box(0.08 * u, 0.5 * u, 0.25 * u, 0.24 * u, 0.25 * u, 0), 0xb8c0cc]]);
-  posts.position.set(gx, floor, 0.05 * u);
-  group.add(machine, ticket, hand.group, ...flaps, posts);
-  const loop = 4.4;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { out: [0.2, 0.5, 'out'], grab: [0.8, 0.4], take: [1.3, 0.6], open: [2.0, 0.4, 'back'], close: [3.6, 0.5] });
-      const tx = mx, ty = floor + 0.42 * u - 0.07 * u * T.out, held = T.take;
-      ticket.visible = !pre && T.close < 0.5; ticket.position.set(tx + 0.4 * u * held, ty + 0.15 * u * held, -0.05 * u + 0.17 * u);
-      hand.group.visible = !pre && v > 0.6 && v < 3.4; hand.update();
-      handTo(hand, tx + 0.4 * u * held + (1 - T.grab) * 0.3 * u, ty + 0.15 * u * held, 0.15 * u);
-      const op = pre ? 0 : T.open - T.close; flaps[0].rotation.y = -1.4 * op; flaps[1].rotation.y = 1.4 * op;
-    },
-  };
-}
-
-function stampLetter(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), lx = B.maxX + 0.5 * u, ly = B.cy;
-  const env = emblemProp('letter', 0.75 * u), stamp = solidProp([[G.box(0.13 * u, 0.15 * u, 0.006 * u, 0, 0, 0), 0xffffff], [G.box(0.1 * u, 0.12 * u, 0.007 * u, 0, 0, 0), 0x3aa0e0], [G.sphere(0.03 * u, 0, 0.02 * u, 0.004 * u, 1, 1, 0.2), 0xffd040]], 0.5);
-  const rubber = solidProp([[G.cyl(0.08 * u, 0.08 * u, 0.04 * u, 0, 0.02 * u, 0), 0x303030], [G.cyl(0.03 * u, 0.03 * u, 0.14 * u, 0, 0.11 * u, 0), 0x8a5a30], [G.sphere(0.05 * u, 0, 0.2 * u), 0x8a5a30]]);
-  const mark = solidProp([[G.torus(0.06 * u, 0.008 * u), 0x404050], ...[0, 1, 2].map((i) => [G.box(0.12 * u, 0.008 * u, 0.004 * u, 0.1 * u, (i - 1) * 0.03 * u, 0), 0x404050])], 0.3);
-  env.position.set(lx, ly, 0);
-  const sx = lx + 0.17 * u, sy = ly + 0.08 * u;
-  group.add(env, stamp, rubber, mark);
-  const loop = 4.4;
-  return {
-    group,
-    step(t) {
-      const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      env.idle(0); env.scale.setScalar(0.75 * u * Math.max(1e-3, timeline(A.setup, { a: [0.3, 0.4, 'back'] }).a));
-      const T = timeline(v, { fly: [0.2, 0.5, 'in'], down: [1.2, 0.3, 'in'], up: [1.6, 0.4], gone: [3.8, 0.4] });
-      const [x, y] = arc([sx + 0.6 * u, sy + 0.5 * u], [sx, sy], 0.2 * u, T.fly);
-      stamp.visible = !pre && T.gone < 1; stamp.position.set(x, y, 0.06 * u + 0.004 * u); stamp.rotation.z = (1 - T.fly) * 2 + 0.05 * wobble(v, 0.7, 0.4, 6);
-      rubber.visible = !pre && v > 1.0 && v < 2.2; rubber.position.set(sx - 0.02 * u, sy + 0.04 * u + (1 - T.down + T.up) * 0.35 * u, 0.1 * u); rubber.rotation.x = -Math.PI / 2;
-      mark.visible = !pre && v > 1.5 && T.gone < 1; mark.position.set(sx - 0.02 * u, sy, 0.07 * u);
-    },
-  };
-}
 
 function trainArrive(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, sx = B.maxX + 0.65 * u;
@@ -91,21 +44,32 @@ function trainArrive(ctx, spec, stage) {
 }
 
 function carPark(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.6 * u;
-  const lines = solidProp([[G.box(0.04 * u, 0.012 * u, 0.5 * u, -0.38 * u, 0.006 * u, 0), 0xffffff], [G.box(0.04 * u, 0.012 * u, 0.5 * u, 0.38 * u, 0.006 * u, 0), 0xffffff], [G.box(0.8 * u, 0.012 * u, 0.04 * u, 0, 0.006 * u, -0.25 * u), 0xffffff], [G.box(1.6 * u, 0.008 * u, 0.6 * u, 0, 0, 0), 0x404048]], 0.25);
-  lines.position.set(px, floor, 0); lines.rotation.x = 0.35;
-  const car = emblemProp('car', 0.55 * u), beep = many([[G.torus(0.08 * u, 0.01 * u, Math.PI * 0.6, 0, 0, 0, -Math.PI * 0.3), 0xffe060]], 3, 1);
-  group.add(lines, car, beep);
-  const loop = 4.8;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.55 * u;
+  const car = createModel('sedan', { height: 0.4 * u }), k = 0.4 * u / 1.3, wheels = ['wheel-front-left', 'wheel-front-right', 'wheel-back-left', 'wheel-back-right'].map(car.node);
+  const SW = 0.6 * u, SZ0 = -0.56 * u, SZ1 = 0.4 * u, ZC = -0.06 * u, lane = ZC + 0.5 * u, d = 0.5 * u, L = Math.PI * d / 2, TOP = 0.007 * u;
+  const lot = solidProp([[G.box(1.5 * u, 0.006 * u, 1.7 * u, 0, 0, 0), 0x4a4d56], [G.box(0.035 * u, 0.008 * u, SZ1 - SZ0, -SW / 2, 0.001 * u, (SZ0 + SZ1) / 2), 0xffffff], [G.box(0.035 * u, 0.008 * u, SZ1 - SZ0, SW / 2, 0.001 * u, (SZ0 + SZ1) / 2), 0xffffff],
+    [G.box(SW + 0.035 * u, 0.008 * u, 0.035 * u, 0, 0.001 * u, SZ0), 0xffffff], [G.box(0.5 * u, 0.007 * u, 0.025 * u, 0, 0.001 * u, lane + 0.3 * u), 0xf0d040]], 0.25);
+  const slope = new THREE.Group(); slope.position.set(px, floor + 0.01 * u, 0); slope.rotation.x = 0.32;
+  const lamps = many([[G.sphere(0.1 * k), 0xffffb0]], 2, 1.6), rings = many([[G.torus(0.07 * u, 0.01 * u, Math.PI * 0.6, 0, 0, 0, -Math.PI * 0.3), 0xffe060]], 3, 1);
+  car.group.add(lamps); slope.add(lot, car.group); group.add(slope, rings);
+  const loop = 6.2;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { in: [0, 1.2, 'out'], back: [1.4, 0.9], out: [4.0, 0.8, 'in'] });
-      const x = px + 1.4 * u * (1 - T.in) + 0.3 * u * (1 - T.back) * (T.in >= 1 ? 1 : 0) - 1.8 * u * T.out;
-      car.position.set(x, floor + 0.18 * u, 0.05 * u + 0.1 * u * T.back); car.visible = !pre; car.idle((T.in > 0 && T.in < 1) || (T.back > 0 && T.back < 1) || T.out > 0 ? v : 0);
-      for (let i = 0; i < 3; i++) { const f = between(v, 2.5 + 0.15 * i, 3.0 + 0.15 * i) + between(v, 3.1 + 0.15 * i, 3.6 + 0.15 * i); beep.set(i, x + 0.3 * u + 0.08 * u * i, floor + 0.35 * u, 0.1 * u, f % 1 > 0 && f % 1 < 1 ? 1 + i * 0.4 : 0); }
-      beep.commit();
+      const T = timeline(v, { in: [0, 1.3, 'out'], rev: [1.5, 1.2], out: [4.1, 1.2], off: [5.3, 0.7, 'in'] }), X0 = 1.3 * u, X1 = -d;
+      // drives in along the lane heading left, backs round into the slot (heading turns from left to the viewer), then pulls out the same way
+      const s = pre ? 0 : T.rev * (1 - T.out), inX = pre ? X0 : X0 + (X1 - X0) * T.in, theta = -Math.PI / 2 * (1 - s);
+      let x, z;
+      if (s > 0 || T.out > 0) { x = -d + d * Math.sin(Math.PI * s / 2); z = ZC + d - d * (1 - Math.cos(Math.PI * s / 2)); } else { x = inX; z = lane; }
+      if (T.off > 0) x = -d - 1.3 * u * T.off;
+      const odo = (X0 - inX) - L * T.rev + L * T.out + 1.3 * u * T.off;                // distance driven forwards (the wheels turn with it)
+      car.group.position.set(x, TOP, z); car.group.rotation.y = theta; car.group.visible = !pre && Math.abs(x) < 1.0 * u + 0.1 * u;
+      wheels.forEach((w) => w && (w.rotation.x = odo / (0.3 * k)));
+      const beep = pre ? 0 : bump(v, 2.9, 0.3) + bump(v, 3.5, 0.3), lit = s > 0.97 ? 0.6 + 1.4 * beep : 0.3;
+      lamps.set(0, 0.5 * k, 0.45 * k, 1.27 * k, lit); lamps.set(1, -0.5 * k, 0.45 * k, 1.27 * k, lit); lamps.commit();
+      for (let i = 0; i < 3; i++) { const at = i < 2 ? 2.9 : 3.5, f = pre ? 0 : between(v, at + (i % 2) * 0.1, at + 0.5 + (i % 2) * 0.1); rings.set(i, px + 0.0 * u + 0.12 * u * f * (i % 2 ? 1 : 0.6) + 0.1 * u, floor + 0.45 * u + 0.1 * u * f, 0.25 * u, f > 0 && f < 1 ? 1 + 1.5 * f : 0); }
+      rings.commit();
     },
   };
 }
@@ -226,4 +190,4 @@ function keypad(ctx, spec, stage) {
   };
 }
 
-export const SCENES = { 'ticket-gate': ticketGate, 'stamp-letter': stampLetter, 'train-arrive': trainArrive, 'car-park': carPark, 'traffic-red': trafficRed, neighbourhood, 'postcard-post': postcardPost, 'button-press': buttonPress, keypad };
+export const SCENES = { 'train-arrive': trainArrive, 'car-park': carPark, 'traffic-red': trafficRed, neighbourhood, 'postcard-post': postcardPost, 'button-press': buttonPress, keypad };
