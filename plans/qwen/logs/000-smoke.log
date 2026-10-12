@@ -1,0 +1,12 @@
+pi exit 0 after 0.4 min
+
+Smoke test done, two commits made (not pushed):
+
+1. **Render**: `node scripts/orbit.mjs 5915 --out plans/qwen/renders/000-smoke.jpg` succeeded (card 5915, 夕).
+2. **Image reading — the one failure**: my read tool on the .jpg returned "model does not support images" — this session's model has no vision, so I could **not** actually see the six views. I did not invent descriptions; the report says exactly this.
+3. **Checks passed**:
+   - `npm test`: 63 pass / 0 fail (1 skipped, no ffmpeg), content check ok (835 cards), recipe check ok, 0 pairs ≥ 0.72
+   - `check-piece-costs.mjs vignette "^q-dusk$"`: `675 recipes, 0 cost mismatches`
+4. **Committed**: `Qwen smoke test render` (1ed3aaf), then the report at `plans/qwen/done/000-smoke.md` as `Qwen report: 000-smoke.md` (d7c5539).
+
+Takeaway for Opus: the watcher, orbit render, and file landing all work on this PC, but Qwen here can't inspect its own renders — the smoke test's main goal (verifying image reading) fails until Qwen runs on a vision-capable model.
