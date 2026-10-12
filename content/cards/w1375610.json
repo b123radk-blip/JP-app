@@ -8,7 +8,7 @@
   "pos": ["v5r", "vi"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "motion": "grow", "particles": ["sparks"], "backdrop": "sky:dawn" },
+  "effect": { "material": "ivory", "reveal": "draw", "motion": "grow", "backdrop": "sky:day", "vignette": { "type": "caterpillar-butterfly", "size": 0.8, "at": [-0.3, 0] } },
   "sentences": [
     {
       "segments": [ { "text": "すぐ" }, { "text": "明", "reading": "あか" }, { "text": "るくなるだろう。" } ],
