@@ -29,6 +29,9 @@ plan is what you follow.
 5. If the render shows such a fault and the fix is a number inside the code the plan gave you (a position, a size), you
    may fix it: at most two tries, re-rendering after each. Say exactly what you changed and why in the report. Anything
    bigger (a new piece, a different design): don't do it; describe it in the report for Opus.
+   The orbit sheet's framing is only a review camera: something cut off by a tile's edge or its header bar is not a
+   fault, and you don't need to move it. To see more of the scene, re-render with `--dist 0.9` instead. Judge poses and
+   contacts (hands on things, feet on the ground) by eye; don't spend time measuring screen coordinates.
 6. Commit the code with the plan's commit message (render included).
 7. Write the report to `plans/qwen/done/<plan name>` (same file name as the plan) and commit it as
    `Qwen report: <plan name>`.
