@@ -8,7 +8,8 @@
 //             river a friend waves from the other bank and the person waves back (向こう)
 //   q-ways    方: a person at a signpost with two arms looks one way, then the other, scratches her head, then
 //             picks one and walks off that way
-//   q-tunnel  通: a person walks into a tunnel through a hill and comes out of the far side
+//   q-tunnel  通: a cut-away hill: a person walks along a road in through one stone portal, along the lamp-lit tunnel
+//             (seen from the side) and out the other end
 //   q-bridge  渡: a person walks up over an arched bridge across a river and down the other side; outcome zebra: a
 //             child waits at a red light, it turns green and she crosses the zebra crossing, hand up (渡る)
 //   q-stairs  降: a person walks down a staircase step by step and back up
@@ -193,24 +194,27 @@ function ways(ctx, spec, stage) {
 
 // ---- 通 ----
 function tunnel(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 0.95 * u;
-  const p = person(spec.who, u, 0.7), tun = new THREE.Group();
-  const hill = solidProp([[G.sphere(0.62 * u, 0, 0, 0, 1, 0.8, 0.75), 0x5aa048], [G.sphere(0.12 * u, -0.15 * u, 0.48 * u, 0.1 * u), 0x3a8a30], [G.sphere(0.1 * u, 0.2 * u, 0.44 * u, 0.15 * u), 0x3a8a30]], 0.35);
-  const mouth = () => solidProp([[G.cyl(0.22 * u, 0.22 * u, 0.08 * u, 0, 0, 0, 0, 0, Math.PI / 2), 0x9a9aa0], [G.cyl(0.17 * u, 0.17 * u, 0.09 * u, 0, 0, 0, 0, 0, Math.PI / 2), 0x08080c]], 0.3);
-  const m1 = mouth(), m2 = mouth(), path = solidProp([[G.box(2.2 * u, 0.01 * u, 0.3 * u, 0, 0, 0), 0xc8a878]], 0.35);
-  m1.position.set(-0.6 * u, 0.04 * u, 0); m2.position.set(0.6 * u, 0.04 * u, 0); path.position.set(0, -0.003 * u, 0);
-  // the tunnel runs from front left to back right, so its way in faces you
-  tun.add(path, hill, m1, m2, p.group); tun.position.set(hx, floor, -0.1 * u); tun.rotation.y = 0.6;
-  group.add(tun);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, hx = B.maxX + 1.05 * u;
+  const mound = [[-0.85, 0.4], [-0.7, 0.62], [-0.45, 0.86], [0, 0.98], [0.45, 0.86], [0.7, 0.62], [0.85, 0.4]].map(([x, y]) => new THREE.Vector2(x * u, y * u));
+  const whole = new THREE.Shape(), roof = new THREE.Shape();
+  whole.moveTo(-1.0 * u, 0); whole.splineThru([...mound, new THREE.Vector2(1.0 * u, 0)]); whole.closePath();
+  const arch = mound.slice(1, 6);
+  roof.moveTo(-0.7 * u, 0.56 * u); roof.lineTo(-0.7 * u, 0.62 * u); roof.splineThru(arch.slice(1)); roof.lineTo(0.7 * u, 0.56 * u); roof.closePath();
+  const hill = solidProp([[G.box(2.2 * u, 0.03 * u, 1.1 * u, 0, -0.015 * u, -0.3 * u), 0x4e8a3a], [G.box(2.1 * u, 0.012 * u, 0.26 * u, 0, 0.006 * u, -0.15 * u), 0xc8a878],
+    [new THREE.ExtrudeGeometry(whole, { depth: 0.4 * u, bevelEnabled: false }).translate(0, 0, -0.7 * u), 0x5aa048], [new THREE.ExtrudeGeometry(roof, { depth: 0.3 * u, bevelEnabled: false }).translate(0, 0, -0.3 * u), 0x5aa048],
+    [new THREE.ShapeGeometry(roof).translate(0, 0, 0.002 * u), 0x8a6a48], [G.tube(arch.map((pt) => [pt.x, pt.y]), 0.025 * u).translate(0, 0, 0.004 * u), 0x3a8a30],
+    [G.box(1.4 * u, 0.56 * u, 0.02 * u, 0, 0.28 * u, -0.29 * u), 0x4a4a52],
+    ...[-1, 1].flatMap((sx) => [[G.box(0.05 * u, 0.56 * u, 0.05 * u, sx * 0.7 * u, 0.28 * u, -0.025 * u), 0x9a9aa0], [G.box(0.05 * u, 0.56 * u, 0.05 * u, sx * 0.7 * u, 0.28 * u, -0.275 * u), 0x9a9aa0], [G.box(0.05 * u, 0.05 * u, 0.3 * u, sx * 0.7 * u, 0.585 * u, -0.15 * u), 0x9a9aa0]])], 0.35);
+  const lamps = solidProp([[G.sphere(0.03 * u, -0.4 * u, 0.46 * u, -0.27 * u), 0xffd070], [G.sphere(0.03 * u, 0, 0.46 * u, -0.27 * u), 0xffd070], [G.sphere(0.03 * u, 0.4 * u, 0.46 * u, -0.27 * u), 0xffd070]], 1.4);
+  const p = person(spec.who, u, 0.5), tun = new THREE.Group();
+  tun.add(hill, lamps, p.group); tun.position.set(hx, floor, 0); group.add(tun);
   const loop = 6.4;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const f = pre ? 0 : between(v, 0.2, 5.6), x = lerp(-1.05 * u, 1.05 * u, f);
-      p.pose(pre || f >= 1 ? 'Idle' : 'Walk', pre ? t : v); p.group.position.set(x, 0, 0); p.group.rotation.y = RIGHT;
-      // inside the hill he is hidden; he comes out of the far end
-      p.group.visible = Math.abs(x) > 0.58 * u;
+      const f = pre ? 0 : between(v, 0.3, 5.6), x = lerp(-0.95 * u, 0.95 * u, f);
+      p.pose(pre || f >= 1 ? 'Idle' : 'Walk', pre ? t : v); p.group.position.set(x, 0, -0.13 * u); p.group.rotation.y = RIGHT;
     },
   };
 }
