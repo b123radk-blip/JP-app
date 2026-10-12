@@ -17,6 +17,7 @@ import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
 import { between, arc, wisps } from './helpers.js';
 import { grow } from './step1-kit.js';
+import { coatParts } from './q-coat-parts.js';
 import { RIGHT, LEFT, lerp, label, pop, person, KID, briefcase, turnTo, axisOf } from './q-common.js';
 
 const W = new THREE.Vector3(), W2 = new THREE.Vector3(), C1 = new THREE.Color();
@@ -32,21 +33,19 @@ export function stick(a, prop, space, x, y, z) { prop.position.copy(space.worldT
 const coatProp = (u, c) => solidProp([[G.box(0.26 * u, 0.3 * u, 0.17 * u, 0, -0.14 * u, 0), c], [G.cyl(0.13 * u, 0.16 * u, 0.16 * u, 0, -0.35 * u, 0), c],
   [G.cyl(0.04 * u, 0.045 * u, 0.24 * u, -0.16 * u, -0.12 * u, 0, 0, 0, -0.35), c], [G.cyl(0.04 * u, 0.045 * u, 0.24 * u, 0.16 * u, -0.12 * u, 0, 0, 0, 0.35), c],
   [G.box(0.16 * u, 0.04 * u, 0.18 * u, 0, 0.01 * u, 0), new THREE.Color(c).multiplyScalar(0.7).getHex()]], 0.45);
-// the coat's skirt once it is on (the body and sleeves are the person's own material)
-const hemProp = (u, c) => solidProp([[G.cyl(0.115 * u, 0.15 * u, 0.15 * u, 0, 0, 0, 0, 0, 0, 24), c]], 0.45);
 
 // ---- 着 / 着る / 上着 ----
 function coatOn(ctx, spec, stage) {
   const o = spec.outcome, u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.45 * u, xs = px + 0.85 * u;
   const C = new THREE.Color(spec.color ?? (o === 'jacket' ? 0x3a8a5a : o === 'wear' ? 0x2a6ad0 : 0xc8402a)).getHex();
-  const p = person(spec.who, u), dye = dyer(p), coat = coatProp(u, C), hem = hemProp(u, C), btn = many([[G.sphere(0.017 * u), 0xffd040]], 3, 0.8);
+  const p = person(spec.who, u), coat = coatProp(u, C), worn = coatParts(p, C);
   const extra = o === 'jacket' ? solidProp([[G.cyl(0.018 * u, 0.018 * u, 0.9 * u, 0, 0.45 * u, 0), 0x6a4a2a], [G.cyl(0.12 * u, 0.14 * u, 0.04 * u, 0, 0.02 * u, 0), 0x6a4a2a], [G.cyl(0.01 * u, 0.01 * u, 0.12 * u, 0.05 * u, 0.84 * u, 0, 0, 0, -0.9), 0x6a4a2a], [G.cyl(0.01 * u, 0.01 * u, 0.12 * u, -0.05 * u, 0.84 * u, 0, 0, 0, 0.9), 0x6a4a2a]], 0.35)
     : o === 'wear' ? null : solidProp([[G.box(0.55 * u, 0.02 * u, 0.32 * u, 0, 0.01 * u, 0), 0x8a5a30], [G.box(0.49 * u, 0.022 * u, 0.26 * u, 0, 0.012 * u, 0), 0xc8964a]], 0.3);
   const sx = px + 0.42 * u;
   if (extra) { extra.position.set(o === 'jacket' ? sx : px, floor, o === 'jacket' ? -0.1 * u : 0.1 * u); if (o !== 'jacket') extra.rotation.x = 0.45; group.add(extra); }
   const say = o === 'wear' ? null : label(u, o === 'jacket' ? 'さむい…' : 'ついた!', o === 'jacket' ? '#3a7ac0' : '#e0802a', 0.13), warm = o === 'jacket' ? label(u, 'ぽかぽか', '#e0702a', 0.13) : null;
   const puffs = o === 'jacket' ? many(PUFF(u, 0xf4f8ff), 4, 0.6) : null;
-  group.add(p.group, coat, hem, btn, ...[say, warm, puffs].filter(Boolean));
+  group.add(p.group, coat, ...worn.parts, ...[say, warm, puffs].filter(Boolean));
   const loop = o === 'arrive' || !o ? 7.6 : o === 'wear' ? 6.6 : 7.2, hook = new THREE.Vector3(sx, floor + 0.8 * u, -0.04 * u);
   return {
     group,
@@ -62,7 +61,8 @@ function coatOn(ctx, spec, stage) {
         const b = pre ? -1 : (v - 1.2) / 0.8;
         if (dressed && b > 0 && b < 3) {
           const i = Math.floor(b), f = bump(b - i, 0.05, 0.9);
-          p.handTo('R', p.local(-0.03, 0.5 - 0.075 * i, 0.15, W), f, { out: 0.6, down: 0.9 }); p.handTo('L', p.local(0.03, 0.5 - 0.075 * i, 0.15, W), f, { out: 0.6, down: 0.9 });
+          const sd = p.local(0.03, 0, 0, W2).sub(p.local(0, 0, 0, W)), bp = worn.at(i, new THREE.Vector3());
+          p.handTo('R', bp.clone().sub(sd), f, { out: 0.6, down: 0.9 }); p.handTo('L', bp.clone().add(sd), f, { out: 0.6, down: 0.9 });
         }
         p.turn('Head', 0.3 * between(b, 0, 0.3) * (1 - between(b, 2.7, 3)));
         place(dressed, !dressed && on > 0 ? above(1 - T.drop + T.off) : null, pre ? 0 : Math.min(3, Math.max(0, Math.floor(b + 0.6))));
@@ -105,10 +105,8 @@ function coatOn(ctx, spec, stage) {
   function place(dressed, cp, nb) {
     coat.visible = !!cp;
     if (cp) { coat.position.copy(cp); coat.rotation.set(0, p.group.rotation.y, 0); }
-    dye('Black', C, dressed ? 1 : 0); dye('Shirt', C, 0); dye('Pants', C, dressed ? 1 : 0);
-    hem.visible = dressed; if (dressed) stick(p, hem, group, 0, 0.27, 0.0);
-    for (let i = 0; i < 3; i++) { p.local(0, 0.5 - 0.075 * i, 0.165, W); group.worldToLocal(W); btn.set(i, W.x, W.y, W.z, dressed && i < nb ? 1 : 0); }
-    btn.commit();
+    
+    worn.mount(group, dressed, nb);
   }
 }
 
