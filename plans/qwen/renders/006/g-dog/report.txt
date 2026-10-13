@@ -1,0 +1,90 @@
+# Inspection of card 72ac
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+1 (worst at t+1): model shiba PASSES INTO mesh white/blue #ffffff/#40c0ff: 8 skin points inside it, near the bones FrontLowerLegR, FrontShoulderR
+  - t+2 to t+6.5 (worst at t+2.5): model shiba PASSES INTO mesh white/blue #ffffff/#40c0ff: 36 skin points inside it, near the bones Head
+  - t+4.5 (worst at t+4.5): model shiba: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model shiba: size 0.76 x 0.73 x 0.78, centre [0.58, 0.35, 0.1], bottom -0.02, top 0.72
+  T2 mesh white/blue #ffffff/#40c0ff: size 0.13 x 0.13 x 0.12, centre [0.54, 0.35, 0.1], bottom 0.28, top 0.42
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model shiba: touches the ground line (bottom of the kanji)
+  T2 mesh white/blue #ffffff/#40c0ff: is on T1 model shiba (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 8 skin points inside it, near the bones FrontLowerLegR, FrontShoulderR
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model shiba: 100% visible (0% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 8 skin points inside it, near the bones FrontLowerLegR, FrontShoulderR
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model shiba: size 0.84 x 0.65 x 0.78, centre [1.31, 0.33, 0.1], bottom 0, top 0.65
+  T2 mesh white/blue #ffffff/#40c0ff: size 0.13 x 0.13 x 0.12, centre [1.07, 0.15, 0.33], bottom 0.08, top 0.22
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model shiba: touches the ground line (bottom of the kanji)
+  T2 mesh white/blue #ffffff/#40c0ff: is on T1 model shiba (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 36 skin points inside it, near the bones Head
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model shiba: 96% visible (4% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 36 skin points inside it, near the bones Head
+
+## t+4.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model shiba: size 0.5 x 0.81 x 0.86, centre [0.48, 0.52, 0.11], bottom 0.12, top 0.93
+  T2 mesh white/blue #ffffff/#40c0ff: size 0.13 x 0.13 x 0.12, centre [0.31, 0.79, 0.48], bottom 0.73, top 0.86
+  T3 pool orange #ff4a6a: size 0.22 x 0.17 x 0.04, centre [0.4, 0.94, 0.05], bottom 0.86, top 1.02
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model shiba: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u)
+  T2 mesh white/blue #ffffff/#40c0ff: is on T1 model shiba (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 27 skin points inside it, near the bones Head
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model shiba: 91% visible (9% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model shiba: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u)
+  - T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 27 skin points inside it, near the bones Head
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  .cache/inspect/006-g-dog/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  .cache/inspect/006-g-dog/faults.jpg
+    1. fault 1 from front (t+1): T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 8 skin points inside it, near the bones FrontLowerLegR, FrontShoulderR (fault1-front-t1.jpg)
+    2. fault 1 from right (t+1): T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 8 skin points inside it, near the bones FrontLowerLegR, FrontShoulderR (fault1-right-t1.jpg)
+    3. fault 2 from front (t+2.5): T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 36 skin points inside it, near the bones Head (fault2-front-t2.5.jpg)
+    4. fault 2 from right (t+2.5): T1 model shiba PASSES INTO T2 mesh white/blue #ffffff/#40c0ff: 36 skin points inside it, near the bones Head (fault2-right-t2.5.jpg)
+    5. fault 3 from front (t+4.5): T1 model shiba: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u) (fault3-front-t4.5.jpg)
+    6. fault 3 from right (t+4.5): T1 model shiba: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u) (fault3-right-t4.5.jpg)
+  .cache/inspect/006-g-dog/people.jpg
+    1. T1 shiba close, from front (t+1) (shiba-front-t1.jpg)
+    2. T1 shiba close, from right (t+1) (shiba-right-t1.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 72ac --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

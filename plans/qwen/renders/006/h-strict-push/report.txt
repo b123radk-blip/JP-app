@@ -1,0 +1,49 @@
+# Inspection of card 62bc
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 pool white #ffffff: size 0.52 x 0.71 x 0.33, centre [0.16, 0.34, 0.02], bottom -0.02, top 0.69
+  T2 pool white #ffffff: size 0.63 x 0.99 x 0.33, centre [0.15, 0.47, 0.02], bottom -0.02, top 0.96
+  T3 pool beige #d8c8b0: size 1.25 x 0.14 x 0.09, centre [-0.61, 0.08, 0.05], bottom 0.01, top 0.14
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  the kanji: 98% visible (2% behind other things (props, labels))
+  (no people or animals)
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 pool white #ffffff: size 0.44 x 0.71 x 0.34, centre [-0.02, 0.34, 0.02], bottom -0.02, top 0.7
+  T2 pool white #ffffff: size 0.54 x 1 x 0.36, centre [-0.04, 0.48, 0.02], bottom -0.02, top 0.97
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  the kanji: 100% visible
+  (no people or animals)
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  .cache/inspect/006-h-strict-push/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  (no fault close-ups: no measured faults)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs 62bc --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

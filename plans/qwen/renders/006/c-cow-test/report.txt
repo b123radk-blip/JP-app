@@ -1,0 +1,82 @@
+# Inspection of card 725b
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+6.5 (worst at t+0): model cow: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+  - t+0 to t+6.5 (worst at t+0): model grass: SUNK INTO model grass (gap -0.04u)
+  - t+0 to t+6.5 (worst at t+0): model grass: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model cow: size 1.41 x 0.86 x 0.93, centre [0.95, 0.73, -0.03], bottom 0.3, top 1.16
+  T2 model grass: size 0.19 x 0.12 x 0.19, centre [0.35, 0.36, 0.25], bottom 0.3, top 0.42
+  T3 model grass: size 0.19 x 0.12 x 0.19, centre [0.47, 0.36, 0.3], bottom 0.3, top 0.42
+  T4 model grass: size 0.19 x 0.12 x 0.19, centre [0.59, 0.36, 0.25], bottom 0.3, top 0.42
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model cow: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+  T2 model grass: SUNK INTO T3 model grass (gap -0.03u)
+  T3 model grass: SUNK INTO T2 model grass (gap -0.04u)
+  T4 model grass: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model cow: 99% visible (1% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model cow: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+  - T2 model grass: SUNK INTO T3 model grass (gap -0.03u)
+  - T3 model grass: SUNK INTO T2 model grass (gap -0.04u)
+  - T4 model grass: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model cow: size 0.96 x 0.85 x 1.37, centre [0.78, 0.73, -0.06], bottom 0.3, top 1.15
+  T2 model grass: size 0.19 x 0.12 x 0.19, centre [0.35, 0.36, 0.25], bottom 0.3, top 0.42
+  T3 model grass: size 0.19 x 0.12 x 0.19, centre [0.47, 0.36, 0.3], bottom 0.3, top 0.42
+  T4 model grass: size 0.19 x 0.12 x 0.19, centre [0.59, 0.36, 0.25], bottom 0.3, top 0.42
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model cow: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+  T2 model grass: SUNK INTO T3 model grass (gap -0.03u)
+  T3 model grass: SUNK INTO T2 model grass (gap -0.04u)
+  T4 model grass: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model cow: 99% visible (1% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model cow: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+  - T2 model grass: SUNK INTO T3 model grass (gap -0.03u)
+  - T3 model grass: SUNK INTO T2 model grass (gap -0.04u)
+  - T4 model grass: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  .cache/inspect/006-c-cow-test/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  .cache/inspect/006-c-cow-test/faults.jpg
+    1. fault 1 from front (t+1): T1 model cow: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u) (fault1-front-t1.jpg)
+    2. fault 1 from right (t+1): T1 model cow: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u) (fault1-right-t1.jpg)
+    3. fault 2 from front (t+1): T3 model grass: SUNK INTO T2 model grass (gap -0.04u) (fault2-front-t1.jpg)
+    4. fault 2 from right (t+1): T3 model grass: SUNK INTO T2 model grass (gap -0.04u) (fault2-right-t1.jpg)
+    5. fault 3 from front (t+1): T4 model grass: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u) (fault3-front-t1.jpg)
+    6. fault 3 from right (t+1): T4 model grass: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.3u) (fault3-right-t1.jpg)
+  .cache/inspect/006-c-cow-test/people.jpg
+    1. T1 cow close, from front (t+1) (cow-front-t1.jpg)
+    2. T1 cow close, from right (t+1) (cow-right-t1.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 725b --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
