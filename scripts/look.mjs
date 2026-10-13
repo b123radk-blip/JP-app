@@ -1,16 +1,15 @@
 // Quick look at a few cards while designing them: each card at a few moments, cropped to the animation, in one sheet.
 // Optionally tries a recipe from a JSON file ({ id: effect }) instead of the cards' own.
-// Usage: npm run serve (other shell), then node scripts/look.mjs 5148,8a71 [--recipes try.json] [--out .cache/look.jpg] [--one]
+// Usage (serves the repo itself; works on a PC too): node scripts/look.mjs 5148,8a71 [--recipes try.json] [--out .cache/look.jpg] [--one]
 // A key "5148~b" shows card 5148 with the recipe under "5148~b" in --recipes (a key missing from the file is an error).
 // --times -1,0.5,2: seconds relative to the last stroke; a:b:step adds a strip (--times 0:6:0.5); default: mid-strokes,
 //   just after, idle (--one: idle only, four per row). --cols n: tiles per row (default: one row per card).
 // --cam x,y,d: look at (x, y) metres from the middle of the card from d metres away (default 0,0,1.22: the learner's seat).
 // --clip x,y,w,h: the part of the 760x620 page to keep. Default: fitted per card to the kanji and everything its scene
 //   shows at the chosen moments (at least 110,85,540,265, the old fixed crop; --no-fit keeps that one).
-import { createRequire } from 'node:module';
 import { readFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
-const { chromium } = createRequire('/opt/node22/lib/node_modules/_')('playwright');
+import { launch, serve } from './lib/browser.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const list = (s) => s.split(',').map(Number);
@@ -18,7 +17,7 @@ if (!process.argv[2] || process.argv[2].startsWith('--')) {
   console.log('usage: node scripts/look.mjs <id[,id~key...]> [--recipes try.json] [--times -0.4,1,0:6:0.5] [--one] [--cols n] [--cam x,y,d] [--clip x,y,w,h | --no-fit] [--out .cache/look.jpg]');
   process.exit(1);
 }
-const BASE = process.env.BASE || 'http://localhost:8080/', OUT = arg('--out', '.cache/look.jpg'), W = 760, H = 620, DEFAULT = [110, 85, 540, 265];
+const OUT = arg('--out', '.cache/look.jpg'), W = 760, H = 620, DEFAULT = [110, 85, 540, 265];
 const times = arg('--times')?.split(',').flatMap((s) => {
   if (!s.includes(':')) return [Number(s)];
   const [a, b, step] = s.split(':').map(Number), out = [];
@@ -42,10 +41,7 @@ function fit(boxes) {
   return [x, y, w, h].map(Math.round);
 }
 
-const browser = await chromium.launch({
-  executablePath: process.env.CHROME || '/opt/pw-browsers/chromium',
-  args: ['--disable-background-networking', '--use-gl=angle', '--use-angle=swiftshader', '--enable-unsafe-swiftshader', '--ignore-gpu-blocklist', '--no-sandbox'],
-});
+const { base: BASE, server } = await serve(), browser = await launch();     // serves the repo itself (BASE env: use that server)
 const page = await browser.newPage({ viewport: { width: W, height: H } });
 let errors = [];
 page.on('console', (m) => { if (['error', 'warning'].includes(m.type())) errors.push(m.text()); });
@@ -82,4 +78,4 @@ mkdirSync(dirname(OUT), { recursive: true });
 await sheet.screenshot({ path: OUT, type: 'jpeg', quality: 75, fullPage: true });
 console.log(`${OUT} (${ids.length} cards, ${tiles.length} frames)`);
 if (issues.length) console.log(`CONSOLE ISSUES:\n${issues.join('\n')}`);
-await browser.close();
+await browser.close(); server?.close();

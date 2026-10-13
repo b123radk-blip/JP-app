@@ -215,7 +215,7 @@ function playground(ctx, spec, stage) {
         else { gal.pose('Walk', v); gal.group.position.set(...lerpP(P_foot, P_in0, between(v, 7.6, 8.0))); gal.group.rotation.y = -Math.PI / 2; }
       }
       // ---- the boy: sits on the sandbox's near rim with his back to the learner, scoops sand, a sand castle grows in three steps ----
-      boy.group.visible = !pre && pop > 0.8;
+      boy.group.visible = spade.visible = !pre && pop > 0.8;        // (his spade too: it hung in the air before he appeared)
       if (!pre) {
         boy.pose('SitDown', 1, false); boy.group.rotation.y = Math.PI; boy.group.position.set(bx, floor, bz + 0.14 * u);
         seatAt(boy, group, group.localToWorld(PV.set(bx, floor + 0.13 * u, bz + 0.14 * u)), 1);
