@@ -109,7 +109,7 @@ export const VIGNETTES = {
   'think-click': V(7, 'a person scratches their head; in the thought bubble a "?" spins and turns into "!", and up goes a finger (meaning, idea, mind)'),
   'roller-blue': V((o) => (o.outcome === 'balloon' ? 2 : 7), 'a roller paints a white wall blue stripe by stripe and a bluebird lands on top (blue; color: the paint); outcome balloon: a blue balloon blows up and floats away (blue)', { outcome: 'wall', color: null }, 'outcome'),
   'shop-open': V((o) => (o.outcome === 'veg' || o.outcome === 'closed' ? 3 : 4), 'a little shop: its shutter rolls up and the shopkeeper behind the counter waves (shop, house); outcome veg: crates of vegetables (greengrocer); closed: the shutter rolls down and a CLOSED sign swings (to be shut)', { outcome: 'open' }, 'outcome'),
-  playground: V(7, 'an empty lot; a slide and a swing pop up out of the ground and kids play on them (place, venue)'),
+  playground: VM(20, '場 (models): a patch of grass; a slide and a sandbox pop up out of it. A girl (gal3) walks in, climbs the steps, sits on the platform and slides down, then jumps up cheering (Victory) and walks back; a boy (guy2) sits on the sandbox rim, scoops sand with a red spade and a sand castle grows in three steps (place, venue)', ['gal3', 'guy2']),
   'build-toy': V(9, 'a toy car is put together: the body drops on, the wheels pop on, a hammer taps, and it drives off (make)'),
   'soot-puff': V(5, 'a chimney coughs a big black cloud over a person, who comes out black all over, only their eyes blinking; they shake it off (black)'),
   'stairs-down': V(5, 'a person walks down a staircase step by step; at the bottom a cloud comes and rain starts (descend, fall)'),

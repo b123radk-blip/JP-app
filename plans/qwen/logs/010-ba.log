@@ -1,0 +1,27 @@
+pi exit 0 after 32.0 min
+
+Done. Both commits are in, the working tree is clean, and nothing was pushed.
+
+## Summary
+
+Rebuilt the `playground()` vignette for 場 (card 5834) per plan 010, replacing the old stick-figure slide + swing with Quaternius model children and a **sandbox**.
+
+**Scene (8 s loop):** a grass patch beside the kanji; a slide (red steps, yellow chute) and a sand-filled sandbox pop up; the **girl (gal3)** walks in, climbs the steps, sits on the platform, slides down with her hips on the chute, lands, jumps up cheering, and walks back; the **boy (guy2)** sits on the sandbox's near rim (back to the learner), scoops sand with a red spade held against his palm, and a sand castle grows in three steps.
+
+**Files changed** (only what the plan named):
+- `src/effects/vignettes/world.js` — rewrote `playground()` (+ its imports: `person`, `seatAt`)
+- `src/effects/vignette-catalog.js` — `V(7, …)` → `VM(20, …, ['gal3', 'guy2'])`
+
+**Inspection (6 rounds, `--times 2,4.2,6.2` = climb/slide/cheer):**
+- boy 90% visible, girl 84–100% (84% is one mid-slide frame where the chute crosses in front of her legs), kanji **100%**
+- while sliding: **8 pts** at the hips (touching — no float, no sink >0.03)
+- the only intended float is the cheer jump (t+5.9–6.6, ~0.11u)
+- the boy's 69 "pass into sandbox" points are his **feet in the sand** (he sits *in* the sandbox — by design); the spade is held at his palm, not in a fist
+
+**Checks:** `node --check` ok · `npm test` passes (835 cards, 0 pairs ≥ 0.72) · cost check 0 mismatches · orbit + inspect read cleanly.
+
+**Commits:**
+- `f0889d3 場: a playground pops up: a girl climbs and slides, a boy builds a sand castle (Qwen, plan 010)`
+- `ba0cb81 Qwen report: 010-ba`
+
+Report: `plans/qwen/done/010-ba.md`. **Not pushed**, per the ground rules — the user should verify the slide reads as a slide (not a pole/plank), the girl's slide keeps her in view, and the boy's spade/sand-castle read correctly from the seat.

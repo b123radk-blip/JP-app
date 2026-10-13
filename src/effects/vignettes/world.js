@@ -20,7 +20,10 @@ import { many, PUFF, burst, hammer } from '../pieces/kit-things.js';
 import { emblemProp, wheel } from '../pieces/kit-props.js';
 import { solidProp } from '../pieces/kit-rig.js';
 import { G } from '../pieces/shape-kit.js';
-import { between, arc, handTo, bonePoint } from './helpers.js';
+import { between, arc, handTo, bonePoint, puffs } from './helpers.js';
+import { lerp, person, KID } from './q-common.js';
+import { seatAt } from './q-ride.js';
+import { grow } from './step1-kit.js';
 import { chickStep, drawerPull, stopCar, showerSing, rainbowClear, stinkSock, blueBalloon, heightLine, shopVariant, hairBraid } from './variants2.js';
 
 const cloudGeo = (u, s, c = 0x9aa0ac) => [[G.sphere(0.2 * s * u, 0, 0, 0, 1.4, 0.8, 0.8), c], [G.sphere(0.15 * s * u, -0.2 * s * u, -0.04 * s * u), c], [G.sphere(0.16 * s * u, 0.2 * s * u, -0.03 * s * u), c], [G.sphere(0.13 * s * u, 0.05 * s * u, 0.1 * s * u), c]];
@@ -148,28 +151,81 @@ function shopOpen(ctx, spec, stage) {
 }
 
 function playground(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 0.3 * u;
-  const slide = solidProp([[G.box(0.05 * u, 0.6 * u, 0.05 * u, 0, 0.3 * u, -0.1 * u), 0xe04848], [G.box(0.05 * u, 0.6 * u, 0.05 * u, 0, 0.3 * u, 0.1 * u), 0xe04848], [G.box(0.12 * u, 0.04 * u, 0.24 * u, 0, 0.6 * u, 0), 0xe04848], [G.box(0.7 * u, 0.03 * u, 0.2 * u, 0.32 * u, 0.33 * u, 0, -0.75), 0xf0c030]], 0.35);
-  const frame = solidProp([[G.box(0.04 * u, 0.85 * u, 0.04 * u, -0.25 * u, 0.42 * u, 0), 0x4a8ae0], [G.box(0.04 * u, 0.85 * u, 0.04 * u, 0.25 * u, 0.42 * u, 0), 0x4a8ae0], [G.box(0.55 * u, 0.04 * u, 0.04 * u, 0, 0.85 * u, 0), 0x4a8ae0]], 0.35);
-  const swing = solidProp([[G.cyl(0.006 * u, 0.006 * u, 0.55 * u, -0.08 * u, -0.27 * u, 0), 0xc0c0c8], [G.cyl(0.006 * u, 0.006 * u, 0.55 * u, 0.08 * u, -0.27 * u, 0), 0xc0c0c8], [G.box(0.2 * u, 0.025 * u, 0.1 * u, 0, -0.55 * u, 0), 0x8a5a30]], 0.35);
-  const sx = gx, fx = gx + 1.05 * u; slide.position.set(sx, floor, 0); frame.position.set(fx, floor, -0.05 * u);
-  const k1 = createPerson({ u: 0.5 * u, shirt: 0xf0a030 }), k2 = createPerson({ u: 0.5 * u, shirt: 0x60c070 });
-  group.add(slide, frame, swing, k1.group, k2.group);
-  const loop = 5.0;
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX, PV = new THREE.Vector3(), TV = new THREE.Vector3();
+  // an empty patch of grass beside the kanji: a thin green slab tipped toward the learner so its top shows
+  const grass = solidProp([[G.box(1.4 * u, 0.03 * u, 0.6 * u, 0, -0.01 * u, 0), 0x4a9a44], [G.box(1.4 * u, 0.006 * u, 0.6 * u, 0, 0.003 * u, 0), 0x5cb453]], 0.4);
+  const grassG = new THREE.Group(); grassG.position.set(gx + 0.72 * u, floor + 0.01 * u, 0.0 * u); grassG.rotation.x = 0.08; grassG.add(grass);
+  // a slide: red treads climb to a platform at left, a yellow chute runs down to the right
+  const sx = gx + 0.55 * u, sz = -0.12 * u;
+  const slide = solidProp([
+    [G.box(0.16 * u, 0.04 * u, 0.22 * u, -0.2 * u, 0.1 * u, 0), 0xd84030],
+    [G.box(0.16 * u, 0.04 * u, 0.22 * u, -0.1 * u, 0.2 * u, 0), 0xd84030],
+    [G.box(0.2 * u, 0.04 * u, 0.24 * u, 0.0 * u, 0.3 * u, 0), 0xf0c030],
+    [G.box(0.5 * u, 0.05 * u, 0.24 * u, 0.25 * u, 0.14 * u, 0, -0.6), 0xf0c030],
+    [G.box(0.5 * u, 0.06 * u, 0.02 * u, 0.25 * u, 0.19 * u, 0.12 * u, -0.6), 0xd84030],
+    [G.box(0.5 * u, 0.06 * u, 0.02 * u, 0.25 * u, 0.19 * u, -0.12 * u, -0.6), 0xd84030],
+    [G.box(0.03 * u, 0.3 * u, 0.03 * u, -0.02 * u, 0.15 * u, 0), 0xc03828],
+  ], 0.4); slide.position.set(sx, floor, sz);
+  // a sandbox: a low wooden frame full of yellow sand
+  const bx = gx + 1.22 * u, bz = 0.1 * u;
+  const sandbox = solidProp([
+    ...[[0, 0.16, 0.35, 0.03], [0, -0.16, 0.35, 0.03], [0.16, 0, 0.03, 0.35], [-0.16, 0, 0.03, 0.35]].map(([ox, oz, w, d]) => [G.box(w * u, 0.12 * u, d * u, ox * u, 0.06 * u, oz * u), 0x9a6a3a]),
+    [G.box(0.3 * u, 0.06 * u, 0.3 * u, 0, 0.04 * u, 0), 0xf0d8a0],
+  ], 0.4); sandbox.position.set(bx, floor, bz);
+  const spade = solidProp([[G.box(0.015 * u, 0.11 * u, 0.015 * u, 0, 0.04 * u, 0), 0xd84030], [G.box(0.05 * u, 0.04 * u, 0.012 * u, 0, -0.03 * u, 0.01 * u), 0xbfc4cc]], 0.4);
+  const sand = many(PUFF(0.7 * u, 0xf0d8a0), 5, 0.5);
+  const cBase = solidProp([[G.box(0.16 * u, 0.08 * u, 0.16 * u, 0, 0.04 * u, 0), 0xe8c880]], 0.4);
+  const cT1 = solidProp([[G.cyl(0.03 * u, 0.036 * u, 0.11 * u, -0.05 * u, 0.1 * u, -0.05 * u), 0xe0c078]], 0.4);
+  const cT2 = solidProp([[G.cyl(0.03 * u, 0.036 * u, 0.11 * u, 0.05 * u, 0.1 * u, -0.05 * u), 0xe0c078], [G.cyl(0.028 * u, 0.034 * u, 0.14 * u, 0, 0.12 * u, 0.05 * u), 0xd8b060]], 0.4);
+  const gal = person('gal3', u, KID), boy = person('guy2', u, KID);
+  group.add(grassG, slide, sandbox, spade, sand, cBase, cT1, cT2, gal.group, boy.group);
+  // the girl's path (world): in -> foot -> the three treads -> the platform
+  const P_in0 = [gx + 0.22 * u, floor, 0.2 * u], P_foot = [gx + 0.33 * u, floor, 0.02 * u], P_s0 = [gx + 0.35 * u, floor + 0.12 * u, sz],
+    P_s1 = [gx + 0.45 * u, floor + 0.22 * u, sz], P_top = [gx + 0.55 * u, floor + 0.32 * u, sz], P_seat = [gx + 0.55 * u, floor + 0.35 * u, sz],
+    P_land = [gx + 0.85 * u, floor, 0.15 * u];
+  const chA = [gx + 0.62 * u, floor + 0.27 * u], chB = [gx + 0.99 * u, floor + 0.03 * u];
+  const lerpP = (a, b, f) => [a[0] + (b[0] - a[0]) * f, a[1] + (b[1] - a[1]) * f, a[2] + (b[2] - a[2]) * f];
+  const cxp = bx, czp = bz - 0.05 * u;   // the sand castle, in the box in front of the boy
+  const loop = 8.0;
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const I = timeline(A.setup, { slide: [0.3, 0.4, 'back'], swing: [0.5, 0.4, 'back'] });
-      slide.scale.set(1, Math.max(1e-3, I.slide), 1); frame.scale.set(1, Math.max(1e-3, I.swing), 1);
-      const sa = pre ? 0 : 0.6 * Math.sin(v * 2.5) * between(v, 0.5, 1.2);
-      swing.position.set(fx, floor + 0.83 * u * I.swing, -0.05 * u); swing.rotation.x = sa; swing.visible = I.swing > 0.95;
-      // kid 1 climbs to the top of the slide and slides down, again and again; kid 2 rides the swing
-      const c = pre ? 0 : (v % 2.5) / 2.5, onTop = c < 0.35, f = between(c, 0.35, 0.8);
-      const k1x = onTop ? sx - 0.02 * u : sx + 0.6 * u * f, k1y = onTop ? floor + 0.62 * u * Math.min(1, c / 0.3) : floor + 0.62 * u - 0.5 * u * f;
-      k1.group.position.set(k1x, k1y, 0.0); k1.group.visible = !pre; k1.face(onTop ? 'away' : 'right').reset(); if (!onTop) { k1.bone('legL').rotation.x = k1.bone('legR').rotation.x = 1.4; k1.raise('L', 2.2); k1.raise('R', 2.2); } k1.update();
-      k2.group.visible = !pre && v > 0.4; k2.group.position.set(fx + Math.sin(sa) * 0.0, floor + 0.83 * u - 0.55 * u * Math.cos(sa) - 0.3 * u + 0.02 * u, -0.05 * u + 0.55 * u * Math.sin(sa)); k2.face('toward').reset();
-      k2.bone('legL').rotation.x = k2.bone('legR').rotation.x = 1.4; k2.raise('L', 2.9); k2.raise('R', 2.9); k2.update();
+      const pop = pre ? 0 : timeline(v, { p: [0, 0.5, 'back'] }).p, ps = Math.max(1e-3, pop);
+      slide.scale.set(1, ps, 1); sandbox.scale.set(1, ps, 1);
+      // ---- the girl: walk in, climb the treads, sit, slide down, cheer, walk back round ----
+      gal.group.visible = !pre;
+      if (!pre) {
+        if (v < 0.7) { gal.pose('Walk', v); gal.group.position.set(...lerpP(P_in0, P_foot, between(v, 0, 0.7))); gal.group.rotation.y = Math.PI / 2; }
+        else if (v < 1.4) { gal.pose('Walk', v); gal.group.position.set(...lerpP(P_foot, P_s0, between(v, 0.7, 1.4))); gal.group.rotation.y = Math.PI / 2; }
+        else if (v < 2.1) { gal.pose('Walk', v); gal.group.position.set(...lerpP(P_s0, P_s1, between(v, 1.4, 2.1))); gal.group.rotation.y = Math.PI / 2; }
+        else if (v < 2.8) { gal.pose('Walk', v); gal.group.position.set(...lerpP(P_s1, P_top, between(v, 2.1, 2.8))); gal.group.rotation.y = Math.PI / 2; }
+        else if (v < 3.5) { const s = between(v, 2.8, 3.5); gal.pose('SitDown', s, false); gal.group.rotation.y = Math.PI / 2; gal.group.position.set(...P_top); seatAt(gal, group, group.localToWorld(PV.set(...P_seat)), s); }
+        else if (v < 5.2) {
+          const cs = 0.12 + 0.88 * between(v, 3.5, 5.2), hx = lerp(chA[0], chB[0], cs) + 0.01 * u, hy = lerp(chA[1], chB[1], cs) + 0.06 * u;
+          gal.pose('SitDown', 1, false); gal.group.rotation.y = Math.PI / 2; gal.group.position.set(...P_top); seatAt(gal, group, group.localToWorld(PV.set(hx, hy, sz)), 1);
+        }
+        else if (v < 6.6) {
+          gal.pose('Victory', v);
+          const lp = lerpP([chB[0], chB[1], sz], P_land, between(v, 5.2, 5.9));
+          gal.group.rotation.y = lerp(Math.PI / 2, 0, between(v, 5.2, 5.8));
+          gal.group.position.set(lp[0], lp[1] + 0.11 * u * bump(v, 5.9, 1.0), lp[2]);
+        }
+        else if (v < 7.6) { gal.pose('Walk', v); gal.group.position.set(...lerpP(P_land, P_foot, between(v, 6.6, 7.6))); gal.group.rotation.y = -Math.PI / 2; }
+        else { gal.pose('Walk', v); gal.group.position.set(...lerpP(P_foot, P_in0, between(v, 7.6, 8.0))); gal.group.rotation.y = -Math.PI / 2; }
+      }
+      // ---- the boy: sits on the sandbox's near rim with his back to the learner, scoops sand, a sand castle grows in three steps ----
+      boy.group.visible = !pre && pop > 0.8;
+      if (!pre) {
+        boy.pose('SitDown', 1, false); boy.group.rotation.y = Math.PI; boy.group.position.set(bx, floor, bz + 0.14 * u);
+        seatAt(boy, group, group.localToWorld(PV.set(bx, floor + 0.13 * u, bz + 0.14 * u)), 1);
+        const scoop = group.localToWorld(new THREE.Vector3(bx + 0.03 * u, floor + 0.05 * u + 0.03 * u * Math.sin(v * 3.2), bz - 0.02 * u));
+        boy.grip('R', scoop, TV.set(0, -0.4, -0.9).normalize(), 0.05 * u, 1, { out: 0.3, down: 0.8 });
+        boy.hold(spade, 'R', group, 0.05 * u);
+        puffs(sand, 0, 5, bx + 0.03 * u, floor + 0.09 * u, (v / 1.0) % 1, u, 0.06);
+      } else sand.commit();
+      const cB = pre ? 0 : timeline(v, { b: [1.2, 0.5, 'back'] }).b, c1 = pre ? 0 : timeline(v, { t: [2.0, 0.5, 'back'] }).t, c2 = pre ? 0 : timeline(v, { t: [2.8, 0.5, 'back'] }).t;
+      for (const [m, k] of [[cBase, cB], [cT1, c1], [cT2, c2]]) { m.position.set(cxp, floor + 0.05 * u, czp); m.scale.setScalar(grow(k)); m.visible = k > 0.01; }
     },
   };
 }

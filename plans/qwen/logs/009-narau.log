@@ -1,0 +1,23 @@
+pi exit 0 after 20.2 min
+
+Done. Committed as `498ff7b`, not pushed.
+
+## Summary — plan 009 (習う, card w1333070, scene `q-piano-lesson`)
+
+**What changed** (all inside `piano()`, `src/effects/vignettes/q-music.js`, +5 lines → 305):
+- Turned each player **and** her keyboard `0.85` rad toward the kanji → the learner sees the player front-side and the keyboard **end-on**, so it no longer hides the body.
+- Lowered + narrowed the keyboards (top at the waist, not the chest).
+- Pulled the scene in: grandma at `maxX+0.32u`, girl at `+0.62u` → girl's right edge now **~1.14u** (was ~1.3–1.5u at the picture edge).
+- Notes **1.5×**, rising **0.8u in 0.5 s** past both players' heads, in a small fan aimed into the gap between the two players (the ~0.08u gap can't hold a face-height cloud, so they clear above the heads instead).
+
+**Final inspection** (`--times 1,3.5,5.5`): whole loop reports **"no measured faults at any moment"** — both players **≥85% and fully inside the picture at every 0.5 s step** (seat lines 92/89, 89/89, 88/87). Grandma on her stool, girl on the ground, じょうず! bubble floats (expected). All right edges ≤1.2u (max 1.14u).
+
+**Checks**: `node --check` ok · `npm test` passes (835 cards, 0 pairs ≥0.72) · cost check `^q-piano-lesson$` → **0 mismatches** (catalog line untouched) · before/after orbit sheets rendered and viewed.
+
+**Skipped / flagged**:
+- `look.mjs` — can't run on this machine (hard-coded non-portable playwright path, pre-existing). The learner's-seat view it provides is covered by the inspect `t*-learner.jpg` sheets.
+- **Playing hand ≈0.08–0.09u** from the keys, just over the plan's ~0.05u target — a reach limit of the sitting model (aiming lower or raising `down` changed nothing). It reads as "on the keys" from the seat, but this is the one soft requirement I couldn't fully close; it's called out for you to judge in the headset.
+
+**Deliverables**: `plans/qwen/renders/009-narau.jpg` (after) + `009-narau-before.jpg` (before, via git stash) + `009-narau/` inspection sheets, and the report at `plans/qwen/done/009-narau.md`.
+
+**For you in the headset**: confirm both players' full bodies stay in view for the whole loop, the hands read as pressing the keys, the notes are clearly bigger/coloured and clear of both faces, and the grandma sits on the stool / girl stands on the ground.

@@ -1,0 +1,123 @@
+# Inspection of card w1333070
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  no measured faults at any moment
+
+## t+1 (u = 0.360 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh brown/dark brown #8a5a30/#6a4020: size 0.2 x 0.11 x 0.2, centre [0.32, 0.06, -0.08], bottom 0, top 0.11
+  T2 model grandma: size 0.47 x 0.85 x 0.37, centre [0.44, 0.44, -0.18], bottom 0.02, top 0.86
+  T3 model gal3: size 0.32 x 0.7 x 0.27, centre [0.98, 0.35, -0.02], bottom 0, top 0.7
+  T4 mesh white/black #fafafa/#18181c: size 0.47 x 0.23 x 0.5, centre [0.13, 0.11, 0.09], bottom 0, top 0.23
+  T5 mesh white/black #fafafa/#18181c: size 0.35 x 0.22 x 0.36, centre [0.75, 0.11, 0.15], bottom 0, top 0.22
+  T6 pool white #ffffff: size 0.29 x 0.32 x 0.07, centre [0.21, 1.03, -0.08], bottom 0.87, top 1.19
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh brown/dark brown #8a5a30/#6a4020: is on T2 model grandma (worn or held: check it sits right in the close-ups)
+  T2 model grandma: touches the ground line (bottom of the kanji)
+  T3 model gal3: touches the ground line (bottom of the kanji)
+  T4 mesh white/black #fafafa/#18181c: touches the ground line (bottom of the kanji)
+  T5 mesh white/black #fafafa/#18181c: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model grandma right hand at [0.27,0.32,-0.09]: nearest own body part right knee 0.18u away; nearest other thing T4 mesh white/black #fafafa/#18181c 0.09u away
+  T2 model grandma left hand at [0.5,0.23,-0.04]: nearest own body part left knee 0.11u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.07u away
+  T3 model gal3 right hand at [0.96,0.2,-0.13]: nearest own body part right knee 0.1u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.1u away
+  T3 model gal3 left hand at [1.04,0.2,0.08]: nearest own body part left knee 0.1u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.12u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model grandma: 92% visible (8% behind other things (props, labels))
+  T3 model gal3: 89% visible (11% behind other things (props, labels))
+  the kanji: 99% visible (1% behind other things (props, labels))
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3.5 (u = 0.360 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh brown/dark brown #8a5a30/#6a4020: size 0.2 x 0.11 x 0.2, centre [0.32, 0.06, -0.08], bottom 0, top 0.11
+  T2 model grandma: size 0.46 x 0.85 x 0.36, centre [0.45, 0.44, -0.19], bottom 0.02, top 0.87
+  T3 model gal3: size 0.36 x 0.69 x 0.32, centre [0.94, 0.34, -0.01], bottom 0, top 0.69
+  T4 mesh white/black #fafafa/#18181c: size 0.47 x 0.23 x 0.5, centre [0.13, 0.11, 0.09], bottom 0, top 0.23
+  T5 mesh white/black #fafafa/#18181c: size 0.35 x 0.22 x 0.36, centre [0.75, 0.11, 0.15], bottom 0, top 0.22
+  T6 pool white #ffffff: size 0.24 x 0.29 x 0.07, centre [0.64, 1.19, -0.02], bottom 1.04, top 1.33
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh brown/dark brown #8a5a30/#6a4020: is on T2 model grandma (worn or held: check it sits right in the close-ups)
+  T2 model grandma: touches the ground line (bottom of the kanji)
+  T3 model gal3: touches the ground line (bottom of the kanji)
+  T4 mesh white/black #fafafa/#18181c: touches the ground line (bottom of the kanji)
+  T5 mesh white/black #fafafa/#18181c: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model grandma right hand at [0.29,0.24,-0.15]: nearest own body part right knee 0.09u away; nearest other thing T4 mesh white/black #fafafa/#18181c 0.01u away
+  T2 model grandma left hand at [0.5,0.23,-0.04]: nearest own body part left knee 0.11u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.07u away
+  T3 model gal3 right hand at [0.82,0.3,0.06]: nearest own body part chest 0.19u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.08u away
+  T3 model gal3 left hand at [1.06,0.2,0.05]: nearest own body part left knee 0.1u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.14u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model grandma: 89% visible (11% behind other things (props, labels))
+  T3 model gal3: 89% visible (11% behind other things (props, labels))
+  the kanji: 99% visible (1% behind other things (props, labels))
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+5.5 (u = 0.360 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh brown/dark brown #8a5a30/#6a4020: size 0.2 x 0.11 x 0.2, centre [0.32, 0.06, -0.08], bottom 0, top 0.11
+  T2 model grandma: size 0.46 x 0.85 x 0.36, centre [0.45, 0.44, -0.18], bottom 0.02, top 0.86
+  T3 model gal3: size 0.29 x 0.7 x 0.32, centre [1, 0.36, -0.03], bottom 0, top 0.71
+  T4 mesh white/black #fafafa/#18181c: size 0.47 x 0.23 x 0.5, centre [0.13, 0.11, 0.09], bottom 0, top 0.23
+  T5 mesh white/black #fafafa/#18181c: size 0.35 x 0.22 x 0.36, centre [0.75, 0.11, 0.15], bottom 0, top 0.22
+  T6 pool white #ffffff: size 0.09 x 0.1 x 0.02, centre [0.71, 1.14, -0.02], bottom 1.09, top 1.19
+  T7 label "じょうず!": size 0.58 x 0.15 x 0, centre [0.74, 0.8, 0.25], bottom 0.72, top 0.88
+  T8 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.64, 0.7, 0.25], bottom 0.64, top 0.76
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh brown/dark brown #8a5a30/#6a4020: is on T2 model grandma (worn or held: check it sits right in the close-ups)
+  T2 model grandma: touches the ground line (bottom of the kanji)
+  T3 model gal3: touches the ground line (bottom of the kanji)
+  T4 mesh white/black #fafafa/#18181c: touches the ground line (bottom of the kanji)
+  T5 mesh white/black #fafafa/#18181c: touches the ground line (bottom of the kanji)
+  T8 mesh white #ffffff: is high in the air above the ground line (bottom of the kanji) (gap 0.64u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model grandma right hand at [0.29,0.24,-0.15]: nearest own body part right knee 0.09u away; nearest other thing T4 mesh white/black #fafafa/#18181c 0.01u away
+  T2 model grandma left hand at [0.5,0.23,-0.04]: nearest own body part left knee 0.11u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.07u away
+  T3 model gal3 right hand at [0.92,0.21,-0.13]: nearest own body part right knee 0.1u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.09u away
+  T3 model gal3 left hand at [1.07,0.21,0.04]: nearest own body part left knee 0.1u away; nearest other thing T5 mesh white/black #fafafa/#18181c 0.15u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model grandma: 88% visible (12% behind other things (props, labels))
+  T3 model gal3: 87% visible (13% behind other things (props, labels))
+  the kanji: 99% visible (1% behind other things (props, labels))
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/009-narau/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+3.5 (t3.5-scene-front.jpg)
+    5. the whole scene from right, t+3.5 (t3.5-scene-right.jpg)
+    6. what the learner sees, t+3.5 (t3.5-learner.jpg)
+    7. the whole scene from front, t+5.5 (t5.5-scene-front.jpg)
+    8. the whole scene from right, t+5.5 (t5.5-scene-right.jpg)
+    9. what the learner sees, t+5.5 (t5.5-learner.jpg)
+  (no fault close-ups: no measured faults)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs w1333070 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
