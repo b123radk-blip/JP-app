@@ -26,7 +26,10 @@ plan is what you follow.
    - `node scripts/inspect.mjs <card id> --times <the plan's times> --out plans/qwen/renders/<plan name without .md>`:
      measures the scene and takes big close-up pictures. Read its whole report first: it lists every thing (T1, T2 ...),
      what each rests on (FLOATS ABOVE / SUNK INTO), bodies PASSING INTO things, where each hand is on the body, and how
-     much of each person the learner can see. Its POSSIBLE FAULTS are measured, so trust them over your impression of a
+     much of each person (and of the kanji) the learner can see, what hides behind the meaning label, and who is partly
+     outside the picture. It first measures the whole loop every 0.5 s and lists each fault with the moments it shows; a
+     fault outside the plan's times gets a section and close-ups of its own. Stars, hearts and bursts from the kit are
+     in the air on purpose and are not faults. Its POSSIBLE FAULTS are measured, so trust them over your impression of a
      picture: a fault it lists is a fault unless the plan wants it (a jump, tiptoes, a bird in the air). Then open every
      picture it lists (one at a time, they are large) and check the fault close-ups first.
    - For any doubt, take your own close look: `node scripts/inspect.mjs <card id> --look T3 --from right --t 1.5

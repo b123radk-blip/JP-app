@@ -2,9 +2,11 @@
 // hidden behind each other from the learner's seat, hands that miss what they should touch. Measures first (numbers, in
 // u = the kanji's height), then takes big close-up pictures: the whole scene, every person or animal on its own, and every
 // fault it found. Then any one close look you ask for. For Qwen (plans/qwen/README.md) and for Opus's reviews.
-// Usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--out .cache/inspect/<id>]
+// Usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--strict] [--out .cache/inspect/<id>]
 //        node scripts/inspect.mjs <card id> --look T3 [--from right] [--t 1.5] [--zoom 2] [--out ...]
-//   --times: seconds after the last stroke; --look: a thing's id from the report (T1, T2 ...) or a point x,y,z in u (as
+//   --times: seconds after the last stroke (the full report and pictures); --scan: first measure the whole loop every 0.5 s
+//   (numbers only) and list each fault with when it shows; a fault missed by --times gets a moment of its own (--scan 0:
+//   off); --strict: exit code 1 when a fault is found; --look: a thing's id from the report (T1, T2 ...) or a point x,y,z in u (as
 //   in the report); --from: front right left back top low front-right front-left; --zoom: 2 = twice as close.
 import { mkdirSync, writeFileSync, rmSync } from 'node:fs';
 import { launch, serve, watchPage } from './lib/browser.mjs';
@@ -12,7 +14,7 @@ import { measure, aim } from './lib/inspect-page.mjs';
 
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const id = process.argv[2], look = arg('--look'), OUT = arg('--out', `.cache/inspect/${id}`);
-const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number);
+const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number), scan = Number(arg('--scan', '0.5')), LOOP = 7;
 const VIEWS = { front: [0, 0.05], right: [90, 0.1], left: [-90, 0.1], back: [180, 0.1], top: [0, 1.45], low: [0, -0.25], 'front-right': [40, 0.3], 'front-left': [-40, 0.3] };
 if (!id) { console.log('usage: node scripts/inspect.mjs <card id> [--times 1,2.5] | --look T3 [--from right] [--t 1.5]'); process.exit(1); }
 
@@ -57,25 +59,45 @@ if (look) {
   console.log(await shot(`look-${look.replace(/,/g, '_')}-${from}-t${times[0]}.jpg`, `${id} ${look} from ${from} t+${times[0]}`, target, r, from, end + times[0]));
 } else {
   rmSync(OUT, { recursive: true, force: true }); mkdirSync(OUT, { recursive: true });
+  let found = 0;
+  if (scan > 0) {
+    // the whole loop, numbers only: each fault (ids and numbers aside) with the moments it shows
+    const seen = new Map(), at = [];
+    for (let dt = 0; dt < LOOP - 1e-9; dt += scan) at.push(Math.round(dt * 100) / 100);
+    for (const dt of at) {
+      const m = await page.evaluate(measure, { t: end + dt, cam: seat });
+      if (m.error) { console.log(m.error); process.exit(1); }
+      for (const f of faultsOf(m)) { const key = f.text.replace(/\bT\d+ /g, '').replace(/-?\d+(\.\d+)?/g, '#'); if (!seen.has(key)) seen.set(key, { text: f.text, at: [] }); seen.get(key).at.push(dt); }
+    }
+    lines.push(`## The whole loop, every ${scan} s from t+0 to t+${at.at(-1)} (numbers only; the T ids differ from moment to moment)`, '');
+    if (!seen.size) lines.push('  no measured faults at any moment');
+    for (const { text, at: when } of seen.values()) {
+      lines.push(`  - ${spans(when, scan)}: ${text.replace(/\bT\d+ /g, '')}`);
+      if (!when.some((x) => times.some((y) => Math.abs(x - y) < scan / 2)) && times.length < 6) times.push(when[Math.floor(when.length / 2)]);
+    }
+    found += seen.size; times.sort((a, b) => a - b);
+    lines.push('');
+  }
   for (const dt of times) {
     const t = end + dt, m = await page.evaluate(measure, { t, cam: seat });
     if (m.error) { console.log(m.error); process.exit(1); }
-    const faults = [];
     lines.push(`## t+${dt} (u = ${m.u.toFixed(3)} m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)`, '', 'Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):');
     for (const x of m.items) lines.push(`  ${x.id} ${x.kind} ${x.name}: size ${x.size.join(' x ')}, centre [${x.centre.join(', ')}], bottom ${x.bottom}, top ${x.top}`);
     lines.push('', 'What each solid thing rests on (it should touch it, unless it is meant to fly):');
-    for (const s of m.support) { lines.push(`  ${s.text}`); if (s.fault) faults.push({ text: s.text, point: s.point }); }
+    const faults = faultsOf(m);
+    for (const s of m.support) lines.push(`  ${s.text}`);
     lines.push('', 'Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):');
-    for (const h of m.through) { lines.push(`  ${h.text}`); faults.push({ text: h.text, point: h.point }); }
+    for (const h of m.through) lines.push(`  ${h.text}`);
     if (!m.through.length) lines.push('  none');
     if (m.hands.length) lines.push('', 'Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):');
     for (const h of m.hands) lines.push(`  ${h.text}`);
-    for (const h of m.touching) { lines.push(`  ${h.text}`); faults.push({ text: h.text, point: h.point }); }
-    lines.push('', 'Seen from the learner\'s seat (the app\'s own camera): how much of each person or animal shows');
-    for (const h of m.hidden) { lines.push(`  ${h.text}`); if (h.pct != null && h.pct < 85) faults.push({ text: h.text, id: h.id, hidden: true }); }
-    if (!m.hidden.length) lines.push('  (no people or animals)');
+    for (const h of m.touching) lines.push(`  ${h.text}`);
+    lines.push('', 'Seen from the learner\'s seat (the app\'s own camera): how much of each person or animal, and of the kanji, shows');
+    for (const h of m.hidden) lines.push(`  ${h.text}`);
+    if (!m.hidden.some((h) => !h.glyph)) lines.push('  (no people or animals)');
     lines.push('', faults.length ? 'POSSIBLE FAULTS (look at the close-ups to decide):' : 'No measured faults. Still look at the pictures: the numbers cannot see everything.');
     faults.forEach((f) => lines.push(`  - ${f.text}`));
+    found += faults.length;
 
     // pictures: the whole scene (front, right), each model alone (front, right), each fault close up (front, right)
     const solid = m.items.filter((x) => x.kind !== 'particles'), lo = [0, 1, 2].map((i) => Math.min(...solid.map((x) => x.world[i] - x.radius))), hi = [0, 1, 2].map((i) => Math.max(...solid.map((x) => x.world[i] + x.radius)));
@@ -97,3 +119,18 @@ if (look) {
   console.log(`# Inspection of card ${id}\n\n${lines.join('\n')}\n\n(report saved in ${OUT}/report.txt)`);
 }
 await browser.close(); server?.close();
+if (process.argv.includes('--strict') && !look && found) process.exit(1);
+
+// the faults in one measurement: things floating or sunk, bodies through things or each other, people or the kanji hidden
+// from the learner (a person under 85% visible or partly outside the picture, the kanji under 80%)
+function faultsOf(m) {
+  return [...m.support.filter((s) => s.fault).map((s) => ({ text: s.text, point: s.point })),
+    ...m.through.map((h) => ({ text: h.text, point: h.point })), ...m.touching.map((h) => ({ text: h.text, point: h.point })),
+    ...m.hidden.filter((h) => h.pct != null && (h.glyph ? h.pct < 80 : h.pct < 85 || h.frame < 90)).map((h) => ({ text: h.text, id: h.id, hidden: true }))];
+}
+// 0.5, 1, 1.5, 3 -> "t+0.5 to t+1.5, t+3"
+function spans(at, step) {
+  const out = [];
+  for (const x of at) { const last = out.at(-1); if (last && x - last[1] <= step + 1e-9) last[1] = x; else out.push([x, x]); }
+  return out.map(([a, b]) => (a === b ? `t+${a}` : `t+${a} to t+${b}`)).join(', ');
+}

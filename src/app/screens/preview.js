@@ -150,7 +150,7 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
     const furigana = addPlainFurigana(card, assets, effect, addText);
     const r = normalizeRecipe(effectSpec, COMPONENT_LOOKS), st = effect.stats?.() ?? {}, B = EFFECTS.budget;
     addText(makeLabel(`${cardText(card)}  ${card.id}  ·  ${i + 1} / ${ids.length}${recipe ? '  ·  trying a URL recipe' : ''}`, { size: 0.04, weight: 400, color: COLORS.textDim, glow: null }), 0, Y.top);
-    addText(makeLabel(`${card.meaning}  ·  ${card.primaryReading}`, { size: 0.045, panel: { pad: 0.012, radius: 0.018 } }), 0, Y.meaning);
+    addText(makeLabel(`${card.meaning}  ·  ${card.primaryReading}`, { size: 0.045, panel: { pad: 0.012, radius: 0.018 } }), 0, Y.meaning).mesh.name = 'meaning';
     if (!review) addText(makeLabel(describeRecipe(r), { size: 0.026, weight: 400, color: '#ffe9c9', glow: null, maxWidth: 1.1, panel: { pad: 0.012, radius: 0.018 } }), 0, Y.sentence + 0.02);
     if (!review) addText(makeLabel(`built: ${st.drawCalls ?? '?'} draw calls (budget ${B.drawCalls}) · ${st.particles ?? 0} particle slots (${B.particles}) · ${st.pointLights ?? '?'} point lights (${B.pointLights})`, { size: 0.022, weight: 400, color: COLORS.textDim, glow: null }), 0, Y.english);
     addMnemonic(card, addText);

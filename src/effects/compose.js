@@ -66,6 +66,7 @@ export function composeEffect({ kanji, glyphHeight, recipe: r, word = null }) {
   const glyphSpace = new THREE.Group();
   const { outer: revealPivot } = pivotGroup(glyphSpace, allPts, 'base');       // the reveal's own pose (grow, stamp)
   const { outer: glyphPivot } = pivotGroup(revealPivot, allPts, glyphPivotSpec);
+  glyphPivot.name = 'glyph';                                 // (scripts/inspect.mjs finds the kanji by this name)
   group.add(glyphPivot);
   for (const [name, max] of Object.entries(need)) {
     const [blend, space] = name.split('-');

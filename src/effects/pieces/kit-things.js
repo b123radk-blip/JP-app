@@ -46,11 +46,11 @@ export function plate(u, { r = 0.22, color = 0xf6f4ee, rim = 0x3a6ad0 } = {}) {
 export const ball = (u, { r = 0.08, color = 0xe04848, stripe = null } = {}) => solidProp([[G.sphere(r * u), color], ...(stripe ? [[G.torus(r * u * 1.0, r * u * 0.12), stripe]] : [])]);
 
 // heart: origin at the centre, about `s` tall
-export const heart = (u, { s = 0.16, color = 0xff4a6a } = {}) => solidProp([[G.extrude(heartShape(), 0.25).scale(s * u * 1.2, s * u * 1.2, s * u * 1.2), color]], 0.6);
+export const heart = (u, { s = 0.16, color = 0xff4a6a } = {}) => flies(solidProp([[G.extrude(heartShape(), 0.25).scale(s * u * 1.2, s * u * 1.2, s * u * 1.2), color]], 0.6));
 
 // a ring of n small stars (dizzy, hurt), lying flat so turning it round y makes them circle: origin at the ring's centre
 export function stars(u, { r = 0.13, s = 0.1, n = 3, color = 0xffe040 } = {}) {
-  return solidProp(Array.from({ length: n }, (_, i) => { const a = (i / n) * Math.PI * 2; return [G.extrude(starShape(5), 0.12).scale(s * u, s * u, s * u).rotateY(-a).translate(Math.sin(a) * r * u, 0, Math.cos(a) * r * u), color]; }), 0.9);
+  return flies(solidProp(Array.from({ length: n }, (_, i) => { const a = (i / n) * Math.PI * 2; return [G.extrude(starShape(5), 0.12).scale(s * u, s * u, s * u).rotateY(-a).translate(Math.sin(a) * r * u, 0, Math.cos(a) * r * u), color]; }), 0.9));
 }
 function starShape(n, R = 0.5, r = 0.22) {
   const shape = new THREE.Shape();
@@ -59,7 +59,9 @@ function starShape(n, R = 0.5, r = 0.22) {
 }
 
 // star burst (an impact, a sparkle): origin at the centre, `s` across, `n` points
-export const burst = (u, { s = 0.2, n = 6, color = 0xffe060 } = {}) => solidProp([[G.extrude(starShape(n, 0.5, 0.22), 0.08).scale(s * u, s * u, s * u), color]], 0.9);
+export const burst = (u, { s = 0.2, n = 6, color = 0xffe060 } = {}) => flies(solidProp([[G.extrude(starShape(n, 0.5, 0.22), 0.08).scale(s * u, s * u, s * u), color]], 0.9));
+// an effect that hangs in the air on purpose (scripts/inspect.mjs does not ask what it stands on)
+export function flies(o) { o.userData.flies = true; return o; }
 
 // many copies of one small shape in ONE draw call (dust puffs, sweat drops, hearts, a stack of plates): list is
 // [[geometry, colour], ...] built around the origin. many.set(i, x, y, z, scale, rz?, ry?, rx?) places copy i (scale 0 hides it).

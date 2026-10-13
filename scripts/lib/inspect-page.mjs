@@ -26,19 +26,26 @@ export async function measure({ t, cam }) {
     }
     return b.setFromObject(o.userData.model ? o.children[0] : o, true);
   };
+  // the nearest plain colour word, so "brown/grey" says more than two hex codes
+  const NAMES = { red: 0xd03028, orange: 0xe88030, yellow: 0xe8d040, green: 0x48a040, teal: 0x30a0a0, blue: 0x3060c0, purple: 0x8048b0, pink: 0xf0a0c0, brown: 0x8a5a30, 'dark brown': 0x3a2414, beige: 0xd8c098, skin: 0xf0c49c, white: 0xf4f4f4, grey: 0x909498, black: 0x181818 };
+  const colourName = (hex) => {
+    const c = new THREE.Color(`#${hex}`), d = (x) => { const k = new THREE.Color(x); return (c.r - k.r) ** 2 + (c.g - k.g) ** 2 + (c.b - k.b) ** 2; };
+    return Object.entries(NAMES).sort((a, b) => d(a[1]) - d(b[1]))[0][0];
+  };
   const colours = (o) => {
     const col = o.geometry?.getAttribute('color');
-    if (!col) return o.material?.color ? `#${o.material.color.getHexString()}` : '';
+    if (!col) return o.material?.color ? `${colourName(o.material.color.getHexString())} #${o.material.color.getHexString()}` : '';
     const n = {};
     for (let j = 0; j < col.count; j += 5) { const h = new THREE.Color(col.getX(j), col.getY(j), col.getZ(j)).getHexString(); n[h] = (n[h] ?? 0) + 1; }
-    return Object.entries(n).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([h]) => `#${h}`).join('/');
+    const top = Object.entries(n).sort((a, b) => b[1] - a[1]).slice(0, 2).map(([h]) => h);
+    return `${top.map(colourName).join('/')} #${top.join('/#')}`;
   };
   const items = found.map((o) => ({ o, box: boxOf(o) })).filter((x) => !x.box.isEmpty() && x.box.getSize(V()).length() > 0.005 * u);
   items.forEach((x, i) => {
     const o = x.o, s = x.box.getSize(V());
     x.id = `T${i + 1}`;
     x.kind = o.userData.model ? 'model' : o.userData.label != null ? 'label' : o.isInstancedMesh ? 'pool' : o.isPoints ? 'particles' : 'mesh';
-    x.name = o.userData.model ?? (x.kind === 'label' ? `"${o.userData.label}"` : colours(o));
+    x.name = o.userData.model ?? (x.kind === 'label' ? `"${o.userData.label}"` : o.name ? `${o.name} (${colours(o)})` : colours(o));
     x.size = [U(s.x), U(s.y), U(s.z)]; x.centre = P(x.box.getCenter(V())); x.bottom = U(x.box.min.y - floorY); x.top = U(x.box.max.y - floorY);
     x.world = x.box.getCenter(V()).toArray(); x.radius = s.length() / 2;
   });
@@ -75,6 +82,7 @@ export async function measure({ t, cam }) {
     const from = (p) => a.kind === 'model' ? p.y + 0.3 * u : (a.box.min.y + a.box.max.y) / 2;
     // a small thing on a person (a moustache, a hat, a cup in the hand) is worn or held, not standing anywhere
     const wearer = a.kind === 'mesh' && models().find((m) => m.box.intersectsBox(a.box) && a.box.getSize(V()).length() < 0.5 * m.box.getSize(V()).length());
+    if (a.o.userData.flies) return { id: a.id, text: `${label(a)}: in the air on purpose (an effect: a star, a heart)`, gap: 0, point: a.box.getCenter(V()).toArray(), fault: false };
     if (wearer) return { id: a.id, text: `${label(a)}: is on ${label(wearer)} (worn or held: check it sits right in the close-ups)`, gap: 0, point: a.box.getCenter(V()).toArray(), fault: false };
     const best = feet.map((p) => { const [y, b] = below(p, a, from(p)); return [p.y - y, b, p]; }).sort((x, y) => Math.abs(x[0]) - Math.abs(y[0]))[0];
     const gap = U(best[0]), on = best[1] ? label(best[1]) : 'the ground line (bottom of the kanji)';
@@ -126,34 +134,45 @@ export async function measure({ t, cam }) {
     }
   }
 
-  // who hides whom from a camera: each model drawn alone, then everything together, in flat colours (render target)
+  // who hides whom from a camera: each model (and the kanji, and the meaning label) drawn alone, then everything together,
+  // in flat colours (render target). Card text is drawn over everything (no depth test): what lies under the meaning label
+  // is hidden by it, so that is counted from the label's own pixels.
   const hidden = [];
   if (cam) {
     kit.camera.position.fromArray(cam.pos); kit.controls.target.fromArray(cam.target); kit.controls.update(); kit.camera.updateMatrixWorld(true);
     const W = 240, H = 192, rt = new THREE.WebGLRenderTarget(W, H), r = kit.renderer, saved = [], bg = kit.scene.background, actors = items.filter((x) => x.kind === 'model');
-    const flat = (i) => new THREE.MeshBasicMaterial({ color: new THREE.Color().setRGB(i < 0 ? 0 : (i + 1) * 30 / 255, i < 0 ? 0 : 1, i < 0 ? 1 : 0, THREE.LinearSRGBColorSpace), toneMapped: false, fog: false, side: THREE.DoubleSide });
+    const glyph = kit.scene.getObjectByName('glyph'), meaning = kit.scene.getObjectByName('meaning'), K = actors.length, L = K + 1;
+    const flat = (i) => new THREE.MeshBasicMaterial({ color: new THREE.Color().setRGB(i < 0 ? 0 : (i + 1) * 24 / 255, i < 0 ? 0 : 1, i < 0 ? 1 : 0, THREE.LinearSRGBColorSpace), toneMapped: false, fog: false, side: THREE.DoubleSide });
     const owner = new Map(); actors.forEach((x, i) => x.o.traverse((m) => owner.set(m, i)));
-    // drawn: opaque meshes that are showing now, and labels (they hide what is behind them too)
-    kit.scene.traverse((m) => { if (m.isMesh || m.isPoints || m.isLine || m.isSprite) saved.push([m, m.material, m.visible, m.isMesh && shown(m) && !(m.material?.transparent && m.userData.label == null)]); });
-    const grey = flat(-1), mats = actors.map((_, i) => flat(i));
+    glyph?.traverse((m) => { if (!owner.has(m)) owner.set(m, K); }); meaning?.traverse((m) => owner.set(m, L));
+    // drawn: opaque meshes that are showing now, and labels (they hide what is behind them too); the meaning label only alone
+    kit.scene.traverse((m) => { if (m.isMesh || m.isPoints || m.isLine || m.isSprite) saved.push([m, m.material, m.visible, m.isMesh && shown(m) && (owner.get(m) === L || !(m.material?.transparent && m.userData.label == null))]); });
+    const grey = flat(-1), mats = [...actors, 0, 0].map((_, i) => flat(i));
     const draw = (only) => {
-      for (const [m, , , drawn] of saved) { const i = owner.get(m); m.visible = drawn && (only == null || i === only); m.material = i == null ? grey : mats[i]; }
+      for (const [m, , , drawn] of saved) { const i = owner.get(m); m.visible = drawn && (only == null ? i !== L : i === only); m.material = i == null ? grey : mats[i]; }
       kit.scene.background = null; r.setRenderTarget(rt); r.setClearColor(0x000000, 0); r.clear(); r.render(kit.scene, kit.camera); r.setRenderTarget(null);
       const buf = new Uint8Array(W * H * 4); r.readRenderTargetPixels(rt, 0, 0, W, H, buf); return buf;
     };
-    const whoAt = (buf, j) => buf[j + 3] < 128 ? null : buf[j + 2] > 128 && buf[j + 1] < 128 ? 'other' : Math.round(buf[j] / 30) - 1;
-    const alone = actors.map((_, i) => draw(i)), all = draw(null);
+    // (an instanced mesh with its own instance colours, such as a kit person, tints the flat colour: it reads as 'other')
+    const whoAt = (buf, j) => { if (buf[j + 3] < 128) return null; const i = Math.round(buf[j] / 24) - 1; return buf[j + 1] > 200 && buf[j + 2] < 60 && i >= 0 && i <= L ? i : 'other'; };
+    const alone = [...actors.map((_, i) => draw(i)), glyph ? draw(K) : null], under = meaning ? draw(L) : null, all = draw(null);
     for (const [m, mat, vis] of saved) { m.material = mat; m.visible = vis; }
     kit.scene.background = bg; rt.dispose();
-    actors.forEach((a, i) => {
-      let n = 0, seen = 0; const by = {};
+    const name = (w) => (w === 'other' ? 'other things (props, labels)' : w === K ? 'the kanji' : actors[w] ? label(actors[w]) : '?');
+    const ndc = V(), inFrame = (a) => { const pts = skin(a).pts; return pts.length ? Math.round(100 * pts.filter((p) => { ndc.copy(p).project(kit.camera); return Math.abs(ndc.x) <= 1 && Math.abs(ndc.y) <= 1 && ndc.z < 1; }).length / pts.length) : 100; };
+    [...actors, ...(glyph ? [{ id: 'kanji', glyph: true }] : [])].forEach((a, i) => {
+      let n = 0, seen = 0, lab = 0; const by = {};
       for (let j = 0; j < W * H * 4; j += 4) {
         if (whoAt(alone[i], j) !== i) continue; n++;
-        const w = whoAt(all, j); if (w === i) seen++; else { const key = w === 'other' ? 'other things (props, the kanji, labels)' : w == null ? '?' : label(actors[w]); by[key] = (by[key] ?? 0) + 1; }
+        if (!a.glyph && under && whoAt(under, j) === L) { lab++; continue; }
+        const w = whoAt(all, j); if (w === i) seen++; else by[name(w)] = (by[name(w)] ?? 0) + 1;
       }
-      if (!n) { hidden.push({ id: a.id, text: `${label(a)}: not in this view at all` }); return; }
+      const who = a.glyph ? 'the kanji' : label(a);
+      if (!n) { hidden.push({ id: a.id, text: `${who}: not in this view at all` }); return; }
+      if (lab) by['the meaning label'] = lab;
       const pct = Math.round(100 * seen / n), behind = Object.entries(by).sort((x, y) => y[1] - x[1]).map(([w, c]) => `${Math.round(100 * c / n)}% behind ${w}`).join(', ');
-      hidden.push({ id: a.id, pct, text: `${label(a)}: ${pct}% visible${behind ? ` (${behind})` : ''}` });
+      const frame = a.glyph ? 100 : inFrame(a);
+      hidden.push({ id: a.id, pct, glyph: !!a.glyph, frame, text: `${who}: ${pct}% visible${behind ? ` (${behind})` : ''}${frame < 100 ? `; only ${frame}% of it inside the picture` : ''}` });
     });
   }
   return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, name, size, centre, bottom, top, world, radius }) => ({ id, kind, name, size, centre, bottom, top, world, radius })), support, through, hands, touching, hidden };
