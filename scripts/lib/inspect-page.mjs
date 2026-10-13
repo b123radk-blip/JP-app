@@ -8,7 +8,8 @@ export async function measure({ t, cam }) {
   const holder = kit.scene.getObjectByName('vignette');
   if (!holder) return { error: 'this card has no scene (vignette): nothing to inspect' };
   const info = holder.userData.inspect, k = holder.getWorldScale(V()).y, u = info.u * k;
-  const origin = holder.localToWorld(new THREE.Vector3(info.right, info.floor, 0)), floorY = origin.y;
+  // the ground line is the kanji's bottom, in the kanji's own space (a scene moved by its recipe's `at` does not move it)
+  const origin = holder.parent.localToWorld(new THREE.Vector3(info.right, info.floor, 0)), floorY = origin.y;
   const U = (v) => Math.round(v / u * 100) / 100, P = (p) => [U(p.x - origin.x), U(p.y - floorY), U(p.z - origin.z)];
   const shown = (o) => { for (let p = o; p; p = p.parent) if (!p.visible) return false; return true; };
 
@@ -45,6 +46,8 @@ export async function measure({ t, cam }) {
     const o = x.o, s = x.box.getSize(V());
     x.id = `T${i + 1}`;
     x.kind = o.userData.model ? 'model' : o.userData.label != null ? 'label' : o.isInstancedMesh ? 'pool' : o.isPoints ? 'particles' : 'mesh';
+    // a body: a model with a skeleton (a person or an animal), not a static one (grass, a tree, a car)
+    x.body = x.kind === 'model' && (() => { let b = false; o.traverse((m) => { if (m.isSkinnedMesh) b = true; }); return b; })();
     x.name = o.userData.model ?? (x.kind === 'label' ? `"${o.userData.label}"` : o.name ? `${o.name} (${colours(o)})` : colours(o));
     x.size = [U(s.x), U(s.y), U(s.z)]; x.centre = P(x.box.getCenter(V())); x.bottom = U(x.box.min.y - floorY); x.top = U(x.box.max.y - floorY);
     x.world = x.box.getCenter(V()).toArray(); x.radius = s.length() / 2;
@@ -71,9 +74,17 @@ export async function measure({ t, cam }) {
   const below = (p, a, from) => {
     rc.set(new THREE.Vector3(p.x, from, p.z), DOWN); rc.far = 10;
     for (const b of solid) if (!meshesOf.has(b)) meshesOf.set(b, own(b));
-    const hit = solid.filter((b) => b !== a).flatMap((b) => rc.intersectObjects(meshesOf.get(b), false).map((h) => [h.point.y, b]))
+    const hit = solid.filter((b) => b !== a).flatMap((b) => rc.intersectObjects(meshesOf.get(b), false).map((h) => [h.point.y, b, h]))
       .filter(([y]) => y > floorY - 0.02 * u).sort((x, y) => y[0] - x[0])[0];
-    return hit ?? [floorY, null];
+    if (!hit) return [floorY, null];
+    // the first face below looks down: the ray started inside that thing (a furrow sunk a little into the soil), so its
+    // top above the point is the surface
+    if (hit[2].face && hit[2].face.normal.clone().transformDirection(hit[2].object.matrixWorld).y < 0) {
+      rc.set(new THREE.Vector3(p.x, hit[1].box.max.y + 0.01 * u, p.z), DOWN);
+      const top = rc.intersectObjects(meshesOf.get(hit[1]), false)[0];
+      if (top) return [top.point.y, hit[1]];
+    }
+    return [hit[0], hit[1]];
   };
   const support = solid.map((a) => {
     // the points it stands on: a model's lowest skin points (its soles), a mesh's bottom middle
@@ -129,7 +140,7 @@ export async function measure({ t, cam }) {
       const sh = at(`UpperArm${side}`), el = at(`LowerArm${side}`), along = [0.5, 1].map((f) => sh.clone().lerp(el, f)).concat([0.33, 0.66, 1].map((f) => el.clone().lerp(p, f)));
       let near = null;
       for (const o of models().filter((x) => x !== a)) for (const q of skin(o).pts) for (const [i, ap] of along.entries()) { const d = q.distanceTo(ap); if (d < 0.04 * u && (!near || d < near[1])) near = [o, d, q, i]; }
-      if (near) touching.push({ point: near[2].toArray(), text: `${label(a)} ${word} ${near[3] === along.length - 1 ? 'hand' : near[3] < 2 ? 'upper arm' : 'forearm'} is AT ${label(near[0])}'s ${skin(near[0]).boneAt(near[2])} (${U(near[1])}u): touching or passing through; make sure the plan wants this` });
+      if (near) touching.push({ point: near[2].toArray(), text: `${label(a)} ${word} ${near[3] === along.length - 1 ? 'hand' : near[3] < 2 ? 'upper arm' : 'forearm'} is AT ${label(near[0])}${((b) => (b === '?' ? '' : `'s ${b}`))(skin(near[0]).boneAt(near[2]))} (${U(near[1])}u): touching or passing through; make sure the plan wants this` });
       hands.push({ id: a.id, point: p.toArray(), text: `${label(a)} ${word} hand at ${JSON.stringify(P(p))}: nearest own body part ${own[0]} ${U(own[1])}u away${other ? `; nearest other thing ${label(other[0])} ${U(other[1])}u away${other[1] === 0 ? ' (inside its box: touching or passing through)' : ''}` : ''}` });
     }
   }
@@ -140,7 +151,7 @@ export async function measure({ t, cam }) {
   const hidden = [];
   if (cam) {
     kit.camera.position.fromArray(cam.pos); kit.controls.target.fromArray(cam.target); kit.controls.update(); kit.camera.updateMatrixWorld(true);
-    const W = 240, H = 192, rt = new THREE.WebGLRenderTarget(W, H), r = kit.renderer, saved = [], bg = kit.scene.background, actors = items.filter((x) => x.kind === 'model');
+    const W = 240, H = 192, rt = new THREE.WebGLRenderTarget(W, H), r = kit.renderer, saved = [], bg = kit.scene.background, actors = items.filter((x) => x.body);
     const glyph = kit.scene.getObjectByName('glyph'), meaning = kit.scene.getObjectByName('meaning'), K = actors.length, L = K + 1;
     const flat = (i) => new THREE.MeshBasicMaterial({ color: new THREE.Color().setRGB(i < 0 ? 0 : (i + 1) * 24 / 255, i < 0 ? 0 : 1, i < 0 ? 1 : 0, THREE.LinearSRGBColorSpace), toneMapped: false, fog: false, side: THREE.DoubleSide });
     const owner = new Map(); actors.forEach((x, i) => x.o.traverse((m) => owner.set(m, i)));
@@ -175,7 +186,7 @@ export async function measure({ t, cam }) {
       hidden.push({ id: a.id, pct, glyph: !!a.glyph, frame, text: `${who}: ${pct}% visible${behind ? ` (${behind})` : ''}${frame < 100 ? `; only ${frame}% of it inside the picture` : ''}` });
     });
   }
-  return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, name, size, centre, bottom, top, world, radius }) => ({ id, kind, name, size, centre, bottom, top, world, radius })), support, through, hands, touching, hidden };
+  return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, body, name, size, centre, bottom, top, world, radius }) => ({ id, kind, body, name, size, centre, bottom, top, world, radius })), support, through, hands, touching, hidden };
 }
 
 // point the camera at world point `target` from a named side, `dist` metres away

@@ -3,26 +3,26 @@
 // u = the kanji's height), then takes close-up pictures on numbered sheets: faults.jpg (each fault once, at its worst
 // moment), overview.jpg (the whole scene and the learner's view at each moment asked for), people.jpg (each person or
 // animal a fault names). Then any one close look you ask for. For Qwen (plans/qwen/README.md) and for Opus's reviews.
-// Usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--out .cache/inspect/<id>]
+// Usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--out .cache/inspect/<id>]
 //        node scripts/inspect.mjs <card id> --look T3 [--from right] [--t 1.5] [--zoom 2] [--out ...]
 //   --times: seconds after the last stroke (the full numbers and the overview); --scan: first measure the whole loop every
 //   0.5 s (numbers only) and list each fault with when it shows; a fault the --times miss gets its worst moment in full
 //   (--scan 0: off); --people: close-ups of every person or animal; --strict: exit code 1 when a fault is found;
-//   --look: a thing's id from the report (T1, T2 ...) or a point x,y,z in u (as in the report); --from: front right left
+//   --recipe try.json: the card with that recipe (a JSON effect) instead of its own; --look: a thing's id from the report (T1, T2 ...) or a point x,y,z in u (as in the report); --from: front right left
 //   back top low front-right front-left; --zoom: 2 = twice as close.
 import { mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
 import { launch, serve, watchPage } from './lib/browser.mjs';
 import { measure, aim } from './lib/inspect-page.mjs';
 
-const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
-const id = process.argv[2], look = arg('--look'), OUT = arg('--out', `.cache/inspect/${id}`);
+const T0 = Date.now(), arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
+const id = process.argv[2], look = arg('--look'), OUT = arg('--out', `.cache/inspect/${id}`), recipe = arg('--recipe') ? readFileSync(arg('--recipe'), 'utf8') : null;
 const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number), scan = Number(arg('--scan', '0.5')), LOOP = 7;
 const VIEWS = { front: [0, 0.05], right: [90, 0.1], left: [-90, 0.1], back: [180, 0.1], top: [0, 1.45], low: [0, -0.25], 'front-right': [40, 0.3], 'front-left': [-40, 0.3] };
-if (!id) { console.log('usage: node scripts/inspect.mjs <card id> [--times 1,2.5] | --look T3 [--from right] [--t 1.5]'); process.exit(1); }
+if (!id) { console.log('usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--out dir] | --look T3 [--from right] [--t 1.5] [--zoom 2]'); process.exit(1); }
 
 const { base: BASE, server } = await serve(), browser = await launch();
 const page = await browser.newPage({ viewport: { width: 900, height: 720 } }), why = watchPage(page);
-await page.goto(`${BASE}?preview=1&cards=${id}&card=${id}&t=0`);
+await page.goto(`${BASE}?preview=1&cards=${id}&card=${id}&t=0${recipe ? `&recipe=${encodeURIComponent(JSON.stringify(JSON.parse(recipe)))}` : ''}`);
 await page.waitForFunction((i) => window.__app?.ready === true && window.__app.info().player?.id === i, id, { timeout: 90000 })
   .catch((e) => { console.log(why(`card ${id} never got ready at ${BASE}: ${e.message}`)); process.exit(1); });
 await page.addStyleTag({ content: '#ui, #footer { display: none !important; } #cap { position: fixed; left: 8px; top: 6px; font: 18px monospace; color: #fff; background: #000b; padding: 2px 6px; z-index: 9 }' });
@@ -134,11 +134,11 @@ if (look) {
     const t = end + dt;
     if (f.hidden) faultPics.push([await seatShot(`fault${n}-seat-t${dt}.jpg`, `fault ${n} learner's seat t+${dt}`, t), `fault ${n} (t+${dt}): ${f.text}`]);
     else for (const from of ['front', 'right']) faultPics.push([await shot(`fault${n}-${from}-t${dt}.jpg`, `fault ${n} from ${from} t+${dt}`, f.point, 0.3 * m.u, from, t), `fault ${n} from ${from} (t+${dt}): ${f.text}`]);
-    for (const x of m.items.filter((y) => y.kind === 'model' && f.text.includes(`${y.id} model ${y.name}`))) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt });
+    for (const x of m.items.filter((y) => y.body && f.text.includes(`${y.id} model ${y.name}`))) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt });
   }
   if (process.argv.includes('--people')) {
     const m = await page.evaluate(measure, { t: end + asked[0] });
-    for (const x of m.items.filter((y) => y.kind === 'model')) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt: asked[0] });
+    for (const x of m.items.filter((y) => y.body)) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt: asked[0] });
   }
   for (const { x, dt } of closeUp.values()) for (const from of ['front', 'right'])
     people.push([await shot(`${x.name}-${from}-t${dt}.jpg`, `${x.id} ${x.name} from ${from} t+${dt}`, x.world, x.radius, from, end + dt), `${x.id} ${x.name} close, from ${from} (t+${dt})`]);
@@ -157,7 +157,7 @@ if (look) {
   lines.push('', `For a closer look at anything: node scripts/inspect.mjs ${id} --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]`);
   found = seen.size;
   writeFileSync(`${OUT}/report.txt`, `# Inspection of card ${id}\n\n${lines.join('\n')}\n`);
-  console.log(`# Inspection of card ${id}\n\n${lines.join('\n')}\n\n(report saved in ${OUT}/report.txt)`);
+  console.log(`# Inspection of card ${id}\n\n${lines.join('\n')}\n\n(report saved in ${OUT}/report.txt; done in ${Math.round((Date.now() - T0) / 1000)} s)`);
 }
 await browser.close(); server?.close();
 if (process.argv.includes('--strict') && !look && found) process.exit(1);
