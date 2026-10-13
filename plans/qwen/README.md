@@ -30,8 +30,10 @@ plan is what you follow.
      outside the picture. It first measures the whole loop every 0.5 s and lists each fault with the moments it shows; a
      fault outside the plan's times gets a section and close-ups of its own. Stars, hearts and bursts from the kit are
      in the air on purpose and are not faults. Its POSSIBLE FAULTS are measured, so trust them over your impression of a
-     picture: a fault it lists is a fault unless the plan wants it (a jump, tiptoes, a bird in the air). Then open every
-     picture it lists (one at a time, they are large) and check the fault close-ups first.
+     picture: a fault it lists is a fault unless the plan wants it (a jump, tiptoes, a bird in the air). Then open its
+     picture sheets (one at a time): `faults.jpg` first (each fault close up once, at its worst moment), then
+     `overview.jpg` (the whole scene and the learner's view) and `people.jpg` (each person a fault names). Tiles are
+     numbered as in the report; open a tile's own picture only when the tile is too small to judge.
    - For any doubt, take your own close look: `node scripts/inspect.mjs <card id> --look T3 --from right --t 1.5
      --zoom 2 --out plans/qwen/renders/<plan name without .md>` (any thing id from the report, or a point x,y,z in u).
      Look at the thing in doubt from two sides before deciding.
