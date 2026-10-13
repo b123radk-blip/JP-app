@@ -133,7 +133,7 @@ if (look) {
     n++;
     const t = end + dt;
     if (f.hidden) faultPics.push([await seatShot(`fault${n}-seat-t${dt}.jpg`, `fault ${n} learner's seat t+${dt}`, t), `fault ${n} (t+${dt}): ${f.text}`]);
-    else for (const from of ['front', 'right']) faultPics.push([await shot(`fault${n}-${from}-t${dt}.jpg`, `fault ${n} from ${from} t+${dt}`, f.point, 0.3 * m.u, from, t), `fault ${n} from ${from} (t+${dt}): ${f.text}`]);
+    else for (const from of ['front', 'right']) faultPics.push([await shot(`fault${n}-${from}-t${dt}.jpg`, `fault ${n} from ${from} t+${dt}`, f.point, 0.5 * m.u, from, t), `fault ${n} from ${from} (t+${dt}): ${f.text}`]);
     for (const x of m.items.filter((y) => y.body && f.text.includes(`${y.id} model ${y.name}`))) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt });
   }
   if (process.argv.includes('--people')) {

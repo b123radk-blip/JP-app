@@ -53,6 +53,7 @@ export function createRig(bones, { glow = 0.3 } = {}) {
   const group = new THREE.Group(), skel = new THREE.Group(), byName = {};
   for (const b of bones) {
     const rest = new THREE.Group(), rot = new THREE.Group();
+    rot.name = b.name;                                         // (scripts/inspect.mjs finds a kit person's bones by name)
     rest.rotation.set(...(b.rest ?? [0, 0, 0])); rest.add(rot);
     const parent = b.parent ? byName[b.parent] : null;
     if (parent) rest.position.set(...(b.off ?? [0, 0, 0])).add(new THREE.Vector3(0, parent.len * (b.at ?? 1), 0));

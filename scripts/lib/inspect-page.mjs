@@ -15,16 +15,20 @@ export async function measure({ t, cam }) {
 
   // the scene's things: models (people, animals, objects), labels, meshes; plain groups are opened up
   const found = [];
-  // a model's own body is its first child; props hung on it (a plough, a cup) are listed as things of their own
-  const walk = (o) => { for (const c of o.children) { if (!shown(c)) continue; if (c.userData.model) { found.push(c); walk({ children: c.children.slice(1) }); } else if (c.isMesh || c.isPoints) found.push(c); else walk(c); } };
+  // a model's own body is its first child; props hung on it (a plough, a cup) are listed as things of their own. A kit
+  // person (pieces/kit-person.js) is a bone rig drawn as two instanced meshes (children 1, 2); props ride on its bones
+  const walk = (o) => { for (const c of o.children) { if (!shown(c)) continue; if (c.userData.model || c.userData.kitPerson) { found.push(c); walk({ children: c.userData.model ? c.children.slice(1) : [c.children[0], ...c.children.slice(3)] }); } else if (c.isMesh || c.isPoints) found.push(c); else walk(c); } };
+  const bodyMeshes = (o) => { if (o.userData.kitPerson) return [o.children[1], o.children[2]]; const a = []; o.children[0].traverse((m) => { if (m.isMesh) a.push(m); }); return a; };
+  const instBox = (o, b) => {
+    const m = new THREE.Matrix4(), s = V(); o.geometry.computeBoundingBox();
+    for (let i = 0; i < o.count; i++) { o.getMatrixAt(i, m); s.setFromMatrixScale(m); if (s.x > 1e-3) b.union(o.geometry.boundingBox.clone().applyMatrix4(m).applyMatrix4(o.matrixWorld)); }
+    return b;
+  };
   walk(holder);
   const boxOf = (o) => {
     const b = new THREE.Box3();
-    if (o.isInstancedMesh) {
-      const m = new THREE.Matrix4(), s = V(); o.geometry.computeBoundingBox();
-      for (let i = 0; i < o.count; i++) { o.getMatrixAt(i, m); s.setFromMatrixScale(m); if (s.x > 1e-3) b.union(o.geometry.boundingBox.clone().applyMatrix4(m).applyMatrix4(o.matrixWorld)); }
-      return b;
-    }
+    if (o.isInstancedMesh) return instBox(o, b);
+    if (o.userData.kitPerson) return instBox(o.children[2], instBox(o.children[1], b));
     return b.setFromObject(o.userData.model ? o.children[0] : o, true);
   };
   // the nearest plain colour word, so "brown/grey" says more than two hex codes
@@ -42,24 +46,37 @@ export async function measure({ t, cam }) {
     return `${top.map(colourName).join('/')} #${top.join('/#')}`;
   };
   const items = found.map((o) => ({ o, box: boxOf(o) })).filter((x) => !x.box.isEmpty() && x.box.getSize(V()).length() > 0.005 * u);
+  let kits = 0;
   items.forEach((x, i) => {
     const o = x.o, s = x.box.getSize(V());
     x.id = `T${i + 1}`;
-    x.kind = o.userData.model ? 'model' : o.userData.label != null ? 'label' : o.isInstancedMesh ? 'pool' : o.isPoints ? 'particles' : 'mesh';
+    x.kit = !!o.userData.kitPerson;
+    x.kind = o.userData.model || x.kit ? 'model' : o.userData.label != null ? 'label' : o.isInstancedMesh ? 'pool' : o.isPoints ? 'particles' : 'mesh';
     // a body: a model with a skeleton (a person or an animal), not a static one (grass, a tree, a car)
-    x.body = x.kind === 'model' && (() => { let b = false; o.traverse((m) => { if (m.isSkinnedMesh) b = true; }); return b; })();
-    x.name = o.userData.model ?? (x.kind === 'label' ? `"${o.userData.label}"` : o.name ? `${o.name} (${colours(o)})` : colours(o));
+    x.body = x.kit || x.kind === 'model' && (() => { let b = false; o.traverse((m) => { if (m.isSkinnedMesh) b = true; }); return b; })();
+    x.name = x.kit ? `kit person ${++kits}` : o.userData.model ?? (x.kind === 'label' ? `"${o.userData.label}"` : o.name ? `${o.name} (${colours(o)})` : colours(o));
     x.size = [U(s.x), U(s.y), U(s.z)]; x.centre = P(x.box.getCenter(V())); x.bottom = U(x.box.min.y - floorY); x.top = U(x.box.max.y - floorY);
     x.world = x.box.getCenter(V()).toArray(); x.radius = s.length() / 2;
   });
   const solid = items.filter((x) => x.kind === 'model' || x.kind === 'mesh'), models = () => items.filter((x) => x.kind === 'model');
   const label = (x) => `${x.id} ${x.kind} ${x.name}`;
+  // the person or animal a thing hangs on (a prop on a hand bone, a veil, a plough held by a model): it moves with them
+  const carrierOf = (x) => models().find((m) => m !== x && m.body && (() => { for (let p = x.o.parent; p; p = p.parent) if (p === m.o) return true; return false; })());
 
   const skins = new Map(), q = V();
+  const KIT_BONES = { FistR: 'handR', FistL: 'handL', Head: 'head', Neck: 'head', Torso: 'body', Hips: 'body', UpperArmR: 'armR', UpperArmL: 'armL', LowerArmR: 'foreR', LowerArmL: 'foreL', LowerLegR: 'shinR', LowerLegL: 'shinL', FootR: 'footR', FootL: 'footL' };
   const skin = (a) => {
     if (skins.has(a)) return skins.get(a);
     const pts = [], bones = [];
-    (a.o.children[0] ?? a.o).traverse((m) => { if (m.isBone) bones.push(m); if (!m.isMesh) return; for (let j = 0; j < m.geometry.attributes.position.count; j += 3) pts.push(m.getVertexPosition(j, V()).applyMatrix4(m.matrixWorld)); });
+    if (a.kit) {                                       // the rig's bones are named groups; its skin is every shown instance
+      a.o.children[0].traverse((g) => { if (g.name) bones.push(g); });
+      const m = new THREE.Matrix4(), s = V();
+      for (const mesh of bodyMeshes(a.o)) for (let i = 0; i < mesh.count; i++) {
+        mesh.getMatrixAt(i, m); s.setFromMatrixScale(m); if (s.x <= 1e-3) continue;
+        const pos = mesh.geometry.attributes.position;
+        for (let j = 0; j < pos.count; j += 3) pts.push(V().fromBufferAttribute(pos, j).applyMatrix4(m).applyMatrix4(mesh.matrixWorld));
+      }
+    } else (a.o.children[0] ?? a.o).traverse((m) => { if (m.isBone) bones.push(m); if (!m.isMesh) return; for (let j = 0; j < m.geometry.attributes.position.count; j += 3) pts.push(m.getVertexPosition(j, V()).applyMatrix4(m.matrixWorld)); });
     const boneAt = (p) => bones.map((bn) => [bn.name, bn.getWorldPosition(q).distanceTo(p)]).sort((x, y) => x[1] - y[1])[0]?.[0] ?? '?';
     const r = { pts, bones, boneAt }; skins.set(a, r); return r;
   };
@@ -67,7 +84,7 @@ export async function measure({ t, cam }) {
   // point (a tipped field's top, a head's hair), not just boxes
   // (rays must hit faces from both sides to tell inside from outside: sides are switched back before returning)
   const sides = new Map();
-  const own = (x) => { const a = []; (x.kind === 'model' ? x.o.children[0] : x.o).traverse((m) => { if (m.isMesh && shown(m)) { if (m.isSkinnedMesh) { m.computeBoundingBox(); m.computeBoundingSphere(); } for (const mt of [m.material].flat()) if (!sides.has(mt)) { sides.set(mt, mt.side); mt.side = THREE.DoubleSide; } a.push(m); } }); return a; };
+  const own = (x) => { const a = [], list = []; if (x.kind === 'model') list.push(...bodyMeshes(x.o)); else x.o.traverse((m) => list.push(m)); list.forEach((m) => { if (m.isMesh && shown(m)) { if (m.isSkinnedMesh) { m.computeBoundingBox(); m.computeBoundingSphere(); } if (m.isInstancedMesh) { m.boundingBox = null; m.boundingSphere = null; } for (const mt of [m.material].flat()) if (!sides.has(mt)) { sides.set(mt, mt.side); mt.side = THREE.DoubleSide; } a.push(m); } }); return a; };
   const meshesOf = new Map();
   const rc = new THREE.Raycaster(), DOWN = new THREE.Vector3(0, -1, 0), UP = new THREE.Vector3(0, 1, 0);
   // the highest surface of another thing under point p, looking down from height `from`: [height, thing] or the ground line
@@ -92,6 +109,8 @@ export async function measure({ t, cam }) {
     // (a model looks from 0.3u above its soles, to find a floor its feet sank into; a mesh from its own middle)
     const from = (p) => a.kind === 'model' ? p.y + 0.3 * u : (a.box.min.y + a.box.max.y) / 2;
     // a small thing on a person (a moustache, a hat, a cup in the hand) is worn or held, not standing anywhere
+    const carrier = carrierOf(a);
+    if (carrier) return { id: a.id, text: `${label(a)}: carried or worn by ${label(carrier)} (it moves with them: check it sits right in the close-ups)`, gap: 0, point: a.box.getCenter(V()).toArray(), fault: false };
     const wearer = a.kind === 'mesh' && models().find((m) => m.box.intersectsBox(a.box) && a.box.getSize(V()).length() < 0.5 * m.box.getSize(V()).length());
     if (a.o.userData.flies) return { id: a.id, text: `${label(a)}: in the air on purpose (an effect: a star, a heart)`, gap: 0, point: a.box.getCenter(V()).toArray(), fault: false };
     if (wearer) return { id: a.id, text: `${label(a)}: is on ${label(wearer)} (worn or held: check it sits right in the close-ups)`, gap: 0, point: a.box.getCenter(V()).toArray(), fault: false };
@@ -112,11 +131,13 @@ export async function measure({ t, cam }) {
       const box = b.box.clone().expandByScalar(-0.005 * u), mb = meshesOf.get(b) ?? own(b);
       // (a sole pressed a hair into the floor doesn't count: only points deeper than 0.03u)
       const inside = pts.filter((p) => { if (!box.containsPoint(p)) return false; rc.set(p, UP); rc.far = 10; const h = mb.flatMap((m) => rc.intersectObject(m, false)); return h.length % 2 === 1 && Math.min(...h.map((x) => x.distance)) > 0.03 * u; });
-      if (inside.length < 4) continue;
+      // its own things (worn, carried): only a hand inside counts (held things rest against the palm, not in the fist)
+      const mine = carrierOf(b) === a, hits = mine ? inside.filter((p) => /^(Fist|hand)/.test(boneAt(p))) : inside;
+      if (hits.length < 4) continue;
       const parts = {};
-      for (const p of inside) { const n = boneAt(p); parts[n] = (parts[n] ?? 0) + 1; }
-      const c = inside.reduce((s, p) => s.add(p), V()).multiplyScalar(1 / inside.length);
-      through.push({ id: a.id, point: c.toArray(), text: `${label(a)} PASSES INTO ${label(b)}: ${inside.length} skin points inside it, near the bones ${Object.entries(parts).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([n]) => n).join(', ')}` });
+      for (const p of hits) { const n = boneAt(p); parts[n] = (parts[n] ?? 0) + 1; }
+      const c = hits.reduce((s, p) => s.add(p), V()).multiplyScalar(1 / hits.length), near = Object.entries(parts).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([n]) => n).filter((n) => n !== '?');
+      through.push({ id: a.id, point: c.toArray(), text: `${label(a)} PASSES INTO ${label(b)}${mine ? ' (its own: the hand is inside what it holds)' : ''}: ${hits.length} skin points inside it${near.length ? `, near the bones ${near.join(', ')}` : ''}` });
     }
   }
 
@@ -126,6 +147,8 @@ export async function measure({ t, cam }) {
   const hands = [], touching = [];
   for (const a of models()) {
     const bone = {}; a.o.traverse((b) => { if (b.isBone) bone[b.name] = b; });
+    // a kit person's bones under the models' names (its hand bone starts at the wrist)
+    if (a.kit) for (const [n, k] of Object.entries(KIT_BONES)) bone[n] = a.o.children[0].getObjectByName(k);
     if (!bone.FistR || !bone.Head) continue;
     const at = (n) => bone[n]?.getWorldPosition(V());
     const head = at('Head'), marks = { 'top of the head': new THREE.Vector3(head.x, a.box.max.y, head.z), 'head (middle)': head.clone().lerp(new THREE.Vector3(head.x, a.box.max.y, head.z), 0.5),
@@ -159,15 +182,18 @@ export async function measure({ t, cam }) {
     // drawn: opaque meshes that are showing now, and labels (they hide what is behind them too); the meaning label only alone
     kit.scene.traverse((m) => { if (m.isMesh || m.isPoints || m.isLine || m.isSprite) saved.push([m, m.material, m.visible, m.isMesh && shown(m) && (owner.get(m) === L || !(m.material?.transparent && m.userData.label == null))]); });
     const grey = flat(-1), mats = [...actors, 0, 0].map((_, i) => flat(i));
+    // instance colours (a kit person's skin and shirt) would tint the flat colours: off while drawing
+    const tints = []; kit.scene.traverse((m) => { if (m.isInstancedMesh && m.instanceColor) { tints.push([m, m.instanceColor]); m.instanceColor = null; } });
     const draw = (only) => {
       for (const [m, , , drawn] of saved) { const i = owner.get(m); m.visible = drawn && (only == null ? i !== L : i === only); m.material = i == null ? grey : mats[i]; }
       kit.scene.background = null; r.setRenderTarget(rt); r.setClearColor(0x000000, 0); r.clear(); r.render(kit.scene, kit.camera); r.setRenderTarget(null);
       const buf = new Uint8Array(W * H * 4); r.readRenderTargetPixels(rt, 0, 0, W, H, buf); return buf;
     };
-    // (an instanced mesh with its own instance colours, such as a kit person, tints the flat colour: it reads as 'other')
+    // (anything not drawn in one of the flat colours reads as 'other')
     const whoAt = (buf, j) => { if (buf[j + 3] < 128) return null; const i = Math.round(buf[j] / 24) - 1; return buf[j + 1] > 200 && buf[j + 2] < 60 && i >= 0 && i <= L ? i : 'other'; };
     const alone = [...actors.map((_, i) => draw(i)), glyph ? draw(K) : null], under = meaning ? draw(L) : null, all = draw(null);
     for (const [m, mat, vis] of saved) { m.material = mat; m.visible = vis; }
+    for (const [m, c] of tints) m.instanceColor = c;
     kit.scene.background = bg; rt.dispose();
     const name = (w) => (w === 'other' ? 'other things (props, labels)' : w === K ? 'the kanji' : actors[w] ? label(actors[w]) : '?');
     const ndc = V(), inFrame = (a) => { const pts = skin(a).pts; return pts.length ? Math.round(100 * pts.filter((p) => { ndc.copy(p).project(kit.camera); return Math.abs(ndc.x) <= 1 && Math.abs(ndc.y) <= 1 && ndc.z < 1; }).length / pts.length) : 100; };

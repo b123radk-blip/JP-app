@@ -28,6 +28,7 @@ export function createPerson({ u = 0.26, shirt = 0x3a8ae0, pants = 0x2a3550, ski
     ...arm(1, 'L'), ...arm(-1, 'R'), ...leg(1, 'L'), ...leg(-1, 'R'),
   ], { glow });
   const b = rig.bone, body = b('body');
+  rig.group.userData.kitPerson = true;                         // (scripts/inspect.mjs measures it like a model person)
   const p = {
     group: rig.group, rig, bone: b, drawCalls: rig.drawCalls, u,
     face(dir) { rig.group.rotation.y = typeof dir === 'number' ? dir : FACE[dir] ?? 0; return p; },

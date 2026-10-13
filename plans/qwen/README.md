@@ -34,6 +34,12 @@ plan is what you follow.
      picture sheets (one at a time): `faults.jpg` first (each fault close up once, at its worst moment), then
      `overview.jpg` (the whole scene and the learner's view) and `people.jpg` (each person a fault names). Tiles are
      numbered as in the report; open a tile's own picture only when the tile is too small to judge.
+   - People built from the props kit (older scenes) are measured too, as `kit person 1`, `kit person 2`. Anything a
+     person or animal carries or wears is listed as theirs; inside it only their hand counts (held things rest against
+     the palm, not inside the fist).
+   - Exit codes (`--strict`): read them on a line of their own after the command: PowerShell `echo $LASTEXITCODE`,
+     cmd.exe `echo %ERRORLEVEL%`. In cmd.exe, `node ... & echo %ERRORLEVEL%` on one line shows the code of the command
+     *before*, not this one.
    - For any doubt, take your own close look: `node scripts/inspect.mjs <card id> --look T3 --from right --t 1.5
      --zoom 2 --out plans/qwen/renders/<plan name without .md>` (any thing id from the report, or a point x,y,z in u).
      Look at the thing in doubt from two sides before deciding.
