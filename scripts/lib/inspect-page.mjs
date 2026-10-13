@@ -88,10 +88,11 @@ export async function measure({ t, cam }) {
   const meshesOf = new Map();
   const rc = new THREE.Raycaster(), DOWN = new THREE.Vector3(0, -1, 0), UP = new THREE.Vector3(0, 1, 0);
   // the highest surface of another thing under point p, looking down from height `from`: [height, thing] or the ground line
+  // (not a thing of its own: a person does not stand on the skirt they wear)
   const below = (p, a, from) => {
     rc.set(new THREE.Vector3(p.x, from, p.z), DOWN); rc.far = 10;
     for (const b of solid) if (!meshesOf.has(b)) meshesOf.set(b, own(b));
-    const hit = solid.filter((b) => b !== a).flatMap((b) => rc.intersectObjects(meshesOf.get(b), false).map((h) => [h.point.y, b, h]))
+    const hit = solid.filter((b) => b !== a && carrierOf(b) !== a).flatMap((b) => rc.intersectObjects(meshesOf.get(b), false).map((h) => [h.point.y, b, h]))
       .filter(([y]) => y > floorY - 0.02 * u).sort((x, y) => y[0] - x[0])[0];
     if (!hit) return [floorY, null];
     // the first face below looks down: the ray started inside that thing (a furrow sunk a little into the soil), so its

@@ -37,6 +37,8 @@ plan is what you follow.
    - People built from the props kit (older scenes) are measured too, as `kit person 1`, `kit person 2`. Anything a
      person or animal carries or wears is listed as theirs; inside it only their hand counts (held things rest against
      the palm, not inside the fist).
+   - Someone walking in from off the picture shows as "only N% of it inside the picture" for the first moments: that is
+     meant when the plan says they walk in.
    - Exit codes (`--strict`): read them on a line of their own after the command: PowerShell `echo $LASTEXITCODE`,
      cmd.exe `echo %ERRORLEVEL%`. In cmd.exe, `node ... & echo %ERRORLEVEL%` on one line shows the code of the command
      *before*, not this one.
