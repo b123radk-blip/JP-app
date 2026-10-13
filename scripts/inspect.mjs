@@ -141,7 +141,7 @@ if (look) {
     for (const x of m.items.filter((y) => y.body)) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt: asked[0] });
   }
   for (const { x, dt } of closeUp.values()) for (const from of ['front', 'right'])
-    people.push([await shot(`${x.name}-${from}-t${dt}.jpg`, `${x.id} ${x.name} from ${from} t+${dt}`, x.world, x.radius, from, end + dt), `${x.id} ${x.name} close, from ${from} (t+${dt})`]);
+    people.push([await shot(`${x.name.replace(/ /g, '-')}-${from}-t${dt}.jpg`, `${x.id} ${x.name} from ${from} t+${dt}`, x.world, x.radius, from, end + dt), `${x.id} ${x.name} close, from ${from} (t+${dt})`]);
 
   // the pictures on numbered sheets (one image to open instead of many); the single pictures stay in OUT
   lines.push('Pictures: open these sheets with your read tool (tiles are numbered; each tile\'s full-size picture is named after it):');
