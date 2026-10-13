@@ -1,0 +1,19 @@
+pi exit 0 after 5.3 min
+
+Plan 007 done. Summary:
+
+**Version check** — passed (`6823c61`, README contains `kit person`).
+
+**Runs** (all in `.cache/inspect/`, collected to `plans/qwen/renders/007/`):
+- **a** (押 push): no measured faults; the kit person is listed, touches ground, 99–100% visible — matches pictures.
+- **b** (planted): person **floats ~0.23u above the ground line all loop** — clear in report and close-ups.
+- **c** (planted): person stands **in front of the kanji, hiding 26%** of it at t+0 — clear from the learner-seat tile.
+- **d** (夫 wedding): holding-hands / arm-round-shoulder contacts are MEANT; bride "sunk into" her own skirt is a **tool false positive** (worn thing checked against its wearer); groom's hand/forearm **passes through the veil** (67 skin points, t+3) is a minor **REAL**.
+- **e** (男 plough): plough now correctly "carried or worn by T4 model worker"; the only flag (furrow sunk 0.1u into plough at t+0.5) is the cutting instant — MEANT.
+- **f** (医者): settles the 006 question — at t+3 the doctor's **head/neck are inside the red-cross kit** (68 skin points, confirmed by two `--look` shots): **REAL**. Also a minor REAL (fist buried in the kit while carrying it, t+1).
+
+**Exit codes** (PowerShell, `echo $LASTEXITCODE` on its own line): `0` for the clean push card, `1` for the doctor card — now read correctly.
+
+**Main tool problem reported**: the carried-or-worn exemption is one-way only — a wearer still gets flagged for sinking into their own worn garment (the bride's skirt); suggested skipping the pair both ways.
+
+Commits: `c9d5ac8` (renders) and `900b6e1` (report). Not pushed, per the rules.
