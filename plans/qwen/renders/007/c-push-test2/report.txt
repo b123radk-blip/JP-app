@@ -1,0 +1,86 @@
+# Inspection of card 62bc
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0, t+3 to t+4.5 (worst at t+0): the kanji: 74% visible (26% behind model kit person 1)
+
+## t+0 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.28 x 0.98 x 0.41, centre [-0.27, 0.47, 0.02], bottom -0.02, top 0.96
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [-0.32,0.33,-0.13]: nearest own body part right knee 0.16u away
+  T1 model kit person 1 left hand at [-0.32,0.33,0.17]: nearest own body part left knee 0.16u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 96% visible (4% behind the kanji)
+  the kanji: 74% visible (26% behind T1 model kit person 1)
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - the kanji: 74% visible (26% behind T1 model kit person 1)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.63 x 0.99 x 0.33, centre [-0.75, 0.47, 0.02], bottom -0.02, top 0.96
+  T2 pool beige #d8c8b0: size 1.25 x 0.14 x 0.09, centre [-1.51, 0.08, 0.05], bottom 0.01, top 0.14
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [-1,0.6,-0.09]: nearest own body part right shoulder 0.32u away
+  T1 model kit person 1 left hand at [-1,0.6,0.13]: nearest own body part left shoulder 0.32u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 95% visible (5% behind the kanji)
+  the kanji: 81% visible (17% behind T1 model kit person 1, 2% behind other things (props, labels))
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.54 x 1 x 0.36, centre [-0.94, 0.48, 0.02], bottom -0.02, top 0.97
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [-1.13,0.45,-0.11]: nearest own body part right shoulder 0.32u away
+  T1 model kit person 1 left hand at [-1.13,0.45,0.15]: nearest own body part left shoulder 0.32u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 94% visible (6% behind the kanji)
+  the kanji: 80% visible (20% behind T1 model kit person 1)
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  .cache/inspect/007-c-push-test2/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  .cache/inspect/007-c-push-test2/faults.jpg
+    1. fault 1 (t+0): the kanji: 74% visible (26% behind T1 model kit person 1) (fault1-seat-t0.jpg)
+  .cache/inspect/007-c-push-test2/people.jpg
+    1. T1 kit person 1 close, from front (t+0) (kit-person-1-front-t0.jpg)
+    2. T1 kit person 1 close, from right (t+0) (kit-person-1-right-t0.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 62bc --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

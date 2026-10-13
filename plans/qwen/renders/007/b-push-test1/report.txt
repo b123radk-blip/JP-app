@@ -1,0 +1,67 @@
+# Inspection of card 62bc
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+6.5 (worst at t+2): model kit person 1: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.24u)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.63 x 0.99 x 0.33, centre [0.15, 0.72, 0.02], bottom 0.23, top 1.21
+  T2 pool beige #d8c8b0: size 1.25 x 0.14 x 0.09, centre [-0.61, 0.33, 0.05], bottom 0.26, top 0.39
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.23u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [-0.1,0.85,-0.09]: nearest own body part right shoulder 0.32u away
+  T1 model kit person 1 left hand at [-0.1,0.85,0.13]: nearest own body part left shoulder 0.32u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 99% visible (1% behind the kanji)
+  the kanji: 96% visible (3% behind other things (props, labels), 1% behind T1 model kit person 1)
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model kit person 1: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.23u)
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.54 x 1 x 0.36, centre [-0.04, 0.73, 0.02], bottom 0.23, top 1.22
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.23u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [-0.23,0.7,-0.11]: nearest own body part right shoulder 0.32u away
+  T1 model kit person 1 left hand at [-0.23,0.7,0.15]: nearest own body part left shoulder 0.32u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model kit person 1: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.23u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  .cache/inspect/007-b-push-test1/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  .cache/inspect/007-b-push-test1/faults.jpg
+    1. fault 1 from front (t+1): T1 model kit person 1: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.23u) (fault1-front-t1.jpg)
+    2. fault 1 from right (t+1): T1 model kit person 1: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.23u) (fault1-right-t1.jpg)
+  .cache/inspect/007-b-push-test1/people.jpg
+    1. T1 kit person 1 close, from front (t+1) (kit-person-1-front-t1.jpg)
+    2. T1 kit person 1 close, from right (t+1) (kit-person-1-right-t1.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 62bc --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
