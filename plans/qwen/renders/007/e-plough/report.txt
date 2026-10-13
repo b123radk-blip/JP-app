@@ -1,0 +1,108 @@
+# Inspection of card 7537
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0.5 (worst at t+0.5): mesh dark brown #3a2414: SUNK INTO mesh brown/grey #8a5a30/#9aa2ae (gap -0.1u)
+
+## t+0.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/dark brown #58b848/#4a2e18: size 2.2 x 0.39 x 0.81, centre [1.18, 0.2, 0.01], bottom 0, top 0.39
+  T2 mesh black #2a1810: size 0.07 x 0.06 x 0.22, centre [1.32, 0.77, 0.16], bottom 0.74, top 0.8
+  T3 mesh dark brown #3a2414: size 0.1 x 0.03 x 0.07, centre [1, 0.17, 0.17], bottom 0.16, top 0.19
+  T4 model worker: size 0.46 x 0.91 x 0.34, centre [1.43, 0.64, 0.14], bottom 0.18, top 1.09
+  T5 mesh brown/grey #8a5a30/#9aa2ae: size 0.43 x 0.38 x 0.22, centre [1.07, 0.34, 0.13], bottom 0.15, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/dark brown #58b848/#4a2e18: touches the ground line (bottom of the kanji)
+  T2 mesh black #2a1810: is on T4 model worker (worn or held: check it sits right in the close-ups)
+  T3 mesh dark brown #3a2414: SUNK INTO T5 mesh brown/grey #8a5a30/#9aa2ae (gap -0.1u)
+  T4 model worker: touches T1 mesh green/dark brown #58b848/#4a2e18
+  T5 mesh brown/grey #8a5a30/#9aa2ae: carried or worn by T4 model worker (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model worker right hand at [1.28,0.56,0.02]: nearest own body part right shoulder 0.25u away; nearest other thing T5 mesh brown/grey #8a5a30/#9aa2ae 0.04u away
+  T4 model worker left hand at [1.31,0.58,0.24]: nearest own body part left shoulder 0.25u away; nearest other thing T5 mesh brown/grey #8a5a30/#9aa2ae 0.06u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T4 model worker: 97% visible (3% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh dark brown #3a2414: SUNK INTO T5 mesh brown/grey #8a5a30/#9aa2ae (gap -0.1u)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/dark brown #58b848/#4a2e18: size 2.2 x 0.39 x 0.81, centre [1.18, 0.2, 0.01], bottom 0, top 0.39
+  T2 mesh black #2a1810: size 0.09 x 0.06 x 0.21, centre [1.23, 0.73, 0.19], bottom 0.7, top 0.76
+  T3 mesh dark brown #3a2414: size 0.2 x 0.03 x 0.07, centre [0.95, 0.17, 0.17], bottom 0.16, top 0.19
+  T4 model worker: size 0.52 x 0.87 x 0.37, centre [1.35, 0.62, 0.15], bottom 0.19, top 1.06
+  T5 mesh brown/grey #8a5a30/#9aa2ae: size 0.43 x 0.38 x 0.22, centre [0.96, 0.34, 0.13], bottom 0.15, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/dark brown #58b848/#4a2e18: touches the ground line (bottom of the kanji)
+  T2 mesh black #2a1810: is on T4 model worker (worn or held: check it sits right in the close-ups)
+  T3 mesh dark brown #3a2414: touches T5 mesh brown/grey #8a5a30/#9aa2ae
+  T4 model worker: touches T1 mesh green/dark brown #58b848/#4a2e18
+  T5 mesh brown/grey #8a5a30/#9aa2ae: carried or worn by T4 model worker (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model worker right hand at [1.18,0.55,0.02]: nearest own body part right shoulder 0.23u away; nearest other thing T5 mesh brown/grey #8a5a30/#9aa2ae 0.02u away
+  T4 model worker left hand at [1.21,0.57,0.23]: nearest own body part neck 0.24u away; nearest other thing T5 mesh brown/grey #8a5a30/#9aa2ae 0.05u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T4 model worker: 97% visible (3% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/dark brown #58b848/#4a2e18: size 2.2 x 0.39 x 0.81, centre [1.18, 0.2, 0.01], bottom 0, top 0.39
+  T2 mesh black #2a1810: size 0.09 x 0.06 x 0.21, centre [0.92, 0.75, 0.18], bottom 0.72, top 0.78
+  T3 mesh dark brown #3a2414: size 0.51 x 0.03 x 0.07, centre [0.8, 0.17, 0.17], bottom 0.16, top 0.19
+  T4 model worker: size 0.5 x 0.9 x 0.36, centre [1.04, 0.63, 0.15], bottom 0.18, top 1.08
+  T5 mesh brown/grey #8a5a30/#9aa2ae: size 0.43 x 0.38 x 0.22, centre [0.66, 0.34, 0.13], bottom 0.15, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/dark brown #58b848/#4a2e18: touches the ground line (bottom of the kanji)
+  T2 mesh black #2a1810: is on T4 model worker (worn or held: check it sits right in the close-ups)
+  T3 mesh dark brown #3a2414: is on T4 model worker (worn or held: check it sits right in the close-ups)
+  T4 model worker: touches T1 mesh green/dark brown #58b848/#4a2e18
+  T5 mesh brown/grey #8a5a30/#9aa2ae: carried or worn by T4 model worker (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model worker right hand at [0.88,0.56,0.01]: nearest own body part right shoulder 0.24u away; nearest other thing T5 mesh brown/grey #8a5a30/#9aa2ae 0.03u away
+  T4 model worker left hand at [0.9,0.57,0.24]: nearest own body part left knee 0.24u away; nearest other thing T5 mesh brown/grey #8a5a30/#9aa2ae 0.05u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T4 model worker: 97% visible (3% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  .cache/inspect/007-e-plough/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  .cache/inspect/007-e-plough/faults.jpg
+    1. fault 1 from front (t+0.5): T3 mesh dark brown #3a2414: SUNK INTO T5 mesh brown/grey #8a5a30/#9aa2ae (gap -0.1u) (fault1-front-t0.5.jpg)
+    2. fault 1 from right (t+0.5): T3 mesh dark brown #3a2414: SUNK INTO T5 mesh brown/grey #8a5a30/#9aa2ae (gap -0.1u) (fault1-right-t0.5.jpg)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs 7537 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

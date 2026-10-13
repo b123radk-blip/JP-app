@@ -1,0 +1,239 @@
+# Inspection of card 592b
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+6.5 (worst at t+0): model kit person 2: SUNK INTO mesh white #ffffff (gap -0.28u)
+  - t+1, t+6.5 (worst at t+1): model kit person 1 right hand is AT model kit person 2's handL (0.03u): touching or passing through; make sure the plan wants this
+  - t+1, t+6.5 (worst at t+1): model kit person 2 left hand is AT model kit person 1's handR (0.02u): touching or passing through; make sure the plan wants this
+  - t+3 to t+3.5 (worst at t+3): model kit person 1 PASSES INTO mesh white/white #ffd0e0/#f4f4ff: 67 skin points inside it, near the bones handL
+  - t+3 (worst at t+3): model kit person 1 left hand is AT model kit person 2's hair (0.02u): touching or passing through; make sure the plan wants this
+  - t+3 (worst at t+3): model kit person 2 right upper arm is AT model kit person 1's armL (0.01u): touching or passing through; make sure the plan wants this
+  - t+3.5 (worst at t+3.5): model kit person 1 left upper arm is AT model kit person 2's foreR (0u): touching or passing through; make sure the plan wants this
+  - t+3.5 to t+4 (worst at t+3.5): model kit person 2 right upper arm is AT model kit person 1's foreL (0.01u): touching or passing through; make sure the plan wants this
+  - t+4 (worst at t+4): model kit person 1 left upper arm is AT model kit person 2's armR (0.03u): touching or passing through; make sure the plan wants this
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.38 x 0.83 x 0.43, centre [0.36, 0.4, 0.14], bottom -0.02, top 0.81
+  T2 mesh white/black #ffffff/#1a1a24: size 0.03 x 0.07 x 0.06, centre [0.41, 0.53, 0.13], bottom 0.5, top 0.57
+  T3 model kit person 2: size 0.36 x 0.78 x 0.4, centre [0.64, 0.37, 0.14], bottom -0.02, top 0.76
+  T4 mesh white/white #ffd0e0/#f4f4ff: size 0.22 x 0.27 x 0.24, centre [0.69, 0.68, 0.09], bottom 0.55, top 0.82
+  T5 mesh white #ffffff: size 0.32 x 0.32 x 0.32, centre [0.67, 0.19, 0.1], bottom 0.03, top 0.35
+  T6 pool yellow #ffd040: size 0.15 x 0.06 x 0.06, centre [0.5, 0.76, 0.2], bottom 0.73, top 0.79
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+  T2 mesh white/black #ffffff/#1a1a24: carried or worn by T1 model kit person 1 (it moves with them: check it sits right in the close-ups)
+  T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  T4 mesh white/white #ffd0e0/#f4f4ff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+  T5 mesh white #ffffff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [0.47,0.37,0.28]: nearest own body part chest 0.24u away; nearest other thing T3 model kit person 2 0u away (inside its box: touching or passing through)
+  T1 model kit person 1 left hand at [0.38,0.28,-0.02]: nearest own body part left knee 0.13u away; nearest other thing T3 model kit person 2 0.09u away
+  T3 model kit person 2 right hand at [0.63,0.26,-0.01]: nearest own body part right knee 0.12u away; nearest other thing T5 mesh white #ffffff 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 left hand at [0.53,0.34,0.27]: nearest own body part chest 0.22u away; nearest other thing T1 model kit person 1 0u away (inside its box: touching or passing through)
+  T1 model kit person 1 right hand is AT T3 model kit person 2's handL (0.03u): touching or passing through; make sure the plan wants this
+  T3 model kit person 2 left hand is AT T1 model kit person 1's handR (0.02u): touching or passing through; make sure the plan wants this
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 100% visible
+  T3 model kit person 2: 99% visible (1% behind T1 model kit person 1)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  - T1 model kit person 1 right hand is AT T3 model kit person 2's handL (0.03u): touching or passing through; make sure the plan wants this
+  - T3 model kit person 2 left hand is AT T1 model kit person 1's handR (0.02u): touching or passing through; make sure the plan wants this
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.35 x 0.83 x 0.31, centre [0.33, 0.4, 0.09], bottom -0.02, top 0.81
+  T2 mesh white/black #ffffff/#1a1a24: size 0.06 x 0.07 x 0.04, centre [0.37, 0.53, 0.18], bottom 0.5, top 0.57
+  T3 model kit person 2: size 0.33 x 0.78 x 0.29, centre [0.67, 0.37, 0.09], bottom -0.02, top 0.76
+  T4 mesh white/white #ffd0e0/#f4f4ff: size 0.24 x 0.27 x 0.22, centre [0.68, 0.68, 0.08], bottom 0.55, top 0.82
+  T5 mesh white #ffffff: size 0.32 x 0.32 x 0.32, centre [0.67, 0.19, 0.1], bottom 0.03, top 0.35
+  T6 pool white #ffffff: size 0.85 x 1.04 x 0.41, centre [0.47, 0.69, 0], bottom 0.17, top 1.21
+  T7 mesh orange #ff4a6a: size 0.13 x 0.12 x 0.05, centre [0.5, 1.02, 0.1], bottom 0.96, top 1.08
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+  T2 mesh white/black #ffffff/#1a1a24: carried or worn by T1 model kit person 1 (it moves with them: check it sits right in the close-ups)
+  T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  T4 mesh white/white #ffd0e0/#f4f4ff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+  T5 mesh white #ffffff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+  T7 mesh orange #ff4a6a: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [0.21,0.28,0.16]: nearest own body part right knee 0.13u away; nearest other thing T2 mesh white/black #ffffff/#1a1a24 0.25u away
+  T1 model kit person 1 left hand at [0.45,0.28,0.04]: nearest own body part left knee 0.13u away; nearest other thing T3 model kit person 2 0.06u away
+  T3 model kit person 2 right hand at [0.56,0.26,0.05]: nearest own body part right knee 0.12u away; nearest other thing T5 mesh white #ffffff 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 left hand at [0.78,0.26,0.15]: nearest own body part left knee 0.12u away; nearest other thing T5 mesh white #ffffff 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 100% visible
+  T3 model kit person 2: 100% visible (0% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+
+## t+3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.6 x 0.83 x 0.3, centre [0.45, 0.4, 0.09], bottom -0.02, top 0.81
+  T2 mesh white/black #ffffff/#1a1a24: size 0.06 x 0.07 x 0.03, centre [0.36, 0.53, 0.18], bottom 0.5, top 0.57
+  T3 model kit person 2: size 0.56 x 0.78 x 0.28, centre [0.56, 0.37, 0.09], bottom -0.02, top 0.76
+  T4 mesh white/white #ffd0e0/#f4f4ff: size 0.24 x 0.27 x 0.21, centre [0.68, 0.68, 0.08], bottom 0.55, top 0.82
+  T5 mesh white #ffffff: size 0.32 x 0.32 x 0.32, centre [0.67, 0.19, 0.1], bottom 0.03, top 0.35
+  T6 pool white #ffffff: size 0.85 x 1.04 x 0.42, centre [0.47, 0.63, 0], bottom 0.1, top 1.15
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+  T2 mesh white/black #ffffff/#1a1a24: carried or worn by T1 model kit person 1 (it moves with them: check it sits right in the close-ups)
+  T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  T4 mesh white/white #ffd0e0/#f4f4ff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+  T5 mesh white #ffffff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T1 model kit person 1 PASSES INTO T4 mesh white/white #ffd0e0/#f4f4ff: 67 skin points inside it, near the bones handL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [0.21,0.28,0.14]: nearest own body part right knee 0.13u away; nearest other thing T3 model kit person 2 0.07u away
+  T1 model kit person 1 left hand at [0.68,0.61,-0.01]: nearest own body part left shoulder 0.27u away; nearest other thing T3 model kit person 2 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 right hand at [0.34,0.57,0]: nearest own body part right shoulder 0.26u away; nearest other thing T1 model kit person 1 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 left hand at [0.79,0.26,0.14]: nearest own body part left knee 0.12u away; nearest other thing T5 mesh white #ffffff 0u away (inside its box: touching or passing through)
+  T1 model kit person 1 left hand is AT T3 model kit person 2's hair (0.02u): touching or passing through; make sure the plan wants this
+  T3 model kit person 2 right upper arm is AT T1 model kit person 1's armL (0.01u): touching or passing through; make sure the plan wants this
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 95% visible (5% behind T3 model kit person 2)
+  T3 model kit person 2: 93% visible (7% behind T1 model kit person 1)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  - T1 model kit person 1 PASSES INTO T4 mesh white/white #ffd0e0/#f4f4ff: 67 skin points inside it, near the bones handL
+  - T1 model kit person 1 left hand is AT T3 model kit person 2's hair (0.02u): touching or passing through; make sure the plan wants this
+  - T3 model kit person 2 right upper arm is AT T1 model kit person 1's armL (0.01u): touching or passing through; make sure the plan wants this
+
+## t+3.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.51 x 0.84 x 0.29, centre [0.41, 0.4, 0.09], bottom -0.02, top 0.82
+  T2 mesh white/black #ffffff/#1a1a24: size 0.06 x 0.07 x 0.03, centre [0.36, 0.53, 0.18], bottom 0.5, top 0.57
+  T3 model kit person 2: size 0.48 x 0.79 x 0.27, centre [0.6, 0.38, 0.09], bottom -0.02, top 0.78
+  T4 mesh white/white #ffd0e0/#f4f4ff: size 0.24 x 0.27 x 0.21, centre [0.68, 0.68, 0.08], bottom 0.55, top 0.82
+  T5 mesh white #ffffff: size 0.32 x 0.32 x 0.32, centre [0.67, 0.19, 0.1], bottom 0.03, top 0.35
+  T6 pool white #ffffff: size 0.84 x 1.04 x 0.42, centre [0.46, 0.64, 0], bottom 0.12, top 1.16
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+  T2 mesh white/black #ffffff/#1a1a24: carried or worn by T1 model kit person 1 (it moves with them: check it sits right in the close-ups)
+  T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  T4 mesh white/white #ffd0e0/#f4f4ff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+  T5 mesh white #ffffff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T1 model kit person 1 PASSES INTO T4 mesh white/white #ffd0e0/#f4f4ff: 14 skin points inside it, near the bones handL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [0.21,0.28,0.14]: nearest own body part right knee 0.13u away; nearest other thing T3 model kit person 2 0.15u away
+  T1 model kit person 1 left hand at [0.59,0.76,0.02]: nearest own body part left shoulder 0.27u away; nearest other thing T3 model kit person 2 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 right hand at [0.42,0.71,0.02]: nearest own body part right shoulder 0.26u away; nearest other thing T1 model kit person 1 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 left hand at [0.79,0.26,0.14]: nearest own body part left knee 0.12u away; nearest other thing T5 mesh white #ffffff 0u away (inside its box: touching or passing through)
+  T1 model kit person 1 left upper arm is AT T3 model kit person 2's foreR (0u): touching or passing through; make sure the plan wants this
+  T3 model kit person 2 right upper arm is AT T1 model kit person 1's foreL (0.01u): touching or passing through; make sure the plan wants this
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 98% visible (2% behind T3 model kit person 2)
+  T3 model kit person 2: 95% visible (5% behind T1 model kit person 1, 0% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  - T1 model kit person 1 PASSES INTO T4 mesh white/white #ffd0e0/#f4f4ff: 14 skin points inside it, near the bones handL
+  - T1 model kit person 1 left upper arm is AT T3 model kit person 2's foreR (0u): touching or passing through; make sure the plan wants this
+  - T3 model kit person 2 right upper arm is AT T1 model kit person 1's foreL (0.01u): touching or passing through; make sure the plan wants this
+
+## t+4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model kit person 1: size 0.57 x 0.83 x 0.29, centre [0.44, 0.4, 0.09], bottom -0.02, top 0.81
+  T2 mesh white/black #ffffff/#1a1a24: size 0.06 x 0.07 x 0.03, centre [0.36, 0.53, 0.18], bottom 0.5, top 0.57
+  T3 model kit person 2: size 0.54 x 0.78 x 0.27, centre [0.57, 0.37, 0.09], bottom -0.02, top 0.76
+  T4 mesh white/white #ffd0e0/#f4f4ff: size 0.24 x 0.27 x 0.21, centre [0.68, 0.68, 0.08], bottom 0.55, top 0.82
+  T5 mesh white #ffffff: size 0.32 x 0.32 x 0.32, centre [0.67, 0.19, 0.1], bottom 0.03, top 0.35
+  T6 pool white #ffffff: size 0.85 x 1.04 x 0.41, centre [0.47, 0.66, 0], bottom 0.14, top 1.18
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model kit person 1: touches the ground line (bottom of the kanji)
+  T2 mesh white/black #ffffff/#1a1a24: carried or worn by T1 model kit person 1 (it moves with them: check it sits right in the close-ups)
+  T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  T4 mesh white/white #ffd0e0/#f4f4ff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+  T5 mesh white #ffffff: carried or worn by T3 model kit person 2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model kit person 1 right hand at [0.21,0.28,0.14]: nearest own body part right knee 0.13u away; nearest other thing T3 model kit person 2 0.09u away
+  T1 model kit person 1 left hand at [0.65,0.41,0]: nearest own body part left shoulder 0.27u away; nearest other thing T3 model kit person 2 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 right hand at [0.37,0.38,0.01]: nearest own body part right shoulder 0.26u away; nearest other thing T1 model kit person 1 0u away (inside its box: touching or passing through)
+  T3 model kit person 2 left hand at [0.79,0.26,0.14]: nearest own body part left knee 0.12u away; nearest other thing T5 mesh white #ffffff 0u away (inside its box: touching or passing through)
+  T1 model kit person 1 left upper arm is AT T3 model kit person 2's armR (0.03u): touching or passing through; make sure the plan wants this
+  T3 model kit person 2 right upper arm is AT T1 model kit person 1's foreL (0.01u): touching or passing through; make sure the plan wants this
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model kit person 1: 94% visible (6% behind T3 model kit person 2)
+  T3 model kit person 2: 96% visible (4% behind T1 model kit person 1)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u)
+  - T1 model kit person 1 left upper arm is AT T3 model kit person 2's armR (0.03u): touching or passing through; make sure the plan wants this
+  - T3 model kit person 2 right upper arm is AT T1 model kit person 1's foreL (0.01u): touching or passing through; make sure the plan wants this
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  .cache/inspect/007-d-husband/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  .cache/inspect/007-d-husband/faults.jpg
+    1. fault 1 from front (t+1): T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u) (fault1-front-t1.jpg)
+    2. fault 1 from right (t+1): T3 model kit person 2: SUNK INTO T5 mesh white #ffffff (gap -0.28u) (fault1-right-t1.jpg)
+    3. fault 2 from front (t+1): T1 model kit person 1 right hand is AT T3 model kit person 2's handL (0.03u): touching or passing through; make sure the plan wants this (fault2-front-t1.jpg)
+    4. fault 2 from right (t+1): T1 model kit person 1 right hand is AT T3 model kit person 2's handL (0.03u): touching or passing through; make sure the plan wants this (fault2-right-t1.jpg)
+    5. fault 3 from front (t+1): T3 model kit person 2 left hand is AT T1 model kit person 1's handR (0.02u): touching or passing through; make sure the plan wants this (fault3-front-t1.jpg)
+    6. fault 3 from right (t+1): T3 model kit person 2 left hand is AT T1 model kit person 1's handR (0.02u): touching or passing through; make sure the plan wants this (fault3-right-t1.jpg)
+    7. fault 4 from front (t+3): T1 model kit person 1 PASSES INTO T4 mesh white/white #ffd0e0/#f4f4ff: 67 skin points inside it, near the bones handL (fault4-front-t3.jpg)
+    8. fault 4 from right (t+3): T1 model kit person 1 PASSES INTO T4 mesh white/white #ffd0e0/#f4f4ff: 67 skin points inside it, near the bones handL (fault4-right-t3.jpg)
+    9. fault 5 from front (t+3): T1 model kit person 1 left hand is AT T3 model kit person 2's hair (0.02u): touching or passing through; make sure the plan wants this (fault5-front-t3.jpg)
+    10. fault 5 from right (t+3): T1 model kit person 1 left hand is AT T3 model kit person 2's hair (0.02u): touching or passing through; make sure the plan wants this (fault5-right-t3.jpg)
+    11. fault 6 from front (t+3): T3 model kit person 2 right upper arm is AT T1 model kit person 1's armL (0.01u): touching or passing through; make sure the plan wants this (fault6-front-t3.jpg)
+    12. fault 6 from right (t+3): T3 model kit person 2 right upper arm is AT T1 model kit person 1's armL (0.01u): touching or passing through; make sure the plan wants this (fault6-right-t3.jpg)
+  .cache/inspect/007-d-husband/faults-2.jpg
+    13. fault 7 from front (t+3.5): T1 model kit person 1 left upper arm is AT T3 model kit person 2's foreR (0u): touching or passing through; make sure the plan wants this (fault7-front-t3.5.jpg)
+    14. fault 7 from right (t+3.5): T1 model kit person 1 left upper arm is AT T3 model kit person 2's foreR (0u): touching or passing through; make sure the plan wants this (fault7-right-t3.5.jpg)
+    15. fault 8 from front (t+3.5): T3 model kit person 2 right upper arm is AT T1 model kit person 1's foreL (0.01u): touching or passing through; make sure the plan wants this (fault8-front-t3.5.jpg)
+    16. fault 8 from right (t+3.5): T3 model kit person 2 right upper arm is AT T1 model kit person 1's foreL (0.01u): touching or passing through; make sure the plan wants this (fault8-right-t3.5.jpg)
+    17. fault 9 from front (t+4): T1 model kit person 1 left upper arm is AT T3 model kit person 2's armR (0.03u): touching or passing through; make sure the plan wants this (fault9-front-t4.jpg)
+    18. fault 9 from right (t+4): T1 model kit person 1 left upper arm is AT T3 model kit person 2's armR (0.03u): touching or passing through; make sure the plan wants this (fault9-right-t4.jpg)
+  .cache/inspect/007-d-husband/people.jpg
+    1. T3 kit person 2 close, from front (t+1) (kit-person-2-front-t1.jpg)
+    2. T3 kit person 2 close, from right (t+1) (kit-person-2-right-t1.jpg)
+    3. T1 kit person 1 close, from front (t+1) (kit-person-1-front-t1.jpg)
+    4. T1 kit person 1 close, from right (t+1) (kit-person-1-right-t1.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 592b --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
