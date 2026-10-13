@@ -1,0 +1,18 @@
+pi exit 0 after 13.1 min
+
+Plan 005 done. Summary:
+
+**Changes** (only `q-plough.js` + its catalog line, as the plan allowed):
+- **Field:** thick dark-brown soil block (0.12u, sides show earth), front bottom edge on the ground line; the green spike row is now two staggered rows of rice tufts (4 tilted thin blades each), all in the field's one `solidProp`
+- **Man:** big dark moustache copied from `q-dad.js`, mounted on the upper lip via `onBone` — he reads clearly as a grown man
+- **Flex:** the `Victory` cheer is now a double-biceps flex (fists beside the head, elbows out and down, `handTo`) held with the yellow burst; burst raised to clear his head
+- Catalog cost `5 → 6`, description updated; `boy` outcome untouched
+
+**Checks:** `node --check` clean, `npm test` passes (63 pass, 0 fail, content + recipe checks ok), cost check `0 cost mismatches`, orbit + 4 rounds of inspect with renders looked at.
+
+**Leftovers, honestly reported:**
+- The inspector can't report a clean "feet touch the soil block" while the rice is merged into the field's one prop (its bbox top is the rice tips), so it flags the worker as sunk/float/passing-by-foot-points; close-ups confirm the feet are on the soil at all four times.
+- The plough is a child of the model, so the inspector never lists it as a separate thing; hand-on-grip contact judged by eye (palms on both grips at t+2 and t+9).
+- The moustache "FLOATS ABOVE T1" is the expected plan-noted artifact.
+
+Commits: `ec1ea68` (code + renders) and `545efd1` (report at `plans/qwen/done/005-otoko.md`). Nothing pushed, branch untouched.
