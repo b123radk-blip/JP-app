@@ -14,7 +14,8 @@ export async function measure({ t, cam }) {
 
   // the scene's things: models (people, animals, objects), labels, meshes; plain groups are opened up
   const found = [];
-  const walk = (o) => { for (const c of o.children) { if (!shown(c)) continue; if (c.userData.model || c.isMesh || c.isPoints) found.push(c); else walk(c); } };
+  // a model's own body is its first child; props hung on it (a plough, a cup) are listed as things of their own
+  const walk = (o) => { for (const c of o.children) { if (!shown(c)) continue; if (c.userData.model) { found.push(c); walk({ children: c.children.slice(1) }); } else if (c.isMesh || c.isPoints) found.push(c); else walk(c); } };
   walk(holder);
   const boxOf = (o) => {
     const b = new THREE.Box3();
@@ -23,7 +24,7 @@ export async function measure({ t, cam }) {
       for (let i = 0; i < o.count; i++) { o.getMatrixAt(i, m); s.setFromMatrixScale(m); if (s.x > 1e-3) b.union(o.geometry.boundingBox.clone().applyMatrix4(m).applyMatrix4(o.matrixWorld)); }
       return b;
     }
-    return b.setFromObject(o, true);
+    return b.setFromObject(o.userData.model ? o.children[0] : o, true);
   };
   const colours = (o) => {
     const col = o.geometry?.getAttribute('color');
@@ -41,47 +42,70 @@ export async function measure({ t, cam }) {
     x.size = [U(s.x), U(s.y), U(s.z)]; x.centre = P(x.box.getCenter(V())); x.bottom = U(x.box.min.y - floorY); x.top = U(x.box.max.y - floorY);
     x.world = x.box.getCenter(V()).toArray(); x.radius = s.length() / 2;
   });
-  const solid = items.filter((x) => x.kind === 'model' || x.kind === 'mesh');
+  const solid = items.filter((x) => x.kind === 'model' || x.kind === 'mesh'), models = () => items.filter((x) => x.kind === 'model');
   const label = (x) => `${x.id} ${x.kind} ${x.name}`;
 
-  // what each solid thing rests on: the highest thing under its middle (lower down than it), or the ground line
-  const support = solid.map((a) => {
-    const c = a.box.getCenter(V()), mid = (a.box.min.y + a.box.max.y) / 2, m = 0.03 * u;
-    const under = solid.filter((b) => b !== a && c.x >= b.box.min.x - m && c.x <= b.box.max.x + m && c.z >= b.box.min.z - m && c.z <= b.box.max.z + m && b.box.max.y <= a.box.min.y + Math.max(0.25 * (a.box.max.y - a.box.min.y), 0.1 * u) && (b.box.min.y + b.box.max.y) / 2 < mid)
-      .sort((p, q) => q.box.max.y - p.box.max.y)[0];
-    const top = under && under.box.max.y > floorY - 0.02 * u ? under.box.max.y : floorY, on = under && top === under.box.max.y ? label(under) : 'the ground line (bottom of the kanji)';
-    const gap = U(a.box.min.y - top);
-    const flat = a.kind === 'mesh' && a.box.max.y - a.box.min.y < 0.12 * u && Math.abs(a.box.max.y - floorY) <= 0.02 * u && on.startsWith('the ground');
-    const verdict = flat ? 'is ground: its top is on' : Math.abs(gap) <= 0.02 ? 'touches' : gap < 0 ? 'SUNK INTO' : gap > 0.5 ? 'is high in the air above' : 'FLOATS ABOVE';
-    return { id: a.id, text: `${label(a)}: ${verdict} ${on}${Math.abs(gap) > 0.02 && !flat ? ` (gap ${gap}u)` : ''}`, gap, point: [c.x, a.box.min.y, c.z], fault: verdict === 'SUNK INTO' || verdict === 'FLOATS ABOVE' };
-  });
-
-  // bodies passing through things: points of each model's skin inside another thing's box (the box shrunk a little), and
-  // which part of the body they belong to (the nearest bone)
   const skins = new Map(), q = V();
   const skin = (a) => {
     if (skins.has(a)) return skins.get(a);
     const pts = [], bones = [];
-    a.o.traverse((m) => { if (m.isBone) bones.push(m); if (!m.isMesh) return; for (let j = 0; j < m.geometry.attributes.position.count; j += 3) pts.push(m.getVertexPosition(j, V()).applyMatrix4(m.matrixWorld)); });
+    (a.o.children[0] ?? a.o).traverse((m) => { if (m.isBone) bones.push(m); if (!m.isMesh) return; for (let j = 0; j < m.geometry.attributes.position.count; j += 3) pts.push(m.getVertexPosition(j, V()).applyMatrix4(m.matrixWorld)); });
     const boneAt = (p) => bones.map((bn) => [bn.name, bn.getWorldPosition(q).distanceTo(p)]).sort((x, y) => x[1] - y[1])[0]?.[0] ?? '?';
     const r = { pts, bones, boneAt }; skins.set(a, r); return r;
   };
+  // the surfaces: every solid thing's own meshes (skinned ones posed); a ray straight down finds what is really under a
+  // point (a tipped field's top, a head's hair), not just boxes
+  // (rays must hit faces from both sides to tell inside from outside: sides are switched back before returning)
+  const sides = new Map();
+  const own = (x) => { const a = []; (x.kind === 'model' ? x.o.children[0] : x.o).traverse((m) => { if (m.isMesh && shown(m)) { if (m.isSkinnedMesh) { m.computeBoundingBox(); m.computeBoundingSphere(); } for (const mt of [m.material].flat()) if (!sides.has(mt)) { sides.set(mt, mt.side); mt.side = THREE.DoubleSide; } a.push(m); } }); return a; };
+  const meshesOf = new Map();
+  const rc = new THREE.Raycaster(), DOWN = new THREE.Vector3(0, -1, 0), UP = new THREE.Vector3(0, 1, 0);
+  // the highest surface of another thing under point p, looking down from height `from`: [height, thing] or the ground line
+  const below = (p, a, from) => {
+    rc.set(new THREE.Vector3(p.x, from, p.z), DOWN); rc.far = 10;
+    for (const b of solid) if (!meshesOf.has(b)) meshesOf.set(b, own(b));
+    const hit = solid.filter((b) => b !== a).flatMap((b) => rc.intersectObjects(meshesOf.get(b), false).map((h) => [h.point.y, b]))
+      .filter(([y]) => y > floorY - 0.02 * u).sort((x, y) => y[0] - x[0])[0];
+    return hit ?? [floorY, null];
+  };
+  const support = solid.map((a) => {
+    // the points it stands on: a model's lowest skin points (its soles), a mesh's bottom middle
+    const feet = a.kind === 'model' ? skin(a).pts.slice().sort((x, y) => x.y - y.y).slice(0, 12) : [new THREE.Vector3((a.box.min.x + a.box.max.x) / 2, a.box.min.y, (a.box.min.z + a.box.max.z) / 2)];
+    // (a model looks from 0.3u above its soles, to find a floor its feet sank into; a mesh from its own middle)
+    const from = (p) => a.kind === 'model' ? p.y + 0.3 * u : (a.box.min.y + a.box.max.y) / 2;
+    // a small thing on a person (a moustache, a hat, a cup in the hand) is worn or held, not standing anywhere
+    const wearer = a.kind === 'mesh' && models().find((m) => m.box.intersectsBox(a.box) && a.box.getSize(V()).length() < 0.5 * m.box.getSize(V()).length());
+    if (wearer) return { id: a.id, text: `${label(a)}: is on ${label(wearer)} (worn or held: check it sits right in the close-ups)`, gap: 0, point: a.box.getCenter(V()).toArray(), fault: false };
+    const best = feet.map((p) => { const [y, b] = below(p, a, from(p)); return [p.y - y, b, p]; }).sort((x, y) => Math.abs(x[0]) - Math.abs(y[0]))[0];
+    const gap = U(best[0]), on = best[1] ? label(best[1]) : 'the ground line (bottom of the kanji)';
+    const flat = a.kind === 'mesh' && a.box.max.y - a.box.min.y < 0.12 * u && Math.abs(a.box.max.y - floorY) <= 0.02 * u && !best[1];
+    const verdict = flat ? 'is ground: its top is on' : Math.abs(gap) <= 0.02 ? 'touches' : gap < 0 ? 'SUNK INTO' : gap > 0.5 ? 'is high in the air above' : 'FLOATS ABOVE';
+    return { id: a.id, text: `${label(a)}: ${verdict} ${on}${Math.abs(gap) > 0.02 && !flat ? ` (gap ${gap}u)` : ''}`, gap, point: best[2].toArray(), fault: verdict === 'SUNK INTO' || verdict === 'FLOATS ABOVE' };
+  });
+
+  // bodies passing through things: points of each model's skin inside another thing's box (the box shrunk a little), and
+  // which part of the body they belong to (the nearest bone)
   const through = [];
   for (const a of items.filter((x) => x.kind === 'model')) {
     const { pts, boneAt } = skin(a);
     for (const b of solid.filter((x) => x !== a && x.kind === 'mesh')) {
-      const box = b.box.clone().expandByScalar(-0.012 * u), inside = pts.filter((p) => box.containsPoint(p));
+      // inside its box, and really inside its surface: a ray straight up crosses the surface an odd number of times
+      const box = b.box.clone().expandByScalar(-0.005 * u), mb = meshesOf.get(b) ?? own(b);
+      // (a sole pressed a hair into the floor doesn't count: only points deeper than 0.03u)
+      const inside = pts.filter((p) => { if (!box.containsPoint(p)) return false; rc.set(p, UP); rc.far = 10; const h = mb.flatMap((m) => rc.intersectObject(m, false)); return h.length % 2 === 1 && Math.min(...h.map((x) => x.distance)) > 0.03 * u; });
       if (inside.length < 4) continue;
       const parts = {};
       for (const p of inside) { const n = boneAt(p); parts[n] = (parts[n] ?? 0) + 1; }
       const c = inside.reduce((s, p) => s.add(p), V()).multiplyScalar(1 / inside.length);
-      through.push({ id: a.id, point: c.toArray(), text: `${label(a)} PASSES INTO ${label(b)}: ${inside.length} skin points inside its box, near the bones ${Object.entries(parts).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([n]) => n).join(', ')}` });
+      through.push({ id: a.id, point: c.toArray(), text: `${label(a)} PASSES INTO ${label(b)}: ${inside.length} skin points inside it, near the bones ${Object.entries(parts).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([n]) => n).join(', ')}` });
     }
   }
 
+  for (const [mt, side] of sides) mt.side = side;
+
   // hands of the people: where each fist is, the nearest point of the person's own body and the nearest other thing
-  const hands = [], touching = [], models = items.filter((x) => x.kind === 'model');
-  for (const a of models) {
+  const hands = [], touching = [];
+  for (const a of models()) {
     const bone = {}; a.o.traverse((b) => { if (b.isBone) bone[b.name] = b; });
     if (!bone.FistR || !bone.Head) continue;
     const at = (n) => bone[n]?.getWorldPosition(V());
@@ -96,7 +120,7 @@ export async function measure({ t, cam }) {
       // points along the whole arm (shoulder, elbow, wrist) against the other bodies' skin
       const sh = at(`UpperArm${side}`), el = at(`LowerArm${side}`), along = [0.5, 1].map((f) => sh.clone().lerp(el, f)).concat([0.33, 0.66, 1].map((f) => el.clone().lerp(p, f)));
       let near = null;
-      for (const o of models.filter((x) => x !== a)) for (const q of skin(o).pts) for (const [i, ap] of along.entries()) { const d = q.distanceTo(ap); if (d < 0.04 * u && (!near || d < near[1])) near = [o, d, q, i]; }
+      for (const o of models().filter((x) => x !== a)) for (const q of skin(o).pts) for (const [i, ap] of along.entries()) { const d = q.distanceTo(ap); if (d < 0.04 * u && (!near || d < near[1])) near = [o, d, q, i]; }
       if (near) touching.push({ point: near[2].toArray(), text: `${label(a)} ${word} ${near[3] === along.length - 1 ? 'hand' : near[3] < 2 ? 'upper arm' : 'forearm'} is AT ${label(near[0])}'s ${skin(near[0]).boneAt(near[2])} (${U(near[1])}u): touching or passing through; make sure the plan wants this` });
       hands.push({ id: a.id, point: p.toArray(), text: `${label(a)} ${word} hand at ${JSON.stringify(P(p))}: nearest own body part ${own[0]} ${U(own[1])}u away${other ? `; nearest other thing ${label(other[0])} ${U(other[1])}u away${other[1] === 0 ? ' (inside its box: touching or passing through)' : ''}` : ''}` });
     }

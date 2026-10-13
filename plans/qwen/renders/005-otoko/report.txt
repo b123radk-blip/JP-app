@@ -1,0 +1,187 @@
+# Inspection of card 7537
+
+## t+2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh #58b848/#4a2e18: size 2.2 x 0.39 x 0.81, centre [1.18, 0.2, 0.01], bottom 0, top 0.39
+  T2 mesh #2a1810: size 0.04 x 0.06 x 0.22, centre [1.12, 0.81, 0.1], bottom 0.78, top 0.85
+  T3 mesh #3a2414: size 0.4 x 0.03 x 0.07, centre [0.85, 0.17, 0.17], bottom 0.16, top 0.19
+  T4 model worker: size 0.87 x 0.91 x 0.34, centre [0.98, 0.6, 0.12], bottom 0.15, top 1.06
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh #58b848/#4a2e18: touches the ground line (bottom of the kanji)
+  T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.39u)
+  T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 307 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model worker right hand at [0.98,0.57,0.02]: nearest own body part right shoulder 0.24u away; nearest other thing T1 mesh #58b848/#4a2e18 0.18u away
+  T4 model worker left hand at [1,0.55,0.25]: nearest own body part left shoulder 0.24u away; nearest other thing T1 mesh #58b848/#4a2e18 0.16u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal shows
+  T4 model worker: 99% visible (1% behind other things (props, the kanji, labels))
+
+POSSIBLE FAULTS (look at the close-ups to decide):
+  - T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.39u)
+  - T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  - T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+  - T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 307 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+
+## t+4.6 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh #58b848/#4a2e18: size 2.2 x 0.39 x 0.81, centre [1.18, 0.2, 0.01], bottom 0, top 0.39
+  T2 mesh #2a1810: size 0.06 x 0.06 x 0.22, centre [0.7, 0.86, 0.13], bottom 0.83, top 0.89
+  T3 mesh #3a2414: size 0.85 x 0.03 x 0.07, centre [0.63, 0.17, 0.17], bottom 0.16, top 0.19
+  T4 model worker: size 0.9 x 0.97 x 0.36, centre [0.56, 0.63, 0.12], bottom 0.15, top 1.12
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh #58b848/#4a2e18: touches the ground line (bottom of the kanji)
+  T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 333 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model worker right hand at [0.61,0.55,0.02]: nearest own body part chest 0.26u away; nearest other thing T1 mesh #58b848/#4a2e18 0.15u away
+  T4 model worker left hand at [0.85,0.44,0.26]: nearest own body part left knee 0.13u away; nearest other thing T1 mesh #58b848/#4a2e18 0.05u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal shows
+  T4 model worker: 97% visible (3% behind other things (props, the kanji, labels))
+
+POSSIBLE FAULTS (look at the close-ups to decide):
+  - T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  - T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  - T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+  - T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 333 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+
+## t+5.8 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh #58b848/#4a2e18: size 2.2 x 0.39 x 0.81, centre [1.18, 0.2, 0.01], bottom 0, top 0.39
+  T2 mesh #2a1810: size 0.06 x 0.06 x 0.22, centre [0.7, 0.86, 0.13], bottom 0.83, top 0.89
+  T3 mesh #3a2414: size 0.85 x 0.03 x 0.07, centre [0.63, 0.17, 0.17], bottom 0.16, top 0.19
+  T4 model worker: size 0.91 x 0.97 x 0.54, centre [0.56, 0.63, 0.09], bottom 0.15, top 1.12
+  T5 mesh #ffd040: size 0.24 x 0.21 x 0.03, centre [0.75, 1.3, 0.2], bottom 1.2, top 1.4
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh #58b848/#4a2e18: touches the ground line (bottom of the kanji)
+  T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  T4 model worker: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.15u)
+  T5 mesh #ffd040: FLOATS ABOVE T4 model worker (gap 0.07u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 284 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model worker right hand at [0.72,0.9,-0.12]: nearest own body part right shoulder 0.26u away; nearest other thing T2 mesh #2a1810 0.15u away
+  T4 model worker left hand at [0.78,0.9,0.32]: nearest own body part head (middle) 0.23u away; nearest other thing T2 mesh #2a1810 0.1u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal shows
+  T4 model worker: 97% visible (3% behind other things (props, the kanji, labels))
+
+POSSIBLE FAULTS (look at the close-ups to decide):
+  - T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  - T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  - T4 model worker: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.15u)
+  - T5 mesh #ffd040: FLOATS ABOVE T4 model worker (gap 0.07u)
+  - T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 284 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+
+## t+9 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh #58b848/#4a2e18: size 2.2 x 0.39 x 0.81, centre [1.18, 0.2, 0.01], bottom 0, top 0.39
+  T2 mesh #2a1810: size 0.04 x 0.07 x 0.22, centre [1.21, 0.87, -0.17], bottom 0.84, top 0.91
+  T3 mesh #3a2414: size 0.85 x 0.03 x 0.07, centre [0.63, 0.17, 0.17], bottom 0.16, top 0.19
+  T4 mesh #3a2414: size 0.38 x 0.03 x 0.07, centre [1.49, 0.26, -0.25], bottom 0.25, top 0.28
+  T5 model worker: size 0.88 x 0.88 x 0.35, centre [1.34, 0.67, -0.19], bottom 0.23, top 1.12
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh #58b848/#4a2e18: touches the ground line (bottom of the kanji)
+  T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.45u)
+  T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  T4 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.25u)
+  T5 model worker: SUNK INTO T1 mesh #58b848/#4a2e18 (gap -0.16u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T5 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 184 skin points inside its box, near the bones FootL, FootR, LowerLegL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model worker right hand at [1.33,0.64,-0.1]: nearest own body part right shoulder 0.22u away; nearest other thing T2 mesh #2a1810 0.22u away
+  T5 model worker left hand at [1.32,0.61,-0.32]: nearest own body part left shoulder 0.22u away; nearest other thing T1 mesh #58b848/#4a2e18 0.22u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal shows
+  T5 model worker: 98% visible (2% behind other things (props, the kanji, labels))
+
+POSSIBLE FAULTS (look at the close-ups to decide):
+  - T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.45u)
+  - T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  - T4 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.25u)
+  - T5 model worker: SUNK INTO T1 mesh #58b848/#4a2e18 (gap -0.16u)
+  - T5 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 184 skin points inside its box, near the bones FootL, FootR, LowerLegL
+
+Pictures (open each one with your read tool):
+  plans/qwen/renders/005-otoko/t2-scene-front.jpg: the whole scene from front
+  plans/qwen/renders/005-otoko/t2-scene-right.jpg: the whole scene from right
+  plans/qwen/renders/005-otoko/t2-learner.jpg: what the learner sees (the app's own camera)
+  plans/qwen/renders/005-otoko/t2-T4-worker-front.jpg: T4 worker close, from front
+  plans/qwen/renders/005-otoko/t2-T4-worker-right.jpg: T4 worker close, from right
+  plans/qwen/renders/005-otoko/t2-fault1-front.jpg: fault 1 close up from front: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.39u)
+  plans/qwen/renders/005-otoko/t2-fault1-right.jpg: fault 1 close up from right: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.39u)
+  plans/qwen/renders/005-otoko/t2-fault2-front.jpg: fault 2 close up from front: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t2-fault2-right.jpg: fault 2 close up from right: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t2-fault3-front.jpg: fault 3 close up from front: T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+  plans/qwen/renders/005-otoko/t2-fault3-right.jpg: fault 3 close up from right: T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+  plans/qwen/renders/005-otoko/t2-fault4-front.jpg: fault 4 close up from front: T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 307 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+  plans/qwen/renders/005-otoko/t2-fault4-right.jpg: fault 4 close up from right: T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 307 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+  plans/qwen/renders/005-otoko/t4.6-scene-front.jpg: the whole scene from front
+  plans/qwen/renders/005-otoko/t4.6-scene-right.jpg: the whole scene from right
+  plans/qwen/renders/005-otoko/t4.6-learner.jpg: what the learner sees (the app's own camera)
+  plans/qwen/renders/005-otoko/t4.6-T4-worker-front.jpg: T4 worker close, from front
+  plans/qwen/renders/005-otoko/t4.6-T4-worker-right.jpg: T4 worker close, from right
+  plans/qwen/renders/005-otoko/t4.6-fault1-front.jpg: fault 1 close up from front: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  plans/qwen/renders/005-otoko/t4.6-fault1-right.jpg: fault 1 close up from right: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  plans/qwen/renders/005-otoko/t4.6-fault2-front.jpg: fault 2 close up from front: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t4.6-fault2-right.jpg: fault 2 close up from right: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t4.6-fault3-front.jpg: fault 3 close up from front: T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+  plans/qwen/renders/005-otoko/t4.6-fault3-right.jpg: fault 3 close up from right: T4 model worker: SUNK INTO T3 mesh #3a2414 (gap -0.04u)
+  plans/qwen/renders/005-otoko/t4.6-fault4-front.jpg: fault 4 close up from front: T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 333 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+  plans/qwen/renders/005-otoko/t4.6-fault4-right.jpg: fault 4 close up from right: T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 333 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+  plans/qwen/renders/005-otoko/t5.8-scene-front.jpg: the whole scene from front
+  plans/qwen/renders/005-otoko/t5.8-scene-right.jpg: the whole scene from right
+  plans/qwen/renders/005-otoko/t5.8-learner.jpg: what the learner sees (the app's own camera)
+  plans/qwen/renders/005-otoko/t5.8-T4-worker-front.jpg: T4 worker close, from front
+  plans/qwen/renders/005-otoko/t5.8-T4-worker-right.jpg: T4 worker close, from right
+  plans/qwen/renders/005-otoko/t5.8-fault1-front.jpg: fault 1 close up from front: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  plans/qwen/renders/005-otoko/t5.8-fault1-right.jpg: fault 1 close up from right: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.44u)
+  plans/qwen/renders/005-otoko/t5.8-fault2-front.jpg: fault 2 close up from front: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t5.8-fault2-right.jpg: fault 2 close up from right: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t5.8-fault3-front.jpg: fault 3 close up from front: T4 model worker: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.15u)
+  plans/qwen/renders/005-otoko/t5.8-fault3-right.jpg: fault 3 close up from right: T4 model worker: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.15u)
+  plans/qwen/renders/005-otoko/t5.8-fault4-front.jpg: fault 4 close up from front: T5 mesh #ffd040: FLOATS ABOVE T4 model worker (gap 0.07u)
+  plans/qwen/renders/005-otoko/t5.8-fault4-right.jpg: fault 4 close up from right: T5 mesh #ffd040: FLOATS ABOVE T4 model worker (gap 0.07u)
+  plans/qwen/renders/005-otoko/t5.8-fault5-front.jpg: fault 5 close up from front: T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 284 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+  plans/qwen/renders/005-otoko/t5.8-fault5-right.jpg: fault 5 close up from right: T4 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 284 skin points inside its box, near the bones LowerLegL, LowerLegR, FootL
+  plans/qwen/renders/005-otoko/t9-scene-front.jpg: the whole scene from front
+  plans/qwen/renders/005-otoko/t9-scene-right.jpg: the whole scene from right
+  plans/qwen/renders/005-otoko/t9-learner.jpg: what the learner sees (the app's own camera)
+  plans/qwen/renders/005-otoko/t9-T5-worker-front.jpg: T5 worker close, from front
+  plans/qwen/renders/005-otoko/t9-T5-worker-right.jpg: T5 worker close, from right
+  plans/qwen/renders/005-otoko/t9-fault1-front.jpg: fault 1 close up from front: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.45u)
+  plans/qwen/renders/005-otoko/t9-fault1-right.jpg: fault 1 close up from right: T2 mesh #2a1810: FLOATS ABOVE T1 mesh #58b848/#4a2e18 (gap 0.45u)
+  plans/qwen/renders/005-otoko/t9-fault2-front.jpg: fault 2 close up from front: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t9-fault2-right.jpg: fault 2 close up from right: T3 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.16u)
+  plans/qwen/renders/005-otoko/t9-fault3-front.jpg: fault 3 close up from front: T4 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.25u)
+  plans/qwen/renders/005-otoko/t9-fault3-right.jpg: fault 3 close up from right: T4 mesh #3a2414: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.25u)
+  plans/qwen/renders/005-otoko/t9-fault4-front.jpg: fault 4 close up from front: T5 model worker: SUNK INTO T1 mesh #58b848/#4a2e18 (gap -0.16u)
+  plans/qwen/renders/005-otoko/t9-fault4-right.jpg: fault 4 close up from right: T5 model worker: SUNK INTO T1 mesh #58b848/#4a2e18 (gap -0.16u)
+  plans/qwen/renders/005-otoko/t9-fault5-front.jpg: fault 5 close up from front: T5 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 184 skin points inside its box, near the bones FootL, FootR, LowerLegL
+  plans/qwen/renders/005-otoko/t9-fault5-right.jpg: fault 5 close up from right: T5 model worker PASSES INTO T1 mesh #58b848/#4a2e18: 184 skin points inside its box, near the bones FootL, FootR, LowerLegL
+
+For a closer look at anything: node scripts/inspect.mjs 7537 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
