@@ -167,13 +167,39 @@ export function create(app, { ids, index = 0, recipe = null, trial = null, old =
     };
   }
 
+  // where the kanji and the scene's visible meshes are on screen now (CSS pixels), for scripts/look.mjs --fit
+  function bounds(v, camera) {
+    const box = new THREE.Box3(), b = new THREE.Box3(), p = new THREE.Vector3(), m = new THREE.Matrix4(), out = { x0: Infinity, y0: Infinity, x1: -Infinity, y1: -Infinity };
+    v.group.updateMatrixWorld(true); camera.updateMatrixWorld(true);
+    for (const g of v.effect.glyphBoxes) {
+      b.set(p.set(g.x - g.size / 2, g.top - g.size, 0), new THREE.Vector3(g.x + g.size / 2, g.top, 0)).applyMatrix4(v.effect.group.matrixWorld); box.union(b);
+    }
+    (function walk(o) {
+      if (!o.visible) return;
+      if (o.isInstancedMesh) {                           // only the instances shown (a hidden one is scaled to 0)
+        o.geometry.boundingBox ?? o.geometry.computeBoundingBox();
+        for (let i = 0; i < o.count; i++) { o.getMatrixAt(i, m); if (Math.abs(m.determinant()) > 1e-12) box.union(b.copy(o.geometry.boundingBox).applyMatrix4(m.premultiply(o.matrixWorld))); }
+      } else if (o.isMesh) {                             // a skinned mesh has its own (posed) box
+        if (o.isSkinnedMesh) { o.computeBoundingBox(); b.copy(o.boundingBox); } else { o.geometry.boundingBox ?? o.geometry.computeBoundingBox(); b.copy(o.geometry.boundingBox); }
+        box.union(b.applyMatrix4(o.matrixWorld));
+      }
+      for (const c of o.children) walk(c);
+    })(v.group.getObjectByName('vignette') ?? new THREE.Group());
+    for (let k = 0; k < 8; k++) {
+      p.set(k & 1 ? box.max.x : box.min.x, k & 2 ? box.max.y : box.min.y, k & 4 ? box.max.z : box.min.z).project(camera);
+      const x = ((p.x + 1) / 2) * innerWidth, y = ((1 - p.y) / 2) * innerHeight;
+      out.x0 = Math.min(out.x0, x); out.y0 = Math.min(out.y0, y); out.x1 = Math.max(out.x1, x); out.y1 = Math.max(out.y1, y);
+    }
+    return out;
+  }
+
   let disposed = false;
   show();
   return {
     name: 'preview', group,
     update(dt) { view?.update(dt); },
     get player() {                                            // the test hook (window.__app.seek / info) talks to this
-      return view && { seek: (x) => view.seek(x), info: () => ({ id: view.card.id, preview: true, t: view.t, paused, strokesEnd: view.effect.strokesEnd, effect: view.effect.stats?.() ?? null, glyphKinds: view.glyphKinds, plainFurigana: view.furigana, times: { rating: view.effect.strokesEnd + 3 } }) };
+      return view && { seek: (x) => view.seek(x), bounds: () => bounds(view, app.kit.camera), info: () => ({ id: view.card.id, preview: true, t: view.t, paused, strokesEnd: view.effect.strokesEnd, effect: view.effect.stats?.() ?? null, glyphKinds: view.glyphKinds, plainFurigana: view.furigana, times: { rating: view.effect.strokesEnd + 3 } }) };
     },
     onPlaced: () => view?.seek(0),
     onEnvironment: (p) => view?.effect.setPassthrough(p),

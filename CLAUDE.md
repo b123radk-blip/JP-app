@@ -29,7 +29,7 @@ Read this file and docs/ARCHITECTURE.md first; open code only for the part you a
 | `node scripts/curriculum.mjs --level n5 [--plan 150]` | deck order + `requires`; work list of missing cards in `.cache/work/`. `--plan N` picks the next N kanji by how many words they unlock (N5 > N4 > N3, `scripts/lib/order.mjs`) and saves them in `scripts/data/kanji-plan.json`; later runs reuse that plan |
 | `.venv-tts/bin/python scripts/pick-sentences.py n5` | one verified Tatoeba sentence per new card (`scripts/data/manual-sentences.json`: written ones, `sentence-review.json`: rejects) |
 | `node scripts/draft-cards.mjs --level n5` | writes the new cards (`--dry` to try); kanji from `scripts/data/kanji-designs.json` when designed there, words from `scripts/lib/word-rules*.mjs`; varies drafts until no pair is >= 0.72 (two passes); log in `.cache/work/n5-draft-log.json` |
-| `node scripts/look.mjs id,id [--one] [--times -1,0.5,2] [--recipes try.json]` | quick review sheet while designing (needs the server): cropped frames per card; `--recipes` tries recipes from a JSON file (`"id~a": effect`) |
+| `node scripts/look.mjs id,id [--one] [--times -1,0.5,2] [--recipes try.json]` | quick review sheet while designing (needs the server): frames per card, cropped to the kanji and its scene; `--times 0:6:0.5` for a strip (`--cols n`); `--recipes` tries recipes from a JSON file (`"id~a": effect`); warns when a scene reaches past the preview's edge |
 | `node scripts/orbit.mjs <id>` | one card from six angles -> `.cache/orbit.jpg` (serves the repo itself on a free port; works on Windows after `npx playwright install chromium`). Qwen on brad's PC builds planned scenes: docs/QWEN.md |
 | `node scripts/inspect.mjs <id> [--times 1,2.5]` | measures a scene for faults (things floating / sunk, bodies through things, hands on the body, people hidden from the learner) + big close-ups of each person and each fault -> `.cache/inspect/<id>/`; `--look T3 --from right --t 1.5 --zoom 2` for one close look. Use it with orbit on every scene change |
 | `node scripts/check-piece-costs.mjs` | builds every emblem, prop, reveal and particle once and compares built cost with the catalog (e2e only covers deck cards) |
@@ -140,8 +140,9 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   r, k)` brings the palm against a thing of radius r, twisting the forearm so the palm faces `toward` (hand -> thing: a
   glass from the side, a bowl from below, a head from above), then `a.hold(prop, 'R', group, r)` places it there. Review: `{ "vignette": { "type": "q-gesture", "g": "wave" } }`; examples `q-eat`
   `q-drink` `q-meet` (vignettes/q-gestures.js). Let a recipe pick the person (`who`) and cost it with `pdc()`.
-- Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2
-  --clip 150,20,560,340`, fix, then `scripts/set-recipes.mjs`. Word cards: `--clip 90,60,660,300` (the default crops their right edge). Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
+- Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2`
+  (the crop fits each card's kanji and scene; `--clip x,y,w,h` or `--no-fit` for a fixed one), fix, then
+  `scripts/set-recipes.mjs`. Usual fixes: `size` 1.2-1.5 on long words, tilt flat props
   (pools, roads) toward the viewer, a lit doorway behind a silhouette, fake depth on a flat picture. Log: docs/BATCH-LOG.md.
 - Check costs: `node scripts/check-piece-costs.mjs vignette` (`vignette '^q-'` checks only the types that match), then `npm run e2e`.
 
