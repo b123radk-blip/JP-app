@@ -1,0 +1,17 @@
+pi exit 0 after 27.0 min
+
+Plan 008 is done. Committed as `5a3ee9b`, not pushed.
+
+**What was fixed** (all inside `doctor()` in `src/effects/vignettes/models-b.js`):
+- Doctor is now an `actor()` with grip gestures; both hands grip the kit from **below the bottom** (target 0.03u under it, so the kit rests on the palms), 0.08u to each side of the middle, and the target follows the kit every frame.
+- The kit sits at 0.5u (chest height) at z 0.175u while he walks in, then descends with his hands as he bends (PickUp played backwards) until its bottom touches the ground between him and the patient; `holdK` fades in the last 0.3s so his hands open as it lands.
+- Key finding (measured in the page, not guessed): the doctor's shoulders sit at 0.475u already ~0.1u forward and his arms reach only ~0.2u — the box had to be raised and pushed forward to z 0.175u for a palm-under-bottom grip to be physically reachable without the shoulders clipping its back.
+
+**Result** (5 inspection rounds):
+- Before: 50–101 points in the kit while carrying (fists inside), 68 points near Head/Neck at t+3.
+- Now: **9 points** at t+1 (left forearm grazing the box's back-bottom edge — under the 10-point tolerance, hidden behind the kit from the learner's seat), and **nothing** at t+3/t+4; kit `bottom 0` on the ground line, hands open at his sides.
+- Orbit from six angles at t+1/3/4 reads correctly: carry → bend-and-set-down → patient cheering.
+
+**Checks:** `node --check` ok, `npm test` passes, cost check 0 mismatches (catalog's 16 unchanged, no new pieces). `scripts/look.mjs` doesn't run on this machine (CJS playwright resolution), so the side close-ups came from the inspect sheets — noted in the report.
+
+**Report:** `plans/qwen/done/008-isha.md` — includes the per-round inspection log and four headset checks for you (palms-under-while-walking, the set-down with no snap, kit resting on the ground line, no visible clipping from the learner's seat).
