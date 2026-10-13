@@ -164,12 +164,12 @@ function kimono(ctx, spec, stage) {
 // ---- 医者 ----
 function doctor(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, px = B.maxX + 0.45 * u, dx = B.maxX + 1.05 * u;
-  const patient = person('guy', 0.75 * u), doc = person('doctor', 0.9 * u);
+  const patient = person('guy', 0.75 * u), doc = actor('doctor', 0.9 * u);
   const kit = solidProp([[G.box(0.22 * u, 0.16 * u, 0.12 * u, 0, 0.08 * u, 0), 0xffffff], [G.box(0.12 * u, 0.035 * u, 0.125 * u, 0, 0.08 * u, 0), 0xe02020], [G.box(0.035 * u, 0.12 * u, 0.125 * u, 0, 0.08 * u, 0), 0xe02020], [G.box(0.08 * u, 0.025 * u, 0.02 * u, 0, 0.17 * u, 0), 0x404040]], 0.6);
   const cloud = solidProp([[G.sphere(0.07 * u, -0.06 * u, 0, 0), 0x8a94a8], [G.sphere(0.09 * u, 0.03 * u, 0.02 * u, 0), 0x8a94a8], [G.sphere(0.06 * u, 0.11 * u, 0, 0), 0x8a94a8]], 0.4);
   const cross = label(u, '+', '#e02020'), hearts = many(HEART(u, 0.1), 3, 1);
   group.add(patient.group, doc.group, kit, cloud, cross, hearts);
-  const loop = 7.4;
+  const loop = 7.4, UP = new THREE.Vector3(0, 1, 0), RO = new THREE.Vector3(0.08 * u, 0, 0), W = new THREE.Vector3(), C = new THREE.Vector3();
   return {
     group,
     step(t) {
@@ -180,9 +180,19 @@ function doctor(ctx, spec, stage) {
       patient.group.position.set(px, floor, 0.12 * u); patient.group.rotation.y = 0.3;
       const walking = !pre && ((T.come > 0 && T.come < 1) || (T.leave > 0 && T.leave < 1));
       if (walking && T.leave <= 0) doc.pose('Walk_Carry', v); else if (walking) doc.pose('Walk', v); else if (!pre && T.put > 0 && T.put < 1) doc.pose('PickUp', 1.25 * (1 - T.put)); else doc.pose('Idle', t);
-      doc.group.position.set(dx + (1 - T.come) * 1.0 * u + T.leave * 1.1 * u, floor, 0.0); doc.group.rotation.y = pre ? -0.4 : T.leave > 0 ? (RIGHT - 0.5) * between(v, 5.7, 5.9) : lerp(LEFT + 0.5, -0.5, between(v, 2.1, 2.4));
-      const carried = pre || T.put < 0.6, hx = doc.group.position.x - 0.18 * u;
-      kit.position.set(carried ? doc.group.position.x - 0.12 * u : px + 0.3 * u, carried ? floor + 0.38 * u : floor, carried ? 0.15 * u : 0.15 * u); kit.visible = !pre && v < 6.9;
+      const docX = dx + (1 - T.come) * 1.0 * u + T.leave * 1.1 * u, hx = docX - 0.18 * u;
+      doc.group.position.set(docX, floor, 0.0); doc.group.rotation.y = pre ? -0.4 : T.leave > 0 ? (RIGHT - 0.5) * between(v, 5.7, 5.9) : lerp(LEFT + 0.5, -0.5, between(v, 2.1, 2.4));
+      // the kit: its middle C, on both palms (held from below, chest high) while he walks in; when he bends (PickUp
+      // backwards) the palms carry it down to the ground in front of his feet, between him and the patient; he lets go
+      // (holdK fades) once its bottom touches, and it stays there
+      const e = THREE.MathUtils.clamp(T.put / 0.45, 0, 1), ee = e * e * (3 - 2 * e), holdK = pre ? 0 : 1 - between(T.put, 0.3, 0.3);
+      C.set(docX - 0.22 * u * ee, floor + lerp(0.5 * u, 0.08 * u, ee), 0.175 * u);
+      if (holdK > 0) {                                          // palms under the bottom: the fist aims 0.03u below it, so the kit rests on the hands
+        const cw = C.clone().applyMatrix4(group.matrixWorld), ws = group.getWorldScale(W).y, ty = Math.max(C.y - 0.08 * u, floor + 0.05 * u) - 0.033 * u;
+        doc.grip('R', cw.clone().setY(ty).setZ(C.z - 0.025 * u).add(RO), UP, 0.02 * u * ws, holdK, { out: 0.4, down: 1.2 });
+        doc.grip('L', cw.clone().setY(ty).setZ(C.z - 0.025 * u).sub(RO), UP, 0.02 * u * ws, holdK, { out: 0.4, down: 1.2 });
+      }
+      kit.position.set(C.x, C.y - 0.08 * u, C.z); kit.visible = !pre && v < 6.9;
       cloud.visible = !pre && v < 3.5; cloud.position.set(px, floor + 0.95 * u + 0.02 * u * Math.sin(v * 3), 0.1 * u);
       pop(cross, pre ? 0 : between(v, 0.4, 0.7) * (1 - between(v, 5.6, 5.8)), hx, floor + 1.15 * u, 0.1 * u);
       for (let i = 0; i < 3; i++) { const f = pre ? 0 : between(v, 3.6 + i * 0.35, 4.8 + i * 0.35); hearts.set(i, px - 0.1 * u + 0.12 * u * i, floor + 0.85 * u + 0.4 * u * f, 0.15 * u, f > 0 && f < 1 ? 1.4 * Math.sin(Math.PI * f) : 0); }

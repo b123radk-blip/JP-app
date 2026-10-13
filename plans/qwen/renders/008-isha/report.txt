@@ -1,0 +1,128 @@
+# Inspection of card w1159980
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+3.5 (worst at t+0.5): mesh grey #8a94a8: FLOATS ABOVE model guy (gap 0.2u)
+  - t+0, t+1 to t+1.5 (worst at t+1): model doctor PASSES INTO mesh red/dark brown #e02020/#404040: 9 skin points inside it, near the bones LowerArmL, UpperArmL
+  - t+0 to t+2.5 (worst at t+0): model doctor: 100% visible; only 1% of it inside the picture
+
+## t+1 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy: size 0.36 x 0.73 x 0.4, centre [0.48, 0.36, 0.16], bottom 0, top 0.72
+  T2 model doctor: size 0.4 x 0.94 x 0.5, centre [1.39, 0.47, 0.06], bottom 0, top 0.93
+  T3 mesh red/dark brown #e02020/#404040: size 0.22 x 0.18 x 0.13, centre [1.35, 0.51, 0.18], bottom 0.42, top 0.6
+  T4 mesh grey #8a94a8: size 0.3 x 0.18 x 0.18, centre [0.47, 0.97, 0.1], bottom 0.88, top 1.06
+  T5 label "+": size 0.13 x 0.16 x 0, centre [1.17, 1.15, 0.1], bottom 1.07, top 1.23
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy: touches the ground line (bottom of the kanji)
+  T2 model doctor: touches the ground line (bottom of the kanji)
+  T3 mesh red/dark brown #e02020/#404040: is on T2 model doctor (worn or held: check it sits right in the close-ups)
+  T4 mesh grey #8a94a8: FLOATS ABOVE T1 model guy (gap 0.18u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T2 model doctor PASSES INTO T3 mesh red/dark brown #e02020/#404040: 9 skin points inside it, near the bones LowerArmL, UpperArmL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy right hand at [0.34,0.55,0.21]: nearest own body part head (middle) 0.17u away; nearest other thing T4 mesh grey #8a94a8 0.33u away
+  T1 model guy left hand at [0.63,0.55,0.13]: nearest own body part head (middle) 0.17u away; nearest other thing T4 mesh grey #8a94a8 0.34u away
+  T2 model doctor right hand at [1.37,0.31,0.07]: nearest own body part hips 0.1u away; nearest other thing T3 mesh red/dark brown #e02020/#404040 0.12u away
+  T2 model doctor left hand at [1.44,0.31,0.23]: nearest own body part left knee 0.23u away; nearest other thing T3 mesh red/dark brown #e02020/#404040 0.11u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy: 100% visible
+  T2 model doctor: 83% visible (17% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T4 mesh grey #8a94a8: FLOATS ABOVE T1 model guy (gap 0.18u)
+  - T2 model doctor PASSES INTO T3 mesh red/dark brown #e02020/#404040: 9 skin points inside it, near the bones LowerArmL, UpperArmL
+  - T2 model doctor: 83% visible (17% behind other things (props, labels))
+
+## t+3 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy: size 0.36 x 0.73 x 0.4, centre [0.48, 0.36, 0.16], bottom 0, top 0.72
+  T2 model doctor: size 0.51 x 0.64 x 0.69, centre [1, 0.31, 0.12], bottom 0, top 0.63
+  T3 mesh red/dark brown #e02020/#404040: size 0.22 x 0.18 x 0.13, centre [0.83, 0.09, 0.18], bottom 0, top 0.18
+  T4 mesh grey #8a94a8: size 0.3 x 0.18 x 0.18, centre [0.47, 0.98, 0.1], bottom 0.89, top 1.07
+  T5 label "+": size 0.13 x 0.16 x 0, centre [0.87, 1.15, 0.1], bottom 1.07, top 1.23
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy: touches the ground line (bottom of the kanji)
+  T2 model doctor: touches the ground line (bottom of the kanji)
+  T3 mesh red/dark brown #e02020/#404040: is on T2 model doctor (worn or held: check it sits right in the close-ups)
+  T4 mesh grey #8a94a8: FLOATS ABOVE T1 model guy (gap 0.19u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy right hand at [0.34,0.55,0.21]: nearest own body part head (middle) 0.17u away; nearest other thing T4 mesh grey #8a94a8 0.34u away
+  T1 model guy left hand at [0.63,0.55,0.13]: nearest own body part head (middle) 0.17u away; nearest other thing T2 model doctor 0.12u away
+  T2 model doctor right hand at [0.9,0.14,0.02]: nearest own body part right knee 0.18u away; nearest other thing T3 mesh red/dark brown #e02020/#404040 0.09u away
+  T2 model doctor left hand at [1.21,0.25,0.02]: nearest own body part left knee 0.11u away; nearest other thing T3 mesh red/dark brown #e02020/#404040 0.29u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy: 100% visible
+  T2 model doctor: 92% visible (8% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T4 mesh grey #8a94a8: FLOATS ABOVE T1 model guy (gap 0.19u)
+
+## t+4 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy: size 0.45 x 0.77 x 0.44, centre [0.48, 0.38, 0.07], bottom 0, top 0.77
+  T2 model doctor: size 0.36 x 0.93 x 0.4, centre [1.1, 0.46, -0.04], bottom 0, top 0.93
+  T3 mesh red/dark brown #e02020/#404040: size 0.22 x 0.18 x 0.13, centre [0.83, 0.09, 0.18], bottom 0, top 0.18
+  T4 label "+": size 0.13 x 0.16 x 0, centre [0.87, 1.15, 0.1], bottom 1.07, top 1.23
+  T5 pool orange #ff4a6a: size 0.19 x 0.17 x 0.04, centre [0.38, 0.94, 0.15], bottom 0.86, top 1.02
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy: touches the ground line (bottom of the kanji)
+  T2 model doctor: touches the ground line (bottom of the kanji)
+  T3 mesh red/dark brown #e02020/#404040: is on T2 model doctor (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy right hand at [0.29,0.57,0.23]: nearest own body part right shoulder 0.2u away; nearest other thing T3 mesh red/dark brown #e02020/#404040 0.58u away
+  T1 model guy left hand at [0.67,0.57,0.1]: nearest own body part left shoulder 0.2u away; nearest other thing T2 model doctor 0.25u away
+  T2 model doctor right hand at [0.98,0.26,-0.12]: nearest own body part right knee 0.14u away; nearest other thing T3 mesh red/dark brown #e02020/#404040 0.24u away
+  T2 model doctor left hand at [1.23,0.26,0.02]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh red/dark brown #e02020/#404040 0.31u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy: 100% visible
+  T2 model doctor: 95% visible (5% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/008-isha/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+3 (t3-scene-front.jpg)
+    5. the whole scene from right, t+3 (t3-scene-right.jpg)
+    6. what the learner sees, t+3 (t3-learner.jpg)
+    7. the whole scene from front, t+4 (t4-scene-front.jpg)
+    8. the whole scene from right, t+4 (t4-scene-right.jpg)
+    9. what the learner sees, t+4 (t4-learner.jpg)
+  plans/qwen/renders/008-isha/faults.jpg
+    1. fault 1 from front (t+3): T4 mesh grey #8a94a8: FLOATS ABOVE T1 model guy (gap 0.19u) (fault1-front-t3.jpg)
+    2. fault 1 from right (t+3): T4 mesh grey #8a94a8: FLOATS ABOVE T1 model guy (gap 0.19u) (fault1-right-t3.jpg)
+    3. fault 2 from front (t+1): T2 model doctor PASSES INTO T3 mesh red/dark brown #e02020/#404040: 9 skin points inside it, near the bones LowerArmL, UpperArmL (fault2-front-t1.jpg)
+    4. fault 2 from right (t+1): T2 model doctor PASSES INTO T3 mesh red/dark brown #e02020/#404040: 9 skin points inside it, near the bones LowerArmL, UpperArmL (fault2-right-t1.jpg)
+    5. fault 3 (t+1): T2 model doctor: 83% visible (17% behind other things (props, labels)) (fault3-seat-t1.jpg)
+  plans/qwen/renders/008-isha/people.jpg
+    1. T1 guy close, from front (t+3) (guy-front-t3.jpg)
+    2. T1 guy close, from right (t+3) (guy-right-t3.jpg)
+    3. T2 doctor close, from front (t+1) (doctor-front-t1.jpg)
+    4. T2 doctor close, from right (t+1) (doctor-right-t1.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs w1159980 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
