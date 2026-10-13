@@ -18,7 +18,8 @@ const tail = (s, n) => s.split(/\r?\n/).slice(-n).join('\n');
 function runPi(name) {
   mkdirSync('.cache', { recursive: true });
   writeFileSync('.cache/qwen-prompt.md', `Read plans/qwen/README.md (your standing rules) and then the plan plans/qwen/queue/${name}, and do exactly what the plan says. Finish with your report in plans/qwen/done/${name}, committed, as the rules say. Do not push.\n`);
-  const args = [...(process.env.PI_ARGS ?? '').split(' ').filter(Boolean), '-p', '@.cache/qwen-prompt.md', 'Go.'];
+  // the session (every turn and tool run, timed) goes to .cache/pi-sessions/<plan>/ for scripts/qwen-times.mjs
+  const args = [...(process.env.PI_ARGS ?? '').split(' ').filter(Boolean), '--session-dir', `.cache/pi-sessions/${name.replace(/\.md$/, '')}`, '-p', '@.cache/qwen-prompt.md', 'Go.'];
   return spawnSync(process.env.PI_CMD || 'pi', args, { encoding: 'utf8', shell: process.platform === 'win32', timeout: limit, maxBuffer: 64 << 20, stdio: ['ignore', 'pipe', 'pipe'] });
 }
 
@@ -32,6 +33,9 @@ function pass() {
     const r = runPi(name), out = `${r.stdout ?? ''}\n${r.stderr ?? ''}`.trim(), min = ((Date.now() - t0) / 60000).toFixed(1);
     mkdirSync(L, { recursive: true }); mkdirSync(D, { recursive: true });
     writeFileSync(`${L}/${name.replace(/\.md$/, '.log')}`, `pi exit ${r.status ?? r.signal ?? r.error?.code} after ${min} min\n\n${out}\n`);
+    const sd = `.cache/pi-sessions/${name.replace(/\.md$/, '')}`, ss = existsSync(sd) ? readdirSync(sd).filter((f) => f.endsWith('.jsonl')).sort() : [];
+    const times = ss.length ? spawnSync(process.execPath, ['scripts/qwen-times.mjs', `${sd}/${ss.at(-1)}`], { encoding: 'utf8' }).stdout : '';
+    if (times) writeFileSync(`${L}/${name.replace(/\.md$/, '.times.md')}`, times);
     // no report: say so, so Opus sees it and the plan isn't retried forever
     if (!existsSync(`${D}/${name}`)) writeFileSync(`${D}/${name}`, `# NOT DONE (written by qwen-watch)\n\npi ended (${r.status ?? r.signal ?? r.error?.message}) after ${min} min without a report. Last lines of its output:\n\n\`\`\`\n${tail(out, 40)}\n\`\`\`\n`);
     git('add -A');

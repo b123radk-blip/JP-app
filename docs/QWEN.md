@@ -26,6 +26,14 @@ for the rest. Qwen's standing rules: `plans/qwen/README.md`.
 The watcher only touches the Qwen branch and skips its turn if the folder has uncommitted changes. For VOICEVOX
 work, stop it first and switch back: `git checkout claude/kanji-3d-galaxy-xr-uoi522`, then `git pull`.
 
+## Where the time goes
+
+The watcher keeps pi's full session for each plan in `.cache/pi-sessions/<plan>/` (not committed: it holds the
+pictures) and pushes a breakdown next to the log, `plans/qwen/logs/<plan>.times.md`: the model's own turns against each
+kind of tool run (inspect, orbit, tests, reading pictures, its own measuring scripts), the slowest turns and the rounds.
+For runs from before this, `node scripts/qwen-times.mjs --all --push` finds pi's saved sessions on the PC and pushes the
+same breakdowns.
+
 ## Writing a plan (Opus)
 
 `plans/qwen/queue/<NNN>-<card>.md`, numbered so they run in order. Give: the card id, scene type, files and functions
