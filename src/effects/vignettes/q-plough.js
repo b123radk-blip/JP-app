@@ -74,7 +74,6 @@ export function ploughMan(ctx, spec, stage) {
       man.group.position.set(mx, sy(mz), mz); man.group.rotation.y = yaw;
       tool.rotation.x = Math.sin(tilt) * Math.cos(yaw);            // the plough lies along the tipped field
       man.group.updateWorldMatrix(true, true);
-      onBone(man, 'Head', stache, group, [0, 0.2, 0.52]);
       // he leans into the handles and pushes; palms on the grips (they let go for the brow and the cheer)
       const hold = pre ? 1 : 1 - between(v, 4.3, 4.5) * (1 - between(v, 6.3, 6.5));
       if (hold > 0.5) { man.turn('Abdomen', 0.3 * hold); man.turn('Torso', 0.12 * hold); }
@@ -85,6 +84,7 @@ export function ploughMan(ctx, spec, stage) {
       // the strong-man flex: both forearms up, fists beside his head, elbows out, held while the burst pops behind him
       const flex = !pre && between(v, 5.2, 5.5) * (1 - between(v, 6.1, 6.4));
       for (const [side, sgn] of [['R', -1], ['L', 1]]) man.handTo(side, man.local(sgn * 0.25, 0.8, 0.0, W), flex, { out: 1, down: 1 });
+      onBone(man, 'Head', stache, group, [0, 0.2, 0.52]);              // after the lean and the arms: the head has moved
       // the furrows: from where the row began to the share (kept once done), closing at the end of the loop
       const close = pre ? 0 : T.close, f0 = pre ? 0 : T.go, f1 = pre ? 0 : T.back;
       [[mR + Math.sin(Lw) * lead, lerp(mR, mL, f0) + Math.sin(Lw) * lead, rows[0] + Math.cos(Lw) * lead, f0], [mL + Math.sin(Rw) * lead, lerp(mL, mR, f1) + Math.sin(Rw) * lead, rows[1] + Math.cos(Rw) * lead, f1]].forEach(([a, b, z, f], i) => {
