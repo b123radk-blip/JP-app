@@ -1,0 +1,342 @@
+# Inspection of card 5834
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 (worst at t+0): mesh green/green #4a9a44/#5cb453: SUNK INTO mesh red/yellow #d84030/#f0c030 (gap -0.04u)
+  - t+0 to t+6.5 (worst at t+0.5): mesh red/yellow #d84030/#f0c030: SUNK INTO mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  - t+0 (worst at t+0): mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE mesh green/green #4a9a44/#5cb453 (gap 0.1u)
+  - t+0.5 to t+6.5 (worst at t+0.5): mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  - t+0.5 to t+1 (worst at t+0.5): mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE mesh brown/skin #9a6a3a/#f0d8a0 (gap 0.05u)
+  - t+0.5 to t+6.5 (worst at t+0.5): model guy2: SUNK INTO mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+  - t+0.5 to t+6.5 (worst at t+0.5): model guy2 PASSES INTO mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+  - t+1, t+2, t+3, t+5.5 (worst at t+2): model gal3: SUNK INTO mesh red/yellow #d84030/#f0c030 (gap -0.11u)
+  - t+1 (worst at t+1): model gal3 PASSES INTO mesh red/yellow #d84030/#f0c030: 31 skin points inside it, near the bones FootL, FootR
+  - t+1.5 to t+6.5 (worst at t+1.5): mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO mesh skin #e8c880 (gap -0.14u)
+  - t+1.5, t+3 to t+3.5, t+5 to t+5.5 (worst at t+1.5): mesh red/beige #d84030/#bfc4cc: SUNK INTO mesh skin #e8c880 (gap -0.04u)
+  - t+2 (worst at t+2): model gal3 PASSES INTO mesh red/yellow #d84030/#f0c030: 6 skin points inside it, near the bones LowerLegL
+  - t+2.5 to t+5, t+6 to t+6.5 (worst at t+2.5): mesh beige #e0c078: SUNK INTO mesh skin #e8c880 (gap -0.04u)
+  - t+2.5 (worst at t+2.5): model gal3: FLOATS ABOVE mesh red/yellow #d84030/#f0c030 (gap 0.06u)
+  - t+2.5 (worst at t+2.5): model gal3 PASSES INTO mesh red/yellow #d84030/#f0c030: 10 skin points inside it, near the bones FootR
+  - t+3 to t+4, t+5 to t+6 (worst at t+3.5): mesh beige/beige #e0c078/#d8b060: SUNK INTO mesh skin #e8c880 (gap -0.04u)
+  - t+3 (worst at t+3): model gal3 PASSES INTO mesh red/yellow #d84030/#f0c030: 40 skin points inside it, near the bones FootR, FootL
+  - t+3.5 (worst at t+3.5): model gal3 PASSES INTO mesh red/yellow #d84030/#f0c030: 8 skin points inside it, near the bones UpperLegL, UpperLegR, Hips
+  - t+4 to t+4.5 (worst at t+4): model gal3: 84% visible (16% behind other things (props, labels))
+  - t+5.5 (worst at t+5.5): model gal3 PASSES INTO mesh red/yellow #d84030/#f0c030: 48 skin points inside it, near the bones FootL, LowerLegR, FootR
+  - t+6.5 (worst at t+6.5): model gal3: FLOATS ABOVE mesh green/green #4a9a44/#5cb453 (gap 0.09u)
+
+## t+0 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/green #4a9a44/#5cb453: size 1.4 x 0.08 x 0.6, centre [0.72, 0, 0], bottom -0.04, top 0.04
+  T2 mesh red/yellow #d84030/#f0c030: size 0.75 x 0 x 0.26, centre [0.65, 0, -0.12], bottom 0, top 0
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: size 0.35 x 0 x 0.35, centre [1.22, 0, 0.1], bottom 0, top 0
+  T4 mesh red/beige #d84030/#bfc4cc: size 0.05 x 0.14 x 0.02, centre [1.28, 0.18, 0.11], bottom 0.11, top 0.25
+  T5 model gal3: size 0.3 x 0.55 x 0.22, centre [0.19, 0.27, 0.2], bottom 0, top 0.55
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/green #4a9a44/#5cb453: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.04u)
+  T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.03u)
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: is ground: its top is on the ground line (bottom of the kanji)
+  T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.1u)
+  T5 model gal3: touches T1 mesh green/green #4a9a44/#5cb453
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal3 right hand at [0.08,0.16,0.26]: nearest own body part hips 0.13u away; nearest other thing T1 mesh green/green #4a9a44/#5cb453 0.12u away
+  T5 model gal3 left hand at [0.28,0.18,0.12]: nearest own body part hips 0.12u away; nearest other thing T1 mesh green/green #4a9a44/#5cb453 0.14u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T5 model gal3: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh green/green #4a9a44/#5cb453: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.04u)
+  - T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.03u)
+  - T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.1u)
+
+## t+0.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/green #4a9a44/#5cb453: size 1.4 x 0.08 x 0.6, centre [0.72, 0, 0], bottom -0.04, top 0.04
+  T2 mesh red/yellow #d84030/#f0c030: size 0.75 x 0.38 x 0.26, centre [0.65, 0.17, -0.12], bottom -0.02, top 0.36
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: size 0.35 x 0.12 x 0.35, centre [1.22, 0.06, 0.1], bottom 0, top 0.12
+  T4 mesh red/beige #d84030/#bfc4cc: size 0.05 x 0.14 x 0.02, centre [1.28, 0.19, 0.11], bottom 0.12, top 0.26
+  T5 pool skin #f0d8a0: size 0.14 x 0.08 x 0.07, centre [1.25, 0.14, 0.05], bottom 0.1, top 0.18
+  T6 model gal3: size 0.26 x 0.56 x 0.22, centre [0.27, 0.28, 0.04], bottom 0, top 0.56
+  T7 model guy2: size 0.23 x 0.51 x 0.27, centre [1.2, 0.28, 0.26], bottom 0.02, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: touches T1 mesh green/green #4a9a44/#5cb453
+  T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap 0.05u)
+  T6 model gal3: touches T1 mesh green/green #4a9a44/#5cb453
+  T7 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T7 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model gal3 right hand at [0.34,0.18,0.13]: nearest own body part hips 0.11u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0.12u away
+  T6 model gal3 left hand at [0.18,0.17,-0.02]: nearest own body part hips 0.12u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0.09u away
+  T7 model guy2 right hand at [1.25,0.16,0.17]: nearest own body part right knee 0.04u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.04u away
+  T7 model guy2 left hand at [1.14,0.18,0.21]: nearest own body part left knee 0.08u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.06u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T6 model gal3: 100% visible
+  T7 model guy2: 90% visible (10% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  - T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  - T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap 0.05u)
+  - T7 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+  - T7 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/green #4a9a44/#5cb453: size 1.4 x 0.08 x 0.6, centre [0.72, 0, 0], bottom -0.04, top 0.04
+  T2 mesh red/yellow #d84030/#f0c030: size 0.75 x 0.38 x 0.26, centre [0.65, 0.17, -0.12], bottom -0.02, top 0.36
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: size 0.35 x 0.12 x 0.35, centre [1.22, 0.06, 0.1], bottom 0, top 0.12
+  T4 mesh red/beige #d84030/#bfc4cc: size 0.05 x 0.14 x 0.02, centre [1.28, 0.18, 0.12], bottom 0.11, top 0.25
+  T5 model gal3: size 0.25 x 0.57 x 0.21, centre [0.31, 0.34, -0.05], bottom 0.05, top 0.62
+  T6 model guy2: size 0.23 x 0.51 x 0.26, centre [1.2, 0.28, 0.27], bottom 0.02, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: touches T1 mesh green/green #4a9a44/#5cb453
+  T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap 0.04u)
+  T5 model gal3: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.06u)
+  T6 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T5 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 31 skin points inside it, near the bones FootL, FootR
+  T6 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal3 right hand at [0.28,0.22,0.03]: nearest own body part hips 0.09u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0.02u away
+  T5 model gal3 left hand at [0.32,0.22,-0.13]: nearest own body part hips 0.08u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0u away (inside its box: touching or passing through)
+  T6 model guy2 right hand at [1.25,0.15,0.18]: nearest own body part right knee 0.03u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.03u away
+  T6 model guy2 left hand at [1.14,0.18,0.21]: nearest own body part left knee 0.08u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.06u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T5 model gal3: 99% visible (1% behind other things (props, labels))
+  T6 model guy2: 90% visible (10% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  - T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  - T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap 0.04u)
+  - T5 model gal3: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.06u)
+  - T6 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+  - T5 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 31 skin points inside it, near the bones FootL, FootR
+  - T6 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+## t+2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/green #4a9a44/#5cb453: size 1.4 x 0.08 x 0.6, centre [0.72, 0, 0], bottom -0.04, top 0.04
+  T2 mesh red/yellow #d84030/#f0c030: size 0.75 x 0.38 x 0.26, centre [0.65, 0.17, -0.12], bottom -0.02, top 0.36
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: size 0.35 x 0.12 x 0.35, centre [1.22, 0.06, 0.1], bottom 0, top 0.12
+  T4 mesh red/beige #d84030/#bfc4cc: size 0.05 x 0.14 x 0.02, centre [1.28, 0.18, 0.11], bottom 0.11, top 0.25
+  T5 mesh skin #e8c880: size 0.16 x 0.08 x 0.16, centre [1.22, 0.09, 0.05], bottom 0.05, top 0.13
+  T6 model gal3: size 0.31 x 0.55 x 0.22, centre [0.39, 0.48, -0.15], bottom 0.2, top 0.75
+  T7 model guy2: size 0.23 x 0.51 x 0.26, centre [1.2, 0.28, 0.27], bottom 0.02, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T5 mesh skin #e8c880 (gap -0.13u)
+  T4 mesh red/beige #d84030/#bfc4cc: touches T5 mesh skin #e8c880
+  T5 mesh skin #e8c880: touches T3 mesh brown/skin #9a6a3a/#f0d8a0
+  T6 model gal3: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.11u)
+  T7 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T6 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 6 skin points inside it, near the bones LowerLegL
+  T7 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model gal3 right hand at [0.49,0.38,-0.07]: nearest own body part hips 0.11u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0.02u away
+  T6 model gal3 left hand at [0.28,0.38,-0.2]: nearest own body part hips 0.14u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0.03u away
+  T7 model guy2 right hand at [1.25,0.15,0.18]: nearest own body part right knee 0.03u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.03u away
+  T7 model guy2 left hand at [1.14,0.18,0.21]: nearest own body part left knee 0.08u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.06u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T6 model gal3: 98% visible (3% behind other things (props, labels))
+  T7 model guy2: 90% visible (10% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  - T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  - T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T5 mesh skin #e8c880 (gap -0.13u)
+  - T6 model gal3: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.11u)
+  - T7 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+  - T6 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 6 skin points inside it, near the bones LowerLegL
+  - T7 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+## t+4.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/green #4a9a44/#5cb453: size 1.4 x 0.08 x 0.6, centre [0.72, 0, 0], bottom -0.04, top 0.04
+  T2 mesh red/yellow #d84030/#f0c030: size 0.75 x 0.38 x 0.26, centre [0.65, 0.17, -0.12], bottom -0.02, top 0.36
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: size 0.35 x 0.12 x 0.35, centre [1.22, 0.06, 0.1], bottom 0, top 0.12
+  T4 mesh red/beige #d84030/#bfc4cc: size 0.05 x 0.14 x 0.02, centre [1.28, 0.19, 0.11], bottom 0.11, top 0.26
+  T5 pool skin #f0d8a0: size 0.07 x 0.04 x 0.04, centre [1.25, 0.13, 0.05], bottom 0.11, top 0.15
+  T6 mesh skin #e8c880: size 0.16 x 0.08 x 0.16, centre [1.22, 0.09, 0.05], bottom 0.05, top 0.13
+  T7 mesh beige #e0c078: size 0.07 x 0.11 x 0.07, centre [1.17, 0.15, 0], bottom 0.09, top 0.21
+  T8 mesh beige/beige #e0c078/#d8b060: size 0.12 x 0.15 x 0.17, centre [1.25, 0.17, 0.05], bottom 0.09, top 0.24
+  T9 model gal3: size 0.34 x 0.51 x 0.24, centre [0.8, 0.36, -0.14], bottom 0.11, top 0.62
+  T10 model guy2: size 0.23 x 0.51 x 0.27, centre [1.2, 0.28, 0.27], bottom 0.02, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T6 mesh skin #e8c880 (gap -0.13u)
+  T4 mesh red/beige #d84030/#bfc4cc: touches T6 mesh skin #e8c880
+  T6 mesh skin #e8c880: touches T3 mesh brown/skin #9a6a3a/#f0d8a0
+  T7 mesh beige #e0c078: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u)
+  T8 mesh beige/beige #e0c078/#d8b060: is on T10 model guy2 (worn or held: check it sits right in the close-ups)
+  T9 model gal3: touches T2 mesh red/yellow #d84030/#f0c030
+  T10 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T10 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T9 model gal3 right hand at [0.91,0.27,-0.05]: nearest own body part right knee 0.07u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0u away (inside its box: touching or passing through)
+  T9 model gal3 left hand at [0.84,0.26,-0.2]: nearest own body part left knee 0.08u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0u away (inside its box: touching or passing through)
+  T10 model guy2 right hand at [1.25,0.15,0.18]: nearest own body part right knee 0.03u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.03u away
+  T10 model guy2 left hand at [1.14,0.18,0.21]: nearest own body part left knee 0.08u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.06u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T9 model gal3: 85% visible (15% behind other things (props, labels))
+  T10 model guy2: 90% visible (10% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  - T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  - T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T6 mesh skin #e8c880 (gap -0.13u)
+  - T7 mesh beige #e0c078: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u)
+  - T10 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+  - T10 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+## t+6.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green/green #4a9a44/#5cb453: size 1.4 x 0.08 x 0.6, centre [0.72, 0, 0], bottom -0.04, top 0.04
+  T2 mesh red/yellow #d84030/#f0c030: size 0.75 x 0.38 x 0.26, centre [0.65, 0.17, -0.12], bottom -0.02, top 0.36
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: size 0.35 x 0.12 x 0.35, centre [1.22, 0.06, 0.1], bottom 0, top 0.12
+  T4 mesh red/beige #d84030/#bfc4cc: size 0.05 x 0.14 x 0.02, centre [1.28, 0.19, 0.11], bottom 0.11, top 0.26
+  T5 pool skin #f0d8a0: size 0.07 x 0.04 x 0.04, centre [1.25, 0.13, 0.05], bottom 0.11, top 0.15
+  T6 mesh skin #e8c880: size 0.16 x 0.08 x 0.16, centre [1.22, 0.09, 0.05], bottom 0.05, top 0.13
+  T7 mesh beige #e0c078: size 0.07 x 0.11 x 0.07, centre [1.17, 0.15, 0], bottom 0.09, top 0.21
+  T8 mesh beige/beige #e0c078/#d8b060: size 0.12 x 0.15 x 0.17, centre [1.25, 0.17, 0.05], bottom 0.09, top 0.24
+  T9 model gal3: size 0.36 x 0.57 x 0.31, centre [0.86, 0.37, 0.09], bottom 0.09, top 0.66
+  T10 model guy2: size 0.23 x 0.51 x 0.27, centre [1.2, 0.28, 0.27], bottom 0.02, top 0.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T6 mesh skin #e8c880 (gap -0.13u)
+  T4 mesh red/beige #d84030/#bfc4cc: touches T6 mesh skin #e8c880
+  T6 mesh skin #e8c880: touches T3 mesh brown/skin #9a6a3a/#f0d8a0
+  T7 mesh beige #e0c078: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u)
+  T8 mesh beige/beige #e0c078/#d8b060: is on T10 model guy2 (worn or held: check it sits right in the close-ups)
+  T9 model gal3: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.08u)
+  T10 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T10 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T9 model gal3 right hand at [0.7,0.5,0.2]: nearest own body part right shoulder 0.15u away; nearest other thing T2 mesh red/yellow #d84030/#f0c030 0.23u away
+  T9 model gal3 left hand at [1.03,0.49,0.2]: nearest own body part left shoulder 0.15u away; nearest other thing T10 model guy2 0.06u away
+  T10 model guy2 right hand at [1.25,0.15,0.17]: nearest own body part right knee 0.03u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.03u away
+  T10 model guy2 left hand at [1.14,0.18,0.21]: nearest own body part left knee 0.08u away; nearest other thing T3 mesh brown/skin #9a6a3a/#f0d8a0 0.06u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T9 model gal3: 100% visible
+  T10 model guy2: 90% visible (10% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u)
+  - T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u)
+  - T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T6 mesh skin #e8c880 (gap -0.13u)
+  - T7 mesh beige #e0c078: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u)
+  - T9 model gal3: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.08u)
+  - T10 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u)
+  - T10 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/010-ba/overview.jpg
+    1. the whole scene from front, t+2 (t2-scene-front.jpg)
+    2. the whole scene from right, t+2 (t2-scene-right.jpg)
+    3. what the learner sees, t+2 (t2-learner.jpg)
+    4. the whole scene from front, t+4.2 (t4.2-scene-front.jpg)
+    5. the whole scene from right, t+4.2 (t4.2-scene-right.jpg)
+    6. what the learner sees, t+4.2 (t4.2-learner.jpg)
+    7. the whole scene from front, t+6.2 (t6.2-scene-front.jpg)
+    8. the whole scene from right, t+6.2 (t6.2-scene-right.jpg)
+    9. what the learner sees, t+6.2 (t6.2-learner.jpg)
+  plans/qwen/renders/010-ba/faults.jpg
+    1. fault 1 from front (t+0): T1 mesh green/green #4a9a44/#5cb453: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.04u) (fault1-front-t0.jpg)
+    2. fault 1 from right (t+0): T1 mesh green/green #4a9a44/#5cb453: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.04u) (fault1-right-t0.jpg)
+    3. fault 2 from front (t+0.5): T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u) (fault2-front-t0.5.jpg)
+    4. fault 2 from right (t+0.5): T2 mesh red/yellow #d84030/#f0c030: SUNK INTO T1 mesh green/green #4a9a44/#5cb453 (gap -0.05u) (fault2-right-t0.5.jpg)
+    5. fault 3 from front (t+0): T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.1u) (fault3-front-t0.jpg)
+    6. fault 3 from right (t+0): T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.1u) (fault3-right-t0.jpg)
+    7. fault 4 from front (t+0.5): T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u) (fault4-front-t0.5.jpg)
+    8. fault 4 from right (t+0.5): T1 mesh green/green #4a9a44/#5cb453: SUNK INTO the ground line (bottom of the kanji) (gap -0.04u) (fault4-right-t0.5.jpg)
+    9. fault 5 from front (t+0.5): T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap 0.05u) (fault5-front-t0.5.jpg)
+    10. fault 5 from right (t+0.5): T4 mesh red/beige #d84030/#bfc4cc: FLOATS ABOVE T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap 0.05u) (fault5-right-t0.5.jpg)
+    11. fault 6 from front (t+0.5): T7 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u) (fault6-front-t0.5.jpg)
+    12. fault 6 from right (t+0.5): T7 model guy2: SUNK INTO T3 mesh brown/skin #9a6a3a/#f0d8a0 (gap -0.04u) (fault6-right-t0.5.jpg)
+  plans/qwen/renders/010-ba/faults-2.jpg
+    13. fault 7 from front (t+0.5): T7 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL (fault7-front-t0.5.jpg)
+    14. fault 7 from right (t+0.5): T7 model guy2 PASSES INTO T3 mesh brown/skin #9a6a3a/#f0d8a0: 69 skin points inside it, near the bones FootR, FootL (fault7-right-t0.5.jpg)
+    15. fault 8 from front (t+2): T6 model gal3: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.11u) (fault8-front-t2.jpg)
+    16. fault 8 from right (t+2): T6 model gal3: SUNK INTO T2 mesh red/yellow #d84030/#f0c030 (gap -0.11u) (fault8-right-t2.jpg)
+    17. fault 9 from front (t+1): T5 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 31 skin points inside it, near the bones FootL, FootR (fault9-front-t1.jpg)
+    18. fault 9 from right (t+1): T5 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 31 skin points inside it, near the bones FootL, FootR (fault9-right-t1.jpg)
+    19. fault 10 from front (t+2): T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T5 mesh skin #e8c880 (gap -0.13u) (fault10-front-t2.jpg)
+    20. fault 10 from right (t+2): T3 mesh brown/skin #9a6a3a/#f0d8a0: SUNK INTO T5 mesh skin #e8c880 (gap -0.13u) (fault10-right-t2.jpg)
+    21. fault 11 from front (t+1.5): T4 mesh red/beige #d84030/#bfc4cc: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u) (fault11-front-t1.5.jpg)
+    22. fault 11 from right (t+1.5): T4 mesh red/beige #d84030/#bfc4cc: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u) (fault11-right-t1.5.jpg)
+    23. fault 12 from front (t+2): T6 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 6 skin points inside it, near the bones LowerLegL (fault12-front-t2.jpg)
+    24. fault 12 from right (t+2): T6 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 6 skin points inside it, near the bones LowerLegL (fault12-right-t2.jpg)
+  plans/qwen/renders/010-ba/faults-3.jpg
+    25. fault 13 from front (t+4.2): T7 mesh beige #e0c078: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u) (fault13-front-t4.2.jpg)
+    26. fault 13 from right (t+4.2): T7 mesh beige #e0c078: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u) (fault13-right-t4.2.jpg)
+    27. fault 14 from front (t+2.5): T8 model gal3: FLOATS ABOVE T2 mesh red/yellow #d84030/#f0c030 (gap 0.06u) (fault14-front-t2.5.jpg)
+    28. fault 14 from right (t+2.5): T8 model gal3: FLOATS ABOVE T2 mesh red/yellow #d84030/#f0c030 (gap 0.06u) (fault14-right-t2.5.jpg)
+    29. fault 15 from front (t+2.5): T8 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 10 skin points inside it, near the bones FootR (fault15-front-t2.5.jpg)
+    30. fault 15 from right (t+2.5): T8 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 10 skin points inside it, near the bones FootR (fault15-right-t2.5.jpg)
+    31. fault 16 from front (t+3.5): T8 mesh beige/beige #e0c078/#d8b060: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u) (fault16-front-t3.5.jpg)
+    32. fault 16 from right (t+3.5): T8 mesh beige/beige #e0c078/#d8b060: SUNK INTO T6 mesh skin #e8c880 (gap -0.04u) (fault16-right-t3.5.jpg)
+    33. fault 17 from front (t+3): T8 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 40 skin points inside it, near the bones FootR, FootL (fault17-front-t3.jpg)
+    34. fault 17 from right (t+3): T8 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 40 skin points inside it, near the bones FootR, FootL (fault17-right-t3.jpg)
+    35. fault 18 from front (t+3.5): T9 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 8 skin points inside it, near the bones UpperLegL, UpperLegR, Hips (fault18-front-t3.5.jpg)
+    36. fault 18 from right (t+3.5): T9 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 8 skin points inside it, near the bones UpperLegL, UpperLegR, Hips (fault18-right-t3.5.jpg)
+  plans/qwen/renders/010-ba/faults-4.jpg
+    37. fault 19 (t+4): T8 model gal3: 84% visible (16% behind other things (props, labels)) (fault19-seat-t4.jpg)
+    38. fault 20 from front (t+5.5): T9 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 48 skin points inside it, near the bones FootL, LowerLegR, FootR (fault20-front-t5.5.jpg)
+    39. fault 20 from right (t+5.5): T9 model gal3 PASSES INTO T2 mesh red/yellow #d84030/#f0c030: 48 skin points inside it, near the bones FootL, LowerLegR, FootR (fault20-right-t5.5.jpg)
+    40. fault 21 from front (t+6.2): T9 model gal3: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.08u) (fault21-front-t6.2.jpg)
+    41. fault 21 from right (t+6.2): T9 model gal3: FLOATS ABOVE T1 mesh green/green #4a9a44/#5cb453 (gap 0.08u) (fault21-right-t6.2.jpg)
+  plans/qwen/renders/010-ba/people.jpg
+    1. T7 guy2 close, from front (t+0.5) (guy2-front-t0.5.jpg)
+    2. T7 guy2 close, from right (t+0.5) (guy2-right-t0.5.jpg)
+    3. T6 gal3 close, from front (t+2) (gal3-front-t2.jpg)
+    4. T6 gal3 close, from right (t+2) (gal3-right-t2.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 5834 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
