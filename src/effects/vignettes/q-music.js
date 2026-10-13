@@ -67,34 +67,39 @@ function playing(kb, at, v) {
 
 // ---- 習う ----
 function piano(ctx, spec, stage) {
-  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, gx = B.maxX + 0.45 * u, kx = gx + 0.85 * u;
-  const T = person(spec.who, u), kid = person(spec.kid, u, KID + 0.12), big = keyboard(u, 0.56, 0x23232c, 0.26), small = keyboard(u, 0.36, 0xe04a8a, 0.22);
+  const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
+  // each player and her keyboard are turned together ~0.55 rad toward the kanji: the learner sees the player from the
+  // front-side and the keyboard from its end, its top at the waist so the body and the hands stay in view
+  const ry = -0.85, gx = B.maxX + 0.32 * u, kx = gx + 0.62 * u, FX = Math.sin(ry), FZ = Math.cos(ry), D = 0.26 * u;
+  const T = person(spec.who, u), kid = person(spec.kid, u, KID + 0.12), big = keyboard(u, 0.48, 0x23232c, 0.16), small = keyboard(u, 0.3, 0xe04a8a, 0.15);
   const stool = solidProp([[G.cyl(0.1 * u, 0.1 * u, 0.03 * u, 0, 0.1 * u, 0), 0x8a5a30], [G.cyl(0.015 * u, 0.015 * u, 0.1 * u, 0, 0.05 * u, 0), 0x6a4020]], 0.35);
-  const notes = many(NOTE(u), 6, 0.9), praise = speech(u, 'じょうず!', { h: 0.15 });
+  const notes = many(NOTE(u, 1.5), 6, 0.9), praise = speech(u, 'じょうず!', { h: 0.15 });
   tint(notes, [...NOTE_C.slice(0, 3), ...NOTE_C.slice(0, 3)]);
-  stool.position.set(gx, floor, -0.08 * u); big.group.position.set(gx + 0.02 * u, floor, 0.2 * u); small.group.position.set(kx, floor, 0.17 * u);
+  stool.position.set(gx, floor, -0.08 * u); big.group.position.set(gx + FX * D, floor, -0.08 * u + FZ * D); big.group.rotation.y = ry;
+  small.group.position.set(kx + FX * D, floor, -0.02 * u + FZ * D); small.group.rotation.y = ry;
   group.add(stool, T.group, kid.group, big.group, small.group, notes, praise);
   const loop = 7.4, T1 = [0.6, 1.2, 1.8], T2 = [3.0, 3.6, 4.2];
-  const keyW = (kb, x, y) => group.localToWorld(W.set(kb.group.position.x + x, floor + kb.top + y, kb.group.position.z + 0.02 * u));
+  const keyW = (kb, lx, y) => group.localToWorld(W.set(kb.group.position.x + FZ * lx + FX * 0.02 * u, floor + kb.top + y, kb.group.position.z - FX * lx + FZ * 0.02 * u));
   return {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      T.pose('SitDown', 1.0, false); T.group.position.set(gx, floor + 0.02 * u, -0.08 * u); T.group.rotation.y = 0.25;
+      T.pose('SitDown', 1.0, false); T.group.position.set(gx, floor + 0.02 * u, -0.08 * u); T.group.rotation.y = ry;
       kid.pose('Idle', t); kid.group.position.set(kx, floor, -0.02 * u);
       // grandma plays three keys (red, yellow, blue); the girl watches her hands
       const ta = pre ? 0 : between(v, 0.1, 0.4) * (1 - between(v, 2.3, 2.7)), pa = playing(big, T1, v);
-      T.handTo('R', keyW(big, pa.x, 0.07 * u * (1 - pa.hit)), ta, { out: 0.6, down: 0.9 });
+      T.handTo('R', keyW(big, pa.x, 0.04 * u * (1 - pa.hit)), ta, { out: 0.6, down: 0.9 });
       T.turn('Head', 0.3 * ta);
       const watch = pre ? 0 : between(v, 0.3, 0.6) * (1 - between(v, 2.4, 2.7));
-      kid.group.rotation.y = -0.1 - 0.35 * watch; kid.turn('Head', 0.15 * watch, -0.5 * watch);
+      kid.group.rotation.y = ry - 0.35 * watch; kid.turn('Head', 0.15 * watch, -0.5 * watch);
       // then she plays the same three keys on her toy keyboard
       const ka = pre ? 0 : between(v, 2.5, 2.8) * (1 - between(v, 4.6, 5.0)), pk = playing(small, T2, v);
-      kid.handTo('R', keyW(small, pk.x, 0.06 * u * (1 - pk.hit)), ka, { out: 0.6, down: 0.9 });
+      kid.handTo('R', keyW(small, pk.x, 0.04 * u * (1 - pk.hit)), ka, { out: 0.6, down: 0.9 });
       kid.turn('Head', 0.35 * ka);
-      for (const [i0, at, kb, p] of [[0, T1, big, 0.5], [3, T2, small, 0.4]]) at.forEach((b, i) => {
-        const f = pre ? -1 : between(v, b, b + 1.3);
-        notes.set(i0 + i, kb.group.position.x + kb.keyX(i) + 0.08 * u * f, floor + kb.top + 0.08 * u + p * u * f, kb.group.position.z, f > 0 && f < 1 ? 1.2 * Math.sin(Math.PI * Math.min(1, f * 1.4)) + 0.2 : 0, 0.3 * Math.sin(f * 6));
+      // the three notes (red, yellow, blue) rise fast, past the players' heads, in a small fan toward the middle
+      for (const [i0, at, kb, s] of [[0, T1, big, 1], [3, T2, small, -1]]) at.forEach((b, i) => {
+        const f = pre ? -1 : between(v, b, b + 0.5), g = pre ? -1 : between(v, b, b + 0.22) * (1 - between(v, b + 0.85, b + 1.5));
+        notes.set(i0 + i, kb.group.position.x + (i - 1) * 0.05 * u + s * 0.05 * u + 0.04 * u * f * s, floor + kb.top + 0.12 * u + 0.8 * u * f, kb.group.position.z - FZ * D, f > 0 ? g : 0, 0.3 * Math.sin(f * 6 + i));
       });
       notes.commit();
       // grandma nods: well done
