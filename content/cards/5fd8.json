@@ -5,7 +5,7 @@
   "primaryReading": "わす",
   "readings": { "kun": ["わす(れる)"], "on": ["ボウ"] },
   "mnemonic": "The heart (心) has lost (亡) it: forget.",
-  "effect": { "material": "pearl", "backdrop": "sky:twilight" },
+  "effect": { "material": "pearl", "backdrop": "sky:twilight", "vignette": { "type": "q-forgot-umbrella" } },
   "sentences": [
     {
       "segments": [ { "text": "火", "reading": "ひ" }, { "text": "を" }, { "text": "消", "reading": "け" }, { "text": "すのを" }, { "text": "忘", "reading": "わす" }, { "text": "れるな。" } ],
