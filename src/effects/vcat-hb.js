@@ -8,4 +8,5 @@ export const HB = {
   'q-stepping-stones': VM(pdc('gal2') + 13, '次 (gal2): a girl hops across a pond from stone to stone; a yellow arrow and a つぎ! bubble show the next stone, which glows; she waves on the last one, then fades out and back in on the first', ['gal2']),
   'q-late-run': VM(pdc('guy2') + 9, '急 (guy2): a man with a briefcase runs flat out across the street, sweat flying, looks at his watch and runs faster; an exclamation mark pops over him, a speech bubble says いそげ!, and a big alarm clock rings overhead with its hands racing round', ['guy2']),
   'q-seesaw': VM(pdc('gal2', 'guy2') + 6, '遊 (gal2, guy2): two children go up and down on a seesaw, both hands on the handle; the one on top raises an arm and stars pop over the head; わーい!', ['gal2', 'guy2']),
+  'q-shape-sorter': VM(11, 'a girl with a shape-sorter box: the square block bumps on the round hole (red cross), then drops into the square hole (green tick, stars, she cheers)', ['gal2']),
 };
