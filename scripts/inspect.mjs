@@ -7,7 +7,7 @@
 //        node scripts/inspect.mjs <card id> --look T3 [--from right] [--t 1.5] [--zoom 2] [--out ...]
 //   --times: seconds after the last stroke (the full numbers and the overview); --scan: first measure the whole loop every
 //   0.5 s (numbers only) and list each fault with when it shows; a fault the --times miss gets its worst moment in full
-//   (--scan 0: off); --people: close-ups of every person or animal; --strict: exit code 1 when a fault is found;
+//   (--scan 0: off; --loop 9: a scene with a longer loop than 7 s); --people: close-ups of every person or animal; --strict: exit code 1 when a fault is found;
 //   --recipe try.json: the card with that recipe (a JSON effect) instead of its own; --look: a thing's id from the report (T1, T2 ...) or a point x,y,z in u (as in the report); --from: front right left
 //   back top low front-right front-left; --zoom: 2 = twice as close.
 //   --goals g.json: a plan's goals (scripts/lib/goals.mjs), PASS or FAIL at every moment measured, first in the report;
@@ -19,7 +19,7 @@ import { goalChecker } from './lib/goals.mjs';
 
 const T0 = Date.now(), arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const id = process.argv[2], look = arg('--look'), OUT = arg('--out', `.cache/inspect/${id}`), recipe = arg('--recipe') ? readFileSync(arg('--recipe'), 'utf8') : null;
-const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number), scan = Number(arg('--scan', '0.5')), LOOP = 7;
+const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number), scan = Number(arg('--scan', '0.5')), LOOP = Number(arg('--loop', '7'));
 const goals = arg('--goals') ? goalChecker(JSON.parse(readFileSync(arg('--goals'), 'utf8'))) : null, quick = process.argv.includes('--quick');
 const VIEWS = { front: [0, 0.05], right: [90, 0.1], left: [-90, 0.1], back: [180, 0.1], top: [0, 1.45], low: [0, -0.25], 'front-right': [40, 0.3], 'front-left': [-40, 0.3] };
 if (!id) { console.log('usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--out dir] | --look T3 [--from right] [--t 1.5] [--zoom 2]'); process.exit(1); }

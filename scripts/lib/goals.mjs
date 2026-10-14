@@ -3,9 +3,11 @@
 // (seconds after the last stroke; default: every moment):
 //   { "goal": "hands on the toes", "point": "gal3 right hand", "near": "gal3 right foot", "within": 0.1, "t": [4, 5] }
 //   { "goal": "kids apart", "point": "guy2 head (middle)", "near": "gal3", "beyond": 0.3 }
-//   { "goal": "girl in view", "visible": "gal3", "min": 85 }
+//   { "goal": "girl in view", "visible": "gal3", "min": 85 }      ("visible": "kanji" for the kanji itself; a person
+//                                                                    partly outside the learner's picture counts as hidden)
 //   { "goal": "kit on the ground", "rests": "red", "on": "ground", "t": [5, 6.5] }
 //   { "goal": "nothing through the doctor", "clear": "doctor" }
+//   { "goal": "the chicks gather round her", "count": "chick", "near": "gal2", "within": 0.4, "min": 5 }
 // A thing is named by (part of) its name in the report (gal3, slide, "red #c02020"); a person's point adds one of: top of
 // the head, head (middle), neck, right shoulder, left shoulder, chest, hips, right knee, left knee, right foot, left
 // foot, right hand, left hand. A point may also be [x, y, z] in u. "near" a thing without a point means its box.
@@ -27,10 +29,13 @@ function where(m, ref) {
   return { p: x.centre, lo, hi, x };
 }
 const dist = (a, b) => {
+  // two things: the gap between their boxes (0 when they touch or overlap)
+  if (a.lo && b.lo) return Math.hypot(...a.lo.map((v, i) => Math.max(b.lo[i] - a.hi[i], 0, v - b.hi[i])));
   if (b.lo) return Math.hypot(...a.p.map((v, i) => Math.max(b.lo[i] - v, 0, v - b.hi[i])));
   if (a.lo) return dist(b, a);
   return Math.hypot(...a.p.map((v, i) => v - b.p[i]));
 };
+const box = (x) => { const h = x.size.map((s) => s / 2); return { p: x.centre, lo: x.centre.map((c, i) => c - h[i]), hi: x.centre.map((c, i) => c + h[i]), x }; };
 const r2 = (v) => Math.round(v * 100) / 100;
 
 // one goal at one moment: { ok, value, why }
@@ -42,7 +47,7 @@ function judge(g, m) {
     return g.beyond != null ? { ok: d >= g.beyond, value: d, why: `${d}u apart (needs ≥ ${g.beyond})` } : { ok: d <= (g.within ?? 0.05), value: d, why: `${d}u apart (needs ≤ ${g.within ?? 0.05})` };
   }
   if (g.visible) {
-    const x = thing(m, g.visible), h = x && m.hidden.find((y) => y.id === x.id);
+    const x = lc(g.visible) === 'kanji' ? { id: 'kanji' } : thing(m, g.visible), h = x && m.hidden.find((y) => y.id === x.id);
     if (!h || h.pct == null) return { ok: false, why: `${g.visible} is not in the learner's view` };
     const v = Math.min(h.pct, h.frame ?? 100), min = g.min ?? 85;
     return { ok: v >= min, value: v, why: `${v}% visible (needs ≥ ${min})` };
@@ -52,6 +57,12 @@ function judge(g, m) {
     if (!s) return { ok: false, why: `${g.rests} is not in the scene` };
     const said = s.text.replace(/^T\d+ \S+ /, ''), ok = !s.fault && !/high in the air|in the air on purpose/.test(s.text) && (!g.on || lc(s.text.split(':').slice(1).join(':')).includes(lc(g.on)));
     return { ok, value: Math.abs(s.gap ?? 0), why: said };
+  }
+  if (g.count) {
+    const b = where(m, g.near), n = lc(g.count);
+    if (!b) return { ok: false, why: `${g.near} is not in the scene` };
+    const all = m.items.filter((x) => lc(x.name) === n || lc(x.name).includes(n)), close = all.filter((x) => x.id !== b.x?.id && r2(dist(box(x), b)) <= (g.within ?? 0.3));
+    return { ok: close.length >= (g.min ?? 1), value: close.length, why: `${close.length} of ${all.length} ${g.count} within ${g.within ?? 0.3}u of ${g.near} (needs ≥ ${g.min ?? 1})` };
   }
   if (g.clear) {
     const x = thing(m, g.clear);
