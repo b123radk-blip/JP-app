@@ -1,0 +1,9 @@
+[
+  { "goal": "the kanji stays in view", "visible": "kanji", "min": 95 },
+  { "goal": "the girl stays in view", "visible": "gal2", "min": 85 },
+  { "goal": "the girl stands on the grass", "rests": "gal2", "on": "grass" },
+  { "goal": "at the start the chicks are spread out (at most 1 near her)", "count": "chick", "near": "gal2", "within": 0.25, "max": 1, "t": [0, 0.5] },
+  { "goal": "the chicks have gathered round her", "count": "chick", "near": "gal2", "within": 0.3, "min": 5, "t": [3.5, 5] },
+  { "goal": "chicks stand on the grass while gathered", "rests": "chick", "on": "grass", "t": [3.5, 5] },
+  { "goal": "nothing passes through her", "clear": "gal2" }
+]

@@ -1,0 +1,13 @@
+[
+  { "goal": "the kanji stays in view", "visible": "kanji", "min": 95 },
+  { "goal": "the girl stays in view", "visible": "gal2", "min": 85 },
+  { "goal": "the boy stays in view", "visible": "guy2", "min": 85 },
+  { "goal": "the girl stands on the ground", "rests": "gal2" },
+  { "goal": "the boy stands on the ground", "rests": "guy2" },
+  { "goal": "the letter starts in her hand", "point": "gal2 right hand", "near": "letter", "within": 0.05, "t": [0, 1] },
+  { "goal": "the letter flies high between them", "point": "letter", "near": [0.75, 0.95, 0], "within": 0.2, "t": [2.5, 2.75] },
+  { "goal": "the letter lands in his hand", "point": "guy2 right hand", "near": "letter", "within": 0.05, "t": [4, 5] },
+  { "goal": "they stand well apart", "point": "gal2 hips", "near": "guy2 hips", "beyond": 0.6 },
+  { "goal": "nothing passes through her", "clear": "gal2", "except": ["letter"] },
+  { "goal": "nothing passes through him", "clear": "guy2", "except": ["letter"] }
+]

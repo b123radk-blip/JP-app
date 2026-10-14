@@ -1,0 +1,11 @@
+[
+  { "goal": "the kanji stays in view", "visible": "kanji", "min": 95 },
+  { "goal": "the girl stays in view", "visible": "gal2", "min": 85 },
+  { "goal": "the girl stands on the ground", "rests": "gal2" },
+  { "goal": "the table stands on the ground", "rests": "table" },
+  { "goal": "the glass stands on the table", "rests": "glass", "on": "table" },
+  { "goal": "her right hand holds the jug all loop", "point": "gal2 right hand", "near": "jug", "within": 0.04 },
+  { "goal": "the jug is right over the glass while she pours", "point": "jug", "near": "glass", "within": 0.12, "t": [2, 4] },
+  { "goal": "the stream reaches into the glass while she pours", "point": "stream", "near": "glass", "within": 0.01, "t": [2.25, 3.75] },
+  { "goal": "nothing passes through her", "clear": "gal2", "except": ["jug"] }
+]

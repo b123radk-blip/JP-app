@@ -7,7 +7,7 @@
 //                                                                    partly outside the learner's picture counts as hidden)
 //   { "goal": "kit on the ground", "rests": "red", "on": "ground", "t": [5, 6.5] }
 //   { "goal": "nothing through the doctor", "clear": "doctor" }
-//   { "goal": "the chicks gather round her", "count": "chick", "near": "gal2", "within": 0.4, "min": 5 }
+//   { "goal": "the chicks gather round her", "count": "chick", "near": "gal2", "within": 0.4, "min": 5 }  ("max": at most)
 // A thing is named by (part of) its name in the report (gal3, slide, "red #c02020"); a person's point adds one of: top of
 // the head, head (middle), neck, right shoulder, left shoulder, chest, hips, right knee, left knee, right foot, left
 // foot, right hand, left hand. A point may also be [x, y, z] in u. "near" a thing without a point means its box.
@@ -62,7 +62,7 @@ function judge(g, m) {
     const b = where(m, g.near), n = lc(g.count);
     if (!b) return { ok: false, why: `${g.near} is not in the scene` };
     const all = m.items.filter((x) => lc(x.name) === n || lc(x.name).includes(n)), close = all.filter((x) => x.id !== b.x?.id && r2(dist(box(x), b)) <= (g.within ?? 0.3));
-    return { ok: close.length >= (g.min ?? 1), value: close.length, why: `${close.length} of ${all.length} ${g.count} within ${g.within ?? 0.3}u of ${g.near} (needs ≥ ${g.min ?? 1})` };
+    return { ok: close.length >= (g.min ?? 0) && close.length <= (g.max ?? Infinity), value: close.length, why: `${close.length} of ${all.length} ${g.count} within ${g.within ?? 0.3}u of ${g.near} (needs ${g.max != null ? `≤ ${g.max}` : `≥ ${g.min ?? 1}`})` };
   }
   if (g.clear) {
     const x = thing(m, g.clear);
