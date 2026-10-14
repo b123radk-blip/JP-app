@@ -1,0 +1,159 @@
+# Inspection of card 767a
+
+## Goals: 8 of 8 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the boy stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the boy stands on the ground (t+0 to t+2.9): 13 moments, e.g. t+0: guy2: touches the ground line (bottom of the kanji)
+  PASS the pad lies on the ground: 30 moments, e.g. t+0: pad (grey #9aa2ae): touches the ground line (bottom of the kanji)
+  PASS the rocket stands on the pad before lift-off (t+0 to t+1.9): 8 moments, e.g. t+0: rocket (blue/red #3a8cff/#e03030): touches T1 mesh pad (grey #9aa2ae)
+  PASS the rocket is high up (t+4 to t+4.3): 3 moments, e.g. t+4: 0u apart (needs ≤ 0.15)
+  PASS the boy cheers, hands up (t+3.3 to t+4): 3 moments, e.g. t+3.5: 0.12u apart (needs ≤ 0.2)
+  PASS nothing passes through him: 30 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+2.25 (worst at t+2.25): mesh rocket (blue/red #3a8cff/#e03030): SUNK INTO mesh flame (orange #ffa030) (gap -0.11u)
+  - t+2.75 to t+4.5, t+6.25 to t+6.75 (worst at t+4.5): mesh rocket (blue/red #3a8cff/#e03030): FLOATS ABOVE mesh pad (grey #9aa2ae) (gap 0.5u)
+  - t+3.25 to t+3.75 (worst at t+3.5): model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u)
+
+## t+0.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh pad (grey #9aa2ae): size 0.4 x 0.05 x 0.4, centre [0.95, 0.03, -0.05], bottom 0, top 0.05
+  T2 mesh rocket (blue/red #3a8cff/#e03030): size 0.19 x 0.57 x 0.21, centre [0.98, 0.34, -0.05], bottom 0.05, top 0.62
+  T3 model guy2: size 0.2 x 0.58 x 0.23, centre [0.49, 0.29, 0.23], bottom 0, top 0.57
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh pad (grey #9aa2ae): touches the ground line (bottom of the kanji)
+  T2 mesh rocket (blue/red #3a8cff/#e03030): touches T1 mesh pad (grey #9aa2ae)
+  T3 model guy2: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T3 model guy2 right hand at [0.48,0.17,0.32]: nearest own body part right knee 0.08u away; nearest other thing T1 mesh pad (grey #9aa2ae) 0.34u away
+  T3 model guy2 left hand at [0.52,0.17,0.14]: nearest own body part left knee 0.08u away; nearest other thing T1 mesh pad (grey #9aa2ae) 0.26u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T3 model guy2: 100% visible
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+2.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh pad (grey #9aa2ae): size 0.4 x 0.05 x 0.4, centre [0.95, 0.03, -0.05], bottom 0, top 0.05
+  T2 mesh rocket (blue/red #3a8cff/#e03030): size 0.19 x 0.57 x 0.21, centre [0.98, 0.34, -0.05], bottom 0.05, top 0.62
+  T3 mesh flame (orange #ffa030): size 0.2 x 0.12 x 0.2, centre [0.95, 0.11, -0.05], bottom 0.05, top 0.17
+  T4 pool beige #d8c8b0: size 0.47 x 0.19 x 0.4, centre [0.93, 0.16, -0.04], bottom 0.06, top 0.25
+  T5 model guy2: size 0.2 x 0.57 x 0.23, centre [0.5, 0.28, 0.23], bottom 0, top 0.57
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh pad (grey #9aa2ae): touches the ground line (bottom of the kanji)
+  T2 mesh rocket (blue/red #3a8cff/#e03030): SUNK INTO T3 mesh flame (orange #ffa030) (gap -0.09u)
+  T3 mesh flame (orange #ffa030): in the air on purpose (an effect: a star, a heart)
+  T5 model guy2: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model guy2 right hand at [0.48,0.16,0.32]: nearest own body part right knee 0.08u away; nearest other thing T1 mesh pad (grey #9aa2ae) 0.33u away
+  T5 model guy2 left hand at [0.53,0.16,0.14]: nearest own body part left knee 0.08u away; nearest other thing T1 mesh pad (grey #9aa2ae) 0.25u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T5 model guy2: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh rocket (blue/red #3a8cff/#e03030): SUNK INTO T3 mesh flame (orange #ffa030) (gap -0.09u)
+
+## t+3.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh pad (grey #9aa2ae): size 0.4 x 0.05 x 0.4, centre [0.95, 0.03, -0.05], bottom 0, top 0.05
+  T2 mesh rocket (blue/red #3a8cff/#e03030): size 0.19 x 0.57 x 0.21, centre [0.98, 0.6, -0.05], bottom 0.32, top 0.89
+  T3 pool beige #d8c8b0: size 0.68 x 0.19 x 0.57, centre [0.93, 0.23, -0.04], bottom 0.13, top 0.33
+  T4 pool beige #d8c8b0: size 0.19 x 0.31 x 0.13, centre [0.95, 0.21, -0.05], bottom 0.05, top 0.36
+  T5 label "わーい!": size 0.47 x 0.15 x 0, centre [0.68, 1.04, 0.3], bottom 0.96, top 1.11
+  T6 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.58, 0.94, 0.29], bottom 0.87, top 1
+  T7 model guy2: size 0.2 x 0.57 x 0.2, centre [0.5, 0.4, 0.23], bottom 0.12, top 0.69
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh pad (grey #9aa2ae): touches the ground line (bottom of the kanji)
+  T2 mesh rocket (blue/red #3a8cff/#e03030): FLOATS ABOVE T1 mesh pad (grey #9aa2ae) (gap 0.27u)
+  T6 mesh white #ffffff: is high in the air above the ground line (bottom of the kanji) (gap 0.87u)
+  T7 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T7 model guy2 right hand at [0.53,0.61,0.31]: nearest own body part head (middle) 0.09u away; nearest other thing T6 mesh white #ffffff 0.26u away
+  T7 model guy2 left hand at [0.56,0.61,0.18]: nearest own body part head (middle) 0.08u away; nearest other thing T6 mesh white #ffffff 0.27u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T7 model guy2: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh rocket (blue/red #3a8cff/#e03030): FLOATS ABOVE T1 mesh pad (grey #9aa2ae) (gap 0.27u)
+  - T7 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u)
+
+## t+4.1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh pad (grey #9aa2ae): size 0.4 x 0.05 x 0.4, centre [0.95, 0.03, -0.05], bottom 0, top 0.05
+  T2 mesh rocket (blue/red #3a8cff/#e03030): size 0.19 x 0.57 x 0.21, centre [0.98, 0.79, -0.05], bottom 0.5, top 1.07
+  T3 pool beige #d8c8b0: size 0.68 x 0.19 x 0.57, centre [0.93, 0.23, -0.04], bottom 0.13, top 0.33
+  T4 pool beige #d8c8b0: size 0.19 x 0.5 x 0.13, centre [0.95, 0.3, -0.05], bottom 0.05, top 0.55
+  T5 label "わーい!": size 0.47 x 0.15 x 0, centre [0.68, 0.92, 0.3], bottom 0.84, top 1
+  T6 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.58, 0.82, 0.29], bottom 0.76, top 0.88
+  T7 model guy2: size 0.2 x 0.58 x 0.2, centre [0.49, 0.29, 0.23], bottom 0, top 0.57
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh pad (grey #9aa2ae): touches the ground line (bottom of the kanji)
+  T2 mesh rocket (blue/red #3a8cff/#e03030): FLOATS ABOVE T1 mesh pad (grey #9aa2ae) (gap 0.45u)
+  T6 mesh white #ffffff: is high in the air above the ground line (bottom of the kanji) (gap 0.76u)
+  T7 model guy2: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T7 model guy2 right hand at [0.53,0.5,0.31]: nearest own body part head (middle) 0.09u away; nearest other thing T6 mesh white #ffffff 0.26u away
+  T7 model guy2 left hand at [0.56,0.5,0.18]: nearest own body part head (middle) 0.08u away; nearest other thing T6 mesh white #ffffff 0.27u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T7 model guy2: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh rocket (blue/red #3a8cff/#e03030): FLOATS ABOVE T1 mesh pad (grey #9aa2ae) (gap 0.45u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h7-hatsu/overview.jpg
+    1. the whole scene from front, t+0.5 (t0.5-scene-front.jpg)
+    2. the whole scene from right, t+0.5 (t0.5-scene-right.jpg)
+    3. what the learner sees, t+0.5 (t0.5-learner.jpg)
+    4. the whole scene from front, t+2.2 (t2.2-scene-front.jpg)
+    5. the whole scene from right, t+2.2 (t2.2-scene-right.jpg)
+    6. what the learner sees, t+2.2 (t2.2-learner.jpg)
+    7. the whole scene from front, t+4.1 (t4.1-scene-front.jpg)
+    8. the whole scene from right, t+4.1 (t4.1-scene-right.jpg)
+    9. what the learner sees, t+4.1 (t4.1-learner.jpg)
+  plans/haiku/renders/h7-hatsu/faults.jpg
+    1. fault 1 from front (t+2.2): T2 mesh rocket (blue/red #3a8cff/#e03030): SUNK INTO T3 mesh flame (orange #ffa030) (gap -0.09u) (fault1-front-t2.2.jpg)
+    2. fault 1 from right (t+2.2): T2 mesh rocket (blue/red #3a8cff/#e03030): SUNK INTO T3 mesh flame (orange #ffa030) (gap -0.09u) (fault1-right-t2.2.jpg)
+    3. fault 2 from front (t+4.1): T2 mesh rocket (blue/red #3a8cff/#e03030): FLOATS ABOVE T1 mesh pad (grey #9aa2ae) (gap 0.45u) (fault2-front-t4.1.jpg)
+    4. fault 2 from right (t+4.1): T2 mesh rocket (blue/red #3a8cff/#e03030): FLOATS ABOVE T1 mesh pad (grey #9aa2ae) (gap 0.45u) (fault2-right-t4.1.jpg)
+    5. fault 3 from front (t+3.5): T7 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u) (fault3-front-t3.5.jpg)
+    6. fault 3 from right (t+3.5): T7 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.12u) (fault3-right-t3.5.jpg)
+  plans/haiku/renders/h7-hatsu/people.jpg
+    1. T7 guy2 close, from front (t+3.5) (guy2-front-t3.5.jpg)
+    2. T7 guy2 close, from right (t+3.5) (guy2-right-t3.5.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 767a --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

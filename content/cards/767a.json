@@ -5,7 +5,7 @@
   "primaryReading": "はつ",
   "readings": { "kun": ["た(つ)", "あば(く)", "おこ(る)", "つか(わす)"], "on": ["ハツ", "ホツ"] },
   "mnemonic": "Two feet (癶) springing off the start line: departure.",
-  "effect": { "material": "metal", "backdrop": "sky:morning" },
+  "effect": { "material": "metal", "backdrop": "sky:morning", "vignette": { "type": "q-rocket-launch" } },
   "sentences": [
     {
       "segments": [ { "text": "これは" }, { "text": "東京", "reading": "とうきょう" }, { "text": "発", "reading": "はつ" }, { "text": "の" }, { "text": "電車", "reading": "でんしゃ" }, { "text": "です。" } ],
