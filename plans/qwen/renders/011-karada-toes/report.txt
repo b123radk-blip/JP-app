@@ -1,0 +1,134 @@
+# Inspection of card 4f53
+
+## Goals: 3 of 4 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS right hand at the right foot (the toe touch) (t+5.75 to t+6.25): 3 moments, e.g. t+5.75: 0.1u apart (needs ≤ 0.1)
+  PASS left hand at the left foot (the toe touch) (t+5.75 to t+6.25): 3 moments, e.g. t+5.75: 0.1u apart (needs ≤ 0.1)
+  FAIL he stands on the grass all loop (feet not sunk, not floating): fails at t+5.5 to t+6.25 of 28 moments; t+5.5: guy: SUNK INTO T1 mesh green #6ab04c (gap -0.04u)
+  PASS the learner sees him all loop: 28 moments, e.g. t+0: 99% visible (needs ≥ 85)
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+5.5 to t+6.25 (worst at t+5.5): model guy: SUNK INTO mesh green #6ab04c (gap -0.04u)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green #6ab04c: size 0.83 x 0.03 x 0.84, centre [0.6, 0.01, 0.05], bottom 0, top 0.03
+  T2 model guy: size 0.47 x 0.93 x 0.39, centre [0.66, 0.49, 0.01], bottom 0.03, top 0.96
+  T3 pool yellow #ffe36a: size 0.46 x 0.1 x 0.1, centre [0.66, 0.8, 0.01], bottom 0.75, top 0.85
+  T4 label "あたま": size 0.46 x 0.17 x 0, centre [1.55, 0.95, 0.05], bottom 0.87, top 1.03
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green #6ab04c: touches the ground line (bottom of the kanji)
+  T2 model guy: touches T1 mesh green #6ab04c
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy right hand at [0.47,0.81,0]: nearest own body part head (middle) 0.17u away; nearest other thing T1 mesh green #6ab04c 0.78u away
+  T2 model guy left hand at [0.84,0.79,0.02]: nearest own body part head (middle) 0.21u away; nearest other thing T1 mesh green #6ab04c 0.76u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green #6ab04c: size 0.83 x 0.03 x 0.84, centre [0.6, 0.01, 0.05], bottom 0, top 0.03
+  T2 model guy: size 0.54 x 0.93 x 0.41, centre [0.59, 0.49, 0.02], bottom 0.03, top 0.96
+  T3 label "かた": size 0.24 x 0.13 x 0, centre [1.55, 0.95, 0.05], bottom 0.89, top 1.01
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green #6ab04c: touches the ground line (bottom of the kanji)
+  T2 model guy: touches T1 mesh green #6ab04c
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy right hand at [0.37,0.56,0.04]: nearest own body part right shoulder 0.18u away; nearest other thing T1 mesh green #6ab04c 0.53u away
+  T2 model guy left hand at [0.8,0.58,0.15]: nearest own body part left shoulder 0.16u away; nearest other thing T1 mesh green #6ab04c 0.55u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy: 99% visible (1% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+4.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green #6ab04c: size 0.83 x 0.03 x 0.84, centre [0.6, 0.01, 0.05], bottom 0, top 0.03
+  T2 model guy: size 0.33 x 0.89 x 0.44, centre [0.61, 0.47, 0.13], bottom 0.03, top 0.92
+  T3 label "ひざ": size 0.24 x 0.13 x 0, centre [1.55, 0.95, 0.05], bottom 0.89, top 1.01
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green #6ab04c: touches the ground line (bottom of the kanji)
+  T2 model guy: touches T1 mesh green #6ab04c
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy right hand at [0.51,0.28,0.08]: nearest own body part right knee 0.13u away; nearest other thing T1 mesh green #6ab04c 0.25u away
+  T2 model guy left hand at [0.68,0.28,0.12]: nearest own body part left knee 0.13u away; nearest other thing T1 mesh green #6ab04c 0.25u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy: 99% visible (1% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+6 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh green #6ab04c: size 0.83 x 0.03 x 0.84, centre [0.6, 0.01, 0.05], bottom 0, top 0.03
+  T2 model guy: size 0.35 x 0.47 x 0.61, centre [0.58, 0.22, 0.19], bottom -0.01, top 0.45
+  T3 pool yellow #ffe36a: size 0.27 x 0.11 x 0.14, centre [0.6, 0.09, 0.06], bottom 0.04, top 0.15
+  T4 label "あし": size 0.33 x 0.17 x 0, centre [1.55, 0.95, 0.05], bottom 0.87, top 1.03
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh green #6ab04c: touches the ground line (bottom of the kanji)
+  T2 model guy: SUNK INTO T1 mesh green #6ab04c (gap -0.04u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy right hand at [0.52,0.09,0.04]: nearest own body part right foot 0.11u away; nearest other thing T1 mesh green #6ab04c 0.06u away
+  T2 model guy left hand at [0.68,0.1,0.07]: nearest own body part left foot 0.11u away; nearest other thing T1 mesh green #6ab04c 0.07u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy: 91% visible (9% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 model guy: SUNK INTO T1 mesh green #6ab04c (gap -0.04u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/011-karada-toes/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+3 (t3-scene-front.jpg)
+    5. the whole scene from right, t+3 (t3-scene-right.jpg)
+    6. what the learner sees, t+3 (t3-learner.jpg)
+    7. the whole scene from front, t+4.5 (t4.5-scene-front.jpg)
+    8. the whole scene from right, t+4.5 (t4.5-scene-right.jpg)
+    9. what the learner sees, t+4.5 (t4.5-learner.jpg)
+    10. the whole scene from front, t+6 (t6-scene-front.jpg)
+    11. the whole scene from right, t+6 (t6-scene-right.jpg)
+    12. what the learner sees, t+6 (t6-learner.jpg)
+  plans/qwen/renders/011-karada-toes/faults.jpg
+    1. fault 1 from front (t+6): T2 model guy: SUNK INTO T1 mesh green #6ab04c (gap -0.04u) (fault1-front-t6.jpg)
+    2. fault 1 from right (t+6): T2 model guy: SUNK INTO T1 mesh green #6ab04c (gap -0.04u) (fault1-right-t6.jpg)
+  plans/qwen/renders/011-karada-toes/people.jpg
+    1. T2 guy close, from front (t+6) (guy-front-t6.jpg)
+    2. T2 guy close, from right (t+6) (guy-right-t6.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 4f53 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
