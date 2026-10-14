@@ -29,7 +29,7 @@ const PARTS = [
   { name: 'あたま', bow: 0, at: (p, x) => p.at(x < 0 ? 'earR' : 'earL', W, 0.02 * x, 0.1, 0), out: 0.9, down: 0.2 },
   { name: 'かた', bow: 0, at: (p, x) => p.local(0.17 * x, 0.64, -0.01, W), out: 1.0, down: 0.9 },
   { name: 'ひざ', bow: 0.45, at: (p, x) => p.local(0.07 * x, 0.26, 0.13, W), out: 0.4, down: 0.6 },
-  { name: 'あし', bow: 1.6, at: (p, x) => p.local(0.07 * x, 0.02, 0.17, W), out: 0.3, down: 0.4 },
+  { name: 'あし', bow: 2.3, at: (p, x) => p.local(0.09 * x, 0.03, 0, W), out: 0.2, down: 1 },
 ];
 function exercise(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, x0 = B.maxX + 0.6 * u, z0 = 0.05 * u;
@@ -47,10 +47,14 @@ function exercise(ctx, spec, stage) {
       // one touch every 1.5 s, each held a moment at full reach (k = 1); nothing while the strokes draw
       let on = -1, k1 = 0;
       PARTS.forEach((P, i) => {
-        const k = pre ? 0 : Math.min(1, 1.6 * bump(v, 0.4 + 1.5 * i, 1.3));
+        const k = pre ? 0 : Math.min(1, 1.6 * bump(v, 0.4 + 1.5 * i, i === 3 ? 1.9 : 1.3));
         pop(names[i], k > 0.3 ? k : 0, x0 + 0.95 * u, floor + 0.95 * u, z0);
         if (k <= 0) return;
         p.bow(P.bow * k);
+        if (i === 3) {  // the toe touch: he squats (knees bent) and lowers so his feet stay on the grass
+          p.turn('UpperLegR', 0.7 * k); p.turn('UpperLegL', 0.7 * k); p.turn('LowerLegR', -1.4 * k); p.turn('LowerLegL', -1.4 * k);
+          p.group.position.y += 0.01 * u * k; p.turn('Head', -0.6 * k);   // face his toes, but keep the head off the grass
+        }
         p.handTo('R', P.at(p, -1), k, P); p.handTo('L', P.at(p, 1), k, P);
         on = i; k1 = k;
       });
