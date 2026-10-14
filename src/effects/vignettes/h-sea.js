@@ -14,8 +14,8 @@ import { between } from './helpers.js';
 import { KID, person, pop, speech } from './q-common.js';
 
 const P = 7 / 3, RUN = 2.3;   // one crest's period (three of them spaced a third of it apart); its run from back to shore
-const TILT = 25 * Math.PI / 180, TAN = Math.tan(TILT), SEA_L = 0.55 / Math.cos(TILT);   // the sea tilts toward the learner
-const FISH = 0.083, LEAP = 0.12, TOP = 0.5;   // the fish's length is about 0.25u; its middle leaves the water 0.12u above the sea, peaks at 0.5u
+const TILT = 40 * Math.PI / 180, TAN = Math.tan(TILT), SEA_L = 0.55 / Math.cos(TILT);   // the sea tilts toward the learner, steeply enough to read from the seat
+const FISH = 0.12, LEAP = 0.12, TOP = 0.62;   // the fish's length is about 0.36u; its middle leaves the water 0.12u above the sea, peaks at 0.62u
 const v1 = new THREE.Vector3();
 
 // a rounded crest lying along x (about 0.05u tall): a half cylinder in lighter blue, with a white foam cap on top
@@ -39,9 +39,9 @@ function seaShore(ctx, spec, stage) {
   sand.position.set(cx, floor, 0.275 * u); foam.position.set(cx, floor + 0.02 * u, 0.1 * u);
   for (const w of waves) { w.name = 'wave'; w.rotation.x = TILT; w.position.x = cx; }
   const girl = person('gal2', u, KID), laugh = speech(u, 'わあ!', { h: 0.13 });
-  girl.group.rotation.y = Math.PI - 0.9 - 0.87;   // turned about 50 degrees toward the learner from the sea
+  girl.group.rotation.y = Math.PI - 0.5;   // at the right of the beach, facing the sea, three-quarters to the learner
   const fish = createModel('fishOrange', { height: FISH * u }), piv = new THREE.Group();
-  fish.group.position.y = -FISH / 2 * u; piv.add(fish.group);   // pivot: the fish's middle
+  fish.group.position.y = -FISH / 2 * u; fish.group.rotation.y = Math.PI / 2; piv.add(fish.group);   // pivot: the fish's middle; it swims along +x, side-on to the learner
   const splash = many(DROP(u, 0xf4fbff), 12, 0.8);
   group.add(sand, sea, foam, ...waves, girl.group, laugh, piv, splash);
   const loop = 7;
@@ -60,22 +60,22 @@ function seaShore(ctx, spec, stage) {
       // the girl: she stands on the sand, then jumps back (0.08u up, 0.06u toward the learner) with both arms up
       const jump = bump(v, 2.8, 0.6);
       girl.pose('Idle', t);
-      girl.group.position.set(B.maxX + 0.95 * u, floor + 0.02 * u + 0.08 * u * jump, 0.3 * u + 0.06 * u * jump);
+      girl.group.position.set(B.maxX + 1.25 * u, floor + 0.02 * u + 0.08 * u * jump, 0.3 * u + 0.06 * u * jump);
       girl.handTo('R', girl.local(-0.28, 1.05, 0.06), jump, { out: 0.9, down: 0.4 });
       girl.handTo('L', girl.local(0.28, 1.05, 0.06), jump, { out: 0.9, down: 0.4 });
       const laughK = between(v, 2.85, 2.95) * (1 - between(v, 3.35, 3.45));
       const lp = group.worldToLocal(girl.at('over', v1, 0.3, 0.12, 0));
       pop(laugh, laughK, lp.x, lp.y, lp.z);
-      // the fish: out of the sea at x 0.75u, z -0.2u, up to 0.5u and back in, nose up as it leaves, nose down as it falls
+      // the fish: out of the sea at x 0.58u, z -0.2u, up to 0.62u and back in at x 0.86u, nose up as it leaves, nose down as it falls
       const leap = v >= 4.2 && v < 5.2, f = leap ? v - 4.2 : 0, arc = 4 * f * (1 - f), sy0 = surfY(-0.2);
       piv.visible = leap; fish.pose('Swim', t);
       piv.scale.setScalar(Math.max(1e-3, Math.min(between(v, 4.2, 4.4), 1 - between(v, 5.0, 5.2))));   // grows out of the splash, sinks back in
-      piv.position.set(B.maxX + 0.75 * u, sy0 + LEAP * u * (1 - arc) + (floor + TOP * u - sy0) * arc, -0.2 * u);
-      piv.rotation.x = 0.5 * (2 * f - 1);
+      piv.position.set(B.maxX + (0.58 + 0.28 * f) * u, sy0 + LEAP * u * (1 - arc) + (floor + TOP * u - sy0) * arc, -0.2 * u);
+      piv.rotation.z = 0.6 * (1 - 2 * f);
       // splashes: twelve drops, six where it goes out (4.2) and six where it goes back in (5.2)
-      const sx = B.maxX + 0.75 * u, sz = -0.2 * u;
+      const sz = -0.2 * u;
       for (let i = 0; i < 12; i++) {
-        const k = i < 6 ? bump(v, 3.95, 0.5) : bump(v, 4.95, 0.5), a = ((i % 6) / 6) * 2 * Math.PI, r = (0.03 + 0.05 * (1 - k)) * u;
+        const k = i < 6 ? bump(v, 3.95, 0.5) : bump(v, 4.95, 0.5), sx = B.maxX + (i < 6 ? 0.58 : 0.86) * u, a = ((i % 6) / 6) * 2 * Math.PI, r = (0.03 + 0.05 * (1 - k)) * u;
         splash.set(i, sx + Math.cos(a) * r, sy0 + 0.05 * u * k, sz + Math.sin(a) * r, k);
       }
       splash.commit();
