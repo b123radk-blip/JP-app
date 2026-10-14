@@ -5,7 +5,7 @@
   "primaryReading": "うみ",
   "readings": { "kun": ["うみ"], "on": ["カイ"] },
   "mnemonic": "Water (氵) every (毎) way you look: the sea.",
-  "effect": { "material": "water", "backdrop": "sky:noon" },
+  "effect": { "material": "water", "backdrop": "sky:morning", "vignette": { "type": "q-sea-shore" } },
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "海", "reading": "うみ" }, { "text": "より" }, { "text": "山", "reading": "やま" }, { "text": "が" }, { "text": "好", "reading": "す" }, { "text": "きだ。" } ],
