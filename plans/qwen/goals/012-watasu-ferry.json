@@ -1,0 +1,13 @@
+[
+  { "goal": "she waits on the left bank", "rests": "gal2", "on": "left bank", "t": [0, 0.75] },
+  { "goal": "the boat is at the left bank when she gets in", "point": "rowboat", "near": "left bank", "within": 0.06, "t": [1, 1.5] },
+  { "goal": "she sits in the boat while it crosses", "point": "gal2 hips", "near": "rowboat", "within": 0.03, "t": [2, 5.5] },
+  { "goal": "the boat is at the right bank when she gets out", "point": "rowboat", "near": "right bank", "within": 0.06, "t": [5.75, 6.25] },
+  { "goal": "she stands on the right bank after", "rests": "gal2", "on": "right bank", "t": [6.5, 7.5] },
+  { "goal": "the ferryman stays in the boat", "point": "guy3 hips", "near": "rowboat", "within": 0.03 },
+  { "goal": "the learner sees her on the banks", "visible": "gal2", "min": 85, "t": [0, 0.75] },
+  { "goal": "the learner sees her after she lands", "visible": "gal2", "min": 85, "t": [6.5, 7.5] },
+  { "goal": "the learner sees her in the boat", "visible": "gal2", "min": 65, "t": [2, 5.5] },
+  { "goal": "the learner sees the ferryman", "visible": "guy3", "min": 65 },
+  { "goal": "nothing passes through her", "clear": "gal2" }
+]
