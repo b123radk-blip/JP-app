@@ -1,9 +1,10 @@
-# What every Haiku pilot plan shares
+# What every Haiku plan shares
 
 - Read `plans/haiku/README.md` (your standing rules; "Goals" in it is the part that decides when you are done).
 - Positions are in u (the kanji's height), x measured from the kanji's right edge, y up from the ground line, z toward
-  the learner. **Keep everything between x 0.15 and 1.4, z -0.45 to 0.45, below y 1.2**: the learner's picture ends
-  just past x 1.5, and the goals check that people and the kanji stay in view.
+  the learner. **Keep everything between x 0.45 and 1.4, z -0.45 to 0.45, below y 1.2**: closer than x 0.45 a person
+  stands in front of the kanji's strokes, and the learner's picture ends just past x 1.5. The goals check that people
+  and the kanji stay in view.
 - People: `person(name, u, scale)` from `src/effects/vignettes/q-common.js` (scale `ADULT` 0.9, `TEEN` 0.75, `KID`
   0.55); it is an actor with the gestures of `src/effects/vignettes/model-kit.js` (read the comments at its top: `pose`,
   `handTo`, `grip` + `hold` for a held thing, which rests against the palm, never inside the fist). Clips per model:
@@ -12,10 +13,15 @@
   labels and emblems with `textPlane` / `emblemProp` (`src/effects/pieces/kit-props.js`).
 - Look at one similar finished scene before you start (each plan names one) and write yours in the same style.
 - Give each prop the goals name with `mesh.name = '...'` (or `group.name`) exactly as the plan says.
-- The card's recipe: change only `effect.vignette` in the card file to `{ "type": "<the scene type>" }`.
+- The card's recipe: set the card file's whole `"effect"` to exactly the one the plan gives (it drops the old
+  `emblem` and `motion`: an old emblem floats next to the scene, and a moving kanji walks into the people).
+- Batch plans (h4 and later): your scene goes in the module the plan names (`src/effects/vignettes/h-*.js`, already
+  created and registered: replace its empty `SCENES`), and your catalog entry is one line in `src/effects/vcat-hb.js`,
+  just above its closing brace. Other builders work at the same time: touch no other scene module, catalog file or
+  card.
 - Every inspect run: `node scripts/inspect.mjs <card> --goals plans/haiku/goals/<plan>.json --scan 0.25 --loop <the
   plan's loop> --quick`; at the end one full run without `--quick` (`--times` as the plan says, `--out
   plans/haiku/renders/<plan>`) and `node scripts/orbit.mjs <card> --times <same> --out plans/haiku/renders/<plan>.jpg`.
 - Checks: `node --check` on every changed file, `npm test`, `node scripts/check-piece-costs.mjs vignette "^<type>$"`.
-- Commit the code with the plan's message, then the report in `plans/haiku/done/<plan>.md` (README format, plus
+- Commit the code with the plan's message, then the report (commit message `Haiku report: <plan>`) in `plans/haiku/done/<plan>.md` (README format, plus
   `## Inspection rounds`: one line per round, what you changed and its Goals line).

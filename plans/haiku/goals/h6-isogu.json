@@ -1,0 +1,10 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the man stays in view", "visible": "guy2", "min": 85, "t": [0.4, 2.5]},
+  {"goal": "he starts at the back right", "point": "guy2 hips", "near": [1.3, 0.4, -0.4], "within": 0.15, "t": [0.3, 0.4]},
+  {"goal": "he ends at the front left", "point": "guy2 hips", "near": [0.6, 0.4, 0.35], "within": 0.15, "t": [2.5, 2.6]},
+  {"goal": "he looks at his watch", "point": "guy2 left hand", "near": "guy2 head (middle)", "within": 0.3, "t": [1.3, 1.5]},
+  {"goal": "the briefcase stays in his hand", "point": "guy2 right hand", "near": "briefcase", "within": 0.05, "t": [0.3, 2.6]},
+  {"goal": "the clock floats over the street", "point": "clock", "near": [1.0, 1.0, -0.1], "within": 0.1},
+  {"goal": "nothing passes through him", "clear": "guy2", "except": ["briefcase"]}
+]

@@ -1,0 +1,10 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the boy stays in view", "visible": "guy2", "min": 85},
+  {"goal": "the boy stands on the ground", "rests": "guy2", "t": [0, 2.9]},
+  {"goal": "the pad lies on the ground", "rests": "pad"},
+  {"goal": "the rocket stands on the pad before lift-off", "rests": "rocket", "on": "pad", "t": [0, 1.9]},
+  {"goal": "the rocket is high up", "point": "rocket", "near": [0.95, 0.85, -0.05], "within": 0.15, "t": [4, 4.3]},
+  {"goal": "the boy cheers, hands up", "point": "guy2 right hand", "near": "guy2 top of the head", "within": 0.2, "t": [3.3, 4]},
+  {"goal": "nothing passes through him", "clear": "guy2"}
+]

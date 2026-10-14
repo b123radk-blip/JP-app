@@ -1,0 +1,11 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the girl stays in view", "visible": "gal2", "min": 85},
+  {"goal": "the girl stands on the sand", "rests": "gal2", "on": "sand", "t": [0, 2.7]},
+  {"goal": "she is back on the sand", "rests": "gal2", "on": "sand", "t": [3.6, 7]},
+  {"goal": "the sand lies on the ground", "rests": "sand"},
+  {"goal": "three waves on the sea", "count": "wave", "near": "sea", "within": 0.06, "min": 3},
+  {"goal": "the wave washes up to her feet", "point": "gal2 right foot", "near": "foam", "within": 0.08, "t": [2.7, 2.9]},
+  {"goal": "the fish leaps high", "point": "fishBlue", "near": [0.7, 0.35, -0.2], "within": 0.12, "t": [4.65, 4.75]},
+  {"goal": "nothing passes through her", "clear": "gal2", "except": ["foam"]}
+]

@@ -1,0 +1,9 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the trunk stands on the ground", "rests": "trunk"},
+  {"goal": "the bird flies in high", "point": "pigeonFlying", "near": [0.6, 1.0, 0.15], "within": 0.2, "t": [0.8, 1.0]},
+  {"goal": "the bird sits on the branch", "rests": "pigeon", "on": "branch", "t": [2.2, 4.3]},
+  {"goal": "the bird is clearly seen on the branch", "visible": "pigeon", "min": 90, "t": [2.2, 4.3]},
+  {"goal": "it sings", "count": "note", "near": "pigeon", "within": 0.35, "min": 1, "t": [3.2, 3.6]},
+  {"goal": "nothing passes through the bird", "clear": "pigeon", "t": [2.2, 4.3]}
+]

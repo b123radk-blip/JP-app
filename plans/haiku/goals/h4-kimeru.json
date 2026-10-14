@@ -1,0 +1,13 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the girl stays in view", "visible": "gal2", "min": 85},
+  {"goal": "the girl stands on the ground", "rests": "gal2"},
+  {"goal": "the table stands on the ground", "rests": "table"},
+  {"goal": "cake A sits on the table", "rests": "cakeA", "on": "table"},
+  {"goal": "cake B sits on the table", "rests": "cakeB", "on": "table"},
+  {"goal": "her hand hovers over cake A", "point": "gal2 right hand", "near": "cakeA", "within": 0.15, "t": [1.3, 1.6]},
+  {"goal": "then over cake B", "point": "gal2 right hand", "near": "cakeB", "within": 0.15, "t": [2.1, 2.4]},
+  {"goal": "she touches cake B", "point": "gal2 right hand", "near": "cakeB", "within": 0.05, "t": [3.9, 4.3]},
+  {"goal": "the tick is over cake B", "count": "tick", "near": "cakeB", "within": 0.3, "min": 1, "t": [4, 4.4]},
+  {"goal": "nothing passes through her", "clear": "gal2"}
+]

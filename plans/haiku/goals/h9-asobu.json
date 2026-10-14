@@ -1,0 +1,13 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the girl stays in view", "visible": "gal2", "min": 85},
+  {"goal": "the boy stays in view", "visible": "guy2", "min": 85},
+  {"goal": "the stand stands on the ground", "rests": "pivot"},
+  {"goal": "the plank lies on the stand", "point": "plank", "near": "pivot", "within": 0.02},
+  {"goal": "the girl sits on the plank", "point": "gal2 hips", "near": "plank", "within": 0.06},
+  {"goal": "the boy sits on the plank", "point": "guy2 hips", "near": "plank", "within": 0.06},
+  {"goal": "the girl is down", "point": "gal2 hips", "near": [0.58, 0.14, 0], "within": 0.1, "t": [0.4, 0.6]},
+  {"goal": "the boy is up", "point": "guy2 hips", "near": [1.32, 0.36, 0], "within": 0.1, "t": [0.4, 0.6]},
+  {"goal": "nothing passes through her", "clear": "gal2", "except": ["plank"]},
+  {"goal": "nothing passes through him", "clear": "guy2", "except": ["plank"]}
+]

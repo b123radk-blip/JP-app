@@ -1,0 +1,11 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the girl stays in view", "visible": "gal2", "min": 85, "t": [0.8, 6]},
+  {"goal": "the girl stands on the ground", "rests": "gal2"},
+  {"goal": "the door stands on the ground", "rests": "door"},
+  {"goal": "the umbrella waits in its stand", "rests": "umbrella", "on": "stand", "t": [0, 4.4]},
+  {"goal": "she has walked away", "point": "gal2 hips", "near": [1.2, 0.45, 0.1], "within": 0.12, "t": [2.4, 2.8]},
+  {"goal": "she slaps her forehead", "point": "gal2 right hand", "near": "gal2 head (middle)", "within": 0.12, "t": [2.9, 3.1]},
+  {"goal": "she takes the umbrella", "point": "gal2 right hand", "near": "umbrella", "within": 0.05, "t": [5, 5.8]},
+  {"goal": "nothing passes through her", "clear": "gal2", "except": ["umbrella"]}
+]
