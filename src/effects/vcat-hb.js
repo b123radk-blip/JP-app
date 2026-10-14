@@ -3,4 +3,5 @@
 import { VM, pdc } from './vcat-kit.js';
 
 export const HB = {
+  'q-bird-branch': VM(8, '鳥 (plan h10, models): a bird swoops down onto a branch of a small tree, hops along it, turns its head, sings three notes (♪), then flies up and right and fades out', ['pigeon', 'pigeonFlying']),
 };

@@ -1,0 +1,102 @@
+# Inspection of card 9ce5
+
+## Goals: 6 of 7 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 31 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the trunk stands on the ground: 31 moments, e.g. t+0: trunk (brown #7a4a24): touches the ground line (bottom of the kanji)
+  PASS the bird flies in high (t+0.8 to t+1): 2 moments, e.g. t+1: 0u apart (needs ≤ 0.2)
+  PASS the bird sits on the branch (t+2.2 to t+4.3): 10 moments, e.g. t+2.25: pigeon: touches T2 mesh branch (brown #7a4a24)
+  FAIL the bird is clearly seen on the branch (t+2.2 to t+4.3): fails at t+2.25 to t+4.25 of 10 moments; t+2.25: pigeon is not in the learner's view
+  PASS it sings (t+3.2 to t+3.6): 3 moments, e.g. t+3.25: 2 of 2 note within 0.35u of pigeon (needs ≥ 1)
+  PASS nothing passes through the bird (t+2.2 to t+4.3): 10 moments, e.g. t+2.25: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  no measured faults at any moment
+
+## t+0.9 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh trunk (brown #7a4a24): size 0.08 x 0.6 x 0.08, centre [1, 0.3, -0.1], bottom 0, top 0.6
+  T2 mesh branch (brown #7a4a24): size 0.28 x 0.04 x 0.04, centre [0.86, 0.58, -0.1], bottom 0.56, top 0.6
+  T3 mesh leaves (green/green #3aa040/#48b048): size 0.21 x 0.29 x 0.17, centre [1.09, 0.75, -0.09], bottom 0.6, top 0.89
+  T4 model pigeonFlying: size 0.43 x 0.1 x 0.21, centre [0.62, 1.06, 0.18], bottom 1.01, top 1.11
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh trunk (brown #7a4a24): touches the ground line (bottom of the kanji)
+  T2 mesh branch (brown #7a4a24): is high in the air above the ground line (bottom of the kanji) (gap 0.56u)
+  T3 mesh leaves (green/green #3aa040/#48b048): is high in the air above the ground line (bottom of the kanji) (gap 0.6u)
+  T4 model pigeonFlying: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  the kanji: 100% visible
+  (no people or animals)
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3.4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh trunk (brown #7a4a24): size 0.08 x 0.6 x 0.08, centre [1, 0.3, -0.1], bottom 0, top 0.6
+  T2 mesh branch (brown #7a4a24): size 0.28 x 0.04 x 0.04, centre [0.86, 0.58, -0.1], bottom 0.56, top 0.6
+  T3 mesh leaves (green/green #3aa040/#48b048): size 0.21 x 0.29 x 0.17, centre [1.09, 0.75, -0.09], bottom 0.6, top 0.89
+  T4 model pigeon: size 0.15 x 0.18 x 0.08, centre [0.87, 0.69, -0.1], bottom 0.6, top 0.79
+  T5 mesh note (skin #ffe08a): size 0.05 x 0.07 x 0.01, centre [0.99, 0.97, -0.1], bottom 0.93, top 1.01
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh trunk (brown #7a4a24): touches the ground line (bottom of the kanji)
+  T2 mesh branch (brown #7a4a24): is high in the air above the ground line (bottom of the kanji) (gap 0.56u)
+  T3 mesh leaves (green/green #3aa040/#48b048): is high in the air above the ground line (bottom of the kanji) (gap 0.6u)
+  T4 model pigeon: touches T2 mesh branch (brown #7a4a24)
+  T5 mesh note (skin #ffe08a): in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  the kanji: 100% visible
+  (no people or animals)
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+5.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh trunk (brown #7a4a24): size 0.08 x 0.6 x 0.08, centre [1, 0.3, -0.1], bottom 0, top 0.6
+  T2 mesh branch (brown #7a4a24): size 0.28 x 0.04 x 0.04, centre [0.86, 0.58, -0.1], bottom 0.56, top 0.6
+  T3 mesh leaves (green/green #3aa040/#48b048): size 0.21 x 0.29 x 0.17, centre [1.09, 0.75, -0.09], bottom 0.6, top 0.89
+  T4 model pigeonFlying: size 0.21 x 0.1 x 0.45, centre [0.91, 1.07, -0.07], bottom 1.02, top 1.12
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh trunk (brown #7a4a24): touches the ground line (bottom of the kanji)
+  T2 mesh branch (brown #7a4a24): is high in the air above the ground line (bottom of the kanji) (gap 0.56u)
+  T3 mesh leaves (green/green #3aa040/#48b048): is high in the air above the ground line (bottom of the kanji) (gap 0.6u)
+  T4 model pigeonFlying: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  the kanji: 100% visible
+  (no people or animals)
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h10-tori/overview.jpg
+    1. the whole scene from front, t+0.9 (t0.9-scene-front.jpg)
+    2. the whole scene from right, t+0.9 (t0.9-scene-right.jpg)
+    3. what the learner sees, t+0.9 (t0.9-learner.jpg)
+    4. the whole scene from front, t+3.4 (t3.4-scene-front.jpg)
+    5. the whole scene from right, t+3.4 (t3.4-scene-right.jpg)
+    6. what the learner sees, t+3.4 (t3.4-learner.jpg)
+    7. the whole scene from front, t+5.2 (t5.2-scene-front.jpg)
+    8. the whole scene from right, t+5.2 (t5.2-scene-right.jpg)
+    9. what the learner sees, t+5.2 (t5.2-learner.jpg)
+  (no fault close-ups: no measured faults)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs 9ce5 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
