@@ -5,7 +5,7 @@
   "primaryReading": "ほそ",
   "readings": { "kun": ["ほそ(い)", "ほそ(る)", "こま(か)", "こま(かい)"], "on": ["サイ"] },
   "mnemonic": "Thread (糸) laid over a rice field (田): thin and fine.",
-  "effect": { "material": "silver", "backdrop": "sky:dawn" },
+  "effect": {"material": "silver", "backdrop": "sky:dawn", "vignette": {"type": "q-narrow-gap"}},
   "sentences": [
     {
       "segments": [ { "text": "この" }, { "text": "道", "reading": "みち" }, { "text": "は" }, { "text": "細", "reading": "ほそ" }, { "text": "いです。" } ],
