@@ -12,17 +12,17 @@ import { emblemProp } from '../pieces/kit-props.js';
 import { flies } from '../pieces/kit-things.js';
 import { between } from './helpers.js';
 
-const RIGHT = Math.PI / 2, BIRD = 0.18, FLY = 0.075, LOOP = 7;   // FLY: the flying model's height (its body is about 0.18u long)
+const RIGHT = Math.PI / 2, BIRD = 0.28, FLY = 0.09, LOOP = 7;   // FLY: the flying model's height (its body is about 0.18u long)
 // a quadratic curve from a to b with control c, at f 0..1, into out
 const bez = (a, c, b, f, out) => out.set(0, 0, 0).addScaledVector(a, (1 - f) * (1 - f)).addScaledVector(c, 2 * (1 - f) * f).addScaledVector(b, f * f);
 
 // a small tree: trunk (ground to 0.6), a bare branch going left at 0.58 (x 0.72 to 1.0), leaves at the top
 function tree(u, B, floor) {
   const x = B.maxX + 1.0 * u, z = -0.1 * u;
-  const trunk = solidProp([[G.cyl(0.04 * u, 0.04 * u, 0.6 * u, 0, 0.3 * u, 0), 0x7a4a24]], 0.4); trunk.name = 'trunk'; trunk.position.set(x, floor, z);
-  const branch = solidProp([[G.cyl(0.02 * u, 0.02 * u, 0.28 * u, 0, 0, 0, 0, 0, Math.PI / 2), 0x7a4a24]], 0.4); branch.name = 'branch'; branch.position.set(B.maxX + 0.86 * u, floor + 0.58 * u, z);
-  const leaves = solidProp([[G.sphere(0.08 * u, 0.07 * u, 0.71 * u, 0), 0x3aa040], [G.sphere(0.065 * u, 0.13 * u, 0.67 * u, 0.02 * u), 0x48b048],
-    [G.sphere(0.07 * u, 0.05 * u, 0.82 * u, 0.02 * u), 0x48b048], [G.sphere(0.055 * u, 0.12 * u, 0.77 * u, -0.02 * u), 0x3aa040]], 0.4);
+  const trunk = solidProp([[G.cyl(0.05 * u, 0.065 * u, 0.6 * u, 0, 0.3 * u, 0), 0x7a4a24]], 0.4); trunk.name = 'trunk'; trunk.position.set(x, floor, z);
+  const branch = solidProp([[G.cyl(0.025 * u, 0.025 * u, 0.4 * u, 0, 0, 0, 0, 0, Math.PI / 2), 0x7a4a24]], 0.4); branch.name = 'branch'; branch.position.set(B.maxX + 0.8 * u, floor + 0.58 * u, z);
+  const leaves = solidProp([[G.sphere(0.12 * u, 0.1 * u, 0.74 * u, 0), 0x3aa040], [G.sphere(0.1 * u, 0.18 * u, 0.7 * u, 0.03 * u), 0x48b048],
+    [G.sphere(0.1 * u, 0.08 * u, 0.88 * u, 0.02 * u), 0x48b048], [G.sphere(0.09 * u, 0.17 * u, 0.84 * u, -0.03 * u), 0x3aa040]], 0.4);
   leaves.name = 'leaves'; leaves.position.set(x, floor, z);
   return [trunk, branch, leaves];
 }
@@ -30,7 +30,7 @@ function tree(u, B, floor) {
 function birdBranch(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
   const P = (x, y, z) => new THREE.Vector3(B.maxX + x * u, floor + y * u, z * u);
-  const from = P(0.55, 1.1, 0.2), sit = P(0.82, 0.6, -0.1), hopTo = P(0.88, 0.6, -0.1), ctrl = P(0.84, 1.35, -0.1), out = P(1.35, 1.1, 0.1);
+  const from = P(0.55, 1.1, 0.2), sit = P(0.68, 0.605, -0.1), hopTo = P(0.75, 0.605, -0.1), ctrl = P(0.72, 1.35, -0.1), out = P(1.35, 1.1, 0.1);
   const perch = createModel('pigeon', { height: BIRD * u }), fly = createModel('pigeonFlying', { height: FLY * u, ownMaterials: true });
   perch.group.name = 'pigeon'; fly.group.name = 'pigeonFlying'; flies(fly.group);   // the bird is in the air on purpose
   // three notes: each a holder (moves and pops) around a music note emblem; the emblem's meshes are named 'note' (in the air)
