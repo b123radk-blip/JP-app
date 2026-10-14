@@ -145,7 +145,7 @@ export async function measure({ t, cam }) {
   for (const [mt, side] of sides) mt.side = side;
 
   // hands of the people: where each fist is, the nearest point of the person's own body and the nearest other thing
-  const hands = [], touching = [];
+  const hands = [], touching = [], bodies = [];
   for (const a of models()) {
     const bone = {}; a.o.traverse((b) => { if (b.isBone) bone[b.name] = b; });
     // a kit person's bones under the models' names (its hand bone starts at the wrist)
@@ -155,6 +155,8 @@ export async function measure({ t, cam }) {
     const head = at('Head'), marks = { 'top of the head': new THREE.Vector3(head.x, a.box.max.y, head.z), 'head (middle)': head.clone().lerp(new THREE.Vector3(head.x, a.box.max.y, head.z), 0.5),
       neck: at('Neck'), 'right shoulder': at('UpperArmR'), 'left shoulder': at('UpperArmL'), chest: at('Torso'), hips: at('Hips'),
       'right knee': at('LowerLegR'), 'left knee': at('LowerLegL'), 'right foot': at('FootR'), 'left foot': at('FootL') };
+    // the same points in u, with the hands, for a plan's goals (scripts/inspect.mjs --goals)
+    bodies.push({ id: a.id, name: a.name, marks: Object.fromEntries(Object.entries({ ...marks, 'right hand': at('FistR'), 'left hand': at('FistL') }).filter(([, q]) => q).map(([n, q]) => [n, P(q)])) });
     for (const [side, word] of [['R', 'right'], ['L', 'left']]) {
       const p = at(`Fist${side}`); if (!p) continue;
       const own = Object.entries(marks).filter(([, q]) => q).map(([n, q]) => [n, q.distanceTo(p)]).sort((x, y) => x[1] - y[1])[0];
@@ -213,7 +215,7 @@ export async function measure({ t, cam }) {
       hidden.push({ id: a.id, pct, glyph: !!a.glyph, frame, text: `${who}: ${pct}% visible${behind ? ` (${behind})` : ''}${frame < 100 ? `; only ${frame}% of it inside the picture` : ''}` });
     });
   }
-  return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, body, name, size, centre, bottom, top, world, radius }) => ({ id, kind, body, name, size, centre, bottom, top, world, radius })), support, through, hands, touching, hidden };
+  return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, body, name, size, centre, bottom, top, world, radius }) => ({ id, kind, body, name, size, centre, bottom, top, world, radius })), support, through, hands, touching, hidden, bodies };
 }
 
 // point the camera at world point `target` from a named side, `dist` metres away

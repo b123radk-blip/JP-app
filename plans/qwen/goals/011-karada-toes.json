@@ -1,0 +1,6 @@
+[
+  { "goal": "right hand at the right foot (the toe touch)", "point": "guy right hand", "near": "guy right foot", "within": 0.1, "t": [5.75, 6.25] },
+  { "goal": "left hand at the left foot (the toe touch)", "point": "guy left hand", "near": "guy left foot", "within": 0.1, "t": [5.75, 6.25] },
+  { "goal": "he stands on the grass all loop (feet not sunk, not floating)", "rests": "guy", "on": "green" },
+  { "goal": "the learner sees him all loop", "visible": "guy", "min": 85 }
+]

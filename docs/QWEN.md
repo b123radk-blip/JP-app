@@ -39,4 +39,12 @@ same breakdowns.
 `plans/qwen/queue/<NNN>-<card>.md`, numbered so they run in order. Give: the card id, scene type, files and functions
 Qwen may change, what the scene must show, every position and size as numbers (multiples of `u`), the commit message,
 and any extra `orbit.mjs` flags. A plan runs once: the watcher writes a `NOT DONE` report when pi ends without one;
-delete that report to run the plan again. Old plans (tests 1 and 2) are in `plans/qwen/old/`.
+delete that report to run the plan again.
+
+Give every plan a goals file, `plans/qwen/goals/<plan>.json` (format at the top of `scripts/lib/goals.mjs`): each
+must-have of the plan that can be measured (hands at a body part or a thing, how much of a person the learner sees, what
+a thing rests on, nothing through a person), with the moments it applies to. `inspect.mjs --goals` prints PASS or FAIL
+for each, so Qwen knows when it is done and can't report a goal met that isn't. Name the props the goals refer to in the
+plan's code (`mesh.name = 'slide'`): a prop measured by its box is only as exact as the box (a goal near "slide" is met
+anywhere inside the whole slide's box). Try the goals on the current scene first (`node scripts/inspect.mjs <id> --goals
+g.json --quick`): the ones the old scene fails are the plan's work. Old plans (tests 1 and 2) are in `plans/qwen/old/`.
