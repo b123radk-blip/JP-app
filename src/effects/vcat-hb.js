@@ -3,4 +3,5 @@
 import { VM, pdc } from './vcat-kit.js';
 
 export const HB = {
+  'q-shape-sorter': VM(11, 'a girl with a shape-sorter box: the square block bumps on the round hole (red cross), then drops into the square hole (green tick, stars, she cheers)', ['gal2']),
 };

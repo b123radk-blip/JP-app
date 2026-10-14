@@ -5,7 +5,7 @@
   "primaryReading": "せい",
   "readings": { "kun": ["ただ(しい)", "ただ(す)", "まさ", "まさ(に)"], "on": ["セイ", "ショウ"] },
   "mnemonic": "One line (一) where you stop (止), right on the mark: correct.",
-  "effect": { "material": "gold", "backdrop": "sky:noon", "motion": "pulse" },
+  "effect": { "material": "gold", "backdrop": "sky:noon", "vignette": { "type": "q-shape-sorter" } },
   "sentences": [
     {
       "segments": [ { "text": "その" }, { "text": "答", "reading": "こた" }, { "text": "えは" }, { "text": "正", "reading": "ただ" }, { "text": "しいです。" } ],
