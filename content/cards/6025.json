@@ -1,0 +1,19 @@
+{
+  "id": "6025",
+  "kanji": "急",
+  "meaning": "hurry",
+  "primaryReading": "きゅう",
+  "readings": { "kun": ["いそ(ぐ)", "いそ(ぎ)", "せ(く)"], "on": ["キュウ"] },
+  "mnemonic": "A heart (心) racing while a hand pushes on: hurry!",
+  "effect": { "material": "lacquer", "backdrop": "sky:dusk" },
+  "sentences": [
+    {
+      "segments": [ { "text": "急", "reading": "いそ" }, { "text": "がなくてもいいよ。" } ],
+      "en": "You can take your time.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "tatoeba": [182548, 19693] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

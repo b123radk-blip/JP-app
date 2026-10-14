@@ -1,0 +1,19 @@
+{
+  "id": "904a",
+  "kanji": "遊",
+  "meaning": "play",
+  "primaryReading": "あそ",
+  "readings": { "kun": ["あそ(ぶ)", "あそ(ばす)"], "on": ["ユウ", "ユ"] },
+  "mnemonic": "A child (子) with a flag, out on the road (辶): play.",
+  "effect": { "material": "glow:gold", "backdrop": "sky:day", "motion": "float" },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "たちだけで" }, { "text": "遊", "reading": "あそ" }, { "text": "ぼう。" } ],
+      "en": "Let's play by ourselves.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "tatoeba": [167183, 247318] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

@@ -248,6 +248,10 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 集 | actions | wood | draw | — | sky:day | none | bird | 木 | Birds (隹) flocking down onto a tree (木): gather. |
 | 注 | actions | water | draw | — | sky:morning | none | cup | 氵 | Water (氵) poured out by the master (主) of the house: pour. |
 | 送 | actions | rose | draw | — | sky:day | drift:right | letter | — | Off along the road (⻌) it goes: send, see someone off. |
+| 決 | actions | stone | draw | — | sky:day | none | — | — | Water (氵) bursting through the dam: the matter is decided. |
+| 急 | actions | lacquer | draw | — | sky:dusk | none | — | — | A heart (心) racing while a hand pushes on: hurry! |
+| 発 | actions | metal | draw | — | sky:morning | none | — | — | Two feet (癶) springing off the start line: departure. |
+| 遊 | actions | glow:gold | draw | — | sky:day | none | — | — | A child (子) with a flag, out on the road (辶): play. |
 
 #### Time
 
@@ -264,6 +268,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 終 | time | silver | draw | — | sky:sunset | none | flag:finish | 糸 | The thread (糸) runs out in winter (冬): the end. |
 | 遅 | time | clay | draw | — | sky:golden + road | slide | snail | — | A sheep (羊) dawdling along the road (⻌): slow, late. |
 | 初 | time | pearl | draw:sparks | — | sky:dawn | none | dots:1 | 衤=glow:paper 刀=glow:silver | Scissors (刀) cutting new cloth (衤) for the very first time: first, beginning. |
+| 次 | time | clay | draw | — | sky:golden | none | — | — | A yawn (欠) after the second (冫) one: who is next? |
 
 #### Quality
 
@@ -285,6 +290,8 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 最 | quality | gold | draw | sparks | sky:golden | grow:1.15 | trophy | 日 | Taking (取) the sun (日) itself: the most, the best. |
 | 悪 | quality | lacquer | draw | — | sky:storm | shake | — | 心=heat | A heart (心) under a crooked lid (亜): bad. |
 | 暖 | quality | gold | draw | petals | sky:golden | none | sun | 日 | The sun (日) lending a warm hand (爰) to the spring: warm weather. |
+| 細 | quality | silver | draw | — | sky:dawn | none | — | — | Thread (糸) laid over a rice field (田): thin and fine. |
+| 正 | quality | gold | draw | — | sky:noon | none | — | — | One line (一) where you stop (止), right on the mark: correct. |
 
 #### Abstract
 
@@ -322,6 +329,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 辞 | abstract | paper | draw | kana | sky:indoor | none | speech | 舌=glow:rose | A tongue (舌) and a spicy (辛) word: words; a dictionary (辞書). |
 | 覚 | abstract | pearl | draw | sparks | sky:twilight | none | book | 見 | Seeing (見) the book with sparks (⺍) over your head: memorize, remember. |
 | 業 | abstract | silver | draw | — | sky:morning | none | gears | 木=glow:wood | A wooden (木) frame hung with tools: work, business, a class (授業). |
+| 忘 | abstract | pearl | draw | — | sky:twilight | none | — | — | The heart (心) has lost (亡) it: forget. |
 
 #### Places
 
@@ -381,6 +389,8 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 牛 | nature | fur | draw | — | sky:day + field | tilt | cow | — | A cow's head with its horns: cow. |
 | 洋 | nature | water | draw | — | sky:day + ripples | sway | boat | 氵 | Water (氵) as wide as a flock of sheep (羊): the ocean; Western. |
 | 鳴 | nature | jade | draw | notes | sky:forest | none | bird | 口=glow:rose | A bird (鳥) opening its mouth (口): chirp, sing, ring. |
+| 海 | nature | water | draw | — | sky:noon | none | — | — | Water (氵) every (毎) way you look: the sea. |
+| 鳥 | nature | jade | draw | — | sky:morning | none | — | — | A bird with its eye on top and four tail feathers below. |
 
 #### Size
 

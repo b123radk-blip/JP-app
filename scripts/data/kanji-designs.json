@@ -2638,5 +2638,95 @@
     "dir": "right"
    }
   }
+ },
+ "決": {
+  "group": "actions",
+  "meaning": "decide",
+  "mnemonic": "Water (氵) bursting through the dam: the matter is decided.",
+  "effect": {
+   "material": "stone",
+   "backdrop": "sky:day"
+  }
+ },
+ "海": {
+  "group": "nature",
+  "meaning": "sea",
+  "mnemonic": "Water (氵) every (毎) way you look: the sea.",
+  "effect": {
+   "material": "water",
+   "backdrop": "sky:noon"
+  }
+ },
+ "急": {
+  "group": "actions",
+  "meaning": "hurry",
+  "mnemonic": "A heart (心) racing while a hand pushes on: hurry!",
+  "effect": {
+   "material": "lacquer",
+   "backdrop": "sky:dusk"
+  }
+ },
+ "発": {
+  "group": "actions",
+  "meaning": "departure",
+  "mnemonic": "Two feet (癶) springing off the start line: departure.",
+  "effect": {
+   "material": "metal",
+   "backdrop": "sky:morning"
+  }
+ },
+ "細": {
+  "group": "quality",
+  "meaning": "slender; narrow",
+  "mnemonic": "Thread (糸) laid over a rice field (田): thin and fine.",
+  "effect": {
+   "material": "silver",
+   "backdrop": "sky:dawn"
+  }
+ },
+ "遊": {
+  "group": "actions",
+  "meaning": "play",
+  "mnemonic": "A child (子) with a flag, out on the road (辶): play.",
+  "effect": {
+   "material": "glow:gold",
+   "backdrop": "sky:day"
+  }
+ },
+ "鳥": {
+  "group": "nature",
+  "meaning": "bird",
+  "mnemonic": "A bird with its eye on top and four tail feathers below.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:morning"
+  }
+ },
+ "忘": {
+  "group": "abstract",
+  "meaning": "forget",
+  "mnemonic": "The heart (心) has lost (亡) it: forget.",
+  "effect": {
+   "material": "pearl",
+   "backdrop": "sky:twilight"
+  }
+ },
+ "正": {
+  "group": "quality",
+  "meaning": "correct",
+  "mnemonic": "One line (一) where you stop (止), right on the mark: correct.",
+  "effect": {
+   "material": "gold",
+   "backdrop": "sky:noon"
+  }
+ },
+ "次": {
+  "group": "time",
+  "meaning": "next",
+  "mnemonic": "A yawn (欠) after the second (冫) one: who is next?",
+  "effect": {
+   "material": "clay",
+   "backdrop": "sky:golden"
+  }
  }
 }

@@ -30,7 +30,9 @@ function download(name, text) {
 async function previewProps(q, decks) {
   let trial = null;
   if (q.get('trial')) try { trial = await loadTrial(q.get('trial')); } catch (e) { $('msg').textContent = `trial=${q.get('trial')}: ${e.message}`; }
-  const ids = q.get('cards') ? q.get('cards').split(',') : trial ? Object.keys(trial.cards) : (q.get('deck') ? decks.filter((d) => d.id === q.get('deck')) : decks.filter((d) => d.enabled)).flatMap((d) => d.cards);
+  // deck= may also name a review list outside the deck index (content/decks/haiku.json: the cards Haiku built)
+  const extra = q.get('deck') && !decks.some((d) => d.id === q.get('deck')) ? await loadDeck(`${q.get('deck')}.json`).catch(() => ({ cards: [] })) : null;
+  const ids = q.get('cards') ? q.get('cards').split(',') : trial ? Object.keys(trial.cards) : extra ? extra.cards : (q.get('deck') ? decks.filter((d) => d.id === q.get('deck')) : decks.filter((d) => d.enabled)).flatMap((d) => d.cards);
   let recipe = null;
   if (q.get('recipe')) try { recipe = JSON.parse(q.get('recipe')); } catch (e) { $('msg').textContent = `recipe= is not valid JSON (${e.message})`; }
   const t = q.get('t');

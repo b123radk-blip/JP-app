@@ -1,0 +1,19 @@
+{
+  "id": "6b63",
+  "kanji": "正",
+  "meaning": "correct",
+  "primaryReading": "せい",
+  "readings": { "kun": ["ただ(しい)", "ただ(す)", "まさ", "まさ(に)"], "on": ["セイ", "ショウ"] },
+  "mnemonic": "One line (一) where you stop (止), right on the mark: correct.",
+  "effect": { "material": "gold", "backdrop": "sky:noon", "motion": "pulse" },
+  "sentences": [
+    {
+      "segments": [ { "text": "その" }, { "text": "答", "reading": "こた" }, { "text": "えは" }, { "text": "正", "reading": "ただ" }, { "text": "しいです。" } ],
+      "en": "That answer is correct.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

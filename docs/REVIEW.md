@@ -11,9 +11,9 @@ JTalk agree), but no person has confirmed them yet. Per row:
 Report problems by card id (the code in the Card column). To confirm a row yourself, set `"needsNativeReview": false`
 on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 
-**Waiting:** 838 sentence(s). **Confirmed:** 0.
+**Waiting:** 848 sentence(s). **Confirmed:** 0.
 
-## N5 (838 cards)
+## N5 (848 cards)
 
 | # | Card | Readings | Meaning | Sentence | English | Source |
 |---|---|---|---|---|---|---|
@@ -855,3 +855,13 @@ on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 | 836 | 集 `96c6` | **あつ** · kun あつ(まる)、あつ(める)、つど(う) · on シュウ | gather; meet | <ruby>集合<rp>(</rp><rt>しゅうごう</rt><rp>)</rp></ruby><ruby>場所<rp>(</rp><rt>ばしょ</rt><rp>)</rp></ruby>はどこですか？ | Where will we meet? | [Tatoeba 148104](https://tatoeba.org/en/sentences/show/148104) |
 | 837 | 注 `6ce8` | **ちゅう** · kun そそ(ぐ)、さ(す)、つ(ぐ) · on チュウ | pour; notes | そのページの<ruby>下<rp>(</rp><rt>した</rt><rp>)</rp></ruby>の<ruby>注<rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby>を<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>みなさい。 | Read the note at the bottom of the page. | [Tatoeba 212656](https://tatoeba.org/en/sentences/show/212656) |
 | 838 | 送 `9001` | **おく** · kun おく(る) · on ソウ | escort; send | じゃあ、<ruby>送<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>っていこうか。 | Would you like me to see you home? | [Tatoeba 215909](https://tatoeba.org/en/sentences/show/215909) |
+| 839 | 決 `6c7a` | **けつ** · kun き(める)、ぎ(め)、き(まる)、さ(く) · on ケツ | decide | <ruby>行<rp>(</rp><rt>い</rt><rp>)</rp></ruby>く<ruby>日<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>めました。 | We decided on the day to go. | written for the app |
+| 840 | 海 `6d77` | **うみ** · kun うみ · on カイ | sea | <ruby>私<rp>(</rp><rt>わたし</rt><rp>)</rp></ruby>は<ruby>海<rp>(</rp><rt>うみ</rt><rp>)</rp></ruby>より<ruby>山<rp>(</rp><rt>やま</rt><rp>)</rp></ruby>が<ruby>好<rp>(</rp><rt>す</rt><rp>)</rp></ruby>きだ。 | I like mountains better than seas. | [Tatoeba 157945](https://tatoeba.org/en/sentences/show/157945) |
+| 841 | 急 `6025` | **きゅう** · kun いそ(ぐ)、いそ(ぎ)、せ(く) · on キュウ | hurry | <ruby>急<rp>(</rp><rt>いそ</rt><rp>)</rp></ruby>がなくてもいいよ。 | You can take your time. | [Tatoeba 182548](https://tatoeba.org/en/sentences/show/182548) |
+| 842 | 発 `767a` | **はつ** · kun た(つ)、あば(く)、おこ(る)、つか(わす) · on ハツ、ホツ | departure | これは<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby><ruby>発<rp>(</rp><rt>はつ</rt><rp>)</rp></ruby>の<ruby>電車<rp>(</rp><rt>でんしゃ</rt><rp>)</rp></ruby>です。 | This train leaves from Tokyo. | written for the app |
+| 843 | 細 `7d30` | **ほそ** · kun ほそ(い)、ほそ(る)、こま(か)、こま(かい) · on サイ | slender; narrow | この<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>は<ruby>細<rp>(</rp><rt>ほそ</rt><rp>)</rp></ruby>いです。 | This road is narrow. | written for the app |
+| 844 | 遊 `904a` | **あそ** · kun あそ(ぶ)、あそ(ばす) · on ユウ、ユ | play | <ruby>私<rp>(</rp><rt>わたし</rt><rp>)</rp></ruby>たちだけで<ruby>遊<rp>(</rp><rt>あそ</rt><rp>)</rp></ruby>ぼう。 | Let's play by ourselves. | [Tatoeba 167183](https://tatoeba.org/en/sentences/show/167183) |
+| 845 | 鳥 `9ce5` | **とり** · kun とり · on チョウ | bird | <ruby>鳥<rp>(</rp><rt>とり</rt><rp>)</rp></ruby>は<ruby>南<rp>(</rp><rt>みなみ</rt><rp>)</rp></ruby>へ<ruby>飛<rp>(</rp><rt>と</rt><rp>)</rp></ruby>んで<ruby>行<rp>(</rp><rt>い</rt><rp>)</rp></ruby>った。 | The birds flew to the south. | [Tatoeba 125781](https://tatoeba.org/en/sentences/show/125781) |
+| 846 | 忘 `5fd8` | **わす** · kun わす(れる) · on ボウ | forget | <ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>すのを<ruby>忘<rp>(</rp><rt>わす</rt><rp>)</rp></ruby>れるな。 | Don't forget to put out the fire. | [Tatoeba 186724](https://tatoeba.org/en/sentences/show/186724) |
+| 847 | 正 `6b63` | **せい** · kun ただ(しい)、ただ(す)、まさ、まさ(に) · on セイ、ショウ | correct | その<ruby>答<rp>(</rp><rt>こた</rt><rp>)</rp></ruby>えは<ruby>正<rp>(</rp><rt>ただ</rt><rp>)</rp></ruby>しいです。 | That answer is correct. | written for the app |
+| 848 | 次 `6b21` | **つぎ** · kun つ(ぐ)、つぎ · on ジ、シ | next | <ruby>次<rp>(</rp><rt>つぎ</rt><rp>)</rp></ruby>の<ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>降<rp>(</rp><rt>お</rt><rp>)</rp></ruby>ります。 | I get off at the next station. | written for the app |

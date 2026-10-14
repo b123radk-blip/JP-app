@@ -1,0 +1,19 @@
+{
+  "id": "5fd8",
+  "kanji": "忘",
+  "meaning": "forget",
+  "primaryReading": "わす",
+  "readings": { "kun": ["わす(れる)"], "on": ["ボウ"] },
+  "mnemonic": "The heart (心) has lost (亡) it: forget.",
+  "effect": { "material": "pearl", "backdrop": "sky:twilight" },
+  "sentences": [
+    {
+      "segments": [ { "text": "火", "reading": "ひ" }, { "text": "を" }, { "text": "消", "reading": "け" }, { "text": "すのを" }, { "text": "忘", "reading": "わす" }, { "text": "れるな。" } ],
+      "en": "Don't forget to put out the fire.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "tatoeba": [186724, 23860] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}
