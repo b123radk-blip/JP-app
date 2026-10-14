@@ -5,7 +5,7 @@
   "primaryReading": "あつ",
   "readings": { "kun": ["あつ(まる)", "あつ(める)", "つど(う)"], "on": ["シュウ"] },
   "mnemonic": "Birds (隹) flocking down onto a tree (木): gather.",
-  "effect": { "material": "wood", "backdrop": "sky:day", "emblem": "bird", "parts": { "木": {} }, "vignette": { "type": "q-chicks-gather" } },
+  "effect": { "material": "wood", "backdrop": "sky:day", "parts": { "木": {} }, "vignette": { "type": "q-chicks-gather" } },
   "sentences": [
     {
       "segments": [ { "text": "集合", "reading": "しゅうごう" }, { "text": "場所", "reading": "ばしょ" }, { "text": "はどこですか？" } ],
