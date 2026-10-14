@@ -1,102 +1,27 @@
 # Inspection of card 7d30
 
-## Goals: 7 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+## Goals: 8 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
 
   PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
-  PASS the man is in view at the front (t+4.6 to t+6): 6 moments, e.g. t+4.75: 96% visible (needs ≥ 85)
+  PASS the man is in view at the front (t+4.6 to t+6): 6 moments, e.g. t+4.75: 98% visible (needs ≥ 85)
   PASS the man stands on the ground: 30 moments, e.g. t+0: guy2: touches the ground line (bottom of the kanji)
   PASS the left wall stands on the ground: 30 moments, e.g. t+0: wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
   PASS the right wall stands on the ground: 30 moments, e.g. t+0: wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
-  PASS the gap stays narrow: 30 moments, e.g. t+0: 0.16u apart (needs ≤ 0.17)
+  PASS the gap stays narrow: 30 moments, e.g. t+0: 0.33u apart (needs ≤ 0.36)
   FAIL he is in the middle of the gap (t+3.1 to t+3.4): fails at t+3.2 to t+3.25 of 2 moments; t+3.25: 0.18u apart (needs ≤ 0.1)
-  FAIL he never goes through a wall: fails at t+0.5 to t+0.75, t+1.75 to t+6.25 of 30 moments; t+0.5: model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 6 skin points inside it, near the bones PoleTargetR; t+0.75: model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones PoleTargetR, FistR; t+1.75: model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones FistR
+  PASS he never goes through a wall: 30 moments, e.g. t+0: nothing passes into it
   PASS he wipes his brow (t+4.9 to t+5.1): 1 moments, e.g. t+5: 0.15u apart (needs ≤ 0.15)
 
 ## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
 
-  - t+0 to t+3.75, t+6.75 (worst at t+6.75): model guy2: 0% visible (100% behind other things (props, labels))
-  - t+0.5 (worst at t+0.5): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 6 skin points inside it, near the bones PoleTargetR
-  - t+0.75 (worst at t+0.75): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones PoleTargetR, FistR
-  - t+1.75 (worst at t+1.75): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones FistR
-  - t+2 to t+4.75 (worst at t+3.75): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 169 skin points inside it, near the bones Head
-  - t+2 (worst at t+2): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 93 skin points inside it, near the bones Head, FistR, UpperLegR
-  - t+2.25 (worst at t+2.25): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 145 skin points inside it, near the bones Head, FistR, LowerLegR
-  - t+2.5 (worst at t+2.5): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 207 skin points inside it, near the bones Head, FistR, Body_1
-  - t+2.75 (worst at t+2.75): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 226 skin points inside it, near the bones Head, FistR, Neck
-  - t+3 (worst at t+3): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 213 skin points inside it, near the bones Head, Neck, FistR
-  - t+3.25 (worst at t+3.25): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 202 skin points inside it, near the bones Head, Neck, Abdomen
-  - t+3.5 (worst at t+3.5): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 190 skin points inside it, near the bones Head, Neck
-  - t+3.75 to t+4.5 (worst at t+3.75): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 190 skin points inside it, near the bones Head
-  - t+4.75 (worst at t+4.75): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 151 skin points inside it, near the bones FistL, UpperArmL, LowerArmL
-  - t+5 (worst at t+5): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 65 skin points inside it, near the bones Head, FistR, UpperLegR
-  - t+5 (worst at t+5): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 242 skin points inside it, near the bones FistL, LowerArmL, UpperArmL
-  - t+5.25 (worst at t+5.25): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 33 skin points inside it, near the bones FootR, Head, UpperLegR
-  - t+5.25 (worst at t+5.25): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 117 skin points inside it, near the bones Head, FistL, UpperArmL
-  - t+5.5 (worst at t+5.5): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 35 skin points inside it, near the bones Head, FootR, UpperArmR
-  - t+5.5 to t+6.25 (worst at t+5.5): model guy2 PASSES INTO mesh wallR (beige/brown #d8c8b0/#b0583a): 105 skin points inside it, near the bones Head, FootL, UpperArmL
-  - t+5.75 to t+6 (worst at t+5.75): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 46 skin points inside it, near the bones Head, UpperArmR, FootR
-  - t+6.25 (worst at t+6.25): model guy2 PASSES INTO mesh wallL (beige/brown #d8c8b0/#b0583a): 42 skin points inside it, near the bones Head, UpperArmR, LowerArmR
-
-## t+0.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
-
-Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model guy2: size 0.33 x 0.92 x 0.42, centre [0.97, 0.46, -0.46], bottom 0, top 0.92
-  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [0.74, 0.47, 0], bottom 0, top 0.95
-  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [1.16, 0.47, 0], bottom 0, top 0.95
-
-What each solid thing rests on (it should touch it, unless it is meant to fly):
-  T1 model guy2: touches the ground line (bottom of the kanji)
-  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
-  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
-
-Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 6 skin points inside it, near the bones PoleTargetR
-
-Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model guy2 right hand at [0.84,0.29,-0.34]: nearest own body part hips 0.18u away; nearest other thing T2 mesh wallL (beige/brown #d8c8b0/#b0583a) 0.09u away
-  T1 model guy2 left hand at [1.1,0.28,-0.61]: nearest own body part hips 0.2u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.36u away
-
-Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model guy2: 10% visible (90% behind other things (props, labels))
-  the kanji: 100% visible
-
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 6 skin points inside it, near the bones PoleTargetR
-  - T1 model guy2: 10% visible (90% behind other things (props, labels))
-
-## t+0.75 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
-
-Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model guy2: size 0.33 x 0.9 x 0.51, centre [0.97, 0.45, -0.46], bottom 0, top 0.9
-  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [0.74, 0.47, 0], bottom 0, top 0.95
-  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [1.16, 0.47, 0], bottom 0, top 0.95
-
-What each solid thing rests on (it should touch it, unless it is meant to fly):
-  T1 model guy2: touches the ground line (bottom of the kanji)
-  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
-  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
-
-Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones PoleTargetR, FistR
-
-Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model guy2 right hand at [0.85,0.28,-0.3]: nearest own body part hips 0.19u away; nearest other thing T2 mesh wallL (beige/brown #d8c8b0/#b0583a) 0.05u away
-  T1 model guy2 left hand at [1.07,0.29,-0.64]: nearest own body part hips 0.23u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.39u away
-
-Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model guy2: 9% visible (91% behind other things (props, labels))
-  the kanji: 100% visible
-
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones PoleTargetR, FistR
-  - T1 model guy2: 9% visible (91% behind other things (props, labels))
+  - t+0 to t+2, t+6.75 (worst at t+0): model guy2: 46% visible (54% behind other things (props, labels))
 
 ## t+1.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model guy2: size 0.38 x 0.94 x 0.31, centre [0.96, 0.47, -0.42], bottom 0, top 0.93
-  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [0.74, 0.47, 0], bottom 0, top 0.95
-  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [1.16, 0.47, 0], bottom 0, top 0.95
+  T1 model guy2: size 0.38 x 0.94 x 0.31, centre [0.96, 0.47, -0.36], bottom 0, top 0.93
+  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [0.66, 0.53, 0], bottom 0, top 1.05
+  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [1.25, 0.53, 0], bottom 0, top 1.05
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model guy2: touches the ground line (bottom of the kanji)
@@ -107,50 +32,22 @@ Bodies passing into things (a hand resting ON a thing may show a few points; a h
   none
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model guy2 right hand at [0.81,0.27,-0.41]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh wallL (beige/brown #d8c8b0/#b0583a) 0.15u away
-  T1 model guy2 left hand at [1.11,0.27,-0.41]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.16u away
+  T1 model guy2 right hand at [0.81,0.27,-0.35]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh wallL (beige/brown #d8c8b0/#b0583a) 0.1u away
+  T1 model guy2 left hand at [1.11,0.27,-0.35]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.1u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model guy2: 9% visible (91% behind other things (props, labels))
+  T1 model guy2: 61% visible (39% behind other things (props, labels))
   the kanji: 100% visible
 
 POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model guy2: 9% visible (91% behind other things (props, labels))
-
-## t+1.75 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
-
-Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model guy2: size 0.33 x 0.93 x 0.33, centre [0.96, 0.46, -0.39], bottom 0, top 0.93
-  T2 label "!": size 0.15 x 0.22 x 0, centre [1.02, 1, -0.39], bottom 0.89, top 1.11
-  T3 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [0.74, 0.47, 0], bottom 0, top 0.95
-  T4 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [1.16, 0.47, 0], bottom 0, top 0.95
-
-What each solid thing rests on (it should touch it, unless it is meant to fly):
-  T1 model guy2: touches the ground line (bottom of the kanji)
-  T3 mesh wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
-  T4 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
-
-Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model guy2 PASSES INTO T3 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones FistR
-
-Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model guy2 right hand at [0.86,0.26,-0.28]: nearest own body part right knee 0.14u away; nearest other thing T3 mesh wallL (beige/brown #d8c8b0/#b0583a) 0.03u away
-  T1 model guy2 left hand at [1.06,0.27,-0.49]: nearest own body part left knee 0.14u away; nearest other thing T4 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.24u away
-
-Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model guy2: 7% visible (93% behind other things (props, labels))
-  the kanji: 100% visible
-
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model guy2 PASSES INTO T3 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones FistR
-  - T1 model guy2: 7% visible (93% behind other things (props, labels))
+  - T1 model guy2: 61% visible (39% behind other things (props, labels))
 
 ## t+3.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model guy2: size 0.31 x 0.94 x 0.38, centre [0.95, 0.47, -0.01], bottom 0, top 0.94
-  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [0.74, 0.47, 0], bottom 0, top 0.95
-  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [1.16, 0.47, 0], bottom 0, top 0.95
+  T1 model guy2: size 0.32 x 0.94 x 0.4, centre [0.95, 0.47, 0.03], bottom 0, top 0.94
+  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [0.66, 0.53, 0], bottom 0, top 1.05
+  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [1.25, 0.53, 0], bottom 0, top 1.05
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model guy2: touches the ground line (bottom of the kanji)
@@ -158,30 +55,26 @@ What each solid thing rests on (it should touch it, unless it is meant to fly):
   T3 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 163 skin points inside it, near the bones Head
-  T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 204 skin points inside it, near the bones Head, Neck, Abdomen
+  none
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model guy2 right hand at [0.97,0.27,0.14]: nearest own body part right knee 0.14u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.06u away
-  T1 model guy2 left hand at [0.96,0.27,-0.16]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.06u away
+  T1 model guy2 right hand at [1.01,0.45,0.13]: nearest own body part right shoulder 0.11u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.1u away
+  T1 model guy2 left hand at [1.01,0.45,-0.05]: nearest own body part chest 0.1u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.1u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model guy2: 50% visible (50% behind other things (props, labels))
+  T1 model guy2: 95% visible (5% behind other things (props, labels))
   the kanji: 100% visible
 
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 163 skin points inside it, near the bones Head
-  - T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 204 skin points inside it, near the bones Head, Neck, Abdomen
-  - T1 model guy2: 50% visible (50% behind other things (props, labels))
+No measured faults. Still look at the pictures: the numbers cannot see everything.
 
 ## t+5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model guy2: size 0.35 x 0.94 x 0.35, centre [0.97, 0.47, 0.26], bottom 0, top 0.94
-  T2 label "ふう": size 0.27 x 0.13 x 0, centre [0.65, 0.85, 0.6], bottom 0.79, top 0.92
-  T3 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.55, 0.77, 0.6], bottom 0.71, top 0.83
-  T4 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [0.74, 0.47, 0], bottom 0, top 0.95
-  T5 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 0.95 x 0.51, centre [1.16, 0.47, 0], bottom 0, top 0.95
+  T1 model guy2: size 0.35 x 0.94 x 0.35, centre [0.97, 0.47, 0.35], bottom 0, top 0.94
+  T2 label "ふう": size 0.27 x 0.13 x 0, centre [0.65, 0.85, 0.68], bottom 0.79, top 0.92
+  T3 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.55, 0.77, 0.68], bottom 0.71, top 0.83
+  T4 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [0.66, 0.53, 0], bottom 0, top 1.05
+  T5 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [1.25, 0.53, 0], bottom 0, top 1.05
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model guy2: touches the ground line (bottom of the kanji)
@@ -190,20 +83,17 @@ What each solid thing rests on (it should touch it, unless it is meant to fly):
   T5 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 65 skin points inside it, near the bones Head, FistR, UpperLegR
-  T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 242 skin points inside it, near the bones FistL, LowerArmL, UpperArmL
+  none
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model guy2 right hand at [1.02,0.76,0.39]: nearest own body part head (middle) 0.15u away; nearest other thing T5 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.14u away
-  T1 model guy2 left hand at [1.09,0.27,0.2]: nearest own body part left knee 0.14u away; nearest other thing T5 mesh wallR (beige/brown #d8c8b0/#b0583a) 0u away (inside its box: touching or passing through)
+  T1 model guy2 right hand at [1.02,0.76,0.47]: nearest own body part head (middle) 0.15u away; nearest other thing T5 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.24u away
+  T1 model guy2 left hand at [1.09,0.27,0.28]: nearest own body part left knee 0.14u away; nearest other thing T5 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.04u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model guy2: 90% visible (10% behind other things (props, labels))
+  T1 model guy2: 98% visible (2% behind other things (props, labels))
   the kanji: 100% visible
 
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 65 skin points inside it, near the bones Head, FistR, UpperLegR
-  - T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 242 skin points inside it, near the bones FistL, LowerArmL, UpperArmL
+No measured faults. Still look at the pictures: the numbers cannot see everything.
 
 Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
   plans/haiku/renders/h8-hosoi/overview.jpg
@@ -217,54 +107,9 @@ Pictures: open these sheets with your read tool (tiles are numbered; each tile's
     8. the whole scene from right, t+5 (t5-scene-right.jpg)
     9. what the learner sees, t+5 (t5-learner.jpg)
   plans/haiku/renders/h8-hosoi/faults.jpg
-    1. fault 1 (t+1.75): T1 model guy2: 7% visible (93% behind other things (props, labels)) (fault1-seat-t1.75.jpg)
-    2. fault 2 from front (t+0.5): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 6 skin points inside it, near the bones PoleTargetR (fault2-front-t0.5.jpg)
-    3. fault 2 from right (t+0.5): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 6 skin points inside it, near the bones PoleTargetR (fault2-right-t0.5.jpg)
-    4. fault 3 from front (t+0.75): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones PoleTargetR, FistR (fault3-front-t0.75.jpg)
-    5. fault 3 from right (t+0.75): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones PoleTargetR, FistR (fault3-right-t0.75.jpg)
-    6. fault 4 from front (t+1.75): T1 model guy2 PASSES INTO T3 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones FistR (fault4-front-t1.75.jpg)
-    7. fault 4 from right (t+1.75): T1 model guy2 PASSES INTO T3 mesh wallL (beige/brown #d8c8b0/#b0583a): 12 skin points inside it, near the bones FistR (fault4-right-t1.75.jpg)
-    8. fault 5 from front (t+3.2): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 163 skin points inside it, near the bones Head (fault5-front-t3.2.jpg)
-    9. fault 5 from right (t+3.2): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 163 skin points inside it, near the bones Head (fault5-right-t3.2.jpg)
-    10. fault 6 from front (t+2): T1 model guy2 PASSES INTO T4 mesh wallR (beige/brown #d8c8b0/#b0583a): 93 skin points inside it, near the bones Head, FistR, UpperLegR (fault6-front-t2.jpg)
-    11. fault 6 from right (t+2): T1 model guy2 PASSES INTO T4 mesh wallR (beige/brown #d8c8b0/#b0583a): 93 skin points inside it, near the bones Head, FistR, UpperLegR (fault6-right-t2.jpg)
-    12. fault 7 from front (t+2.25): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 145 skin points inside it, near the bones Head, FistR, LowerLegR (fault7-front-t2.25.jpg)
-  plans/haiku/renders/h8-hosoi/faults-2.jpg
-    13. fault 7 from right (t+2.25): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 145 skin points inside it, near the bones Head, FistR, LowerLegR (fault7-right-t2.25.jpg)
-    14. fault 8 from front (t+2.5): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 207 skin points inside it, near the bones Head, FistR, Body_1 (fault8-front-t2.5.jpg)
-    15. fault 8 from right (t+2.5): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 207 skin points inside it, near the bones Head, FistR, Body_1 (fault8-right-t2.5.jpg)
-    16. fault 9 from front (t+2.75): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 226 skin points inside it, near the bones Head, FistR, Neck (fault9-front-t2.75.jpg)
-    17. fault 9 from right (t+2.75): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 226 skin points inside it, near the bones Head, FistR, Neck (fault9-right-t2.75.jpg)
-    18. fault 10 from front (t+3): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 213 skin points inside it, near the bones Head, Neck, FistR (fault10-front-t3.jpg)
-    19. fault 10 from right (t+3): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 213 skin points inside it, near the bones Head, Neck, FistR (fault10-right-t3.jpg)
-    20. fault 11 from front (t+3.2): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 204 skin points inside it, near the bones Head, Neck, Abdomen (fault11-front-t3.2.jpg)
-    21. fault 11 from right (t+3.2): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 204 skin points inside it, near the bones Head, Neck, Abdomen (fault11-right-t3.2.jpg)
-    22. fault 12 from front (t+3.5): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 190 skin points inside it, near the bones Head, Neck (fault12-front-t3.5.jpg)
-    23. fault 12 from right (t+3.5): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 190 skin points inside it, near the bones Head, Neck (fault12-right-t3.5.jpg)
-    24. fault 13 from front (t+3.75): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 190 skin points inside it, near the bones Head (fault13-front-t3.75.jpg)
-  plans/haiku/renders/h8-hosoi/faults-3.jpg
-    25. fault 13 from right (t+3.75): T1 model guy2 PASSES INTO T3 mesh wallR (beige/brown #d8c8b0/#b0583a): 190 skin points inside it, near the bones Head (fault13-right-t3.75.jpg)
-    26. fault 14 from front (t+4.75): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 151 skin points inside it, near the bones FistL, UpperArmL, LowerArmL (fault14-front-t4.75.jpg)
-    27. fault 14 from right (t+4.75): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 151 skin points inside it, near the bones FistL, UpperArmL, LowerArmL (fault14-right-t4.75.jpg)
-    28. fault 15 from front (t+5): T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 65 skin points inside it, near the bones Head, FistR, UpperLegR (fault15-front-t5.jpg)
-    29. fault 15 from right (t+5): T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 65 skin points inside it, near the bones Head, FistR, UpperLegR (fault15-right-t5.jpg)
-    30. fault 16 from front (t+5): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 242 skin points inside it, near the bones FistL, LowerArmL, UpperArmL (fault16-front-t5.jpg)
-    31. fault 16 from right (t+5): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 242 skin points inside it, near the bones FistL, LowerArmL, UpperArmL (fault16-right-t5.jpg)
-    32. fault 17 from front (t+5.25): T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 33 skin points inside it, near the bones FootR, Head, UpperLegR (fault17-front-t5.25.jpg)
-    33. fault 17 from right (t+5.25): T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 33 skin points inside it, near the bones FootR, Head, UpperLegR (fault17-right-t5.25.jpg)
-    34. fault 18 from front (t+5.25): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 117 skin points inside it, near the bones Head, FistL, UpperArmL (fault18-front-t5.25.jpg)
-    35. fault 18 from right (t+5.25): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 117 skin points inside it, near the bones Head, FistL, UpperArmL (fault18-right-t5.25.jpg)
-    36. fault 19 from front (t+5.5): T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 35 skin points inside it, near the bones Head, FootR, UpperArmR (fault19-front-t5.5.jpg)
-  plans/haiku/renders/h8-hosoi/faults-4.jpg
-    37. fault 19 from right (t+5.5): T1 model guy2 PASSES INTO T4 mesh wallL (beige/brown #d8c8b0/#b0583a): 35 skin points inside it, near the bones Head, FootR, UpperArmR (fault19-right-t5.5.jpg)
-    38. fault 20 from front (t+5.5): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 105 skin points inside it, near the bones Head, FootL, UpperArmL (fault20-front-t5.5.jpg)
-    39. fault 20 from right (t+5.5): T1 model guy2 PASSES INTO T5 mesh wallR (beige/brown #d8c8b0/#b0583a): 105 skin points inside it, near the bones Head, FootL, UpperArmL (fault20-right-t5.5.jpg)
-    40. fault 21 from front (t+5.75): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 46 skin points inside it, near the bones Head, UpperArmR, FootR (fault21-front-t5.75.jpg)
-    41. fault 21 from right (t+5.75): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 46 skin points inside it, near the bones Head, UpperArmR, FootR (fault21-right-t5.75.jpg)
-    42. fault 22 from front (t+6.25): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 42 skin points inside it, near the bones Head, UpperArmR, LowerArmR (fault22-front-t6.25.jpg)
-    43. fault 22 from right (t+6.25): T1 model guy2 PASSES INTO T2 mesh wallL (beige/brown #d8c8b0/#b0583a): 42 skin points inside it, near the bones Head, UpperArmR, LowerArmR (fault22-right-t6.25.jpg)
+    1. fault 1 (t+1.2): T1 model guy2: 61% visible (39% behind other things (props, labels)) (fault1-seat-t1.2.jpg)
   plans/haiku/renders/h8-hosoi/people.jpg
-    1. T1 guy2 close, from front (t+1.75) (guy2-front-t1.75.jpg)
-    2. T1 guy2 close, from right (t+1.75) (guy2-right-t1.75.jpg)
+    1. T1 guy2 close, from front (t+1.2) (guy2-front-t1.2.jpg)
+    2. T1 guy2 close, from right (t+1.2) (guy2-right-t1.2.jpg)
 
 For a closer look at anything: node scripts/inspect.mjs 7d30 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
