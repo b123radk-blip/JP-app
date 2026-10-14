@@ -1,161 +1,159 @@
 # Inspection of card 6c7a
 
-## Goals: 9 of 11 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+## Goals: 8 of 11 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
 
   PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
-  PASS the girl stays in view: 30 moments, e.g. t+0: 90% visible (needs ≥ 85)
+  FAIL the girl stays in view: fails at t+5.25 to t+5.75 of 30 moments; t+5.25: 84% visible (needs ≥ 85)
   PASS the girl stands on the ground: 30 moments, e.g. t+0: gal2: touches the ground line (bottom of the kanji)
   PASS the table stands on the ground: 30 moments, e.g. t+0: table (brown/orange #9a6a3c/#c9965c): touches the ground line (bottom of the kanji)
-  FAIL cake A sits on the table: fails at t+1 to t+4.5, t+6.25 to t+6.5 of 30 moments; t+1: cakeA (red/white #e0283a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
-  FAIL cake B sits on the table: fails at t+1 to t+6.5 of 30 moments; t+1: cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  FAIL cake A sits on the table: fails at t+0.75 to t+5, t+6.25 to t+6.5 of 30 moments; t+0.75: cakeA (red/white #e0283a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  FAIL cake B sits on the table: fails at t+0.75 to t+6.5 of 30 moments; t+0.75: cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
   PASS her hand hovers over cake A (t+1.3 to t+1.6): 2 moments, e.g. t+1.5: 0.07u apart (needs ≤ 0.15)
-  PASS then over cake B (t+2.1 to t+2.4): 2 moments, e.g. t+2.25: 0.09u apart (needs ≤ 0.15)
+  PASS then over cake B (t+2.1 to t+2.4): 2 moments, e.g. t+2.25: 0.06u apart (needs ≤ 0.15)
   PASS she touches cake B (t+3.9 to t+4.3): 2 moments, e.g. t+4: 0.05u apart (needs ≤ 0.05)
   PASS the tick is over cake B (t+4 to t+4.4): 2 moments, e.g. t+4: 1 of 1 tick within 0.3u of cakeB (needs ≥ 1)
   PASS nothing passes through her: 30 moments, e.g. t+0: nothing passes into it
 
 ## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
 
-  - t+1 to t+3 (worst at t+3): mesh orange #ff9f1c: FLOATS ABOVE model gal2 (gap 0.15u)
-  - t+1.5 to t+2 (worst at t+1.5): mesh orange #ff9f1c: FLOATS ABOVE mesh orange #ff9f1c (gap 0.03u)
-  - t+3.25 to t+3.5 (worst at t+3.25): mesh orange #ff3b3b: FLOATS ABOVE model gal2 (gap 0.09u)
-  - t+3.75 to t+6 (worst at t+3.75): mesh tick (green #2ecc40): FLOATS ABOVE mesh cakeB (red/white #b0102a/#ffffff) (gap 0.16u)
+  - t+1.5 to t+2 (worst at t+1.5): mesh orange #ff9f1c: FLOATS ABOVE mesh orange #ff9f1c (gap 0.06u)
+  - t+3.75 to t+4.75, t+5.5 to t+6 (worst at t+3.75): mesh tick (green #2ecc40): FLOATS ABOVE mesh cakeB (red/white #b0102a/#ffffff) (gap 0.14u)
   - t+4.5 to t+5.75 (worst at t+4.5): mesh orange #ff4a6a: FLOATS ABOVE model gal2 (gap 0.19u)
+  - t+5.25 to t+5.75 (worst at t+5.25): model gal2: 84% visible (16% behind other things (props, labels))
 
 ## t+1.4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal2: size 0.41 x 0.94 x 0.6, centre [0.82, 0.47, -0.12], bottom 0, top 0.94
+  T1 model gal2: size 0.43 x 0.94 x 0.58, centre [0.81, 0.47, -0.13], bottom 0, top 0.94
   T2 mesh table (brown/orange #9a6a3c/#c9965c): size 0.6 x 0.42 x 0.26, centre [0.8, 0.21, 0.15], bottom 0, top 0.42
-  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.65, 0.47, 0.15], bottom 0.42, top 0.51
-  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.95, 0.46, 0.15], bottom 0.42, top 0.51
-  T5 mesh orange #ff9f1c: size 0.09 x 0.11 x 0.03, centre [0.8, 1.1, -0.12], bottom 1.05, top 1.16
-  T6 mesh orange #ff9f1c: size 0.03 x 0.03 x 0.03, centre [0.81, 1.01, -0.12], bottom 0.99, top 1.02
+  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.62, 0.49, 0.15], bottom 0.42, top 0.56
+  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.98, 0.49, 0.15], bottom 0.42, top 0.56
+  T5 mesh orange #ff9f1c: size 0.15 x 0.18 x 0.04, centre [0.97, 1.19, 0.05], bottom 1.1, top 1.28
+  T6 mesh orange #ff9f1c: size 0.05 x 0.05 x 0.05, centre [1, 1.03, 0.05], bottom 1, top 1.06
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal2: touches the ground line (bottom of the kanji)
   T2 mesh table (brown/orange #9a6a3c/#c9965c): touches the ground line (bottom of the kanji)
   T3 mesh cakeA (red/white #e0283a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
   T4 mesh cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
-  T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.04u)
-  T6 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.06u)
+  T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.07u)
+  T6 mesh orange #ff9f1c: is high in the air above T2 mesh table (brown/orange #9a6a3c/#c9965c) (gap 0.58u)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
   none
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model gal2 right hand at [0.67,0.59,0.09]: nearest own body part right shoulder 0.28u away; nearest other thing T3 mesh cakeA (red/white #e0283a/#ffffff) 0.08u away
+  T1 model gal2 right hand at [0.65,0.63,0.07]: nearest own body part right shoulder 0.28u away; nearest other thing T3 mesh cakeA (red/white #e0283a/#ffffff) 0.07u away
   T1 model gal2 left hand at [0.98,0.27,-0.18]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.2u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model gal2: 91% visible (9% behind other things (props, labels))
+  T1 model gal2: 90% visible (10% behind other things (props, labels))
   the kanji: 100% visible
 
 POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.04u)
-  - T6 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.06u)
+  - T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.07u)
 
 ## t+2.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal2: size 0.38 x 0.94 x 0.57, centre [0.84, 0.47, -0.14], bottom 0, top 0.94
+  T1 model gal2: size 0.38 x 0.94 x 0.55, centre [0.84, 0.47, -0.15], bottom 0, top 0.94
   T2 mesh table (brown/orange #9a6a3c/#c9965c): size 0.6 x 0.42 x 0.26, centre [0.8, 0.21, 0.15], bottom 0, top 0.42
-  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.65, 0.47, 0.15], bottom 0.42, top 0.51
-  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.95, 0.46, 0.15], bottom 0.42, top 0.51
-  T5 mesh orange #ff9f1c: size 0.08 x 0.11 x 0.03, centre [0.81, 1.11, -0.12], bottom 1.05, top 1.16
-  T6 mesh orange #ff9f1c: size 0.03 x 0.03 x 0.03, centre [0.79, 1.01, -0.12], bottom 0.99, top 1.03
+  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.62, 0.49, 0.15], bottom 0.42, top 0.56
+  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.98, 0.49, 0.15], bottom 0.42, top 0.56
+  T5 mesh orange #ff9f1c: size 0.14 x 0.18 x 0.04, centre [1, 1.2, 0.05], bottom 1.11, top 1.28
+  T6 mesh orange #ff9f1c: size 0.05 x 0.05 x 0.05, centre [0.96, 1.03, 0.05], bottom 1.01, top 1.06
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal2: touches the ground line (bottom of the kanji)
   T2 mesh table (brown/orange #9a6a3c/#c9965c): touches the ground line (bottom of the kanji)
   T3 mesh cakeA (red/white #e0283a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
   T4 mesh cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
-  T5 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.13u)
-  T6 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.08u)
+  T5 mesh orange #ff9f1c: is high in the air above T2 mesh table (brown/orange #9a6a3c/#c9965c) (gap 0.69u)
+  T6 mesh orange #ff9f1c: is high in the air above T2 mesh table (brown/orange #9a6a3c/#c9965c) (gap 0.59u)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
   none
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model gal2 right hand at [0.89,0.59,0.05]: nearest own body part neck 0.24u away; nearest other thing T4 mesh cakeB (red/white #b0102a/#ffffff) 0.09u away
+  T1 model gal2 right hand at [0.9,0.62,0.04]: nearest own body part neck 0.23u away; nearest other thing T4 mesh cakeB (red/white #b0102a/#ffffff) 0.06u away
   T1 model gal2 left hand at [0.98,0.27,-0.18]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.2u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
   T1 model gal2: 92% visible (8% behind other things (props, labels))
   the kanji: 100% visible
 
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T5 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.13u)
-  - T6 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.08u)
-
-## t+3.25 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
-
-Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal2: size 0.37 x 0.93 x 0.61, centre [0.84, 0.46, -0.11], bottom 0, top 0.93
-  T2 mesh table (brown/orange #9a6a3c/#c9965c): size 0.6 x 0.42 x 0.26, centre [0.8, 0.21, 0.15], bottom 0, top 0.42
-  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.65, 0.47, 0.15], bottom 0.42, top 0.51
-  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.95, 0.46, 0.15], bottom 0.42, top 0.51
-  T5 mesh orange #ff3b3b: size 0.02 x 0.07 x 0.02, centre [0.8, 1.05, -0.12], bottom 1.01, top 1.09
-
-What each solid thing rests on (it should touch it, unless it is meant to fly):
-  T1 model gal2: touches the ground line (bottom of the kanji)
-  T2 mesh table (brown/orange #9a6a3c/#c9965c): touches the ground line (bottom of the kanji)
-  T3 mesh cakeA (red/white #e0283a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
-  T4 mesh cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
-  T5 mesh orange #ff3b3b: FLOATS ABOVE T1 model gal2 (gap 0.09u)
-
-Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  none
-
-Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model gal2 right hand at [0.73,0.59,0.11]: nearest own body part right shoulder 0.28u away; nearest other thing T3 mesh cakeA (red/white #e0283a/#ffffff) 0.08u away
-  T1 model gal2 left hand at [0.98,0.27,-0.17]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.19u away
-
-Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model gal2: 92% visible (8% behind other things (props, labels))
-  the kanji: 100% visible
-
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T5 mesh orange #ff3b3b: FLOATS ABOVE T1 model gal2 (gap 0.09u)
+No measured faults. Still look at the pictures: the numbers cannot see everything.
 
 ## t+4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal2: size 0.37 x 0.93 x 0.53, centre [0.84, 0.46, -0.14], bottom 0, top 0.93
+  T1 model gal2: size 0.38 x 0.93 x 0.5, centre [0.84, 0.46, -0.15], bottom 0, top 0.93
   T2 mesh table (brown/orange #9a6a3c/#c9965c): size 0.6 x 0.42 x 0.26, centre [0.8, 0.21, 0.15], bottom 0, top 0.42
-  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.65, 0.47, 0.15], bottom 0.42, top 0.51
-  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.95, 0.46, 0.15], bottom 0.42, top 0.51
-  T5 mesh tick (green #2ecc40): size 0.16 x 0.13 x 0.03, centre [0.95, 0.7, 0.15], bottom 0.64, top 0.77
+  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.62, 0.49, 0.15], bottom 0.42, top 0.56
+  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.98, 0.49, 0.15], bottom 0.42, top 0.56
+  T5 mesh tick (green #2ecc40): size 0.24 x 0.19 x 0.05, centre [0.98, 0.76, 0.15], bottom 0.66, top 0.85
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal2: touches the ground line (bottom of the kanji)
   T2 mesh table (brown/orange #9a6a3c/#c9965c): touches the ground line (bottom of the kanji)
   T3 mesh cakeA (red/white #e0283a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
   T4 mesh cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
-  T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.13u)
+  T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.1u)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
   none
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model gal2 right hand at [0.92,0.46,0.03]: nearest own body part left shoulder 0.21u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.04u away
+  T1 model gal2 right hand at [0.95,0.46,0]: nearest own body part left shoulder 0.18u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.05u away
   T1 model gal2 left hand at [0.98,0.26,-0.16]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.18u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model gal2: 89% visible (11% behind other things (props, labels))
+  T1 model gal2: 87% visible (13% behind other things (props, labels))
   the kanji: 100% visible
 
 POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.13u)
+  - T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.1u)
 
 ## t+5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal2: size 0.39 x 0.94 x 0.47, centre [0.85, 0.46, -0.18], bottom 0, top 0.93
+  T1 model gal2: size 0.42 x 0.94 x 0.47, centre [0.86, 0.46, -0.18], bottom 0, top 0.93
   T2 mesh table (brown/orange #9a6a3c/#c9965c): size 0.6 x 0.42 x 0.26, centre [0.8, 0.21, 0.15], bottom 0, top 0.42
-  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.65, 0.47, 0.15], bottom 0.42, top 0.51
-  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.13 x 0.09 x 0.13, centre [0.95, 0.46, 0.07], bottom 0.42, top 0.51
-  T5 mesh tick (green #2ecc40): size 0.18 x 0.14 x 0.03, centre [0.95, 0.71, 0.07], bottom 0.63, top 0.78
+  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.62, 0.49, 0.15], bottom 0.42, top 0.56
+  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.98, 0.49, 0.07], bottom 0.42, top 0.56
+  T5 mesh tick (green #2ecc40): size 0.27 x 0.21 x 0.05, centre [0.98, 0.76, 0.07], bottom 0.65, top 0.87
+  T6 mesh orange #ff4a6a: size 0.08 x 0.07 x 0.03, centre [0.85, 1.11, -0.12], bottom 1.08, top 1.15
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh table (brown/orange #9a6a3c/#c9965c): touches the ground line (bottom of the kanji)
+  T3 mesh cakeA (red/white #e0283a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T4 mesh cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T5 mesh tick (green #2ecc40): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.98,0.45,-0.09]: nearest own body part left shoulder 0.14u away; nearest other thing T4 mesh cakeB (red/white #b0102a/#ffffff) 0.06u away
+  T1 model gal2 left hand at [0.99,0.27,-0.17]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.19u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 85% visible (15% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u)
+
+## t+5.25 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.42 x 0.94 x 0.47, centre [0.86, 0.47, -0.18], bottom 0, top 0.93
+  T2 mesh table (brown/orange #9a6a3c/#c9965c): size 0.6 x 0.42 x 0.26, centre [0.8, 0.21, 0.15], bottom 0, top 0.42
+  T3 mesh cakeA (red/white #e0283a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.62, 0.49, 0.15], bottom 0.42, top 0.56
+  T4 mesh cakeB (red/white #b0102a/#ffffff): size 0.2 x 0.14 x 0.2, centre [0.98, 0.49, 0.07], bottom 0.42, top 0.56
+  T5 mesh tick (green #2ecc40): size 0.24 x 0.19 x 0.05, centre [0.98, 0.76, 0.07], bottom 0.66, top 0.85
   T6 mesh orange #ff4a6a: size 0.08 x 0.07 x 0.03, centre [0.85, 1.11, -0.12], bottom 1.08, top 1.15
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
@@ -163,23 +161,23 @@ What each solid thing rests on (it should touch it, unless it is meant to fly):
   T2 mesh table (brown/orange #9a6a3c/#c9965c): touches the ground line (bottom of the kanji)
   T3 mesh cakeA (red/white #e0283a/#ffffff): touches T2 mesh table (brown/orange #9a6a3c/#c9965c)
   T4 mesh cakeB (red/white #b0102a/#ffffff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
-  T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.13u)
+  T5 mesh tick (green #2ecc40): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
   T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
   none
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model gal2 right hand at [0.95,0.45,-0.06]: nearest own body part left shoulder 0.16u away; nearest other thing T4 mesh cakeB (red/white #b0102a/#ffffff) 0.06u away
-  T1 model gal2 left hand at [0.99,0.27,-0.17]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.19u away
+  T1 model gal2 right hand at [0.98,0.45,-0.09]: nearest own body part left shoulder 0.14u away; nearest other thing T4 mesh cakeB (red/white #b0102a/#ffffff) 0.06u away
+  T1 model gal2 left hand at [0.98,0.27,-0.18]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/orange #9a6a3c/#c9965c) 0.2u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
-  T1 model gal2: 88% visible (12% behind other things (props, labels))
+  T1 model gal2: 84% visible (16% behind other things (props, labels))
   the kanji: 100% visible
 
 POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.13u)
   - T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u)
+  - T1 model gal2: 84% visible (16% behind other things (props, labels))
 
 Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
   plans/haiku/renders/h4-kimeru/overview.jpg
@@ -196,18 +194,15 @@ Pictures: open these sheets with your read tool (tiles are numbered; each tile's
     11. the whole scene from right, t+5 (t5-scene-right.jpg)
     12. what the learner sees, t+5 (t5-learner.jpg)
   plans/haiku/renders/h4-kimeru/faults.jpg
-    1. fault 1 from front (t+2.2): T5 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.13u) (fault1-front-t2.2.jpg)
-    2. fault 1 from right (t+2.2): T5 mesh orange #ff9f1c: FLOATS ABOVE T1 model gal2 (gap 0.13u) (fault1-right-t2.2.jpg)
-    3. fault 2 from front (t+1.4): T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.04u) (fault2-front-t1.4.jpg)
-    4. fault 2 from right (t+1.4): T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.04u) (fault2-right-t1.4.jpg)
-    5. fault 3 from front (t+3.25): T5 mesh orange #ff3b3b: FLOATS ABOVE T1 model gal2 (gap 0.09u) (fault3-front-t3.25.jpg)
-    6. fault 3 from right (t+3.25): T5 mesh orange #ff3b3b: FLOATS ABOVE T1 model gal2 (gap 0.09u) (fault3-right-t3.25.jpg)
-    7. fault 4 from front (t+4): T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.13u) (fault4-front-t4.jpg)
-    8. fault 4 from right (t+4): T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.13u) (fault4-right-t4.jpg)
-    9. fault 5 from front (t+5): T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u) (fault5-front-t5.jpg)
-    10. fault 5 from right (t+5): T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u) (fault5-right-t5.jpg)
+    1. fault 1 from front (t+1.4): T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.07u) (fault1-front-t1.4.jpg)
+    2. fault 1 from right (t+1.4): T5 mesh orange #ff9f1c: FLOATS ABOVE T6 mesh orange #ff9f1c (gap 0.07u) (fault1-right-t1.4.jpg)
+    3. fault 2 from front (t+4): T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.1u) (fault2-front-t4.jpg)
+    4. fault 2 from right (t+4): T5 mesh tick (green #2ecc40): FLOATS ABOVE T4 mesh cakeB (red/white #b0102a/#ffffff) (gap 0.1u) (fault2-right-t4.jpg)
+    5. fault 3 from front (t+5): T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u) (fault3-front-t5.jpg)
+    6. fault 3 from right (t+5): T6 mesh orange #ff4a6a: FLOATS ABOVE T1 model gal2 (gap 0.15u) (fault3-right-t5.jpg)
+    7. fault 4 (t+5.25): T1 model gal2: 84% visible (16% behind other things (props, labels)) (fault4-seat-t5.25.jpg)
   plans/haiku/renders/h4-kimeru/people.jpg
-    1. T1 gal2 close, from front (t+2.2) (gal2-front-t2.2.jpg)
-    2. T1 gal2 close, from right (t+2.2) (gal2-right-t2.2.jpg)
+    1. T1 gal2 close, from front (t+5) (gal2-front-t5.jpg)
+    2. T1 gal2 close, from right (t+5) (gal2-right-t5.jpg)
 
 For a closer look at anything: node scripts/inspect.mjs 6c7a --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

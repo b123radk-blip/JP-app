@@ -96,3 +96,20 @@
   "?" is 0.18u, which is small from the learner's seat in the render.
 - The cakes are box slices with a cream or chocolate top, not wedges; the plate is round. A wedge would be a new shape
   (design, not done).
+
+## Round 2 (coordinator's review: bigger cakes and signs)
+- Cakes: plates radius 0.1u (0.2u wide), each a wedge slice (tip toward the learner) with a sponge layer, a cream layer and a
+  fruit (strawberry on A, cherry on B), about 0.15u tall. Cake A at x 0.62, cake B at x 0.98 (they do not touch).
+- Signs: question and exclamation 0.3u at (x 0.98, y 1.1, z 0.05); tick 0.3u over cake B at y 0.75.
+- Hands: hover 0.66u (0.08 above the cake tops) over A and B; touch at the near rim, target z 0.02u (was 0.055u, the
+  plate is bigger); pull back offset 0.03u as before.
+- Girl unchanged at z -0.12u (tried -0.15u: touch went to 0.07u, FAIL, reverted).
+- Commands: `npm test` 64 pass, 0 fail (exit 0); `check-piece-costs "^q-pick-cake$"`: 0 cost mismatches (cost unchanged,
+  pdc('gal2') + 8). Orbit rendered to plans/haiku/renders/h4-kimeru.jpg (times 2.2, 4).
+- Inspect (quick, 28 moments) per change: first pass 8 of 11 (touch FAIL 0.06u, fist into cake B at t+4);
+  target 0.02u: 8 of 11 (girl visibility 84% at t+5.25-5.75: the pulled cake covers her); girl at -0.15u: 8 of 11 (touch 0.07u).
+- Final full run (--times 1.4,2.2,4,5, 30 moments): `## Goals: 8 of 11 PASS`. FAIL: girl visible 84% (needs 85) at
+  t+5.25 to t+5.75 (the pulled cake covers part of her; the pull is the plan's 0.08u); cake A and cake B "sit on the table"
+  (the wearer rule, as in round 1).
+- Remaining POSSIBLE FAULTS (whole loop): question dot 0.06u below its tube (emblem design); tick 0.1-0.14u above
+  cake B (it pops over the cake on purpose); heart 0.15-0.19u above her head (on purpose).
