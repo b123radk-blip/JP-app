@@ -1,0 +1,217 @@
+# Inspection of card 6d77
+
+## Goals: 9 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the girl stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the girl stands on the sand (t+0 to t+2.7): 11 moments, e.g. t+0: gal2: touches T1 mesh sand (skin #e8d29a)
+  PASS she is back on the sand (t+3.6 to t+7): 14 moments, e.g. t+3.75: gal2: touches T1 mesh sand (skin #e8d29a)
+  PASS the sand lies on the ground: 30 moments, e.g. t+0: sand (skin #e8d29a): touches the ground line (bottom of the kanji)
+  PASS three waves on the sea: 30 moments, e.g. t+0: 3 of 3 wave within 0.06u of sea (needs ≥ 3)
+  PASS the wave washes up to her feet (t+2.7 to t+2.9): 2 moments, e.g. t+2.75: 0.05u apart (needs ≤ 0.08)
+  PASS the fish leaps high (t+4.65 to t+4.75): 2 moments, e.g. t+4.75: 0u apart (needs ≤ 0.12)
+  PASS nothing passes through her: 30 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+3 to t+3.25 (worst at t+3): model gal2: FLOATS ABOVE mesh sand (skin #e8d29a) (gap 0.07u)
+  - t+4.25 (worst at t+4.25): model fishBlue: FLOATS ABOVE mesh sea (blue #1d5cae) (gap 0.14u)
+  - t+4.5 to t+5 (worst at t+4.75): model fishBlue: FLOATS ABOVE mesh wave (white #f8fcff) (gap 0.24u)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh sand (skin #e8d29a): size 0.95 x 0.02 x 0.35, centre [0.93, 0.01, 0.28], bottom 0, top 0.02
+  T2 mesh sea (blue #1d5cae): size 0.95 x 0.01 x 0.55, centre [0.93, 0.01, -0.18], bottom 0, top 0.01
+  T3 mesh wave (white #f8fcff): size 0.85 x 0.05 x 0.1, centre [0.93, 0.04, -0.18], bottom 0.01, top 0.06
+  T4 mesh wave (white #f8fcff): size 0.85 x 0.01 x 0.1, centre [0.93, 0.02, -0.35], bottom 0.01, top 0.03
+  T5 mesh wave (white #f8fcff): size 0.85 x 0.03 x 0.1, centre [0.93, 0.03, -0.01], bottom 0.01, top 0.05
+  T6 model gal2: size 0.27 x 0.58 x 0.25, centre [0.91, 0.31, 0.3], bottom 0.02, top 0.59
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh sand (skin #e8d29a): touches the ground line (bottom of the kanji)
+  T2 mesh sea (blue #1d5cae): is ground: its top is on the ground line (bottom of the kanji)
+  T3 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T4 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T5 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T6 model gal2: touches T1 mesh sand (skin #e8d29a)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model gal2 right hand at [0.96,0.19,0.38]: nearest own body part right knee 0.08u away; nearest other thing T1 mesh sand (skin #e8d29a) 0.17u away
+  T6 model gal2 left hand at [0.85,0.19,0.24]: nearest own body part left knee 0.08u away; nearest other thing T1 mesh sand (skin #e8d29a) 0.17u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T6 model gal2: 100% visible
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+2.85 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh sand (skin #e8d29a): size 0.95 x 0.02 x 0.35, centre [0.93, 0.01, 0.28], bottom 0, top 0.02
+  T2 mesh sea (blue #1d5cae): size 0.95 x 0.01 x 0.55, centre [0.93, 0.01, -0.18], bottom 0, top 0.01
+  T3 mesh foam (white #ffffff): size 0.9 x 0 x 0.22, centre [0.93, 0.02, 0.21], bottom 0.02, top 0.02
+  T4 mesh wave (white #f8fcff): size 0.85 x 0.03 x 0.1, centre [0.93, 0.03, -0.29], bottom 0.01, top 0.05
+  T5 mesh wave (white #f8fcff): size 0.85 x 0.02 x 0.1, centre [0.93, 0.02, 0.05], bottom 0.01, top 0.03
+  T6 mesh wave (white #f8fcff): size 0.85 x 0.05 x 0.1, centre [0.93, 0.04, -0.12], bottom 0.01, top 0.06
+  T7 model gal2: size 0.33 x 0.57 x 0.39, centre [0.95, 0.32, 0.28], bottom 0.04, top 0.61
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh sand (skin #e8d29a): touches the ground line (bottom of the kanji)
+  T2 mesh sea (blue #1d5cae): is ground: its top is on the ground line (bottom of the kanji)
+  T3 mesh foam (white #ffffff): touches T1 mesh sand (skin #e8d29a)
+  T4 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T5 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T6 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T7 model gal2: touches T3 mesh foam (white #ffffff)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T7 model gal2 right hand at [1.05,0.25,0.44]: nearest own body part right shoulder 0.17u away; nearest other thing T1 mesh sand (skin #e8d29a) 0.23u away
+  T7 model gal2 left hand at [0.83,0.26,0.15]: nearest own body part left shoulder 0.17u away; nearest other thing T5 mesh wave (white #f8fcff) 0.23u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T7 model gal2: 100% visible
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh sand (skin #e8d29a): size 0.95 x 0.02 x 0.35, centre [0.93, 0.01, 0.28], bottom 0, top 0.02
+  T2 mesh sea (blue #1d5cae): size 0.95 x 0.01 x 0.55, centre [0.93, 0.01, -0.18], bottom 0, top 0.01
+  T3 mesh foam (white #ffffff): size 0.9 x 0 x 0.21, centre [0.93, 0.02, 0.21], bottom 0.02, top 0.02
+  T4 mesh wave (white #f8fcff): size 0.85 x 0.04 x 0.1, centre [0.93, 0.03, -0.26], bottom 0.01, top 0.05
+  T5 mesh wave (white #f8fcff): size 0.85 x 0.01 x 0.1, centre [0.93, 0.02, 0.08], bottom 0.01, top 0.02
+  T6 mesh wave (white #f8fcff): size 0.85 x 0.05 x 0.1, centre [0.93, 0.04, -0.09], bottom 0.01, top 0.06
+  T7 model gal2: size 0.33 x 0.57 x 0.34, centre [0.95, 0.37, 0.32], bottom 0.09, top 0.66
+  T8 label "わあ!": size 0.31 x 0.13 x 0, centre [0.79, 0.75, 0.2], bottom 0.69, top 0.82
+  T9 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.69, 0.67, 0.19], bottom 0.6, top 0.73
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh sand (skin #e8d29a): touches the ground line (bottom of the kanji)
+  T2 mesh sea (blue #1d5cae): is ground: its top is on the ground line (bottom of the kanji)
+  T3 mesh foam (white #ffffff): touches T1 mesh sand (skin #e8d29a)
+  T4 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T5 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T6 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T7 model gal2: FLOATS ABOVE T1 mesh sand (skin #e8d29a) (gap 0.07u)
+  T9 mesh white #ffffff: is high in the air above T3 mesh foam (white #ffffff) (gap 0.58u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T7 model gal2 right hand at [1.06,0.54,0.46]: nearest own body part right shoulder 0.17u away; nearest other thing T9 mesh white #ffffff 0.4u away
+  T7 model gal2 left hand at [0.86,0.55,0.2]: nearest own body part head (middle) 0.17u away; nearest other thing T9 mesh white #ffffff 0.13u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T7 model gal2: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T7 model gal2: FLOATS ABOVE T1 mesh sand (skin #e8d29a) (gap 0.07u)
+
+## t+4.25 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh sand (skin #e8d29a): size 0.95 x 0.02 x 0.35, centre [0.93, 0.01, 0.28], bottom 0, top 0.02
+  T2 mesh sea (blue #1d5cae): size 0.95 x 0.01 x 0.55, centre [0.93, 0.01, -0.18], bottom 0, top 0.01
+  T3 mesh wave (white #f8fcff): size 0.85 x 0.03 x 0.1, centre [0.93, 0.03, 0.02], bottom 0.01, top 0.04
+  T4 mesh wave (white #f8fcff): size 0.85 x 0.05 x 0.1, centre [0.93, 0.04, -0.15], bottom 0.01, top 0.06
+  T5 mesh wave (white #f8fcff): size 0.85 x 0.02 x 0.1, centre [0.93, 0.03, -0.32], bottom 0.01, top 0.04
+  T6 model gal2: size 0.27 x 0.58 x 0.25, centre [0.91, 0.31, 0.3], bottom 0.02, top 0.59
+  T7 model fishBlue: size 0.01 x 0.03 x 0.04, centre [0.7, 0.17, -0.2], bottom 0.16, top 0.18
+  T8 pool white #f4fbff: size 0.11 x 0.06 x 0.1, centre [0.7, 0.07, -0.2], bottom 0.04, top 0.1
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh sand (skin #e8d29a): touches the ground line (bottom of the kanji)
+  T2 mesh sea (blue #1d5cae): is ground: its top is on the ground line (bottom of the kanji)
+  T3 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T4 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T5 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T6 model gal2: touches T1 mesh sand (skin #e8d29a)
+  T7 model fishBlue: FLOATS ABOVE T2 mesh sea (blue #1d5cae) (gap 0.14u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model gal2 right hand at [0.96,0.19,0.38]: nearest own body part right knee 0.08u away; nearest other thing T1 mesh sand (skin #e8d29a) 0.17u away
+  T6 model gal2 left hand at [0.85,0.19,0.23]: nearest own body part left knee 0.08u away; nearest other thing T1 mesh sand (skin #e8d29a) 0.17u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T6 model gal2: 100% visible
+  T7 model fishBlue: not in this view at all
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T7 model fishBlue: FLOATS ABOVE T2 mesh sea (blue #1d5cae) (gap 0.14u)
+
+## t+4.7 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh sand (skin #e8d29a): size 0.95 x 0.02 x 0.35, centre [0.93, 0.01, 0.28], bottom 0, top 0.02
+  T2 mesh sea (blue #1d5cae): size 0.95 x 0.01 x 0.55, centre [0.93, 0.01, -0.18], bottom 0, top 0.01
+  T3 mesh wave (white #f8fcff): size 0.85 x 0 x 0.1, centre [0.93, 0.02, -0.39], bottom 0.01, top 0.02
+  T4 mesh wave (white #f8fcff): size 0.85 x 0.04 x 0.1, centre [0.93, 0.04, -0.05], bottom 0.01, top 0.06
+  T5 mesh wave (white #f8fcff): size 0.85 x 0.04 x 0.1, centre [0.93, 0.04, -0.22], bottom 0.01, top 0.06
+  T6 model gal2: size 0.27 x 0.58 x 0.25, centre [0.91, 0.31, 0.3], bottom 0.02, top 0.59
+  T7 model fishBlue: size 0.03 x 0.08 x 0.14, centre [0.7, 0.35, -0.2], bottom 0.31, top 0.39
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh sand (skin #e8d29a): touches the ground line (bottom of the kanji)
+  T2 mesh sea (blue #1d5cae): is ground: its top is on the ground line (bottom of the kanji)
+  T3 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T4 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T5 mesh wave (white #f8fcff): touches T2 mesh sea (blue #1d5cae)
+  T6 model gal2: touches T1 mesh sand (skin #e8d29a)
+  T7 model fishBlue: FLOATS ABOVE T5 mesh wave (white #f8fcff) (gap 0.25u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model gal2 right hand at [0.96,0.19,0.38]: nearest own body part right knee 0.08u away; nearest other thing T1 mesh sand (skin #e8d29a) 0.17u away
+  T6 model gal2 left hand at [0.85,0.19,0.24]: nearest own body part left knee 0.08u away; nearest other thing T1 mesh sand (skin #e8d29a) 0.17u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T6 model gal2: 100% visible
+  T7 model fishBlue: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T7 model fishBlue: FLOATS ABOVE T5 mesh wave (white #f8fcff) (gap 0.25u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h5-umi/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.85 (t2.85-scene-front.jpg)
+    5. the whole scene from right, t+2.85 (t2.85-scene-right.jpg)
+    6. what the learner sees, t+2.85 (t2.85-learner.jpg)
+    7. the whole scene from front, t+4.7 (t4.7-scene-front.jpg)
+    8. the whole scene from right, t+4.7 (t4.7-scene-right.jpg)
+    9. what the learner sees, t+4.7 (t4.7-learner.jpg)
+  plans/haiku/renders/h5-umi/faults.jpg
+    1. fault 1 from front (t+3): T7 model gal2: FLOATS ABOVE T1 mesh sand (skin #e8d29a) (gap 0.07u) (fault1-front-t3.jpg)
+    2. fault 1 from right (t+3): T7 model gal2: FLOATS ABOVE T1 mesh sand (skin #e8d29a) (gap 0.07u) (fault1-right-t3.jpg)
+    3. fault 2 from front (t+4.25): T7 model fishBlue: FLOATS ABOVE T2 mesh sea (blue #1d5cae) (gap 0.14u) (fault2-front-t4.25.jpg)
+    4. fault 2 from right (t+4.25): T7 model fishBlue: FLOATS ABOVE T2 mesh sea (blue #1d5cae) (gap 0.14u) (fault2-right-t4.25.jpg)
+    5. fault 3 from front (t+4.7): T7 model fishBlue: FLOATS ABOVE T5 mesh wave (white #f8fcff) (gap 0.25u) (fault3-front-t4.7.jpg)
+    6. fault 3 from right (t+4.7): T7 model fishBlue: FLOATS ABOVE T5 mesh wave (white #f8fcff) (gap 0.25u) (fault3-right-t4.7.jpg)
+  plans/haiku/renders/h5-umi/people.jpg
+    1. T7 gal2 close, from front (t+3) (gal2-front-t3.jpg)
+    2. T7 gal2 close, from right (t+3) (gal2-right-t3.jpg)
+    3. T7 fishBlue close, from front (t+4.25) (fishBlue-front-t4.25.jpg)
+    4. T7 fishBlue close, from right (t+4.25) (fishBlue-right-t4.25.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 6d77 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

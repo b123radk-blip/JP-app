@@ -3,4 +3,5 @@
 import { VM, pdc } from './vcat-kit.js';
 
 export const HB = {
+  'q-sea-shore': VM(pdc('gal2') + 12, '海 (models): three white-topped waves roll in over a blue sea onto a sandy beach; a girl on the sand jumps back with both arms up, saying わあ!, when the foam reaches her feet, and a blue fish leaps out of the sea with a splash', ['gal2', 'fishBlue']),
 };
