@@ -5,7 +5,7 @@
   "primaryReading": "ちゅう",
   "readings": { "kun": ["そそ(ぐ)", "さ(す)", "つ(ぐ)"], "on": ["チュウ"] },
   "mnemonic": "Water (氵) poured out by the master (主) of the house: pour.",
-  "effect": { "material": "water", "backdrop": "sky:morning", "emblem": "cup", "parts": { "氵": {} } },
+  "effect": { "vignette": { "type": "q-jug-pour", "size": 1.25 }, "material": "water", "backdrop": "sky:morning", "parts": { "氵": {} } },
   "sentences": [
     {
       "segments": [ { "text": "そのページの" }, { "text": "下", "reading": "した" }, { "text": "の" }, { "text": "注", "reading": "ちゅう" }, { "text": "を" }, { "text": "読", "reading": "よ" }, { "text": "みなさい。" } ],
