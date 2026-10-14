@@ -36,7 +36,7 @@ export function stepping(ctx, spec, stage) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? 0 : A.v;
       // which hop is in progress (k) and how far (f); after the last hop she stands on stone 4 until 6.5
       const n = H.filter((h) => v >= h).length, k = v >= 7 ? -1 : n - 1, f = k >= 0 ? between(v, H[k], H[k] + 0.5) : 0;
-      const hopping = k >= 0 && f > 0 && f < 1, arc = hopping ? 0.12 * 4 * f * (1 - f) : 0;
+      const hopping = k >= 0 && f > 0 && f < 1, arc = 0;                         // the Jump clip lifts her about 0.24u itself
       let x = S[0][0], z = S[0][1];
       if (k >= 0) { const a = S[k], b = S[k + 1]; x = a[0] + (b[0] - a[0]) * f; z = a[1] + (b[1] - a[1]) * f; }
       holder.position.copy(P(x, TOP + arc, z));
