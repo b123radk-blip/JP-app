@@ -59,6 +59,21 @@ plan is what you follow.
 7. Write the report to `plans/qwen/done/<plan name>` (same file name as the plan) and commit it as
    `Qwen report: <plan name>`.
 
+## Goals (when the plan has them)
+
+A plan may come with a goals file, `plans/qwen/goals/<plan name without .md>.json`: the plan's must-haves written as
+measurements (a hand within 0.1u of the toes from t+4 to t+5, a person at least 85% visible, a kit resting on the
+ground). Then:
+- Add `--goals plans/qwen/goals/<plan name without .md>.json` to every inspect run. The report starts with
+  `## Goals: N of M PASS`, one PASS or FAIL line each, with the moments it fails and the measured numbers.
+- In the rounds between changes, add `--quick` too: numbers only, no pictures, about a quarter of the time. Look at
+  pictures (a full run, without `--quick`) only when the numbers can't tell you what is wrong, and once at the end.
+- The plan is done when every goal says PASS and the whole-loop list has no fault the plan doesn't want. Don't stop
+  while one fails if you have rounds left; don't keep changing things once all pass.
+- Never edit the goals file. If a goal looks wrong or impossible, leave it failing and explain it in the report.
+- A goal's PASS or FAIL is what you report about it: paste the Goals lines. Don't call a goal met that says FAIL.
+- To measure a prop by name, give it one in the code (`mesh.name = 'sandbox'`) when the plan asks you to.
+
 ## The report
 
 ```

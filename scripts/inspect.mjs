@@ -3,20 +3,24 @@
 // u = the kanji's height), then takes close-up pictures on numbered sheets: faults.jpg (each fault once, at its worst
 // moment), overview.jpg (the whole scene and the learner's view at each moment asked for), people.jpg (each person or
 // animal a fault names). Then any one close look you ask for. For Qwen (plans/qwen/README.md) and for Opus's reviews.
-// Usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--out .cache/inspect/<id>]
+// Usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--goals g.json] [--quick] [--out .cache/inspect/<id>]
 //        node scripts/inspect.mjs <card id> --look T3 [--from right] [--t 1.5] [--zoom 2] [--out ...]
 //   --times: seconds after the last stroke (the full numbers and the overview); --scan: first measure the whole loop every
 //   0.5 s (numbers only) and list each fault with when it shows; a fault the --times miss gets its worst moment in full
 //   (--scan 0: off); --people: close-ups of every person or animal; --strict: exit code 1 when a fault is found;
 //   --recipe try.json: the card with that recipe (a JSON effect) instead of its own; --look: a thing's id from the report (T1, T2 ...) or a point x,y,z in u (as in the report); --from: front right left
 //   back top low front-right front-left; --zoom: 2 = twice as close.
+//   --goals g.json: a plan's goals (scripts/lib/goals.mjs), PASS or FAIL at every moment measured, first in the report;
+//   exit code 1 when one fails. --quick: numbers only, no pictures (about half the time: for the rounds in between).
 import { mkdirSync, writeFileSync, rmSync, readFileSync } from 'node:fs';
 import { launch, serve, watchPage } from './lib/browser.mjs';
 import { measure, aim } from './lib/inspect-page.mjs';
+import { goalChecker } from './lib/goals.mjs';
 
 const T0 = Date.now(), arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const id = process.argv[2], look = arg('--look'), OUT = arg('--out', `.cache/inspect/${id}`), recipe = arg('--recipe') ? readFileSync(arg('--recipe'), 'utf8') : null;
 const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number), scan = Number(arg('--scan', '0.5')), LOOP = 7;
+const goals = arg('--goals') ? goalChecker(JSON.parse(readFileSync(arg('--goals'), 'utf8'))) : null, quick = process.argv.includes('--quick');
 const VIEWS = { front: [0, 0.05], right: [90, 0.1], left: [-90, 0.1], back: [180, 0.1], top: [0, 1.45], low: [0, -0.25], 'front-right': [40, 0.3], 'front-left': [-40, 0.3] };
 if (!id) { console.log('usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--out dir] | --look T3 [--from right] [--t 1.5] [--zoom 2]'); process.exit(1); }
 
@@ -81,7 +85,7 @@ if (look) {
     for (const dt of at) {
       const m = await page.evaluate(measure, { t: end + dt, cam: seat });
       if (m.error) { console.log(m.error); process.exit(1); }
-      note(m, dt);
+      note(m, dt); goals?.note(m, dt);
     }
     lines.push(`## The whole loop, every ${scan} s from t+0 to t+${at.at(-1)} (numbers only; the T ids differ from moment to moment)`, '');
     if (!seen.size) lines.push('  no measured faults at any moment');
@@ -98,7 +102,7 @@ if (look) {
   for (const dt of times) {
     const t = end + dt, m = await page.evaluate(measure, { t, cam: seat });
     if (m.error) { console.log(m.error); process.exit(1); }
-    note(m, dt, true);
+    note(m, dt, true); goals?.note(m, dt);
     lines.push(`## t+${dt} (u = ${m.u.toFixed(3)} m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)`, '', 'Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):');
     for (const x of m.items) lines.push(`  ${x.id} ${x.kind} ${x.name}: size ${x.size.join(' x ')}, centre [${x.centre.join(', ')}], bottom ${x.bottom}, top ${x.top}`);
     lines.push('', 'What each solid thing rests on (it should touch it, unless it is meant to fly):');
@@ -118,7 +122,7 @@ if (look) {
     lines.push('');
 
     // the overview at the moments asked for: the whole scene from the front and the right, and the learner's view
-    if (!asked.includes(dt)) continue;
+    if (quick || !asked.includes(dt)) continue;
     const { mid, R } = extent(m);
     for (const from of ['front', 'right']) overview.push([await shot(`t${dt}-scene-${from}.jpg`, `whole scene from ${from} t+${dt}`, mid, R, from, t), `the whole scene from ${from}, t+${dt}`]);
     overview.push([await seatShot(`t${dt}-learner.jpg`, `learner's seat t+${dt}`, t), `what the learner sees, t+${dt}`]);
@@ -128,7 +132,7 @@ if (look) {
   // then each person or animal a fault names, close up at that moment (--people: every one at the first moment too)
   let n = 0;
   const closeUp = new Map();
-  for (const e of seen.values()) {
+  for (const e of quick ? [] : seen.values()) {
     const { dt, f, m } = e.detail ?? e.worst;
     n++;
     const t = end + dt;
@@ -136,7 +140,7 @@ if (look) {
     else for (const from of ['front', 'right']) faultPics.push([await shot(`fault${n}-${from}-t${dt}.jpg`, `fault ${n} from ${from} t+${dt}`, f.point, 0.5 * m.u, from, t), `fault ${n} from ${from} (t+${dt}): ${f.text}`]);
     for (const x of m.items.filter((y) => y.body && f.text.includes(`${y.id} model ${y.name}`))) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt });
   }
-  if (process.argv.includes('--people')) {
+  if (!quick && process.argv.includes('--people')) {
     const m = await page.evaluate(measure, { t: end + asked[0] });
     for (const x of m.items.filter((y) => y.body)) if (!closeUp.has(x.name)) closeUp.set(x.name, { x, dt: asked[0] });
   }
@@ -144,7 +148,8 @@ if (look) {
     people.push([await shot(`${x.name.replace(/ /g, '-')}-${from}-t${dt}.jpg`, `${x.id} ${x.name} from ${from} t+${dt}`, x.world, x.radius, from, end + dt), `${x.id} ${x.name} close, from ${from} (t+${dt})`]);
 
   // the pictures on numbered sheets (one image to open instead of many); the single pictures stay in OUT
-  lines.push('Pictures: open these sheets with your read tool (tiles are numbered; each tile\'s full-size picture is named after it):');
+  if (quick) lines.push('(--quick: no pictures; run without it for the sheets)');
+  else lines.push('Pictures: open these sheets with your read tool (tiles are numbered; each tile\'s full-size picture is named after it):');
   for (const [name, pics] of [['overview', overview], ['faults', faultPics], ['people', people]]) {
     for (let k = 0; k < pics.length; k += 12) {
       const file = `${OUT}/${name}${k ? `-${k / 12 + 1}` : ''}.jpg`, part = pics.slice(k, k + 12);
@@ -156,11 +161,12 @@ if (look) {
   if (!people.length) lines.push('  (no people close-ups: no fault names a person or animal; --people adds them)');
   lines.push('', `For a closer look at anything: node scripts/inspect.mjs ${id} --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]`);
   found = seen.size;
+  if (goals) lines.unshift(...goals.lines(spans, scan || 0.5));
   writeFileSync(`${OUT}/report.txt`, `# Inspection of card ${id}\n\n${lines.join('\n')}\n`);
   console.log(`# Inspection of card ${id}\n\n${lines.join('\n')}\n\n(report saved in ${OUT}/report.txt; done in ${Math.round((Date.now() - T0) / 1000)} s)`);
 }
 await browser.close(); server?.close();
-if (process.argv.includes('--strict') && !look && found) process.exit(1);
+if (!look && (goals?.failed() || process.argv.includes('--strict') && found)) process.exit(1);
 
 // the faults in one measurement: things floating or sunk, bodies through things or each other, people or the kanji hidden
 // from the learner (a person under 85% visible or partly outside the picture, the kanji under 80%); score: how bad
