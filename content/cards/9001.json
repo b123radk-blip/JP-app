@@ -8,8 +8,6 @@
   "effect": {
     "material": "rose",
     "backdrop": "sky:day",
-    "emblem": "letter",
-    "motion": { "type": "drift", "dir": "right" },
     "vignette": { "type": "q-send-letter" }
   },
   "sentences": [

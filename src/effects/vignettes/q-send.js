@@ -38,12 +38,12 @@ function sendLetter(ctx, spec, stage) {
   const girl = person('gal2', u, ADULT), boy = person('guy2', u, ADULT);
   const { letter, flap, wingR, wingL } = letterProp(u);
   const heart = solidProp(HEART(u, 0.1), 0.9), kiss = many(HEART(u, 0.08), 2, 1), trail = many([[G.sphere(0.011 * u, 0, 0, 0), 0xfff4d0]], N_TRAIL, 0.8);
-  girl.group.position.set(B.maxX + 0.35 * u, floor, 0.05 * u); girl.group.rotation.y = RIGHT - 0.25;     // faces the boy, a little to the learner
-  boy.group.position.set(B.maxX + 1.2 * u, floor, 0.05 * u); boy.group.rotation.y = LEFT + 0.25;
+  girl.group.position.set(B.maxX + 0.5 * u, floor, 0.05 * u); girl.group.rotation.y = RIGHT - 0.25;     // faces the boy, a little to the learner
+  boy.group.position.set(B.maxX + 1.32 * u, floor, 0.05 * u); boy.group.rotation.y = LEFT + 0.25;
   group.add(girl.group, boy.group, letter, heart, kiss, trail);
   // group-local points (stage units): x from the kanji's right edge, y from the ground line, z to the learner
   const P = (x, y, z) => new THREE.Vector3(B.maxX + x * u, floor + y * u, z * u);
-  const S = P(0.5, 0.8, 0.1), L = P(0.92, 0.66, -0.02);                        // release point, landing point
+  const S = P(0.65, 0.8, 0.1), L = P(1.04, 0.66, -0.02);                        // release point, landing point
   const flight = (f, out = new THREE.Vector3()) => out.lerpVectors(S, L, f).add(v5.set(0, 0.2 * u * 4 * f * (1 - f), 0));
   const qG = new THREE.Quaternion(), qB = new THREE.Quaternion(), qFly = new THREE.Quaternion(), qL = new THREE.Quaternion();
   const loop = 7.0;
