@@ -27,6 +27,8 @@ function where(m, ref) {
   return { p: x.centre, lo, hi, x };
 }
 const dist = (a, b) => {
+  // two things: the gap between their boxes (0 when they touch or overlap)
+  if (a.lo && b.lo) return Math.hypot(...a.lo.map((v, i) => Math.max(b.lo[i] - a.hi[i], 0, v - b.hi[i])));
   if (b.lo) return Math.hypot(...a.p.map((v, i) => Math.max(b.lo[i] - v, 0, v - b.hi[i])));
   if (a.lo) return dist(b, a);
   return Math.hypot(...a.p.map((v, i) => v - b.p[i]));
