@@ -5,7 +5,7 @@
   "primaryReading": "きゅう",
   "readings": { "kun": ["いそ(ぐ)", "いそ(ぎ)", "せ(く)"], "on": ["キュウ"] },
   "mnemonic": "A heart (心) racing while a hand pushes on: hurry!",
-  "effect": { "material": "lacquer", "backdrop": "sky:dusk" },
+  "effect": { "material": "lacquer", "backdrop": "sky:dusk", "vignette": { "type": "q-late-run" } },
   "sentences": [
     {
       "segments": [ { "text": "急", "reading": "いそ" }, { "text": "がなくてもいいよ。" } ],
