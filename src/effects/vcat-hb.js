@@ -12,4 +12,5 @@ export const HB = {
   'q-forgot-umbrella': VM(pdc('gal2') + 7, '忘 (gal2): a girl steps out of her front door, walks off, rain starts and a thought bubble shows her umbrella; she slaps her forehead (あっ!), hurries back to the umbrella stand, lifts the umbrella over her head and it opens in the rain', ['gal2']),
   'q-pick-cake': VM(pdc('gal2') + 8, '決 (models): a girl cannot choose between two cakes: a big question mark over her head, her hand hovers over one and the other; then an exclamation mark, she taps the chocolate one, a green tick pops over it, she pulls it toward her, and a heart pops up', ['gal2']),
   'q-sea-shore': VM(pdc('gal2') + 12, '海 (models): three rounded crests roll in over a tilted deep-blue sea onto a sandy beach; a girl on the sand jumps back with both arms up, saying わあ!, when the foam reaches her feet, and an orange fish leaps out of the sea with a splash', ['gal2', 'fishOrange']),
+  'q-narrow-gap': VM(pdc('guy2') + 5, '細 (models): a man walks up to a very narrow gap between two brick walls and bumps (a ! pops), turns sideways, breathes in and squeezes through toward the learner, then wipes his brow (ふう)', ['guy2']),
 };
