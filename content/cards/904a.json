@@ -5,7 +5,7 @@
   "primaryReading": "あそ",
   "readings": { "kun": ["あそ(ぶ)", "あそ(ばす)"], "on": ["ユウ", "ユ"] },
   "mnemonic": "A child (子) with a flag, out on the road (辶): play.",
-  "effect": { "material": "glow:gold", "backdrop": "sky:day", "motion": "float" },
+  "effect": {"material": "glow:gold", "backdrop": "sky:day", "vignette": {"type": "q-seesaw"}},
   "sentences": [
     {
       "segments": [ { "text": "私", "reading": "わたし" }, { "text": "たちだけで" }, { "text": "遊", "reading": "あそ" }, { "text": "ぼう。" } ],
