@@ -5,7 +5,7 @@
   "primaryReading": "とり",
   "readings": { "kun": ["とり"], "on": ["チョウ"] },
   "mnemonic": "A bird with its eye on top and four tail feathers below.",
-  "effect": { "material": "jade", "backdrop": "sky:morning", "motion": "float" },
+  "effect": { "material": "jade", "backdrop": "sky:morning", "vignette": { "type": "q-bird-branch" } },
   "sentences": [
     {
       "segments": [ { "text": "鳥", "reading": "とり" }, { "text": "は" }, { "text": "南", "reading": "みなみ" }, { "text": "へ" }, { "text": "飛", "reading": "と" }, { "text": "んで" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],
