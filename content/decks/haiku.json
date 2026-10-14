@@ -1,7 +1,19 @@
-{ "id": "haiku", "title": "Built by Haiku",
-  "_note": "Review list, not a study deck (not in index.json): the cards whose scenes Haiku 5.5 built from Opus's plans (plans/haiku/). Open with ?preview=1&review=1&deck=haiku",
-  "cards": [
-    "96c6", "6ce8", "9001",
-    "767a", "9ce5", "6b21", "6025", "904a", "6b63"
-  ]
+{
+ "id": "haiku",
+ "title": "Built by Haiku",
+ "_note": "Review list, not a study deck (not in index.json): the cards whose scenes Haiku 5.5 built from Opus's plans (plans/haiku/). Open with ?preview=1&review=1&deck=haiku",
+ "cards": [
+  "96c6",
+  "6ce8",
+  "9001",
+  "767a",
+  "9ce5",
+  "6b21",
+  "6025",
+  "904a",
+  "6b63",
+  "6c7a",
+  "6d77",
+  "5fd8"
+ ]
 }
