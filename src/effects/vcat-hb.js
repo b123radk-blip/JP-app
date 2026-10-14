@@ -3,4 +3,5 @@
 import { VM, pdc } from './vcat-kit.js';
 
 export const HB = {
+  'q-seesaw': VM(pdc('gal2', 'guy2') + 6, '遊 (gal2, guy2): two children go up and down on a seesaw, both hands on the handle; the one on top raises an arm and stars pop over the head; わーい!', ['gal2', 'guy2']),
 };

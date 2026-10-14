@@ -1,0 +1,155 @@
+# Inspection of card 904a
+
+## Goals: 11 of 11 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 24 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the girl stays in view: 24 moments, e.g. t+0: 98% visible (needs ≥ 85)
+  PASS the boy stays in view: 24 moments, e.g. t+0: 97% visible (needs ≥ 85)
+  PASS the stand stands on the ground: 24 moments, e.g. t+0: pivot (red #d03030): touches the ground line (bottom of the kanji)
+  PASS the plank lies on the stand: 24 moments, e.g. t+0: 0u apart (needs ≤ 0.02)
+  PASS the girl sits on the plank: 24 moments, e.g. t+0: 0u apart (needs ≤ 0.06)
+  PASS the boy sits on the plank: 24 moments, e.g. t+0: 0u apart (needs ≤ 0.06)
+  PASS the girl is down (t+0.4 to t+0.6): 1 moments, e.g. t+0.5: 0.05u apart (needs ≤ 0.1)
+  PASS the boy is up (t+0.4 to t+0.6): 1 moments, e.g. t+0.5: 0.04u apart (needs ≤ 0.1)
+  PASS nothing passes through her: 24 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through him: 24 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+5.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+5.75 (worst at t+0.5): model gal2: SUNK INTO mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+  - t+0 to t+5.75 (worst at t+1.5): model guy2: SUNK INTO mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+  - t+0.25 to t+0.75, t+1.25 to t+1.75, t+2.25 to t+2.75, t+3.25 to t+3.75, t+4.25 to t+4.75, t+5.25 to t+5.75 (worst at t+0.5): mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO mesh pivot (red #d03030) (gap -0.11u)
+
+## t+0.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh plank (blue/yellow #2a7ad0/#e8b848): size 0.88 x 0.37 x 0.12, centre [0.94, 0.27, 0], bottom 0.08, top 0.45
+  T2 model gal2: size 0.4 x 0.47 x 0.23, centre [0.53, 0.34, 0], bottom 0.1, top 0.58
+  T3 model guy2: size 0.3 x 0.52 x 0.24, centre [1.21, 0.52, -0.03], bottom 0.26, top 0.79
+  T4 mesh pivot (red #d03030): size 0.24 x 0.2 x 0.1, centre [0.95, 0.1, 0], bottom 0, top 0.2
+  T5 mesh yellow #ffe040: size 0.29 x 0.1 x 0.29, centre [1.21, 0.89, 0.03], bottom 0.84, top 0.94
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u)
+  T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+  T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.05u)
+  T4 mesh pivot (red #d03030): touches the ground line (bottom of the kanji)
+  T5 mesh yellow #ffe040: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.67,0.35,0.05]: nearest own body part right knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0u away (inside its box: touching or passing through)
+  T2 model gal2 left hand at [0.67,0.35,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0u away (inside its box: touching or passing through)
+  T3 model guy2 right hand at [1.14,0.64,-0.12]: nearest own body part right shoulder 0.17u away; nearest other thing T5 mesh yellow #ffe040 0.2u away
+  T3 model guy2 left hand at [1.12,0.47,0.05]: nearest own body part left knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0.02u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model gal2: 99% visible (1% behind other things (props, labels))
+  T3 model guy2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u)
+  - T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+  - T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.05u)
+
+## t+1.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh plank (blue/yellow #2a7ad0/#e8b848): size 0.88 x 0.37 x 0.12, centre [0.96, 0.27, 0], bottom 0.08, top 0.45
+  T2 model gal2: size 0.34 x 0.52 x 0.27, centre [0.67, 0.52, 0.02], bottom 0.26, top 0.79
+  T3 model guy2: size 0.4 x 0.47 x 0.18, centre [1.37, 0.34, 0], bottom 0.1, top 0.58
+  T4 mesh pivot (red #d03030): size 0.24 x 0.2 x 0.1, centre [0.95, 0.1, 0], bottom 0, top 0.2
+  T5 mesh yellow #ffe040: size 0.29 x 0.1 x 0.29, centre [0.69, 0.89, -0.03], bottom 0.84, top 0.94
+  T6 label "わーい!": size 0.37 x 0.12 x 0, centre [0.59, 1.08, -0.03], bottom 1.02, top 1.14
+  T7 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.48, 1, -0.04], bottom 0.94, top 1.07
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u)
+  T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.05u)
+  T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+  T4 mesh pivot (red #d03030): touches the ground line (bottom of the kanji)
+  T5 mesh yellow #ffe040: in the air on purpose (an effect: a star, a heart)
+  T7 mesh white #ffffff: is high in the air above the ground line (bottom of the kanji) (gap 0.94u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.75,0.65,0.12]: nearest own body part right shoulder 0.17u away; nearest other thing T5 mesh yellow #ffe040 0.19u away
+  T2 model gal2 left hand at [0.78,0.47,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0.02u away
+  T3 model guy2 right hand at [1.23,0.35,-0.05]: nearest own body part right knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0u away (inside its box: touching or passing through)
+  T3 model guy2 left hand at [1.23,0.35,0.05]: nearest own body part left knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model gal2: 98% visible (2% behind other things (props, labels))
+  T3 model guy2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u)
+  - T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.05u)
+  - T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh plank (blue/yellow #2a7ad0/#e8b848): size 0.88 x 0.37 x 0.12, centre [0.94, 0.27, 0], bottom 0.08, top 0.45
+  T2 model gal2: size 0.4 x 0.47 x 0.23, centre [0.53, 0.34, 0], bottom 0.1, top 0.58
+  T3 model guy2: size 0.3 x 0.52 x 0.24, centre [1.21, 0.52, -0.03], bottom 0.26, top 0.79
+  T4 mesh pivot (red #d03030): size 0.24 x 0.2 x 0.1, centre [0.95, 0.1, 0], bottom 0, top 0.2
+  T5 mesh yellow #ffe040: size 0.29 x 0.1 x 0.29, centre [1.21, 0.89, 0.03], bottom 0.84, top 0.94
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u)
+  T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+  T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.05u)
+  T4 mesh pivot (red #d03030): touches the ground line (bottom of the kanji)
+  T5 mesh yellow #ffe040: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.67,0.35,0.05]: nearest own body part right knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0u away (inside its box: touching or passing through)
+  T2 model gal2 left hand at [0.67,0.35,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0u away (inside its box: touching or passing through)
+  T3 model guy2 right hand at [1.14,0.64,-0.12]: nearest own body part right shoulder 0.17u away; nearest other thing T5 mesh yellow #ffe040 0.2u away
+  T3 model guy2 left hand at [1.12,0.47,0.05]: nearest own body part left knee 0.14u away; nearest other thing T1 mesh plank (blue/yellow #2a7ad0/#e8b848) 0.02u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model gal2: 99% visible (1% behind other things (props, labels))
+  T3 model guy2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u)
+  - T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u)
+  - T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.05u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h9-asobu/overview.jpg
+    1. the whole scene from front, t+0.5 (t0.5-scene-front.jpg)
+    2. the whole scene from right, t+0.5 (t0.5-scene-right.jpg)
+    3. what the learner sees, t+0.5 (t0.5-learner.jpg)
+    4. the whole scene from front, t+1.5 (t1.5-scene-front.jpg)
+    5. the whole scene from right, t+1.5 (t1.5-scene-right.jpg)
+    6. what the learner sees, t+1.5 (t1.5-learner.jpg)
+    7. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    8. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    9. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  plans/haiku/renders/h9-asobu/faults.jpg
+    1. fault 1 from front (t+0.5): T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u) (fault1-front-t0.5.jpg)
+    2. fault 1 from right (t+0.5): T2 model gal2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u) (fault1-right-t0.5.jpg)
+    3. fault 2 from front (t+1.5): T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u) (fault2-front-t1.5.jpg)
+    4. fault 2 from right (t+1.5): T3 model guy2: SUNK INTO T1 mesh plank (blue/yellow #2a7ad0/#e8b848) (gap -0.21u) (fault2-right-t1.5.jpg)
+    5. fault 3 from front (t+0.5): T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u) (fault3-front-t0.5.jpg)
+    6. fault 3 from right (t+0.5): T1 mesh plank (blue/yellow #2a7ad0/#e8b848): SUNK INTO T4 mesh pivot (red #d03030) (gap -0.11u) (fault3-right-t0.5.jpg)
+  plans/haiku/renders/h9-asobu/people.jpg
+    1. T2 gal2 close, from front (t+0.5) (gal2-front-t0.5.jpg)
+    2. T2 gal2 close, from right (t+0.5) (gal2-right-t0.5.jpg)
+    3. T3 guy2 close, from front (t+1.5) (guy2-front-t1.5.jpg)
+    4. T3 guy2 close, from right (t+1.5) (guy2-right-t1.5.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 904a --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
