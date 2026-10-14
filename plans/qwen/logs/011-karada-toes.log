@@ -1,0 +1,14 @@
+pi exit 0 after 11.1 min
+
+Plan 011 is done and committed (not pushed).
+
+**Result: 3 of 4 goals PASS** — the hands now genuinely reach the feet (0.10u from each foot mark, exactly at the goal limit), but "stands on the grass" still fails: his hairline sits 0.04u below the grass top at the bottom of the bend (t+5.5–6.25). Per the plan, the label stays **あし** and the commit is `体: toe touch tried, not reached (Qwen, plan 011)`.
+
+What changed in `src/effects/vignettes/q-feel.js` (last move only):
+- `PARTS` last row: bow 1.6→2.3, hands aimed at the feet (`p.local(0.09x, 0.03, 0)`, probed foot position), elbow straight-down.
+- Child's squat in the pose lines: upper legs 0.7 rad forward, lower legs −1.4 back, group raised 0.01u (the bend drops the feet, doesn't raise them — my first 0.11u *lower* attempt sank him 0.12u), plus `p.turn('Head', −0.6k)` so he faces his toes instead of tipping his head into the grass.
+- One deviation flagged in the report: the last touch's bump was extended 1.3→1.9s (i===3 only) — with the original timing k = 0 from t+6.2, so the hands were already returning to rest inside the goal window and no pose could have passed.
+
+Checks: `node --check` clean, `npm test` ok (0 pairs ≥ 0.72), `check-piece-costs` 0 mismatches, orbit + full inspect renders in `plans/qwen/renders/`. The orbit's right-side view reads as a clear toe touch.
+
+Commit: `e65f17c` (code + render), `975dcb2` (report at `plans/qwen/done/011-karada-toes.md`), which also includes a suggested fix for Opus (head tilt −0.8 and/or hands 0.02u lower to break the hair-vs-hands trade-off).
