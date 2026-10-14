@@ -1,0 +1,147 @@
+# Inspection of card 96c6
+
+## Goals: 7 of 7 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 28 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the girl stays in view: 28 moments, e.g. t+0: 89% visible (needs ≥ 85)
+  PASS the girl stands on the grass: 28 moments, e.g. t+0: gal2: touches T1 mesh grass (green #6ab04c)
+  PASS at the start the chicks are spread out (at most 1 near her) (t+0 to t+0.5): 3 moments, e.g. t+0: 0 of 6 chick within 0.25u of gal2 (needs ≤ 1)
+  PASS the chicks have gathered round her (t+3.5 to t+5): 7 moments, e.g. t+3.5: 6 of 6 chick within 0.3u of gal2 (needs ≥ 5)
+  PASS chicks stand on the grass while gathered (t+3.5 to t+5): 7 moments, e.g. t+3.5: chick: touches T1 mesh grass (green #6ab04c)
+  PASS nothing passes through her: 28 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  no measured faults at any moment
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh grass (green #6ab04c): size 1.38 x 0.03 x 1.4, centre [0.8, 0.01, 0], bottom 0, top 0.03
+  T2 model gal2: size 0.5 x 0.93 x 0.53, centre [0.77, 0.49, 0], bottom 0.03, top 0.96
+  T3 mesh yellow/white #ffd34a/#f4ead8: size 0.12 x 0.07 x 0.12, centre [0.88, 0.42, 0.26], bottom 0.39, top 0.46
+  T4 pool yellow #ffd34a: size 0.36 x 0.07 x 0.37, centre [0.62, 0.41, 0.12], bottom 0.37, top 0.44
+  T5 model chick: size 0.2 x 0.22 x 0.28, centre [1.42, 0.14, -0.28], bottom 0.03, top 0.25
+  T6 model chick: size 0.2 x 0.22 x 0.27, centre [1.42, 0.14, 0.28], bottom 0.03, top 0.25
+  T7 model chick: size 0.3 x 0.22 x 0.19, centre [0.8, 0.11, -0.72], bottom 0, top 0.22
+  T8 model chick: size 0.2 x 0.22 x 0.27, centre [0.18, 0.14, -0.28], bottom 0.03, top 0.25
+  T9 model chick: size 0.2 x 0.22 x 0.28, centre [0.18, 0.14, 0.28], bottom 0.03, top 0.25
+  T10 model chick: size 0.29 x 0.22 x 0.2, centre [0.58, 0.11, 0.7], bottom 0, top 0.22
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh grass (green #6ab04c): touches the ground line (bottom of the kanji)
+  T2 model gal2: touches T1 mesh grass (green #6ab04c)
+  T3 mesh yellow/white #ffd34a/#f4ead8: is on T2 model gal2 (worn or held: check it sits right in the close-ups)
+  T5 model chick: touches T1 mesh grass (green #6ab04c)
+  T6 model chick: touches T1 mesh grass (green #6ab04c)
+  T7 model chick: touches the ground line (bottom of the kanji)
+  T8 model chick: touches T1 mesh grass (green #6ab04c)
+  T9 model chick: touches T1 mesh grass (green #6ab04c)
+  T10 model chick: touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.59,0.41,0.14]: nearest own body part right shoulder 0.28u away; nearest other thing T3 mesh yellow/white #ffd34a/#f4ead8 0.24u away
+  T2 model gal2 left hand at [0.89,0.39,0.17]: nearest own body part hips 0.23u away; nearest other thing T3 mesh yellow/white #ffd34a/#f4ead8 0.03u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model gal2: 88% visible (12% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh grass (green #6ab04c): size 1.38 x 0.03 x 1.4, centre [0.8, 0.01, 0], bottom 0, top 0.03
+  T2 model gal2: size 0.37 x 0.94 x 0.53, centre [0.83, 0.5, -0.02], bottom 0.03, top 0.97
+  T3 mesh yellow/white #ffd34a/#f4ead8: size 0.12 x 0.07 x 0.12, centre [0.89, 0.43, 0.24], bottom 0.4, top 0.47
+  T4 pool yellow #ffd34a: size 0.88 x 0.02 x 0.8, centre [0.84, 0.04, -0.06], bottom 0.02, top 0.05
+  T5 model chick: size 0.2 x 0.22 x 0.29, centre [1.22, 0.14, -0.22], bottom 0.03, top 0.25
+  T6 model chick: size 0.2 x 0.22 x 0.27, centre [1.24, 0.14, 0.18], bottom 0.03, top 0.26
+  T7 model chick: size 0.29 x 0.22 x 0.2, centre [0.87, 0.15, -0.49], bottom 0.04, top 0.26
+  T8 model chick: size 0.19 x 0.22 x 0.3, centre [0.45, 0.15, -0.3], bottom 0.04, top 0.26
+  T9 model chick: size 0.26 x 0.22 x 0.21, centre [0.35, 0.15, 0.06], bottom 0.04, top 0.27
+  T10 model chick: size 0.29 x 0.2 x 0.2, centre [0.52, 0.14, 0.4], bottom 0.04, top 0.24
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh grass (green #6ab04c): touches the ground line (bottom of the kanji)
+  T2 model gal2: touches T1 mesh grass (green #6ab04c)
+  T3 mesh yellow/white #ffd34a/#f4ead8: is on T2 model gal2 (worn or held: check it sits right in the close-ups)
+  T5 model chick: touches T1 mesh grass (green #6ab04c)
+  T6 model chick: touches T1 mesh grass (green #6ab04c)
+  T7 model chick: touches T1 mesh grass (green #6ab04c)
+  T8 model chick: touches T1 mesh grass (green #6ab04c)
+  T9 model chick: touches T1 mesh grass (green #6ab04c)
+  T10 model chick: touches T1 mesh grass (green #6ab04c)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.69,0.3,-0.06]: nearest own body part right knee 0.14u away; nearest other thing T8 model chick 0.17u away
+  T2 model gal2 left hand at [0.89,0.4,0.15]: nearest own body part hips 0.24u away; nearest other thing T3 mesh yellow/white #ffd34a/#f4ead8 0.03u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model gal2: 93% visible (7% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+4.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh grass (green #6ab04c): size 1.38 x 0.03 x 1.4, centre [0.8, 0.01, 0], bottom 0, top 0.03
+  T2 model gal2: size 0.37 x 0.94 x 0.53, centre [0.83, 0.5, -0.02], bottom 0.03, top 0.97
+  T3 mesh yellow/white #ffd34a/#f4ead8: size 0.12 x 0.07 x 0.12, centre [0.89, 0.43, 0.25], bottom 0.4, top 0.47
+  T4 pool yellow #ffd34a: size 0.88 x 0.02 x 0.8, centre [0.84, 0.04, -0.06], bottom 0.02, top 0.05
+  T5 model chick: size 0.2 x 0.22 x 0.25, centre [1.09, 0.14, -0.17], bottom 0.03, top 0.25
+  T6 model chick: size 0.23 x 0.19 x 0.27, centre [1.08, 0.12, 0.1], bottom 0.03, top 0.22
+  T7 model chick: size 0.28 x 0.2 x 0.21, centre [0.91, 0.13, -0.3], bottom 0.03, top 0.23
+  T8 model chick: size 0.28 x 0.2 x 0.21, centre [0.69, 0.13, -0.3], bottom 0.03, top 0.23
+  T9 model chick: size 0.24 x 0.19 x 0.26, centre [0.54, 0.12, -0.14], bottom 0.03, top 0.22
+  T10 model chick: size 0.2 x 0.22 x 0.27, centre [0.46, 0.14, 0.06], bottom 0.03, top 0.25
+  T11 label "!": size 0.11 x 0.16 x 0, centre [1.12, 0.35, 0.12], bottom 0.27, top 0.43
+  T12 label "!": size 0.11 x 0.16 x 0, centre [0.51, 0.35, -0.17], bottom 0.27, top 0.43
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh grass (green #6ab04c): touches the ground line (bottom of the kanji)
+  T2 model gal2: touches T1 mesh grass (green #6ab04c)
+  T3 mesh yellow/white #ffd34a/#f4ead8: is on T2 model gal2 (worn or held: check it sits right in the close-ups)
+  T5 model chick: touches T1 mesh grass (green #6ab04c)
+  T6 model chick: touches T1 mesh grass (green #6ab04c)
+  T7 model chick: touches T1 mesh grass (green #6ab04c)
+  T8 model chick: touches T1 mesh grass (green #6ab04c)
+  T9 model chick: touches T1 mesh grass (green #6ab04c)
+  T10 model chick: touches T1 mesh grass (green #6ab04c)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.69,0.3,-0.05]: nearest own body part right knee 0.14u away; nearest other thing T9 model chick 0.08u away
+  T2 model gal2 left hand at [0.89,0.39,0.16]: nearest own body part hips 0.24u away; nearest other thing T3 mesh yellow/white #ffd34a/#f4ead8 0.03u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model gal2: 96% visible (4% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h1-atsumaru/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+    7. the whole scene from front, t+4.5 (t4.5-scene-front.jpg)
+    8. the whole scene from right, t+4.5 (t4.5-scene-right.jpg)
+    9. what the learner sees, t+4.5 (t4.5-learner.jpg)
+  (no fault close-ups: no measured faults)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs 96c6 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
