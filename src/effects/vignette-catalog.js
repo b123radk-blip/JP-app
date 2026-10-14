@@ -4,7 +4,7 @@
 // kanji's bottom-right corner: scenes that act on the kanji itself should keep it 1).
 // A vignette uses no particle slots and no lights of its own; draw calls must equal what it builds (npm run e2e checks).
 // Helpers (V, VM, pdc) live in vcat-kit.js; the Step 3a batches add their entries from vcat-q*.js.
-import { V, VM, pdc } from './vcat-kit.js';
+import { V, VM, pdc, PERSON_DC } from './vcat-kit.js';
 import { Q4A } from './vcat-q4a.js';
 import { Q4B } from './vcat-q4b.js';
 import { Q4C } from './vcat-q4c.js';
@@ -482,5 +482,6 @@ export const VIGNETTES = {
   ...Q4A, ...Q4B, ...Q4C, ...Q5A, ...Q5B, ...Q5C, ...HB, ...W4,
   'q-gesture': VM((o) => pdc(o.who), 'review of the gesture kit (not for cards): one person doing one gesture g (toMouth sip toEar cupEar shadeEyes wave hold bow point write nod shake) at amount k over a clip', (o) => [o.who], { who: 'guy', g: 'wave', k: 1, clip: 'Idle', yaw: 0 }),
   'm-lineup': VM(32, 'review sheet of the trial models idling: dog, chick, fish, elephant, man, oak, sedan, tram (not for cards; names: other models)', (o) => o.names ?? ['dog', 'chick', 'fish', 'elephant', 'man', 'oak', 'sedan', 'tramCar'], { names: null, clip: 'idle' }),
+  blockout: VM((o) => (o.things ?? []).reduce((s, th) => s + (th.model ? PERSON_DC[th.model] ?? 4 : 1), 0), "a plan's layout in plain shapes and the real models, to check its numbers and goals before building (scripts/plan-check.mjs; not for cards): things [{ name, box | cyl | ball | model, at, keys, clips, tilt }]", (o) => [...new Set((o.things ?? []).filter((th) => th.model).map((th) => th.model))], { loop: 7, things: [] }),
   kit: V(21, 'review sheet of the props kit: hand poses, a person walking, hammer, nail, board, plate, ball, heart, burst (not for cards)', { pose: 'all' }),
 };

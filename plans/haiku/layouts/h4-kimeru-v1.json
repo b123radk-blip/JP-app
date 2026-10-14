@@ -1,0 +1,6 @@
+{"type": "blockout", "loop": 7, "things": [
+  {"name": "table", "box": [0.6, 0.42, 0.26], "at": [0.8, 0, 0.15], "color": "#8a5a30"},
+  {"name": "cakeA", "box": [0.12, 0.1, 0.12], "at": [0.65, 0.42, 0.15], "color": "#f4f4f4"},
+  {"name": "cakeB", "box": [0.12, 0.1, 0.12], "at": [0.95, 0.42, 0.15], "color": "#5a3a24"},
+  {"model": "gal2", "h": "ADULT", "at": [0.8, 0, -0.12], "hands": [{"side": "R", "to": "cakeB", "t": [3.6, 5.8]}]}
+]}

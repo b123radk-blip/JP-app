@@ -71,7 +71,10 @@ ground). Then:
   while one fails if you have rounds left; don't keep changing things once all pass.
 - Never edit the goals file. If a goal looks wrong or impossible, leave it failing and explain it in the report.
 - A goal's PASS or FAIL is what you report about it: paste the Goals lines. Don't call a goal met that says FAIL.
-- To measure a prop by name, give it one in the code (`mesh.name = 'sandbox'`) when the plan asks you to.
+- To measure a prop by name, give it one in the code (`mesh.name = 'sandbox'`) when the plan asks you to. A name on a group works too.
+- Seat-view goals: `big` (the thing shows at least N% as big as the kanji from the learner's seat) and `faces` (its top
+  is turned at least N degrees toward the learner; flat things seen edge-on fail). If one fails, make the thing bigger,
+  bring it forward or tilt its top toward the learner, within the plan's numbers.
 
 ## The report
 
