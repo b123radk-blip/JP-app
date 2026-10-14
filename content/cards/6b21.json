@@ -5,7 +5,7 @@
   "primaryReading": "つぎ",
   "readings": { "kun": ["つ(ぐ)", "つぎ"], "on": ["ジ", "シ"] },
   "mnemonic": "A yawn (欠) after the second (冫) one: who is next?",
-  "effect": { "material": "clay", "backdrop": "sky:golden" },
+  "effect": {"material": "clay", "backdrop": "sky:golden", "vignette": {"type": "q-stepping-stones"}},
   "sentences": [
     {
       "segments": [ { "text": "次", "reading": "つぎ" }, { "text": "の" }, { "text": "駅", "reading": "えき" }, { "text": "で" }, { "text": "降", "reading": "お" }, { "text": "ります。" } ],
