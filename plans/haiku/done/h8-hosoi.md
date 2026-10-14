@@ -76,3 +76,24 @@ POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
 5. full, `--times 1.2,3.2,5` (the final run above): 7 of 9 PASS. Same two FAILs.
 
 Two measurement-only runs (`--times 4.25,5.8,1.0 --quick`, and the earlier `--quick` scans) did not change code and are not counted as rounds.
+
+## Round 2 (Opus review: wider gap, arms in while he squeezes through)
+- Walls: `wallL` x 0.53-0.78, `wallR` x 1.12-1.37, 1.05 tall, gap 0.34u centred at 0.95u. Goal file `h8-hosoi.json` (the
+  gap goal allows up to 0.36) is committed with the code.
+- Arms in from 1.5 to 4.4: both hands handTo a point at the chest's side, 0.10u out and 0.04u in front of the body
+  centre (local `(±0.10, 0.50, -0.04)` heights). Hands at the chest's front surface pushed the fists into `wallR`, so the
+  targets went behind the surface.
+- Shuffle: a 0.01u side-to-side sway (on x) while he is sideways, on Idle. `Walk` at a third speed was not tried: it
+  faces the walking direction, so it would still be a slide.
+- Stop z -0.27 (was -0.33), shuffle to 0.37, out front 0.37 to 0.40; the turn to the learner 4.5-5.2 (a faster turn
+  sweeps the arm into the wall corner, 28 points at 4.75).
+- Brow target dy 0.07, dz 0.03 (0.15u from head middle, goal 0.15).
+- Final full run (`--times 1.2,3.2,5`): `## Goals: 8 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)`.
+  FAIL: `he is in the middle of the gap (t+3.1 to t+3.4): fails at t+3.2 to t+3.25 of 2 moments; t+3.25: 0.18u apart (needs ≤ 0.1)`.
+  Hips bone is 0.18u from the goal point at all origin shifts tried (0.00 and +0.10); the offset of the Hips bone from the
+  body's middle is not measured, so I did not find the fix.
+- Round 2 inspection runs: 9 quick scans (goals) and 1 full run. Each quick run used the whole loop.
+- POSSIBLE FAULTS (final run): only `T1 model guy2: 61% visible (39% behind other things)` at t+3.2: he is inside the gap
+  behind the wall edges on purpose.
+- npm test: `# pass 64`, `# fail 0`, `recipe check ok`, exit 0. Cost check: `679 recipes, 0 cost mismatches`.
+- Orbit: `plans/haiku/renders/h8-hosoi.jpg` at `--times 1.6,3.2`. Overview at 1.2 front shows him at the opening with arms at the wall edges; 3.2 in the gap; 5 front with the ふう bubble. A thin dark line appears in the right-side view at t+5 near wallR (not checked further).
