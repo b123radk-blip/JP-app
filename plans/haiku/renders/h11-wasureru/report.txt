@@ -1,0 +1,192 @@
+# Inspection of card 5fd8
+
+## Goals: 8 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the girl stays in view (t+0.8 to t+6): 23 moments, e.g. t+1: 100% visible (needs ≥ 85)
+  PASS the girl stands on the ground: 30 moments, e.g. t+0: gal2: touches the ground line (bottom of the kanji)
+  PASS the door stands on the ground: 30 moments, e.g. t+0: door (dark brown/brown #5a3a24/#9a6a3a): touches the ground line (bottom of the kanji)
+  PASS the umbrella waits in its stand (t+0 to t+4.4): 19 moments, e.g. t+0: umbrella (black/dark brown #2a2a2a/#6a4a2a): touches T3 mesh stand (grey #6a7a8a)
+  FAIL she has walked away (t+2.4 to t+2.8): fails at t+2.5 to t+2.75 of 2 moments; t+2.5: 0.18u apart (needs ≤ 0.12)
+  PASS she slaps her forehead (t+2.9 to t+3.1): 1 moments, e.g. t+3: 0.11u apart (needs ≤ 0.12)
+  PASS she takes the umbrella (t+5 to t+5.8): 5 moments, e.g. t+5: 0.03u apart (needs ≤ 0.05)
+  PASS nothing passes through her: 30 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+5.25 to t+5.5 (worst at t+5.25): mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE model gal2 (gap 0.03u)
+  - t+6.25 (worst at t+6.25): mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): SUNK INTO model gal2 (gap -0.03u)
+  - t+6.25 (worst at t+6.25): model gal2 PASSES INTO mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): 14 skin points inside it, near the bones FistR
+  - t+6.5 (worst at t+6.5): mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.13u)
+
+## t+1.6 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.44 x 0.9 x 0.37, centre [0.83, 0.45, -0.01], bottom 0, top 0.9
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): size 0.36 x 1.04 x 0.32, centre [0.55, 0.52, -0.43], bottom 0, top 1.04
+  T3 mesh stand (grey #6a7a8a): size 0.1 x 0.2 x 0.1, centre [0.78, 0.1, -0.3], bottom 0, top 0.2
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): size 0.06 x 0.6 x 0.06, centre [0.78, 0.5, -0.3], bottom 0.2, top 0.8
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): touches the ground line (bottom of the kanji)
+  T3 mesh stand (grey #6a7a8a): touches the ground line (bottom of the kanji)
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): touches T3 mesh stand (grey #6a7a8a)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.95,0.27,0.14]: nearest own body part hips 0.17u away; nearest other thing T3 mesh stand (grey #6a7a8a) 0.41u away
+  T1 model gal2 left hand at [0.67,0.27,-0.1]: nearest own body part hips 0.2u away; nearest other thing T2 mesh door (dark brown/brown #5a3a24/#9a6a3a) 0.18u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 100% visible
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.42 x 0.94 x 0.38, centre [1.12, 0.47, 0.06], bottom 0, top 0.94
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): size 0.36 x 1.04 x 0.32, centre [0.55, 0.52, -0.43], bottom 0, top 1.04
+  T3 mesh stand (grey #6a7a8a): size 0.1 x 0.2 x 0.1, centre [0.78, 0.1, -0.3], bottom 0, top 0.2
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): size 0.06 x 0.6 x 0.06, centre [0.78, 0.5, -0.3], bottom 0.2, top 0.8
+  T5 pool blue #7fd0ff: size 0.77 x 1.02 x 0.71, centre [0.91, 0.6, -0.07], bottom 0.09, top 1.11
+  T6 label "あっ!": size 0.33 x 0.14 x 0, centre [1.2, 1.1, 0.1], bottom 1.03, top 1.17
+  T7 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [1.1, 1.01, 0.09], bottom 0.94, top 1.07
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): touches the ground line (bottom of the kanji)
+  T3 mesh stand (grey #6a7a8a): touches the ground line (bottom of the kanji)
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): touches T3 mesh stand (grey #6a7a8a)
+  T7 mesh white #ffffff: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [1.25,0.78,0.04]: nearest own body part head (middle) 0.11u away; nearest other thing T7 mesh white #ffffff 0.2u away
+  T1 model gal2 left hand at [1.14,0.27,-0.08]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh stand (grey #6a7a8a) 0.36u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 100% visible
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+5.4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.42 x 0.94 x 0.46, centre [0.86, 0.47, -0.1], bottom 0, top 0.94
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): size 0.36 x 1.04 x 0.32, centre [0.55, 0.52, -0.43], bottom 0, top 1.04
+  T3 mesh stand (grey #6a7a8a): size 0.1 x 0.2 x 0.1, centre [0.78, 0.1, -0.3], bottom 0, top 0.2
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): size 0.06 x 0.6 x 0.06, centre [0.83, 0.87, -0.31], bottom 0.57, top 1.17
+  T5 pool blue #7fd0ff: size 0.86 x 1.12 x 0.79, centre [0.96, 0.56, -0.03], bottom 0, top 1.12
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): touches the ground line (bottom of the kanji)
+  T3 mesh stand (grey #6a7a8a): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE T1 model gal2 (gap 0.03u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.83,0.58,-0.28]: nearest own body part right shoulder 0.12u away; nearest other thing T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a) 0.01u away
+  T1 model gal2 left hand at [0.84,0.27,0.09]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh stand (grey #6a7a8a) 0.34u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE T1 model gal2 (gap 0.03u)
+
+## t+6.25 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.24 x 0.55 x 0.25, centre [0.83, 0.27, -0.09], bottom 0, top 0.55
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): size 0.36 x 1.04 x 0.32, centre [0.55, 0.52, -0.43], bottom 0, top 1.04
+  T3 mesh stand (grey #6a7a8a): size 0.1 x 0.2 x 0.1, centre [0.78, 0.1, -0.3], bottom 0, top 0.2
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): size 0.3 x 0.39 x 0.3, centre [0.83, 0.66, -0.16], bottom 0.47, top 0.86
+  T5 pool blue #7fd0ff: size 0.86 x 1.12 x 0.83, centre [0.96, 0.56, -0.01], bottom 0, top 1.13
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): touches the ground line (bottom of the kanji)
+  T3 mesh stand (grey #6a7a8a): touches the ground line (bottom of the kanji)
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): SUNK INTO T1 model gal2 (gap -0.03u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T1 model gal2 PASSES INTO T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): 14 skin points inside it, near the bones FistR
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.81,0.48,-0.18]: nearest own body part head (middle) 0.11u away; nearest other thing T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a) 0u away (inside its box: touching or passing through)
+  T1 model gal2 left hand at [0.82,0.16,0.01]: nearest own body part left knee 0.08u away; nearest other thing T3 mesh stand (grey #6a7a8a) 0.26u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): SUNK INTO T1 model gal2 (gap -0.03u)
+  - T1 model gal2 PASSES INTO T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): 14 skin points inside it, near the bones FistR
+
+## t+6.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.07 x 0.16 x 0.06, centre [0.79, 0.08, -0.09], bottom 0, top 0.16
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): size 0.36 x 1.04 x 0.32, centre [0.55, 0.52, -0.43], bottom 0, top 1.04
+  T3 mesh stand (grey #6a7a8a): size 0.1 x 0.2 x 0.1, centre [0.78, 0.1, -0.3], bottom 0, top 0.2
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): size 0.09 x 0.11 x 0.09, centre [0.79, 0.19, -0.14], bottom 0.13, top 0.24
+  T5 pool blue #7fd0ff: size 0.86 x 1.06 x 0.83, centre [0.96, 0.56, -0.01], bottom 0.03, top 1.09
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh door (dark brown/brown #5a3a24/#9a6a3a): touches the ground line (bottom of the kanji)
+  T3 mesh stand (grey #6a7a8a): touches the ground line (bottom of the kanji)
+  T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.13u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.79,0.14,-0.12]: nearest own body part head (middle) 0.03u away; nearest other thing T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a) 0u away (inside its box: touching or passing through)
+  T1 model gal2 left hand at [0.79,0.05,-0.07]: nearest own body part left knee 0.02u away; nearest other thing T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a) 0.09u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.13u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h11-wasureru/overview.jpg
+    1. the whole scene from front, t+1.6 (t1.6-scene-front.jpg)
+    2. the whole scene from right, t+1.6 (t1.6-scene-right.jpg)
+    3. what the learner sees, t+1.6 (t1.6-learner.jpg)
+    4. the whole scene from front, t+3 (t3-scene-front.jpg)
+    5. the whole scene from right, t+3 (t3-scene-right.jpg)
+    6. what the learner sees, t+3 (t3-learner.jpg)
+    7. the whole scene from front, t+5.4 (t5.4-scene-front.jpg)
+    8. the whole scene from right, t+5.4 (t5.4-scene-right.jpg)
+    9. what the learner sees, t+5.4 (t5.4-learner.jpg)
+  plans/haiku/renders/h11-wasureru/faults.jpg
+    1. fault 1 from front (t+5.4): T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE T1 model gal2 (gap 0.03u) (fault1-front-t5.4.jpg)
+    2. fault 1 from right (t+5.4): T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE T1 model gal2 (gap 0.03u) (fault1-right-t5.4.jpg)
+    3. fault 2 from front (t+6.25): T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): SUNK INTO T1 model gal2 (gap -0.03u) (fault2-front-t6.25.jpg)
+    4. fault 2 from right (t+6.25): T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): SUNK INTO T1 model gal2 (gap -0.03u) (fault2-right-t6.25.jpg)
+    5. fault 3 from front (t+6.25): T1 model gal2 PASSES INTO T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): 14 skin points inside it, near the bones FistR (fault3-front-t6.25.jpg)
+    6. fault 3 from right (t+6.25): T1 model gal2 PASSES INTO T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): 14 skin points inside it, near the bones FistR (fault3-right-t6.25.jpg)
+    7. fault 4 from front (t+6.5): T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.13u) (fault4-front-t6.5.jpg)
+    8. fault 4 from right (t+6.5): T4 mesh umbrella (black/dark brown #2a2a2a/#6a4a2a): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.13u) (fault4-right-t6.5.jpg)
+  plans/haiku/renders/h11-wasureru/people.jpg
+    1. T1 gal2 close, from front (t+5.4) (gal2-front-t5.4.jpg)
+    2. T1 gal2 close, from right (t+5.4) (gal2-right-t5.4.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 5fd8 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
