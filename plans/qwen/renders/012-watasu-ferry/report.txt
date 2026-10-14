@@ -1,0 +1,334 @@
+# Inspection of card w1444610
+
+## Goals: 3 of 11 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  FAIL she waits on the left bank (t+0 to t+0.75): fails at t+0 to t+0.75 of 4 moments; t+0: gal2: touches T1 model rowboat
+  FAIL the boat is at the left bank when she gets in (t+1 to t+1.5): fails at t+1 to t+1.5 of 3 moments; t+1: left bank is not in the scene
+  FAIL she sits in the boat while it crosses (t+2 to t+5.5): fails at t+2 to t+5.5 of 15 moments; t+2: 0.08u apart (needs ≤ 0.03)
+  FAIL the boat is at the right bank when she gets out (t+5.75 to t+6.25): fails at t+5.75 to t+6.25 of 3 moments; t+5.75: right bank is not in the scene
+  FAIL she stands on the right bank after (t+6.5 to t+7.5): fails at t+6.5 to t+7 of 3 moments; t+6.5: gal2: SUNK INTO T1 model rowboat (gap -0.07u)
+  FAIL the ferryman stays in the boat: fails at t+0 to t+7 of 29 moments; t+0: 0.08u apart (needs ≤ 0.03)
+  PASS the learner sees her on the banks (t+0 to t+0.75): 4 moments, e.g. t+0: 87% visible (needs ≥ 85)
+  FAIL the learner sees her after she lands (t+6.5 to t+7.5): fails at t+6.5 to t+7 of 3 moments; t+6.5: 59% visible (needs ≥ 85); t+6.75: 74% visible (needs ≥ 85); t+7: 72% visible (needs ≥ 85)
+  PASS the learner sees her in the boat (t+2 to t+5.5): 15 moments, e.g. t+2: 99% visible (needs ≥ 65)
+  PASS the learner sees the ferryman: 29 moments, e.g. t+0: 91% visible (needs ≥ 65)
+  FAIL nothing passes through her: fails at t+1.5 to t+1.75, t+2.25 to t+2.75, t+3.25 to t+3.75, t+4.25 to t+4.75, t+5.25 to t+5.75, t+6.5 of 29 moments; t+1.5: model guy3 right hand is AT model gal2's LowerArmL (0.04u): touching or passing through; make sure the plan wants this; t+1.75: model guy3 left hand is AT model gal2's UpperArmR (0.04u): touching or passing through; make sure the plan wants this; t+2.25: model guy3 left hand is AT model gal2's FistR (0.03u): touching or passing through; make sure the plan wants this
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+6.75 (worst at t+0): model guy3: FLOATS ABOVE model rowboat (gap 0.04u)
+  - t+0 to t+1.5, t+2.25 to t+2.5, t+3.25 to t+3.5, t+4.25 to t+4.5, t+5.25 to t+5.5, t+6.25 to t+6.5 (worst at t+2.5): model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.13u)
+  - t+0 to t+1, t+1.5 to t+2.5 (worst at t+1.75): the kanji: 75% visible (10% behind other things (props, labels), 9% behind model guy3, 5% behind model gal2)
+  - t+1, t+6.25 to t+6.75 (worst at t+6.25): model gal2: 100% visible; only 35% of it inside the picture
+  - t+1.5 to t+5.75 (worst at t+5.75): model gal2: FLOATS ABOVE model rowboat (gap 0.16u)
+  - t+1.5, t+2.5, t+3.5, t+4.5, t+5.5 (worst at t+1.5): model guy3 right hand is AT model gal2's LowerArmL (0.04u): touching or passing through; make sure the plan wants this
+  - t+1.5 (worst at t+1.5): model guy3 left forearm is AT model gal2's FistR (0.02u): touching or passing through; make sure the plan wants this
+  - t+1.5, t+2.25 to t+2.5, t+3.25 to t+3.5, t+4.25 to t+4.5, t+5.25 to t+5.5 (worst at t+1.5): model gal2 right forearm is AT model guy3's FistL (0.01u): touching or passing through; make sure the plan wants this
+  - t+1.5, t+2.25 to t+2.5, t+3.25 to t+3.5, t+4.25 to t+4.5, t+5.25 to t+5.5 (worst at t+1.5): model gal2 left forearm is AT model guy3's FistR (0.01u): touching or passing through; make sure the plan wants this
+  - t+1.75, t+2.75, t+3.75, t+4.75 (worst at t+1.75): model guy3 left hand is AT model gal2's UpperArmR (0.04u): touching or passing through; make sure the plan wants this
+  - t+1.75, t+2.75, t+3.75, t+4.75 (worst at t+1.75): model gal2 right upper arm is AT model guy3's FistL (0.03u): touching or passing through; make sure the plan wants this
+  - t+1.75, t+2.75, t+3.75, t+4.75, t+5.75 (worst at t+1.75): model gal2 left upper arm is AT model guy3's FistR (0.04u): touching or passing through; make sure the plan wants this
+  - t+2.25, t+3.25, t+4.25, t+5.25 (worst at t+2.25): model guy3 left hand is AT model gal2's FistR (0.03u): touching or passing through; make sure the plan wants this
+  - t+2.5, t+3.5, t+4.5, t+5.5 (worst at t+2.5): model guy3 left forearm is AT model gal2's LowerArmR (0.01u): touching or passing through; make sure the plan wants this
+  - t+2.75 (worst at t+2.75): model guy3 right hand is AT model gal2's UpperArmL (0.04u): touching or passing through; make sure the plan wants this
+  - t+3, t+3.75 to t+5.75 (worst at t+4.75): model guy3: 76% visible (12% behind other things (props, labels), 12% behind model gal2)
+  - t+5.75 (worst at t+5.75): model guy3 left hand is AT model gal2's LowerArmR (0.02u): touching or passing through; make sure the plan wants this
+  - t+5.75 (worst at t+5.75): model gal2 right upper arm is AT model paddle (0.01u): touching or passing through; make sure the plan wants this
+  - t+6.5 (worst at t+6.5): model rowboat: SUNK INTO the ground line (bottom of the kanji) (gap -0.03u)
+  - t+6.5 to t+6.75 (worst at t+6.5): model gal2: SUNK INTO model rowboat (gap -0.07u)
+  - t+6.5 (worst at t+6.5): model gal2 right upper arm is AT model guy3's Abdomen (0.04u): touching or passing through; make sure the plan wants this
+
+## t+0.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model rowboat: size 0.99 x 0.28 x 0.6, centre [-0.26, 0.12, 0.3], bottom -0.02, top 0.26
+  T2 model guy3: size 0.48 x 0.72 x 0.32, centre [-0.3, 0.55, 0.28], bottom 0.19, top 0.91
+  T3 model paddle: size 0.57 x 0.43 x 0.78, centre [-0.25, 0.27, -0.15], bottom 0.06, top 0.49
+  T4 model paddle: size 0.57 x 0.4 x 0.79, centre [-0.25, 0.29, 0.74], bottom 0.09, top 0.49
+  T5 model gal2: size 0.33 x 0.75 x 0.31, centre [-0.59, 0.44, 0.27], bottom 0.07, top 0.82
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model rowboat: touches the ground line (bottom of the kanji)
+  T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.06u)
+  T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.09u)
+  T5 model gal2: touches T1 model rowboat
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy3 right hand at [-0.45,0.49,0.16]: nearest own body part right knee 0.18u away; nearest other thing T5 model gal2 0u away (inside its box: touching or passing through)
+  T2 model guy3 left hand at [-0.44,0.48,0.4]: nearest own body part left knee 0.18u away; nearest other thing T4 model paddle 0u away (inside its box: touching or passing through)
+  T5 model gal2 right hand at [-0.57,0.29,0.39]: nearest own body part right knee 0.11u away; nearest other thing T1 model rowboat 0.03u away
+  T5 model gal2 left hand at [-0.57,0.29,0.15]: nearest own body part left knee 0.11u away; nearest other thing T1 model rowboat 0.03u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy3: 92% visible (8% behind other things (props, labels), 0% behind T5 model gal2)
+  T5 model gal2: 85% visible (15% behind other things (props, labels), 0% behind T2 model guy3)
+  the kanji: 78% visible (10% behind other things (props, labels), 10% behind T2 model guy3, 2% behind T5 model gal2)
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  - T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.06u)
+  - T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.09u)
+  - the kanji: 78% visible (10% behind other things (props, labels), 10% behind T2 model guy3, 2% behind T5 model gal2)
+
+## t+1.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model rowboat: size 0.99 x 0.28 x 0.59, centre [-0.26, 0.11, 0.3], bottom -0.03, top 0.25
+  T2 model guy3: size 0.49 x 0.72 x 0.32, centre [-0.28, 0.54, 0.29], bottom 0.18, top 0.9
+  T3 model paddle: size 0.56 x 0.43 x 0.79, centre [-0.24, 0.26, -0.14], bottom 0.05, top 0.48
+  T4 model paddle: size 0.56 x 0.43 x 0.79, centre [-0.24, 0.27, 0.74], bottom 0.06, top 0.48
+  T5 model gal2: size 0.41 x 0.74 x 0.31, centre [-0.49, 0.56, 0.27], bottom 0.19, top 0.93
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model rowboat: touches the ground line (bottom of the kanji)
+  T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.05u)
+  T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.06u)
+  T5 model gal2: FLOATS ABOVE T1 model rowboat (gap 0.11u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy3 right hand at [-0.44,0.48,0.17]: nearest own body part right knee 0.18u away; nearest other thing T5 model gal2 0u away (inside its box: touching or passing through)
+  T2 model guy3 left hand at [-0.43,0.47,0.41]: nearest own body part left knee 0.18u away; nearest other thing T4 model paddle 0u away (inside its box: touching or passing through)
+  T5 model gal2 right hand at [-0.37,0.45,0.38]: nearest own body part right knee 0.17u away; nearest other thing T2 model guy3 0u away (inside its box: touching or passing through)
+  T5 model gal2 left hand at [-0.48,0.41,0.17]: nearest own body part left knee 0.11u away; nearest other thing T2 model guy3 0u away (inside its box: touching or passing through)
+  T2 model guy3 right hand is AT T5 model gal2's LowerArmL (0.04u): touching or passing through; make sure the plan wants this
+  T2 model guy3 left forearm is AT T5 model gal2's FistR (0.02u): touching or passing through; make sure the plan wants this
+  T5 model gal2 right forearm is AT T2 model guy3's FistL (0.01u): touching or passing through; make sure the plan wants this
+  T5 model gal2 left forearm is AT T2 model guy3's FistR (0.01u): touching or passing through; make sure the plan wants this
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy3: 88% visible (9% behind other things (props, labels), 2% behind T5 model gal2)
+  T5 model gal2: 91% visible (5% behind T2 model guy3, 4% behind other things (props, labels))
+  the kanji: 77% visible (10% behind other things (props, labels), 8% behind T2 model guy3, 5% behind T5 model gal2)
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  - T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.05u)
+  - T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.06u)
+  - T5 model gal2: FLOATS ABOVE T1 model rowboat (gap 0.11u)
+  - T2 model guy3 right hand is AT T5 model gal2's LowerArmL (0.04u): touching or passing through; make sure the plan wants this
+  - T2 model guy3 left forearm is AT T5 model gal2's FistR (0.02u): touching or passing through; make sure the plan wants this
+  - T5 model gal2 right forearm is AT T2 model guy3's FistL (0.01u): touching or passing through; make sure the plan wants this
+  - T5 model gal2 left forearm is AT T2 model guy3's FistR (0.01u): touching or passing through; make sure the plan wants this
+  - the kanji: 77% visible (10% behind other things (props, labels), 8% behind T2 model guy3, 5% behind T5 model gal2)
+
+## t+3.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model rowboat: size 0.99 x 0.27 x 0.59, centre [0.44, 0.11, 0.3], bottom -0.02, top 0.25
+  T2 model guy3: size 0.44 x 0.71 x 0.31, centre [0.38, 0.54, 0.28], bottom 0.18, top 0.9
+  T3 model paddle: size 0.66 x 0.36 x 0.77, centre [0.46, 0.28, -0.14], bottom 0.1, top 0.46
+  T4 model paddle: size 0.66 x 0.35 x 0.77, centre [0.46, 0.28, 0.73], bottom 0.11, top 0.46
+  T5 model gal2: size 0.45 x 0.67 x 0.33, centre [0.18, 0.53, 0.28], bottom 0.19, top 0.86
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model rowboat: touches the ground line (bottom of the kanji)
+  T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.11u)
+  T5 model gal2: FLOATS ABOVE T1 model rowboat (gap 0.05u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy3 right hand at [0.24,0.48,0.17]: nearest own body part right knee 0.18u away; nearest other thing T5 model gal2 0u away (inside its box: touching or passing through)
+  T2 model guy3 left hand at [0.25,0.47,0.4]: nearest own body part left knee 0.18u away; nearest other thing T5 model gal2 0u away (inside its box: touching or passing through)
+  T5 model gal2 right hand at [0.32,0.4,0.39]: nearest own body part right knee 0.09u away; nearest other thing T2 model guy3 0u away (inside its box: touching or passing through)
+  T5 model gal2 left hand at [0.24,0.39,0.19]: nearest own body part left knee 0.1u away; nearest other thing T2 model guy3 0u away (inside its box: touching or passing through)
+  T2 model guy3 right hand is AT T5 model gal2's LowerArmL (0.02u): touching or passing through; make sure the plan wants this
+  T2 model guy3 left forearm is AT T5 model gal2's LowerArmR (0.01u): touching or passing through; make sure the plan wants this
+  T5 model gal2 right forearm is AT T2 model guy3's FistL (0.01u): touching or passing through; make sure the plan wants this
+  T5 model gal2 left forearm is AT T2 model guy3's FistR (0.01u): touching or passing through; make sure the plan wants this
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy3: 85% visible (9% behind other things (props, labels), 6% behind T5 model gal2)
+  T5 model gal2: 88% visible (8% behind other things (props, labels), 4% behind T2 model guy3)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  - T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  - T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.11u)
+  - T5 model gal2: FLOATS ABOVE T1 model rowboat (gap 0.05u)
+  - T2 model guy3 right hand is AT T5 model gal2's LowerArmL (0.02u): touching or passing through; make sure the plan wants this
+  - T2 model guy3 left forearm is AT T5 model gal2's LowerArmR (0.01u): touching or passing through; make sure the plan wants this
+  - T5 model gal2 right forearm is AT T2 model guy3's FistL (0.01u): touching or passing through; make sure the plan wants this
+  - T5 model gal2 left forearm is AT T2 model guy3's FistR (0.01u): touching or passing through; make sure the plan wants this
+
+## t+6 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model rowboat: size 0.99 x 0.29 x 0.6, centre [1.26, 0.11, 0.3], bottom -0.03, top 0.25
+  T2 model guy3: size 0.44 x 0.72 x 0.39, centre [1.28, 0.54, 0.29], bottom 0.18, top 0.9
+  T3 model paddle: size 0.32 x 0.63 x 0.79, centre [1.25, 0.27, -0.13], bottom -0.05, top 0.58
+  T4 model paddle: size 0.32 x 0.65 x 0.77, centre [1.25, 0.25, 0.74], bottom -0.07, top 0.58
+  T5 model gal2: size 0.34 x 0.75 x 0.29, centre [0.96, 5.97, -3.71], bottom 5.59, top 6.34
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model rowboat: touches the ground line (bottom of the kanji)
+  T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  T3 model paddle: touches the ground line (bottom of the kanji)
+  T4 model paddle: touches the ground line (bottom of the kanji)
+  T5 model gal2: is high in the air above the ground line (bottom of the kanji) (gap 5.59u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy3 right hand at [1.13,0.55,0.17]: nearest own body part right shoulder 0.17u away; nearest other thing T3 model paddle 0u away (inside its box: touching or passing through)
+  T2 model guy3 left hand at [1.14,0.53,0.44]: nearest own body part left shoulder 0.17u away; nearest other thing T4 model paddle 0u away (inside its box: touching or passing through)
+  T5 model gal2 right hand at [0.95,5.81,-3.61]: nearest own body part hips 0.12u away; nearest other thing T3 model paddle 6.07u away
+  T5 model gal2 left hand at [0.99,5.82,-3.82]: nearest own body part hips 0.1u away; nearest other thing T3 model paddle 6.19u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy3: 88% visible (12% behind other things (props, labels))
+  T5 model gal2: not in this view at all
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+
+## t+6.25 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model rowboat: size 0.99 x 0.28 x 0.59, centre [1.26, 0.11, 0.3], bottom -0.03, top 0.24
+  T2 model guy3: size 0.44 x 0.72 x 0.35, centre [1.26, 0.54, 0.29], bottom 0.18, top 0.9
+  T3 model paddle: size 0.45 x 0.37 x 0.83, centre [1.27, 0.27, -0.16], bottom 0.09, top 0.45
+  T4 model paddle: size 0.45 x 0.38 x 0.83, centre [1.27, 0.26, 0.76], bottom 0.07, top 0.45
+  T5 model gal2: size 0.39 x 0.72 x 0.3, centre [1.27, 2.55, -1.2], bottom 2.19, top 2.91
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model rowboat: touches the ground line (bottom of the kanji)
+  T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.09u)
+  T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.07u)
+  T5 model gal2: is high in the air above the ground line (bottom of the kanji) (gap 2.19u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy3 right hand at [1.12,0.45,0.17]: nearest own body part right knee 0.14u away; nearest other thing T3 model paddle 0u away
+  T2 model guy3 left hand at [1.13,0.44,0.42]: nearest own body part left knee 0.15u away; nearest other thing T4 model paddle 0u away (inside its box: touching or passing through)
+  T5 model gal2 right hand at [1.13,2.4,-1.12]: nearest own body part hips 0.17u away; nearest other thing T2 model guy3 1.95u away
+  T5 model gal2 left hand at [1.39,2.42,-1.31]: nearest own body part hips 0.16u away; nearest other thing T2 model guy3 2.08u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy3: 89% visible (11% behind other things (props, labels))
+  T5 model gal2: 100% visible; only 35% of it inside the picture
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  - T3 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.09u)
+  - T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.07u)
+  - T5 model gal2: 100% visible; only 35% of it inside the picture
+
+## t+7 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model rowboat: size 0.99 x 0.28 x 0.59, centre [1.26, 0.11, 0.3], bottom -0.03, top 0.26
+  T2 model guy3: size 0.45 x 0.72 x 0.39, centre [1.3, 0.54, 0.27], bottom 0.18, top 0.9
+  T3 model paddle: size 0.3 x 0.66 x 0.78, centre [1.26, 0.25, -0.14], bottom -0.08, top 0.58
+  T4 model paddle: size 0.3 x 0.64 x 0.79, centre [1.26, 0.27, 0.74], bottom -0.05, top 0.59
+  T5 model gal2: size 0.33 x 0.75 x 0.37, centre [1.52, 0.44, 0.36], bottom 0.07, top 0.82
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model rowboat: touches the ground line (bottom of the kanji)
+  T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  T3 model paddle: touches the ground line (bottom of the kanji)
+  T4 model paddle: touches the ground line (bottom of the kanji)
+  T5 model gal2: SUNK INTO T1 model rowboat (gap -0.07u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model guy3 right hand at [1.15,0.55,0.15]: nearest own body part right shoulder 0.18u away; nearest other thing T3 model paddle 0u away (inside its box: touching or passing through)
+  T2 model guy3 left hand at [1.16,0.54,0.42]: nearest own body part left shoulder 0.18u away; nearest other thing T4 model paddle 0u away (inside its box: touching or passing through)
+  T5 model gal2 right hand at [1.51,0.28,0.21]: nearest own body part right knee 0.11u away; nearest other thing T2 model guy3 0u away (inside its box: touching or passing through)
+  T5 model gal2 left hand at [1.42,0.69,0.5]: nearest own body part head (middle) 0.19u away; nearest other thing T2 model guy3 0.03u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T2 model guy3: 77% visible (12% behind other things (props, labels), 10% behind T5 model gal2)
+  T5 model gal2: 72% visible (19% behind other things (props, labels), 9% behind T2 model guy3)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u)
+  - T5 model gal2: SUNK INTO T1 model rowboat (gap -0.07u)
+  - T2 model guy3: 77% visible (12% behind other things (props, labels), 10% behind T5 model gal2)
+  - T5 model gal2: 72% visible (19% behind other things (props, labels), 9% behind T2 model guy3)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/012-watasu-ferry/overview.jpg
+    1. the whole scene from front, t+0.5 (t0.5-scene-front.jpg)
+    2. the whole scene from right, t+0.5 (t0.5-scene-right.jpg)
+    3. what the learner sees, t+0.5 (t0.5-learner.jpg)
+    4. the whole scene from front, t+3.5 (t3.5-scene-front.jpg)
+    5. the whole scene from right, t+3.5 (t3.5-scene-right.jpg)
+    6. what the learner sees, t+3.5 (t3.5-learner.jpg)
+    7. the whole scene from front, t+6 (t6-scene-front.jpg)
+    8. the whole scene from right, t+6 (t6-scene-right.jpg)
+    9. what the learner sees, t+6 (t6-learner.jpg)
+    10. the whole scene from front, t+7 (t7-scene-front.jpg)
+    11. the whole scene from right, t+7 (t7-scene-right.jpg)
+    12. what the learner sees, t+7 (t7-learner.jpg)
+  plans/qwen/renders/012-watasu-ferry/faults.jpg
+    1. fault 1 from front (t+0.5): T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u) (fault1-front-t0.5.jpg)
+    2. fault 1 from right (t+0.5): T2 model guy3: FLOATS ABOVE T1 model rowboat (gap 0.04u) (fault1-right-t0.5.jpg)
+    3. fault 2 from front (t+3.5): T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.11u) (fault2-front-t3.5.jpg)
+    4. fault 2 from right (t+3.5): T4 model paddle: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.11u) (fault2-right-t3.5.jpg)
+    5. fault 3 (t+1.5): the kanji: 77% visible (10% behind other things (props, labels), 8% behind T2 model guy3, 5% behind T5 model gal2) (fault3-seat-t1.5.jpg)
+    6. fault 4 (t+6.25): T5 model gal2: 100% visible; only 35% of it inside the picture (fault4-seat-t6.25.jpg)
+    7. fault 5 from front (t+1.5): T5 model gal2: FLOATS ABOVE T1 model rowboat (gap 0.11u) (fault5-front-t1.5.jpg)
+    8. fault 5 from right (t+1.5): T5 model gal2: FLOATS ABOVE T1 model rowboat (gap 0.11u) (fault5-right-t1.5.jpg)
+    9. fault 6 from front (t+1.5): T2 model guy3 right hand is AT T5 model gal2's LowerArmL (0.04u): touching or passing through; make sure the plan wants this (fault6-front-t1.5.jpg)
+    10. fault 6 from right (t+1.5): T2 model guy3 right hand is AT T5 model gal2's LowerArmL (0.04u): touching or passing through; make sure the plan wants this (fault6-right-t1.5.jpg)
+    11. fault 7 from front (t+1.5): T2 model guy3 left forearm is AT T5 model gal2's FistR (0.02u): touching or passing through; make sure the plan wants this (fault7-front-t1.5.jpg)
+    12. fault 7 from right (t+1.5): T2 model guy3 left forearm is AT T5 model gal2's FistR (0.02u): touching or passing through; make sure the plan wants this (fault7-right-t1.5.jpg)
+  plans/qwen/renders/012-watasu-ferry/faults-2.jpg
+    13. fault 8 from front (t+1.5): T5 model gal2 right forearm is AT T2 model guy3's FistL (0.01u): touching or passing through; make sure the plan wants this (fault8-front-t1.5.jpg)
+    14. fault 8 from right (t+1.5): T5 model gal2 right forearm is AT T2 model guy3's FistL (0.01u): touching or passing through; make sure the plan wants this (fault8-right-t1.5.jpg)
+    15. fault 9 from front (t+1.5): T5 model gal2 left forearm is AT T2 model guy3's FistR (0.01u): touching or passing through; make sure the plan wants this (fault9-front-t1.5.jpg)
+    16. fault 9 from right (t+1.5): T5 model gal2 left forearm is AT T2 model guy3's FistR (0.01u): touching or passing through; make sure the plan wants this (fault9-right-t1.5.jpg)
+    17. fault 10 from front (t+1.75): T2 model guy3 left hand is AT T5 model gal2's UpperArmR (0.04u): touching or passing through; make sure the plan wants this (fault10-front-t1.75.jpg)
+    18. fault 10 from right (t+1.75): T2 model guy3 left hand is AT T5 model gal2's UpperArmR (0.04u): touching or passing through; make sure the plan wants this (fault10-right-t1.75.jpg)
+    19. fault 11 from front (t+1.75): T5 model gal2 right upper arm is AT T2 model guy3's FistL (0.03u): touching or passing through; make sure the plan wants this (fault11-front-t1.75.jpg)
+    20. fault 11 from right (t+1.75): T5 model gal2 right upper arm is AT T2 model guy3's FistL (0.03u): touching or passing through; make sure the plan wants this (fault11-right-t1.75.jpg)
+    21. fault 12 from front (t+1.75): T5 model gal2 left upper arm is AT T2 model guy3's FistR (0.04u): touching or passing through; make sure the plan wants this (fault12-front-t1.75.jpg)
+    22. fault 12 from right (t+1.75): T5 model gal2 left upper arm is AT T2 model guy3's FistR (0.04u): touching or passing through; make sure the plan wants this (fault12-right-t1.75.jpg)
+    23. fault 13 from front (t+2.25): T2 model guy3 left hand is AT T5 model gal2's FistR (0.03u): touching or passing through; make sure the plan wants this (fault13-front-t2.25.jpg)
+    24. fault 13 from right (t+2.25): T2 model guy3 left hand is AT T5 model gal2's FistR (0.03u): touching or passing through; make sure the plan wants this (fault13-right-t2.25.jpg)
+  plans/qwen/renders/012-watasu-ferry/faults-3.jpg
+    25. fault 14 from front (t+3.5): T2 model guy3 left forearm is AT T5 model gal2's LowerArmR (0.01u): touching or passing through; make sure the plan wants this (fault14-front-t3.5.jpg)
+    26. fault 14 from right (t+3.5): T2 model guy3 left forearm is AT T5 model gal2's LowerArmR (0.01u): touching or passing through; make sure the plan wants this (fault14-right-t3.5.jpg)
+    27. fault 15 from front (t+2.75): T2 model guy3 right hand is AT T5 model gal2's UpperArmL (0.04u): touching or passing through; make sure the plan wants this (fault15-front-t2.75.jpg)
+    28. fault 15 from right (t+2.75): T2 model guy3 right hand is AT T5 model gal2's UpperArmL (0.04u): touching or passing through; make sure the plan wants this (fault15-right-t2.75.jpg)
+    29. fault 16 (t+7): T2 model guy3: 77% visible (12% behind other things (props, labels), 10% behind T5 model gal2) (fault16-seat-t7.jpg)
+    30. fault 17 from front (t+5.75): T2 model guy3 left hand is AT T5 model gal2's LowerArmR (0.02u): touching or passing through; make sure the plan wants this (fault17-front-t5.75.jpg)
+    31. fault 17 from right (t+5.75): T2 model guy3 left hand is AT T5 model gal2's LowerArmR (0.02u): touching or passing through; make sure the plan wants this (fault17-right-t5.75.jpg)
+    32. fault 18 from front (t+5.75): T5 model gal2 right upper arm is AT T4 model paddle (0.01u): touching or passing through; make sure the plan wants this (fault18-front-t5.75.jpg)
+    33. fault 18 from right (t+5.75): T5 model gal2 right upper arm is AT T4 model paddle (0.01u): touching or passing through; make sure the plan wants this (fault18-right-t5.75.jpg)
+    34. fault 19 from front (t+6.5): T1 model rowboat: SUNK INTO the ground line (bottom of the kanji) (gap -0.03u) (fault19-front-t6.5.jpg)
+    35. fault 19 from right (t+6.5): T1 model rowboat: SUNK INTO the ground line (bottom of the kanji) (gap -0.03u) (fault19-right-t6.5.jpg)
+    36. fault 20 from front (t+7): T5 model gal2: SUNK INTO T1 model rowboat (gap -0.07u) (fault20-front-t7.jpg)
+  plans/qwen/renders/012-watasu-ferry/faults-4.jpg
+    37. fault 20 from right (t+7): T5 model gal2: SUNK INTO T1 model rowboat (gap -0.07u) (fault20-right-t7.jpg)
+    38. fault 21 from front (t+6.5): T5 model gal2 right upper arm is AT T2 model guy3's Abdomen (0.04u): touching or passing through; make sure the plan wants this (fault21-front-t6.5.jpg)
+    39. fault 21 from right (t+6.5): T5 model gal2 right upper arm is AT T2 model guy3's Abdomen (0.04u): touching or passing through; make sure the plan wants this (fault21-right-t6.5.jpg)
+  plans/qwen/renders/012-watasu-ferry/people.jpg
+    1. T2 guy3 close, from front (t+0.5) (guy3-front-t0.5.jpg)
+    2. T2 guy3 close, from right (t+0.5) (guy3-right-t0.5.jpg)
+    3. T5 gal2 close, from front (t+1.5) (gal2-front-t1.5.jpg)
+    4. T5 gal2 close, from right (t+1.5) (gal2-right-t1.5.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs w1444610 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
