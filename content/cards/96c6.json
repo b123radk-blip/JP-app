@@ -1,0 +1,19 @@
+{
+  "id": "96c6",
+  "kanji": "集",
+  "meaning": "gather; meet",
+  "primaryReading": "あつ",
+  "readings": { "kun": ["あつ(まる)", "あつ(める)", "つど(う)"], "on": ["シュウ"] },
+  "mnemonic": "Birds (隹) flocking down onto a tree (木): gather.",
+  "effect": { "material": "wood", "backdrop": "sky:day", "emblem": "bird", "parts": { "木": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "集合", "reading": "しゅうごう" }, { "text": "場所", "reading": "ばしょ" }, { "text": "はどこですか？" } ],
+      "en": "Where will we meet?",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "tatoeba": [148104, 22448] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

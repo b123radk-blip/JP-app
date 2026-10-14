@@ -11,9 +11,9 @@ JTalk agree), but no person has confirmed them yet. Per row:
 Report problems by card id (the code in the Card column). To confirm a row yourself, set `"needsNativeReview": false`
 on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 
-**Waiting:** 835 sentence(s). **Confirmed:** 0.
+**Waiting:** 838 sentence(s). **Confirmed:** 0.
 
-## N5 (835 cards)
+## N5 (838 cards)
 
 | # | Card | Readings | Meaning | Sentence | English | Source |
 |---|---|---|---|---|---|---|
@@ -852,3 +852,6 @@ on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 | 833 | 授業 `w1330290` | じゅぎょう (授 じゅ · 業 ぎょう) | lesson; class | <ruby>今日<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>の<ruby>授業<rp>(</rp><rt>じゅぎょう</rt><rp>)</rp></ruby>はこれまで。 | So much for today's lesson. | [Tatoeba 171894](https://tatoeba.org/en/sentences/show/171894) |
 | 834 | 平仮名 `w1507090` | ひらがな (平 ひら · 仮 が · 名 な) | hiragana | <ruby>平仮名<rp>(</rp><rt>ひらがな</rt><rp>)</rp></ruby>はやさしいです。 | Hiragana is easy. | written for the app |
 | 835 | テープレコーダー `w1078810` | テープレコーダー | tape recorder | このテープレコーダーは<ruby>新<rp>(</rp><rt>あたら</rt><rp>)</rp></ruby>しくない。 | This tape recorder is not new. | [Tatoeba 223518](https://tatoeba.org/en/sentences/show/223518) |
+| 836 | 集 `96c6` | **あつ** · kun あつ(まる)、あつ(める)、つど(う) · on シュウ | gather; meet | <ruby>集合<rp>(</rp><rt>しゅうごう</rt><rp>)</rp></ruby><ruby>場所<rp>(</rp><rt>ばしょ</rt><rp>)</rp></ruby>はどこですか？ | Where will we meet? | [Tatoeba 148104](https://tatoeba.org/en/sentences/show/148104) |
+| 837 | 注 `6ce8` | **ちゅう** · kun そそ(ぐ)、さ(す)、つ(ぐ) · on チュウ | pour; notes | そのページの<ruby>下<rp>(</rp><rt>した</rt><rp>)</rp></ruby>の<ruby>注<rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby>を<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>みなさい。 | Read the note at the bottom of the page. | [Tatoeba 212656](https://tatoeba.org/en/sentences/show/212656) |
+| 838 | 送 `9001` | **おく** · kun おく(る) · on ソウ | escort; send | じゃあ、<ruby>送<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>っていこうか。 | Would you like me to see you home? | [Tatoeba 215909](https://tatoeba.org/en/sentences/show/215909) |

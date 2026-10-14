@@ -2598,5 +2598,45 @@
     "軍": {}
    }
   }
+ },
+ "集": {
+  "group": "actions",
+  "meaning": "gather; meet",
+  "mnemonic": "Birds (隹) flocking down onto a tree (木): gather.",
+  "effect": {
+   "material": "wood",
+   "backdrop": "sky:day",
+   "emblem": "bird",
+   "parts": {
+    "木": {}
+   }
+  }
+ },
+ "注": {
+  "group": "actions",
+  "meaning": "pour; notes",
+  "mnemonic": "Water (氵) poured out by the master (主) of the house: pour.",
+  "effect": {
+   "material": "water",
+   "backdrop": "sky:morning",
+   "emblem": "cup",
+   "parts": {
+    "氵": {}
+   }
+  }
+ },
+ "送": {
+  "group": "actions",
+  "meaning": "escort; send",
+  "mnemonic": "Off along the road (⻌) it goes: send, see someone off.",
+  "effect": {
+   "material": "rose",
+   "backdrop": "sky:day",
+   "emblem": "letter",
+   "motion": {
+    "type": "drift",
+    "dir": "right"
+   }
+  }
  }
 }

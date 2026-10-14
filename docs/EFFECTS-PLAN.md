@@ -245,6 +245,9 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 飛 | actions | cloud | draw | wind | sky:day | fly | bird | — | Two wings beating as it lifts off: fly. |
 | 張 | actions | rose | draw | — | sky:day | stretch:x | — | 弓=glow:wood | A bowstring (弓) pulled long (長): stretch, try hard (頑張る). |
 | 運 | actions | silver | draw | — | sky:day + road | drift:right | car | 軍 | An army (軍) on the march (⻌) carrying its supplies: carry, transport; luck. |
+| 集 | actions | wood | draw | — | sky:day | none | bird | 木 | Birds (隹) flocking down onto a tree (木): gather. |
+| 注 | actions | water | draw | — | sky:morning | none | cup | 氵 | Water (氵) poured out by the master (主) of the house: pour. |
+| 送 | actions | rose | draw | — | sky:day | drift:right | letter | — | Off along the road (⻌) it goes: send, see someone off. |
 
 #### Time
 

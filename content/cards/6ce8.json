@@ -1,0 +1,19 @@
+{
+  "id": "6ce8",
+  "kanji": "注",
+  "meaning": "pour; notes",
+  "primaryReading": "ちゅう",
+  "readings": { "kun": ["そそ(ぐ)", "さ(す)", "つ(ぐ)"], "on": ["チュウ"] },
+  "mnemonic": "Water (氵) poured out by the master (主) of the house: pour.",
+  "effect": { "material": "water", "backdrop": "sky:morning", "emblem": "cup", "parts": { "氵": {} } },
+  "sentences": [
+    {
+      "segments": [ { "text": "そのページの" }, { "text": "下", "reading": "した" }, { "text": "の" }, { "text": "注", "reading": "ちゅう" }, { "text": "を" }, { "text": "読", "reading": "よ" }, { "text": "みなさい。" } ],
+      "en": "Read the note at the bottom of the page.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "tatoeba": [212656, 49938] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}
