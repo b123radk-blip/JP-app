@@ -10,4 +10,5 @@ export const HB = {
   'q-seesaw': VM(pdc('gal2', 'guy2') + 6, '遊 (gal2, guy2): two children go up and down on a seesaw, both hands on the handle; the one on top raises an arm and stars pop over the head; わーい!', ['gal2', 'guy2']),
   'q-shape-sorter': VM(11, 'a girl with a shape-sorter box: the square block bumps on the round hole (red cross), then drops into the square hole (green tick, stars, she cheers)', ['gal2']),
   'q-forgot-umbrella': VM(pdc('gal2') + 7, '忘 (gal2): a girl steps out of her front door, walks off, rain starts and a thought bubble shows her umbrella; she slaps her forehead (あっ!), hurries back to the umbrella stand, lifts the umbrella over her head and it opens in the rain', ['gal2']),
+  'q-pick-cake': VM(pdc('gal2') + 8, '決 (models): a girl cannot choose between two cakes: a big question mark over her head, her hand hovers over one and the other; then an exclamation mark, she taps the chocolate one, a green tick pops over it, she pulls it toward her, and a heart pops up', ['gal2']),
 };
