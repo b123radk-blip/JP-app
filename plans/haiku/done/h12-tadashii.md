@@ -67,3 +67,9 @@ POSSIBLE FAULTS lines:
 7. full, final (`--times 0.3,1.5,3.3,4`): Goals 9 of 10 PASS; the girl visibility goal is the only FAIL.
 
 Orbit render: `node scripts/orbit.mjs 6b63 --times 1.5,4 --out plans/haiku/renders/h12-tadashii.jpg` (exit 0).
+
+## Round 2 (Opus layout: lower tilted box, girl beside it)
+- Box 0.45 x 0.12 x 0.3u at x 0.85, z 0.05, tilted 20 degrees about x (top faces the learner). Red ring round the round hole (left, 0.11 across), blue frame round the square hole (right). Cube 0.1u, blue, same blue as the frame. Cross and tick 0.28u at (0.85, 0.6, 0.05). Girl at x 1.22, z 0.05, turned to the box and 0.4 rad toward the learner; her right hand reaches the holes with IK (no box move needed).
+- Grip/hold radius went to 0.07u (cube half-width 0.05u plus a gap).
+- Quick run: Goals 10 of 10 PASS. Full run (`--times 0.3,1.5,3.3,4`): Goals 10 of 10 PASS; the only POSSIBLE FAULT is the cube sunk into the box at t+3.3 (intended: it drops in and is hidden from 3.4).
+- Orbit render regenerated (`plans/haiku/renders/h12-tadashii.jpg`). A thin dark line hangs below the scene in the right-side and back-left tiles; I did not find its source.
