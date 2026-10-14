@@ -5,6 +5,7 @@ const actorOf = (o) => o.who ?? (o.outcome === 'open' ? 'kimono' : 'kimonoMan');
 const RUN3 = ['gal2', 'guy', 'guy3'], POD3 = ['guy2', 'gal', 'guy3'], KIDS5 = ['guy2', 'gal2', 'guy3', 'gal', 'guy'];
 
 export const Q5B = {
+  'q-jug-pour': VM(pdc('gal2') + 6, '注 (models): a girl tips a big jug of water and pours a clear blue stream into a tall glass on a little table; the water rises until the glass is full, she stops, sparkles and smiles; then she lowers the jug and the water drains away', ['gal2']),
   'q-race-win': VM(pdc(...RUN3) + 6, '一番 (models): three runners race toward you down a track; the first breaks the finish tape, throws her arms up (Victory) and a gold 1 medal pops over her head; the other two arrive and pant, hands on knees', RUN3),
   'q-podium-win': VM(pdc(...POD3) + 7, '最 (models): three children hop up onto a podium (2 1 3); each gets a trophy, small, medium and, for the winner on the top step, a huge one that he lifts over his head while the other two clap', POD3),
   'q-race-start': VM(pdc('gal3', 'guy2') + 6, '始 (models): two runners lean ready at the start line (よーい…); the flag drops (ドン!) and they dash off in a puff of dust', ['gal3', 'guy2']),
