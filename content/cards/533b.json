@@ -16,7 +16,10 @@
  "mnemonic": "An arrow (矢) stuck in a box (匚): call the doctor to pull it out.",
  "effect": {
   "material": "pearl",
-  "backdrop": "sky:day"
+  "backdrop": "sky:day",
+  "vignette": {
+   "type": "q-doctor-checkup"
+  }
  },
  "sentences": [
   {
