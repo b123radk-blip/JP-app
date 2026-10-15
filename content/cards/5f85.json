@@ -15,7 +15,10 @@
  "mnemonic": "Steps (彳) stop at the temple (寺): wait your turn.",
  "effect": {
   "material": "stone",
-  "backdrop": "sky:day"
+  "backdrop": "sky:day",
+  "vignette": {
+   "type": "q-wait-friend"
+  }
  },
  "sentences": [
   {
