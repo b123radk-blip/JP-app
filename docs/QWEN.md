@@ -52,6 +52,19 @@ list-price estimate, not a charge; how much of your plan's allowance it used isn
 The watcher only touches the Qwen branch and skips its turn if the folder has uncommitted changes. For VOICEVOX
 work, stop it first and switch back: `git checkout claude/kanji-3d-galaxy-xr-uoi522`, then `git pull`.
 
+## Qwen's tools in pi
+
+`scripts/pi/jp-tools.ts` is a pi extension that gives Qwen three tools, so it gets exact numbers instead of reading long
+reports or guessing: `check_goals` (the goals PASS / FAIL and the whole-loop faults, ~8 s), `measure` (sizes and body
+points such as hands and feet at a moment, in u, ~6 s) and `try_value` (tries an exact-text edit against the goals and
+puts the file back, ~15 s). They run `scripts/qtool.mjs`, which works on its own too (`node scripts/qtool.mjs` lists its
+commands). `plans/qwen/CHEATSHEET.md` explains them and the scene kit; the watcher points Qwen at it with every plan.
+
+The watcher loads the extension by itself (`pi --extension scripts/pi/jp-tools.ts`). It sits outside `.pi/`, so pi's
+project-trust question never comes up. To use the tools in your own pi chat in this folder, start pi the same way:
+`pi --extension scripts/pi/jp-tools.ts`. Tested with pi 1.3.0; the extension imports nothing from pi, so other versions
+should load it too.
+
 ## Where the time goes
 
 The watcher keeps pi's full session for each plan in `.cache/pi-sessions/<plan>/` (not committed: it holds the
