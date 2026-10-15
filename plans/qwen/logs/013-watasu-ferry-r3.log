@@ -1,0 +1,19 @@
+pi exit 0 after 1.8 min
+
+Done. Round 3 summary:
+
+**What the "failure" actually is** — not the scene, but the watcher's own check:
+- `check()` in `scripts/qwen-watch.mjs` runs `spawn(process.execPath, ['scripts/inspect.mjs', ...], { shell: true })`. On this PC `process.execPath` is `C:\Program Files\nodejs\node.exe`; the unquoted space makes cmd.exe read `C:\Program` → `'C:\Program' is not recognized`, exit 1. I reproduced it in isolation (exact same error, code 1).
+- The loop file shows this failed identically in rounds 1 **and** 2 — the watcher has never successfully measured this plan's goals. The round-2 17/17 came from my own direct inspect run.
+- `npm test` passed from the same watcher only because its command is bare `npm` (no space in the path).
+
+**Why I didn't patch it**: `scripts/qwen-watch.mjs` is on the watcher's own `PROTECTED` list (guard would check it back out), and the plan authorizes only `q-ferry.js` and the catalog line. The report contains the exact one-line fix for Brad/Opus: quote the command in `run()` when it contains a space (`spawn(cmd.includes(' ') ? `"${cmd}"` : cmd, args, { shell: WIN, ... })` — safe since args are documented space-free).
+
+**Scene state**: no change needed — all 17 goals PASS, fault list line-for-line identical to round 2 (all previously judged by plan design).
+
+**Checks re-run this round** (all real, pasted in the report):
+- `node --check` clean · `npm test` pass · cost check `0 cost mismatches`
+- full inspect with goals → **exit 0, `## Goals: 17 of 17 PASS`** (real lines in the report)
+- orbit re-render byte-identical (deterministic scene); the only open visual is still the baked-in red oar in the Kenney hull (needs a re-prepped model, not a scene fix)
+
+**Committed**: `cb01ca6 Qwen: 013-watasu-ferry round 3` (the report with its `## Round 3` section; no scene code changed, so nothing else to commit). Not pushed.
