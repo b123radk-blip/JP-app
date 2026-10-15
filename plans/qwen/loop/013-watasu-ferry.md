@@ -14,3 +14,4 @@ Watcher's checks: npm test passed; inspect gave no Goals result (exit 1)
 ## Round 4: Qwen fixes
 pi: 0 after 1.8 min.
 Watcher's checks: npm test passed; inspect gave no Goals result (exit 1)
+## Outcome: NOT DONE: 4 Qwen rounds used (47.7 min, 0 Opus calls)
