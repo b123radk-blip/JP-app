@@ -1,0 +1,295 @@
+# Inspection of card w1444610
+
+## Goals: 17 of 17 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the boat touches the far bank when she gets in (t+0 to t+1.8): 4 moments, e.g. t+0: 0u apart (needs ≤ 0.03)
+  PASS the boat touches the near bank when she gets out (t+5 to t+6.4): 4 moments, e.g. t+5: 0u apart (needs ≤ 0.03)
+  PASS she stands on the far bank first (t+0 to t+0.9): 2 moments, e.g. t+0: gal2: touches T1 mesh far bank (green #6ab04c)
+  PASS she sits in the boat while it crosses (t+1.8 to t+5): 8 moments, e.g. t+2: 0u apart (needs ≤ 0.03)
+  PASS she stands on the near bank after (t+5.9 to t+6.6): 3 moments, e.g. t+6: gal2: touches T3 mesh near bank (green #6ab04c)
+  PASS the ferryman stands in the boat: 19 moments, e.g. t+0: guy3: touches T4 model rowboat
+  PASS his right hand is on the pole: 19 moments, e.g. t+0: 0.04u apart (needs ≤ 0.04)
+  PASS his left hand is on the pole: 19 moments, e.g. t+0: 0.02u apart (needs ≤ 0.04)
+  PASS the pole reaches the water while he poles (t+1.8 to t+5): 8 moments, e.g. t+2: 0.01u apart (needs ≤ 0.02)
+  PASS the learner sees her on the far bank (t+0 to t+0.9): 2 moments, e.g. t+0: 99% visible (needs ≥ 85)
+  PASS the learner sees her in the boat (t+1.8 to t+5): 8 moments, e.g. t+2: 99% visible (needs ≥ 65)
+  PASS the learner sees her on the near bank (t+5.9 to t+6.6): 3 moments, e.g. t+6: 98% visible (needs ≥ 85)
+  PASS the learner sees the ferryman (after she has sat down) (t+1.8 to t+8.5): 15 moments, e.g. t+2: 79% visible (needs ≥ 70)
+  PASS the boat is big enough: 19 moments, e.g. t+0: shows 21% as big as the kanji (needs ≥ 12)
+  PASS the river is seen from above: 19 moments, e.g. t+0: its top is turned 19° toward you (needs ≥ 15)
+  PASS nothing passes through her: 19 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through him: 19 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.5 s from t+0 to t+8 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+2, t+5 to t+6.5 (worst at t+0): mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  - t+0 to t+8 (worst at t+0): mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  - t+0 to t+1.5, t+2.5, t+3.5 to t+6, t+7 to t+8 (worst at t+1): mesh pole (brown #8a5a30): SUNK INTO model rowboat (gap -0.1u)
+  - t+2, t+3, t+6.5 (worst at t+2): mesh pole (brown #8a5a30): FLOATS ABOVE mesh river (blue #2f8fe0) (gap 0.05u)
+  - t+2 to t+5 (worst at t+2): model gal2: SUNK INTO model rowboat (gap -0.03u)
+  - t+2 to t+5 (worst at t+3.5): model guy3: 76% visible (24% behind model gal2); shows 11% as big as the kanji
+  - t+2.5 to t+4.5, t+7 to t+8 (worst at t+2.5): mesh river (blue #2f8fe0): SUNK INTO model rowboat (gap -0.38u)
+  - t+4 to t+4.5, t+7.5 (worst at t+4): model rowboat PASSES INTO mesh river (blue #2f8fe0): 6 skin points inside it
+
+## t+0.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh far bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.76, -0.99], bottom 0.67, top 0.85
+  T2 mesh river (blue #2f8fe0): size 0.95 x 0.55 x 1.09, centre [0.5, 0.38, -0.24], bottom 0.1, top 0.66
+  T3 mesh near bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.03, 0.51], bottom -0.07, top 0.12
+  T4 model rowboat: size 0.4 x 0.4 x 0.64, centre [0.58, 0.55, -0.52], bottom 0.35, top 0.75
+  T5 mesh pole (brown #8a5a30): size 0.02 x 0.75 x 0.02, centre [0.68, 1.04, -0.8], bottom 0.66, top 1.41
+  T6 model guy3: size 0.19 x 0.47 x 0.16, centre [0.58, 0.98, -0.77], bottom 0.75, top 1.22
+  T7 model gal2: size 0.18 x 0.44 x 0.2, centre [0.27, 1.01, -1.04], bottom 0.79, top 1.23
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh far bank (green #6ab04c): is high in the air above the ground line (bottom of the kanji) (gap 0.67u)
+  T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  T4 model rowboat: touches T2 mesh river (blue #2f8fe0)
+  T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.09u)
+  T6 model guy3: touches T4 model rowboat
+  T7 model gal2: touches T1 mesh far bank (green #6ab04c)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model guy3 right hand at [0.63,1.1,-0.79]: nearest own body part left shoulder 0.08u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.04u away
+  T6 model guy3 left hand at [0.65,0.98,-0.8]: nearest own body part left shoulder 0.07u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.02u away
+  T7 model gal2 right hand at [0.2,0.92,-1.03]: nearest own body part right knee 0.06u away; nearest other thing T1 mesh far bank (green #6ab04c) 0.07u away
+  T7 model gal2 left hand at [0.34,0.92,-1.03]: nearest own body part left knee 0.06u away; nearest other thing T1 mesh far bank (green #6ab04c) 0.07u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T6 model guy3: 100% visible; shows 11% as big as the kanji
+  T7 model gal2: 99% visible (1% behind the far bank); shows 10% as big as the kanji
+  the near bank (1 piece): 100% visible; shows 56% as big as the kanji; its top turned 22° toward you (0 = edge-on, 90 = facing you)
+  the far bank (1 piece): 60% visible (27% behind the rowboat, 9% behind the kanji, 2% behind T6 model guy3, 2% behind T7 model gal2); shows 15% as big as the kanji; its top turned 16° toward you (0 = edge-on, 90 = facing you)
+  the rowboat (1 piece): 76% visible (24% behind the river); shows 21% as big as the kanji; its top turned 18° toward you (0 = edge-on, 90 = facing you)
+  the river (1 piece): 81% visible (13% behind the rowboat, 6% behind the near bank); shows 86% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the pole (5 pieces): not in this view at all; its top turned -12° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  - T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  - T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.09u)
+
+## t+2 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh far bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.76, -0.99], bottom 0.67, top 0.85
+  T2 mesh river (blue #2f8fe0): size 0.95 x 0.55 x 1.09, centre [0.5, 0.38, -0.24], bottom 0.1, top 0.66
+  T3 mesh near bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.03, 0.51], bottom -0.07, top 0.12
+  T4 model rowboat: size 0.4 x 0.4 x 0.64, centre [0.58, 0.56, -0.51], bottom 0.36, top 0.76
+  T5 mesh pole (brown #8a5a30): size 0.02 x 0.72 x 0.23, centre [0.68, 1.02, -0.69], bottom 0.66, top 1.38
+  T6 model guy3: size 0.21 x 0.47 x 0.17, centre [0.59, 0.98, -0.72], bottom 0.75, top 1.22
+  T7 model gal2: size 0.19 x 0.39 x 0.26, centre [0.45, 0.74, -0.49], bottom 0.54, top 0.93
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh far bank (green #6ab04c): is high in the air above the ground line (bottom of the kanji) (gap 0.67u)
+  T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  T4 model rowboat: touches T2 mesh river (blue #2f8fe0)
+  T5 mesh pole (brown #8a5a30): FLOATS ABOVE T2 mesh river (blue #2f8fe0) (gap 0.05u)
+  T6 model guy3: touches T4 model rowboat
+  T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model guy3 right hand at [0.63,1.08,-0.7]: nearest own body part left shoulder 0.08u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.04u away
+  T6 model guy3 left hand at [0.66,0.97,-0.74]: nearest own body part left shoulder 0.07u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.01u away
+  T7 model gal2 right hand at [0.38,0.66,-0.41]: nearest own body part right knee 0.05u away; nearest other thing T4 model rowboat 0u away (inside its box: touching or passing through)
+  T7 model gal2 left hand at [0.5,0.66,-0.46]: nearest own body part left knee 0.06u away; nearest other thing T4 model rowboat 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T6 model guy3: 79% visible (21% behind T7 model gal2); shows 10% as big as the kanji
+  T7 model gal2: 99% visible (1% behind the rowboat); shows 10% as big as the kanji
+  the near bank (1 piece): 100% visible; shows 56% as big as the kanji; its top turned 22° toward you (0 = edge-on, 90 = facing you)
+  the far bank (1 piece): 55% visible (19% behind the rowboat, 15% behind T7 model gal2, 9% behind the kanji, 1% behind the pole, 1% behind T6 model guy3); shows 14% as big as the kanji; its top turned 16° toward you (0 = edge-on, 90 = facing you)
+  the rowboat (1 piece): 71% visible (19% behind the river, 10% behind T7 model gal2); shows 19% as big as the kanji; its top turned 17° toward you (0 = edge-on, 90 = facing you)
+  the river (1 piece): 80% visible (14% behind the rowboat, 6% behind the near bank, 1% behind T7 model gal2); shows 84% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the pole (5 pieces): 100% visible; shows 2% as big as the kanji; its top turned 4° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  - T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  - T5 mesh pole (brown #8a5a30): FLOATS ABOVE T2 mesh river (blue #2f8fe0) (gap 0.05u)
+  - T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u)
+  - T6 model guy3: 79% visible (21% behind T7 model gal2); shows 10% as big as the kanji
+
+## t+3.4 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh far bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.76, -0.99], bottom 0.67, top 0.85
+  T2 mesh river (blue #2f8fe0): size 0.95 x 0.55 x 1.09, centre [0.5, 0.38, -0.24], bottom 0.1, top 0.66
+  T3 mesh near bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.03, 0.51], bottom -0.07, top 0.12
+  T4 model rowboat: size 0.4 x 0.4 x 0.64, centre [0.58, 0.4, -0.21], bottom 0.2, top 0.6
+  T5 mesh pole (brown #8a5a30): size 0.02 x 0.75 x 0.02, centre [0.68, 0.89, -0.49], bottom 0.51, top 1.26
+  T6 model guy3: size 0.19 x 0.47 x 0.17, centre [0.58, 0.83, -0.45], bottom 0.6, top 1.07
+  T7 model gal2: size 0.19 x 0.39 x 0.26, centre [0.45, 0.58, -0.19], bottom 0.39, top 0.78
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh far bank (green #6ab04c): is high in the air above the ground line (bottom of the kanji) (gap 0.67u)
+  T2 mesh river (blue #2f8fe0): SUNK INTO T4 model rowboat (gap -0.26u)
+  T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  T4 model rowboat: touches T2 mesh river (blue #2f8fe0)
+  T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.09u)
+  T6 model guy3: touches T4 model rowboat
+  T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model guy3 right hand at [0.63,0.95,-0.48]: nearest own body part head (middle) 0.08u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.05u away
+  T6 model guy3 left hand at [0.65,0.83,-0.49]: nearest own body part left shoulder 0.08u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.02u away
+  T7 model gal2 right hand at [0.38,0.51,-0.11]: nearest own body part right knee 0.05u away; nearest other thing T2 mesh river (blue #2f8fe0) 0u away (inside its box: touching or passing through)
+  T7 model gal2 left hand at [0.5,0.51,-0.16]: nearest own body part left knee 0.06u away; nearest other thing T2 mesh river (blue #2f8fe0) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T6 model guy3: 79% visible (21% behind T7 model gal2); shows 10% as big as the kanji
+  T7 model gal2: 100% visible; shows 12% as big as the kanji
+  the near bank (1 piece): 100% visible; shows 56% as big as the kanji; its top turned 22° toward you (0 = edge-on, 90 = facing you)
+  the far bank (1 piece): 70% visible (16% behind T7 model gal2, 9% behind the kanji, 5% behind T6 model guy3); shows 18% as big as the kanji; its top turned 16° toward you (0 = edge-on, 90 = facing you)
+  the rowboat (1 piece): 66% visible (20% behind the river, 14% behind T7 model gal2); shows 22% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the river (1 piece): 69% visible (20% behind the rowboat, 6% behind the near bank, 4% behind T7 model gal2); shows 73% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the pole (5 pieces): not in this view at all; its top turned -11° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh river (blue #2f8fe0): SUNK INTO T4 model rowboat (gap -0.26u)
+  - T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  - T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.09u)
+  - T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u)
+  - T6 model guy3: 79% visible (21% behind T7 model gal2); shows 10% as big as the kanji
+
+## t+4 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh far bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.76, -0.99], bottom 0.67, top 0.85
+  T2 mesh river (blue #2f8fe0): size 0.95 x 0.55 x 1.09, centre [0.5, 0.38, -0.24], bottom 0.1, top 0.66
+  T3 mesh near bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.03, 0.51], bottom -0.07, top 0.12
+  T4 model rowboat: size 0.4 x 0.4 x 0.64, centre [0.58, 0.33, -0.04], bottom 0.13, top 0.53
+  T5 mesh pole (brown #8a5a30): size 0.02 x 0.75 x 0.02, centre [0.68, 0.81, -0.32], bottom 0.43, top 1.18
+  T6 model guy3: size 0.19 x 0.47 x 0.16, centre [0.58, 0.76, -0.29], bottom 0.52, top 0.99
+  T7 model gal2: size 0.19 x 0.39 x 0.26, centre [0.45, 0.51, -0.02], bottom 0.32, top 0.71
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh far bank (green #6ab04c): is high in the air above the ground line (bottom of the kanji) (gap 0.67u)
+  T2 mesh river (blue #2f8fe0): SUNK INTO T4 model rowboat (gap -0.26u)
+  T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  T4 model rowboat: touches T2 mesh river (blue #2f8fe0)
+  T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.1u)
+  T6 model guy3: touches T4 model rowboat
+  T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  T4 model rowboat PASSES INTO T2 mesh river (blue #2f8fe0): 6 skin points inside it
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model guy3 right hand at [0.63,0.87,-0.32]: nearest own body part left shoulder 0.08u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.04u away
+  T6 model guy3 left hand at [0.65,0.75,-0.32]: nearest own body part left shoulder 0.08u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.02u away
+  T7 model gal2 right hand at [0.38,0.44,0.06]: nearest own body part right knee 0.05u away; nearest other thing T2 mesh river (blue #2f8fe0) 0u away (inside its box: touching or passing through)
+  T7 model gal2 left hand at [0.5,0.43,0.01]: nearest own body part left knee 0.06u away; nearest other thing T2 mesh river (blue #2f8fe0) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T6 model guy3: 81% visible (19% behind T7 model gal2); shows 10% as big as the kanji
+  T7 model gal2: 98% visible (2% behind the rowboat); shows 13% as big as the kanji
+  the near bank (1 piece): 100% visible; shows 56% as big as the kanji; its top turned 22° toward you (0 = edge-on, 90 = facing you)
+  the far bank (1 piece): 70% visible (18% behind T7 model gal2, 9% behind the kanji, 3% behind T6 model guy3); shows 18% as big as the kanji; its top turned 16° toward you (0 = edge-on, 90 = facing you)
+  the rowboat (1 piece): 69% visible (18% behind the river, 14% behind T7 model gal2); shows 24% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the river (1 piece): 65% visible (23% behind the rowboat, 6% behind T7 model gal2, 6% behind the near bank, 0% behind T6 model guy3); shows 68% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the pole (5 pieces): not in this view at all; its top turned -11° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh river (blue #2f8fe0): SUNK INTO T4 model rowboat (gap -0.26u)
+  - T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  - T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.1u)
+  - T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u)
+  - T4 model rowboat PASSES INTO T2 mesh river (blue #2f8fe0): 6 skin points inside it
+  - T6 model guy3: 81% visible (19% behind T7 model gal2); shows 10% as big as the kanji
+
+## t+6.2 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh far bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.76, -0.99], bottom 0.67, top 0.85
+  T2 mesh river (blue #2f8fe0): size 0.95 x 0.55 x 1.09, centre [0.5, 0.38, -0.24], bottom 0.1, top 0.66
+  T3 mesh near bank (green #6ab04c): size 0.95 x 0.19 x 0.3, centre [0.5, 0.03, 0.51], bottom -0.07, top 0.12
+  T4 model rowboat: size 0.4 x 0.4 x 0.64, centre [0.58, 0.25, 0.1], bottom 0.05, top 0.45
+  T5 mesh pole (brown #8a5a30): size 0.02 x 0.75 x 0.02, centre [0.68, 0.74, -0.18], bottom 0.36, top 1.11
+  T6 model guy3: size 0.19 x 0.47 x 0.16, centre [0.58, 0.68, -0.15], bottom 0.44, top 0.92
+  T7 model gal2: size 0.23 x 0.44 x 0.2, centre [0.44, 0.28, 0.46], bottom 0.06, top 0.5
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh far bank (green #6ab04c): is high in the air above the ground line (bottom of the kanji) (gap 0.67u)
+  T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  T4 model rowboat: touches T2 mesh river (blue #2f8fe0)
+  T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.09u)
+  T6 model guy3: touches T4 model rowboat
+  T7 model gal2: touches T3 mesh near bank (green #6ab04c)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T6 model guy3 right hand at [0.63,0.8,-0.17]: nearest own body part left shoulder 0.08u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.04u away
+  T6 model guy3 left hand at [0.65,0.68,-0.18]: nearest own body part left shoulder 0.07u away; nearest other thing T5 mesh pole (brown #8a5a30) 0.02u away
+  T7 model gal2 right hand at [0.36,0.42,0.53]: nearest own body part head (middle) 0.12u away; nearest other thing T4 model rowboat 0.11u away
+  T7 model gal2 left hand at [0.54,0.19,0.47]: nearest own body part left knee 0.06u away; nearest other thing T4 model rowboat 0.06u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T6 model guy3: 87% visible (13% behind T7 model gal2); shows 13% as big as the kanji
+  T7 model gal2: 98% visible (2% behind the near bank); shows 18% as big as the kanji
+  the near bank (1 piece): 99% visible (1% behind T7 model gal2); shows 56% as big as the kanji; its top turned 22° toward you (0 = edge-on, 90 = facing you)
+  the far bank (1 piece): 70% visible (14% behind T6 model guy3, 9% behind the kanji, 6% behind T7 model gal2, 1% behind the pole); shows 18% as big as the kanji; its top turned 16° toward you (0 = edge-on, 90 = facing you)
+  the rowboat (1 piece): 55% visible (28% behind T7 model gal2, 10% behind the near bank, 7% behind the river); shows 20% as big as the kanji; its top turned 20° toward you (0 = edge-on, 90 = facing you)
+  the river (1 piece): 59% visible (19% behind the rowboat, 16% behind T7 model gal2, 6% behind the near bank, 1% behind T6 model guy3); shows 62% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the pole (5 pieces): 100% visible; shows 4% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u)
+  - T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u)
+  - T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.09u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/013-watasu-ferry/overview.jpg
+    1. the whole scene from front, t+0.5 (t0.5-scene-front.jpg)
+    2. the whole scene from right, t+0.5 (t0.5-scene-right.jpg)
+    3. what the learner sees, t+0.5 (t0.5-learner.jpg)
+    4. the whole scene from front, t+3.4 (t3.4-scene-front.jpg)
+    5. the whole scene from right, t+3.4 (t3.4-scene-right.jpg)
+    6. what the learner sees, t+3.4 (t3.4-learner.jpg)
+    7. the whole scene from front, t+6.2 (t6.2-scene-front.jpg)
+    8. the whole scene from right, t+6.2 (t6.2-scene-right.jpg)
+    9. what the learner sees, t+6.2 (t6.2-learner.jpg)
+  plans/qwen/renders/013-watasu-ferry/faults.jpg
+    1. fault 1 from front (t+0.5): T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u) (fault1-front-t0.5.jpg)
+    2. fault 1 from right (t+0.5): T2 mesh river (blue #2f8fe0): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.1u) (fault1-right-t0.5.jpg)
+    3. fault 2 from front (t+0.5): T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u) (fault2-front-t0.5.jpg)
+    4. fault 2 from right (t+0.5): T3 mesh near bank (green #6ab04c): SUNK INTO the ground line (bottom of the kanji) (gap -0.07u) (fault2-right-t0.5.jpg)
+    5. fault 3 from front (t+4): T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.1u) (fault3-front-t4.jpg)
+    6. fault 3 from right (t+4): T5 mesh pole (brown #8a5a30): SUNK INTO T4 model rowboat (gap -0.1u) (fault3-right-t4.jpg)
+    7. fault 4 from front (t+2): T5 mesh pole (brown #8a5a30): FLOATS ABOVE T2 mesh river (blue #2f8fe0) (gap 0.05u) (fault4-front-t2.jpg)
+    8. fault 4 from right (t+2): T5 mesh pole (brown #8a5a30): FLOATS ABOVE T2 mesh river (blue #2f8fe0) (gap 0.05u) (fault4-right-t2.jpg)
+    9. fault 5 from front (t+2): T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u) (fault5-front-t2.jpg)
+    10. fault 5 from right (t+2): T7 model gal2: SUNK INTO T4 model rowboat (gap -0.03u) (fault5-right-t2.jpg)
+    11. fault 6 (t+2): T6 model guy3: 79% visible (21% behind T7 model gal2); shows 10% as big as the kanji (fault6-seat-t2.jpg)
+    12. fault 7 from front (t+3.4): T2 mesh river (blue #2f8fe0): SUNK INTO T4 model rowboat (gap -0.26u) (fault7-front-t3.4.jpg)
+  plans/qwen/renders/013-watasu-ferry/faults-2.jpg
+    13. fault 7 from right (t+3.4): T2 mesh river (blue #2f8fe0): SUNK INTO T4 model rowboat (gap -0.26u) (fault7-right-t3.4.jpg)
+    14. fault 8 from front (t+4): T4 model rowboat PASSES INTO T2 mesh river (blue #2f8fe0): 6 skin points inside it (fault8-front-t4.jpg)
+    15. fault 8 from right (t+4): T4 model rowboat PASSES INTO T2 mesh river (blue #2f8fe0): 6 skin points inside it (fault8-right-t4.jpg)
+  plans/qwen/renders/013-watasu-ferry/people.jpg
+    1. T7 gal2 close, from front (t+2) (gal2-front-t2.jpg)
+    2. T7 gal2 close, from right (t+2) (gal2-right-t2.jpg)
+    3. T6 guy3 close, from front (t+2) (guy3-front-t2.jpg)
+    4. T6 guy3 close, from right (t+2) (guy3-right-t2.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs w1444610 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
