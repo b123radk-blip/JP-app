@@ -19,8 +19,20 @@
   "rests": "doctor"
  },
  {
-  "goal": "the boy stands on the ground",
-  "rests": "guy2"
+  "goal": "the boy stands on the ground (before the jump)",
+  "rests": "guy2",
+  "t": [
+   0,
+   4.55
+  ]
+ },
+ {
+  "goal": "the boy is back on the ground after the jump",
+  "rests": "guy2",
+  "t": [
+   5.65,
+   7
+  ]
  },
  {
   "goal": "the first-aid kit stands on the ground",
