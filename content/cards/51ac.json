@@ -19,7 +19,10 @@
    {
     "type": "snow"
    }
-  ]
+  ],
+  "vignette": {
+   "type": "q-snowman"
+  }
  },
  "sentences": [
   {
