@@ -1,0 +1,19 @@
+pi exit 0 after 7.0 min
+
+Done. Plan 014 (力, card 529b, scene `q-power`) is built, checked, rendered, committed — not pushed.
+
+**What the scene does:** guy3 (a strong man) bends down, grips a barbell with huge black plates, heaves it to his chest and holds it trembling (sweat flying), drops it with a thud (kanji jumps, dust kicks out), and cheers with arms up and gold stars overhead. Loop 7 s, all layout numbers kept.
+
+**Rounds (goals):**
+1. First build: **6/11** — plates' merged box read SUNK INTO the bar; hands 0.18u off the bar
+2. Fixed grip targets to world space (`group.localToWorld`, per q-ferry's comment) and split plates into two discs: **9/11**
+3. Grip radius +0.015 → −0.025 (the goal measures the wrist bone, which sits ~0.05u off the palm; the plan's r could never reach within 0.04): **11/11**
+4. Moved the thud dust just outside each plate's foot column (it read SUNK INTO the plates at t 4.65): **11/11**, zero faults whole loop
+
+**Checks:** `node --check` OK · `npm test` 63 pass / 0 fail · `check-piece-costs`: `0 cost mismatches` (catalog set to `pdc('guy3') + 8`) · inspect: 11/11 PASS, `no measured faults at any moment` · orbit + inspect sheets look right (grip close-ups confirm the bar passes through the fists in both phases; the learner's seat shows him 94–98% visible, kanji 100%).
+
+**Deviations (all in the report):** two plate solidProps instead of one, grip r −0.025 instead of +0.015, `flies` flags on the bar (hub height) and on the plates only while held, dust offset/shrunk.
+
+**Commits** (local, not pushed):
+- `力: a strong man heaves a barbell to his chest, drops it with a thud and cheers (plan 014)` — code + renders
+- `Qwen report: 014-chikara-lift.md` — full report in `plans/qwen/done/014-chikara-lift.md`
