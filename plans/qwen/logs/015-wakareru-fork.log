@@ -1,0 +1,13 @@
+pi exit 0 after 7.9 min
+
+Plan 015 is done. Summary:
+
+**Scene built** — `src/effects/vignettes/q-part-ways.js`: two friends (`gal2`/`guy2`, 0.5u) walk down a forking path sloped 20° toward the learner, stop and face each other at the fork, wave goodbye (her left hand, his right — the hands nearer the learner), take opposite branches, wave again from far apart, shrink away and pop back in at the start so the loop ends where it began. The kanji 別 splits (口+力 left, 刂 right, ±0.08u) as they part and rejoins before they return. Cost in `vcat-qw.js` set to `pdc('gal2','guy2') + 4`.
+
+**One deviation from the plan** (documented in the report): the plan's pop-out (invisible 7.0–7.4) contradicts its own goals file — the whole-loop "nothing passes through her/him" fails with "not in the scene" at t+7 when the people are `visible = false`. I clamp the pop to k ≥ 0.02: they shrink to an invisible 5mm dot that stays in the scene; visually identical to "k to 0", no new loop faults.
+
+**Rounds:** 2/14 (bug: beat table was a never-called function → NaN positions, people invisible to the measurement) → 12/14 (positions fixed; clear goals fail at t+7) → **14/14 PASS**, with only the plan's expected faults left (paths sunk into grass by 0.12–0.17u on the slope; guy2 sunk 0.03u while walking).
+
+**Checks all green:** `node --check` clean, `npm test` (63 pass / 0 fail, 0 pairs ≥ 0.72, recipe check ok), cost check `0 cost mismatches`. Orbit + inspect renders look right — the fork reads clearly from every angle, the learner's seat shows 別 whole → split with the friends parting and waving apart.
+
+Committed: `別: two friends part where the path forks, and the kanji splits (plan 015)` (code + renders) and `Qwen report: 015-wakareru-fork` (report at `plans/qwen/done/015-wakareru-fork.md`). Not pushed, per the rules.
