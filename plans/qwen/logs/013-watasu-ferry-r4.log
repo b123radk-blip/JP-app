@@ -1,0 +1,16 @@
+pi exit 0 after 1.8 min
+
+Round 4 complete. Summary:
+
+**What was still wrong:** not the scene. The watcher's `check()` spawns `process.execPath` via cmd.exe without quoting; on this PC that's `C:\Program Files\nodejs\node.exe`, so cmd.exe parses `C:\Program` as the command and dies with exit 1 before `inspect.mjs` ever runs. I reproduced it with the exact node binary and `run()` spawn options (`.cache/round4-repro.mjs`): unquoted → exit 1 with the watcher's exact error; the one-line quoted-command fix → exit 0.
+
+**Why I didn't "fix" it in code:** the fix belongs in `run()` in `scripts/qwen-watch.mjs` — a file on the watcher's own `PROTECTED` list (its `guard()` would check any edit back out), and the plan only authorizes `q-ferry.js` + its catalog line. Per the standing rules, I did what I could and documented the verified one-line fix for Brad/Opus in the report (quoting `cmd` in `spawn()`; also notes the `qtool.mjs restore` and timing-log calls fail the same way until then).
+
+**Scene state (all re-run this round):**
+- `node --check` on both plan files → clean
+- `npm test` → pass 63 / fail 0, content check ok, recipe check ok
+- `check-piece-costs vignette "^q-ferry$"` → 0 cost mismatches
+- inspect with goals, loop 8.5 → **exit 0, 17 of 17 PASS** (whole-loop fault list line-for-line identical to before; all "by plan design" verdicts stand)
+- orbit render re-made and viewed — story reads, no new faults (the baked-in red oar in the Kenney hull remains the only open visual, a model issue)
+
+**Commits:** `c38aeed` "Qwen: 013-watasu-ferry round 4" — the new "## Round 4" report section (with the real Goals lines) plus the re-rendered sheets; no code files changed, as stated in the report. Not pushed.
