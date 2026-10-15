@@ -1,0 +1,131 @@
+[
+ {
+  "goal": "the boat touches the far bank when she gets in",
+  "point": "rowboat",
+  "near": "far bank",
+  "within": 0.03,
+  "t": [
+   0,
+   1.8
+  ]
+ },
+ {
+  "goal": "the boat touches the near bank when she gets out",
+  "point": "rowboat",
+  "near": "near bank",
+  "within": 0.03,
+  "t": [
+   5.0,
+   6.4
+  ]
+ },
+ {
+  "goal": "she stands on the far bank first",
+  "rests": "gal2",
+  "on": "far bank",
+  "t": [
+   0,
+   0.9
+  ]
+ },
+ {
+  "goal": "she sits in the boat while it crosses",
+  "point": "gal2 hips",
+  "near": "rowboat",
+  "within": 0.03,
+  "t": [
+   1.8,
+   5.0
+  ]
+ },
+ {
+  "goal": "she stands on the near bank after",
+  "rests": "gal2",
+  "on": "near bank",
+  "t": [
+   5.9,
+   6.6
+  ]
+ },
+ {
+  "goal": "the ferryman stands in the boat",
+  "rests": "guy3",
+  "on": "rowboat"
+ },
+ {
+  "goal": "his right hand is on the pole",
+  "point": "guy3 right hand",
+  "near": "pole",
+  "within": 0.04
+ },
+ {
+  "goal": "his left hand is on the pole",
+  "point": "guy3 left hand",
+  "near": "pole",
+  "within": 0.04
+ },
+ {
+  "goal": "the pole reaches the water while he poles",
+  "point": "pole",
+  "near": "river",
+  "within": 0.02,
+  "t": [
+   1.8,
+   5.0
+  ]
+ },
+ {
+  "goal": "the learner sees her on the far bank",
+  "visible": "gal2",
+  "min": 85,
+  "t": [
+   0,
+   0.9
+  ]
+ },
+ {
+  "goal": "the learner sees her in the boat",
+  "visible": "gal2",
+  "min": 65,
+  "t": [
+   1.8,
+   5.0
+  ]
+ },
+ {
+  "goal": "the learner sees her on the near bank",
+  "visible": "gal2",
+  "min": 85,
+  "t": [
+   5.9,
+   6.6
+  ]
+ },
+ {
+  "goal": "the learner sees the ferryman (after she has sat down)",
+  "visible": "guy3",
+  "min": 70,
+  "t": [
+   1.8,
+   8.5
+  ]
+ },
+ {
+  "goal": "the boat is big enough",
+  "big": "rowboat",
+  "min": 12
+ },
+ {
+  "goal": "the river is seen from above",
+  "faces": "river",
+  "min": 15
+ },
+ {
+  "goal": "nothing passes through her",
+  "clear": "gal2"
+ },
+ {
+  "goal": "nothing passes through him",
+  "clear": "guy3"
+ }
+]
