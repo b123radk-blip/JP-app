@@ -8,3 +8,6 @@ Watcher's checks: npm test passed; inspect gave no Goals result (exit 1)
 ## Round 2: Qwen fixes
 pi: 0 after 13.8 min.
 Watcher's checks: npm test passed; inspect gave no Goals result (exit 1)
+## Round 3: Qwen fixes
+pi: 0 after 1.8 min.
+Watcher's checks: npm test passed; inspect gave no Goals result (exit 1)
