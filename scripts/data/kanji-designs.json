@@ -2728,5 +2728,37 @@
    "material": "clay",
    "backdrop": "sky:golden"
   }
+ },
+ "待": {
+  "group": "actions",
+  "meaning": "wait",
+  "mnemonic": "Steps (彳) stop at the temple (寺): wait your turn.",
+  "effect": {
+   "material": "stone",
+   "backdrop": "sky:day"
+  }
+ },
+ "冬": {
+  "group": "nature",
+  "meaning": "winter",
+  "mnemonic": "Slow feet (夂) over two drops of ice (冫): winter.",
+  "effect": {
+   "material": "ice",
+   "backdrop": "sky:snow",
+   "particles": [
+    {
+     "type": "snow"
+    }
+   ]
+  }
+ },
+ "医": {
+  "group": "people",
+  "meaning": "doctor; medicine",
+  "mnemonic": "An arrow (矢) stuck in a box (匚): call the doctor to pull it out.",
+  "effect": {
+   "material": "pearl",
+   "backdrop": "sky:day"
+  }
  }
 }

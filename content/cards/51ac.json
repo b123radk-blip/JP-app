@@ -1,0 +1,63 @@
+{
+ "id": "51ac",
+ "kanji": "冬",
+ "meaning": "winter",
+ "primaryReading": "ふゆ",
+ "readings": {
+  "kun": [
+   "ふゆ"
+  ],
+  "on": [
+   "トウ"
+  ]
+ },
+ "mnemonic": "Slow feet (夂) over two drops of ice (冫): winter.",
+ "effect": {
+  "material": "ice",
+  "backdrop": "sky:snow",
+  "particles": [
+   {
+    "type": "snow"
+   }
+  ]
+ },
+ "sentences": [
+  {
+   "segments": [
+    {
+     "text": "冬",
+     "reading": "ふゆ"
+    },
+    {
+     "text": "はとても"
+    },
+    {
+     "text": "寒",
+     "reading": "さむ"
+    },
+    {
+     "text": "いです。"
+    }
+   ],
+   "en": "Winter is very cold.",
+   "verified": {
+    "analysers": [
+     "SudachiPy",
+     "Open JTalk"
+    ],
+    "date": "2026-10-15",
+    "needsNativeReview": true
+   },
+   "source": {
+    "written": true
+   }
+  }
+ ],
+ "review": {
+  "recipe": "draft",
+  "mnemonic": "draft"
+ },
+ "source": {
+  "kanjidic2": true
+ }
+}

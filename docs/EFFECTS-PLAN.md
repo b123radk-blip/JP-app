@@ -252,6 +252,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 急 | actions | lacquer | draw | — | sky:dusk | none | — | — | A heart (心) racing while a hand pushes on: hurry! |
 | 発 | actions | metal | draw | — | sky:morning | none | — | — | Two feet (癶) springing off the start line: departure. |
 | 遊 | actions | glow:gold | draw | — | sky:day | none | — | — | A child (子) with a flag, out on the road (辶): play. |
+| 待 | actions | stone | draw | — | sky:day | none | — | — | Steps (彳) stop at the temple (寺): wait your turn. |
 
 #### Time
 
@@ -365,6 +366,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 眼 | people | cyan | draw | — | sky:day | blink | glasses | 目 | An eye (目) that stops (艮) to stare: eyeball; glasses (眼鏡). |
 | 夫 | people | skin | draw | — | sky:day | none | ring | — | A big (大) man with a hairpin (一) on his wedding day: husband; also sturdy (丈夫). |
 | 仕 | people | skin | draw | — | sky:indoor | bow | cup | 亻 | A person (亻) serving the samurai (士): serve, work (仕事). |
+| 医 | people | pearl | draw | — | sky:day | none | — | — | An arrow (矢) stuck in a box (匚): call the doctor to pull it out. |
 
 #### Position
 
@@ -391,6 +393,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 鳴 | nature | jade | draw | notes | sky:forest | none | bird | 口=glow:rose | A bird (鳥) opening its mouth (口): chirp, sing, ring. |
 | 海 | nature | water | draw | — | sky:noon | none | — | — | Water (氵) every (毎) way you look: the sea. |
 | 鳥 | nature | jade | draw | — | sky:morning | none | — | — | A bird with its eye on top and four tail feathers below. |
+| 冬 | nature | ice | draw | snow | sky:snow | none | — | — | Slow feet (夂) over two drops of ice (冫): winter. |
 
 #### Size
 

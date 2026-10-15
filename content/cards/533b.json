@@ -1,0 +1,60 @@
+{
+ "id": "533b",
+ "kanji": "医",
+ "meaning": "doctor; medicine",
+ "primaryReading": "い",
+ "readings": {
+  "kun": [
+   "い(やす)",
+   "い(する)",
+   "くすし"
+  ],
+  "on": [
+   "イ"
+  ]
+ },
+ "mnemonic": "An arrow (矢) stuck in a box (匚): call the doctor to pull it out.",
+ "effect": {
+  "material": "pearl",
+  "backdrop": "sky:day"
+ },
+ "sentences": [
+  {
+   "segments": [
+    {
+     "text": "父",
+     "reading": "ちち"
+    },
+    {
+     "text": "は"
+    },
+    {
+     "text": "医者",
+     "reading": "いしゃ"
+    },
+    {
+     "text": "です。"
+    }
+   ],
+   "en": "My father is a doctor.",
+   "verified": {
+    "analysers": [
+     "SudachiPy",
+     "Open JTalk"
+    ],
+    "date": "2026-10-15",
+    "needsNativeReview": true
+   },
+   "source": {
+    "written": true
+   }
+  }
+ ],
+ "review": {
+  "recipe": "draft",
+  "mnemonic": "draft"
+ },
+ "source": {
+  "kanjidic2": true
+ }
+}

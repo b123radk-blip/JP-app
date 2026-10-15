@@ -15,6 +15,7 @@
 // mesh is named `name` (a model goes by its model name), so the plan's goals find it.
 // A model's `hands`: [{ "side": "R", "to": [x, y, z] or "<a thing's name>", "t": [from, to] }]: the hand reaches there
 // (two-bone IK, as the built scene would), so a reach that the arm can't make shows in the numbers.
+// `bows`: [{ "k": 0.6, "t": [from, to] }]: bends forward from the waist (model-kit bow), before the hands reach.
 import * as THREE from 'three';
 import { acts } from './timeline.js';
 import { actor } from './model-kit.js';
@@ -72,6 +73,7 @@ function blockout(ctx, spec, stage) {
       for (const { th, a } of list) {
         if (!a) continue;
         const [clip, s] = clipAt(th, v); a.pose(clip, s);
+        for (const b of th.bows ?? []) if (!b.t || (v >= b.t[0] && v <= b.t[1])) a.bow(b.k ?? 1);
         for (const hd of th.hands ?? []) {
           if (hd.t && (v < hd.t[0] || v > hd.t[1])) continue;
           const o = typeof hd.to === 'string' && group.getObjectByName(hd.to);

@@ -11,9 +11,9 @@ JTalk agree), but no person has confirmed them yet. Per row:
 Report problems by card id (the code in the Card column). To confirm a row yourself, set `"needsNativeReview": false`
 on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 
-**Waiting:** 848 sentence(s). **Confirmed:** 0.
+**Waiting:** 851 sentence(s). **Confirmed:** 0.
 
-## N5 (848 cards)
+## N5 (851 cards)
 
 | # | Card | Readings | Meaning | Sentence | English | Source |
 |---|---|---|---|---|---|---|
@@ -865,3 +865,6 @@ on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 | 846 | 忘 `5fd8` | **わす** · kun わす(れる) · on ボウ | forget | <ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>すのを<ruby>忘<rp>(</rp><rt>わす</rt><rp>)</rp></ruby>れるな。 | Don't forget to put out the fire. | [Tatoeba 186724](https://tatoeba.org/en/sentences/show/186724) |
 | 847 | 正 `6b63` | **せい** · kun ただ(しい)、ただ(す)、まさ、まさ(に) · on セイ、ショウ | correct | その<ruby>答<rp>(</rp><rt>こた</rt><rp>)</rp></ruby>えは<ruby>正<rp>(</rp><rt>ただ</rt><rp>)</rp></ruby>しいです。 | That answer is correct. | written for the app |
 | 848 | 次 `6b21` | **つぎ** · kun つ(ぐ)、つぎ · on ジ、シ | next | <ruby>次<rp>(</rp><rt>つぎ</rt><rp>)</rp></ruby>の<ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>降<rp>(</rp><rt>お</rt><rp>)</rp></ruby>ります。 | I get off at the next station. | written for the app |
+| 849 | 待 `5f85` | **ま** · kun ま(つ)、ま(ち) · on タイ | wait | <ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>友<rp>(</rp><rt>とも</rt><rp>)</rp></ruby>だちを<ruby>待<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>っています。 | I'm waiting for a friend at the station. | written for the app |
+| 850 | 冬 `51ac` | **ふゆ** · kun ふゆ · on トウ | winter | <ruby>冬<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>はとても<ruby>寒<rp>(</rp><rt>さむ</rt><rp>)</rp></ruby>いです。 | Winter is very cold. | written for the app |
+| 851 | 医 `533b` | **い** · kun い(やす)、い(する)、くすし · on イ | doctor; medicine | <ruby>父<rp>(</rp><rt>ちち</rt><rp>)</rp></ruby>は<ruby>医者<rp>(</rp><rt>いしゃ</rt><rp>)</rp></ruby>です。 | My father is a doctor. | written for the app |

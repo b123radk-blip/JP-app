@@ -1,0 +1,67 @@
+[
+ {
+  "goal": "the kanji stays in view",
+  "visible": "kanji",
+  "min": 95
+ },
+ {
+  "goal": "the doctor stays in view",
+  "visible": "doctor",
+  "min": 85
+ },
+ {
+  "goal": "the boy stays in view",
+  "visible": "guy2",
+  "min": 85
+ },
+ {
+  "goal": "the doctor stands on the ground",
+  "rests": "doctor"
+ },
+ {
+  "goal": "the boy stands on the ground",
+  "rests": "guy2"
+ },
+ {
+  "goal": "the first-aid kit stands on the ground",
+  "rests": "kit"
+ },
+ {
+  "goal": "the first-aid kit shows big",
+  "big": "kit",
+  "min": 6
+ },
+ {
+  "goal": "its red cross shows",
+  "visible": "cross",
+  "min": 80
+ },
+ {
+  "goal": "the stethoscope hand touches the boy",
+  "point": "doctor right hand",
+  "near": "guy2",
+  "within": 0.04,
+  "t": [
+   1.8,
+   3.3
+  ]
+ },
+ {
+  "goal": "at his chest height",
+  "point": "doctor right hand",
+  "near": "guy2 chest",
+  "within": 0.16,
+  "t": [
+   1.8,
+   3.3
+  ]
+ },
+ {
+  "goal": "nothing passes through the doctor",
+  "clear": "doctor"
+ },
+ {
+  "goal": "nothing passes through the boy",
+  "clear": "guy2"
+ }
+]
