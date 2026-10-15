@@ -23,6 +23,32 @@ for the rest. Qwen's standing rules: `plans/qwen/README.md`.
    finishes a plan. Ctrl+C stops it.
 3. Tell Opus when it says a plan is done (or just ask Opus to check).
 
+## The repair loop (Qwen fixes, Opus reviews)
+
+Each plan now runs as rounds, with no copying between agents:
+1. Qwen builds the plan (30 min at most).
+2. The watcher checks the work itself, without trusting Qwen's report: `npm test`, and the plan's goals with
+   `inspect.mjs --goals --quick` (it finds the card from a line `Card: <id>` in the plan, or `(card <id>)` in its title;
+   a line `Inspect: --loop 9` adds flags). Any FAIL goes back to Qwen for the next round (15 min at most).
+3. When everything passes, Opus reviews once through Claude Code on the PC: it reads the plan and the code, renders
+   the card, runs inspect and looks at the pictures, and answers approve, fix (a list that goes to Qwen for the next
+   round) or needs_opus (the plan itself needs a new design: left for Opus in the cloud).
+4. It stops at APPROVED, or after 4 Qwen rounds, 2 Opus calls or 120 minutes, whichever comes first.
+
+Each plan's rounds, goal lines, Opus's verdicts and the outcome are in `plans/qwen/loop/<plan>.md`; Opus's raw answers
+in `plans/qwen/logs/<plan>.review-<round>.json`. Limits: `--rounds 4 --reviews 2 --minutes 30 --fix-minutes 15
+--plan-minutes 120`; `--no-review` turns Opus off.
+
+Rules the watcher keeps: neither agent may change the plan, its goals file or the measuring scripts (the watcher puts
+them back and says so); Opus may only read and run the render and inspect scripts, and a review that changes a file
+doesn't count; nothing is merged into the working branch without a cloud Opus look.
+
+Opus runs on your Claude Code login (the same as typing `claude`), so it uses your subscription, not per-call billing.
+If the `ANTHROPIC_API_KEY` environment variable is set, Claude Code would bill the API instead, so the watcher turns
+the review off and says why. Before the first run, check in PowerShell that `claude --version` works and that `claude`
+opens logged in (type `/exit` to leave). The loop log shows a dollar figure per review: that is Claude Code's
+list-price estimate, not a charge; how much of your plan's allowance it used isn't shown anywhere.
+
 The watcher only touches the Qwen branch and skips its turn if the folder has uncommitted changes. For VOICEVOX
 work, stop it first and switch back: `git checkout claude/kanji-3d-galaxy-xr-uoi522`, then `git pull`.
 
