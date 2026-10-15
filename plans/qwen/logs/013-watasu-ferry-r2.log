@@ -1,0 +1,17 @@
+pi exit 0 after 13.8 min
+
+Round 2 is done. Summary:
+
+**What was wrong:** the round-1 session timed out before its goals inspect ever completed, so the watcher never saw a Goals result.
+
+**What I did:**
+1. **Completed the goals run** — `inspect --goals ... --loop 8.5` now exits 0 with **17 of 17 PASS** (full lines pasted in the report). The round-1 scene code already satisfied every goal, so no code change was needed for the goals.
+2. **Judged the whole-loop fault list** and tried the fixable ones:
+   - *pole SUNK INTO rowboat / FLOATS ABOVE river*: the pole tip (at the plan's x 0.68, z = boat−0.22) actually lands **inside the boat hull** (verified by close-up), and the plan's "behind him" z-shift breaks `his right hand is on the pole` (hand 0.08u off the pole) and `the pole reaches the water` (tip past the river's far edge) — measured, tried via `try_value`, reverted. It's infeasible within the plan's numbers (arm reach + hull width + river extent all at their limits); reported to Opus with the data.
+   - River/bank/boat-in-water faults: by plan design (26° sloping ground, boat floating with keel 0.03u under the waterline); guy3's 76% visibility is intended (he poles from behind her, goal ≥70 passes).
+3. **Found a model quirk for Opus:** the bright red oar at the boat's stern is **baked into Kenney's hull mesh** — the plan's `boat.node('paddles')` removal works (verified in-browser), but a second oar is part of the hull geometry; `glow: 0` and a wood `tint` (tested) don't help. The same quirk is on the shipped 前 card (524d).
+4. **All checks green:** `node --check` clean, `npm test` 63 pass / 0 fail + content/recipe checks ok, `check-piece-costs` 0 mismatches, inspect exit 0, orbit render fresh.
+
+**Commits** (not pushed, as required):
+- `dbf4810` — `Qwen: 013-watasu-ferry round 2` (inspect output + orbit + investigation close-ups; `q-ferry.js` unchanged)
+- `3ce0c1c` — `Qwen report: 013-watasu-ferry` (report with the `## Round 2` section: what changed, real Goals lines, fault verdicts, the two findings for Opus)
