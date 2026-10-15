@@ -46,7 +46,7 @@
   "visible": "snowbody",
   "min": 85,
   "t": [
-   2.4,
+   3.4,
    7
   ]
  },
@@ -64,7 +64,9 @@
   "goal": "nothing passes through her",
   "clear": "gal2",
   "except": [
-   "snowfield"
+   "snowfield",
+   "hat",
+   "scarf"
   ]
  }
 ]
