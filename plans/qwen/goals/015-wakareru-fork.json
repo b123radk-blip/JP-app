@@ -1,0 +1,16 @@
+[
+ { "goal": "the friends walk together", "point": "gal2 hips", "near": "guy2 hips", "within": 0.32, "t": [0, 2.2] },
+ { "goal": "she stands on the path at the fork", "rests": "gal2", "on": "path", "t": [2.3, 3.4] },
+ { "goal": "he stands on the path at the fork", "rests": "guy2", "on": "path", "t": [2.3, 3.4] },
+ { "goal": "she waves to him with her near hand", "point": "gal2 left hand", "near": "gal2 top of the head", "within": 0.15, "t": [2.7, 3.2] },
+ { "goal": "he waves to her with his near hand", "point": "guy2 right hand", "near": "guy2 top of the head", "within": 0.15, "t": [2.7, 3.2] },
+ { "goal": "she ends on the left path", "rests": "gal2", "on": "path left", "t": [5.6, 6.2] },
+ { "goal": "he ends on the right path", "rests": "guy2", "on": "path right", "t": [5.6, 6.2] },
+ { "goal": "they end far apart", "point": "gal2 hips", "near": "guy2 hips", "beyond": 0.7, "t": [5.4, 6.2] },
+ { "goal": "the learner sees her", "visible": "gal2", "min": 85, "t": [0, 6.2] },
+ { "goal": "the learner sees him", "visible": "guy2", "min": 80, "t": [0, 6.2] },
+ { "goal": "the learner sees the kanji", "visible": "kanji", "min": 95 },
+ { "goal": "the paths are seen from above", "faces": "grass", "min": 12 },
+ { "goal": "nothing passes through her", "clear": "gal2" },
+ { "goal": "nothing passes through him", "clear": "guy2" }
+]

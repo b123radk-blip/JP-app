@@ -11,9 +11,9 @@ JTalk agree), but no person has confirmed them yet. Per row:
 Report problems by card id (the code in the Card column). To confirm a row yourself, set `"needsNativeReview": false`
 on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 
-**Waiting:** 851 sentence(s). **Confirmed:** 0.
+**Waiting:** 854 sentence(s). **Confirmed:** 0.
 
-## N5 (851 cards)
+## N5 (854 cards)
 
 | # | Card | Readings | Meaning | Sentence | English | Source |
 |---|---|---|---|---|---|---|
@@ -868,3 +868,6 @@ on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 | 849 | 待 `5f85` | **ま** · kun ま(つ)、ま(ち) · on タイ | wait | <ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>友<rp>(</rp><rt>とも</rt><rp>)</rp></ruby>だちを<ruby>待<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>っています。 | I'm waiting for a friend at the station. | written for the app |
 | 850 | 冬 `51ac` | **ふゆ** · kun ふゆ · on トウ | winter | <ruby>冬<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>はとても<ruby>寒<rp>(</rp><rt>さむ</rt><rp>)</rp></ruby>いです。 | Winter is very cold. | written for the app |
 | 851 | 医 `533b` | **い** · kun い(やす)、い(する)、くすし · on イ | doctor; medicine | <ruby>父<rp>(</rp><rt>ちち</rt><rp>)</rp></ruby>は<ruby>医者<rp>(</rp><rt>いしゃ</rt><rp>)</rp></ruby>です。 | My father is a doctor. | written for the app |
+| 852 | 力 `529b` | **ちから** · kun ちから · on リョク、リキ | power; strength | <ruby>父<rp>(</rp><rt>ちち</rt><rp>)</rp></ruby>は<ruby>力<rp>(</rp><rt>ちから</rt><rp>)</rp></ruby>が<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>いです。 | My father is strong. | written for the app |
+| 853 | 別 `5225` | **べつ** · kun わか(れる)、わ(ける) · on ベツ | separate; branch off | <ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>友<rp>(</rp><rt>とも</rt><rp>)</rp></ruby>だちと<ruby>別<rp>(</rp><rt>わか</rt><rp>)</rp></ruby>れました。 | I parted from my friend at the station. | written for the app |
+| 854 | 考 `8003` | **かんが** · kun かんが(える)、かんが(え) · on コウ | consider; think over | よく<ruby>考<rp>(</rp><rt>かんが</rt><rp>)</rp></ruby>えてから<ruby>答<rp>(</rp><rt>こた</rt><rp>)</rp></ruby>えてください。 | Please think it over carefully before you answer. | written for the app |

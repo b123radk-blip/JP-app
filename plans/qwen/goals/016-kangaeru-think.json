@@ -1,0 +1,13 @@
+[
+ { "goal": "he sits on the cushion", "rests": "grandpa", "on": "cushion" },
+ { "goal": "his hand is at his chin while he thinks", "point": "grandpa right hand", "near": [0.93, 0.53, -0.17], "within": 0.04, "t": [1.2, 3.5] },
+ { "goal": "his finger goes up with the idea", "point": "grandpa right hand", "near": "grandpa head (middle)", "within": 0.14, "t": [3.8, 4.2] },
+ { "goal": "his hand reaches the piece", "point": "grandpa right hand", "near": "piece", "within": 0.04, "t": [4.65, 5.2] },
+ { "goal": "the piece lies on the board", "rests": "piece", "on": "shogi board", "t": [0, 4.2] },
+ { "goal": "the piece lies on the board after the move", "rests": "piece", "on": "shogi board", "t": [5.3, 6.5] },
+ { "goal": "the board's top faces the learner", "faces": "shogi board", "min": 25 },
+ { "goal": "the thought bubble shows big", "big": "bubble", "min": 8, "t": [2.2, 5.8] },
+ { "goal": "the learner sees him", "visible": "grandpa", "min": 65 },
+ { "goal": "the learner sees the kanji", "visible": "kanji", "min": 95 },
+ { "goal": "nothing passes through him", "clear": "grandpa" }
+]

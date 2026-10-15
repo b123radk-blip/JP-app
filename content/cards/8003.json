@@ -1,0 +1,65 @@
+{
+ "id": "8003",
+ "kanji": "考",
+ "meaning": "consider; think over",
+ "primaryReading": "かんが",
+ "readings": {
+  "kun": [
+   "かんが(える)",
+   "かんが(え)"
+  ],
+  "on": [
+   "コウ"
+  ]
+ },
+ "mnemonic": "An old man (耂) bent over (丂), thinking it over.",
+ "effect": {
+  "material": "ivory",
+  "backdrop": "sky:indoor",
+  "vignette": {
+   "type": "q-ponder"
+  }
+ },
+ "sentences": [
+  {
+   "segments": [
+    {
+     "text": "よく"
+    },
+    {
+     "text": "考",
+     "reading": "かんが"
+    },
+    {
+     "text": "えてから"
+    },
+    {
+     "text": "答",
+     "reading": "こた"
+    },
+    {
+     "text": "えてください。"
+    }
+   ],
+   "en": "Please think it over carefully before you answer.",
+   "verified": {
+    "analysers": [
+     "SudachiPy",
+     "Open JTalk"
+    ],
+    "date": "2026-10-15",
+    "needsNativeReview": true
+   },
+   "source": {
+    "written": true
+   }
+  }
+ ],
+ "review": {
+  "recipe": "draft",
+  "mnemonic": "draft"
+ },
+ "source": {
+  "kanjidic2": true
+ }
+}

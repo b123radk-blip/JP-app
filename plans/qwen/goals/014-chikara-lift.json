@@ -1,0 +1,92 @@
+[
+ {
+  "goal": "the barbell lies on the mat before the lift",
+  "rests": "plate",
+  "on": "floor mat",
+  "t": [
+   0,
+   1.4
+  ]
+ },
+ {
+  "goal": "the barbell lies on the mat after he drops it",
+  "rests": "plate",
+  "on": "floor mat",
+  "t": [
+   4.7,
+   5.1
+  ]
+ },
+ {
+  "goal": "the barbell still lies on the mat while he cheers",
+  "rests": "plate",
+  "on": "floor mat",
+  "t": [
+   5.5,
+   7
+  ]
+ },
+ {
+  "goal": "his right hand holds the bar",
+  "point": "guy3 right hand",
+  "near": "bar",
+  "within": 0.04,
+  "t": [
+   1.5,
+   4.5
+  ]
+ },
+ {
+  "goal": "his left hand holds the bar",
+  "point": "guy3 left hand",
+  "near": "bar",
+  "within": 0.04,
+  "t": [
+   1.5,
+   4.5
+  ]
+ },
+ {
+  "goal": "his hands hold the bar apart",
+  "point": "guy3 right hand",
+  "near": "guy3 left hand",
+  "beyond": 0.2,
+  "t": [
+   1.5,
+   4.5
+  ]
+ },
+ {
+  "goal": "he holds the barbell up at his chest",
+  "point": "bar",
+  "near": [
+   0.95,
+   0.5,
+   0.12
+  ],
+  "within": 0.05,
+  "t": [
+   2.5,
+   4.1
+  ]
+ },
+ {
+  "goal": "nothing passes through him",
+  "clear": "guy3"
+ },
+ {
+  "goal": "the learner sees him",
+  "visible": "guy3",
+  "min": 80
+ },
+ {
+  "goal": "the learner sees the kanji",
+  "visible": "kanji",
+  "min": 95
+ },
+ {
+  "goal": "the plates show big",
+  "big": "plate",
+  "min": 10
+ }
+]

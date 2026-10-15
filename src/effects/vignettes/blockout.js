@@ -15,6 +15,7 @@
 // mesh is named `name` (a model goes by its model name), so the plan's goals find it.
 // A model's `hands`: [{ "side": "R", "to": [x, y, z] or "<a thing's name>", "t": [from, to] }]: the hand reaches there
 // (two-bone IK, as the built scene would), so a reach that the arm can't make shows in the numbers.
+// `clips` entries may end with "hold" ([1.5, "SitDown", "hold"]): the clip plays once and keeps its last pose.
 // `bows`: [{ "k": 0.6, "t": [from, to] }]: bends forward from the waist (model-kit bow), before the hands reach.
 import * as THREE from 'three';
 import { acts } from './timeline.js';
@@ -33,12 +34,12 @@ function at(th, v) {
   for (let i = 1; i < k.length; i++) if (v <= k[i][0]) { const f = (v - k[i - 1][0]) / Math.max(1e-6, k[i][0] - k[i - 1][0]); return k[i].slice(1).map((x, j) => k[i - 1][j + 1] + (x - k[i - 1][j + 1]) * f); }
   return k.at(-1).slice(1);
 }
-// a model's clip at time v: [name, seconds into it]
+// a model's clip at time v: [name, seconds into it, hold (play once, keep the last pose)]
 function clipAt(th, v) {
   const c = th.clips ?? [[0, th.clip ?? 'Idle']];
   let cur = c[0];
   for (const x of c) if (v >= x[0]) cur = x;
-  return [cur[1], Math.max(0, v - cur[0])];
+  return [cur[1], Math.max(0, v - cur[0]), cur[2] === 'hold'];
 }
 
 function blockout(ctx, spec, stage) {
@@ -72,7 +73,7 @@ function blockout(ctx, spec, stage) {
       group.updateWorldMatrix(true, true);
       for (const { th, a } of list) {
         if (!a) continue;
-        const [clip, s] = clipAt(th, v); a.pose(clip, s);
+        const [clip, s, hold] = clipAt(th, v); a.pose(clip, s, !hold);
         for (const b of th.bows ?? []) if (!b.t || (v >= b.t[0] && v <= b.t[1])) a.bow(b.k ?? 1);
         for (const hd of th.hands ?? []) {
           if (hd.t && (v < hd.t[0] || v > hd.t[1])) continue;

@@ -2760,5 +2760,41 @@
    "material": "pearl",
    "backdrop": "sky:day"
   }
+ },
+ "力": {
+  "group": "actions",
+  "meaning": "power; strength",
+  "mnemonic": "An arm bent to show its muscle: power.",
+  "effect": {
+   "material": "clay",
+   "backdrop": "sky:day",
+   "vignette": {
+    "type": "q-power"
+   }
+  }
+ },
+ "別": {
+  "group": "actions",
+  "meaning": "separate; branch off",
+  "mnemonic": "A knife (刂) cuts the rest away: separate.",
+  "effect": {
+   "material": "jade",
+   "backdrop": "sky:golden",
+   "vignette": {
+    "type": "q-part-ways"
+   }
+  }
+ },
+ "考": {
+  "group": "actions",
+  "meaning": "consider; think over",
+  "mnemonic": "An old man (耂) bent over (丂), thinking it over.",
+  "effect": {
+   "material": "ivory",
+   "backdrop": "sky:indoor",
+   "vignette": {
+    "type": "q-ponder"
+   }
+  }
  }
 }

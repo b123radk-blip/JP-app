@@ -253,6 +253,9 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 発 | actions | metal | draw | — | sky:morning | none | — | — | Two feet (癶) springing off the start line: departure. |
 | 遊 | actions | glow:gold | draw | — | sky:day | none | — | — | A child (子) with a flag, out on the road (辶): play. |
 | 待 | actions | stone | draw | — | sky:day | none | — | — | Steps (彳) stop at the temple (寺): wait your turn. |
+| 力 | actions | clay | draw | — | sky:day | none | — | — | An arm bent to show its muscle: power. |
+| 別 | actions | jade | draw | — | sky:golden | none | — | — | A knife (刂) cuts the rest away: separate. |
+| 考 | actions | ivory | draw | — | sky:indoor | none | — | — | An old man (耂) bent over (丂), thinking it over. |
 
 #### Time
 
