@@ -1,0 +1,207 @@
+# Inspection of card 5225
+
+## Goals: 14 of 14 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the friends walk together (t+0 to t+2.2): 5 moments, e.g. t+0: 0.25u apart (needs ≤ 0.32)
+  PASS she stands on the path at the fork (t+2.3 to t+3.4): 3 moments, e.g. t+2.5: gal2: touches T2 mesh path (beige #d8c8a0)
+  PASS he stands on the path at the fork (t+2.3 to t+3.4): 3 moments, e.g. t+2.5: guy2: touches T2 mesh path (beige #d8c8a0)
+  PASS she waves to him with her near hand (t+2.7 to t+3.2): 2 moments, e.g. t+3: 0.11u apart (needs ≤ 0.15)
+  PASS he waves to her with his near hand (t+2.7 to t+3.2): 2 moments, e.g. t+3: 0.12u apart (needs ≤ 0.15)
+  PASS she ends on the left path (t+5.6 to t+6.2): 2 moments, e.g. t+6: gal2: touches T3 mesh path left (beige #d8c8a0)
+  PASS he ends on the right path (t+5.6 to t+6.2): 2 moments, e.g. t+6: guy2: touches T4 mesh path right (beige #d8c8a0)
+  PASS they end far apart (t+5.4 to t+6.2): 3 moments, e.g. t+5.5: 0.8u apart (needs ≥ 0.7)
+  PASS the learner sees her (t+0 to t+6.2): 16 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the learner sees him (t+0 to t+6.2): 16 moments, e.g. t+0: 100% visible (needs ≥ 80)
+  PASS the learner sees the kanji: 19 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the paths are seen from above: 19 moments, e.g. t+0: its top is turned 15° toward you (needs ≥ 12)
+  PASS nothing passes through her: 19 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through him: 19 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.5 s from t+0 to t+7.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+7.5 (worst at t+0): mesh path (beige #d8c8a0): SUNK INTO mesh grass (green #6ab04c) (gap -0.12u)
+  - t+0 to t+7.5 (worst at t+0): mesh path left (beige #d8c8a0): SUNK INTO mesh grass (green #6ab04c) (gap -0.17u)
+  - t+0 to t+7.5 (worst at t+0): mesh path right (beige #d8c8a0): SUNK INTO mesh grass (green #6ab04c) (gap -0.17u)
+  - t+1 (worst at t+1): model guy2: SUNK INTO mesh path (beige #d8c8a0) (gap -0.03u)
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh grass (green #6ab04c): size 1 x 0.54 x 1.42, centre [0.93, 0.29, -0.24], bottom 0.02, top 0.56
+  T2 mesh path (beige #d8c8a0): size 0.4 x 0.25 x 0.66, centre [0.93, 0.46, -0.65], bottom 0.33, top 0.58
+  T3 mesh path left (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [0.66, 0.23, -0.02], bottom 0.05, top 0.41
+  T4 mesh path right (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [1.2, 0.23, -0.02], bottom 0.05, top 0.41
+  T5 model gal2: size 0.21 x 0.5 x 0.3, centre [0.84, 0.74, -0.73], bottom 0.5, top 0.99
+  T6 model guy2: size 0.19 x 0.5 x 0.3, centre [1.07, 0.74, -0.74], bottom 0.5, top 0.99
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh grass (green #6ab04c): touches the ground line (bottom of the kanji)
+  T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T5 model gal2: touches T2 mesh path (beige #d8c8a0)
+  T6 model guy2: SUNK INTO T2 mesh path (beige #d8c8a0) (gap -0.03u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.76,0.65,-0.63]: nearest own body part hips 0.11u away; nearest other thing T2 mesh path (beige #d8c8a0) 0.07u away
+  T5 model gal2 left hand at [0.88,0.66,-0.83]: nearest own body part hips 0.13u away; nearest other thing T2 mesh path (beige #d8c8a0) 0.07u away
+  T6 model guy2 right hand at [1.01,0.65,-0.65]: nearest own body part hips 0.11u away; nearest other thing T5 model gal2 0.06u away
+  T6 model guy2 left hand at [1.13,0.66,-0.85]: nearest own body part hips 0.13u away; nearest other thing T2 mesh path (beige #d8c8a0) 0.07u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 100% visible; shows 14% as big as the kanji
+  T6 model guy2: 99% visible (1% behind other things (props, labels)); shows 13% as big as the kanji
+  the grass (1 piece): 55% visible (44% behind other things (props, labels), 1% behind T6 model guy2, 0% behind T5 model gal2); shows 64% as big as the kanji; its top turned 15° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  - T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  - T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  - T6 model guy2: SUNK INTO T2 mesh path (beige #d8c8a0) (gap -0.03u)
+
+## t+2.9 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh grass (green #6ab04c): size 1 x 0.54 x 1.42, centre [0.93, 0.29, -0.24], bottom 0.02, top 0.56
+  T2 mesh path (beige #d8c8a0): size 0.4 x 0.25 x 0.66, centre [0.93, 0.46, -0.65], bottom 0.33, top 0.58
+  T3 mesh path left (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [0.66, 0.23, -0.02], bottom 0.05, top 0.41
+  T4 mesh path right (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [1.2, 0.23, -0.02], bottom 0.05, top 0.41
+  T5 model gal2: size 0.23 x 0.52 x 0.21, centre [0.76, 0.65, -0.47], bottom 0.39, top 0.91
+  T6 model guy2: size 0.21 x 0.52 x 0.19, centre [1.1, 0.65, -0.43], bottom 0.39, top 0.91
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh grass (green #6ab04c): touches the ground line (bottom of the kanji)
+  T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T5 model gal2: touches T2 mesh path (beige #d8c8a0)
+  T6 model guy2: touches T2 mesh path (beige #d8c8a0)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.77,0.54,-0.39]: nearest own body part right knee 0.08u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+  T5 model gal2 left hand at [0.84,0.83,-0.5]: nearest own body part head (middle) 0.08u away; nearest other thing T6 model guy2 0.15u away
+  T6 model guy2 right hand at [1.03,0.83,-0.49]: nearest own body part head (middle) 0.09u away; nearest other thing T5 model gal2 0.15u away
+  T6 model guy2 left hand at [1.1,0.54,-0.36]: nearest own body part left knee 0.08u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 100% visible; shows 13% as big as the kanji
+  T6 model guy2: 100% visible; shows 13% as big as the kanji
+  the grass (1 piece): 54% visible (43% behind other things (props, labels), 2% behind T6 model guy2, 2% behind T5 model gal2); shows 59% as big as the kanji; its top turned 15° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  - T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  - T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+
+## t+4.4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh grass (green #6ab04c): size 1 x 0.54 x 1.42, centre [0.93, 0.29, -0.24], bottom 0.02, top 0.56
+  T2 mesh path (beige #d8c8a0): size 0.4 x 0.25 x 0.66, centre [0.93, 0.46, -0.65], bottom 0.33, top 0.58
+  T3 mesh path left (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [0.66, 0.23, -0.02], bottom 0.05, top 0.41
+  T4 mesh path right (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [1.2, 0.23, -0.02], bottom 0.05, top 0.41
+  T5 model gal2: size 0.23 x 0.52 x 0.25, centre [0.69, 0.52, -0.06], bottom 0.26, top 0.78
+  T6 model guy2: size 0.19 x 0.52 x 0.19, centre [1.2, 0.52, -0.09], bottom 0.26, top 0.78
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh grass (green #6ab04c): touches the ground line (bottom of the kanji)
+  T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T5 model gal2: touches T3 mesh path left (beige #d8c8a0)
+  T6 model guy2: touches T4 mesh path right (beige #d8c8a0)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.61,0.41,-0.06]: nearest own body part right knee 0.09u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+  T5 model gal2 left hand at [0.78,0.41,-0.06]: nearest own body part hips 0.09u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+  T6 model guy2 right hand at [1.12,0.41,-0.04]: nearest own body part right knee 0.09u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+  T6 model guy2 left hand at [1.26,0.41,-0.13]: nearest own body part hips 0.09u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 99% visible (1% behind other things (props, labels)); shows 17% as big as the kanji
+  T6 model guy2: 100% visible; shows 17% as big as the kanji
+  the grass (1 piece): 51% visible (39% behind other things (props, labels), 5% behind T5 model gal2, 4% behind T6 model guy2); shows 55% as big as the kanji; its top turned 15° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  - T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  - T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+
+## t+5.9 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh grass (green #6ab04c): size 1 x 0.54 x 1.42, centre [0.93, 0.29, -0.24], bottom 0.02, top 0.56
+  T2 mesh path (beige #d8c8a0): size 0.4 x 0.25 x 0.66, centre [0.93, 0.46, -0.65], bottom 0.33, top 0.58
+  T3 mesh path left (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [0.66, 0.23, -0.02], bottom 0.05, top 0.41
+  T4 mesh path right (beige #d8c8a0): size 0.55 x 0.36 x 0.96, centre [1.2, 0.23, -0.02], bottom 0.05, top 0.41
+  T5 model gal2: size 0.27 x 0.52 x 0.23, centre [0.57, 0.34, 0.35], bottom 0.08, top 0.6
+  T6 model guy2: size 0.29 x 0.52 x 0.21, centre [1.31, 0.34, 0.36], bottom 0.08, top 0.6
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh grass (green #6ab04c): touches the ground line (bottom of the kanji)
+  T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  T5 model gal2: touches T3 mesh path left (beige #d8c8a0)
+  T6 model guy2: touches T4 mesh path right (beige #d8c8a0)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.46,0.23,0.37]: nearest own body part right knee 0.08u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+  T5 model gal2 left hand at [0.67,0.51,0.43]: nearest own body part head (middle) 0.15u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+  T6 model guy2 right hand at [1.21,0.5,0.41]: nearest own body part right shoulder 0.16u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+  T6 model guy2 left hand at [1.43,0.23,0.35]: nearest own body part left knee 0.08u away; nearest other thing T1 mesh grass (green #6ab04c) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 100% visible; shows 23% as big as the kanji
+  T6 model guy2: 100% visible; shows 23% as big as the kanji
+  the grass (1 piece): 52% visible (35% behind other things (props, labels), 11% behind T5 model gal2, 2% behind T6 model guy2); shows 57% as big as the kanji; its top turned 15° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u)
+  - T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+  - T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/015-wakareru-fork/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.9 (t2.9-scene-front.jpg)
+    5. the whole scene from right, t+2.9 (t2.9-scene-right.jpg)
+    6. what the learner sees, t+2.9 (t2.9-learner.jpg)
+    7. the whole scene from front, t+4.4 (t4.4-scene-front.jpg)
+    8. the whole scene from right, t+4.4 (t4.4-scene-right.jpg)
+    9. what the learner sees, t+4.4 (t4.4-learner.jpg)
+    10. the whole scene from front, t+5.9 (t5.9-scene-front.jpg)
+    11. the whole scene from right, t+5.9 (t5.9-scene-right.jpg)
+    12. what the learner sees, t+5.9 (t5.9-learner.jpg)
+  plans/qwen/renders/015-wakareru-fork/faults.jpg
+    1. fault 1 from front (t+1): T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u) (fault1-front-t1.jpg)
+    2. fault 1 from right (t+1): T2 mesh path (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.12u) (fault1-right-t1.jpg)
+    3. fault 2 from front (t+1): T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u) (fault2-front-t1.jpg)
+    4. fault 2 from right (t+1): T3 mesh path left (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u) (fault2-right-t1.jpg)
+    5. fault 3 from front (t+1): T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u) (fault3-front-t1.jpg)
+    6. fault 3 from right (t+1): T4 mesh path right (beige #d8c8a0): SUNK INTO T1 mesh grass (green #6ab04c) (gap -0.17u) (fault3-right-t1.jpg)
+    7. fault 4 from front (t+1): T6 model guy2: SUNK INTO T2 mesh path (beige #d8c8a0) (gap -0.03u) (fault4-front-t1.jpg)
+    8. fault 4 from right (t+1): T6 model guy2: SUNK INTO T2 mesh path (beige #d8c8a0) (gap -0.03u) (fault4-right-t1.jpg)
+  plans/qwen/renders/015-wakareru-fork/people.jpg
+    1. T6 guy2 close, from front (t+1) (guy2-front-t1.jpg)
+    2. T6 guy2 close, from right (t+1) (guy2-right-t1.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 5225 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
