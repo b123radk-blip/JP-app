@@ -348,5 +348,25 @@
   "text": "公園は駅の近くに在ります。",
   "en": "The park is near the station.",
   "surface": "在り"
+ },
+ "6c7a": {
+  "text": "行く日を決めました。",
+  "en": "We decided on the day to go."
+ },
+ "767a": {
+  "text": "これは東京発の電車です。",
+  "en": "This train leaves from Tokyo."
+ },
+ "7d30": {
+  "text": "この道は細いです。",
+  "en": "This road is narrow."
+ },
+ "6b63": {
+  "text": "その答えは正しいです。",
+  "en": "That answer is correct."
+ },
+ "6b21": {
+  "text": "次の駅で降ります。",
+  "en": "I get off at the next station."
  }
 }

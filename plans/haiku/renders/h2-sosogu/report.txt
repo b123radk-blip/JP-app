@@ -1,0 +1,118 @@
+# Inspection of card 6ce8
+
+## Goals: 8 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 14 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the girl stays in view: 14 moments, e.g. t+0: 93% visible (needs ≥ 85)
+  PASS the girl stands on the ground: 14 moments, e.g. t+0: gal2: touches the ground line (bottom of the kanji)
+  PASS the table stands on the ground: 14 moments, e.g. t+0: table (brown/beige #b08a5e/#d9b48a): touches the ground line (bottom of the kanji)
+  FAIL the glass stands on the table: fails at t+0.5 to t+1.5, t+3 to t+6 of 14 moments; t+0.5: glass (white #cfe8ff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  PASS her right hand holds the jug all loop: 14 moments, e.g. t+0: 0.03u apart (needs ≤ 0.04)
+  PASS the jug is right over the glass while she pours (t+2 to t+4): 5 moments, e.g. t+2: 0u apart (needs ≤ 0.12)
+  PASS the stream reaches into the glass while she pours (t+2.25 to t+3.75): 3 moments, e.g. t+2.5: 0.01u apart (needs ≤ 0.01)
+  PASS nothing passes through her: 14 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.5 s from t+0 to t+6.5 (numbers only; the T ids differ from moment to moment)
+
+  no measured faults at any moment
+
+## t+1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.58 x 0.94 x 0.39, centre [1.1, 0.47, 0.07], bottom 0, top 0.94
+  T2 mesh table (brown/beige #b08a5e/#d9b48a): size 0.34 x 0.45 x 0.35, centre [0.8, 0.22, 0.1], bottom 0, top 0.45
+  T3 mesh glass (white #cfe8ff): size 0.09 x 0.22 x 0.1, centre [0.8, 0.56, 0.1], bottom 0.45, top 0.67
+  T4 mesh jug (skin #ffd9a0): size 0.13 x 0.19 x 0.12, centre [0.81, 0.61, 0.08], bottom 0.51, top 0.71
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh table (brown/beige #b08a5e/#d9b48a): touches the ground line (bottom of the kanji)
+  T3 mesh glass (white #cfe8ff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T4 mesh jug (skin #ffd9a0): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.89,0.7,0.03]: nearest own body part right shoulder 0.28u away; nearest other thing T4 mesh jug (skin #ffd9a0) 0.01u away
+  T1 model gal2 left hand at [1.24,0.27,0.19]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/beige #b08a5e/#d9b48a) 0.27u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 99% visible (1% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.54 x 0.94 x 0.39, centre [1.12, 0.47, 0.07], bottom 0, top 0.94
+  T2 mesh table (brown/beige #b08a5e/#d9b48a): size 0.34 x 0.45 x 0.35, centre [0.8, 0.22, 0.1], bottom 0, top 0.45
+  T3 mesh glass (white #cfe8ff): size 0.09 x 0.22 x 0.1, centre [0.8, 0.56, 0.1], bottom 0.45, top 0.67
+  T4 mesh jug (skin #ffd9a0): size 0.2 x 0.13 x 0.12, centre [0.79, 0.69, 0.06], bottom 0.63, top 0.76
+  T5 mesh stream (blue #6ec6ff): size 0.01 x 0.08 x 0.01, centre [0.85, 0.59, 0.06], bottom 0.55, top 0.64
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh table (brown/beige #b08a5e/#d9b48a): touches the ground line (bottom of the kanji)
+  T3 mesh glass (white #cfe8ff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T4 mesh jug (skin #ffd9a0): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T5 mesh stream (blue #6ec6ff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.93,0.73,0.05]: nearest own body part head (middle) 0.25u away; nearest other thing T4 mesh jug (skin #ffd9a0) 0.04u away
+  T1 model gal2 left hand at [1.24,0.27,0.19]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/beige #b08a5e/#d9b48a) 0.26u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 100% visible
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.58 x 0.94 x 0.39, centre [1.1, 0.47, 0.07], bottom 0, top 0.93
+  T2 mesh table (brown/beige #b08a5e/#d9b48a): size 0.34 x 0.45 x 0.35, centre [0.8, 0.22, 0.1], bottom 0, top 0.45
+  T3 mesh glass (white #cfe8ff): size 0.09 x 0.22 x 0.1, centre [0.8, 0.56, 0.1], bottom 0.45, top 0.67
+  T4 mesh jug (skin #ffd9a0): size 0.13 x 0.19 x 0.12, centre [0.81, 0.61, 0.07], bottom 0.51, top 0.7
+  T5 mesh yellow #ffe060: size 0.13 x 0.15 x 0.02, centre [0.83, 0.82, 0.1], bottom 0.74, top 0.9
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh table (brown/beige #b08a5e/#d9b48a): touches the ground line (bottom of the kanji)
+  T3 mesh glass (white #cfe8ff): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T4 mesh jug (skin #ffd9a0): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T5 mesh yellow #ffe060: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.89,0.7,0.03]: nearest own body part right shoulder 0.28u away; nearest other thing T4 mesh jug (skin #ffd9a0) 0.02u away
+  T1 model gal2 left hand at [1.24,0.27,0.19]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh table (brown/beige #b08a5e/#d9b48a) 0.26u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 100% visible (0% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h2-sosogu/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+3 (t3-scene-front.jpg)
+    5. the whole scene from right, t+3 (t3-scene-right.jpg)
+    6. what the learner sees, t+3 (t3-learner.jpg)
+    7. the whole scene from front, t+5 (t5-scene-front.jpg)
+    8. the whole scene from right, t+5 (t5-scene-right.jpg)
+    9. what the learner sees, t+5 (t5-learner.jpg)
+  (no fault close-ups: no measured faults)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs 6ce8 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

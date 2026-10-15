@@ -1,0 +1,8 @@
+[
+  {"goal": "the girl stays in view", "visible": "gal2", "min": 85},
+  {"goal": "cake B shows big enough to tell it's a cake", "big": "cakeB", "min": 6},
+  {"goal": "you can see the cakes' tops", "faces": "cake", "min": 15},
+  {"goal": "her hand reaches cake B", "point": "gal2 right hand", "near": "cakeB", "within": 0.05, "t": [3.8, 5.5]},
+  {"goal": "the question mark pops over her", "count": "question", "near": "gal2", "within": 0.4, "min": 1, "t": [1.5, 3]},
+  {"goal": "nothing passes through her", "clear": "gal2"}
+]

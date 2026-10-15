@@ -11,9 +11,9 @@ JTalk agree), but no person has confirmed them yet. Per row:
 Report problems by card id (the code in the Card column). To confirm a row yourself, set `"needsNativeReview": false`
 on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 
-**Waiting:** 835 sentence(s). **Confirmed:** 0.
+**Waiting:** 851 sentence(s). **Confirmed:** 0.
 
-## N5 (835 cards)
+## N5 (851 cards)
 
 | # | Card | Readings | Meaning | Sentence | English | Source |
 |---|---|---|---|---|---|---|
@@ -852,3 +852,19 @@ on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 | 833 | 授業 `w1330290` | じゅぎょう (授 じゅ · 業 ぎょう) | lesson; class | <ruby>今日<rp>(</rp><rt>きょう</rt><rp>)</rp></ruby>の<ruby>授業<rp>(</rp><rt>じゅぎょう</rt><rp>)</rp></ruby>はこれまで。 | So much for today's lesson. | [Tatoeba 171894](https://tatoeba.org/en/sentences/show/171894) |
 | 834 | 平仮名 `w1507090` | ひらがな (平 ひら · 仮 が · 名 な) | hiragana | <ruby>平仮名<rp>(</rp><rt>ひらがな</rt><rp>)</rp></ruby>はやさしいです。 | Hiragana is easy. | written for the app |
 | 835 | テープレコーダー `w1078810` | テープレコーダー | tape recorder | このテープレコーダーは<ruby>新<rp>(</rp><rt>あたら</rt><rp>)</rp></ruby>しくない。 | This tape recorder is not new. | [Tatoeba 223518](https://tatoeba.org/en/sentences/show/223518) |
+| 836 | 集 `96c6` | **あつ** · kun あつ(まる)、あつ(める)、つど(う) · on シュウ | gather; meet | <ruby>集合<rp>(</rp><rt>しゅうごう</rt><rp>)</rp></ruby><ruby>場所<rp>(</rp><rt>ばしょ</rt><rp>)</rp></ruby>はどこですか？ | Where will we meet? | [Tatoeba 148104](https://tatoeba.org/en/sentences/show/148104) |
+| 837 | 注 `6ce8` | **ちゅう** · kun そそ(ぐ)、さ(す)、つ(ぐ) · on チュウ | pour; notes | そのページの<ruby>下<rp>(</rp><rt>した</rt><rp>)</rp></ruby>の<ruby>注<rp>(</rp><rt>ちゅう</rt><rp>)</rp></ruby>を<ruby>読<rp>(</rp><rt>よ</rt><rp>)</rp></ruby>みなさい。 | Read the note at the bottom of the page. | [Tatoeba 212656](https://tatoeba.org/en/sentences/show/212656) |
+| 838 | 送 `9001` | **おく** · kun おく(る) · on ソウ | escort; send | じゃあ、<ruby>送<rp>(</rp><rt>おく</rt><rp>)</rp></ruby>っていこうか。 | Would you like me to see you home? | [Tatoeba 215909](https://tatoeba.org/en/sentences/show/215909) |
+| 839 | 決 `6c7a` | **けつ** · kun き(める)、ぎ(め)、き(まる)、さ(く) · on ケツ | decide | <ruby>行<rp>(</rp><rt>い</rt><rp>)</rp></ruby>く<ruby>日<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>決<rp>(</rp><rt>き</rt><rp>)</rp></ruby>めました。 | We decided on the day to go. | written for the app |
+| 840 | 海 `6d77` | **うみ** · kun うみ · on カイ | sea | <ruby>私<rp>(</rp><rt>わたし</rt><rp>)</rp></ruby>は<ruby>海<rp>(</rp><rt>うみ</rt><rp>)</rp></ruby>より<ruby>山<rp>(</rp><rt>やま</rt><rp>)</rp></ruby>が<ruby>好<rp>(</rp><rt>す</rt><rp>)</rp></ruby>きだ。 | I like mountains better than seas. | [Tatoeba 157945](https://tatoeba.org/en/sentences/show/157945) |
+| 841 | 急 `6025` | **きゅう** · kun いそ(ぐ)、いそ(ぎ)、せ(く) · on キュウ | hurry | <ruby>急<rp>(</rp><rt>いそ</rt><rp>)</rp></ruby>がなくてもいいよ。 | You can take your time. | [Tatoeba 182548](https://tatoeba.org/en/sentences/show/182548) |
+| 842 | 発 `767a` | **はつ** · kun た(つ)、あば(く)、おこ(る)、つか(わす) · on ハツ、ホツ | departure | これは<ruby>東京<rp>(</rp><rt>とうきょう</rt><rp>)</rp></ruby><ruby>発<rp>(</rp><rt>はつ</rt><rp>)</rp></ruby>の<ruby>電車<rp>(</rp><rt>でんしゃ</rt><rp>)</rp></ruby>です。 | This train leaves from Tokyo. | written for the app |
+| 843 | 細 `7d30` | **ほそ** · kun ほそ(い)、ほそ(る)、こま(か)、こま(かい) · on サイ | slender; narrow | この<ruby>道<rp>(</rp><rt>みち</rt><rp>)</rp></ruby>は<ruby>細<rp>(</rp><rt>ほそ</rt><rp>)</rp></ruby>いです。 | This road is narrow. | written for the app |
+| 844 | 遊 `904a` | **あそ** · kun あそ(ぶ)、あそ(ばす) · on ユウ、ユ | play | <ruby>私<rp>(</rp><rt>わたし</rt><rp>)</rp></ruby>たちだけで<ruby>遊<rp>(</rp><rt>あそ</rt><rp>)</rp></ruby>ぼう。 | Let's play by ourselves. | [Tatoeba 167183](https://tatoeba.org/en/sentences/show/167183) |
+| 845 | 鳥 `9ce5` | **とり** · kun とり · on チョウ | bird | <ruby>鳥<rp>(</rp><rt>とり</rt><rp>)</rp></ruby>は<ruby>南<rp>(</rp><rt>みなみ</rt><rp>)</rp></ruby>へ<ruby>飛<rp>(</rp><rt>と</rt><rp>)</rp></ruby>んで<ruby>行<rp>(</rp><rt>い</rt><rp>)</rp></ruby>った。 | The birds flew to the south. | [Tatoeba 125781](https://tatoeba.org/en/sentences/show/125781) |
+| 846 | 忘 `5fd8` | **わす** · kun わす(れる) · on ボウ | forget | <ruby>火<rp>(</rp><rt>ひ</rt><rp>)</rp></ruby>を<ruby>消<rp>(</rp><rt>け</rt><rp>)</rp></ruby>すのを<ruby>忘<rp>(</rp><rt>わす</rt><rp>)</rp></ruby>れるな。 | Don't forget to put out the fire. | [Tatoeba 186724](https://tatoeba.org/en/sentences/show/186724) |
+| 847 | 正 `6b63` | **せい** · kun ただ(しい)、ただ(す)、まさ、まさ(に) · on セイ、ショウ | correct | その<ruby>答<rp>(</rp><rt>こた</rt><rp>)</rp></ruby>えは<ruby>正<rp>(</rp><rt>ただ</rt><rp>)</rp></ruby>しいです。 | That answer is correct. | written for the app |
+| 848 | 次 `6b21` | **つぎ** · kun つ(ぐ)、つぎ · on ジ、シ | next | <ruby>次<rp>(</rp><rt>つぎ</rt><rp>)</rp></ruby>の<ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>降<rp>(</rp><rt>お</rt><rp>)</rp></ruby>ります。 | I get off at the next station. | written for the app |
+| 849 | 待 `5f85` | **ま** · kun ま(つ)、ま(ち) · on タイ | wait | <ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>友<rp>(</rp><rt>とも</rt><rp>)</rp></ruby>だちを<ruby>待<rp>(</rp><rt>ま</rt><rp>)</rp></ruby>っています。 | I'm waiting for a friend at the station. | written for the app |
+| 850 | 冬 `51ac` | **ふゆ** · kun ふゆ · on トウ | winter | <ruby>冬<rp>(</rp><rt>ふゆ</rt><rp>)</rp></ruby>はとても<ruby>寒<rp>(</rp><rt>さむ</rt><rp>)</rp></ruby>いです。 | Winter is very cold. | written for the app |
+| 851 | 医 `533b` | **い** · kun い(やす)、い(する)、くすし · on イ | doctor; medicine | <ruby>父<rp>(</rp><rt>ちち</rt><rp>)</rp></ruby>は<ruby>医者<rp>(</rp><rt>いしゃ</rt><rp>)</rp></ruby>です。 | My father is a doctor. | written for the app |

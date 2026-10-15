@@ -1,0 +1,200 @@
+# Inspection of card 5f85
+
+## Goals: 13 of 13 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 34 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the girl stays in view: 34 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the friend is in view once he has arrived (t+5 to t+6.3): 7 moments, e.g. t+5: 100% visible (needs ≥ 85)
+  PASS the girl stands on the ground: 34 moments, e.g. t+0: gal2: touches the ground line (bottom of the kanji)
+  PASS the friend stands on the ground (t+4 to t+7): 14 moments, e.g. t+4: guy2: touches the ground line (bottom of the kanji)
+  PASS the clock's post stands on the ground: 34 moments, e.g. t+0: post (brown #606870): touches the ground line (bottom of the kanji)
+  PASS the clock shows big: 34 moments, e.g. t+0: shows 20% as big as the kanji (needs ≥ 8)
+  PASS the clock is not hidden: 34 moments, e.g. t+0: 99% visible (needs ≥ 90)
+  PASS she raises her wrist to look at her watch (t+1.3 to t+1.8): 2 moments, e.g. t+1.5: 0.22u apart (needs ≤ 0.25)
+  PASS he stops beside her, not in her (t+5 to t+6.3): 7 moments, e.g. t+5: 0.06u apart (needs ≥ 0.03)
+  PASS he stops close to her (t+5.2 to t+6.3): 6 moments, e.g. t+5.25: 0.07u apart (needs ≤ 0.2)
+  PASS nothing passes through her: 34 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through him: 34 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+7.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+0, t+2.25, t+4.5, t+5.5, t+7.75 (worst at t+5.5): mesh black #20262e: SUNK INTO mesh black #20262e (gap -0.07u)
+  - t+1.5 (worst at t+1.5): mesh black #20262e: FLOATS ABOVE mesh black #20262e (gap 0.03u)
+
+## t+1.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh post (brown #606870): size 0.04 x 0.72 x 0.04, centre [0.6, 0.36, -0.15], bottom 0, top 0.72
+  T2 mesh dark brown/black #303640/#20262e: size 0.3 x 0.3 x 0.03, centre [0.6, 0.86, -0.15], bottom 0.71, top 1.01
+  T3 mesh black #20262e: size 0.07 x 0.1 x 0.01, centre [0.57, 0.91, -0.13], bottom 0.86, top 0.95
+  T4 mesh black #20262e: size 0.05 x 0.08 x 0.01, centre [0.58, 0.83, -0.13], bottom 0.79, top 0.86
+  T5 model gal2: size 0.45 x 0.94 x 0.49, centre [0.95, 0.47, 0], bottom 0, top 0.94
+  T6 model guy2: size 0.31 x 0.94 x 0.38, centre [1.8, 0.47, 0.07], bottom 0, top 0.94
+  T7 mesh watch (white/black #ffffff/#1c2028): size 0.06 x 0.05 x 0.06, centre [1.01, 0.47, 0.14], bottom 0.45, top 0.5
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh post (brown #606870): touches the ground line (bottom of the kanji)
+  T2 mesh dark brown/black #303640/#20262e: is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh black #20262e: FLOATS ABOVE T4 mesh black #20262e (gap 0.03u)
+  T4 mesh black #20262e: is high in the air above the ground line (bottom of the kanji) (gap 0.79u)
+  T5 model gal2: touches the ground line (bottom of the kanji)
+  T6 model guy2: touches the ground line (bottom of the kanji)
+  T7 mesh watch (white/black #ffffff/#1c2028): is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.79,0.27,0]: nearest own body part right knee 0.14u away; nearest other thing T1 mesh post (brown #606870) 0.22u away
+  T5 model gal2 left hand at [0.98,0.5,0.15]: nearest own body part chest 0.22u away; nearest other thing T7 mesh watch (white/black #ffffff/#1c2028) 0u away
+  T6 model guy2 right hand at [1.78,0.27,-0.09]: nearest own body part right knee 0.14u away; nearest other thing T5 model gal2 0.61u away
+  T6 model guy2 left hand at [1.78,0.27,0.21]: nearest own body part left knee 0.14u away; nearest other thing T5 model gal2 0.61u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 99% visible (1% behind other things (props, labels)); shows 74% as big as the kanji
+  T6 model guy2: not in this view at all
+  the clock (1 piece): 99% visible (1% behind other things (props, labels)); shows 20% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh black #20262e: FLOATS ABOVE T4 mesh black #20262e (gap 0.03u)
+
+## t+2.8 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh post (brown #606870): size 0.04 x 0.72 x 0.04, centre [0.6, 0.36, -0.15], bottom 0, top 0.72
+  T2 mesh dark brown/black #303640/#20262e: size 0.3 x 0.3 x 0.03, centre [0.6, 0.86, -0.15], bottom 0.71, top 1.01
+  T3 mesh black #20262e: size 0.11 x 0.04 x 0.01, centre [0.65, 0.88, -0.13], bottom 0.85, top 0.9
+  T4 mesh black #20262e: size 0.08 x 0.05 x 0.01, centre [0.57, 0.84, -0.13], bottom 0.82, top 0.87
+  T5 model gal2: size 0.39 x 0.93 x 0.46, centre [0.94, 0.46, -0.03], bottom 0, top 0.93
+  T6 model guy2: size 0.31 x 0.93 x 0.38, centre [1.79, 0.46, 0.06], bottom 0, top 0.93
+  T7 mesh watch (white/black #ffffff/#1c2028): size 0.06 x 0.05 x 0.06, centre [1.11, 0.3, -0.1], bottom 0.27, top 0.32
+  T8 label "まだかな…": size 0.52 x 0.12 x 0, centre [1.21, 1.03, -0.13], bottom 0.97, top 1.09
+  T9 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [1.11, 0.95, -0.13], bottom 0.89, top 1.02
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh post (brown #606870): touches the ground line (bottom of the kanji)
+  T2 mesh dark brown/black #303640/#20262e: is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh black #20262e: is high in the air above the ground line (bottom of the kanji) (gap 0.85u)
+  T4 mesh black #20262e: is high in the air above the ground line (bottom of the kanji) (gap 0.82u)
+  T5 model gal2: touches the ground line (bottom of the kanji)
+  T6 model guy2: touches the ground line (bottom of the kanji)
+  T7 mesh watch (white/black #ffffff/#1c2028): is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+  T9 mesh white #ffffff: is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.81,0.26,0.02]: nearest own body part right knee 0.13u away; nearest other thing T1 mesh post (brown #606870) 0.24u away
+  T5 model gal2 left hand at [1.08,0.27,-0.08]: nearest own body part left knee 0.14u away; nearest other thing T7 mesh watch (white/black #ffffff/#1c2028) 0u away (inside its box: touching or passing through)
+  T6 model guy2 right hand at [1.77,0.26,-0.09]: nearest own body part right knee 0.15u away; nearest other thing T5 model gal2 0.63u away
+  T6 model guy2 left hand at [1.77,0.26,0.21]: nearest own body part left knee 0.14u away; nearest other thing T5 model gal2 0.63u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 100% visible; shows 75% as big as the kanji
+  T6 model guy2: not in this view at all
+  the clock (1 piece): 99% visible (1% behind other things (props, labels)); shows 20% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+4.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh post (brown #606870): size 0.04 x 0.72 x 0.04, centre [0.6, 0.36, -0.15], bottom 0, top 0.72
+  T2 mesh dark brown/black #303640/#20262e: size 0.3 x 0.3 x 0.03, centre [0.6, 0.86, -0.15], bottom 0.71, top 1.01
+  T3 mesh black #20262e: size 0.07 x 0.1 x 0.01, centre [0.57, 0.91, -0.13], bottom 0.86, top 0.95
+  T4 mesh black #20262e: size 0.08 x 0.05 x 0.01, centre [0.57, 0.88, -0.13], bottom 0.85, top 0.9
+  T5 model gal2: size 0.44 x 0.94 x 0.43, centre [0.94, 0.47, -0.04], bottom 0, top 0.94
+  T6 model guy2: size 0.42 x 0.92 x 0.33, centre [1.56, 0.46, 0.07], bottom 0, top 0.92
+  T7 mesh watch (white/black #ffffff/#1c2028): size 0.06 x 0.05 x 0.06, centre [1.09, 0.3, -0.12], bottom 0.27, top 0.32
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh post (brown #606870): touches the ground line (bottom of the kanji)
+  T2 mesh dark brown/black #303640/#20262e: is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh black #20262e: SUNK INTO T4 mesh black #20262e (gap -0.03u)
+  T4 mesh black #20262e: is high in the air above the ground line (bottom of the kanji) (gap 0.85u)
+  T5 model gal2: touches the ground line (bottom of the kanji)
+  T6 model guy2: touches the ground line (bottom of the kanji)
+  T7 mesh watch (white/black #ffffff/#1c2028): is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.79,0.27,0]: nearest own body part right knee 0.14u away; nearest other thing T1 mesh post (brown #606870) 0.22u away
+  T5 model gal2 left hand at [1.07,0.27,-0.1]: nearest own body part left knee 0.14u away; nearest other thing T7 mesh watch (white/black #ffffff/#1c2028) 0u away (inside its box: touching or passing through)
+  T6 model guy2 right hand at [1.44,0.29,-0.06]: nearest own body part hips 0.18u away; nearest other thing T5 model gal2 0.27u away
+  T6 model guy2 left hand at [1.71,0.28,0.2]: nearest own body part hips 0.2u away; nearest other thing T5 model gal2 0.55u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 100% visible; shows 78% as big as the kanji
+  T6 model guy2: 100% visible; shows 71% as big as the kanji
+  the clock (1 piece): 99% visible (1% behind other things (props, labels)); shows 20% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh black #20262e: SUNK INTO T4 mesh black #20262e (gap -0.03u)
+
+## t+5.6 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh post (brown #606870): size 0.04 x 0.72 x 0.04, centre [0.6, 0.36, -0.15], bottom 0, top 0.72
+  T2 mesh dark brown/black #303640/#20262e: size 0.3 x 0.3 x 0.03, centre [0.6, 0.86, -0.15], bottom 0.71, top 1.01
+  T3 mesh black #20262e: size 0.02 x 0.11 x 0.01, centre [0.6, 0.91, -0.13], bottom 0.86, top 0.97
+  T4 mesh black #20262e: size 0.05 x 0.08 x 0.01, centre [0.58, 0.89, -0.13], bottom 0.86, top 0.93
+  T5 model gal2: size 0.48 x 0.94 x 0.47, centre [0.92, 0.47, -0.02], bottom 0, top 0.94
+  T6 model guy2: size 0.33 x 0.94 x 0.49, centre [1.39, 0.47, 0.1], bottom 0, top 0.94
+  T7 mesh watch (white/black #ffffff/#1c2028): size 0.06 x 0.05 x 0.06, centre [1.09, 0.3, -0.12], bottom 0.27, top 0.32
+  T8 mesh orange #ff4a6a: size 0.1 x 0.09 x 0.04, centre [1.18, 1.12, 0.01], bottom 1.08, top 1.17
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh post (brown #606870): touches the ground line (bottom of the kanji)
+  T2 mesh dark brown/black #303640/#20262e: is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh black #20262e: touches T4 mesh black #20262e
+  T4 mesh black #20262e: is high in the air above the ground line (bottom of the kanji) (gap 0.86u)
+  T5 model gal2: touches the ground line (bottom of the kanji)
+  T6 model guy2: touches the ground line (bottom of the kanji)
+  T7 mesh watch (white/black #ffffff/#1c2028): is on T5 model gal2 (worn or held: check it sits right in the close-ups)
+  T8 mesh orange #ff4a6a: is high in the air above the ground line (bottom of the kanji) (gap 1.08u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T5 model gal2 right hand at [0.74,0.76,0.14]: nearest own body part head (middle) 0.27u away; nearest other thing T2 mesh dark brown/black #303640/#20262e 0.27u away
+  T5 model gal2 left hand at [1.07,0.27,-0.1]: nearest own body part left knee 0.14u away; nearest other thing T7 mesh watch (white/black #ffffff/#1c2028) 0u away (inside its box: touching or passing through)
+  T6 model guy2 right hand at [1.31,0.27,-0.11]: nearest own body part right knee 0.14u away; nearest other thing T5 model gal2 0.14u away
+  T6 model guy2 left hand at [1.39,0.76,0.28]: nearest own body part head (middle) 0.26u away; nearest other thing T5 model gal2 0.23u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T5 model gal2: 100% visible; shows 74% as big as the kanji
+  T6 model guy2: 100% visible; shows 66% as big as the kanji
+  the clock (1 piece): 99% visible (1% behind other things (props, labels)); shows 20% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h15-matsu/overview.jpg
+    1. the whole scene from front, t+1.5 (t1.5-scene-front.jpg)
+    2. the whole scene from right, t+1.5 (t1.5-scene-right.jpg)
+    3. what the learner sees, t+1.5 (t1.5-learner.jpg)
+    4. the whole scene from front, t+2.8 (t2.8-scene-front.jpg)
+    5. the whole scene from right, t+2.8 (t2.8-scene-right.jpg)
+    6. what the learner sees, t+2.8 (t2.8-learner.jpg)
+    7. the whole scene from front, t+4.5 (t4.5-scene-front.jpg)
+    8. the whole scene from right, t+4.5 (t4.5-scene-right.jpg)
+    9. what the learner sees, t+4.5 (t4.5-learner.jpg)
+    10. the whole scene from front, t+5.6 (t5.6-scene-front.jpg)
+    11. the whole scene from right, t+5.6 (t5.6-scene-right.jpg)
+    12. what the learner sees, t+5.6 (t5.6-learner.jpg)
+  plans/haiku/renders/h15-matsu/faults.jpg
+    1. fault 1 from front (t+4.5): T3 mesh black #20262e: SUNK INTO T4 mesh black #20262e (gap -0.03u) (fault1-front-t4.5.jpg)
+    2. fault 1 from right (t+4.5): T3 mesh black #20262e: SUNK INTO T4 mesh black #20262e (gap -0.03u) (fault1-right-t4.5.jpg)
+    3. fault 2 from front (t+1.5): T3 mesh black #20262e: FLOATS ABOVE T4 mesh black #20262e (gap 0.03u) (fault2-front-t1.5.jpg)
+    4. fault 2 from right (t+1.5): T3 mesh black #20262e: FLOATS ABOVE T4 mesh black #20262e (gap 0.03u) (fault2-right-t1.5.jpg)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs 5f85 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

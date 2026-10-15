@@ -1,0 +1,72 @@
+[
+ {
+  "goal": "the kanji stays in view",
+  "visible": "kanji",
+  "min": 95
+ },
+ {
+  "goal": "the girl stays in view",
+  "visible": "gal2",
+  "min": 85
+ },
+ {
+  "goal": "the girl stands on the snow",
+  "rests": "gal2",
+  "on": "snowfield"
+ },
+ {
+  "goal": "the snowman's body sits on the snow",
+  "rests": "snowbody",
+  "on": "snowfield",
+  "t": [
+   2.4,
+   7
+  ]
+ },
+ {
+  "goal": "the snowman's head sits on its body",
+  "rests": "snowhead",
+  "on": "snowbody",
+  "t": [
+   3.4,
+   7
+  ]
+ },
+ {
+  "goal": "the snowman shows big",
+  "big": "snowbody",
+  "min": 8,
+  "t": [
+   2.4,
+   6.3
+  ]
+ },
+ {
+  "goal": "the snowman is not hidden",
+  "visible": "snowbody",
+  "min": 85,
+  "t": [
+   3.4,
+   7
+  ]
+ },
+ {
+  "goal": "her hands are on the head as she lifts it on",
+  "point": "gal2 right hand",
+  "near": "snowhead",
+  "within": 0.06,
+  "t": [
+   2.7,
+   3.3
+  ]
+ },
+ {
+  "goal": "nothing passes through her",
+  "clear": "gal2",
+  "except": [
+   "snowfield",
+   "hat",
+   "scarf"
+  ]
+ }
+]

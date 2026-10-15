@@ -1,6 +1,6 @@
 // Preview (?preview=1): one card's animation on its own, looping, with its recipe, mnemonic and real cost, and Prev / Replay /
 // Pause / Next buttons to flip through cards in the headset. URL options (all optional):
-//   cards=65e5,706b  or  deck=n5   which cards to flip through (default: every card of the enabled decks)
+//   cards=65e5,706b  or  deck=n5 (or deck=haiku: content/decks/haiku.json, a review list outside the deck index)   which cards to flip through (default: every card of the enabled decks)
 //   card=706b                      start at this card
 //   recipe={...}                   try a recipe (JSON, URL-encoded) on the current card instead of its own
 //   t=3.2                          freeze at this time (for screenshots); Pause / Play still work

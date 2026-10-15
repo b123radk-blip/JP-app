@@ -1,0 +1,144 @@
+# Inspection of card 6b63
+
+## Goals: 10 of 10 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the girl stays in view: 30 moments, e.g. t+0: 99% visible (needs ≥ 85)
+  PASS the girl stands on the ground: 30 moments, e.g. t+0: gal2: touches the ground line (bottom of the kanji)
+  PASS the box stands on the ground: 30 moments, e.g. t+0: sorter (red/black #d83030/#1a1a22): touches the ground line (bottom of the kanji)
+  PASS the cube starts in her hand (t+0 to t+0.4): 3 moments, e.g. t+0: 0.01u apart (needs ≤ 0.05)
+  PASS the cross shows for the wrong hole (t+1.3 to t+1.8): 2 moments, e.g. t+1.5: 1 of 1 wrong within 0.5u of sorter (needs ≥ 1)
+  PASS the cube goes into the box (t+3.1 to t+3.3): 2 moments, e.g. t+3.25: 0u apart (needs ≤ 0.01)
+  PASS the tick shows for the right hole (t+3.7 to t+4.3): 3 moments, e.g. t+3.75: 1 of 1 right within 0.5u of sorter (needs ≥ 1)
+  PASS no cross with the tick (t+3.7 to t+4.3): 3 moments, e.g. t+3.75: 0 of 0 wrong within 0.5u of sorter (needs ≤ 0)
+  PASS nothing passes through her: 30 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+3.25 (worst at t+3.25): mesh cube (blue #2a6ae0): SUNK INTO mesh sorter (red/black #d83030/#1a1a22) (gap -0.07u)
+
+## t+0.3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.36 x 0.57 x 0.24, centre [1.22, 0.28, 0.07], bottom 0, top 0.57
+  T2 mesh sorter (red/black #d83030/#1a1a22): size 0.45 x 0.22 x 0.32, centre [0.85, 0.11, 0.05], bottom 0, top 0.22
+  T3 mesh cube (blue #2a6ae0): size 0.1 x 0.1 x 0.1, centre [1.03, 0.38, 0.06], bottom 0.33, top 0.43
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh sorter (red/black #d83030/#1a1a22): touches the ground line (bottom of the kanji)
+  T3 mesh cube (blue #2a6ae0): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [1.09,0.42,0]: nearest own body part right shoulder 0.17u away; nearest other thing T3 mesh cube (blue #2a6ae0) 0.01u away
+  T1 model gal2 left hand at [1.29,0.16,0.14]: nearest own body part left knee 0.08u away; nearest other thing T2 mesh sorter (red/black #d83030/#1a1a22) 0.21u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+1.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.39 x 0.57 x 0.25, centre [1.2, 0.28, 0.05], bottom 0, top 0.57
+  T2 mesh sorter (red/black #d83030/#1a1a22): size 0.45 x 0.22 x 0.32, centre [0.85, 0.11, 0.05], bottom 0, top 0.22
+  T3 mesh cube (blue #2a6ae0): size 0.1 x 0.1 x 0.1, centre [1.03, 0.35, 0.08], bottom 0.3, top 0.4
+  T4 mesh wrong (orange #ff4040): size 0.21 x 0.21 x 0.03, centre [0.85, 0.6, 0.05], bottom 0.49, top 0.71
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh sorter (red/black #d83030/#1a1a22): touches the ground line (bottom of the kanji)
+  T3 mesh cube (blue #2a6ae0): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T4 mesh wrong (orange #ff4040): in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [1.07,0.28,0.02]: nearest own body part right shoulder 0.17u away; nearest other thing T3 mesh cube (blue #2a6ae0) 0.02u away
+  T1 model gal2 left hand at [1.29,0.16,0.14]: nearest own body part left knee 0.09u away; nearest other thing T2 mesh sorter (red/black #d83030/#1a1a22) 0.22u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 99% visible (1% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3.3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.28 x 0.58 x 0.24, centre [1.26, 0.29, 0.06], bottom 0, top 0.57
+  T2 mesh sorter (red/black #d83030/#1a1a22): size 0.45 x 0.22 x 0.32, centre [0.85, 0.11, 0.05], bottom 0, top 0.22
+  T3 mesh cube (blue #2a6ae0): size 0.1 x 0.1 x 0.1, centre [0.95, 0.14, 0.06], bottom 0.09, top 0.19
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh sorter (red/black #d83030/#1a1a22): touches the ground line (bottom of the kanji)
+  T3 mesh cube (blue #2a6ae0): SUNK INTO T2 mesh sorter (red/black #d83030/#1a1a22) (gap -0.08u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [1.23,0.17,-0.03]: nearest own body part right knee 0.08u away; nearest other thing T2 mesh sorter (red/black #d83030/#1a1a22) 0.15u away
+  T1 model gal2 left hand at [1.3,0.17,0.14]: nearest own body part left knee 0.08u away; nearest other thing T2 mesh sorter (red/black #d83030/#1a1a22) 0.22u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh cube (blue #2a6ae0): SUNK INTO T2 mesh sorter (red/black #d83030/#1a1a22) (gap -0.08u)
+
+## t+4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.28 x 0.57 x 0.28, centre [1.26, 0.28, 0.06], bottom 0, top 0.57
+  T2 mesh sorter (red/black #d83030/#1a1a22): size 0.45 x 0.22 x 0.32, centre [0.85, 0.11, 0.05], bottom 0, top 0.22
+  T3 mesh right (green #40d070): size 0.23 x 0.18 x 0.04, centre [0.85, 0.61, 0.05], bottom 0.52, top 0.7
+  T4 mesh sparkles (yellow #ffe040): size 0.3 x 0.1 x 0.3, centre [0.84, 0.61, 0.04], bottom 0.56, top 0.65
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh sorter (red/black #d83030/#1a1a22): touches the ground line (bottom of the kanji)
+  T3 mesh right (green #40d070): in the air on purpose (an effect: a star, a heart)
+  T4 mesh sparkles (yellow #ffe040): in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [1.18,0.49,-0.05]: nearest own body part head (middle) 0.14u away; nearest other thing T4 mesh sparkles (yellow #ffe040) 0.2u away
+  T1 model gal2 left hand at [1.27,0.49,0.17]: nearest own body part head (middle) 0.12u away; nearest other thing T4 mesh sparkles (yellow #ffe040) 0.28u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model gal2: 100% visible
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h12-tadashii/overview.jpg
+    1. the whole scene from front, t+0.3 (t0.3-scene-front.jpg)
+    2. the whole scene from right, t+0.3 (t0.3-scene-right.jpg)
+    3. what the learner sees, t+0.3 (t0.3-learner.jpg)
+    4. the whole scene from front, t+1.5 (t1.5-scene-front.jpg)
+    5. the whole scene from right, t+1.5 (t1.5-scene-right.jpg)
+    6. what the learner sees, t+1.5 (t1.5-learner.jpg)
+    7. the whole scene from front, t+3.3 (t3.3-scene-front.jpg)
+    8. the whole scene from right, t+3.3 (t3.3-scene-right.jpg)
+    9. what the learner sees, t+3.3 (t3.3-learner.jpg)
+    10. the whole scene from front, t+4 (t4-scene-front.jpg)
+    11. the whole scene from right, t+4 (t4-scene-right.jpg)
+    12. what the learner sees, t+4 (t4-learner.jpg)
+  plans/haiku/renders/h12-tadashii/faults.jpg
+    1. fault 1 from front (t+3.3): T3 mesh cube (blue #2a6ae0): SUNK INTO T2 mesh sorter (red/black #d83030/#1a1a22) (gap -0.08u) (fault1-front-t3.3.jpg)
+    2. fault 1 from right (t+3.3): T3 mesh cube (blue #2a6ae0): SUNK INTO T2 mesh sorter (red/black #d83030/#1a1a22) (gap -0.08u) (fault1-right-t3.3.jpg)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs 6b63 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

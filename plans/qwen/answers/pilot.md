@@ -15,3 +15,16 @@ To record for each when the reports come in:
 - Opus review: did it pass as delivered? Size of any fix (lines), and whether a second plan was needed.
 - Measured: run `node scripts/inspect.mjs <id>` in the cloud and compare with Qwen's last report.
 - Later: the user's headset flags on these three cards.
+
+## Results (2026-10-13)
+
+| plan | Qwen | rounds | Opus review | verdict |
+|---|---|---|---|---|
+| 008 医者 | 27 min | 4 | my inspection matches its report exactly; no fix | pass: kit on the palms, no head in the kit; 9 forearm points at the kit's back edge (plan limit 10) |
+| 009 習う | 20 min | 5 | matches; no fix | pass: both players 87-92% visible (were 67-71%), scene within 1.14u, notes 1.5x; hands 0.08u over the keys (the seated model's reach) |
+| 010 場 | 32 min | 6 | 1 line (the spade hung in the air before the boy appeared) | pass with small leftovers: feet 0.1u into the steps at some moments, girl 84% visible mid-slide; reads as a playground with real children |
+
+Qwen's reports were honest and matched the cloud measurements; one overstatement (010: "touches the treads" while its own
+numbers showed the feet a little into them). It found a real tool bug (look.mjs could not run on the PC: fixed).
+For later plans: attach a held prop to the person (or the tool cannot list it as carried); say where the notes / effects
+may go (009's notes rise to the card's title).

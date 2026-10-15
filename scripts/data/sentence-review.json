@@ -1,6 +1,8 @@
 {
  "_note": "Reviewed Tatoeba sentences. reject: never use this sentence (jpn id -> reason). pin: card id -> jpn id to always use.",
  "reject": {
+  "205636": "それに決めましょうか。 — English is an idiom (shake on it)",
+  "149012": "車はすばらしい発明だ。 — 発明 (invention) does not show the card meaning (departure)",
   "77142": "話を聞かせてくれ。 — English does not match",
   "78634": "来週までごきげんよう。 — ごきげんよう is old-fashioned",
   "79133": "ゆうべ私に電話くれた？ — particle dropped (電話をくれた)",

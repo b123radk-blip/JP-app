@@ -1,0 +1,19 @@
+{
+  "id": "767a",
+  "kanji": "発",
+  "meaning": "departure",
+  "primaryReading": "はつ",
+  "readings": { "kun": ["た(つ)", "あば(く)", "おこ(る)", "つか(わす)"], "on": ["ハツ", "ホツ"] },
+  "mnemonic": "Two feet (癶) springing off the start line: departure.",
+  "effect": { "material": "metal", "backdrop": "sky:morning", "vignette": { "type": "q-rocket-launch" } },
+  "sentences": [
+    {
+      "segments": [ { "text": "これは" }, { "text": "東京", "reading": "とうきょう" }, { "text": "発", "reading": "はつ" }, { "text": "の" }, { "text": "電車", "reading": "でんしゃ" }, { "text": "です。" } ],
+      "en": "This train leaves from Tokyo.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

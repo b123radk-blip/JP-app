@@ -1,0 +1,19 @@
+{
+  "id": "6d77",
+  "kanji": "海",
+  "meaning": "sea",
+  "primaryReading": "うみ",
+  "readings": { "kun": ["うみ"], "on": ["カイ"] },
+  "mnemonic": "Water (氵) every (毎) way you look: the sea.",
+  "effect": { "material": "water", "backdrop": "sky:morning", "vignette": { "type": "q-sea-shore" } },
+  "sentences": [
+    {
+      "segments": [ { "text": "私", "reading": "わたし" }, { "text": "は" }, { "text": "海", "reading": "うみ" }, { "text": "より" }, { "text": "山", "reading": "やま" }, { "text": "が" }, { "text": "好", "reading": "す" }, { "text": "きだ。" } ],
+      "en": "I like mountains better than seas.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "tatoeba": [157945, 256585] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1201190"] }
+}

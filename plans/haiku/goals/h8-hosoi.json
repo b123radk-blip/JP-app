@@ -1,0 +1,11 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the man is in view at the front", "visible": "guy2", "min": 85, "t": [4.6, 6]},
+  {"goal": "the man stands on the ground", "rests": "guy2"},
+  {"goal": "the left wall stands on the ground", "rests": "wallL"},
+  {"goal": "the right wall stands on the ground", "rests": "wallR"},
+  {"goal": "the gap stays narrow", "point": "wallL", "near": "wallR", "within": 0.36},
+  {"goal": "he is in the middle of the gap", "point": "guy2 hips", "near": [0.95, 0.45, 0], "within": 0.1, "t": [3.1, 3.4]},
+  {"goal": "he never goes through a wall", "clear": "guy2"},
+  {"goal": "he wipes his brow", "point": "guy2 right hand", "near": "guy2 head (middle)", "within": 0.15, "t": [4.9, 5.1]}
+]

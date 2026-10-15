@@ -1,0 +1,19 @@
+{
+  "id": "9ce5",
+  "kanji": "鳥",
+  "meaning": "bird",
+  "primaryReading": "とり",
+  "readings": { "kun": ["とり"], "on": ["チョウ"] },
+  "mnemonic": "A bird with its eye on top and four tail feathers below.",
+  "effect": { "material": "jade", "backdrop": "sky:morning", "vignette": { "type": "q-bird-branch" } },
+  "sentences": [
+    {
+      "segments": [ { "text": "鳥", "reading": "とり" }, { "text": "は" }, { "text": "南", "reading": "みなみ" }, { "text": "へ" }, { "text": "飛", "reading": "と" }, { "text": "んで" }, { "text": "行", "reading": "い" }, { "text": "った。" } ],
+      "en": "The birds flew to the south.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "tatoeba": [125781, 278211] }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true, "words": ["w1430250"] }
+}

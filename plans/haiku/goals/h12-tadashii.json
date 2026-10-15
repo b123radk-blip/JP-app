@@ -1,0 +1,12 @@
+[
+  {"goal": "the kanji stays in view", "visible": "kanji", "min": 95},
+  {"goal": "the girl stays in view", "visible": "gal2", "min": 85},
+  {"goal": "the girl stands on the ground", "rests": "gal2"},
+  {"goal": "the box stands on the ground", "rests": "sorter"},
+  {"goal": "the cube starts in her hand", "point": "gal2 right hand", "near": "cube", "within": 0.05, "t": [0, 0.4]},
+  {"goal": "the cross shows for the wrong hole", "count": "wrong", "near": "sorter", "within": 0.5, "min": 1, "t": [1.3, 1.8]},
+  {"goal": "the cube goes into the box", "point": "cube", "near": "sorter", "within": 0.01, "t": [3.1, 3.3]},
+  {"goal": "the tick shows for the right hole", "count": "right", "near": "sorter", "within": 0.5, "min": 1, "t": [3.7, 4.3]},
+  {"goal": "no cross with the tick", "count": "wrong", "near": "sorter", "within": 0.5, "max": 0, "t": [3.7, 4.3]},
+  {"goal": "nothing passes through her", "clear": "gal2", "except": ["cube"]}
+]

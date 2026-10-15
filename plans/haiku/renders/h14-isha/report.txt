@@ -1,0 +1,213 @@
+# Inspection of card 533b
+
+## Goals: 11 of 12 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the doctor stays in view: 30 moments, e.g. t+0: 99% visible (needs ≥ 85)
+  PASS the boy stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the doctor stands on the ground: 30 moments, e.g. t+0: doctor: touches the ground line (bottom of the kanji)
+  FAIL the boy stands on the ground: fails at t+5 to t+5.1 of 30 moments; t+5: guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.27u)
+  PASS the first-aid kit stands on the ground: 30 moments, e.g. t+0: kit (grey/white #9aa0a8/#f4f4f4): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  PASS the first-aid kit shows big: 30 moments, e.g. t+0: shows 9% as big as the kanji (needs ≥ 6)
+  PASS its red cross shows: 30 moments, e.g. t+0: 100% visible (needs ≥ 80)
+  PASS the stethoscope hand touches the boy (t+1.8 to t+3.3): 6 moments, e.g. t+2: 0.03u apart (needs ≤ 0.04)
+  PASS at his chest height (t+1.8 to t+3.3): 6 moments, e.g. t+2: 0.14u apart (needs ≤ 0.16)
+  PASS nothing passes through the doctor: 30 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through the boy: 30 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+6.75 (worst at t+0): mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+  - t+3.75 to t+4 (worst at t+3.75): mesh red #e04848: FLOATS ABOVE model guy2 (gap 0.19u)
+  - t+3.75 to t+4 (worst at t+3.75): mesh white #f6f2ea: FLOATS ABOVE model guy2 (gap 0.21u)
+  - t+5 (worst at t+5): model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.27u)
+
+## t+0.8 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): size 0.24 x 0.22 x 0.14, centre [0.62, 0.11, 0.2], bottom 0, top 0.22
+  T2 mesh cross (red #d03028): size 0.12 x 0.12 x 0.01, centre [0.62, 0.09, 0.28], bottom 0.03, top 0.15
+  T3 model doctor: size 0.39 x 0.94 x 0.46, centre [0.86, 0.47, -0.05], bottom 0, top 0.94
+  T4 model guy2: size 0.28 x 0.58 x 0.19, centre [1.19, 0.29, -0.04], bottom 0, top 0.57
+  T5 mesh scope (beige #c8d0dc): size 0.06 x 0.03 x 0.06, centre [0.96, 0.43, 0.14], bottom 0.42, top 0.45
+  T6 mesh dark brown #2e3440: size 0.13 x 0.12 x 0.15, centre [1.03, 0.49, 0.07], bottom 0.43, top 0.55
+  T7 label "いたい…": size 0.4 x 0.11 x 0, centre [1.32, 0.8, -0.03], bottom 0.75, top 0.85
+  T8 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [1.42, 0.73, -0.04], bottom 0.67, top 0.79
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+  T3 model doctor: touches the ground line (bottom of the kanji)
+  T4 model guy2: touches the ground line (bottom of the kanji)
+  T5 mesh scope (beige #c8d0dc): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T6 mesh dark brown #2e3440: is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T8 mesh white #ffffff: is high in the air above the ground line (bottom of the kanji) (gap 0.67u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T3 model doctor right hand at [0.9,0.39,0.12]: nearest own body part right shoulder 0.21u away; nearest other thing T5 mesh scope (beige #c8d0dc) 0.04u away
+  T3 model doctor left hand at [0.9,0.26,-0.24]: nearest own body part left knee 0.13u away; nearest other thing T4 model guy2 0.18u away
+  T4 model guy2 right hand at [1.11,0.2,-0.05]: nearest own body part hips 0.12u away; nearest other thing T3 model doctor 0.06u away
+  T4 model guy2 left hand at [1.14,0.2,0.02]: nearest own body part hips 0.11u away; nearest other thing T3 model doctor 0.08u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T3 model doctor: 100% visible; shows 36% as big as the kanji
+  T4 model guy2: 100% visible; shows 17% as big as the kanji
+  the cross (1 piece): 100% visible; shows 2% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kit (1 piece): 82% visible (18% behind the cross); shows 9% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): size 0.24 x 0.22 x 0.14, centre [0.62, 0.11, 0.2], bottom 0, top 0.22
+  T2 mesh cross (red #d03028): size 0.12 x 0.12 x 0.01, centre [0.62, 0.09, 0.28], bottom 0.03, top 0.15
+  T3 model doctor: size 0.58 x 0.83 x 0.46, centre [1.03, 0.41, -0.08], bottom 0, top 0.83
+  T4 model guy2: size 0.2 x 0.57 x 0.22, centre [1.23, 0.28, -0.03], bottom 0, top 0.57
+  T5 mesh scope (beige #c8d0dc): size 0.05 x 0.05 x 0.06, centre [1.1, 0.23, -0.01], bottom 0.21, top 0.25
+  T6 mesh dark brown #2e3440: size 0.02 x 0.31 x 0.02, centre [1.09, 0.38, 0], bottom 0.23, top 0.54
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+  T3 model doctor: touches the ground line (bottom of the kanji)
+  T4 model guy2: touches the ground line (bottom of the kanji)
+  T5 mesh scope (beige #c8d0dc): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T6 mesh dark brown #2e3440: is on T3 model doctor (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T3 model doctor right hand at [1.1,0.31,-0.01]: nearest own body part chest 0.26u away; nearest other thing T6 mesh dark brown #2e3440 0u away
+  T3 model doctor left hand at [0.84,0.28,-0.27]: nearest own body part hips 0.16u away; nearest other thing T4 model guy2 0.31u away
+  T4 model guy2 right hand at [1.19,0.16,-0.13]: nearest own body part right knee 0.08u away; nearest other thing T3 model doctor 0u away (inside its box: touching or passing through)
+  T4 model guy2 left hand at [1.25,0.16,0.05]: nearest own body part left knee 0.08u away; nearest other thing T3 model doctor 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T3 model doctor: 100% visible (0% behind the kit); shows 38% as big as the kanji
+  T4 model guy2: 93% visible (7% behind T3 model doctor); shows 16% as big as the kanji
+  the cross (1 piece): 100% visible; shows 2% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kit (1 piece): 82% visible (18% behind the cross); shows 9% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+
+## t+4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): size 0.24 x 0.22 x 0.14, centre [0.62, 0.11, 0.2], bottom 0, top 0.22
+  T2 mesh cross (red #d03028): size 0.12 x 0.12 x 0.01, centre [0.62, 0.09, 0.28], bottom 0.03, top 0.15
+  T3 model doctor: size 0.39 x 0.93 x 0.46, centre [0.87, 0.46, -0.05], bottom 0, top 0.93
+  T4 model guy2: size 0.24 x 0.57 x 0.21, centre [1.19, 0.28, -0.03], bottom 0, top 0.57
+  T5 mesh scope (beige #c8d0dc): size 0.06 x 0.03 x 0.06, centre [0.96, 0.43, 0.14], bottom 0.42, top 0.45
+  T6 mesh dark brown #2e3440: size 0.14 x 0.12 x 0.15, centre [1.03, 0.49, 0.07], bottom 0.42, top 0.55
+  T7 mesh red #e04848: size 0.04 x 0.04 x 0.02, centre [1.14, 0.67, 0.02], bottom 0.65, top 0.69
+  T8 mesh white #f6f2ea: size 0.04 x 0.04 x 0.02, centre [1.17, 0.7, 0.02], bottom 0.67, top 0.72
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+  T3 model doctor: touches the ground line (bottom of the kanji)
+  T4 model guy2: touches the ground line (bottom of the kanji)
+  T5 mesh scope (beige #c8d0dc): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T6 mesh dark brown #2e3440: is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T7 mesh red #e04848: FLOATS ABOVE T4 model guy2 (gap 0.11u)
+  T8 mesh white #f6f2ea: FLOATS ABOVE T4 model guy2 (gap 0.12u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T3 model doctor right hand at [0.9,0.39,0.12]: nearest own body part right shoulder 0.2u away; nearest other thing T5 mesh scope (beige #c8d0dc) 0.04u away
+  T3 model doctor left hand at [0.91,0.26,-0.24]: nearest own body part left knee 0.14u away; nearest other thing T4 model guy2 0.19u away
+  T4 model guy2 right hand at [1.1,0.4,0.01]: nearest own body part neck 0.13u away; nearest other thing T6 mesh dark brown #2e3440 0.03u away
+  T4 model guy2 left hand at [1.25,0.16,0.05]: nearest own body part left knee 0.09u away; nearest other thing T3 model doctor 0.18u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T3 model doctor: 99% visible (1% behind the kit); shows 35% as big as the kanji
+  T4 model guy2: 100% visible; shows 17% as big as the kanji
+  the cross (1 piece): 100% visible; shows 2% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kit (1 piece): 82% visible (18% behind the cross); shows 9% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+  - T7 mesh red #e04848: FLOATS ABOVE T4 model guy2 (gap 0.11u)
+  - T8 mesh white #f6f2ea: FLOATS ABOVE T4 model guy2 (gap 0.12u)
+
+## t+5.1 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): size 0.24 x 0.22 x 0.14, centre [0.62, 0.11, 0.2], bottom 0, top 0.22
+  T2 mesh cross (red #d03028): size 0.12 x 0.12 x 0.01, centre [0.62, 0.09, 0.28], bottom 0.03, top 0.15
+  T3 model doctor: size 0.39 x 0.94 x 0.46, centre [0.86, 0.47, -0.05], bottom 0, top 0.94
+  T4 model guy2: size 0.34 x 0.51 x 0.25, centre [1.16, 0.5, -0.01], bottom 0.24, top 0.76
+  T5 mesh scope (beige #c8d0dc): size 0.06 x 0.03 x 0.06, centre [0.96, 0.43, 0.14], bottom 0.42, top 0.45
+  T6 mesh dark brown #2e3440: size 0.13 x 0.12 x 0.15, centre [1.03, 0.49, 0.07], bottom 0.43, top 0.55
+  T7 pool orange #ff4a6a: size 0.23 x 0.18 x 0.05, centre [1.2, 1.07, -0.02], bottom 0.98, top 1.16
+  T8 mesh yellow #ffe040: size 0.29 x 0.08 x 0.27, centre [1.27, 0.96, -0.05], bottom 0.92, top 1
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh kit (grey/white #9aa0a8/#f4f4f4): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+  T3 model doctor: touches the ground line (bottom of the kanji)
+  T4 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.24u)
+  T5 mesh scope (beige #c8d0dc): is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T6 mesh dark brown #2e3440: is on T3 model doctor (worn or held: check it sits right in the close-ups)
+  T8 mesh yellow #ffe040: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T3 model doctor right hand at [0.9,0.39,0.12]: nearest own body part right shoulder 0.21u away; nearest other thing T5 mesh scope (beige #c8d0dc) 0.04u away
+  T3 model doctor left hand at [0.9,0.26,-0.24]: nearest own body part left knee 0.13u away; nearest other thing T4 model guy2 0.14u away
+  T4 model guy2 right hand at [1.04,0.57,-0.04]: nearest own body part neck 0.16u away; nearest other thing T3 model doctor 0u away (inside its box: touching or passing through)
+  T4 model guy2 left hand at [1.1,0.59,0.09]: nearest own body part left shoulder 0.16u away; nearest other thing T6 mesh dark brown #2e3440 0.04u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T3 model doctor: 100% visible; shows 36% as big as the kanji
+  T4 model guy2: 99% visible (1% behind other things (props, labels)); shows 16% as big as the kanji
+  the cross (1 piece): 100% visible; shows 2% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kit (1 piece): 82% visible (18% behind the cross); shows 9% as big as the kanji; its top turned -3° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u)
+  - T4 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.24u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h14-isha/overview.jpg
+    1. the whole scene from front, t+0.8 (t0.8-scene-front.jpg)
+    2. the whole scene from right, t+0.8 (t0.8-scene-right.jpg)
+    3. what the learner sees, t+0.8 (t0.8-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+    7. the whole scene from front, t+4 (t4-scene-front.jpg)
+    8. the whole scene from right, t+4 (t4-scene-right.jpg)
+    9. what the learner sees, t+4 (t4-learner.jpg)
+    10. the whole scene from front, t+5.1 (t5.1-scene-front.jpg)
+    11. the whole scene from right, t+5.1 (t5.1-scene-right.jpg)
+    12. what the learner sees, t+5.1 (t5.1-learner.jpg)
+  plans/haiku/renders/h14-isha/faults.jpg
+    1. fault 1 from front (t+0.8): T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u) (fault1-front-t0.8.jpg)
+    2. fault 1 from right (t+0.8): T2 mesh cross (red #d03028): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.03u) (fault1-right-t0.8.jpg)
+    3. fault 2 from front (t+4): T7 mesh red #e04848: FLOATS ABOVE T4 model guy2 (gap 0.11u) (fault2-front-t4.jpg)
+    4. fault 2 from right (t+4): T7 mesh red #e04848: FLOATS ABOVE T4 model guy2 (gap 0.11u) (fault2-right-t4.jpg)
+    5. fault 3 from front (t+4): T8 mesh white #f6f2ea: FLOATS ABOVE T4 model guy2 (gap 0.12u) (fault3-front-t4.jpg)
+    6. fault 3 from right (t+4): T8 mesh white #f6f2ea: FLOATS ABOVE T4 model guy2 (gap 0.12u) (fault3-right-t4.jpg)
+    7. fault 4 from front (t+5.1): T4 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.24u) (fault4-front-t5.1.jpg)
+    8. fault 4 from right (t+5.1): T4 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.24u) (fault4-right-t5.1.jpg)
+  plans/haiku/renders/h14-isha/people.jpg
+    1. T4 guy2 close, from front (t+4) (guy2-front-t4.jpg)
+    2. T4 guy2 close, from right (t+4) (guy2-right-t4.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 533b --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

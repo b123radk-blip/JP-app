@@ -1,0 +1,19 @@
+{
+  "id": "6c7a",
+  "kanji": "決",
+  "meaning": "decide",
+  "primaryReading": "けつ",
+  "readings": { "kun": ["き(める)", "ぎ(め)", "き(まる)", "さ(く)"], "on": ["ケツ"] },
+  "mnemonic": "Water (氵) bursting through the dam: the matter is decided.",
+  "effect": { "material": "stone", "backdrop": "sky:day", "vignette": { "type": "q-pick-cake" } },
+  "sentences": [
+    {
+      "segments": [ { "text": "行", "reading": "い" }, { "text": "く" }, { "text": "日", "reading": "ひ" }, { "text": "を" }, { "text": "決", "reading": "き" }, { "text": "めました。" } ],
+      "en": "We decided on the day to go.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

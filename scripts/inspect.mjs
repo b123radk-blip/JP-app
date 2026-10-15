@@ -21,6 +21,7 @@ const T0 = Date.now(), arg = (k, d) => { const i = process.argv.indexOf(k); retu
 const id = process.argv[2], look = arg('--look'), OUT = arg('--out', `.cache/inspect/${id}`), recipe = arg('--recipe') ? readFileSync(arg('--recipe'), 'utf8') : null;
 const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number), scan = Number(arg('--scan', '0.5')), LOOP = Number(arg('--loop', '7'));
 const goals = arg('--goals') ? goalChecker(JSON.parse(readFileSync(arg('--goals'), 'utf8'))) : null, quick = process.argv.includes('--quick');
+const watch = goals?.watch() ?? [];   // props the goals measure from the learner's seat (visible, big, faces)
 const VIEWS = { front: [0, 0.05], right: [90, 0.1], left: [-90, 0.1], back: [180, 0.1], top: [0, 1.45], low: [0, -0.25], 'front-right': [40, 0.3], 'front-left': [-40, 0.3] };
 if (!id) { console.log('usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--out dir] | --look T3 [--from right] [--t 1.5] [--zoom 2]'); process.exit(1); }
 
@@ -83,7 +84,7 @@ if (look) {
     const at = [];
     for (let dt = 0; dt < LOOP - 1e-9; dt += scan) at.push(Math.round(dt * 100) / 100);
     for (const dt of at) {
-      const m = await page.evaluate(measure, { t: end + dt, cam: seat });
+      const m = await page.evaluate(measure, { t: end + dt, cam: seat, watch });
       if (m.error) { console.log(m.error); process.exit(1); }
       note(m, dt); goals?.note(m, dt);
     }
@@ -100,7 +101,7 @@ if (look) {
   }
   const overview = [], faultPics = [], people = [];
   for (const dt of times) {
-    const t = end + dt, m = await page.evaluate(measure, { t, cam: seat });
+    const t = end + dt, m = await page.evaluate(measure, { t, cam: seat, watch });
     if (m.error) { console.log(m.error); process.exit(1); }
     note(m, dt, true); goals?.note(m, dt);
     lines.push(`## t+${dt} (u = ${m.u.toFixed(3)} m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)`, '', 'Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):');
@@ -114,7 +115,7 @@ if (look) {
     if (m.hands.length) lines.push('', 'Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):');
     for (const h of m.hands) lines.push(`  ${h.text}`);
     for (const h of m.touching) lines.push(`  ${h.text}`);
-    lines.push('', 'Seen from the learner\'s seat (the app\'s own camera): how much of each person or animal, and of the kanji, shows');
+    lines.push('', 'Seen from the learner\'s seat (the app\'s own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows');
     for (const h of m.hidden) lines.push(`  ${h.text}`);
     if (!m.hidden.some((h) => !h.glyph)) lines.push('  (no people or animals)');
     lines.push('', faults.length ? 'POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):' : 'No measured faults. Still look at the pictures: the numbers cannot see everything.');
@@ -175,7 +176,7 @@ function faultsOf(m) {
   return [...m.support.filter((s) => s.fault).map((s) => ({ text: s.text, point: s.point, score: gap(s.text) })),
     ...m.through.map((h) => ({ text: h.text, point: h.point, score: Number(/(\d+) skin points/.exec(h.text)?.[1] ?? 1) })),
     ...m.touching.map((h) => ({ text: h.text, point: h.point, score: 1 })),
-    ...m.hidden.filter((h) => h.pct != null && (h.glyph ? h.pct < 80 : h.pct < 85 || h.frame < 90)).map((h) => ({ text: h.text, id: h.id, hidden: true, score: 100 - Math.min(h.pct, h.frame) }))];
+    ...m.hidden.filter((h) => h.pct != null && !h.prop && (h.glyph ? h.pct < 80 : h.pct < 85 || h.frame < 90)).map((h) => ({ text: h.text, id: h.id, hidden: true, score: 100 - Math.min(h.pct, h.frame) }))];
 }
 // the middle and size of a moment's solid things (to frame the whole scene)
 function extent(m) {

@@ -1,0 +1,6 @@
+{"material": "silver", "backdrop": "sky:dawn", "vignette": {"type": "blockout", "loop": 7, "things": [
+  {"name": "wallL", "box": [0.25, 0.95, 0.5], "at": [0.745, 0, 0], "color": "#b0583a"},
+  {"name": "wallR", "box": [0.25, 0.95, 0.5], "at": [1.155, 0, 0], "color": "#b0583a"},
+  {"model": "guy2", "h": "ADULT", "clips": [[0, "Walk"], [1.2, "Idle"]],
+   "keys": [[0, 0.95, 0, -0.45, 0], [1.2, 0.95, 0, -0.33, 0], [2, 0.95, 0, -0.3, 90], [4.5, 0.95, 0, 0.33, 90], [5.2, 0.95, 0, 0.35, 0]]}
+]}}

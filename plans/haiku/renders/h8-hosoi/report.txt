@@ -1,0 +1,115 @@
+# Inspection of card 7d30
+
+## Goals: 8 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 30 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the man is in view at the front (t+4.6 to t+6): 6 moments, e.g. t+4.75: 98% visible (needs ≥ 85)
+  PASS the man stands on the ground: 30 moments, e.g. t+0: guy2: touches the ground line (bottom of the kanji)
+  PASS the left wall stands on the ground: 30 moments, e.g. t+0: wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+  PASS the right wall stands on the ground: 30 moments, e.g. t+0: wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+  PASS the gap stays narrow: 30 moments, e.g. t+0: 0.33u apart (needs ≤ 0.36)
+  FAIL he is in the middle of the gap (t+3.1 to t+3.4): fails at t+3.2 to t+3.25 of 2 moments; t+3.25: 0.18u apart (needs ≤ 0.1)
+  PASS he never goes through a wall: 30 moments, e.g. t+0: nothing passes into it
+  PASS he wipes his brow (t+4.9 to t+5.1): 1 moments, e.g. t+5: 0.15u apart (needs ≤ 0.15)
+
+## The whole loop, every 0.25 s from t+0 to t+6.75 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+2, t+6.75 (worst at t+0): model guy2: 46% visible (54% behind other things (props, labels))
+
+## t+1.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy2: size 0.38 x 0.94 x 0.31, centre [0.96, 0.47, -0.36], bottom 0, top 0.93
+  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [0.66, 0.53, 0], bottom 0, top 1.05
+  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [1.25, 0.53, 0], bottom 0, top 1.05
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy2: touches the ground line (bottom of the kanji)
+  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy2 right hand at [0.81,0.27,-0.35]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh wallL (beige/brown #d8c8b0/#b0583a) 0.1u away
+  T1 model guy2 left hand at [1.11,0.27,-0.35]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.1u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy2: 61% visible (39% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model guy2: 61% visible (39% behind other things (props, labels))
+
+## t+3.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy2: size 0.32 x 0.94 x 0.4, centre [0.95, 0.47, 0.03], bottom 0, top 0.94
+  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [0.66, 0.53, 0], bottom 0, top 1.05
+  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [1.25, 0.53, 0], bottom 0, top 1.05
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy2: touches the ground line (bottom of the kanji)
+  T2 mesh wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+  T3 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy2 right hand at [1.01,0.45,0.13]: nearest own body part right shoulder 0.11u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.1u away
+  T1 model guy2 left hand at [1.01,0.45,-0.05]: nearest own body part chest 0.1u away; nearest other thing T3 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.1u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy2: 95% visible (5% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy2: size 0.35 x 0.94 x 0.35, centre [0.97, 0.47, 0.35], bottom 0, top 0.94
+  T2 label "ふう": size 0.27 x 0.13 x 0, centre [0.65, 0.85, 0.68], bottom 0.79, top 0.92
+  T3 mesh white #ffffff: size 0.1 x 0.12 x 0.08, centre [0.55, 0.77, 0.68], bottom 0.71, top 0.83
+  T4 mesh wallL (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [0.66, 0.53, 0], bottom 0, top 1.05
+  T5 mesh wallR (beige/brown #d8c8b0/#b0583a): size 0.26 x 1.05 x 0.51, centre [1.25, 0.53, 0], bottom 0, top 1.05
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy2: touches the ground line (bottom of the kanji)
+  T3 mesh white #ffffff: is high in the air above the ground line (bottom of the kanji) (gap 0.71u)
+  T4 mesh wallL (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+  T5 mesh wallR (beige/brown #d8c8b0/#b0583a): touches the ground line (bottom of the kanji)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy2 right hand at [1.02,0.76,0.47]: nearest own body part head (middle) 0.15u away; nearest other thing T5 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.24u away
+  T1 model guy2 left hand at [1.09,0.27,0.28]: nearest own body part left knee 0.14u away; nearest other thing T5 mesh wallR (beige/brown #d8c8b0/#b0583a) 0.04u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h8-hosoi/overview.jpg
+    1. the whole scene from front, t+1.2 (t1.2-scene-front.jpg)
+    2. the whole scene from right, t+1.2 (t1.2-scene-right.jpg)
+    3. what the learner sees, t+1.2 (t1.2-learner.jpg)
+    4. the whole scene from front, t+3.2 (t3.2-scene-front.jpg)
+    5. the whole scene from right, t+3.2 (t3.2-scene-right.jpg)
+    6. what the learner sees, t+3.2 (t3.2-learner.jpg)
+    7. the whole scene from front, t+5 (t5-scene-front.jpg)
+    8. the whole scene from right, t+5 (t5-scene-right.jpg)
+    9. what the learner sees, t+5 (t5-learner.jpg)
+  plans/haiku/renders/h8-hosoi/faults.jpg
+    1. fault 1 (t+1.2): T1 model guy2: 61% visible (39% behind other things (props, labels)) (fault1-seat-t1.2.jpg)
+  plans/haiku/renders/h8-hosoi/people.jpg
+    1. T1 guy2 close, from front (t+1.2) (guy2-front-t1.2.jpg)
+    2. T1 guy2 close, from right (t+1.2) (guy2-right-t1.2.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 7d30 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]

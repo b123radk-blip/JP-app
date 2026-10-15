@@ -1,7 +1,7 @@
 // Runs inside the app page (Playwright sends the function's source, so it imports nothing at the top): measures a card's
 // scene at one moment for scripts/inspect.mjs. Lengths are in u (the kanji's height); y is above the kanji's bottom line
 // (the ground), x from the kanji's right edge, z toward the viewer.
-export async function measure({ t, cam }) {
+export async function measure({ t, cam, watch = [] }) {
   const THREE = await import('three');
   const app = window.__app, { kit } = app.app, V = () => new THREE.Vector3();
   app.seek(t); kit.scene.updateMatrixWorld(true);
@@ -178,41 +178,59 @@ export async function measure({ t, cam }) {
   if (cam) {
     kit.camera.position.fromArray(cam.pos); kit.controls.target.fromArray(cam.target); kit.controls.update(); kit.camera.updateMatrixWorld(true);
     const W = 240, H = 192, rt = new THREE.WebGLRenderTarget(W, H), r = kit.renderer, saved = [], bg = kit.scene.background, actors = items.filter((x) => x.body);
+    // props a plan's goals name (watch): measured like the people, all the meshes whose name (or a group's) holds the word
+    const bodyNames = new Set(actors.map((x) => x.name.toLowerCase()));
+    // (the most specific name first: it owns its meshes, so 'cakeB' and 'cake' can both be watched)
+    for (const [w, shownName] of watch.map((n) => [String(n).toLowerCase(), n]).sort((a, b) => b[0].length - a[0].length).filter(([n]) => n !== 'kanji' && ![...bodyNames].some((b) => b === n || b.includes(n)))) {
+      const objs = []; holder.traverse((o) => { if (o !== holder && o.name && o.name.toLowerCase().includes(w) && shown(o) && !objs.some((p) => { for (let q = o.parent; q; q = q.parent) if (q === p) return true; return false; })) objs.push(o); });
+      if (objs.length) { const members = new Set(); objs.forEach((o) => o.traverse((m) => members.add(m))); actors.push({ watch: w, shown: shownName, id: `watch ${w}`, o: { traverse: (f) => objs.forEach((o) => o.traverse(f)) }, objs, members }); }
+    }
     const glyph = kit.scene.getObjectByName('glyph'), meaning = kit.scene.getObjectByName('meaning'), K = actors.length, L = K + 1;
-    const flat = (i) => new THREE.MeshBasicMaterial({ color: new THREE.Color().setRGB(i < 0 ? 0 : (i + 1) * 24 / 255, i < 0 ? 0 : 1, i < 0 ? 1 : 0, THREE.LinearSRGBColorSpace), toneMapped: false, fog: false, side: THREE.DoubleSide });
-    const owner = new Map(); actors.forEach((x, i) => x.o.traverse((m) => owner.set(m, i)));
+    const flat = (i) => new THREE.MeshBasicMaterial({ color: new THREE.Color().setRGB(i < 0 ? 0 : (i + 1) * 12 / 255, i < 0 ? 0 : 1, i < 0 ? 1 : 0, THREE.LinearSRGBColorSpace), toneMapped: false, fog: false, side: THREE.DoubleSide });
+    const owner = new Map(); actors.forEach((x, i) => x.o.traverse((m) => { if (!x.watch || !owner.has(m)) owner.set(m, i); }));
+    // the colours a watched prop's own meshes are drawn in (some may belong to a more specific name)
+    actors.forEach((x) => { if (x.watch) x.mine = new Set([...x.members].map((m) => owner.get(m))); });
     glyph?.traverse((m) => { if (!owner.has(m)) owner.set(m, K); }); meaning?.traverse((m) => owner.set(m, L));
-    // drawn: opaque meshes that are showing now, and labels (they hide what is behind them too); the meaning label only alone
-    kit.scene.traverse((m) => { if (m.isMesh || m.isPoints || m.isLine || m.isSprite) saved.push([m, m.material, m.visible, m.isMesh && shown(m) && (owner.get(m) === L || !(m.material?.transparent && m.userData.label == null))]); });
+    // drawn: opaque meshes that are showing now, and labels (they hide what is behind them too); the meaning label only alone;
+    // a watched prop even when see-through (a glass), unless faded out
+    kit.scene.traverse((m) => { if (m.isMesh || m.isPoints || m.isLine || m.isSprite) saved.push([m, m.material, m.visible, m.isMesh && shown(m) && (owner.get(m) === L || actors[owner.get(m)]?.watch && (m.material?.opacity ?? 1) > 0.05 || !(m.material?.transparent && m.userData.label == null))]); });
     const grey = flat(-1), mats = [...actors, 0, 0].map((_, i) => flat(i));
     // instance colours (a kit person's skin and shirt) would tint the flat colours: off while drawing
     const tints = []; kit.scene.traverse((m) => { if (m.isInstancedMesh && m.instanceColor) { tints.push([m, m.instanceColor]); m.instanceColor = null; } });
     const draw = (only) => {
-      for (const [m, , , drawn] of saved) { const i = owner.get(m); m.visible = drawn && (only == null ? i !== L : i === only); m.material = i == null ? grey : mats[i]; }
+      for (const [m, , , drawn] of saved) { const i = owner.get(m); m.visible = drawn && (only == null ? i !== L : actors[only]?.watch ? actors[only].members.has(m) : i === only); m.material = i == null ? grey : mats[i]; }
       kit.scene.background = null; r.setRenderTarget(rt); r.setClearColor(0x000000, 0); r.clear(); r.render(kit.scene, kit.camera); r.setRenderTarget(null);
       const buf = new Uint8Array(W * H * 4); r.readRenderTargetPixels(rt, 0, 0, W, H, buf); return buf;
     };
     // (anything not drawn in one of the flat colours reads as 'other')
-    const whoAt = (buf, j) => { if (buf[j + 3] < 128) return null; const i = Math.round(buf[j] / 24) - 1; return buf[j + 1] > 200 && buf[j + 2] < 60 && i >= 0 && i <= L ? i : 'other'; };
+    const whoAt = (buf, j) => { if (buf[j + 3] < 128) return null; const i = Math.round(buf[j] / 12) - 1; return buf[j + 1] > 200 && buf[j + 2] < 60 && i >= 0 && i <= L ? i : 'other'; };
     const alone = [...actors.map((_, i) => draw(i)), glyph ? draw(K) : null], under = meaning ? draw(L) : null, all = draw(null);
     for (const [m, mat, vis] of saved) { m.material = mat; m.visible = vis; }
     for (const [m, c] of tints) m.instanceColor = c;
     kit.scene.background = bg; rt.dispose();
-    const name = (w) => (w === 'other' ? 'other things (props, labels)' : w === K ? 'the kanji' : actors[w] ? label(actors[w]) : '?');
-    const ndc = V(), inFrame = (a) => { const pts = skin(a).pts; return pts.length ? Math.round(100 * pts.filter((p) => { ndc.copy(p).project(kit.camera); return Math.abs(ndc.x) <= 1 && Math.abs(ndc.y) <= 1 && ndc.z < 1; }).length / pts.length) : 100; };
+    const name = (w) => (w === 'other' ? 'other things (props, labels)' : w === K ? 'the kanji' : actors[w]?.watch ? `the ${actors[w].shown}` : actors[w] ? label(actors[w]) : '?');
+    const ndc = V(), inFrame = (a) => { if (a.watch) return 100; const pts = skin(a).pts; return pts.length ? Math.round(100 * pts.filter((p) => { ndc.copy(p).project(kit.camera); return Math.abs(ndc.x) <= 1 && Math.abs(ndc.y) <= 1 && ndc.z < 1; }).length / pts.length) : 100; };
+    // how big each one shows: its seen pixels against the kanji's own (the kanji alone, nothing in front)
+    let kanjiPx = 0; if (glyph) for (let j = 0; j < W * H * 4; j += 4) if (whoAt(alone[K], j) === K) kanjiPx++;
+    const camPos = kit.camera.position.clone();
     [...actors, ...(glyph ? [{ id: 'kanji', glyph: true }] : [])].forEach((a, i) => {
       let n = 0, seen = 0, lab = 0; const by = {};
       for (let j = 0; j < W * H * 4; j += 4) {
-        if (whoAt(alone[i], j) !== i) continue; n++;
+        const me = (w) => (a.mine ? a.mine.has(w) : w === i);
+        if (!me(whoAt(alone[i], j))) continue; n++;
         if (!a.glyph && under && whoAt(under, j) === L) { lab++; continue; }
-        const w = whoAt(all, j); if (w === i) seen++; else by[name(w)] = (by[name(w)] ?? 0) + 1;
+        const w = whoAt(all, j); if (me(w)) seen++; else by[name(w)] = (by[name(w)] ?? 0) + 1;
       }
-      const who = a.glyph ? 'the kanji' : label(a);
-      if (!n) { hidden.push({ id: a.id, text: `${who}: not in this view at all` }); return; }
+      const who = a.glyph ? 'the kanji' : a.watch ? `the ${a.shown} (${a.objs.length} piece${a.objs.length > 1 ? 's' : ''})` : label(a);
+      // a watched prop's top (its own up axis): how far it is turned toward the learner, in degrees (0 = edge-on)
+      const tops = a.watch ? a.objs.map((o) => { const c = new THREE.Box3().setFromObject(o).getCenter(V()), up = V().set(0, 1, 0).applyQuaternion(o.getWorldQuaternion(new THREE.Quaternion())); return Math.round(Math.asin(Math.max(-1, Math.min(1, up.dot(camPos.clone().sub(c).normalize())))) / Math.PI * 180); }) : null;
+      const top = tops ? Math.min(...tops) : null, topText = tops ? `; its top turned ${top}° toward you (0 = edge-on, 90 = facing you)` : '';
+      if (!n) { hidden.push({ id: a.id, watch: a.watch, prop: !!a.watch, pct: a.watch ? 0 : undefined, area: 0, top, text: `${who}: not in this view at all${topText}` }); return; }
       if (lab) by['the meaning label'] = lab;
       const pct = Math.round(100 * seen / n), behind = Object.entries(by).sort((x, y) => y[1] - x[1]).map(([w, c]) => `${Math.round(100 * c / n)}% behind ${w}`).join(', ');
-      const frame = a.glyph ? 100 : inFrame(a);
-      hidden.push({ id: a.id, pct, glyph: !!a.glyph, frame, text: `${who}: ${pct}% visible${behind ? ` (${behind})` : ''}${frame < 100 ? `; only ${frame}% of it inside the picture` : ''}` });
+      const frame = a.glyph ? 100 : inFrame(a), area = kanjiPx ? Math.round(100 * seen / kanjiPx) : null;
+      const wb = a.watch ? a.objs.reduce((b, o) => b.union(new THREE.Box3().setFromObject(o)), new THREE.Box3()) : null, box = wb && !wb.isEmpty() ? { centre: P(wb.getCenter(V())), size: wb.getSize(V()).toArray().map(U) } : undefined;
+      hidden.push({ id: a.id, watch: a.watch, prop: !!a.watch, pct, glyph: !!a.glyph, frame, area, top, box, text: `${who}: ${pct}% visible${behind ? ` (${behind})` : ''}${frame < 100 ? `; only ${frame}% of it inside the picture` : ''}${area != null && !a.glyph ? `; shows ${area}% as big as the kanji` : ''}${topText}` });
     });
   }
   return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, body, name, size, centre, bottom, top, world, radius }) => ({ id, kind, body, name, size, centre, bottom, top, world, radius })), support, through, hands, touching, hidden, bodies };

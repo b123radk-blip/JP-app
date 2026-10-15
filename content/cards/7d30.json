@@ -1,0 +1,19 @@
+{
+  "id": "7d30",
+  "kanji": "細",
+  "meaning": "slender; narrow",
+  "primaryReading": "ほそ",
+  "readings": { "kun": ["ほそ(い)", "ほそ(る)", "こま(か)", "こま(かい)"], "on": ["サイ"] },
+  "mnemonic": "Thread (糸) laid over a rice field (田): thin and fine.",
+  "effect": {"material": "silver", "backdrop": "sky:dawn", "vignette": {"type": "q-narrow-gap"}},
+  "sentences": [
+    {
+      "segments": [ { "text": "この" }, { "text": "道", "reading": "みち" }, { "text": "は" }, { "text": "細", "reading": "ほそ" }, { "text": "いです。" } ],
+      "en": "This road is narrow.",
+      "verified": { "analysers": ["SudachiPy", "Open JTalk"], "date": "2026-10-14", "needsNativeReview": true },
+      "source": { "written": true }
+    }
+  ],
+  "review": { "recipe": "draft", "mnemonic": "draft" },
+  "source": { "kanjidic2": true }
+}

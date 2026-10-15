@@ -1,0 +1,143 @@
+# Inspection of card 6025
+
+## Goals: 8 of 8 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the kanji stays in view: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the man stays in view (t+0.4 to t+2.5): 11 moments, e.g. t+0.5: 96% visible (needs ≥ 85)
+  PASS he starts at the back right (t+0.3 to t+0.4): 1 moments, e.g. t+0.4: 0.15u apart (needs ≤ 0.15)
+  PASS he ends at the front left (t+2.5 to t+2.6): 1 moments, e.g. t+2.5: 0.15u apart (needs ≤ 0.15)
+  PASS he looks at his watch (t+1.3 to t+1.5): 2 moments, e.g. t+1.5: 0.25u apart (needs ≤ 0.3)
+  PASS the briefcase stays in his hand (t+0.3 to t+2.6): 11 moments, e.g. t+0.5: 0u apart (needs ≤ 0.05)
+  PASS the clock floats over the street: 16 moments, e.g. t+0: 0u apart (needs ≤ 0.1)
+  PASS nothing passes through him: 16 moments, e.g. t+0: nothing passes into it
+
+## The whole loop, every 0.25 s from t+0 to t+3.25 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+0.25, t+0.75, t+1.25, t+1.75 to t+2, t+2.5, t+3 (worst at t+0.25): model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.08u)
+  - t+1, t+1.5 to t+1.75 (worst at t+1.75): mesh clock (red #e04040): FLOATS ABOVE model guy2 (gap 0.5u)
+  - t+1 to t+1.75 (worst at t+1): mesh white #f6f2ea: FLOATS ABOVE model guy2 (gap 0.15u)
+  - t+1 to t+1.5 (worst at t+1): mesh black #1a1820: FLOATS ABOVE model guy2 (gap 0.19u)
+
+## t+0.4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy2: size 0.59 x 0.85 x 0.48, centre [1.31, 0.47, -0.4], bottom 0.05, top 0.9
+  T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24): size 0.19 x 0.2 x 0.18, centre [1.05, 0.38, -0.4], bottom 0.28, top 0.48
+  T3 pool blue #7fd0ff: size 0.21 x 0.14 x 0.26, centre [1.39, 0.9, -0.42], bottom 0.82, top 0.97
+  T4 pool white #ffffff: size 0.29 x 0.2 x 0.08, centre [1.52, 0.5, -0.66], bottom 0.4, top 0.6
+  T5 mesh clock (red #e04040): size 0.16 x 0.2 x 0.05, centre [0.99, 1, -0.1], bottom 0.9, top 1.1
+  T6 mesh white #f6f2ea: size 0.12 x 0.12 x 0, centre [1, 1, -0.07], bottom 0.94, top 1.06
+  T7 mesh black #1a1820: size 0.05 x 0.04 x 0.01, centre [1.02, 0.99, -0.07], bottom 0.97, top 1.01
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.05u)
+  T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24): is on T1 model guy2 (worn or held: check it sits right in the close-ups)
+  T5 mesh clock (red #e04040): is high in the air above the ground line (bottom of the kanji) (gap 0.9u)
+  T6 mesh white #f6f2ea: is high in the air above the ground line (bottom of the kanji) (gap 0.94u)
+  T7 mesh black #1a1820: is high in the air above the ground line (bottom of the kanji) (gap 0.97u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy2 right hand at [1.09,0.51,-0.46]: nearest own body part right shoulder 0.15u away; nearest other thing T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24) 0.02u away
+  T1 model guy2 left hand at [1.56,0.43,-0.46]: nearest own body part chest 0.23u away; nearest other thing T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24) 0.41u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy2: 98% visible (2% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.05u)
+
+## t+1.4 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy2: size 0.47 x 0.83 x 0.47, centre [0.95, 0.41, -0.1], bottom -0.01, top 0.82
+  T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24): size 0.19 x 0.2 x 0.18, centre [0.75, 0.39, -0.07], bottom 0.29, top 0.49
+  T3 pool blue #7fd0ff: size 0.24 x 0.2 x 0.28, centre [1.07, 0.81, -0.1], bottom 0.71, top 0.91
+  T4 pool white #ffffff: size 0.31 x 0.21 x 0.16, centre [1.23, 0.5, -0.34], bottom 0.4, top 0.6
+  T5 mesh yellow #ffd040: size 0.04 x 0.17 x 0.04, centre [0.82, 0.94, 0.22], bottom 0.86, top 1.02
+  T6 mesh clock (red #e04040): size 0.16 x 0.2 x 0.05, centre [0.99, 1, -0.1], bottom 0.9, top 1.1
+  T7 mesh white #f6f2ea: size 0.12 x 0.12 x 0, centre [1, 1, -0.07], bottom 0.94, top 1.06
+  T8 mesh black #1a1820: size 0.05 x 0.05 x 0.01, centre [0.98, 1, -0.07], bottom 0.97, top 1.02
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy2: touches the ground line (bottom of the kanji)
+  T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24): is on T1 model guy2 (worn or held: check it sits right in the close-ups)
+  T5 mesh yellow #ffd040: is high in the air above the ground line (bottom of the kanji) (gap 0.86u)
+  T6 mesh clock (red #e04040): FLOATS ABOVE T1 model guy2 (gap 0.08u)
+  T7 mesh white #f6f2ea: FLOATS ABOVE T1 model guy2 (gap 0.12u)
+  T8 mesh black #1a1820: FLOATS ABOVE T1 model guy2 (gap 0.16u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy2 right hand at [0.78,0.49,-0.15]: nearest own body part right shoulder 0.19u away; nearest other thing T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24) 0.01u away
+  T1 model guy2 left hand at [1.02,0.46,0.06]: nearest own body part left shoulder 0.11u away; nearest other thing T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24) 0.18u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy2: 96% visible (4% behind other things (props, labels))
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T6 mesh clock (red #e04040): FLOATS ABOVE T1 model guy2 (gap 0.08u)
+  - T7 mesh white #f6f2ea: FLOATS ABOVE T1 model guy2 (gap 0.12u)
+  - T8 mesh black #1a1820: FLOATS ABOVE T1 model guy2 (gap 0.16u)
+
+## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy2: size 0.55 x 0.84 x 0.47, centre [0.6, 0.5, 0.36], bottom 0.08, top 0.92
+  T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24): size 0.19 x 0.2 x 0.18, centre [0.38, 0.36, 0.31], bottom 0.26, top 0.46
+  T3 mesh clock (red #e04040): size 0.16 x 0.2 x 0.05, centre [0.99, 1, -0.1], bottom 0.9, top 1.1
+  T4 mesh white #f6f2ea: size 0.12 x 0.12 x 0, centre [1, 1, -0.07], bottom 0.94, top 1.06
+  T5 mesh black #1a1820: size 0.05 x 0.04 x 0.01, centre [1.02, 0.99, -0.07], bottom 0.97, top 1.01
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.08u)
+  T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24): is on T1 model guy2 (worn or held: check it sits right in the close-ups)
+  T3 mesh clock (red #e04040): is high in the air above the ground line (bottom of the kanji) (gap 0.9u)
+  T4 mesh white #f6f2ea: is high in the air above the ground line (bottom of the kanji) (gap 0.94u)
+  T5 mesh black #1a1820: is high in the air above the ground line (bottom of the kanji) (gap 0.97u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy2 right hand at [0.4,0.5,0.25]: nearest own body part right shoulder 0.17u away; nearest other thing T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24) 0.04u away
+  T1 model guy2 left hand at [0.54,0.41,0.53]: nearest own body part left shoulder 0.22u away; nearest other thing T2 mesh briefcase (black/dark brown #2a1a10/#5a3a24) 0.15u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, and of the kanji, shows
+  T1 model guy2: 100% visible
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T1 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.08u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/haiku/renders/h6-isogu/overview.jpg
+    1. the whole scene from front, t+0.4 (t0.4-scene-front.jpg)
+    2. the whole scene from right, t+0.4 (t0.4-scene-right.jpg)
+    3. what the learner sees, t+0.4 (t0.4-learner.jpg)
+    4. the whole scene from front, t+1.4 (t1.4-scene-front.jpg)
+    5. the whole scene from right, t+1.4 (t1.4-scene-right.jpg)
+    6. what the learner sees, t+1.4 (t1.4-learner.jpg)
+    7. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    8. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    9. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  plans/haiku/renders/h6-isogu/faults.jpg
+    1. fault 1 from front (t+2.5): T1 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.08u) (fault1-front-t2.5.jpg)
+    2. fault 1 from right (t+2.5): T1 model guy2: FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.08u) (fault1-right-t2.5.jpg)
+    3. fault 2 from front (t+1.4): T6 mesh clock (red #e04040): FLOATS ABOVE T1 model guy2 (gap 0.08u) (fault2-front-t1.4.jpg)
+    4. fault 2 from right (t+1.4): T6 mesh clock (red #e04040): FLOATS ABOVE T1 model guy2 (gap 0.08u) (fault2-right-t1.4.jpg)
+    5. fault 3 from front (t+1.4): T7 mesh white #f6f2ea: FLOATS ABOVE T1 model guy2 (gap 0.12u) (fault3-front-t1.4.jpg)
+    6. fault 3 from right (t+1.4): T7 mesh white #f6f2ea: FLOATS ABOVE T1 model guy2 (gap 0.12u) (fault3-right-t1.4.jpg)
+    7. fault 4 from front (t+1.4): T8 mesh black #1a1820: FLOATS ABOVE T1 model guy2 (gap 0.16u) (fault4-front-t1.4.jpg)
+    8. fault 4 from right (t+1.4): T8 mesh black #1a1820: FLOATS ABOVE T1 model guy2 (gap 0.16u) (fault4-right-t1.4.jpg)
+  plans/haiku/renders/h6-isogu/people.jpg
+    1. T1 guy2 close, from front (t+2.5) (guy2-front-t2.5.jpg)
+    2. T1 guy2 close, from right (t+2.5) (guy2-right-t2.5.jpg)
+
+For a closer look at anything: node scripts/inspect.mjs 6025 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
