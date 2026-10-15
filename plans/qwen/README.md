@@ -66,13 +66,23 @@ measurements (a hand within 0.1u of the toes from t+4 to t+5, a person at least 
 ground). Then:
 - Add `--goals plans/qwen/goals/<plan name without .md>.json` to every inspect run. The report starts with
   `## Goals: N of M PASS`, one PASS or FAIL line each, with the moments it fails and the measured numbers.
-- In the rounds between changes, add `--quick` too: numbers only, no pictures, about a quarter of the time. Look at
-  pictures (a full run, without `--quick`) only when the numbers can't tell you what is wrong, and once at the end.
+- In the rounds between changes, use your `check_goals` tool (below) instead: the goals and the whole-loop faults only,
+  in about 8 seconds. Look at pictures (a full inspect run) only when the numbers can't tell you what is wrong, and once
+  at the end.
 - The plan is done when every goal says PASS and the whole-loop list has no fault the plan doesn't want. Don't stop
   while one fails if you have rounds left; don't keep changing things once all pass.
 - Never edit the goals file. If a goal looks wrong or impossible, leave it failing and explain it in the report.
 - A goal's PASS or FAIL is what you report about it: paste the Goals lines. Don't call a goal met that says FAIL.
 - To measure a prop by name, give it one in the code (`mesh.name = 'sandbox'`) when the plan asks you to.
+
+## Your tools
+
+pi gives you three tools for this repo (plans/qwen/CHEATSHEET.md has the details and a scene to copy from):
+- `check_goals` (card, goals): every goal PASS or FAIL with its measured numbers, and the faults over the whole loop.
+- `measure` (card, t, what): exact sizes and positions of things and of body points (hands, feet, head, hips) at the
+  moments you ask for. Measure the two things a FAIL names before you change a number; don't guess from a picture.
+- `try_value` (card, file, changes, goals): tries exact-text edits and shows which goals and faults change, then puts the
+  file back. Keep a change that works by making the same edit with your edit tool.
 
 ## The report
 

@@ -54,11 +54,13 @@ function runPi(name, round, prompt, ms) {
   mkdirSync('.cache', { recursive: true });
   writeFileSync('.cache/qwen-prompt.md', prompt);
   const sd = `.cache/pi-sessions/${bare(name)}${round > 1 ? `-r${round}` : ''}`;
-  const args = [...(process.env.PI_ARGS ?? '').split(' ').filter(Boolean), '--session-dir', sd, '-p', '@.cache/qwen-prompt.md', 'Go.'];
+  // the JP-app tools (check_goals, measure, try_value: scripts/pi/jp-tools.ts) ride along with every run
+  const tools = existsSync('scripts/pi/jp-tools.ts') ? ['--extension', 'scripts/pi/jp-tools.ts'] : [];
+  const args = [...(process.env.PI_ARGS ?? '').split(' ').filter(Boolean), ...tools, '--session-dir', sd, '-p', '@.cache/qwen-prompt.md', 'Go.'];
   return run(process.env.PI_CMD || 'pi', args, { ms }).then((r) => ({ ...r, sd }));
 }
-const firstPrompt = (name) => `Read plans/qwen/README.md (your standing rules) and then the plan plans/qwen/queue/${name}, and do exactly what the plan says. Finish with your report in plans/qwen/done/${name}, committed, as the rules say. Do not push.\n`;
-const fixPrompt = (name, round, why) => `Read plans/qwen/README.md (your standing rules) and the plan plans/qwen/queue/${name}. You already worked on this plan (your commits and your report plans/qwen/done/${name}, if it is there). This is round ${round}. The watcher checked your work, and this is what is still wrong:\n\n${why}\n\nFix exactly these, in the files the plan lets you change, in the plan's style. Run the checks again as the rules say (with the goals file when the plan has one). Commit the code as "Qwen: ${bare(name)} round ${round}". Then add a section "## Round ${round}" at the end of your report (create the report as the rules say if it is missing): what you changed, and the real Goals lines of your last inspect run. Commit the report. Do not push, and never edit the goals file or the plan.\n`;
+const firstPrompt = (name) => `Read plans/qwen/README.md (your standing rules), plans/qwen/CHEATSHEET.md (how to build a scene and use your tools check_goals, measure and try_value) and then the plan plans/qwen/queue/${name}, and do exactly what the plan says. Finish with your report in plans/qwen/done/${name}, committed, as the rules say. Do not push.\n`;
+const fixPrompt = (name, round, why) => `Read plans/qwen/README.md (your standing rules), plans/qwen/CHEATSHEET.md (your tools: measure the things a FAIL names before changing a number) and the plan plans/qwen/queue/${name}. You already worked on this plan (your commits and your report plans/qwen/done/${name}, if it is there). This is round ${round}. The watcher checked your work, and this is what is still wrong:\n\n${why}\n\nFix exactly these, in the files the plan lets you change, in the plan's style. Run the checks again as the rules say (with the goals file when the plan has one). Commit the code as "Qwen: ${bare(name)} round ${round}". Then add a section "## Round ${round}" at the end of your report (create the report as the rules say if it is missing): what you changed, and the real Goals lines of your last inspect run. Commit the report. Do not push, and never edit the goals file or the plan.\n`;
 
 // the watcher's own checks, after Qwen stops: npm test, then the goals (numbers only)
 async function check(name, plan) {
@@ -76,7 +78,7 @@ const checkText = (c) => [c.testOk ? 'npm test: passed' : `npm test FAILED:\n\`\
   c.goalsOk == null ? '' : `${c.goalsLine}\n${c.goalLines.join('\n')}${c.inspectTail ? `\n\`\`\`\n${c.inspectTail}\n\`\`\`` : ''}`].filter(Boolean).join('\n\n');
 
 // files neither agent may change: the plan, its goals, and the measuring code
-const PROTECTED = (name) => [`${Q}/${name}`, `plans/qwen/goals/${bare(name)}.json`, 'scripts/inspect.mjs', 'scripts/lib/goals.mjs', 'scripts/lib/inspect-page.mjs', 'scripts/qwen-watch.mjs'];
+const PROTECTED = (name) => [`${Q}/${name}`, `plans/qwen/goals/${bare(name)}.json`, 'scripts/inspect.mjs', 'scripts/lib/goals.mjs', 'scripts/lib/inspect-page.mjs', 'scripts/qwen-watch.mjs', 'scripts/qtool.mjs', 'scripts/pi/jp-tools.ts'];
 function guard(name, base) {
   const changed = PROTECTED(name).filter((f) => { try { return git(`diff --name-only ${base} -- "${f}"`) !== ''; } catch { return false; } });
   if (!changed.length) return '';
@@ -160,6 +162,7 @@ async function doPlan(name) {
     rec.push(`pi: ${status} after ${mins(r.ms)} min.`);
     // no report: say so, so Opus sees it and the plan isn't retried forever
     if (!existsSync(`${D}/${name}`)) writeFileSync(`${D}/${name}`, `# NOT DONE (written by qwen-watch)\n\npi ended (${status}) after ${mins(r.ms)} min without a report. Last lines of its output:\n\n\`\`\`\n${tail(r.out, 40)}\n\`\`\`\n`);
+    await run(process.execPath, ['scripts/qtool.mjs', 'restore'], { ms: 60000 });   // a try_value cut off mid-way: put its file back
     commitLeftovers(`Qwen: ${name}: round ${round} pi log and anything left uncommitted`);
     const g = guard(name, base); if (g) say(`Watcher: ${g}.`);
     lastCheck = await check(name, plan);
