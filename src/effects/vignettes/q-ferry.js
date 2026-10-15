@@ -66,9 +66,9 @@ export function ferry(ctx, spec, stage) {
       man.group.position.set(k(0.58), floorTop(gz) + bob, gz * u);
       man.group.rotation.y = 0;
       man.turn('Torso', 0.25 * push);
-      Bp.set(k(0.68), gy(pz) + 0.03 * u, pz * u);
+      Bp.set(k(0.84), gy(pz) + 0.03 * u, pz * u);   // the bottom in the water beside the stern, outside the hull (Opus review)
       const lean = 0.3 * push;
-      Tp.set(Bp.x, Bp.y + (0.75 - 0.03 * rec) * u * Math.cos(lean), Bp.z + 0.75 * u * Math.sin(lean) + 0.06 * rec * u);
+      Tp.set(Bp.x - 0.22 * u, Bp.y + (0.75 - 0.03 * rec) * u * Math.cos(lean), Bp.z + 0.75 * u * Math.sin(lean) + 0.06 * rec * u);
       beam(pole, Bp, Tp);
       // grip takes world-space points: the scene sits offset in the world, so add the scene's own world offset
       const O = man.group.getWorldPosition(WO).sub(man.group.position);

@@ -36,7 +36,7 @@ function run(cmd, args, { ms = 15 * 60000, input = null } = {}) {
   return new Promise((ok) => {
     const t0 = Date.now(), out = [];
     let timedOut = false, p;
-    try { p = spawn(cmd, args, { shell: WIN, detached: !WIN, stdio: [input == null ? 'ignore' : 'pipe', 'pipe', 'pipe'] }); } catch (e) { ok({ code: null, out: e.message, error: e.message, ms: 0 }); return; }
+    try { p = spawn(cmd, args, { shell: WIN && !/\.exe$/i.test(cmd), detached: !WIN, stdio: [input == null ? 'ignore' : 'pipe', 'pipe', 'pipe'] }); } catch (e) { ok({ code: null, out: e.message, error: e.message, ms: 0 }); return; }
     child = p;
     p.stdout.on('data', (d) => out.push(d)); p.stderr.on('data', (d) => out.push(d));
     if (input != null) { p.stdin.on('error', () => {}); p.stdin.end(input); }
@@ -170,6 +170,7 @@ async function doPlan(name) {
     lastCheck = await check(name, plan);
     say(`Watcher's checks: ${lastCheck.testOk ? 'npm test passed' : 'npm test FAILED'}; ${lastCheck.goalsOk == null ? 'no goals to check' : lastCheck.goalsLine}`);
     if (lastCheck.goalLines?.length) rec.push('```', ...lastCheck.goalLines, '```');
+    if (lastCheck.inspectTail) rec.push('```', lastCheck.inspectTail, '```');
     if (!lastCheck.ok) { why = checkText(lastCheck) + (g ? `\n\nAlso: the watcher ${g}.` : ''); push(name, rec); continue; }
     if (reviewOff) { outcome = `CHECKS PASS, NOT REVIEWED (review ${reviewOff})`; break; }
     let v = null;
