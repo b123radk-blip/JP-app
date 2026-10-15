@@ -148,3 +148,99 @@ model.
 - Round 2: completed the goals run (the round-1 inspect had died on a shell error) — exit 0, 17 of 17 PASS;
   no code change kept (pole z-shift and two boat-material variants tried and reverted, see above); 17 of 17
   PASS.
+- Round 3: no scene change (nothing to fix: 17 of 17 PASS). The watcher's "inspect gave no Goals result" is a
+  bug in its own script, reproduced and explained below; my own full inspect run (same measuring code) is 17 of
+  17 PASS, exit 0.
+
+## Round 3
+
+The watcher sent back: `npm test` passed, but inspect gave no Goals result (exit 1) —
+`'C:\Program' is not recognized as an internal or external command`. This is **not a scene problem: it is the
+watcher's own check failing to run on this PC, and it has failed identically in rounds 1 and 2** (the loop file
+`plans/qwen/loop/013-watasu-ferry.md` shows "inspect gave no Goals result (exit 1)" after both of them — the
+watcher has never once measured this plan's goals; the round-2 17/17 came from my own inspect run).
+
+### Root cause (reproduced)
+
+`check()` in `scripts/qwen-watch.mjs` runs
+`run(process.execPath, ['scripts/inspect.mjs', card, '--goals', goals, '--quick', ...])`, and on Windows `run()`
+spawns with `{ shell: true }` (cmd.exe). On this PC `process.execPath` is
+`C:\Program Files\nodejs\node.exe`; the path is joined into the command line **unquoted**, so cmd.exe parses
+`C:\Program` as the command. Reproduced exactly, in isolation:
+
+```
+node -e "const {spawn}=require('child_process'); const p=spawn(process.execPath,['-e','console.log(42)'],{shell:true});
+  let o=''; p.stdout.on('data',d=>o+=d); p.stderr.on('data',d=>o+=d); p.on('close',c=>console.log('code',c,JSON.stringify(o.slice(0,200))))"
+
+→ code 1  "'C:\\Program' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n"
+```
+
+(`npm test` passes from the same watcher because its command is bare `npm`, resolved via PATH with no space.)
+
+### What I changed
+
+**Nothing in the scene** (`src/effects/vignettes/q-ferry.js`, `src/effects/vcat-q5c.js`): all 17 goals pass and
+the whole-loop fault list is line-for-line the same as round 2, every entry already judged in that report as by
+plan design (tilted ground vs the flat ground line, pole tip, seating, occlusion, boat-in-water). There is no
+number in the plan's files that affects this failure — the failure happens before inspect's code ever runs.
+
+I did **not** fix `scripts/qwen-watch.mjs`: it is in the watcher's own `PROTECTED` list ("files neither agent may
+change", and `guard()` would check it back out and commit the revert), and the plan only authorizes
+`q-ferry.js` and the catalog line. The one-line fix, for Brad or Opus, is in `run()` in `scripts/qwen-watch.mjs`
+(the arguments are documented as space-free, so quoting just the command is safe):
+
+```js
+// before
+p = spawn(cmd, args, { shell: WIN, ... });
+// after
+p = spawn(cmd.includes(' ') ? `"${cmd}"` : cmd, args, { shell: WIN, ... });
+```
+
+Until that lands, the watcher's `inspect gave no Goals result` line for this card can be read as "the check
+couldn't run" — the scene's real state is the run below.
+
+### Goals (real lines, last inspect run, exit 0)
+
+`node scripts/inspect.mjs w1444610 --goals plans/qwen/goals/013-watasu-ferry.json --loop 8.5 --times 0.5,3.4,6.2
+--out plans/qwen/renders/013-watasu-ferry`
+
+```
+## Goals: 17 of 17 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS the boat touches the far bank when she gets in (t+0 to t+1.8): 4 moments, e.g. t+0: 0u apart (needs ≤ 0.03)
+  PASS the boat touches the near bank when she gets out (t+5 to t+6.4): 4 moments, e.g. t+5: 0u apart (needs ≤ 0.03)
+  PASS she stands on the far bank first (t+0 to t+0.9): 2 moments, e.g. t+0: gal2: touches T1 mesh far bank (green #6ab04c)
+  PASS she sits in the boat while it crosses (t+1.8 to t+5): 8 moments, e.g. t+2: 0u apart (needs ≤ 0.03)
+  PASS she stands on the near bank after (t+5.9 to t+6.6): 3 moments, e.g. t+6: gal2: touches T3 mesh near bank (green #6ab04c)
+  PASS the ferryman stands in the boat: 19 moments, e.g. t+0: guy3: touches T4 model rowboat
+  PASS his right hand is on the pole: 19 moments, e.g. t+0: 0.04u apart (needs ≤ 0.04)
+  PASS his left hand is on the pole: 19 moments, e.g. t+0: 0.02u apart (needs ≤ 0.04)
+  PASS the pole reaches the water while he poles (t+1.8 to t+5): 8 moments, e.g. t+2: 0.01u apart (needs ≤ 0.02)
+  PASS the learner sees her on the far bank (t+0 to t+0.9): 2 moments, e.g. t+0: 99% visible (needs ≥ 85)
+  PASS the learner sees her in the boat (t+1.8 to t+5): 8 moments, e.g. t+2: 99% visible (needs ≥ 65)
+  PASS the learner sees her on the near bank (t+5.9 to t+6.6): 3 moments, e.g. t+6: 98% visible (needs ≥ 85)
+  PASS the learner sees the ferryman (after she has sat down) (t+1.8 to t+8.5): 15 moments, e.g. t+2: 79% visible (needs ≥ 70)
+  PASS the boat is big enough: 19 moments, e.g. t+0: shows 21% as big as the kanji (needs ≥ 12)
+  PASS the river is seen from above: 19 moments, e.g. t+0: its top is turned 19° toward you (needs ≥ 15)
+  PASS nothing passes through her: 19 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through him: 19 moments, e.g. t+0: nothing passes into it
+```
+
+Whole-loop faults: identical to the round-2 list (river/near bank vs the flat ground line, pole tip in hull/water,
+gal2 seated, guy3 76–79% behind gal2, boat keel in the water) — all "by plan design" verdicts stand; the full
+`POSSIBLE FAULTS` lines and close-ups are in `plans/qwen/renders/013-watasu-ferry/report.txt`.
+
+### Checks (real last lines, this round)
+
+- `node --check src/effects/vignettes/q-ferry.js` → (no output)
+- `npm test` → `content check ok: 851 cards (278 kanji, 573 words), 1 enabled deck(s), 1670 audio clips`,
+  `0 pair(s) at or above 0.72`, `recipe check ok`
+- `node scripts/check-piece-costs.mjs vignette "^q-ferry$"` → `693 recipes, 0 cost mismatches`
+- the inspect run above → exit 0, `## Goals: 17 of 17 PASS`
+- `node scripts/orbit.mjs w1444610 --times 0.5,3.4,6.2 --out plans/qwen/renders/013-watasu-ferry.jpg` →
+  `plans/qwen/renders/013-watasu-ferry.jpg (looking at 0.38,0.28,-0.27)`
+
+Render: the same six views as round 2 (deterministic scene — the re-render is byte-identical). A child sees the
+story in order: woman waiting on the far bank (t+0.5) → seated in the boat while he poles from the back (t+3.4) →
+stepping out on the near bank and waving (t+6.2). The only open visual is still the baked-in red oar in the
+Kenney hull (round-2 finding; needs a re-prepped model, not a scene fix).
