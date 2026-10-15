@@ -1,1 +1,2 @@
 src/effects/vcat-hb.js merge=union
+*.cmd text eol=crlf

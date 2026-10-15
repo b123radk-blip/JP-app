@@ -10,7 +10,7 @@
 //   --once: one pass, then exit; --every: seconds between pulls; --minutes: Qwen's first round; --fix-minutes: each later
 //   round; --rounds: Qwen rounds in all; --reviews: Opus calls in all (a retry for a bad answer counts); --plan-minutes:
 //   the whole plan; --no-review: no Opus; --review-api: allow Opus to run on ANTHROPIC_API_KEY (billed) when it is set.
-//   PI_ARGS: extra pi flags (e.g. "--model qwen3.8-27b"); PI_CMD: the pi command (default pi); CLAUDE_CMD (default
+//   PI_ARGS: pi's model flags (default "--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking xhigh"); PI_CMD: the pi command (default pi); CLAUDE_CMD (default
 //   claude); REVIEW_MODEL (default opus); REVIEW_EFFORT (default high).
 // A plan names its card on a line "Card: <id>" (or "(card <id>)" in its title) and may add inspect flags on a line
 // "Inspect: --loop 9". Without a card or goals file the watcher can't check goals and goes straight to the review.
@@ -21,6 +21,8 @@ const BRANCH = process.env.QWEN_BRANCH || 'claude/project-thread-qtx77d', Q = 'p
 const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; }, has = (k) => process.argv.includes(k);
 const once = has('--once'), every = Number(arg('--every', '60')) * 1000, first = Number(arg('--minutes', '30')) * 60000, later = Number(arg('--fix-minutes', '15')) * 60000;
 const ROUNDS = Number(arg('--rounds', '4')), REVIEWS = Number(arg('--reviews', '2')), PLAN = Number(arg('--plan-minutes', '120')) * 60000;
+// brad's pi line (Qwen 3.8 27B quasar build served by ninfer); PI_ARGS replaces it
+const PI_ARGS = process.env.PI_ARGS ?? '--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking xhigh';
 const WIN = process.platform === 'win32', CLAUDE = process.env.CLAUDE_CMD || 'claude', MODEL = process.env.REVIEW_MODEL || 'opus', EFFORT = process.env.REVIEW_EFFORT || 'high';
 const git = (c) => execSync(`git ${c}`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const log = (m) => console.log(`[${new Date().toLocaleTimeString()}] ${m}`);
@@ -55,8 +57,8 @@ function runPi(name, round, prompt, ms) {
   writeFileSync('.cache/qwen-prompt.md', prompt);
   const sd = `.cache/pi-sessions/${bare(name)}${round > 1 ? `-r${round}` : ''}`;
   // the JP-app tools (check_goals, measure, try_value: scripts/pi/jp-tools.ts) ride along with every run
-  const tools = existsSync('scripts/pi/jp-tools.ts') ? ['--extension', 'scripts/pi/jp-tools.ts'] : [];
-  const args = [...(process.env.PI_ARGS ?? '').split(' ').filter(Boolean), ...tools, '--session-dir', sd, '-p', '@.cache/qwen-prompt.md', 'Go.'];
+  const extra = PI_ARGS.split(' ').filter(Boolean), tools = existsSync('scripts/pi/jp-tools.ts') && !extra.some((a) => a.includes('jp-tools')) ? ['--extension', 'scripts/pi/jp-tools.ts'] : [];
+  const args = [...extra, ...tools, '--session-dir', sd, '-p', '@.cache/qwen-prompt.md', 'Go.'];
   return run(process.env.PI_CMD || 'pi', args, { ms }).then((r) => ({ ...r, sd }));
 }
 const firstPrompt = (name) => `Read plans/qwen/README.md (your standing rules), plans/qwen/CHEATSHEET.md (how to build a scene and use your tools check_goals, measure and try_value) and then the plan plans/qwen/queue/${name}, and do exactly what the plan says. Finish with your report in plans/qwen/done/${name}, committed, as the rules say. Do not push.\n`;
@@ -206,7 +208,7 @@ async function pass() {
 if (!reviewOff && process.env.ANTHROPIC_API_KEY && !has('--review-api')) reviewOff = 'off: ANTHROPIC_API_KEY is set, so Claude Code would bill the API instead of your subscription (unset it, or pass --review-api to accept)';
 if (!reviewOff) { const v = await run(CLAUDE, ['--version'], { ms: 60000 }); if (v.code !== 0) reviewOff = `off: "${CLAUDE} --version" failed (${tail(v.out, 2)})`; else log(`Opus reviews with ${CLAUDE} ${v.out.trim()} (model ${MODEL}, ${process.env.ANTHROPIC_API_KEY ? 'API key: billed' : 'your Claude login'})`); }
 if (reviewOff) log(`Opus review ${reviewOff}`);
-log(`watching ${BRANCH} for plans in ${Q} (Ctrl+C stops)`);
+log(`watching ${BRANCH} for plans in ${Q} with pi ${PI_ARGS} (Ctrl+C stops)`);
 for (;;) {
   try { await pass(); } catch (e) { log(`error: ${e.stderr?.toString().trim() || e.message}`); }
   if (once) break;

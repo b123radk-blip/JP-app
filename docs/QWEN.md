@@ -19,8 +19,10 @@ for the rest. Qwen's standing rules: `plans/qwen/README.md`.
 ## Each session
 
 1. Start the model (as usual).
-2. In the JP-app folder: `node scripts/qwen-watch.mjs`. Leave the window open; it prints a line when it starts and
-   finishes a plan. Ctrl+C stops it.
+2. Double-click `Start Qwen watcher.cmd` in the JP-app folder (or run `node scripts/qwen-watch.mjs` there). Leave the
+   window open; it prints a line when it starts and finishes a plan. Ctrl+C stops it. It runs pi with your line
+   `--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking xhigh` plus the JP-app tools; to use another model,
+   set `$env:PI_ARGS = "..."` first.
 3. Tell Opus when it says a plan is done (or just ask Opus to check).
 
 ## The repair loop (Qwen fixes, Opus reviews)
