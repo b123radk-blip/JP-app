@@ -1,0 +1,23 @@
+pi exit 0 after 32.0 min
+
+Done. The 鍵 scene is built, checked, reported, and committed (not pushed).
+
+## Summary
+
+**Scene** (`src/effects/vignettes/q-key-door.js`): at night a man (`guy3`) stands at his locked door, grips a gold key by its bow (palm against the ring, fist clear of it), slides the blade into the lock, turns it a quarter turn (a click), the door swings open 75° onto a warm lit room, he lowers the key and nods, the door swings shut, and the key is back up — the loop ends where it began. Cost set to `pdc('guy3') + 9` in `vcat-qw.js`.
+
+**Checks** — all pass: `node --check` (clean), `npm test` (63 pass / 0 fail), cost check (0 mismatches), orbit render, full inspect.
+
+**Goals: 9 of 10 PASS.** The one FAIL is a genuine plan/goal contradiction, not a scene bug:
+- **Goal 3** ("key's blade in the lock, t+1.85→3.3") can't pass while following the plan, because the plan says the key is "coming out of the lock at 2.4." I followed the plan (key out at 2.4) and left goal 3 failing — its end time looks like it should be 2.4, when the key actually leaves, not 3.3.
+- I also tried the reverse (keep the key in the lock until 3.3, open the door after): that scored only **8/10**, failing goal 2 (his hand only reaches the turned in-lock key while the door is shut) and goal 9 (the key hid behind him). So the plan's timing is the workable one.
+
+**Two number fixes** (both verified with `try_value`, documented in the report):
+- Man's feet at x **0.44** (plan said 0.56): at 0.56 his body hides the key (goal 9 → 0% visible); 0.50 is also too close.
+- Grip radius **0.045u** (plan said 0.012u): at 0.012 his fist passes *through* the ring (goal 6 FAIL — his fist is simply larger than the ring); 0.045 rests the palm on the ring's outer band.
+
+**Whole-loop faults** (both non-issues): the lock "floats" (it's a keyhole on the door face at y 0.44), and the room light "sinks into" the door at t+6 (it's a panel behind the opening; the closing door's box crosses it — it's meant to glow through). No body passes into anything; the learner sees the man and kanji 100% throughout.
+
+**Committed** as `鍵: a man unlocks his door with a key (plan 022)` on `claude/project-thread-qtx77d` (ahead 1, **not pushed**). Report at `plans/qwen/done/022-kagi-key.md`.
+
+**For you to verify in a headset:** the grip reads as a palm on the key's bow (not a fist around it) from all angles, the click star lands on the lock, and the warm light reads as "a room behind the door" rather than a panel glowing through the wood.
