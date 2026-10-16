@@ -111,3 +111,84 @@ against tolerances of 0.06, 0.06, 0.03).
 **Per-round line:** round 1: scene built, report lost to a timeout (watcher stub); round 2: 10 of 13 PASS on the
 watcher's grid (11 of 13 on the plan's `--times`), up from 9 of 13 — the cap-grab goal fixed for real, the other
 three lines blocked only by the goals file's unmeasurable time windows.
+
+## Round 3
+**What I changed** (one commit, `src/effects/vignettes/q-try-hats.js` only): tightened the two big-hat grip timings so
+her hand is on the brim across each goal's *whole* window, not just near its middle — matching the plan's beats
+("1.0 to 1.3: her left hand takes the big hat's brim", "3.1 to 3.4: her left hand lifts the hat by its brim"):
+- g1 (take): reach 1.0→1.15, release 1.3→1.5, now **reach 1.0→1.1, release 1.3→1.4** — hand on the brim from 1.1
+  to 1.3 (measured 0.034u from the hat's box at t+1.1, 1.15, 1.2, 1.25 and 1.3; needs ≤ 0.06).
+- g2 (lift): reach 3.1→3.25, release 3.4→3.6, now **reach 3.1→3.2, release 3.4→3.5** — hand on the brim from 3.2
+  to 3.4 (measured 0.056u at t+3.2, 0.056u at 3.25, 0.052u at 3.3, 0.052u at 3.35, 0.040u at 3.4; needs ≤ 0.06).
+I tried the edit with `try_value` first (goals unchanged 10 of 13, faults 6 before / 6 after) and only then made
+it with the edit tool.
+
+**Why the three FAIL lines cannot be fixed from the scene.** The watcher checks with
+`node scripts/inspect.mjs 8a66 --goals plans/qwen/goals/017-tamesu-hats.json --quick --loop 8` (the plan's
+`Inspect:` line adds only `--loop 8`). That run measures the whole loop on its default 0.5 s scan grid
+t+0, 0.5, 1.0, …, 7.5 — exactly the 16 moments the `the learner sees her` line lists — plus its default
+`--times 1, 2.5` and any fault's worst moment, all of them also multiples of 0.5 s. A goal with a `t` window is
+judged only at measured moments inside the window (`goalChecker.note()` in `scripts/lib/goals.mjs` skips a moment
+outside `g.t`), and the three failing windows [1.1, 1.3], [3.2, 3.4], [5.25, 5.4] contain **no multiple of 0.5 s**.
+So the checker never measures a moment inside them and prints `no moment measured in its time` for *any* scene:
+the PASS/FAIL of those lines is decided by the goals file's windows plus `inspect.mjs`'s measurement grid, both
+protected files I may not edit (the watcher would put them back), and no code in `q-try-hats.js` can change which
+moments `inspect.mjs` measures. The plan's own command (`--times 0.5,2.5,5.3,6.8`) is the same for the two hand
+goals; 5.3 does fall in [5.25, 5.4], which is why the cap goal PASSes there. The goals file would need windows
+that hold a measured moment (e.g. [1.0, 1.5], [3.0, 3.5], [5.0, 5.5]); per the rules I leave those lines failing
+and record below that the scene satisfies each of them.
+
+**The scene does satisfy all three goals, measured across their whole windows this round** (`measure`):
+- t+1.1 to t+1.3: left hand 0.034u from the big hat (needs ≤ 0.06)
+- t+3.2 to t+3.4: left hand 0.040–0.056u from the big hat (needs ≤ 0.06)
+- t+5.25 to t+5.4: cap 0u from her top of the head at t+5.3 (needs ≤ 0.03); the cap rides her head from t+5.2
+  (the flip's landing) through t+7.5
+At a 0.25 s grid the windows would be measured at t+1.25, t+3.25 and t+5.25, and the scene passes all three there
+(0.034u, 0.056u, 0u).
+
+**Goals lines of my last inspect runs.** Watcher-equivalent (`check_goals`, 0.5 s grid, loop 8):
+`## Goals: 10 of 13 PASS`:
+```
+  PASS the big hat sits on the top tier at first (t+0 to t+0.9): 2 moments, e.g. t+0: big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
+  PASS the cap sits on the low tier at first (t+0 to t+3): 7 moments, e.g. t+0: cap (red #d03040): touches T4 mesh tier low (dark brown #6a4a28)
+  FAIL her left hand takes the big hat off the stand (t+1.1 to t+1.3): no moment measured in its time (add it to --times or use --scan)
+  PASS the big hat sinks over her eyes (t+1.9 to t+3.1): 3 moments, e.g. t+2: 0u apart (needs ≤ 0.02)
+  FAIL her left hand lifts the big hat off her head (t+3.2 to t+3.4): no moment measured in its time (add it to --times or use --scan)
+  PASS the big hat is back on the top tier (t+4.1 to t+8): 7 moments, e.g. t+4.5: big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
+  PASS her left hand takes the cap off the stand (t+4.45 to t+4.6): 1 moments, e.g. t+4.5: 0.04u apart (needs ≤ 0.06)
+  FAIL the cap sits on top of her head (t+5.25 to t+5.4): no moment measured in its time (add it to --times or use --scan)
+  PASS the learner sees her: 16 moments, e.g. t+0: 100% visible (needs ≥ 70)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the cap shows big (t+0 to t+5.4): 11 moments, e.g. t+0: shows 15% as big as the kanji (needs ≥ 6)
+  PASS nothing passes through her before the first hat (t+0 to t+1.4): 3 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through her between the hats (t+4 to t+4.35): 1 moments, e.g. t+4: nothing passes into it
+```
+Full inspect with the plan's `--times 0.5,2.5,5.3,6.8 --loop 8`: `## Goals: 11 of 13 PASS` — the same lines with
+`the cap sits on top of her head` PASSing (`1 moments, e.g. t+5.3: 0u apart (needs ≤ 0.03)`) and `the big hat is
+back on the top tier` / `the learner sees her` / `the cap shows big` at 9 / 18 / 12 moments (the added t+5.3 and
+t+6.8); the two hand goals still have no measured moment in their windows under that command either.
+
+**Checks (this round):** `node --check src/effects/vignettes/q-try-hats.js` and `… vcat-qw.js`: no output.
+`npm test`: `ℹ tests 64 / ℹ pass 63 / ℹ fail 0 / ℹ skipped 1`, `content check ok: 855 cards`, `0 pair(s) at or
+above 0.72`, `recipe check ok`. `node scripts/check-piece-costs.mjs vignette "^q-try-hats$"`: `697 recipes, 0 cost
+mismatches`. Full inspect + orbit rerun; the orbit sheet is byte-identical to round 2's (the changed grips only
+act at t+1.0–1.4 and 3.1–3.5, outside the 2.5/5.3/6.8 shots).
+
+**Inspection (POSSIBLE FAULTS lines of the last full run, and why each is fine):**
+- t+0.5: no measured faults
+- t+2.5: `T6 mesh big hat … SUNK INTO T1 model gal (gap -0.23u)`; `T1 model gal PASSES INTO T6 mesh big hat …:
+  726 skin points inside it, near the bones Head`; `T1 model gal: 79% visible (21% behind the big hat)` — the
+  plan's expected "too big" beat: the hat sits over her eyes, head in the solid hat; her visibility stays above
+  the goal's 70
+- loop scan t+2.5: `T6 mesh big hat … FLOATS ABOVE T1 model gal (gap 0.09u)` — the hat wobbles with her head
+  shake; a box measurement against her hair at one shake phase; the `sinks over her eyes` goal (hat box vs her
+  head middle) still holds at t+2, t+2.5 and t+3 (0u apart)
+- t+5.3 and t+6.8: `T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.09u)` and `T1 model gal PASSES
+  INTO T7 mesh cap …: 219 skin points inside it, near the bones Head` — the "it fits!" beat: the cap is meant to
+  sit on her head through the spin and the hearts
+No fault the plan doesn't want.
+
+**Per-round line:** round 3: grip timings tightened (hand on the brim across the whole 1.1–1.3 and 3.2–3.4
+windows); 10 of 13 PASS on the watcher's grid (11 of 13 on the plan's `--times`) — unchanged from round 2, the
+three FAIL lines being the goals-file windows that hold no moment on the protected 0.5 s measurement grid, with
+the scene measuring inside tolerance at every point of each window (0.034u, 0.040–0.056u, 0u).
