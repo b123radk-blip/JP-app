@@ -192,3 +192,84 @@ No fault the plan doesn't want.
 windows); 10 of 13 PASS on the watcher's grid (11 of 13 on the plan's `--times`) — unchanged from round 2, the
 three FAIL lines being the goals-file windows that hold no moment on the protected 0.5 s measurement grid, with
 the scene measuring inside tolerance at every point of each window (0.034u, 0.040–0.056u, 0u).
+
+## Round 4
+**What I changed:** no code. No change in any file the plan lets me touch can fix the three FAIL lines — this
+round I proved that end to end by reading the whole measuring path, instead of re-arguing it:
+1. `scripts/qwen-watch.mjs` `check()` runs exactly
+   `node scripts/inspect.mjs 8a66 --goals plans/qwen/goals/017-tamesu-hats.json --quick --loop 8 --out …`
+   (`extra` is the plan's `Inspect:` line, which is only `--loop 8`).
+2. `scripts/inspect.mjs` then measures at the scan grid `dt = 0, 0.5, 1.0, …, 7.5` (default `--scan 0.5`,
+   `for (let dt = 0; dt < LOOP; dt += scan)`) plus its `--times` (default `1,2.5` — both already on the grid)
+   plus each fault's worst moment, which `note()` picks from the same scan moments. **Every measured moment is
+   a multiple of 0.5 s; nothing in the scene can change which moments are measured.**
+3. `scripts/lib/goals.mjs` `note()` judges a goal only at measured moments inside its `t` window. The three
+   failing windows — [1.1, 1.3], [3.2, 3.4], [5.25, 5.4] — contain **no multiple of 0.5 s**, so `e.n === 0` and
+   the line prints `no moment measured in its time` (→ FAIL) **for any scene**, no matter how well built.
+4. The files that would change this — the goals file, the plan, `inspect.mjs`, `goals.mjs`, `qtool.mjs`,
+   `qwen-watch.mjs` — are all on the watcher's `PROTECTED` list (restored by its `guard()`), and my prompt
+   forbids editing the goals file and the plan.
+
+**What the windows were written for:** 1.25 ∈ [1.1, 1.3], 3.25 ∈ [3.2, 3.4], 5.25 ∈ [5.25, 5.4] — the windows
+fit a **0.25 s** scan. The plan's `Inspect:` line is missing `--scan 0.25` (or the windows need to hold a
+0.5-grid moment, e.g. [1.0, 1.5] / [3.0, 3.5] / [5.0, 5.5]). I ran the same checker at that resolution
+(`--scan 0.25 --loop 8`, the only difference from the watcher's own command): **13 of 13 PASS** — the scene
+itself satisfies every goal. That run's three previously-failing lines:
+```
+  PASS her left hand takes the big hat off the stand (t+1.1 to t+1.3): 1 moments, e.g. t+1.25: 0.03u apart (needs ≤ 0.06)
+  PASS her left hand lifts the big hat off her head (t+3.2 to t+3.4): 1 moments, e.g. t+3.25: 0.06u apart (needs ≤ 0.06)
+  PASS the cap sits on top of her head (t+5.25 to t+5.4): 1 moments, e.g. t+5.25: 0u apart (needs ≤ 0.03)
+```
+
+**Fresh measurements this round** (`measure`, across each whole window, against tolerances 0.06 / 0.06 / 0.03):
+- t+1.1 to t+1.3: left hand [1.00, 0.75, −0.07] vs the big hat's box (bottom y 0.78) — **0.03u** at every moment
+- t+3.2 / 3.25 / 3.3 / 3.35 / 3.4: left hand vs the big hat's box — **0.056 / 0.056 / 0.052 / 0.052 / 0.040u**
+- t+5.25 to t+5.4: her top of the head [0.80, 0.93, −0.05] sits inside the cap's box — **0u** at every moment
+
+**Checks (this round):** `node --check` on both files: no output. `npm test`: `ℹ tests 64 / ℹ pass 63 /
+ℹ fail 0 / ℹ skipped 1`, `content check ok: 855 cards (282 kanji, 573 words), 1 enabled deck(s), 1670 audio
+clips`, `deck n5: 855 recipes (573 words), 0 cards with no recipe yet (default animation)`, `0 pair(s) at or
+above 0.72`, `recipe check ok`. `node scripts/check-piece-costs.mjs vignette "^q-try-hats$"`: `697 recipes,
+0 cost mismatches`. Full inspect (the plan's `--goals … --loop 8 --times 0.5,2.5,5.3,6.8`) and the orbit
+render reran; both outputs are **byte-identical to round 3's committed versions** (`git status` clean), as
+expected with no code change — I opened the orbit sheet again: front t+2.5 the big hat sits over her eyes, at
+5.3/6.8 the red cap fits on her head with hearts at 6.8 and the big hat back on the top tier; right side,
+top, back-left, front-right and low front all read as the plan intends; no floating, sinking or
+unplanned overlaps.
+
+**Goals lines of my last inspect runs.** Watcher-equivalent (`check_goals`, its 0.5 s grid, loop 8):
+`## Goals: 10 of 13 PASS`:
+```
+  PASS the big hat sits on the top tier at first (t+0 to t+0.9): 2 moments, e.g. t+0: big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
+  PASS the cap sits on the low tier at first (t+0 to t+3): 7 moments, e.g. t+0: cap (red #d03040): touches T4 mesh tier low (dark brown #6a4a28)
+  FAIL her left hand takes the big hat off the stand (t+1.1 to t+1.3): no moment measured in its time (add it to --times or use --scan)
+  PASS the big hat sinks over her eyes (t+1.9 to t+3.1): 3 moments, e.g. t+2: 0u apart (needs ≤ 0.02)
+  FAIL her left hand lifts the big hat off her head (t+3.2 to t+3.4): no moment measured in its time (add it to --times or use --scan)
+  PASS the big hat is back on the top tier (t+4.1 to t+8): 7 moments, e.g. t+4.5: big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
+  PASS her left hand takes the cap off the stand (t+4.45 to t+4.6): 1 moments, e.g. t+4.5: 0.04u apart (needs ≤ 0.06)
+  FAIL the cap sits on top of her head (t+5.25 to t+5.4): no moment measured in its time (add it to --times or use --scan)
+  PASS the learner sees her: 16 moments, e.g. t+0: 100% visible (needs ≥ 70)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the cap shows big (t+0 to t+5.4): 11 moments, e.g. t+0: shows 15% as big as the kanji (needs ≥ 6)
+  PASS nothing passes through her before the first hat (t+0 to t+1.4): 3 moments, e.g. t+0: nothing passes into it
+  PASS nothing passes through her between the hats (t+4 to t+4.35): 1 moments, e.g. t+4: nothing passes into it
+```
+Full inspect with the plan's own command (`--loop 8 --times 0.5,2.5,5.3,6.8`): `## Goals: 11 of 13 PASS` —
+the same lines with `the cap sits on top of her head` PASSing (`1 moments, e.g. t+5.3: 0u apart (needs ≤
+0.03)`). Same run at `--scan 0.25`: `## Goals: 13 of 13 PASS`. No commit for code this round: there is no
+code change that can alter these three lines (proof above), so a round-4 code commit would be empty; the
+scene, report and renders are as committed in rounds 1–3.
+
+**Inspection (faults of the last full run, and why each is fine):** unchanged from round 3 — t+2/t+2.5: the
+big hat SUNK/FLOATS against her head and her head PASSES INTO the solid hat (726 skin points, near the bones
+Head) with her 77–80% visible: the plan's expected "far too big, drops over her eyes" beat, and her visibility
+stays above the goal's 70; t+5.3/t+6.8: the cap SUNK 0.09u / head PASSES INTO the solid cap (219–221 points,
+near the bones Head): the "it fits!" beat. At the finer 0.25 s grid one more moment of the same expected
+overlap appears (t+3.25: 871 points near Head and FistL — her hand on the brim while the hat still covers her
+head, the plan's "lifts it by its brim" beat). No fault the plan doesn't want.
+
+**Per-round line:** round 4: no code change — proved from the watcher/inspect/goals code that the three FAIL
+lines can never be measured (their windows hold no moment of the 0.5 s grid the protected command uses) and
+that the scene passes all 13 goals at the 0.25 s grid the windows assume (13 of 13 PASS); 10 of 13 on the
+watcher's grid, unchanged from rounds 2–3. Fixing the three lines needs one protected-file change: add
+`--scan 0.25` to the plan's `Inspect:` line or widen the goal windows to hold a 0.5-grid moment.
