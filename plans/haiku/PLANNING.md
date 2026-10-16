@@ -12,6 +12,8 @@ So every plan's layout is measured first:
    - `big`: it shows at least N% as big as the kanji (about 8 for a held prop, 15+ for the main object);
    - `faces`: when its top matters (a pond, a table top, a box with holes), at least 20° toward the learner;
    - `visible` on each person (85) and on the key prop (70).
+   - `fits` on anything worn on a head (a hat, a cap, a helmet): it must cover the head and hair (no hair through it)
+     and sit centred; a point goal ("hat near top of the head") can pass while hair pokes through the hat.
 3. **Run** `node scripts/plan-check.mjs <card> plans/haiku/layouts/<plan>.json --goals plans/haiku/goals/<plan>.json
    --times <key moments>` and read the whole report: the models' real sizes (facing and sideways), hips and shoulder
    heights, arm reach and clip lifts; the goals (BUILD lines are checked only once built); the faults; `seat.jpg`.

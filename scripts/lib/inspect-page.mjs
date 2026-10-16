@@ -138,10 +138,61 @@ export async function measure({ t, cam, watch = [] }) {
       const parts = {};
       for (const p of hits) { const n = boneAt(p); parts[n] = (parts[n] ?? 0) + 1; }
       const c = hits.reduce((s, p) => s.add(p), V()).multiplyScalar(1 / hits.length), near = Object.entries(parts).sort((x, y) => y[1] - x[1]).slice(0, 3).map(([n]) => n).filter((n) => n !== '?');
-      through.push({ id: a.id, point: c.toArray(), text: `${label(a)} PASSES INTO ${label(b)}${mine ? ' (its own: the hand is inside what it holds)' : ''}: ${hits.length} skin points inside it${near.length ? `, near the bones ${near.join(', ')}` : ''}` });
+      through.push({ id: a.id, thing: b.id, near, hitBones: hits.map((p) => boneAt(p)), point: c.toArray(), text: `${label(a)} PASSES INTO ${label(b)}${mine ? ' (its own: the hand is inside what it holds)' : ''}: ${hits.length} skin points inside it${near.length ? `, near the bones ${near.join(', ')}` : ''}` });
     }
   }
 
+  // worn things (a hat, a cap, a helmet: a mesh on or over a person's head): how well it covers the head. In the thing's
+  // own frame, every head and hair skin point above the thing's bottom should be inside its surface; a point outside
+  // sticks out (hair through a crown, a head beside an off-centre hat). cover = % inside, poke = the farthest one out.
+  const fits = [], ROUND = [UP, DOWN, new THREE.Vector3(1, 0, 0), new THREE.Vector3(-1, 0, 0), new THREE.Vector3(0, 0, 1), new THREE.Vector3(0, 0, -1)];
+  for (const a of models()) {
+    const hb = []; a.o.traverse((b) => { if (b.isBone && /head/i.test(b.name)) hb.push(b); });
+    if (a.kit) { const h = a.o.children[0].getObjectByName('head'); if (h) hb.push(h); }
+    if (!hb.length) continue;
+    const { pts, boneAt } = skin(a), headPts = pts.filter((p) => /head|hair/i.test(boneAt(p)));
+    if (headPts.length < 8) continue;
+    const headBox = new THREE.Box3().setFromPoints(headPts), headAt = headBox.getCenter(V());
+    for (const b of solid.filter((x) => x.kind === 'mesh' && !x.o.userData.flies)) {
+      const sz = b.box.getSize(V());
+      if (sz.length() > 0.9 * a.box.getSize(V()).length() || !b.box.intersectsBox(headBox.clone().expandByScalar(0.02 * u))) continue;
+      const inv = b.o.matrixWorld.clone().invert(), lbox = new THREE.Box3(), mb = meshesOf.get(b) ?? own(b);
+      for (const m of mb) { if (!m.geometry.boundingBox) m.geometry.computeBoundingBox(); lbox.union(m.geometry.boundingBox.clone().applyMatrix4(inv.clone().multiply(m.matrixWorld))); }
+      const sc = V(); b.o.matrixWorld.decompose(V(), new THREE.Quaternion(), sc);
+      // only a thing whose bottom is below the top of the head and that sits over it is "worn on the head"
+      const above = headPts.filter((p) => p.clone().applyMatrix4(inv).y > lbox.min.y + 0.002 * u / sc.y);
+      // ... and only over the head: the head's highest point lies inside its footprint
+      const crown = headPts.reduce((t, p) => (p.y > t.y ? p : t)).clone().applyMatrix4(inv);
+      if (above.length < 8 || crown.x < lbox.min.x || crown.x > lbox.max.x || crown.z < lbox.min.z || crown.z > lbox.max.z) continue;
+      let inside = 0, poke = 0, far = null;
+      for (const p of above) {
+        // enclosed: the thing's surface all round it (a hat is often several overlapping closed parts, so a crossing
+        // count can't tell inside from outside)
+        if (ROUND.every((dir) => { rc.set(p, dir); rc.far = 2 * u; return mb.some((m) => rc.intersectObject(m, false).length); })) { inside++; continue; }
+        const d = lbox.distanceToPoint(p.clone().applyMatrix4(inv)) * sc.x;
+        const dd = d > 0 ? d : 0.005 * u;                 // inside its box but outside its surface: just through
+        if (dd > poke) { poke = dd; far = p; }
+      }
+      const cover = Math.round(100 * inside / above.length), mid = new THREE.Vector3().addVectors(lbox.min, lbox.max).multiplyScalar(0.5).applyMatrix4(b.o.matrixWorld);
+      // (off-centre against the part of the head it covers: a ponytail hanging below doesn't pull the middle back)
+      const cov = new THREE.Box3().setFromPoints(above).getCenter(V()), off = U(Math.hypot(mid.x - cov.x, mid.z - cov.z));
+      fits.push({ id: b.id, who: a.id, cover, poke: U(poke), off, point: (far ?? mid).toArray(),
+        text: `${label(b)} on ${label(a)}'s head: covers ${cover}% of the head and hair above its bottom${poke ? `; hair or head sticks out up to ${U(poke)}u` : ''}; its middle is ${off}u from the head's middle (sideways); the head and hair are ${U(headBox.max.x - headBox.min.x)} wide, ${U(headBox.max.z - headBox.min.z)} deep, top at y ${P(headBox.max)[1]}`, fault: cover < 90 || poke > 0.02 * u });
+    }
+  }
+
+  // a hat on a head stands on nothing: its fit says how it sits
+  for (const f of fits) { const sp = support.find((x) => x.id === f.id); if (sp) Object.assign(sp, { text: `${label(solid.find((x) => x.id === f.id))}: worn on ${label(models().find((x) => x.id === f.who))}'s head (see how it fits)`, gap: 0, fault: false }); }
+  // a head inside a hat it wears is the fit above, not a body passing through a thing
+  for (let i = through.length - 1; i >= 0; i--) {
+    const h = through[i];
+    if (!fits.some((f) => f.id === h.thing && f.who === h.id)) continue;
+    const rest = h.hitBones.filter((n) => !/head|hair|neck/i.test(n));
+    if (rest.length < 4) { through.splice(i, 1); continue; }
+    const parts = [...new Set(rest)].slice(0, 3);
+    h.text = `${label(models().find((x) => x.id === h.id))} PASSES INTO ${label(solid.find((x) => x.id === h.thing))} (a worn thing: not counting the head in it): ${rest.length} skin points inside it, near the bones ${parts.join(', ')}`;
+  }
+  for (const h of through) { delete h.hitBones; delete h.near; delete h.thing; }
   for (const [mt, side] of sides) mt.side = side;
 
   // hands of the people: where each fist is, the nearest point of the person's own body and the nearest other thing
@@ -233,7 +284,7 @@ export async function measure({ t, cam, watch = [] }) {
       hidden.push({ id: a.id, watch: a.watch, prop: !!a.watch, pct, glyph: !!a.glyph, frame, area, top, box, text: `${who}: ${pct}% visible${behind ? ` (${behind})` : ''}${frame < 100 ? `; only ${frame}% of it inside the picture` : ''}${area != null && !a.glyph ? `; shows ${area}% as big as the kanji` : ''}${topText}` });
     });
   }
-  return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, body, name, size, centre, bottom, top, world, radius }) => ({ id, kind, body, name, size, centre, bottom, top, world, radius })), support, through, hands, touching, hidden, bodies };
+  return { u, origin: [origin.x, floorY, origin.z], items: items.map(({ id, kind, body, name, size, centre, bottom, top, world, radius }) => ({ id, kind, body, name, size, centre, bottom, top, world, radius })), support, through, fits, hands, touching, hidden, bodies };
 }
 
 // point the camera at world point `target` from a named side, `dist` metres away

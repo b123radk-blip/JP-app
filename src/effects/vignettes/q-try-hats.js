@@ -30,23 +30,23 @@ function tryHats(ctx, spec, stage) {
     [G.cyl(k(0.09), k(0.09), k(0.02), 0, k(0.01), 0), 0x6a4a28],
     [G.cyl(k(0.06), k(0.06), k(0.02), 0, k(0.42), 0), 0x6a4a28],
   ], 0.12);
-  stand.name = 'stand'; stand.position.set(X(1.25), floor, -0.06 * u);
+  stand.name = 'stand'; stand.position.set(X(1.3), floor, -0.06 * u);
   const tierLow = solidProp([[G.cyl(k(0.13), k(0.13), k(0.02)), 0x6a4a28]], 0.12);
-  tierLow.name = 'tier low'; tierLow.position.set(X(1.25), floor + 0.44 * u, -0.06 * u);
+  tierLow.name = 'tier low'; tierLow.position.set(X(1.3), floor + 0.44 * u, -0.06 * u);
   const tierTop = solidProp([[G.cyl(k(0.13), k(0.13), k(0.02)), 0x6a4a28]], 0.12);
-  tierTop.name = 'tier top'; tierTop.position.set(X(1.25), floor + 0.77 * u, -0.06 * u);
+  tierTop.name = 'tier top'; tierTop.position.set(X(1.3), floor + 0.77 * u, -0.06 * u);
   // a hat's pivot is the middle of its crown's bottom (the big hat's brim hangs from it): the big hat's box centre
   // sits 0.1u above the pivot, the cap's 0.105 up and 0.05 toward the learner (its peak widens the box forward)
   const bigHat = solidProp([
-    [G.cyl(k(0.19), k(0.19), k(0.2), 0, k(0.1), 0), 0x7a5030],
-    [G.cyl(k(0.24), k(0.24), k(0.012), 0, k(0.006), 0), 0x7a5030],
-    [G.cyl(k(0.194), k(0.194), k(0.035), 0, k(0.04), 0), 0x4a3020],
+    [G.cyl(k(0.245), k(0.245), k(0.29), 0, k(0.145), 0), 0x7a5030],
+    [G.cyl(k(0.31), k(0.31), k(0.012), 0, k(0.006), 0), 0x7a5030],
+    [G.cyl(k(0.249), k(0.249), k(0.035), 0, k(0.04), 0), 0x4a3020],
   ], 0.25);
   bigHat.name = 'big hat';
   const cap = solidProp([
-    [G.cyl(k(0.16), k(0.16), k(0.13), 0, k(0.065), 0), 0xd03040],
-    [G.sphere(k(0.16), 0, k(0.13), 0, 1, 0.5, 1), 0xd03040],
-    [G.box(k(0.28), k(0.014), k(0.12), 0, k(0.02), k(0.2)), 0xd03040],
+    [G.cyl(k(0.225), k(0.225), k(0.13), 0, k(0.065), 0), 0xd03040],
+    [G.sphere(k(0.225), 0, k(0.13), 0, 1, 0.5, 1), 0xd03040],
+    [G.box(k(0.3), k(0.014), k(0.14), 0, k(0.02), k(0.27)), 0xd03040],
   ], 0.3);
   cap.name = 'cap';
   const h1 = heart(u), h2 = heart(u), h3 = heart(u);
@@ -71,9 +71,9 @@ function tryHats(ctx, spec, stage) {
       const fb = (v >= 1.3 && v < 1.8) || (v >= 3.4 && v < 4.0);
       bigHat.userData.flies = fb;
       if (v < 1.3 || v >= 4.0) {
-        bigHat.position.set(X(1.25), floor + 0.78 * u, -0.06 * u); bigHat.rotation.y = 0;
+        bigHat.position.set(X(1.3), floor + 0.78 * u, -0.06 * u); bigHat.rotation.y = 0;
       } else if (v < 1.8) {
-        const f = (v - 1.3) / 0.5, p = f < 0.5 ? arc([1.25, 0.78], [1.02, 1.12], 0.12, f * 2) : arc([1.02, 1.12], [PB.x, PB.y], 0.12, (f - 0.5) * 2);
+        const f = (v - 1.3) / 0.5, p = f < 0.5 ? arc([1.3, 0.78], [1.02, 1.12], 0.12, f * 2) : arc([1.02, 1.12], [PB.x, PB.y], 0.12, (f - 0.5) * 2);
         bigHat.position.set(X(p[0]), floor + p[1] * u, (-0.06 + 0.02 * f) * u);
       } else if (v < 3.1) {
         onHead(who, bigHat, group, 'over', BIG.x, BIG.y, BIG.z);
@@ -81,15 +81,15 @@ function tryHats(ctx, spec, stage) {
         const y = PB.y + 0.06 * between(v, 3.1, 3.4);
         bigHat.position.set(X(PB.x), floor + y * u, PB.z * u); bigHat.rotation.y = 0;
       } else {
-        const f = (v - 3.4) / 0.6, p = f < 0.5 ? arc([PB.x, PB.y + 0.06], [1.05, 1.1], 0.12, f * 2) : arc([1.05, 1.1], [1.25, 0.78], 0.12, (f - 0.5) * 2);
+        const f = (v - 3.4) / 0.6, p = f < 0.5 ? arc([PB.x, PB.y + 0.06], [1.05, 1.1], 0.12, f * 2) : arc([1.05, 1.1], [1.3, 0.78], 0.12, (f - 0.5) * 2);
         bigHat.position.set(X(p[0]), floor + p[1] * u, (PB.z - 0.02 * Math.max(0, (f - 0.5) * 2)) * u);
       }
       // cap: low tier (0-4.6, 7.5-8) -> flipped up (4.6-5.2) -> on top of her head through the spin (5.2-7.5)
       cap.userData.flies = v >= 4.6 && v < 5.2;
       if (v < 4.6 || v >= 7.5) {
-        cap.position.set(X(1.25), floor + 0.45 * u, -0.06 * u); cap.rotation.y = 0;
+        cap.position.set(X(1.3), floor + 0.45 * u, -0.06 * u); cap.rotation.y = 0;
       } else if (v < 5.2) {
-        const f = (v - 4.6) / 0.6, p = f < 0.5 ? arc([1.25, 0.45], [0.95, 1.1], 0.12, f * 2) : arc([0.95, 1.1], [PC.x, PC.y], 0.12, (f - 0.5) * 2);
+        const f = (v - 4.6) / 0.6, p = f < 0.5 ? arc([1.3, 0.45], [0.95, 1.1], 0.12, f * 2) : arc([0.95, 1.1], [PC.x, PC.y], 0.12, (f - 0.5) * 2);
         cap.position.set(X(p[0]), floor + p[1] * u, (-0.06 - 0.035 * Math.max(0, (f - 0.5) * 2)) * u);
       } else {
         onHead(who, cap, group, 'over', CAP.x, CAP.y, CAP.z);
@@ -102,9 +102,9 @@ function tryHats(ctx, spec, stage) {
       const g1 = between(v, 1.0, 1.1) * (1 - between(v, 1.3, 1.4));
       const g2 = between(v, 3.1, 3.2) * (1 - between(v, 3.4, 3.5));
       const g3 = between(v, 4.3, 4.45) * (1 - between(v, 4.6, 4.8));
-      if (g1 > 0) who.grip('L', group.localToWorld(W.set(X(1.06), floor + 0.80 * u, -0.06 * u)), way(XN), 0.012 * u * ws, g1, { out: 0.7, down: 0.5 });
-      else if (g2 > 0) who.grip('L', group.localToWorld(W.set(X(1.02), floor + (PB.y + 0.06 * between(v, 3.1, 3.4)) * u, PB.z * u)), way(NX), 0.012 * u * ws, g2, { out: 0.7, down: 0.5 });
-      else if (g3 > 0) who.grip('L', group.localToWorld(W.set(X(1.13), floor + 0.47 * u, -0.06 * u)), way(XN), 0.012 * u * ws, g3, { out: 0.7, down: 0.5 });
+      if (g1 > 0) who.grip('L', group.localToWorld(W.set(X(1.04), floor + 0.80 * u, -0.06 * u)), way(XN), 0.012 * u * ws, g1, { out: 0.7, down: 0.5 });
+      else if (g2 > 0) who.grip('L', group.localToWorld(W.set(X(1.16), floor + (PB.y + 0.01 + 0.06 * between(v, 3.1, 3.4)) * u, PB.z * u)), way(NX), 0.012 * u * ws, g2, { out: 0.7, down: 0.5 });
+      else if (g3 > 0) who.grip('L', group.localToWorld(W.set(X(1.115), floor + 0.47 * u, -0.06 * u)), way(XN), 0.012 * u * ws, g3, { out: 0.7, down: 0.5 });
       // pleased: hearts pop beside her head
       pop(h1, between(v, 6.4, 6.7), X(0.5), floor + 1.0 * u, 0.06 * u);
       pop(h2, between(v, 6.6, 6.9), X(1.1), floor + 1.06 * u, 0.06 * u);

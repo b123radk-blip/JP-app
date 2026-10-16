@@ -60,6 +60,10 @@ Register the scene in `vignettes/index.js` and its catalog entry where the plan 
 
 - `solidProp([[G.box(w, h, d, x, y, z), 0xcolor], [G.cyl(rTop, rBot, h, x, y, z), 0xcolor]], glow)` from
   `pieces/kit-rig.js` and `pieces/shape-kit.js`. Sizes are in world units, so multiply by u.
+- **Anything worn on a head** (hat, cap, helmet) is measured by a `fits` goal: it reports how much of the head and hair
+  the hat covers and how far hair sticks out. If it FAILs, make the hat wider or taller (the report gives the head and
+  hair's width, depth and top) or centre it; never shrink the head. `held.jpg` (inspect without `--quick`) shows
+  everything worn or held close up from the front and both sides: look at it.
 - **Name every prop the goals or the plan mention**: `glass.name = 'glass'`. Goals and `measure` find things by name;
   an unnamed thing shows up only as a colour.
 - Effects that fly on purpose (stars, hearts, bursts): `burst(u)`, `stars(u)`, `heart(u)` from `pieces/kit-things.js`.
