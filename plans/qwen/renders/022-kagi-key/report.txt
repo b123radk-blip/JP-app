@@ -1,0 +1,201 @@
+# Inspection of card w1260490
+
+## Goals: 9 of 10 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS he holds the key by its bow at first (t+0 to t+1): 3 moments, e.g. t+0: 0u apart (needs ≤ 0.04)
+  PASS his hand stays on the key while it goes in and turns (t+1 to t+3.4): 5 moments, e.g. t+1: 0u apart (needs ≤ 0.04)
+  FAIL the key's blade is in the lock (t+1.85 to t+3.3): fails at t+2.5 to t+3 of 3 moments; t+2.5: 0.08u apart (needs ≤ 0.01)
+  PASS the door swings open (t+3.1 to t+5.4): 4 moments, e.g. t+3.5: 0.13u apart (needs ≥ 0.06)
+  PASS the door is shut at first (t+0 to t+2.2): 5 moments, e.g. t+0: 0u apart (needs ≤ 0.03)
+  PASS nothing passes through him (his hand against the key's bow, never through the door): 16 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees him: 16 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the key shows big: 16 moments, e.g. t+0: shows 2% as big as the kanji (needs ≥ 1)
+  PASS the door shows big (t+0 to t+2.2): 5 moments, e.g. t+0: shows 131% as big as the kanji (needs ≥ 40)
+
+## The whole loop, every 0.5 s from t+0 to t+7.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+1.5, t+2.5 to t+7.5 (worst at t+0): mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u)
+  - t+6 (worst at t+6): mesh room light (skin #ffd27a): SUNK INTO mesh door (yellow/brown #e0b030/#7a4a2a) (gap -0.85u)
+
+## t+0.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy3: size 0.52 x 1.01 x 0.37, centre [0.55, 0.51, 0.13], bottom 0, top 1.01
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): size 0.33 x 0.85 x 0.33, centre [0.95, 0.42, -0.1], bottom 0, top 0.85
+  T3 mesh lock (black #101010): size 0.04 x 0.04 x 0.04, centre [0.83, 0.44, -0.19], bottom 0.42, top 0.46
+  T4 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [0.78, 0.46, -0.27], bottom 0, top 0.92
+  T5 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [1.12, 0.46, 0.07], bottom 0, top 0.92
+  T6 mesh door frame (dark brown #4a2e1a): size 0.44 x 0.08 x 0.44, centre [0.95, 0.89, -0.1], bottom 0.85, top 0.93
+  T7 mesh room light (skin #ffd27a): size 0.31 x 0.85 x 0.31, centre [1.03, 0.42, -0.18], bottom 0, top 0.85
+  T8 mesh gold key (yellow #e0b030): size 0.16 x 0.11 x 0.16, centre [0.76, 0.45, 0.08], bottom 0.39, top 0.51
+  T9 mesh white #ffffff: size 0.07 x 0.06 x 0.01, centre [0.72, 0.48, 0.12], bottom 0.45, top 0.51
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy3: touches the ground line (bottom of the kanji)
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): touches the ground line (bottom of the kanji)
+  T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u)
+  T4 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T5 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T6 mesh door frame (dark brown #4a2e1a): touches T2 mesh door (yellow/brown #e0b030/#7a4a2a)
+  T7 mesh room light (skin #ffd27a): touches the ground line (bottom of the kanji)
+  T8 mesh gold key (yellow #e0b030): is on T1 model guy3 (worn or held: check it sits right in the close-ups)
+  T9 mesh white #ffffff: in the air on purpose (an effect: a star, a heart)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy3 right hand at [0.35,0.3,0.24]: nearest own body part right knee 0.15u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0.35u away
+  T1 model guy3 left hand at [0.73,0.5,0.08]: nearest own body part left shoulder 0.18u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model guy3: 100% visible (0% behind the gold key); shows 82% as big as the kanji
+  the gold key (1 piece): 83% visible (17% behind T1 model guy3); shows 2% as big as the kanji; its top turned -8° toward you (0 = edge-on, 90 = facing you)
+  the lock (1 piece): 100% visible; shows 0% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  the door (4 pieces): 96% visible (3% behind T1 model guy3, 1% behind the gold key, 0% behind the lock); shows 131% as big as the kanji; its top turned -12° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u)
+
+## t+2 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy3: size 0.53 x 1.01 x 0.43, centre [0.55, 0.51, 0.1], bottom 0, top 1.01
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): size 0.33 x 0.85 x 0.33, centre [0.95, 0.42, -0.1], bottom 0, top 0.85
+  T3 mesh lock (black #101010): size 0.04 x 0.04 x 0.04, centre [0.83, 0.44, -0.19], bottom 0.42, top 0.46
+  T4 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [0.78, 0.46, -0.27], bottom 0, top 0.92
+  T5 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [1.12, 0.46, 0.07], bottom 0, top 0.92
+  T6 mesh door frame (dark brown #4a2e1a): size 0.44 x 0.08 x 0.44, centre [0.95, 0.89, -0.1], bottom 0.85, top 0.93
+  T7 mesh room light (skin #ffd27a): size 0.31 x 0.85 x 0.31, centre [1.03, 0.42, -0.18], bottom 0, top 0.85
+  T8 mesh gold key (yellow #e0b030): size 0.16 x 0.11 x 0.16, centre [0.76, 0.39, -0.12], bottom 0.34, top 0.45
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy3: touches the ground line (bottom of the kanji)
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): touches the ground line (bottom of the kanji)
+  T3 mesh lock (black #101010): touches T8 mesh gold key (yellow #e0b030)
+  T4 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T5 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T6 mesh door frame (dark brown #4a2e1a): touches T2 mesh door (yellow/brown #e0b030/#7a4a2a)
+  T7 mesh room light (skin #ffd27a): touches the ground line (bottom of the kanji)
+  T8 mesh gold key (yellow #e0b030): is on T1 model guy3 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy3 right hand at [0.35,0.3,0.24]: nearest own body part right knee 0.15u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0.43u away
+  T1 model guy3 left hand at [0.7,0.49,-0.04]: nearest own body part left shoulder 0.21u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0.04u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model guy3: 100% visible; shows 81% as big as the kanji
+  the gold key (1 piece): 100% visible; shows 2% as big as the kanji; its top turned -1° toward you (0 = edge-on, 90 = facing you)
+  the lock (1 piece): 0% visible (100% behind the gold key); shows 0% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  the door (4 pieces): 96% visible (3% behind T1 model guy3, 1% behind the gold key); shows 131% as big as the kanji; its top turned -12° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy3: size 0.48 x 1 x 0.39, centre [0.54, 0.5, 0.14], bottom 0, top 1
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): size 0.24 x 0.85 x 0.38, centre [1.2, 0.42, -0.13], bottom 0, top 0.85
+  T3 mesh lock (black #101010): size 0.03 x 0.04 x 0.04, centre [1.26, 0.44, -0.28], bottom 0.42, top 0.46
+  T4 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [0.78, 0.46, -0.27], bottom 0, top 0.92
+  T5 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [1.12, 0.46, 0.07], bottom 0, top 0.92
+  T6 mesh door frame (dark brown #4a2e1a): size 0.44 x 0.08 x 0.44, centre [0.95, 0.89, -0.1], bottom 0.85, top 0.93
+  T7 mesh room light (skin #ffd27a): size 0.31 x 0.85 x 0.31, centre [1.03, 0.42, -0.18], bottom 0, top 0.85
+  T8 mesh gold key (yellow #e0b030): size 0.16 x 0.11 x 0.16, centre [0.74, 0.4, 0.08], bottom 0.34, top 0.46
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy3: touches the ground line (bottom of the kanji)
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): touches the ground line (bottom of the kanji)
+  T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u)
+  T4 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T5 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T6 mesh door frame (dark brown #4a2e1a): is high in the air above the ground line (bottom of the kanji) (gap 0.85u)
+  T7 mesh room light (skin #ffd27a): touches the ground line (bottom of the kanji)
+  T8 mesh gold key (yellow #e0b030): is on T1 model guy3 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy3 right hand at [0.36,0.29,0.25]: nearest own body part right knee 0.15u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0.31u away
+  T1 model guy3 left hand at [0.7,0.46,0.07]: nearest own body part left shoulder 0.17u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model guy3: 100% visible (0% behind the gold key); shows 79% as big as the kanji
+  the gold key (1 piece): 75% visible (25% behind T1 model guy3); shows 1% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  the lock (1 piece): 0% visible (100% behind the door); shows 0% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  the door (4 pieces): 95% visible (4% behind T1 model guy3, 2% behind the gold key); shows 66% as big as the kanji; its top turned -12° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u)
+
+## t+6 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model guy3: size 0.49 x 1.02 x 0.37, centre [0.53, 0.51, 0.13], bottom 0, top 1.02
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): size 0.18 x 0.85 x 0.41, centre [1.03, 0.42, -0.15], bottom 0, top 0.85
+  T3 mesh lock (black #101010): size 0.02 x 0.04 x 0.04, centre [0.96, 0.44, -0.28], bottom 0.42, top 0.46
+  T4 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [0.78, 0.46, -0.27], bottom 0, top 0.92
+  T5 mesh door frame (dark brown #4a2e1a): size 0.1 x 0.92 x 0.1, centre [1.12, 0.46, 0.07], bottom 0, top 0.92
+  T6 mesh door frame (dark brown #4a2e1a): size 0.44 x 0.08 x 0.44, centre [0.95, 0.89, -0.1], bottom 0.85, top 0.93
+  T7 mesh room light (skin #ffd27a): size 0.31 x 0.85 x 0.31, centre [1.03, 0.42, -0.18], bottom 0, top 0.85
+  T8 mesh gold key (yellow #e0b030): size 0.16 x 0.11 x 0.16, centre [0.74, 0.4, 0.08], bottom 0.34, top 0.46
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model guy3: touches the ground line (bottom of the kanji)
+  T2 mesh door (yellow/brown #e0b030/#7a4a2a): touches the ground line (bottom of the kanji)
+  T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u)
+  T4 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T5 mesh door frame (dark brown #4a2e1a): touches the ground line (bottom of the kanji)
+  T6 mesh door frame (dark brown #4a2e1a): is high in the air above the ground line (bottom of the kanji) (gap 0.85u)
+  T7 mesh room light (skin #ffd27a): SUNK INTO T2 mesh door (yellow/brown #e0b030/#7a4a2a) (gap -0.85u)
+  T8 mesh gold key (yellow #e0b030): is on T1 model guy3 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model guy3 right hand at [0.35,0.3,0.24]: nearest own body part right knee 0.15u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0.32u away
+  T1 model guy3 left hand at [0.7,0.46,0.07]: nearest own body part left shoulder 0.19u away; nearest other thing T8 mesh gold key (yellow #e0b030) 0.01u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model guy3: 100% visible (0% behind the gold key); shows 80% as big as the kanji
+  the gold key (1 piece): 75% visible (25% behind T1 model guy3); shows 1% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  the lock (1 piece): 0% visible (100% behind other things (props, labels)); shows 0% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  the door (4 pieces): 83% visible (14% behind other things (props, labels), 2% behind T1 model guy3, 1% behind the gold key); shows 94% as big as the kanji; its top turned -12° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u)
+  - T7 mesh room light (skin #ffd27a): SUNK INTO T2 mesh door (yellow/brown #e0b030/#7a4a2a) (gap -0.85u)
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/022-kagi-key/overview.jpg
+    1. the whole scene from front, t+0.5 (t0.5-scene-front.jpg)
+    2. the whole scene from right, t+0.5 (t0.5-scene-right.jpg)
+    3. what the learner sees, t+0.5 (t0.5-learner.jpg)
+    4. the whole scene from front, t+2 (t2-scene-front.jpg)
+    5. the whole scene from right, t+2 (t2-scene-right.jpg)
+    6. what the learner sees, t+2 (t2-learner.jpg)
+    7. the whole scene from front, t+3.5 (t3.5-scene-front.jpg)
+    8. the whole scene from right, t+3.5 (t3.5-scene-right.jpg)
+    9. what the learner sees, t+3.5 (t3.5-learner.jpg)
+  plans/qwen/renders/022-kagi-key/faults.jpg
+    1. fault 1 from front (t+0.5): T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u) (fault1-front-t0.5.jpg)
+    2. fault 1 from right (t+0.5): T3 mesh lock (black #101010): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.42u) (fault1-right-t0.5.jpg)
+    3. fault 2 from front (t+6): T7 mesh room light (skin #ffd27a): SUNK INTO T2 mesh door (yellow/brown #e0b030/#7a4a2a) (gap -0.85u) (fault2-front-t6.jpg)
+    4. fault 2 from right (t+6): T7 mesh room light (skin #ffd27a): SUNK INTO T2 mesh door (yellow/brown #e0b030/#7a4a2a) (gap -0.85u) (fault2-right-t6.jpg)
+  plans/qwen/renders/022-kagi-key/held.jpg
+    1. mesh gold key (yellow #e0b030): is on model guy3 (worn or held: check it sits right in the close-ups) (from front, t+0.5) (held-1-front-t0.5.jpg)
+    2. mesh gold key (yellow #e0b030): is on model guy3 (worn or held: check it sits right in the close-ups) (from left, t+0.5) (held-2-left-t0.5.jpg)
+    3. mesh gold key (yellow #e0b030): is on model guy3 (worn or held: check it sits right in the close-ups) (from right, t+0.5) (held-3-right-t0.5.jpg)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs w1260490 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
