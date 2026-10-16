@@ -10,6 +10,7 @@
 //   --once: one pass, then exit; --every: seconds between pulls; --minutes: Qwen's first round; --fix-minutes: each later
 //   round; --rounds: Qwen rounds in all; --reviews: Opus calls in all (a retry for a bad answer counts); --plan-minutes:
 //   the whole plan; --no-review: no Opus; --review-api: allow Opus to run on ANTHROPIC_API_KEY (billed) when it is set.
+//   REPAIR_THINKING: pi's --thinking for repair rounds (default xhigh; empty: same as PI_ARGS);
 //   PI_ARGS: pi's model flags (default "--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking medium"); PI_CMD: the pi command (default pi); CLAUDE_CMD (default
 //   claude); REVIEW_MODEL (default opus); REVIEW_EFFORT (default high).
 // A plan names its card on a line "Card: <id>" (or "(card <id>)" in its title) and may add inspect flags on a line
@@ -23,6 +24,9 @@ const once = has('--once'), every = Number(arg('--every', '60')) * 1000, first =
 const ROUNDS = Number(arg('--rounds', '4')), REVIEWS = Number(arg('--reviews', '2')), PLAN = Number(arg('--plan-minutes', '120')) * 60000;
 // brad's pi line (Qwen 3.8 27B quasar build served by ninfer); PI_ARGS replaces it
 const PI_ARGS = process.env.PI_ARGS ?? '--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking medium';
+// repair rounds (round 2 on: fixing what the checks or the Opus review found) think harder: the 2026-10-16 effort tests
+// found medium as good as xhigh at building from numbers but weaker at judging faults; REPAIR_THINKING overrides
+const REPAIR_THINKING = process.env.REPAIR_THINKING ?? 'xhigh';
 const WIN = process.platform === 'win32', CLAUDE = process.env.CLAUDE_CMD || findClaude(), MODEL = process.env.REVIEW_MODEL || 'opus', EFFORT = process.env.REVIEW_EFFORT || 'high';
 const git = (c) => execSync(`git ${c}`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const log = (m) => console.log(`[${new Date().toLocaleTimeString()}] ${m}`);
@@ -67,7 +71,9 @@ function runPi(name, round, prompt, ms) {
   writeFileSync('.cache/qwen-prompt.md', prompt);
   const sd = `.cache/pi-sessions/${bare(name)}${round > 1 ? `-r${round}` : ''}`;
   // the JP-app tools (check_goals, measure, try_value: scripts/pi/jp-tools.ts) ride along with every run
-  const extra = PI_ARGS.split(' ').filter(Boolean), tools = existsSync('scripts/pi/jp-tools.ts') && !extra.some((a) => a.includes('jp-tools')) ? ['--extension', 'scripts/pi/jp-tools.ts'] : [];
+  const extra = PI_ARGS.split(' ').filter(Boolean);
+  if (round > 1 && REPAIR_THINKING) { const i = extra.indexOf('--thinking'); if (i >= 0) extra[i + 1] = REPAIR_THINKING; else extra.push('--thinking', REPAIR_THINKING); }
+  const tools = existsSync('scripts/pi/jp-tools.ts') && !extra.some((a) => a.includes('jp-tools')) ? ['--extension', 'scripts/pi/jp-tools.ts'] : [];
   const args = [...extra, ...tools, '--session-dir', sd, '-p', '@.cache/qwen-prompt.md', 'Go.'];
   return run(process.env.PI_CMD || 'pi', args, { ms }).then((r) => ({ ...r, sd }));
 }
@@ -221,7 +227,7 @@ async function pass() {
 if (!reviewOff && process.env.ANTHROPIC_API_KEY && !has('--review-api')) reviewOff = 'off: ANTHROPIC_API_KEY is set, so Claude Code would bill the API instead of your subscription (unset it, or pass --review-api to accept)';
 if (!reviewOff) { const v = await run(CLAUDE, ['--version'], { ms: 60000 }); if (v.code !== 0) reviewOff = `off: "${CLAUDE} --version" failed (${tail(v.out, 2).trim()}): Claude Code is not installed where this window can find it (in PowerShell, \`claude --version\` should print a version; or set CLAUDE_CMD to its full path)`; else log(`Opus reviews with ${CLAUDE} ${v.out.trim()} (model ${MODEL}, ${process.env.ANTHROPIC_API_KEY ? 'API key: billed' : 'your Claude login'})`); }
 if (reviewOff) log(`Opus review ${reviewOff}`);
-log(`watching ${BRANCH} for plans in ${Q} with pi ${PI_ARGS} (Ctrl+C stops)`);
+log(`watching ${BRANCH} for plans in ${Q} with pi ${PI_ARGS}${REPAIR_THINKING ? ` (repair rounds: --thinking ${REPAIR_THINKING})` : ''} (Ctrl+C stops)`);
 for (;;) {
   try { await pass(); } catch (e) { log(`error: ${e.stderr?.toString().trim() || e.message}`); }
   if (once) break;
