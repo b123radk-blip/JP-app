@@ -28,3 +28,27 @@ Opus: fix (list-price estimate $0.66: on a subscription it is not billed per cal
 - F2 (src/effects/vignettes/q-glasses.js, glassesScene (tab and the end-piece boxes)): The end pieces run out to tab = hx + 0.05 hu (±0.175 u). His visible face is only about ±0.10 u wide, so when he wears them a black bar sticks out about 0.07 u past each cheek (see the t+3.2 front tile and the zoomed look), like a rod through his head. -> Set tab = hx + 0.02 * hu. If a hand goal then fails (≤ 0.05), move the grip point out to ±(hx + 0.005 * hu) rather than making the bar longer again. The arms (temples) stay at ±hx.
 - F3 (src/effects/vignettes/q-glasses.js, step() (the glint position gp)): The glint sits at x = -0.27 * e.apart * hu. That is almost the middle of the frame (it covers the bridge at t+3.2), and it is on his right lens, but the plan says his left lens (+x, the learner's right). -> Put the glint at the new left-lens centre: gp = (+0.06 * hu, 0.01 * hu, 0.02 * hu) in the glasses' frame (same applyQuaternion and add as now).
 
+## Round 2: Qwen fixes
+pi: 0 after 3.6 min.
+Watcher's checks: npm test passed; ## Goals: 13 of 13 PASS
+```
+  PASS he holds the glasses in front of his chest at first (t+0 to t+1.3): 3 moments, e.g. t+0: 0.2u apart (needs ≤ 0.3)
+  PASS both hands hold the glasses at first (t+0 to t+1.3): 3 moments, e.g. t+0: 0.03u apart (needs ≤ 0.05)
+  PASS his right hand holds them too (t+0 to t+1.3): 3 moments, e.g. t+0: 0.02u apart (needs ≤ 0.05)
+  PASS both hands bring the glasses up (t+1.5 to t+2.5): 3 moments, e.g. t+1.5: 0.03u apart (needs ≤ 0.05)
+  PASS his right hand brings them up too (t+1.5 to t+2.5): 3 moments, e.g. t+1.5: 0.02u apart (needs ≤ 0.05)
+  PASS the lenses sit right in front of his eyes (t+2.6 to t+5.5): 6 moments, e.g. t+3: 0.03u apart (needs ≤ 0.035)
+  PASS his hands are down while he wears them (t+3.2 to t+5): 4 moments, e.g. t+3.5: 0.35u apart (needs ≥ 0.15)
+  PASS his right hand is down too (t+3.2 to t+5): 4 moments, e.g. t+3.5: 0.35u apart (needs ≥ 0.15)
+  PASS both hands take the glasses off (t+6 to t+6.9): 2 moments, e.g. t+6: 0.01u apart (needs ≤ 0.05)
+  PASS nothing passes through him (lenses and arms outside his face and head, hands never inside the glasses): 16 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees him: 16 moments, e.g. t+0: 94% visible (needs ≥ 85)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the glasses show big: 16 moments, e.g. t+0: shows 3% as big as the kanji (needs ≥ 3)
+```
+Opus reviews (call 2 of 2)
+Opus: approve (list-price estimate $0.53: on a subscription it is not billed per call)
+
+> Round 2 fixed all three earlier problems. The worn glasses now read as two separate round rings with his eyes showing through them, short end pieces and temples back to his ears. The hands hold the hinges during the put-on and take-off, and the hands drop while he wears them. My own inspect matches the watcher: 13 of 13 goals PASS and no measured faults over the whole 8 s loop. Nothing floats or sinks, and nothing passes through him. The only thing left is the catalog description in src/effects/vcat-qw.js, which still mentions a little table that the scene doesn't have. Opus should fix that wording; it is not a job for Qwen.
+
+## Outcome: APPROVED by Opus (12.9 min, 2 Opus calls)
