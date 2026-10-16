@@ -21,6 +21,7 @@ const FIST_MID = [0, 0.053, 0.015], FIST_HALF = 0.037, PALM = { R: -1, L: 1 };
 
 const v1 = new THREE.Vector3(), v2 = new THREE.Vector3(), v3 = new THREE.Vector3(), v4 = new THREE.Vector3(), v5 = new THREE.Vector3();
 const q1 = new THREE.Quaternion(), q2 = new THREE.Quaternion(), q3 = new THREE.Quaternion(), qa = new THREE.Quaternion();
+const SHAPES = new Map();                        // each model's head shape (a.shape), measured once
 
 // turn `bone` by the WORLD rotation q (keeps its children attached)
 function turnWorld(bone, q) {
@@ -41,6 +42,8 @@ export function actor(name, h, { tint = SKIN } = {}) {
   // the head's rest turn in the actor's frame (landmarks on the head follow it from there)
   const headRest = new THREE.Quaternion();
   if (ok) { refresh(); bones.Head.getWorldQuaternion(headRest).premultiply(g.getWorldQuaternion(qa).invert()); }
+  // the head's turn since its rest pose, in world space (nods, shakes, bows, the actor's own turn excluded)
+  const headTurn = (out) => { const rest = q3.copy(g.getWorldQuaternion(qa)).multiply(headRest); return bones.Head.getWorldQuaternion(out).multiply(rest.invert()); };
 
   const a = {
     ...m, h, ok,
@@ -120,6 +123,44 @@ export function actor(name, h, { tint = SKIN } = {}) {
       const n = a.palm(side, out), p = a.fistMid(side, new THREE.Vector3()).addScaledVector(n, FIST_HALF * scale() + r);
       prop.position.copy(space.worldToLocal(p));
       return n;
+    },
+    // ---- worn on the head (hats, caps, helmets): sized and placed from the head's real shape, not by eye ----
+    // the head's shape: the skin weighted to the Head bone (hair included), in heights, relative to the Head bone, in the
+    // actor's frame with the head at rest; measured once per model. top: its highest point; mid: the middle of its crown
+    shape() {
+      if (SHAPES.has(name)) return SHAPES.get(name);
+      g.updateMatrixWorld(true);                       // (a skinned mesh's bind matrices update only here)
+      const pts = [], s = scale(), gq = g.getWorldQuaternion(qa).clone(), hp = bones.Head.getWorldPosition(new THREE.Vector3());
+      const back = headTurn(new THREE.Quaternion()).invert(), toActor = gq.clone().invert();
+      g.traverse((o) => {
+        if (!o.isSkinnedMesh) return;
+        const hi = o.skeleton.bones.indexOf(bones.Head), si = o.geometry.attributes.skinIndex, sw = o.geometry.attributes.skinWeight;
+        for (let i = 0; i < si.count; i++) {
+          let best = 0; for (let c = 1; c < 4; c++) if (sw.getComponent(i, c) > sw.getComponent(i, best)) best = c;
+          if (si.getComponent(i, best) !== hi) continue;
+          const p = o.getVertexPosition(i, new THREE.Vector3()).applyMatrix4(o.matrixWorld).sub(hp).applyQuaternion(back).applyQuaternion(toActor).divideScalar(s);
+          pts.push(p);
+        }
+      });
+      const top = Math.max(...pts.map((p) => p.y)), crown = pts.filter((p) => p.y > top - 0.08);
+      const pc = (arr, f) => { const v = arr.slice().sort((x, y) => x - y); return v[Math.min(v.length - 1, Math.floor(f * v.length))]; };
+      const mid = { x: (pc(crown.map((p) => p.x), 0.05) + pc(crown.map((p) => p.x), 0.95)) / 2, z: (pc(crown.map((p) => p.z), 0.05) + pc(crown.map((p) => p.z), 0.95)) / 2 };
+      // the head's radius at a height: most of the skin there lies within it (a stray hair tip doesn't count)
+      const radius = (y) => { const sl = pts.filter((p) => Math.abs(p.y - y) < 0.012); return sl.length < 6 ? 0 : pc(sl.map((p) => Math.hypot(p.x - mid.x, p.z - mid.z)), 0.9); };
+      const r = { pts, top, mid, radius };
+      SHAPES.set(name, r); return r;
+    },
+    // the head's radius (heights) `depth` below its top
+    headR(depth) { const h = a.shape(); return h.radius(h.top - depth); },
+    // a worn thing whose rim has inner radius r (heights) slides down the head until the head is as wide as its rim; its
+    // pivot (the middle of its rim) goes there, turned with the head, `sink` lower. space: the thing's parent
+    wear(prop, space, r, { sink = 0 } = {}) {
+      const h = a.shape(); let y = h.top;
+      while (y > h.top - 0.3 && h.radius(y) < r) y -= 0.004;
+      const s = scale(), gq = g.getWorldQuaternion(qa), rot = headTurn(q2);
+      const p = bones.Head.getWorldPosition(new THREE.Vector3()).add(v1.set(h.mid.x * s, (y - sink) * s, h.mid.z * s).applyQuaternion(gq).applyQuaternion(rot));
+      prop.position.copy(space.worldToLocal(p));
+      prop.quaternion.copy(space.getWorldQuaternion(q1).invert().multiply(rot.multiply(gq)));
     },
     // (older) a prop at the wrist bone plus an offset in heights in the actor's frame; prefer grip + hold
     carry(prop, side, space, grip = [0, 0, 0]) {

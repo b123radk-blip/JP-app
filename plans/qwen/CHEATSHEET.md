@@ -60,9 +60,13 @@ Register the scene in `vignettes/index.js` and its catalog entry where the plan 
 
 - `solidProp([[G.box(w, h, d, x, y, z), 0xcolor], [G.cyl(rTop, rBot, h, x, y, z), 0xcolor]], glow)` from
   `pieces/kit-rig.js` and `pieces/shape-kit.js`. Sizes are in world units, so multiply by u.
-- **Anything worn on a head** (hat, cap, helmet) is measured by a `fits` goal: it reports how much of the head and hair
-  the hat covers and how far hair sticks out. If it FAILs, make the hat wider or taller (the report gives the head and
-  hair's width, depth and top) or centre it; never shrink the head. `held.jpg` (inspect without `--quick`) shows
+- **Anything worn on a head** (hat, cap, helmet): never guess its size or place. Size it from the real head with
+  `a.headR(depth)` (the head and hair's radius `depth` below its top, in heights; times `ADULT * u` for world units)
+  and put it on every frame with `a.wear(hat, group, r)`: it slides a hat whose rim's inner radius is r (heights) down
+  the head until it fits, centred on the crown and turned with the head (the hat's pivot is the middle of its rim).
+  Example: the 試 cap, `r = a.headR(0.11) + 0.01`; a big hat that drops over the eyes, `a.headR(0.21) + 0.012`.
+  A `fits` goal measures it: how much of the head and hair the hat covers, how far hair sticks out, how far off-centre.
+  If it FAILs, change r or the hat's height; never shrink the head. `held.jpg` (inspect without `--quick`) shows
   everything worn or held close up from the front and both sides: look at it.
 - **Name every prop the goals or the plan mention**: `glass.name = 'glass'`. Goals and `measure` find things by name;
   an unnamed thing shows up only as a colour.
