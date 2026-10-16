@@ -20,7 +20,7 @@ import { goalChecker } from './lib/goals.mjs';
 const T0 = Date.now(), arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? process.argv[i + 1] : d; };
 const id = process.argv[2], look = arg('--look'), OUT = arg('--out', `.cache/inspect/${id}`), recipe = arg('--recipe') ? readFileSync(arg('--recipe'), 'utf8') : null;
 const times = look ? [Number(arg('--t', '1.5'))] : arg('--times', '1,2.5').split(',').map(Number), scan = Number(arg('--scan', '0.5')), LOOP = Number(arg('--loop', '7'));
-const goals = arg('--goals') ? goalChecker(JSON.parse(readFileSync(arg('--goals'), 'utf8'))) : null, quick = process.argv.includes('--quick');
+const goalList = arg('--goals') ? JSON.parse(readFileSync(arg('--goals'), 'utf8')) : [], goals = arg('--goals') ? goalChecker(goalList) : null, quick = process.argv.includes('--quick');
 const watch = goals?.watch() ?? [];   // props the goals measure from the learner's seat (visible, big, faces)
 const VIEWS = { front: [0, 0.05], right: [90, 0.1], left: [-90, 0.1], back: [180, 0.1], top: [0, 1.45], low: [0, -0.25], 'front-right': [40, 0.3], 'front-left': [-40, 0.3] };
 if (!id) { console.log('usage: node scripts/inspect.mjs <card id> [--times 1,2.5] [--scan 0.5] [--people] [--strict] [--recipe try.json] [--out dir] | --look T3 [--from right] [--t 1.5] [--zoom 2]'); process.exit(1); }
@@ -83,6 +83,9 @@ if (look) {
     // the whole loop, numbers only
     const at = [];
     for (let dt = 0; dt < LOOP - 1e-9; dt += scan) at.push(Math.round(dt * 100) / 100);
+    // a goal whose time falls between two scan moments gets its own moment (its middle), so it is never left unmeasured
+    for (const g of goalList) if (g.t && !at.some((x) => x >= g.t[0] && x <= g.t[1])) at.push(Math.round((g.t[0] + g.t[1]) * 50) / 100);
+    at.sort((a, b) => a - b);
     for (const dt of at) {
       const m = await page.evaluate(measure, { t: end + dt, cam: seat, watch });
       if (m.error) { console.log(m.error); process.exit(1); }
