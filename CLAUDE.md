@@ -139,7 +139,7 @@ would a kid who has never seen the kanji guess its meaning from the scene alone?
   (`a.toMouth('R', k)`, `a.bow(k)`, `a.handTo('L', a.local(x, y, z), k)` reaches any point by IK). **Held things rest
   against the palm, never inside the fist** (the fist has no fingers; the user checks this): `a.grip('R', middle, toward,
   r, k)` brings the palm against a thing of radius r, twisting the forearm so the palm faces `toward` (hand -> thing: a
-  glass from the side, a bowl from below, a head from above), then `a.hold(prop, 'R', group, r)` places it there. Hats: size them from `a.headR(depth)` (the measured head) and seat them every frame with `a.wear(hat, group, r)` (`q-try-hats.js`). Review: `{ "vignette": { "type": "q-gesture", "g": "wave" } }`; examples `q-eat`
+  glass from the side, a bowl from below, a head from above), then `a.hold(prop, 'R', group, r)` places it there. Hats: size them from `a.headR(depth)` (the measured head) and seat them every frame with `a.wear(hat, group, r)` (`q-try-hats.js`); glasses: `a.shape().eyes` (measured eyes: `apart`, `half` face width, `z`) and `a.onEyes(glasses, group, { out })`. Review: `{ "vignette": { "type": "q-gesture", "g": "wave" } }`; examples `q-eat`
   `q-drink` `q-meet` (vignettes/q-gestures.js). Let a recipe pick the person (`who`) and cost it with `pdc()`.
 - Trial loop: recipes in a JSON (`"id~a": effect`), `node scripts/look.mjs ids --recipes try.json --times -0.4,1,2.2,3.2`
   (the crop fits each card's kanji and scene; `--clip x,y,w,h` or `--no-fit` for a fixed one), fix, then

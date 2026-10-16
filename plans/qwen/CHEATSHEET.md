@@ -66,7 +66,11 @@ Register the scene in `vignettes/index.js` and its catalog entry where the plan 
   the head until it fits, centred on the crown and turned with the head (the hat's pivot is the middle of its rim).
   Example: the 試 cap, `r = a.headR(0.11) + 0.01`; a big hat that drops over the eyes, `a.headR(0.21) + 0.012`.
   A `fits` goal measures it: how much of the head and hair the hat covers, how far hair sticks out, how far off-centre.
-  If it FAILs, change r or the hat's height; never shrink the head. `held.jpg` (inspect without `--quick`) shows
+  If it FAILs, change r or the hat's height; never shrink the head.
+- **Anything worn on the face** (glasses, a mask): `a.shape().eyes` gives the measured eyes (in heights: `apart` from
+  the outer edge of one eye to the other's, `half` half the face's width at the eyes, `z` the face's front); put it on
+  every frame with `a.onEyes(thing, group, { out })` (its pivot goes to the middle of the eyes, `out` in front of the
+  face, turned with the head). Goals can name the point `<person> eyes`. `held.jpg` (inspect without `--quick`) shows
   everything worn or held close up from the front and both sides: look at it.
 - **Name every prop the goals or the plan mention**: `glass.name = 'glass'`. Goals and `measure` find things by name;
   an unnamed thing shows up only as a colour.
