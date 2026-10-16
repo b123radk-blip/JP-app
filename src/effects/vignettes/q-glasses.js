@@ -23,16 +23,17 @@ function glassesScene(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY;
   const X = (x) => B.maxX + x * u;
   const who = actor('grandpa', ADULT * u);
-  // the glasses, sized from his face: lens rings 0.25 of his eyes' apart, end pieces out to his half-face width (the
-  // hinges), and the arms straight back from the hinges to his ears
-  const hu = ADULT * u, e = who.shape().eyes, hx = e.half * hu, ringR = 0.04 * hu;
-  const cx = 0.02 * hu, armLen = (e.z - who.shape().mid.z + 0.02) * hu, T = 0.008 * hu, tab = hx + 0.05 * hu;
+  // the glasses, sized from his face: rings over his eyes (centres ±0.06 hu, radius 0.045 hu, a 0.015 hu wire),
+  // a thin bridge between the inner edges, end pieces out to the hinges at his half-face width, and the arms straight
+  // back from the hinges to his ears
+  const hu = ADULT * u, e = who.shape().eyes, hx = e.half * hu, ringR = 0.045 * hu;
+  const cx = 0.06 * hu, armLen = (e.z - who.shape().mid.z + 0.02) * hu, T = 0.008 * hu, tab = hx + 0.02 * hu;
   const lenses = solidProp([
-    [G.torus(ringR, 0.02 * hu, Math.PI * 2, cx, 0, 0), 0x202020],
-    [G.torus(ringR, 0.02 * hu, Math.PI * 2, -cx, 0, 0), 0x202020],
-    [G.box(0.06 * hu, 0.025 * hu, T, 0, 0.01 * hu, 0), 0x202020],
-    [G.box(tab - (cx + ringR), 0.025 * hu, T, (tab + cx + ringR) / 2, 0, 0), 0x202020],
-    [G.box(tab - (cx + ringR), 0.025 * hu, T, -(tab + cx + ringR) / 2, 0, 0), 0x202020],
+    [G.torus(ringR, 0.015 * hu, Math.PI * 2, cx, 0, 0), 0x202020],
+    [G.torus(ringR, 0.015 * hu, Math.PI * 2, -cx, 0, 0), 0x202020],
+    [G.box(0.03 * hu, 0.01 * hu, T, 0, 0.01 * hu, 0), 0x202020],
+    [G.box(tab - (cx + ringR), 0.012 * hu, T, (tab + cx + ringR) / 2, 0, 0), 0x202020],
+    [G.box(tab - (cx + ringR), 0.012 * hu, T, -(tab + cx + ringR) / 2, 0, 0), 0x202020],
   ], 0.35);
   const arms = solidProp([
     [G.box(T, 0.015 * hu, armLen, hx, 0, -armLen / 2), 0x202020],
@@ -40,7 +41,7 @@ function glassesScene(ctx, spec, stage) {
   ], 0.35);
   const glasses = new THREE.Group(); glasses.add(lenses, arms);
   const worn = new THREE.Object3D();                                    // helper: where onEyes puts the glasses, each frame
-  const glint = burst(u, { s: 0.08, n: 4, color: 0xffffff });
+  const glint = burst(u, { s: 0.05, n: 4, color: 0xffffff });
   lenses.name = 'lenses'; arms.name = 'arms';
   group.add(who.group, glasses, worn, glint);
   const chest = new THREE.Vector3(X(0.56), floor + 0.465 * u, 0.13 * u); // the glasses' middle at his chest
@@ -74,7 +75,7 @@ function glassesScene(ctx, spec, stage) {
         who.grip(side, Tw, C.sub(Tw).normalize(), 0.01 * u * ws, k);
       }
       // a glint on his left lens, 3.0-3.4
-      const gp = W.set(-0.27 * e.apart * hu, 0, 0.02 * hu).applyQuaternion(glasses.quaternion).add(glasses.position);
+      const gp = W.set(0.06 * hu, 0.01 * hu, 0.02 * hu).applyQuaternion(glasses.quaternion).add(glasses.position);
       pop(glint, pre ? 0 : bump(v, 3.0, 0.4), gp.x, gp.y, gp.z);
       who.nod(pre ? 0 : bump(v, 3.4, 0.9) + bump(v, 4.5, 0.9), v);         // twice, pleased
     },
