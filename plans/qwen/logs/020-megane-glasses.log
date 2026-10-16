@@ -1,0 +1,14 @@
+pi exit 0 after 6.0 min
+
+Plan 020 done. Summary:
+
+**Built** `q-glasses` (card w1577670, 眼鏡): an old man holds his glasses at his chest while the kanji wobbles, lifts them to his measured eyes with both hands gripping the end pieces (the kanji goes still), a star glints on the left lens, he nods twice, takes them off — and the kanji wobbles again. Glasses built from `who.shape().eyes`, worn via `onEyes` every frame; loop 8 s, ends where it starts.
+
+**Result: 13 of 13 goals PASS, no measured faults over the whole loop.** `npm test` passes, `check-piece-costs` says 0 mismatches (cost set to `pdc('grandpa') + 3`).
+
+**Deviations from the plan (all reported):**
+- The plan's ring size (`0.25 * e.apart`) is degenerate for this model — grandpa's `e.apart` measures only ~0.02 heights, so the rings were a 0.01 u smudge and `big` (needs ≥ 3%) measured 1%. Rings made `0.04 hu` radius / `0.02 hu` tube at ±`0.02 hu` (still covering the eyes; pivot unchanged).
+- I also introduced and fixed a bug: passed `0` as the 3rd arg of `G.torus`, which is the **arc**, so the rings were invisible for my first three size attempts.
+- Chest place z 0.16 → 0.13 u (arms reached), grip points at ±(hx−0.01) with the end pieces extended 0.05 u past the hinges so the flat fists rest against the frame (hand-to-lenses goals measure 0.01–0.04 u), and `onEyes` out 0.03 so the thick tube clears the face.
+
+**Committed** (not pushed, per the rules): `1e721e2` scene + render, `87aa35e` report at `plans/qwen/done/020-megane-glasses.md`, which flags one thing for Opus: the catalog line's description still mentions "a little table" that the scene doesn't have (kept as instructed).
