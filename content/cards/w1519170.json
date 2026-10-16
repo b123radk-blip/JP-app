@@ -11,10 +11,9 @@
   "effect": {
     "material": "ivory",
     "reveal": "draw",
-    "emblem": "person",
-    "motion": "bounce",
     "backdrop": "sky:day",
-    "particles": ["wind"]
+    "particles": ["wind"],
+    "vignette": { "type": "q-hat-wind" }
   },
   "sentences": [
     {
@@ -24,6 +23,6 @@
       "source": { "tatoeba": [82603, 321113] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 帽子" },
+  "review": { "recipe": "reviewed", "rule": "word 帽子" },
   "source": { "jmdict": 1519170, "jlpt": 5 }
 }
