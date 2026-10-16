@@ -1,0 +1,16 @@
+pi exit 0 after 12.8 min
+
+Plan 018 is done. Summary:
+
+**Built the scene** (`src/effects/vignettes/q-ponder.js`): grandpa sits on a red cushion before a 35°-tilted shogi board on a stand, hand on his chin with a thought cloud + blue "?", the "?" swaps to a glowing bulb with a burst, his finger goes up, he leans in and slides a piece to a new square with his hand on it, sits up and nods. Catalog cost set to `pdc('grandpa') + 11`.
+
+**Goals: 11 of 11 PASS**, with three debugging rounds worth noting:
+1. The IK hand targets must be **world space** (`group.localToWorld`, like `q-pour.js`) — the effect group is translated in world space, so local targets made every hand gesture a no-op.
+2. The bow had to be applied **before** the hand IK, so the piece reach starts from the leaned-in shoulders (otherwise out of arm reach).
+3. The plan's "?" / bulb spot (z −0.16u) was **inside** the r 0.15u main cloud sphere — invisible in the render; moved to z −0.07u, in front of the cloud's front face. Also moved my cloud puffs off grandpa's head (fixed a passes-through fault) and fixed a `grow()` clamp bug that kept the piece scaled to 0.001.
+
+**Checks**: `node --check` clean, `npm test` all pass (0 pairs ≥ 0.72), cost check `0 cost mismatches`, full inspect 11/11 PASS, orbit render done.
+
+**Left as is (documented in the report)**: the board sunk into its stand (the plan's expected fault) and dot2 overlapping the cloud (both are the plan's own centres — the thought trail leading into the cloud).
+
+Committed as `考: grandpa thinks over his shogi move, gets an idea and plays it (plan 018)` and `Qwen report: 018-kangaeru-medium` (report in `plans/qwen/done/`). Not pushed, as the rules say.
