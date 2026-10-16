@@ -7,5 +7,5 @@ export const QW = {
   'q-part-ways': VM(pdc('gal2', 'guy2') + 4, '別 (gal2, guy2): two friends walk together down a path toward you; where it forks they stop, turn to each other and wave goodbye, then walk off down the two branches and wave once more from far apart, as the kanji splits in two', ['gal2', 'guy2']),
   'q-ponder': VM(pdc('grandpa') + 11, '考 (grandpa): an old man sits on a cushion before a shogi board, hand on his chin, a thought bubble with a ? over him; the ? turns into a lightbulb, his finger goes up, he leans in and moves a piece, and nods', ['grandpa']),
   'q-try-hats': VM(pdc('gal') + 9, '試 (gal): a woman tries on hats: the big brown one drops over her eyes, she shakes her head and hangs it back; the small red one fits, and she poses happily', ['gal']),
-  'q-hat-wind': VM(pdc('guy', 'guy2') + 6, '帽子 (guy, guy2): a gust blows a boy\'s red cap off his head; his dad catches it by the brim and, with both hands, sets it back on the boy\'s head and tugs it snug; the boy bounces happily', ['guy', 'guy2']),
+  'q-hat-wind': VM(pdc('guy', 'guy2') + 2, '帽子 (guy, guy2): a gust blows a boy\'s red cap off his head; his dad catches it by the brim and, with both hands, sets it back on the boy\'s head and tugs it snug; the boy bounces happily', ['guy', 'guy2']),
 };
