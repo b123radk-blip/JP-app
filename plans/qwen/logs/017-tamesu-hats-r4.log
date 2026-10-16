@@ -1,0 +1,16 @@
+pi exit 0 after 2.4 min
+
+Round 4 complete. Summary of what happened:
+
+**The three FAIL lines are not scene bugs — I proved it end-to-end this round** by reading the whole measuring path instead of re-arguing from pictures:
+
+1. **The watcher's command is fixed** (`qwen-watch.mjs` `check()`): `inspect.mjs 8a66 --goals … --quick --loop 8` — no `--times`, default `--scan 0.5`.
+2. **inspect.mjs only measures multiples of 0.5 s** (scan grid 0, 0.5, …, 7.5; default `--times 1,2.5` and every fault's worst moment are already on that grid). Nothing in the scene can change which moments get measured.
+3. **The goal checker judges only at measured moments** (`goals.mjs` `note()`), and the three failing windows — [1.1, 1.3], [3.2, 3.4], [5.25, 5.4] — contain **no multiple of 0.5 s** → `no moment measured in its time` → FAIL for *any* scene.
+4. Every file that could change this (goals file, plan, `inspect.mjs`, `goals.mjs`, `qtool.mjs`, `qwen-watch.mjs`) is on the watcher's protected list.
+
+**The scene itself passes everything.** Running the same checker at the resolution the windows were written for (`--scan 0.25`: 1.25, 3.25, 5.25 fall inside them) gives **13 of 13 PASS**, and fresh `measure` across each whole window: hand↔hat **0.03u** (1.1–1.3), **0.040–0.056u** (3.2–3.4), cap↔top-of-head **0u** (5.25–5.4) — all inside their tolerances.
+
+**Checks all green:** `node --check` clean, `npm test` 63 pass/0 fail, cost check `0 cost mismatches`, plan's full inspect `11 of 13` (the two hand windows are unmeasurable there too), orbit re-render byte-identical to round 3's and re-verified by eye.
+
+**No code commit this round** — no edit in any allowed file can alter those three lines, so a round-4 code commit would be empty; I say so plainly in the report. The report is committed as `Qwen report: 017-tamesu-hats` with the `## Round 4` section, the real Goals lines of all three runs (10/13 watcher grid, 11/13 plan's `--times`, 13/13 at `--scan 0.25`), and the one-line fix for Opus/you: add `--scan 0.25` to the plan's `Inspect:` line, or widen the goal windows to hold a 0.5-grid moment (e.g. [1.0, 1.5] / [3.0, 3.5] / [5.0, 5.5]). I did not touch the goals file or the plan, and did not push.
