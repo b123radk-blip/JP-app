@@ -17,7 +17,7 @@ import { grow } from './step1-kit.js';
 import { pop, onHead, ADULT } from './q-common.js';
 
 const XN = new THREE.Vector3(1, 0, 0), NX = new THREE.Vector3(-1, 0, 0);   // the palm's way to each hat's near edge
-const W = new THREE.Vector3();
+const W = new THREE.Vector3(), WS = new THREE.Vector3();
 
 function tryHats(ctx, spec, stage) {
   const u = stage.u, B = stage.box, group = new THREE.Group(), floor = B.minY, k = (x) => x * u, X = (x) => B.maxX + x * u;
@@ -96,13 +96,15 @@ function tryHats(ctx, spec, stage) {
       }
       const cs = v < 7.2 ? 1 : v < 7.5 ? 1 - between(v, 7.2, 7.5) : grow(between(v, 7.5, 8.0));
       cap.scale.setScalar(cs); cap.visible = cs > 0.01;
-      // her left hand (the learner's right) takes each hat at its near edge, the palm against the brim, never inside
-      const g1 = between(v, 0.5, 0.6) * (1 - between(v, 1.75, 1.95));
+      // her left hand (the learner's right) takes each hat at its near edge, the palm against the brim, never inside;
+      // the grip's target and way live in the group's space, turned into the world space the hand IK works in
+      const ws = group.getWorldScale(WS).y, way = (d) => d.transformDirection(group.matrixWorld);
+      const g1 = between(v, 1.0, 1.15) * (1 - between(v, 1.3, 1.5));
       const g2 = between(v, 3.1, 3.25) * (1 - between(v, 3.4, 3.6));
-      const g3 = between(v, 4.3, 4.45) * (1 - between(v, 4.65, 4.85));
-      if (g1 > 0) who.grip('L', W.set(X(1.01), floor + 0.78 * u, -0.06 * u), XN, 0.012 * u, g1, { out: 0.7, down: 0.5 });
-      else if (g2 > 0) who.grip('L', W.set(X(1.04), floor + (PB.y + 0.06 * between(v, 3.1, 3.4)) * u, PB.z * u), NX, 0.012 * u, g2, { out: 0.7, down: 0.5 });
-      else if (g3 > 0) who.grip('L', W.set(X(1.09), floor + 0.47 * u, -0.06 * u), XN, 0.015 * u, g3, { out: 0.7, down: 0.5 });
+      const g3 = between(v, 4.3, 4.45) * (1 - between(v, 4.6, 4.8));
+      if (g1 > 0) who.grip('L', group.localToWorld(W.set(X(1.06), floor + 0.80 * u, -0.06 * u)), way(XN), 0.012 * u * ws, g1, { out: 0.7, down: 0.5 });
+      else if (g2 > 0) who.grip('L', group.localToWorld(W.set(X(1.02), floor + (PB.y + 0.06 * between(v, 3.1, 3.4)) * u, PB.z * u)), way(NX), 0.012 * u * ws, g2, { out: 0.7, down: 0.5 });
+      else if (g3 > 0) who.grip('L', group.localToWorld(W.set(X(1.13), floor + 0.47 * u, -0.06 * u)), way(XN), 0.012 * u * ws, g3, { out: 0.7, down: 0.5 });
       // pleased: hearts pop beside her head
       pop(h1, between(v, 6.4, 6.7), X(0.5), floor + 1.0 * u, 0.06 * u);
       pop(h2, between(v, 6.6, 6.9), X(1.1), floor + 1.06 * u, 0.06 * u);

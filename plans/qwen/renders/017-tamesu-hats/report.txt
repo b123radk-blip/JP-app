@@ -1,28 +1,29 @@
 # Inspection of card 8a66
 
-## Goals: 12 of 13 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+## Goals: 11 of 13 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
 
   PASS the big hat sits on the top tier at first (t+0 to t+0.9): 2 moments, e.g. t+0: big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
-  PASS the cap sits on the low tier at first (t+0 to t+3): 8 moments, e.g. t+0: cap (red #d03040): touches T4 mesh tier low (dark brown #6a4a28)
-  PASS her left hand takes the big hat off the stand (t+1.1 to t+1.3): 1 moments, e.g. t+1.2: 0.04u apart (needs ≤ 0.06)
+  PASS the cap sits on the low tier at first (t+0 to t+3): 7 moments, e.g. t+0: cap (red #d03040): touches T4 mesh tier low (dark brown #6a4a28)
+  FAIL her left hand takes the big hat off the stand (t+1.1 to t+1.3): no moment measured in its time (add it to --times or use --scan)
   PASS the big hat sinks over her eyes (t+1.9 to t+3.1): 3 moments, e.g. t+2: 0u apart (needs ≤ 0.02)
-  PASS her left hand lifts the big hat off her head (t+3.2 to t+3.4): 1 moments, e.g. t+3.3: 0u apart (needs ≤ 0.06)
+  FAIL her left hand lifts the big hat off her head (t+3.2 to t+3.4): no moment measured in its time (add it to --times or use --scan)
   PASS the big hat is back on the top tier (t+4.1 to t+8): 9 moments, e.g. t+4.5: big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
-  PASS her left hand takes the cap off the stand (t+4.45 to t+4.6): 1 moments, e.g. t+4.5: 0.02u apart (needs ≤ 0.06)
+  PASS her left hand takes the cap off the stand (t+4.45 to t+4.6): 1 moments, e.g. t+4.5: 0.04u apart (needs ≤ 0.06)
   PASS the cap sits on top of her head (t+5.25 to t+5.4): 1 moments, e.g. t+5.3: 0u apart (needs ≤ 0.03)
-  FAIL the learner sees her: fails at t+3.5 of 20 moments; t+3.5: gal is not in the learner's view
-  PASS the learner sees the kanji: 20 moments, e.g. t+0: 100% visible (needs ≥ 95)
-  PASS the cap shows big (t+0 to t+5.4): 14 moments, e.g. t+0: shows 11% as big as the kanji (needs ≥ 6)
-  PASS nothing passes through her before the first hat (t+0 to t+1.4): 4 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees her: 18 moments, e.g. t+0: 100% visible (needs ≥ 70)
+  PASS the learner sees the kanji: 18 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the cap shows big (t+0 to t+5.4): 12 moments, e.g. t+0: shows 15% as big as the kanji (needs ≥ 6)
+  PASS nothing passes through her before the first hat (t+0 to t+1.4): 3 moments, e.g. t+0: nothing passes into it
   PASS nothing passes through her between the hats (t+4 to t+4.35): 1 moments, e.g. t+4: nothing passes into it
 
 ## The whole loop, every 0.5 s from t+0 to t+7.5 (numbers only; the T ids differ from moment to moment)
 
-  - t+2 to t+3 (worst at t+2): model gal PASSES INTO mesh big hat (brown/dark brown #7a5030/#4a3020): 755 skin points inside it, near the bones Head
-  - t+2 to t+3 (worst at t+2): model gal: 74% visible (26% behind the big hat); shows 48% as big as the kanji
-  - t+4.5 (worst at t+4.5): model gal PASSES INTO mesh cap (red #d03040): 53 skin points inside it, near the bones FistL
-  - t+5.5 to t+6 (worst at t+5.5): mesh cap (red #d03040): SUNK INTO model gal (gap -0.13u)
-  - t+5.5 to t+7 (worst at t+5.5): model gal PASSES INTO mesh cap (red #d03040): 535 skin points inside it, near the bones Head
+  - t+2, t+3 (worst at t+2): mesh big hat (brown/dark brown #7a5030/#4a3020): SUNK INTO model gal (gap -0.23u)
+  - t+2 to t+3 (worst at t+2): model gal PASSES INTO mesh big hat (brown/dark brown #7a5030/#4a3020): 726 skin points inside it, near the bones Head
+  - t+2 to t+3 (worst at t+3): model gal: 77% visible (23% behind the big hat); shows 49% as big as the kanji
+  - t+2.5 (worst at t+2.5): mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE model gal (gap 0.09u)
+  - t+5.5 to t+7 (worst at t+5.5): mesh cap (red #d03040): SUNK INTO model gal (gap -0.09u)
+  - t+5.5 to t+7 (worst at t+5.5): model gal PASSES INTO mesh cap (red #d03040): 221 skin points inside it, near the bones Head
 
 ## t+0.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
@@ -32,8 +33,8 @@ Things (id, kind, name or colour, size w x h x d, centre, bottom and top height)
   T3 mesh stand (dark brown #6a4a28): size 0.18 x 0.76 x 0.18, centre [1.25, 0.38, -0.06], bottom 0, top 0.76
   T4 mesh tier low (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.44, -0.06], bottom 0.43, top 0.45
   T5 mesh tier top (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.77, -0.06], bottom 0.76, top 0.78
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.21 x 0.48, centre [1.25, 0.89, -0.06], bottom 0.78, top 0.99
-  T7 mesh cap (red #d03040): size 0.32 x 0.13 x 0.42, centre [1.25, 0.51, -0.01], bottom 0.45, top 0.58
+  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.2 x 0.48, centre [1.25, 0.88, -0.06], bottom 0.78, top 0.98
+  T7 mesh cap (red #d03040): size 0.32 x 0.21 x 0.42, centre [1.25, 0.56, -0.01], bottom 0.45, top 0.66
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal: touches T2 mesh floor (brown #b08a60)
@@ -53,22 +54,22 @@ Hands (is each where the plan wants it? "nearest own body part" says where on th
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
   T1 model gal: 100% visible; shows 62% as big as the kanji
-  the big hat (1 piece): 87% visible (13% behind other things (props, labels)); shows 24% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
-  the cap (1 piece): 86% visible (14% behind other things (props, labels)); shows 11% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  the big hat (1 piece): 87% visible (13% behind other things (props, labels)); shows 22% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the cap (1 piece): 89% visible (11% behind other things (props, labels)); shows 15% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
   the kanji: 100% visible
 
 No measured faults. Still look at the pictures: the numbers cannot see everything.
 
-## t+1.2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+## t+2 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal: size 0.41 x 0.94 x 0.44, centre [0.82, 0.46, -0.06], bottom 0, top 0.93
+  T1 model gal: size 0.38 x 0.93 x 0.44, centre [0.8, 0.46, -0.05], bottom 0, top 0.93
   T2 mesh floor (brown #b08a60): size 0.95 x 0.02 x 0.55, centre [0.93, -0.01, 0], bottom -0.02, top 0
   T3 mesh stand (dark brown #6a4a28): size 0.18 x 0.76 x 0.18, centre [1.25, 0.38, -0.06], bottom 0, top 0.76
   T4 mesh tier low (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.44, -0.06], bottom 0.43, top 0.45
   T5 mesh tier top (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.77, -0.06], bottom 0.76, top 0.78
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.21 x 0.48, centre [1.25, 0.89, -0.06], bottom 0.78, top 0.99
-  T7 mesh cap (red #d03040): size 0.32 x 0.13 x 0.42, centre [1.25, 0.51, -0.01], bottom 0.45, top 0.58
+  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.2 x 0.48, centre [0.76, 0.79, -0.03], bottom 0.69, top 0.89
+  T7 mesh cap (red #d03040): size 0.32 x 0.21 x 0.42, centre [1.25, 0.56, -0.01], bottom 0.45, top 0.66
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal: touches T2 mesh floor (brown #b08a60)
@@ -76,34 +77,37 @@ What each solid thing rests on (it should touch it, unless it is meant to fly):
   T3 mesh stand (dark brown #6a4a28): touches T2 mesh floor (brown #b08a60)
   T4 mesh tier low (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
   T5 mesh tier top (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
+  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): SUNK INTO T1 model gal (gap -0.23u)
   T7 mesh cap (red #d03040): touches T4 mesh tier low (dark brown #6a4a28)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  none
+  T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 726 skin points inside it, near the bones Head
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model gal right hand at [0.65,0.27,-0.05]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh floor (brown #b08a60) 0.27u away
-  T1 model gal left hand at [0.98,0.8,-0.06]: nearest own body part head (middle) 0.18u away; nearest other thing T6 mesh big hat (brown/dark brown #7a5030/#4a3020) 0.03u away
+  T1 model gal right hand at [0.65,0.26,-0.04]: nearest own body part right knee 0.15u away; nearest other thing T2 mesh floor (brown #b08a60) 0.26u away
+  T1 model gal left hand at [0.95,0.26,-0.04]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh stand (dark brown #6a4a28) 0.21u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
-  T1 model gal: 100% visible; shows 62% as big as the kanji
-  the big hat (1 piece): 87% visible (13% behind other things (props, labels)); shows 24% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
-  the cap (1 piece): 86% visible (14% behind other things (props, labels)); shows 11% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  T1 model gal: 79% visible (21% behind the big hat); shows 48% as big as the kanji
+  the big hat (1 piece): 77% visible (23% behind T1 model gal); shows 20% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the cap (1 piece): 89% visible (11% behind other things (props, labels)); shows 15% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
   the kanji: 100% visible
 
-No measured faults. Still look at the pictures: the numbers cannot see everything.
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T6 mesh big hat (brown/dark brown #7a5030/#4a3020): SUNK INTO T1 model gal (gap -0.23u)
+  - T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 726 skin points inside it, near the bones Head
+  - T1 model gal: 79% visible (21% behind the big hat); shows 48% as big as the kanji
 
 ## t+2.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
 Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal: size 0.38 x 0.94 x 0.45, centre [0.81, 0.46, -0.06], bottom 0, top 0.93
+  T1 model gal: size 0.38 x 0.94 x 0.44, centre [0.81, 0.46, -0.06], bottom 0, top 0.93
   T2 mesh floor (brown #b08a60): size 0.95 x 0.02 x 0.55, centre [0.93, -0.01, 0], bottom -0.02, top 0
   T3 mesh stand (dark brown #6a4a28): size 0.18 x 0.76 x 0.18, centre [1.25, 0.38, -0.06], bottom 0, top 0.76
   T4 mesh tier low (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.44, -0.06], bottom 0.43, top 0.45
   T5 mesh tier top (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.77, -0.06], bottom 0.76, top 0.78
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.48 x 0.21 x 0.48, centre [0.81, 0.75, -0.05], bottom 0.64, top 0.86
-  T7 mesh cap (red #d03040): size 0.32 x 0.13 x 0.42, centre [1.25, 0.51, -0.01], bottom 0.45, top 0.58
+  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.2 x 0.48, centre [0.76, 0.79, -0.04], bottom 0.69, top 0.89
+  T7 mesh cap (red #d03040): size 0.32 x 0.21 x 0.42, centre [1.25, 0.56, -0.01], bottom 0.45, top 0.66
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal: touches T2 mesh floor (brown #b08a60)
@@ -111,91 +115,26 @@ What each solid thing rests on (it should touch it, unless it is meant to fly):
   T3 mesh stand (dark brown #6a4a28): touches T2 mesh floor (brown #b08a60)
   T4 mesh tier low (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
   T5 mesh tier top (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): touches T1 model gal
+  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.09u)
   T7 mesh cap (red #d03040): touches T4 mesh tier low (dark brown #6a4a28)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 753 skin points inside it, near the bones Head
+  T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 722 skin points inside it, near the bones Head
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
   T1 model gal right hand at [0.65,0.27,-0.05]: nearest own body part right knee 0.15u away; nearest other thing T2 mesh floor (brown #b08a60) 0.27u away
   T1 model gal left hand at [0.95,0.27,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh stand (dark brown #6a4a28) 0.21u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
-  T1 model gal: 75% visible (25% behind the big hat); shows 48% as big as the kanji
-  the big hat (1 piece): 74% visible (26% behind T1 model gal); shows 20% as big as the kanji; its top turned -9° toward you (0 = edge-on, 90 = facing you)
-  the cap (1 piece): 86% visible (14% behind other things (props, labels)); shows 11% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
+  T1 model gal: 80% visible (20% behind the big hat); shows 49% as big as the kanji
+  the big hat (1 piece): 74% visible (26% behind T1 model gal); shows 19% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the cap (1 piece): 89% visible (11% behind other things (props, labels)); shows 15% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
   the kanji: 100% visible
 
 POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 753 skin points inside it, near the bones Head
-  - T1 model gal: 75% visible (25% behind the big hat); shows 48% as big as the kanji
-
-## t+3.3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
-
-Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 model gal: size 0.47 x 0.94 x 0.44, centre [0.85, 0.47, -0.07], bottom 0, top 0.94
-  T2 mesh floor (brown #b08a60): size 0.95 x 0.02 x 0.55, centre [0.93, -0.01, 0], bottom -0.02, top 0
-  T3 mesh stand (dark brown #6a4a28): size 0.18 x 0.76 x 0.18, centre [1.25, 0.38, -0.06], bottom 0, top 0.76
-  T4 mesh tier low (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.44, -0.06], bottom 0.43, top 0.45
-  T5 mesh tier top (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.77, -0.06], bottom 0.76, top 0.78
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.21 x 0.48, centre [0.8, 0.79, -0.06], bottom 0.69, top 0.9
-  T7 mesh cap (red #d03040): size 0.32 x 0.13 x 0.42, centre [1.25, 0.51, -0.01], bottom 0.45, top 0.58
-
-What each solid thing rests on (it should touch it, unless it is meant to fly):
-  T1 model gal: touches T2 mesh floor (brown #b08a60)
-  T2 mesh floor (brown #b08a60): is ground: its top is on the ground line (bottom of the kanji)
-  T3 mesh stand (dark brown #6a4a28): touches T2 mesh floor (brown #b08a60)
-  T4 mesh tier low (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
-  T5 mesh tier top (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.05u)
-  T7 mesh cap (red #d03040): touches T4 mesh tier low (dark brown #6a4a28)
-
-Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 887 skin points inside it, near the bones Head, FistL
-
-Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
-  T1 model gal right hand at [0.66,0.27,-0.06]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh floor (brown #b08a60) 0.27u away
-  T1 model gal left hand at [1.02,0.69,-0.06]: nearest own body part left shoulder 0.19u away; nearest other thing T6 mesh big hat (brown/dark brown #7a5030/#4a3020) 0u away (inside its box: touching or passing through)
-
-Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
-  T1 model gal: 77% visible (23% behind the big hat); shows 47% as big as the kanji
-  the big hat (1 piece): 73% visible (27% behind T1 model gal); shows 19% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
-  the cap (1 piece): 86% visible (14% behind other things (props, labels)); shows 11% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
-  the kanji: 100% visible
-
-POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.05u)
-  - T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 887 skin points inside it, near the bones Head, FistL
-  - T1 model gal: 77% visible (23% behind the big hat); shows 47% as big as the kanji
-
-## t+3.5 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
-
-Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
-  T1 mesh floor (brown #b08a60): size 0.95 x 0.02 x 0.55, centre [0.93, -0.01, 0], bottom -0.02, top 0
-  T2 mesh stand (dark brown #6a4a28): size 0.18 x 0.76 x 0.18, centre [1.25, 0.38, -0.06], bottom 0, top 0.76
-  T3 mesh tier low (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.44, -0.06], bottom 0.43, top 0.45
-  T4 mesh tier top (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.77, -0.06], bottom 0.76, top 0.78
-  T5 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.21 x 0.48, centre [0.84, 0.93, -0.06], bottom 0.82, top 1.04
-  T6 mesh cap (red #d03040): size 0.32 x 0.13 x 0.42, centre [1.25, 0.51, -0.01], bottom 0.45, top 0.58
-
-What each solid thing rests on (it should touch it, unless it is meant to fly):
-  T1 mesh floor (brown #b08a60): is ground: its top is on the ground line (bottom of the kanji)
-  T2 mesh stand (dark brown #6a4a28): touches T1 mesh floor (brown #b08a60)
-  T3 mesh tier low (dark brown #6a4a28): touches T2 mesh stand (dark brown #6a4a28)
-  T4 mesh tier top (dark brown #6a4a28): touches T2 mesh stand (dark brown #6a4a28)
-  T5 mesh big hat (brown/dark brown #7a5030/#4a3020): in the air on purpose (an effect: a star, a heart)
-  T6 mesh cap (red #d03040): touches T3 mesh tier low (dark brown #6a4a28)
-
-Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  none
-
-Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
-  the big hat (1 piece): 79% visible (21% behind other things (props, labels)); shows 21% as big as the kanji; its top turned -11° toward you (0 = edge-on, 90 = facing you)
-  the cap (1 piece): 86% visible (14% behind other things (props, labels)); shows 11% as big as the kanji; its top turned -7° toward you (0 = edge-on, 90 = facing you)
-  the kanji: 100% visible
-
-No measured faults. Still look at the pictures: the numbers cannot see everything.
+  - T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.09u)
+  - T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 722 skin points inside it, near the bones Head
+  - T1 model gal: 80% visible (20% behind the big hat); shows 49% as big as the kanji
 
 ## t+5.3 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
@@ -205,8 +144,8 @@ Things (id, kind, name or colour, size w x h x d, centre, bottom and top height)
   T3 mesh stand (dark brown #6a4a28): size 0.18 x 0.76 x 0.18, centre [1.25, 0.38, -0.06], bottom 0, top 0.76
   T4 mesh tier low (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.44, -0.06], bottom 0.43, top 0.45
   T5 mesh tier top (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.77, -0.06], bottom 0.76, top 0.78
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.21 x 0.48, centre [1.25, 0.89, -0.06], bottom 0.78, top 0.99
-  T7 mesh cap (red #d03040): size 0.32 x 0.13 x 0.42, centre [0.82, 0.87, 0], bottom 0.8, top 0.93
+  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.2 x 0.48, centre [1.25, 0.88, -0.06], bottom 0.78, top 0.98
+  T7 mesh cap (red #d03040): size 0.32 x 0.21 x 0.42, centre [0.77, 0.94, -0.03], bottom 0.83, top 1.04
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal: touches T2 mesh floor (brown #b08a60)
@@ -215,23 +154,24 @@ What each solid thing rests on (it should touch it, unless it is meant to fly):
   T4 mesh tier low (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
   T5 mesh tier top (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
   T6 mesh big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
-  T7 mesh cap (red #d03040): is on T1 model gal (worn or held: check it sits right in the close-ups)
+  T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.09u)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model gal PASSES INTO T7 mesh cap (red #d03040): 532 skin points inside it, near the bones Head
+  T1 model gal PASSES INTO T7 mesh cap (red #d03040): 219 skin points inside it, near the bones Head
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
   T1 model gal right hand at [0.65,0.27,-0.05]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh floor (brown #b08a60) 0.27u away
   T1 model gal left hand at [0.95,0.27,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh stand (dark brown #6a4a28) 0.21u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
-  T1 model gal: 92% visible (8% behind the cap); shows 58% as big as the kanji
-  the big hat (1 piece): 87% visible (13% behind other things (props, labels)); shows 24% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
-  the cap (1 piece): 56% visible (44% behind T1 model gal); shows 8% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  T1 model gal: 95% visible (5% behind the cap); shows 60% as big as the kanji
+  the big hat (1 piece): 87% visible (13% behind other things (props, labels)); shows 22% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the cap (1 piece): 68% visible (32% behind T1 model gal); shows 12% as big as the kanji; its top turned -11° toward you (0 = edge-on, 90 = facing you)
   the kanji: 100% visible
 
 POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model gal PASSES INTO T7 mesh cap (red #d03040): 532 skin points inside it, near the bones Head
+  - T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.09u)
+  - T1 model gal PASSES INTO T7 mesh cap (red #d03040): 219 skin points inside it, near the bones Head
 
 ## t+6.8 (u = 0.260 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
 
@@ -241,10 +181,10 @@ Things (id, kind, name or colour, size w x h x d, centre, bottom and top height)
   T3 mesh stand (dark brown #6a4a28): size 0.18 x 0.76 x 0.18, centre [1.25, 0.38, -0.06], bottom 0, top 0.76
   T4 mesh tier low (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.44, -0.06], bottom 0.43, top 0.45
   T5 mesh tier top (dark brown #6a4a28): size 0.26 x 0.02 x 0.26, centre [1.25, 0.77, -0.06], bottom 0.76, top 0.78
-  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.21 x 0.48, centre [1.25, 0.89, -0.06], bottom 0.78, top 0.99
-  T7 mesh cap (red #d03040): size 0.32 x 0.13 x 0.42, centre [0.82, 0.87, -0.01], bottom 0.8, top 0.93
-  T8 mesh orange #ff4a6a: size 0.16 x 0.14 x 0.06, centre [0.62, 1.15, 0], bottom 1.08, top 1.22
-  T9 mesh orange #ff4a6a: size 0.06 x 0.06 x 0.02, centre [0.8, 1.19, 0], bottom 1.17, top 1.22
+  T6 mesh big hat (brown/dark brown #7a5030/#4a3020): size 0.47 x 0.2 x 0.48, centre [1.25, 0.88, -0.06], bottom 0.78, top 0.98
+  T7 mesh cap (red #d03040): size 0.32 x 0.21 x 0.42, centre [0.77, 0.94, -0.03], bottom 0.83, top 1.04
+  T8 mesh orange #ff4a6a: size 0.16 x 0.14 x 0.06, centre [0.5, 0.98, 0.06], bottom 0.91, top 1.05
+  T9 mesh orange #ff4a6a: size 0.11 x 0.09 x 0.04, centre [1.1, 1.05, 0.06], bottom 1, top 1.09
 
 What each solid thing rests on (it should touch it, unless it is meant to fly):
   T1 model gal: touches T2 mesh floor (brown #b08a60)
@@ -253,67 +193,55 @@ What each solid thing rests on (it should touch it, unless it is meant to fly):
   T4 mesh tier low (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
   T5 mesh tier top (dark brown #6a4a28): touches T3 mesh stand (dark brown #6a4a28)
   T6 mesh big hat (brown/dark brown #7a5030/#4a3020): touches T5 mesh tier top (dark brown #6a4a28)
-  T7 mesh cap (red #d03040): is on T1 model gal (worn or held: check it sits right in the close-ups)
+  T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.09u)
   T8 mesh orange #ff4a6a: in the air on purpose (an effect: a star, a heart)
   T9 mesh orange #ff4a6a: in the air on purpose (an effect: a star, a heart)
 
 Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
-  T1 model gal PASSES INTO T7 mesh cap (red #d03040): 530 skin points inside it, near the bones Head
+  T1 model gal PASSES INTO T7 mesh cap (red #d03040): 219 skin points inside it, near the bones Head
 
 Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
   T1 model gal right hand at [0.65,0.27,-0.05]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh floor (brown #b08a60) 0.27u away
   T1 model gal left hand at [0.95,0.27,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh stand (dark brown #6a4a28) 0.21u away
 
 Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
-  T1 model gal: 94% visible (6% behind the cap); shows 59% as big as the kanji
-  the big hat (1 piece): 87% visible (13% behind other things (props, labels)); shows 24% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
-  the cap (1 piece): 46% visible (54% behind T1 model gal); shows 7% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  T1 model gal: 95% visible (5% behind the cap); shows 60% as big as the kanji
+  the big hat (1 piece): 87% visible (13% behind other things (props, labels)); shows 22% as big as the kanji; its top turned -10° toward you (0 = edge-on, 90 = facing you)
+  the cap (1 piece): 67% visible (33% behind T1 model gal); shows 12% as big as the kanji; its top turned -11° toward you (0 = edge-on, 90 = facing you)
   the kanji: 100% visible
 
 POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
-  - T1 model gal PASSES INTO T7 mesh cap (red #d03040): 530 skin points inside it, near the bones Head
+  - T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.09u)
+  - T1 model gal PASSES INTO T7 mesh cap (red #d03040): 219 skin points inside it, near the bones Head
 
 Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
   plans/qwen/renders/017-tamesu-hats/overview.jpg
     1. the whole scene from front, t+0.5 (t0.5-scene-front.jpg)
     2. the whole scene from right, t+0.5 (t0.5-scene-right.jpg)
     3. what the learner sees, t+0.5 (t0.5-learner.jpg)
-    4. the whole scene from front, t+1.2 (t1.2-scene-front.jpg)
-    5. the whole scene from right, t+1.2 (t1.2-scene-right.jpg)
-    6. what the learner sees, t+1.2 (t1.2-learner.jpg)
-    7. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
-    8. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
-    9. what the learner sees, t+2.5 (t2.5-learner.jpg)
-    10. the whole scene from front, t+3.3 (t3.3-scene-front.jpg)
-    11. the whole scene from right, t+3.3 (t3.3-scene-right.jpg)
-    12. what the learner sees, t+3.3 (t3.3-learner.jpg)
-  plans/qwen/renders/017-tamesu-hats/overview-2.jpg
-    13. the whole scene from front, t+3.5 (t3.5-scene-front.jpg)
-    14. the whole scene from right, t+3.5 (t3.5-scene-right.jpg)
-    15. what the learner sees, t+3.5 (t3.5-learner.jpg)
-    16. the whole scene from front, t+5.3 (t5.3-scene-front.jpg)
-    17. the whole scene from right, t+5.3 (t5.3-scene-right.jpg)
-    18. what the learner sees, t+5.3 (t5.3-learner.jpg)
-    19. the whole scene from front, t+6.8 (t6.8-scene-front.jpg)
-    20. the whole scene from right, t+6.8 (t6.8-scene-right.jpg)
-    21. what the learner sees, t+6.8 (t6.8-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+    7. the whole scene from front, t+5.3 (t5.3-scene-front.jpg)
+    8. the whole scene from right, t+5.3 (t5.3-scene-right.jpg)
+    9. what the learner sees, t+5.3 (t5.3-learner.jpg)
+    10. the whole scene from front, t+6.8 (t6.8-scene-front.jpg)
+    11. the whole scene from right, t+6.8 (t6.8-scene-right.jpg)
+    12. what the learner sees, t+6.8 (t6.8-learner.jpg)
   plans/qwen/renders/017-tamesu-hats/faults.jpg
-    1. fault 1 from front (t+2.5): T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 753 skin points inside it, near the bones Head (fault1-front-t2.5.jpg)
-    2. fault 1 from right (t+2.5): T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 753 skin points inside it, near the bones Head (fault1-right-t2.5.jpg)
-    3. fault 2 (t+2.5): T1 model gal: 75% visible (25% behind the big hat); shows 48% as big as the kanji (fault2-seat-t2.5.jpg)
-    4. fault 3 from front (t+4.5): T1 model gal PASSES INTO T7 mesh cap (red #d03040): 53 skin points inside it, near the bones FistL (fault3-front-t4.5.jpg)
-    5. fault 3 from right (t+4.5): T1 model gal PASSES INTO T7 mesh cap (red #d03040): 53 skin points inside it, near the bones FistL (fault3-right-t4.5.jpg)
-    6. fault 4 from front (t+5.5): T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.13u) (fault4-front-t5.5.jpg)
-    7. fault 4 from right (t+5.5): T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.13u) (fault4-right-t5.5.jpg)
-    8. fault 5 from front (t+5.3): T1 model gal PASSES INTO T7 mesh cap (red #d03040): 532 skin points inside it, near the bones Head (fault5-front-t5.3.jpg)
-    9. fault 5 from right (t+5.3): T1 model gal PASSES INTO T7 mesh cap (red #d03040): 532 skin points inside it, near the bones Head (fault5-right-t5.3.jpg)
-    10. fault 6 from front (t+3.3): T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.05u) (fault6-front-t3.3.jpg)
-    11. fault 6 from right (t+3.3): T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.05u) (fault6-right-t3.3.jpg)
-    12. fault 7 from front (t+3.3): T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 887 skin points inside it, near the bones Head, FistL (fault7-front-t3.3.jpg)
-  plans/qwen/renders/017-tamesu-hats/faults-2.jpg
-    13. fault 7 from right (t+3.3): T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 887 skin points inside it, near the bones Head, FistL (fault7-right-t3.3.jpg)
+    1. fault 1 from front (t+2): T6 mesh big hat (brown/dark brown #7a5030/#4a3020): SUNK INTO T1 model gal (gap -0.23u) (fault1-front-t2.jpg)
+    2. fault 1 from right (t+2): T6 mesh big hat (brown/dark brown #7a5030/#4a3020): SUNK INTO T1 model gal (gap -0.23u) (fault1-right-t2.jpg)
+    3. fault 2 from front (t+2): T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 726 skin points inside it, near the bones Head (fault2-front-t2.jpg)
+    4. fault 2 from right (t+2): T1 model gal PASSES INTO T6 mesh big hat (brown/dark brown #7a5030/#4a3020): 726 skin points inside it, near the bones Head (fault2-right-t2.jpg)
+    5. fault 3 (t+2): T1 model gal: 79% visible (21% behind the big hat); shows 48% as big as the kanji (fault3-seat-t2.jpg)
+    6. fault 4 from front (t+2.5): T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.09u) (fault4-front-t2.5.jpg)
+    7. fault 4 from right (t+2.5): T6 mesh big hat (brown/dark brown #7a5030/#4a3020): FLOATS ABOVE T1 model gal (gap 0.09u) (fault4-right-t2.5.jpg)
+    8. fault 5 from front (t+5.3): T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.09u) (fault5-front-t5.3.jpg)
+    9. fault 5 from right (t+5.3): T7 mesh cap (red #d03040): SUNK INTO T1 model gal (gap -0.09u) (fault5-right-t5.3.jpg)
+    10. fault 6 from front (t+5.3): T1 model gal PASSES INTO T7 mesh cap (red #d03040): 219 skin points inside it, near the bones Head (fault6-front-t5.3.jpg)
+    11. fault 6 from right (t+5.3): T1 model gal PASSES INTO T7 mesh cap (red #d03040): 219 skin points inside it, near the bones Head (fault6-right-t5.3.jpg)
   plans/qwen/renders/017-tamesu-hats/people.jpg
-    1. T1 gal close, from front (t+2.5) (gal-front-t2.5.jpg)
-    2. T1 gal close, from right (t+2.5) (gal-right-t2.5.jpg)
+    1. T1 gal close, from front (t+2) (gal-front-t2.jpg)
+    2. T1 gal close, from right (t+2) (gal-right-t2.jpg)
 
 For a closer look at anything: node scripts/inspect.mjs 8a66 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
