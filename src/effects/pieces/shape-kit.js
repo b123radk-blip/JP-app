@@ -6,6 +6,7 @@ const place = (g, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0) => { g.rotateX(rx
 export const G = {
   box: (w, h, d, x, y, z, rz = 0) => place(new THREE.BoxGeometry(w, h, d), x, y, z, 0, 0, rz),
   sphere: (r, x = 0, y = 0, z = 0, sx = 1, sy = 1, sz = 1) => place(new THREE.SphereGeometry(r, 18, 12).scale(sx, sy, sz), x, y, z),
+  dome: (r, h, x = 0, y = 0, z = 0) => place(new THREE.SphereGeometry(r, 18, 6, 0, Math.PI * 2, 0, Math.PI / 2).scale(1, h / r, 1), x, y, z),   // the top half, h tall
   cyl: (r1, r2, h, x = 0, y = 0, z = 0, rx = 0, ry = 0, rz = 0, seg = 18) => place(new THREE.CylinderGeometry(r1, r2, h, seg), x, y, z, rx, ry, rz),
   capsule: (r, len, x = 0, y = 0, z = 0, rz = 0) => place(new THREE.CapsuleGeometry(r, len, 4, 10), x, y, z, 0, 0, rz),
   torus: (R, r, arc = Math.PI * 2, x = 0, y = 0, z = 0, rz = 0) => place(new THREE.TorusGeometry(R, r, 10, 40, arc), x, y, z, 0, 0, rz),

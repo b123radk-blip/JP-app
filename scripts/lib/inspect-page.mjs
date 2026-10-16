@@ -173,7 +173,10 @@ export async function measure({ t, cam, watch = [] }) {
         const dd = d > 0 ? d : 0.005 * u;                 // inside its box but outside its surface: just through
         if (dd > poke) { poke = dd; far = p; }
       }
-      const cover = Math.round(100 * inside / above.length), mid = new THREE.Vector3().addVectors(lbox.min, lbox.max).multiplyScalar(0.5).applyMatrix4(b.o.matrixWorld);
+      // its middle: the middle of its upper part (a cap's peak or a brim would pull the box's middle off)
+      const upper = new THREE.Box3(), lim = lbox.min.y + 0.4 * (lbox.max.y - lbox.min.y), lv = V();
+      for (const m of mb) { const pa = m.geometry.attributes.position, mm = inv.clone().multiply(m.matrixWorld); for (let j = 0; j < pa.count; j++) { lv.fromBufferAttribute(pa, j).applyMatrix4(mm); if (lv.y > lim) upper.expandByPoint(lv); } }
+      const cover = Math.round(100 * inside / above.length), mid = (upper.isEmpty() ? lbox : upper).getCenter(V()).applyMatrix4(b.o.matrixWorld);
       // (off-centre against the part of the head it covers: a ponytail hanging below doesn't pull the middle back)
       const cov = new THREE.Box3().setFromPoints(above).getCenter(V()), off = U(Math.hypot(mid.x - cov.x, mid.z - cov.z));
       fits.push({ id: b.id, who: a.id, cover, poke: U(poke), off, point: (far ?? mid).toArray(),
