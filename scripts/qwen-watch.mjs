@@ -10,7 +10,7 @@
 //   --once: one pass, then exit; --every: seconds between pulls; --minutes: Qwen's first round; --fix-minutes: each later
 //   round; --rounds: Qwen rounds in all; --reviews: Opus calls in all (a retry for a bad answer counts); --plan-minutes:
 //   the whole plan; --no-review: no Opus; --review-api: allow Opus to run on ANTHROPIC_API_KEY (billed) when it is set.
-//   PI_ARGS: pi's model flags (default "--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking xhigh"); PI_CMD: the pi command (default pi); CLAUDE_CMD (default
+//   PI_ARGS: pi's model flags (default "--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking medium"); PI_CMD: the pi command (default pi); CLAUDE_CMD (default
 //   claude); REVIEW_MODEL (default opus); REVIEW_EFFORT (default high).
 // A plan names its card on a line "Card: <id>" (or "(card <id>)" in its title) and may add inspect flags on a line
 // "Inspect: --loop 9". Without a card or goals file the watcher can't check goals and goes straight to the review.
@@ -22,7 +22,7 @@ const arg = (k, d) => { const i = process.argv.indexOf(k); return i > 0 ? proces
 const once = has('--once'), every = Number(arg('--every', '60')) * 1000, first = Number(arg('--minutes', '30')) * 60000, later = Number(arg('--fix-minutes', '15')) * 60000;
 const ROUNDS = Number(arg('--rounds', '4')), REVIEWS = Number(arg('--reviews', '2')), PLAN = Number(arg('--plan-minutes', '120')) * 60000;
 // brad's pi line (Qwen 3.8 27B quasar build served by ninfer); PI_ARGS replaces it
-const PI_ARGS = process.env.PI_ARGS ?? '--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking xhigh';
+const PI_ARGS = process.env.PI_ARGS ?? '--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking medium';
 const WIN = process.platform === 'win32', CLAUDE = process.env.CLAUDE_CMD || findClaude(), MODEL = process.env.REVIEW_MODEL || 'opus', EFFORT = process.env.REVIEW_EFFORT || 'high';
 const git = (c) => execSync(`git ${c}`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const log = (m) => console.log(`[${new Date().toLocaleTimeString()}] ${m}`);
