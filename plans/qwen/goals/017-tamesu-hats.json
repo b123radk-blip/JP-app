@@ -1,0 +1,15 @@
+[
+ { "goal": "the big hat sits on the top tier at first", "rests": "big hat", "on": "tier top", "t": [0, 0.9] },
+ { "goal": "the cap sits on the low tier at first", "rests": "cap", "on": "tier low", "t": [0, 3.0] },
+ { "goal": "her left hand takes the big hat off the stand", "point": "gal left hand", "near": "big hat", "within": 0.06, "t": [1.1, 1.3] },
+ { "goal": "the big hat sinks over her eyes", "point": "big hat", "near": "gal head (middle)", "within": 0.02, "t": [1.9, 3.1] },
+ { "goal": "her left hand lifts the big hat off her head", "point": "gal left hand", "near": "big hat", "within": 0.06, "t": [3.2, 3.4] },
+ { "goal": "the big hat is back on the top tier", "rests": "big hat", "on": "tier top", "t": [4.1, 8] },
+ { "goal": "her left hand takes the cap off the stand", "point": "gal left hand", "near": "cap", "within": 0.06, "t": [4.45, 4.6] },
+ { "goal": "the cap sits on top of her head", "point": "cap", "near": "gal top of the head", "within": 0.03, "t": [5.25, 5.4] },
+ { "goal": "the learner sees her", "visible": "gal", "min": 70 },
+ { "goal": "the learner sees the kanji", "visible": "kanji", "min": 95 },
+ { "goal": "the cap shows big", "big": "cap", "min": 6, "t": [0, 5.4] },
+ { "goal": "nothing passes through her before the first hat", "clear": "gal", "t": [0, 1.4] },
+ { "goal": "nothing passes through her between the hats", "clear": "gal", "t": [4.0, 4.35] }
+]

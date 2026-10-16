@@ -2796,5 +2796,17 @@
     "type": "q-ponder"
    }
   }
+ },
+ "試": {
+  "group": "actions",
+  "meaning": "test; try",
+  "mnemonic": "Words (言) put to a formal ceremony (式): a test.",
+  "effect": {
+   "material": "rose",
+   "backdrop": "sky:morning",
+   "vignette": {
+    "type": "q-try-hats"
+   }
+  }
  }
 }

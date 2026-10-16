@@ -1,0 +1,69 @@
+{
+ "id": "8a66",
+ "kanji": "試",
+ "meaning": "test; try",
+ "primaryReading": "ため",
+ "readings": {
+  "kun": [
+   "こころ(みる)",
+   "ため(す)"
+  ],
+  "on": [
+   "シ"
+  ]
+ },
+ "mnemonic": "Words (言) put to a formal ceremony (式): a test.",
+ "effect": {
+  "material": "rose",
+  "backdrop": "sky:morning",
+  "vignette": {
+   "type": "q-try-hats"
+  }
+ },
+ "sentences": [
+  {
+   "segments": [
+    {
+     "text": "新",
+     "reading": "あたら"
+    },
+    {
+     "text": "しいやり"
+    },
+    {
+     "text": "方",
+     "reading": "かた"
+    },
+    {
+     "text": "を"
+    },
+    {
+     "text": "試",
+     "reading": "ため"
+    },
+    {
+     "text": "してみましょう。"
+    }
+   ],
+   "en": "Let's try a new way.",
+   "verified": {
+    "analysers": [
+     "SudachiPy",
+     "Open JTalk"
+    ],
+    "date": "2026-10-16",
+    "needsNativeReview": true
+   },
+   "source": {
+    "written": true
+   }
+  }
+ ],
+ "review": {
+  "recipe": "draft",
+  "mnemonic": "draft"
+ },
+ "source": {
+  "kanjidic2": true
+ }
+}

@@ -458,6 +458,8 @@
     {"id":"8a00-s1","card":"8a00","kind":"sentence","text":"本気で言ってるんです。","reading":"ホンキデイッテルンデス","spoken":"ホンキデイッテルンデス","seg":[["本気","ほんき"],"で",["言","い"],"ってるんです。"],"en":"I mean it.","speed":{"normal":1,"slow":0.75}},
     {"id":"8a08-reading","card":"8a08","kind":"reading","text":"けい","reading":"ケイ","spoken":"ケイ","speed":{"normal":0.9,"slow":0.7}},
     {"id":"8a08-s1","card":"8a08","kind":"sentence","text":"旅行の計画を立てましょう。","reading":"リョコウノケイカクヲタテマショウ","spoken":"リョコウノケイカクオタテマショウ","seg":[["旅行","りょこう"],"の",["計画","けいかく"],"を",["立","た"],"てましょう。"],"en":"Let's make a plan for the trip.","speed":{"normal":1,"slow":0.75}},
+    {"id":"8a66-reading","card":"8a66","kind":"reading","text":"ため","reading":"タメ","spoken":"タメ","speed":{"normal":0.9,"slow":0.7}},
+    {"id":"8a66-s1","card":"8a66","kind":"sentence","text":"新しいやり方を試してみましょう。","reading":"アタラシイヤリカタヲタメシテミマショウ","spoken":"アタラシイヤリカタオタメシテミマショウ","seg":[["新","あたら"],"しいやり",["方","かた"],"を",["試","ため"],"してみましょう。"],"en":"Let's try a new way.","speed":{"normal":1,"slow":0.75}},
     {"id":"8a71-reading","card":"8a71","kind":"reading","text":"はなし","reading":"ハナシ","spoken":"ハナシ","speed":{"normal":0.9,"slow":0.7}},
     {"id":"8a71-s1","card":"8a71","kind":"sentence","text":"それはたいへんな話だ。","reading":"ソレハタイヘンナハナシダ","spoken":"ソレヮタイヱンナハナシダ","seg":["それはたいへんな",["話","はなし"],"だ。"],"en":"That's quite a story.","speed":{"normal":1,"slow":0.75}},
     {"id":"8a9e-reading","card":"8a9e","kind":"reading","text":"ご","reading":"ゴ","spoken":"ゴ","speed":{"normal":0.9,"slow":0.7}},

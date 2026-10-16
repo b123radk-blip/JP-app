@@ -11,9 +11,9 @@ JTalk agree), but no person has confirmed them yet. Per row:
 Report problems by card id (the code in the Card column). To confirm a row yourself, set `"needsNativeReview": false`
 on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 
-**Waiting:** 854 sentence(s). **Confirmed:** 0.
+**Waiting:** 855 sentence(s). **Confirmed:** 0.
 
-## N5 (854 cards)
+## N5 (855 cards)
 
 | # | Card | Readings | Meaning | Sentence | English | Source |
 |---|---|---|---|---|---|---|
@@ -871,3 +871,4 @@ on that sentence in `content/cards/<id>.json`, then run `npm run review:list`.
 | 852 | 力 `529b` | **ちから** · kun ちから · on リョク、リキ | power; strength | <ruby>父<rp>(</rp><rt>ちち</rt><rp>)</rp></ruby>は<ruby>力<rp>(</rp><rt>ちから</rt><rp>)</rp></ruby>が<ruby>強<rp>(</rp><rt>つよ</rt><rp>)</rp></ruby>いです。 | My father is strong. | written for the app |
 | 853 | 別 `5225` | **べつ** · kun わか(れる)、わ(ける) · on ベツ | separate; branch off | <ruby>駅<rp>(</rp><rt>えき</rt><rp>)</rp></ruby>で<ruby>友<rp>(</rp><rt>とも</rt><rp>)</rp></ruby>だちと<ruby>別<rp>(</rp><rt>わか</rt><rp>)</rp></ruby>れました。 | I parted from my friend at the station. | written for the app |
 | 854 | 考 `8003` | **かんが** · kun かんが(える)、かんが(え) · on コウ | consider; think over | よく<ruby>考<rp>(</rp><rt>かんが</rt><rp>)</rp></ruby>えてから<ruby>答<rp>(</rp><rt>こた</rt><rp>)</rp></ruby>えてください。 | Please think it over carefully before you answer. | written for the app |
+| 855 | 試 `8a66` | **ため** · kun こころ(みる)、ため(す) · on シ | test; try | <ruby>新<rp>(</rp><rt>あたら</rt><rp>)</rp></ruby>しいやり<ruby>方<rp>(</rp><rt>かた</rt><rp>)</rp></ruby>を<ruby>試<rp>(</rp><rt>ため</rt><rp>)</rp></ruby>してみましょう。 | Let's try a new way. | written for the app |

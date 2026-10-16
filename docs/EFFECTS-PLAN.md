@@ -256,6 +256,7 @@ backdrop cell after a `+` (`sky:dusk + mountains`, `sky:golden + tree:木`). Mat
 | 力 | actions | clay | draw | — | sky:day | none | — | — | An arm bent to show its muscle: power. |
 | 別 | actions | jade | draw | — | sky:golden | none | — | — | A knife (刂) cuts the rest away: separate. |
 | 考 | actions | ivory | draw | — | sky:indoor | none | — | — | An old man (耂) bent over (丂), thinking it over. |
+| 試 | actions | rose | draw | — | sky:morning | none | — | — | Words (言) put to a formal ceremony (式): a test. |
 
 #### Time
 
