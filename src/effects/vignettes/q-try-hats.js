@@ -99,8 +99,8 @@ function tryHats(ctx, spec, stage) {
       // her left hand (the learner's right) takes each hat at its near edge, the palm against the brim, never inside;
       // the grip's target and way live in the group's space, turned into the world space the hand IK works in
       const ws = group.getWorldScale(WS).y, way = (d) => d.transformDirection(group.matrixWorld);
-      const g1 = between(v, 1.0, 1.15) * (1 - between(v, 1.3, 1.5));
-      const g2 = between(v, 3.1, 3.25) * (1 - between(v, 3.4, 3.6));
+      const g1 = between(v, 1.0, 1.1) * (1 - between(v, 1.3, 1.4));
+      const g2 = between(v, 3.1, 3.2) * (1 - between(v, 3.4, 3.5));
       const g3 = between(v, 4.3, 4.45) * (1 - between(v, 4.6, 4.8));
       if (g1 > 0) who.grip('L', group.localToWorld(W.set(X(1.06), floor + 0.80 * u, -0.06 * u)), way(XN), 0.012 * u * ws, g1, { out: 0.7, down: 0.5 });
       else if (g2 > 0) who.grip('L', group.localToWorld(W.set(X(1.02), floor + (PB.y + 0.06 * between(v, 3.1, 3.4)) * u, PB.z * u)), way(NX), 0.012 * u * ws, g2, { out: 0.7, down: 0.5 });
