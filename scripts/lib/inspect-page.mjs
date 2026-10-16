@@ -184,6 +184,8 @@ export async function measure({ t, cam, watch = [] }) {
     }
   }
 
+  // a hat near two heads (a parent leaning over a child's cap) is worn by the one it covers best
+  for (let i = fits.length - 1; i >= 0; i--) if (fits.some((f, j) => j !== i && f.id === fits[i].id && (f.cover > fits[i].cover || (f.cover === fits[i].cover && j < i)))) fits.splice(i, 1);
   // a hat on a head stands on nothing: its fit says how it sits
   for (const f of fits) { const sp = support.find((x) => x.id === f.id); if (sp) Object.assign(sp, { text: `${label(solid.find((x) => x.id === f.id))}: worn on ${label(models().find((x) => x.id === f.who))}'s head (see how it fits)`, gap: 0, fault: false }); }
   // a head inside a hat it wears is the fit above, not a body passing through a thing
