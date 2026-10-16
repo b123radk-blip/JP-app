@@ -130,16 +130,17 @@ export function actor(name, h, { tint = SKIN } = {}) {
     shape() {
       if (SHAPES.has(name)) return SHAPES.get(name);
       g.updateMatrixWorld(true);                       // (a skinned mesh's bind matrices update only here)
-      const pts = [], s = scale(), gq = g.getWorldQuaternion(qa).clone(), hp = bones.Head.getWorldPosition(new THREE.Vector3());
+      const pts = [], face = [], skin = [], s = scale(), gq = g.getWorldQuaternion(qa).clone(), hp = bones.Head.getWorldPosition(new THREE.Vector3());
       const back = headTurn(new THREE.Quaternion()).invert(), toActor = gq.clone().invert();
       g.traverse((o) => {
         if (!o.isSkinnedMesh) return;
         const hi = o.skeleton.bones.indexOf(bones.Head), si = o.geometry.attributes.skinIndex, sw = o.geometry.attributes.skinWeight;
+        if (o.material?.name === 'Face') for (let i = 0; i < si.count; i++) face.push(o.getVertexPosition(i, new THREE.Vector3()).applyMatrix4(o.matrixWorld).sub(hp).applyQuaternion(back).applyQuaternion(toActor).divideScalar(s));
         for (let i = 0; i < si.count; i++) {
           let best = 0; for (let c = 1; c < 4; c++) if (sw.getComponent(i, c) > sw.getComponent(i, best)) best = c;
           if (si.getComponent(i, best) !== hi) continue;
           const p = o.getVertexPosition(i, new THREE.Vector3()).applyMatrix4(o.matrixWorld).sub(hp).applyQuaternion(back).applyQuaternion(toActor).divideScalar(s);
-          pts.push(p);
+          pts.push(p); if (o.material?.name === 'Skin') skin.push(p);
         }
       });
       const top = Math.max(...pts.map((p) => p.y)), crown = pts.filter((p) => p.y > top - 0.08);
@@ -147,7 +148,12 @@ export function actor(name, h, { tint = SKIN } = {}) {
       const mid = { x: (pc(crown.map((p) => p.x), 0.05) + pc(crown.map((p) => p.x), 0.95)) / 2, z: (pc(crown.map((p) => p.z), 0.05) + pc(crown.map((p) => p.z), 0.95)) / 2 };
       // the head's radius at a height: most of the skin there lies within it (a stray hair tip doesn't count)
       const radius = (y) => { const sl = pts.filter((p) => Math.abs(p.y - y) < 0.012); return sl.length < 6 ? 0 : pc(sl.map((p) => Math.hypot(p.x - mid.x, p.z - mid.z)), 0.9); };
-      const r = { pts, top, mid, radius };
+      // the eyes: the lower part of the Face mesh (the brows are above it); their middle on the face's surface, and how far apart
+      const lo = Math.min(...face.map((p) => p.y)), hi = Math.max(...face.map((p) => p.y)), ey = face.filter((p) => p.y < lo + 0.55 * (hi - lo));
+      const eb = new THREE.Box3().setFromPoints(ey), ec = eb.getCenter(new THREE.Vector3());
+      const row = skin.filter((p) => Math.abs(p.y - ec.y) < 0.02 && p.z > eb.max.z - 0.1).map((p) => Math.abs(p.x - ec.x));
+      const eyes = face.length ? { x: ec.x, y: ec.y, z: eb.max.z, apart: eb.max.x - eb.min.x, half: row.length ? pc(row, 0.95) : 0 } : null;
+      const r = { pts, top, mid, radius, eyes };
       SHAPES.set(name, r); return r;
     },
     // the head's radius (heights) `depth` below its top
@@ -159,6 +165,15 @@ export function actor(name, h, { tint = SKIN } = {}) {
       while (y > h.top - 0.3 && h.radius(y) < r) y -= 0.004;
       const s = scale(), gq = g.getWorldQuaternion(qa), rot = headTurn(q2);
       const p = bones.Head.getWorldPosition(new THREE.Vector3()).add(v1.set(h.mid.x * s, (y - sink) * s, h.mid.z * s).applyQuaternion(gq).applyQuaternion(rot));
+      prop.position.copy(space.worldToLocal(p));
+      prop.quaternion.copy(space.getWorldQuaternion(q1).invert().multiply(rot.multiply(gq)));
+    },
+    // worn on the face (glasses, a mask): its pivot goes to the middle of the eyes, `out` heights in front of the face's
+    // surface, turned with the head. a.shape().eyes: apart (outer edge of one eye to the other's) and half (half the face's
+    // width at the eyes, in front of the ears; skin only: hair can puff out wider), in heights
+    onEyes(prop, space, { out = 0 } = {}) {
+      const e = a.shape().eyes, s = scale(), gq = g.getWorldQuaternion(qa), rot = headTurn(q2);
+      const p = bones.Head.getWorldPosition(new THREE.Vector3()).add(v1.set(e.x * s, e.y * s, (e.z + out) * s).applyQuaternion(gq).applyQuaternion(rot));
       prop.position.copy(space.worldToLocal(p));
       prop.quaternion.copy(space.getWorldQuaternion(q1).invert().multiply(rot.multiply(gq)));
     },

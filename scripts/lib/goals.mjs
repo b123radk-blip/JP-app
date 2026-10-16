@@ -17,7 +17,7 @@
 //                                                                      seen edge-on, 90 = facing you; several pieces: the least)
 //   "visible" works on a named prop too.
 // A thing is named by (part of) its name in the report (gal3, slide, "red #c02020"); a person's point adds one of: top of
-// the head, head (middle), neck, right shoulder, left shoulder, chest, hips, right knee, left knee, right foot, left
+// the head, head (middle), eyes, neck, right shoulder, left shoulder, chest, hips, right knee, left knee, right foot, left
 // foot, right hand, left hand. A point may also be [x, y, z] in u. "near" a thing without a point means its box.
 // Props are easiest to name when the code names them (mesh.name = 'sandbox'); otherwise use the colour name the report
 // prints ("brown/skin"). Give a goal the time when the thing is there ("t"): a thing not yet in the scene fails.
@@ -105,7 +105,7 @@ function judge(g, m) {
 export function goalChecker(goals) {
   const seen = goals.map(() => ({ n: 0, bad: [], worst: null }));
   // the names to measure from the learner's seat (props by name; people and the kanji are always measured)
-  const isMark = (r) => typeof r === 'string' && / (top of the head|head \(middle\)|neck|right shoulder|left shoulder|chest|hips|right knee|left knee|right foot|left foot|right hand|left hand)$/i.test(r);
+  const isMark = (r) => typeof r === 'string' && / (top of the head|head \(middle\)|eyes|neck|right shoulder|left shoulder|chest|hips|right knee|left knee|right foot|left foot|right hand|left hand)$/i.test(r);
   const names = [...new Map(goals.flatMap((g) => [g.visible, g.big, g.faces, g.point, g.near].filter((r) => typeof r === 'string' && !isMark(r)).map((r) => [lc(r), r]))).values()];
   return {
     watch: () => names,

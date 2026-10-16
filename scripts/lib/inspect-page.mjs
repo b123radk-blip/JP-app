@@ -163,7 +163,8 @@ export async function measure({ t, cam, watch = [] }) {
       const above = headPts.filter((p) => p.clone().applyMatrix4(inv).y > lbox.min.y + 0.002 * u / sc.y);
       // ... and only over the head: the head's highest point lies inside its footprint
       const crown = headPts.reduce((t, p) => (p.y > t.y ? p : t)).clone().applyMatrix4(inv);
-      if (above.length < 8 || crown.x < lbox.min.x || crown.x > lbox.max.x || crown.z < lbox.min.z || crown.z > lbox.max.z) continue;
+      // ... and reaching over its top (glasses or a mask sit lower: their top is well under the crown)
+      if (above.length < 8 || crown.x < lbox.min.x || crown.x > lbox.max.x || crown.z < lbox.min.z || crown.z > lbox.max.z || crown.y > lbox.max.y + 0.03 * u / sc.y) continue;
       let inside = 0, poke = 0, far = null;
       for (const p of above) {
         // enclosed: the thing's surface all round it (a hat is often several overlapping closed parts, so a crossing
@@ -210,7 +211,12 @@ export async function measure({ t, cam, watch = [] }) {
     const at = (n) => bone[n]?.getWorldPosition(V());
     const head = at('Head'), marks = { 'top of the head': new THREE.Vector3(head.x, a.box.max.y, head.z), 'head (middle)': head.clone().lerp(new THREE.Vector3(head.x, a.box.max.y, head.z), 0.5),
       neck: at('Neck'), 'right shoulder': at('UpperArmR'), 'left shoulder': at('UpperArmL'), chest: at('Torso'), hips: at('Hips'),
-      'right knee': at('LowerLegR'), 'left knee': at('LowerLegL'), 'right foot': at('FootR'), 'left foot': at('FootL') };
+      'right knee': at('LowerLegR'), 'left knee': at('LowerLegL'), 'right foot': at('FootR'), 'left foot': at('FootL'), eyes: null };
+    // the eyes: the middle of the face's painted eyes (the lower part of the Face mesh; the brows are above), on its surface
+    a.o.traverse((m) => { if (marks.eyes || !m.isSkinnedMesh || m.material?.name !== 'Face') return;
+      const fp = []; for (let j = 0; j < m.geometry.attributes.position.count; j++) fp.push(m.getVertexPosition(j, V()).applyMatrix4(m.matrixWorld));
+      const lo = Math.min(...fp.map((q) => q.y)), hi = Math.max(...fp.map((q) => q.y)), eb = new THREE.Box3().setFromPoints(fp.filter((q) => q.y < lo + 0.55 * (hi - lo)));
+      if (!eb.isEmpty()) marks.eyes = eb.getCenter(V()); });
     // the same points in u, with the hands, for a plan's goals (scripts/inspect.mjs --goals)
     bodies.push({ id: a.id, name: a.name, marks: Object.fromEntries(Object.entries({ ...marks, 'right hand': at('FistR'), 'left hand': at('FistL') }).filter(([, q]) => q).map(([n, q]) => [n, P(q)])) });
     for (const [side, word] of [['R', 'right'], ['L', 'left']]) {
