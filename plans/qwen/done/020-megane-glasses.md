@@ -63,3 +63,45 @@
 Last run: `no measured faults at any moment` over the whole loop (0.5 s steps, t+0..t+7.5); "Bodies passing into things: none". The only note is the hands: "grandpa right hand ... nearest other thing T2 mesh lenses 0u away" and "grandpa left hand ... 0u away (inside its box: touching or passing through)" — that is meant: the flat fist paddles rest against the end pieces they grip (the palm-against-thing rule; the "hands never inside the glasses" goal passes on all 16 moments). `held.jpg` shows the frame close up from three sides: the rings sit over his eyes, the end pieces are gripped by both hands, the temples reach the ears; at t+3.2 the learner's view shows the old man wearing the glasses, and the kanji is unjiggled while he wears them. A child would see: an old man squinting at a wobbling kanji, puts on his glasses, it goes still, he nods happily, takes them off, it wobbles again.
 
 One open flag for Opus: the catalog line's description mentions a little table, which this scene does not have (kept per the plan's instruction).
+
+## Round 2
+Fixed the three things Opus's review named, in `src/effects/vignettes/q-glasses.js`:
+- **F1 (lenses were one thick blob):** rings now spaced from the face width, not `e.apart`: centres ±`0.06 * hu`, radius `0.045 * hu`; bridge `0.03 * hu` wide × `0.01 * hu` tall at y +`0.01 * hu` (between the inner edges); end pieces `0.012 * hu` tall, running from each ring's outer edge (`0.105 * hu`) to the hinge. Pivot and `onEyes` kept.
+- **F2 (end pieces stuck 0.07 u past the cheeks):** `tab = hx + 0.02 * hu` (was `hx + 0.05`). The hand goals still pass with the grip points at ±(`hx − 0.01 * hu`) (measured 0.02–0.04 u), so the grip points did not need moving to `hx + 0.005 * hu`. The temples stay at ±hx.
+- **F3 (glint in the middle of the frame, wrong lens):** glint now at the left-lens centre in the glasses' frame: `(+0.06 * hu, +0.01 * hu, +0.02 * hu)` with the same `applyQuaternion` + `add`. Seen on his left lens (the learner's right) at t+3.2 in the overview.
+
+Two numbers went a little further than the review asked, each because a goal forced it (checked with `check_goals`/`try_value`):
+- **Tube `0.008 * hu` → `0.015 * hu`.** The review's 0.008 made "the glasses show big" 2% (needs ≥ 3) — the thin wire renders too few screen pixels; the review's first step (raise to `0.01 * hu`) still measured 2%, so I raised it to `0.015 * hu`, the smallest value that passes (3% at all 17 moments). The ring outer radius then equals the ring centre (`0.06 * hu`), so the two rings just touch at the bridge — a normal round-glasses silhouette, no blob.
+- **Glint star `s: 0.08` → `s: 0.05`.** The full inspect (which checks the `--times` moments) failed "the glasses show big" at exactly t+3.2: the 0.08 u star at the lens centre covered most of the thin left ring (2% there, 3% elsewhere). A 0.05 u star fits inside the lens opening (0.054 u wide) and all 17 moments pass. The plan's "a small white four-point star" still holds — it is smaller now.
+
+Checks (real last lines):
+- `node --check src/effects/vignettes/q-glasses.js` → printed nothing (syntax OK)
+- `npm test` → `content check ok: 855 cards (282 kanji, 573 words), 1 enabled deck(s), 1670 audio clips` / `0 pair(s) at or above 0.72` / `recipe check ok`
+- `node scripts/check-piece-costs.mjs vignette "^q-glasses$"` → `701 recipes, 0 cost mismatches`
+- `node scripts/orbit.mjs w1577670 --times 0.5,3.5,6.5 --out plans/qwen/renders/020-megane-glasses.jpg` → `plans/qwen/renders/020-megane-glasses.jpg (looking at 0.43,0.04,-0.02)`
+- `node scripts/inspect.mjs w1577670 --goals plans/qwen/goals/020-megane-glasses.json --loop 8 --times 0.5,2.0,3.2,6.5 --out plans/qwen/renders/020-megane-glasses`:
+  ```
+  ## Goals: 13 of 13 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+    PASS he holds the glasses in front of his chest at first (t+0 to t+1.3): 3 moments, e.g. t+0: 0.2u apart (needs ≤ 0.3)
+    PASS both hands hold the glasses at first (t+0 to t+1.3): 3 moments, e.g. t+0: 0.03u apart (needs ≤ 0.05)
+    PASS his right hand holds them too (t+0 to t+1.3): 3 moments, e.g. t+0: 0.02u apart (needs ≤ 0.05)
+    PASS both hands bring the glasses up (t+1.5 to t+2.5): 3 moments, e.g. t+1.5: 0.03u apart (needs ≤ 0.05)
+    PASS his right hand brings them up too (t+1.5 to t+2.5): 3 moments, e.g. t+1.5: 0.02u apart (needs ≤ 0.05)
+    PASS the lenses sit right in front of his eyes (t+2.6 to t+5.5): 7 moments, e.g. t+3: 0.03u apart (needs ≤ 0.035)
+    PASS his hands are down while he wears them (t+3.2 to t+5): 5 moments, e.g. t+3.5: 0.35u apart (needs ≥ 0.15)
+    PASS his right hand is down too (t+3.2 to t+5): 5 moments, e.g. t+3.5: 0.35u apart (needs ≥ 0.15)
+    PASS both hands take the glasses off (t+6 to t+6.9): 2 moments, e.g. t+6: 0.01u apart (needs ≤ 0.05)
+    PASS nothing passes through him (lenses and arms outside his face and head, hands never inside the glasses): 17 moments, e.g. t+0: nothing passes into it
+    PASS the learner sees him: 17 moments, e.g. t+0: 94% visible (needs ≥ 85)
+    PASS the learner sees the kanji: 17 moments, e.g. t+0: 100% visible (needs ≥ 95)
+    PASS the glasses show big: 17 moments, e.g. t+0: shows 3% as big as the kanji (needs ≥ 3)
+
+  The whole loop, every 0.5 s from t+0 to t+7.5: no measured faults at any moment
+  ```
+
+Rounds this time: (1) F1+F2+F3 as specified → 12 of 13 (`big` 2%: the thin wire); (2) tube 0.01 hu → 12 of 13 (still 2%); (3) tube 0.015 hu → 13 of 13 on the whole-loop scan, but the full inspect failed `big` at t+3.2 (the 0.08 u glint star over the thin ring); (4) glint star s 0.05 → 13 of 13 over all 17 moments, no faults.
+
+What I see in the render: front — glasses now read as two separate rings with a thin bridge and short ends; at t+3.2 the small white star sits inside his left lens (the learner's right); right side — temples run back to the ears, no rod past the cheeks; top — frame edge-on, nothing floating or sunk; back-left — temples follow the head, frame in front of the face; front-right / low front — the put-on and take-off phases stay readable. `held.jpg`: front close-up shows the wire frame with both hands on the short ends; the "from left" arms tile shows a big white surface — that is the review camera sitting inside grandpa's raised left sleeve (his own shirt geometry at extreme zoom, the sleeve's inner surface and hem); the learner's view and the front/right views never show it, and no fault is measured. A child sees: squint at the wobbling kanji → put on proper round glasses → still and sharp, a glint on the left lens → nod → take them off.
+
+One note for Opus: "the glasses show big" (≥ 3% of the kanji's screen pixels) is a tight budget for wire-frame glasses — the 0.015 hu tube is at the edge (3% at the worst moment). If the frame is ever made thinner again, it will fail until the rings get wider or the tube thicker.
