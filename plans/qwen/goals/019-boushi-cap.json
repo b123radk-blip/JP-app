@@ -1,0 +1,15 @@
+[
+ {"goal": "the cap fits the boy's head at first", "fits": "cap", "on": "guy2", "min": 90, "out": 0.02, "off": 0.03, "t": [0, 0.9]},
+ {"goal": "the gust blows the cap off his head", "point": "cap", "near": "guy2 top of the head", "beyond": 0.2, "t": [1.4, 2.0]},
+ {"goal": "dad's left hand catches the cap", "point": "guy left hand", "near": "cap", "within": 0.05, "t": [2.25, 3.4]},
+ {"goal": "both of dad's hands hold the cap as he puts it on", "point": "guy right hand", "near": "cap", "within": 0.05, "t": [3.6, 4.5]},
+ {"goal": "his left hand stays on it too", "point": "guy left hand", "near": "cap", "within": 0.05, "t": [3.6, 4.5]},
+ {"goal": "the cap fits the boy's head again", "fits": "cap", "on": "guy2", "min": 90, "out": 0.02, "off": 0.03, "t": [4.3, 8]},
+ {"goal": "nothing passes through dad (hands against the cap, never in it)", "clear": "guy"},
+ {"goal": "nothing passes through the boy before dad sets the cap", "clear": "guy2", "t": [0, 3.3]},
+ {"goal": "nothing passes through the boy after", "clear": "guy2", "t": [4.8, 8]},
+ {"goal": "the learner sees the boy", "visible": "guy2", "min": 85},
+ {"goal": "the learner sees dad", "visible": "guy", "min": 45},
+ {"goal": "the learner sees the kanji", "visible": "kanji", "min": 95},
+ {"goal": "the cap shows big", "big": "cap", "min": 3}
+]
