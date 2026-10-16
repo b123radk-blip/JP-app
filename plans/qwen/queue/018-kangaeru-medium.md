@@ -1,12 +1,12 @@
-# Plan 016: 考 "consider; think over" (card 8003), new scene `q-ponder`
+# Plan 018: 考 "consider; think over" (card 8003), new scene `q-ponder`
 
 Card: 8003
 Inspect: --loop 7.5
 
-A new card. This plan is in words, with **goals** in `plans/qwen/goals/016-kangaeru-think.json`. Read
+A new card. This plan is in words, with **goals** in `plans/qwen/goals/018-kangaeru-medium.json`. Read
 `plans/qwen/CHEATSHEET.md` first and use your tools (`check_goals`, `measure`, `try_value`). You write the code; the
 plan gives every number. The layout is already checked with the real grandpa
-(`plans/qwen/layouts/016-kangaeru-think.json`; what the learner sees: `plans/qwen/renders/016-plan-seat.jpg`). Keep its
+(`plans/qwen/layouts/018-kangaeru-medium.json`; what the learner sees: `plans/qwen/renders/018-plan-seat.jpg`). Keep its
 numbers.
 
 **The idea a child should get:** an old man sits on a cushion in front of a shogi board, his hand on his chin, thinking
@@ -70,18 +70,18 @@ he leans in and moves one piece, and nods, pleased. He thought it over.
 
 ## Goals and checks
 
-- After every change: `check_goals` with card 8003, goals `plans/qwen/goals/016-kangaeru-think.json`, loop 7.5.
+- After every change: `check_goals` with card 8003, goals `plans/qwen/goals/018-kangaeru-medium.json`, loop 7.5.
 - Before you change a number to fix a FAIL, `measure` the things it names at a failing moment (for example
   `what: "grandpa right hand,piece"`).
 - Expected fault you can ignore: `shogi board SUNK INTO stand` (the tilted board's lower edge dips into its stand).
 - When every goal passes, run the usual checks from the README: `node --check` on the files you changed, `npm test`,
   `node scripts/check-piece-costs.mjs vignette "^q-ponder$"`. Then one full inspect run and look at it:
-  `node scripts/inspect.mjs 8003 --goals plans/qwen/goals/016-kangaeru-think.json --loop 7.5 --times 2.5,3.9,4.9,5.8
-  --out plans/qwen/renders/016-kangaeru-think`. Then the orbit render:
-  `node scripts/orbit.mjs 8003 --times 2.5,3.9,4.9 --out plans/qwen/renders/016-kangaeru-think.jpg`. Ask yourself:
+  `node scripts/inspect.mjs 8003 --goals plans/qwen/goals/018-kangaeru-medium.json --loop 7.5 --times 2.5,3.9,4.9,5.8
+  --out plans/qwen/renders/018-kangaeru-medium`. Then the orbit render:
+  `node scripts/orbit.mjs 8003 --times 2.5,3.9,4.9 --out plans/qwen/renders/018-kangaeru-medium.jpg`. Ask yourself:
   would a child see an old man thinking hard about his next move?
 
 ## Commit
 
-`考: grandpa thinks over his shogi move, gets an idea and plays it (plan 016)`, then the report as the README says.
+`考: grandpa thinks over his shogi move, gets an idea and plays it (plan 018)`, then the report as the README says.
 Paste the last Goals lines, and add one line per round: what you changed, and the N of M PASS you got.
