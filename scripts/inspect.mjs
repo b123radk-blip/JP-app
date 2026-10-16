@@ -102,7 +102,7 @@ if (look) {
     times.sort((a, b) => a - b);
     lines.push('');
   }
-  const overview = [], faultPics = [], people = [];
+  const overview = [], faultPics = [], people = [], held = [], contacts = new Map();
   for (const dt of times) {
     const t = end + dt, m = await page.evaluate(measure, { t, cam: seat, watch });
     if (m.error) { console.log(m.error); process.exit(1); }
@@ -115,6 +115,10 @@ if (look) {
     lines.push('', 'Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):');
     for (const h of m.through) lines.push(`  ${h.text}`);
     if (!m.through.length) lines.push('  none');
+    if (m.fits.length) lines.push('', 'Worn on a head (a hat should cover the head and hair above its bottom: under 90% means hair or head sticks out, or it sits off-centre):');
+    for (const h of m.fits) lines.push(`  ${h.text}`);
+    for (const h of m.fits) { const c = contacts.get(h.id); if (!c || h.cover < c.cover) contacts.set(h.id, { dt, u: m.u, point: h.point, cover: h.cover, what: h.text.replace(/\bT\d+ /g, '') }); }
+    for (const sp of m.support.filter((x) => /carried or worn|worn or held/.test(x.text))) if (!contacts.has(sp.id) || asked.includes(dt) && !contacts.get(sp.id).asked) contacts.set(sp.id, { dt, u: m.u, point: sp.point, cover: 101, asked: asked.includes(dt), what: sp.text.replace(/\bT\d+ /g, '') });
     if (m.hands.length) lines.push('', 'Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):');
     for (const h of m.hands) lines.push(`  ${h.text}`);
     for (const h of m.touching) lines.push(`  ${h.text}`);
@@ -151,10 +155,15 @@ if (look) {
   for (const { x, dt } of closeUp.values()) for (const from of ['front', 'right'])
     people.push([await shot(`${x.name.replace(/ /g, '-')}-${from}-t${dt}.jpg`, `${x.id} ${x.name} from ${from} t+${dt}`, x.world, x.radius, from, end + dt), `${x.id} ${x.name} close, from ${from} (t+${dt})`]);
 
+  // everything worn or held, close up from the front and both sides (a worn thing at its worst fit): small things on a
+  // person are a few pixels in the whole-scene pictures, so a hat off the head or a cup in the fist only shows here
+  for (const [, c] of quick ? [] : [...contacts].sort((a, b) => a[1].cover - b[1].cover).slice(0, 4)) for (const from of ['front', 'left', 'right'])
+    held.push([await shot(`held-${held.length + 1}-${from}-t${c.dt}.jpg`, `worn/held from ${from} t+${c.dt}`, c.point, 0.35 * c.u, from, end + c.dt), `${c.what} (from ${from}, t+${c.dt})`]);
+
   // the pictures on numbered sheets (one image to open instead of many); the single pictures stay in OUT
   if (quick) lines.push('(--quick: no pictures; run without it for the sheets)');
   else lines.push('Pictures: open these sheets with your read tool (tiles are numbered; each tile\'s full-size picture is named after it):');
-  for (const [name, pics] of [['overview', overview], ['faults', faultPics], ['people', people]]) {
+  for (const [name, pics] of [['overview', overview], ['faults', faultPics], ['held', held], ['people', people]]) {
     for (let k = 0; k < pics.length; k += 12) {
       const file = `${OUT}/${name}${k ? `-${k / 12 + 1}` : ''}.jpg`, part = pics.slice(k, k + 12);
       await sheet(file, part.map(([f], i) => [f, `${k + i + 1}`]));
@@ -179,6 +188,7 @@ function faultsOf(m) {
   return [...m.support.filter((s) => s.fault).map((s) => ({ text: s.text, point: s.point, score: gap(s.text) })),
     ...m.through.map((h) => ({ text: h.text, point: h.point, score: Number(/(\d+) skin points/.exec(h.text)?.[1] ?? 1) })),
     ...m.touching.map((h) => ({ text: h.text, point: h.point, score: 1 })),
+    ...m.fits.filter((h) => h.fault).map((h) => ({ text: `${h.text}: FITS BADLY`, point: h.point, score: 100 - h.cover })),
     ...m.hidden.filter((h) => h.pct != null && !h.prop && (h.glyph ? h.pct < 80 : h.pct < 85 || h.frame < 90)).map((h) => ({ text: h.text, id: h.id, hidden: true, score: 100 - Math.min(h.pct, h.frame) }))];
 }
 // the middle and size of a moment's solid things (to frame the whole scene)

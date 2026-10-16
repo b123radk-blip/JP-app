@@ -7,6 +7,9 @@
 //                                                                    partly outside the learner's picture counts as hidden)
 //   { "goal": "kit on the ground", "rests": "red", "on": "ground", "t": [5, 6.5] }
 //   { "goal": "nothing through the doctor", "clear": "doctor" }
+//   { "goal": "the cap fits her head", "fits": "cap", "on": "gal", "min": 90, "out": 0.02, "off": 0.05 }  (a worn thing:
+//     % of the head and hair above its bottom that it covers, how far any hair sticks out of it, and how far its middle
+//     sits from the head's middle)
 //   { "goal": "the chicks gather round her", "count": "chick", "near": "gal2", "within": 0.4, "min": 5 }  ("max": at most)
 // Seen from the learner's seat (a prop by the name its code gives it, or a group's name; also a person or animal):
 //   { "goal": "the cake shows big", "big": "cake", "min": 15 }      (its seen part, as % of the kanji's own size on screen)
@@ -83,13 +86,20 @@ function judge(g, m) {
     const all = m.items.filter((x) => lc(x.name) === n || lc(x.name).includes(n)), close = all.filter((x) => x.id !== b.x?.id && r2(dist(box(x), b)) <= (g.within ?? 0.3));
     return { ok: close.length >= (g.min ?? 0) && close.length <= (g.max ?? Infinity), value: close.length, why: `${close.length} of ${all.length} ${g.count} within ${g.within ?? 0.3}u of ${g.near} (needs ${g.max != null ? `≤ ${g.max}` : `≥ ${g.min ?? 1}`})` };
   }
+  if (g.fits) {
+    const x = thing(m, g.fits), f = x && (m.fits ?? []).find((y) => y.id === x.id && (!g.on || lc(m.items.find((z) => z.id === y.who)?.name ?? '').includes(lc(g.on))));
+    if (!x) return { ok: false, why: `${g.fits} is not in the scene` };
+    if (!f) return { ok: false, why: `${g.fits} is not on ${g.on ?? 'anyone'}'s head (its bottom is not below the top of a head, near it)` };
+    const min = g.min ?? 90, off = g.off ?? 0.05, out = g.out ?? 0.02;
+    return { ok: f.cover >= min && f.off <= off && f.poke <= out, value: f.cover, why: `covers ${f.cover}% of the head and hair (needs ≥ ${min}); hair or head sticks out up to ${f.poke}u (needs ≤ ${out}); ${f.off}u off-centre (needs ≤ ${off})` };
+  }
   if (g.clear) {
     const x = thing(m, g.clear);
     if (!x) return { ok: false, why: `${g.clear} is not in the scene` };
     const tag = `${x.id} ${x.kind} ${x.name}`, hit = [...m.through, ...m.touching].filter((h) => h.text.includes(tag) && !(g.except ?? []).some((e) => lc(h.text).includes(lc(e))));
     return { ok: !hit.length, value: hit.length, why: hit.length ? hit[0].text.replace(/\bT\d+ /g, '') : 'nothing passes into it' };
   }
-  return { ok: false, why: 'unknown goal (needs point + near, visible, big, faces, rests, count or clear)' };
+  return { ok: false, why: 'unknown goal (needs point + near, visible, big, faces, rests, count, fits or clear)' };
 }
 
 export function goalChecker(goals) {
