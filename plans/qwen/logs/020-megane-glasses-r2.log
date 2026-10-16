@@ -1,0 +1,16 @@
+pi exit 0 after 3.6 min
+
+Round 2 done. Summary:
+
+**Fixes applied** (`src/effects/vignettes/q-glasses.js`, exactly per Opus's review):
+- **F1** — Rings now spaced from face width: centres ±0.06 hu, radius 0.045 hu; bridge 0.03×0.01 hu at y +0.01 hu between the inner edges; end pieces 0.012 hu tall from each ring's outer edge (0.105 hu) to the hinge. Pivot and `onEyes` kept.
+- **F2** — `tab = hx + 0.02 * hu` (was +0.05). Hand goals still pass (0.02–0.04 u) with the existing grip points, so they didn't need moving.
+- **F3** — Glint at the new left-lens centre: `(+0.06 hu, +0.01 hu, +0.02 hu)` — confirmed on his left lens (learner's right) in the t+3.2 tile.
+
+**Two goal-forced nudges** (documented in the report):
+- Tube 0.008 → **0.015 hu**: the review's 0.008 made "the glasses show big" 2% (wire frames render too few pixels); the review's first step (0.01) still measured 2%, so 0.015 hu is the smallest passing value. Rings now just touch at the bridge — a normal round-glasses silhouette.
+- Glint star `s: 0.08` → **0.05**: the full inspect (which checks the `--times` moments) failed `big` at exactly t+3.2 — the big star covered most of the thin left ring. 0.05 u fits inside the lens opening.
+
+**Checks**: `node --check` clean, `npm test` ok, cost check `0 cost mismatches`, orbit + full inspect run. Final inspect: **13 of 13 PASS** over all 17 moments (including t+3.2), no measured faults over the whole loop. Pictures verified: separated rings over the eyes, short ends (no rod past the cheeks), glint inside the left lens, temples to the ears. (The `held.jpg` "from left" tile shows the review camera sitting inside his raised left sleeve — model geometry at extreme zoom, not a scene fault; invisible in the learner's view.)
+
+**Commits** (not pushed): `304095c Qwen: 020-megane-glasses round 2` (code + renders), `9309477 Qwen report: 020-megane-glasses` (report with `## Round 2` section and the real Goals lines).
