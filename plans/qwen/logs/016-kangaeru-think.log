@@ -1,0 +1,20 @@
+pi exit 0 after 20.6 min
+
+Plan 016 is complete. Summary:
+
+**Scene built** (`src/effects/vignettes/q-ponder.js`): grandpa sits on a red cushion before a 35°-tilted shogi board (5×5 grid, 5 static pieces), hand to his chin while he thinks (head rock), a thought bubble with a big "?" pops in, the "?" becomes a lightbulb with a star burst as his finger goes up, he leans in and slides a piece with his palm on it, sits up, and nods — loop 7.5 s, exactly the plan's timings.
+
+**Key technical finding:** the model's bone world-matrices are one compose phase stale during `scene.step`, so hand-crafted "world" IK targets land in the wrong frame and `handTo` never reaches them. Targets written in the actor's own frame (`who.local`) are self-consistent with the shoulder the IK reads and work — that's why `model-kit.js` had to be left untouched (restored via `git checkout`) and all hand targets (chin, finger, thighs, piece) go through the actor/board local frames.
+
+**Results:**
+- Goals: **11 of 11 PASS** (hand at chin 0u apart, finger up 0.07u, hand on piece 0.01u, board faces learner 30°, bubble 23%, visibility 76%/100%)
+- `npm test`: 63 pass, content + recipe checks ok (0 pairs ≥ 0.72)
+- Cost check: 0 mismatches (set `pdc('grandpa') + 13` = built 25 dc)
+- Whole-loop faults: only the plan's *expected* `shogi board SUNK INTO stand` and a visibility note (76% ≥ 65 goal)
+- Orbit + inspect renders reviewed: the six views read as an old man thinking over a shogi move
+
+**Deviations (in report):** the plan's thought-dot centres overlapped the bubble's main sphere (dot2 sat 0.06u inside it), so the dots moved 0.05u out along the same diagonal; stone/bulb/burst micro-adjustments to clear AABB contact faults.
+
+Commits made (not pushed, per the rules): `237758a` 考: grandpa thinks over his shogi move… + `9ef6064` Qwen report: 016-kangaeru-think. Working tree clean, no unrelated files modified.
+
+For the headset check (I can't test there): the fist-on-chin and palm-on-piece contacts look right in the close-ups, but confirm the fist pad sits naturally at the chin and the bubble reads at sitting distance.
