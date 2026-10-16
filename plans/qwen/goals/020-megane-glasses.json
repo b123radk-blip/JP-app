@@ -1,0 +1,15 @@
+[
+ {"goal": "he holds the glasses in front of his chest at first", "point": "lenses", "near": "grandpa chest", "within": 0.3, "t": [0, 1.3]},
+ {"goal": "both hands hold the glasses at first", "point": "grandpa left hand", "near": "lenses", "within": 0.05, "t": [0, 1.3]},
+ {"goal": "his right hand holds them too", "point": "grandpa right hand", "near": "lenses", "within": 0.05, "t": [0, 1.3]},
+ {"goal": "both hands bring the glasses up", "point": "grandpa left hand", "near": "lenses", "within": 0.05, "t": [1.5, 2.5]},
+ {"goal": "his right hand brings them up too", "point": "grandpa right hand", "near": "lenses", "within": 0.05, "t": [1.5, 2.5]},
+ {"goal": "the lenses sit right in front of his eyes", "point": "lenses", "near": "grandpa eyes", "within": 0.035, "t": [2.6, 5.5]},
+ {"goal": "his hands are down while he wears them", "point": "grandpa left hand", "near": "lenses", "beyond": 0.15, "t": [3.2, 5.0]},
+ {"goal": "his right hand is down too", "point": "grandpa right hand", "near": "lenses", "beyond": 0.15, "t": [3.2, 5.0]},
+ {"goal": "both hands take the glasses off", "point": "grandpa left hand", "near": "lenses", "within": 0.05, "t": [6.0, 6.9]},
+ {"goal": "nothing passes through him (lenses and arms outside his face and head, hands never inside the glasses)", "clear": "grandpa"},
+ {"goal": "the learner sees him", "visible": "grandpa", "min": 85},
+ {"goal": "the learner sees the kanji", "visible": "kanji", "min": 95},
+ {"goal": "the glasses show big", "big": "lenses", "min": 3}
+]

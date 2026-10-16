@@ -8,7 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": { "material": "ivory", "reveal": "draw", "emblem": "house", "backdrop": "sky:night", "particles": ["sparks"] },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:night", "vignette": { "type": "q-key-door" } },
   "sentences": [
     {
       "segments": [ { "text": "こちらがあなたの" }, { "text": "鍵", "reading": "かぎ" }, { "text": "だ。" } ],
@@ -17,6 +17,6 @@
       "source": { "tatoeba": [224198, 61534] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 鍵" },
+  "review": { "recipe": "reviewed", "rule": "word 鍵" },
   "source": { "jmdict": 1260490, "jlpt": 5 }
 }
