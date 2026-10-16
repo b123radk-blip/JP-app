@@ -1,0 +1,172 @@
+# Inspection of card w1301940
+
+## Goals: 9 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS her right hand holds the umbrella's handle at first (t+0 to t+1): 4 moments, e.g. t+0: 0u apart (needs ≤ 0.04)
+  PASS her right hand holds the handle while it is up (t+1.8 to t+7.5): 12 moments, e.g. t+2: 0.01u apart (needs ≤ 0.04)
+  PASS the open canopy is just above her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0.04u apart (needs ≤ 0.25)
+  PASS the open canopy covers her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0.04u apart (needs ≤ 0.2)
+  PASS nothing passes through her (shaft, canopy and handle outside her; her hand against the handle, not in it): 19 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees her: 19 moments, e.g. t+0: 100% visible (needs ≥ 75)
+  PASS the learner sees the kanji: 19 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the open umbrella shows big (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: shows 75% as big as the kanji (needs ≥ 25)
+  PASS rain falls (t+0.6 to t+6.4): 12 moments, e.g. t+1: 1 of 1 rain within 1.5u of gal2 (needs ≥ 1)
+
+## The whole loop, every 0.5 s from t+0 to t+7.5 (numbers only; the T ids differ from moment to moment)
+
+  - t+0 to t+1 (worst at t+0): mesh shaft (dark brown #303030): SUNK INTO mesh canopy (red #d03040) (gap -0.15u)
+  - t+0 to t+1, t+2 to t+7 (worst at t+2): mesh canopy (red #d03040): SUNK INTO mesh shaft (dark brown #303030) (gap -0.13u)
+
+## t+0.4 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.45 x 0.94 x 0.42, centre [0.63, 0.47, -0.08], bottom 0, top 0.94
+  T2 mesh handle (dark brown #4a2a18): size 0.07 x 0.07 x 0.07, centre [0.43, 0.46, 0.03], bottom 0.42, top 0.49
+  T3 mesh shaft (dark brown #303030): size 0.33 x 0.35 x 0.44, centre [0.27, 0.27, 0.27], bottom 0.1, top 0.44
+  T4 mesh canopy (red #d03040): size 0.19 x 0.2 x 0.24, centre [0.21, 0.2, 0.36], bottom 0.1, top 0.3
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh handle (dark brown #4a2a18): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh shaft (dark brown #303030): SUNK INTO T4 mesh canopy (red #d03040) (gap -0.15u)
+  T4 mesh canopy (red #d03040): SUNK INTO T3 mesh shaft (dark brown #303030) (gap -0.1u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.46,0.43,-0.01]: nearest own body part right shoulder 0.16u away; nearest other thing T2 mesh handle (dark brown #4a2a18) 0.01u away
+  T1 model gal2 left hand at [0.81,0.27,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh handle (dark brown #4a2a18) 0.38u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model gal2: 100% visible; shows 104% as big as the kanji
+  the handle (1 piece): 80% visible (20% behind other things (props, labels)); shows 1% as big as the kanji; its top turned 55° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 95% visible (5% behind other things (props, labels)); shows 5% as big as the kanji; its top turned 51° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh shaft (dark brown #303030): SUNK INTO T4 mesh canopy (red #d03040) (gap -0.15u)
+  - T4 mesh canopy (red #d03040): SUNK INTO T3 mesh shaft (dark brown #303030) (gap -0.1u)
+
+## t+1.4 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.46 x 0.94 x 0.44, centre [0.61, 0.46, -0.03], bottom 0, top 0.93
+  T2 mesh handle (dark brown #4a2a18): size 0.07 x 0.06 x 0.08, centre [0.41, 0.49, 0.03], bottom 0.45, top 0.52
+  T3 mesh shaft (dark brown #303030): size 0.26 x 0.37 x 0.46, centre [0.29, 0.68, 0.29], bottom 0.5, top 0.87
+  T4 mesh canopy (red #d03040): size 0.16 x 0.21 x 0.25, centre [0.25, 0.76, 0.39], bottom 0.65, top 0.86
+  T5 pool rain (blue #7fd0ff): size 1.14 x 1.5 x 0.54, centre [0.6, 0.78, 0.05], bottom 0.03, top 1.53
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh handle (dark brown #4a2a18): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh shaft (dark brown #303030): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.5u)
+  T4 mesh canopy (red #d03040): is high in the air above the ground line (bottom of the kanji) (gap 0.65u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.44,0.46,0]: nearest own body part right shoulder 0.15u away; nearest other thing T2 mesh handle (dark brown #4a2a18) 0u away (inside its box: touching or passing through)
+  T1 model gal2 left hand at [0.66,0.78,0.08]: nearest own body part eyes 0.07u away; nearest other thing T3 mesh shaft (dark brown #303030) 0.24u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model gal2: 95% visible (4% behind other things (props, labels), 0% behind the handle); shows 92% as big as the kanji
+  the handle (1 piece): 20% visible (80% behind T1 model gal2); shows 0% as big as the kanji; its top turned 44° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 96% visible (4% behind other things (props, labels)); shows 6% as big as the kanji; its top turned 40° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T3 mesh shaft (dark brown #303030): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.5u)
+
+## t+3.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.5 x 0.93 x 0.42, centre [0.6, 0.46, -0.06], bottom 0, top 0.93
+  T2 mesh handle (dark brown #4a2a18): size 0.06 x 0.09 x 0.04, centre [0.38, 0.55, 0.06], bottom 0.5, top 0.59
+  T3 mesh shaft (dark brown #303030): size 0.14 x 0.61 x 0.09, centre [0.46, 0.88, 0.02], bottom 0.58, top 1.19
+  T4 mesh canopy (red #d03040): size 0.74 x 0.2 x 0.75, centre [0.5, 1.08, 0], bottom 0.98, top 1.18
+  T5 pool rain (blue #7fd0ff): size 1.14 x 1.5 x 0.54, centre [0.6, 0.79, 0.05], bottom 0.03, top 1.54
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh handle (dark brown #4a2a18): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh shaft (dark brown #303030): is high in the air above the ground line (bottom of the kanji) (gap 0.58u)
+  T4 mesh canopy (red #d03040): SUNK INTO T3 mesh shaft (dark brown #303030) (gap -0.13u)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.41,0.51,0.03]: nearest own body part right shoulder 0.17u away; nearest other thing T2 mesh handle (dark brown #4a2a18) 0.02u away
+  T1 model gal2 left hand at [0.8,0.26,-0.04]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh shaft (dark brown #303030) 0.42u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model gal2: 100% visible; shows 107% as big as the kanji
+  the handle (1 piece): 25% visible (75% behind T1 model gal2); shows 0% as big as the kanji; its top turned -17° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 98% visible (2% behind other things (props, labels), 0% behind T1 model gal2); shows 76% as big as the kanji; its top turned -23° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+POSSIBLE FAULTS (each has close-ups on the faults sheet, at its worst moment):
+  - T4 mesh canopy (red #d03040): SUNK INTO T3 mesh shaft (dark brown #303030) (gap -0.13u)
+
+## t+7.6 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.49 x 0.93 x 0.42, centre [0.6, 0.46, -0.06], bottom 0, top 0.93
+  T2 mesh handle (dark brown #4a2a18): size 0.05 x 0.09 x 0.03, centre [0.38, 0.51, 0.05], bottom 0.46, top 0.55
+  T3 mesh shaft (dark brown #303030): size 0.04 x 0.62 x 0.11, centre [0.41, 0.85, 0.11], bottom 0.54, top 1.16
+  T4 mesh canopy (red #d03040): size 0.09 x 0.3 x 0.09, centre [0.41, 1, 0.11], bottom 0.85, top 1.16
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh handle (dark brown #4a2a18): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+  T3 mesh shaft (dark brown #303030): is high in the air above the ground line (bottom of the kanji) (gap 0.54u)
+  T4 mesh canopy (red #d03040): is on T1 model gal2 (worn or held: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.42,0.48,0.02]: nearest own body part right shoulder 0.16u away; nearest other thing T2 mesh handle (dark brown #4a2a18) 0.02u away
+  T1 model gal2 left hand at [0.8,0.26,-0.04]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh handle (dark brown #4a2a18) 0.45u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model gal2: 100% visible; shows 106% as big as the kanji
+  the handle (1 piece): 40% visible (60% behind T1 model gal2); shows 0% as big as the kanji; its top turned 0° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 93% visible (7% behind other things (props, labels)); shows 6% as big as the kanji; its top turned -6° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/021-kasa-umbrella/overview.jpg
+    1. the whole scene from front, t+0.4 (t0.4-scene-front.jpg)
+    2. the whole scene from right, t+0.4 (t0.4-scene-right.jpg)
+    3. what the learner sees, t+0.4 (t0.4-learner.jpg)
+    4. the whole scene from front, t+1.4 (t1.4-scene-front.jpg)
+    5. the whole scene from right, t+1.4 (t1.4-scene-right.jpg)
+    6. what the learner sees, t+1.4 (t1.4-learner.jpg)
+    7. the whole scene from front, t+3.5 (t3.5-scene-front.jpg)
+    8. the whole scene from right, t+3.5 (t3.5-scene-right.jpg)
+    9. what the learner sees, t+3.5 (t3.5-learner.jpg)
+    10. the whole scene from front, t+7.6 (t7.6-scene-front.jpg)
+    11. the whole scene from right, t+7.6 (t7.6-scene-right.jpg)
+    12. what the learner sees, t+7.6 (t7.6-learner.jpg)
+  plans/qwen/renders/021-kasa-umbrella/faults.jpg
+    1. fault 1 from front (t+0.4): T3 mesh shaft (dark brown #303030): SUNK INTO T4 mesh canopy (red #d03040) (gap -0.15u) (fault1-front-t0.4.jpg)
+    2. fault 1 from right (t+0.4): T3 mesh shaft (dark brown #303030): SUNK INTO T4 mesh canopy (red #d03040) (gap -0.15u) (fault1-right-t0.4.jpg)
+    3. fault 2 from front (t+3.5): T4 mesh canopy (red #d03040): SUNK INTO T3 mesh shaft (dark brown #303030) (gap -0.13u) (fault2-front-t3.5.jpg)
+    4. fault 2 from right (t+3.5): T4 mesh canopy (red #d03040): SUNK INTO T3 mesh shaft (dark brown #303030) (gap -0.13u) (fault2-right-t3.5.jpg)
+    5. fault 3 from front (t+1.4): T3 mesh shaft (dark brown #303030): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.5u) (fault3-front-t1.4.jpg)
+    6. fault 3 from right (t+1.4): T3 mesh shaft (dark brown #303030): FLOATS ABOVE the ground line (bottom of the kanji) (gap 0.5u) (fault3-right-t1.4.jpg)
+  plans/qwen/renders/021-kasa-umbrella/held.jpg
+    1. mesh handle (dark brown #4a2a18): is on model gal2 (worn or held: check it sits right in the close-ups) (from front, t+0.4) (held-1-front-t0.4.jpg)
+    2. mesh handle (dark brown #4a2a18): is on model gal2 (worn or held: check it sits right in the close-ups) (from left, t+0.4) (held-2-left-t0.4.jpg)
+    3. mesh handle (dark brown #4a2a18): is on model gal2 (worn or held: check it sits right in the close-ups) (from right, t+0.4) (held-3-right-t0.4.jpg)
+    4. mesh canopy (red #d03040): is on model gal2 (worn or held: check it sits right in the close-ups) (from front, t+7.6) (held-4-front-t7.6.jpg)
+    5. mesh canopy (red #d03040): is on model gal2 (worn or held: check it sits right in the close-ups) (from left, t+7.6) (held-5-left-t7.6.jpg)
+    6. mesh canopy (red #d03040): is on model gal2 (worn or held: check it sits right in the close-ups) (from right, t+7.6) (held-6-right-t7.6.jpg)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs w1301940 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
