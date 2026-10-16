@@ -23,11 +23,21 @@ const once = has('--once'), every = Number(arg('--every', '60')) * 1000, first =
 const ROUNDS = Number(arg('--rounds', '4')), REVIEWS = Number(arg('--reviews', '2')), PLAN = Number(arg('--plan-minutes', '120')) * 60000;
 // brad's pi line (Qwen 3.8 27B quasar build served by ninfer); PI_ARGS replaces it
 const PI_ARGS = process.env.PI_ARGS ?? '--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking xhigh';
-const WIN = process.platform === 'win32', CLAUDE = process.env.CLAUDE_CMD || 'claude', MODEL = process.env.REVIEW_MODEL || 'opus', EFFORT = process.env.REVIEW_EFFORT || 'high';
+const WIN = process.platform === 'win32', CLAUDE = process.env.CLAUDE_CMD || findClaude(), MODEL = process.env.REVIEW_MODEL || 'opus', EFFORT = process.env.REVIEW_EFFORT || 'high';
 const git = (c) => execSync(`git ${c}`, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 const log = (m) => console.log(`[${new Date().toLocaleTimeString()}] ${m}`);
 const tail = (s, n) => s.split(/\r?\n/).slice(-n).join('\n'), mins = (ms) => (ms / 60000).toFixed(1), bare = (n) => n.replace(/\.md$/, '');
 
+// Claude Code: CLAUDE_CMD, else `claude` when the shell finds it, else where its installers put it on Windows (the native
+// installer's %USERPROFILE%\.local\bin\claude.exe, npm's %APPDATA%\npm\claude.cmd), which a window opened by
+// double-clicking may not have on its PATH.
+function findClaude() {
+  if (!WIN) return 'claude';
+  try { const w = execSync('where claude', { stdio: ['ignore', 'pipe', 'ignore'] }).toString().split(/\r?\n/).map((x) => x.trim()).filter(Boolean); const exe = w.find((x) => /\.exe$/i.test(x)); if (exe || w.length) return exe ?? 'claude'; } catch {}
+  const home = process.env.USERPROFILE ?? '', app = process.env.APPDATA ?? '', local = process.env.LOCALAPPDATA ?? '';
+  for (const c of [`${home}\\.local\\bin\\claude.exe`, `${local}\\Programs\\claude\\claude.exe`, `${app}\\npm\\claude.cmd`]) if (c.length > 12 && existsSync(c)) return c;
+  return 'claude';
+}
 // One child process at a time; a timeout or Ctrl+C ends it and everything it started (on Windows, the tree under the
 // cmd.exe that runs pi or claude: only our own child, never the model server). No argument may hold a space (Windows runs
 // these through the shell), so prompts go through a file or stdin.
@@ -207,7 +217,7 @@ async function pass() {
 
 // Opus runs on your Claude Code login unless ANTHROPIC_API_KEY is set, which would bill the API instead
 if (!reviewOff && process.env.ANTHROPIC_API_KEY && !has('--review-api')) reviewOff = 'off: ANTHROPIC_API_KEY is set, so Claude Code would bill the API instead of your subscription (unset it, or pass --review-api to accept)';
-if (!reviewOff) { const v = await run(CLAUDE, ['--version'], { ms: 60000 }); if (v.code !== 0) reviewOff = `off: "${CLAUDE} --version" failed (${tail(v.out, 2)})`; else log(`Opus reviews with ${CLAUDE} ${v.out.trim()} (model ${MODEL}, ${process.env.ANTHROPIC_API_KEY ? 'API key: billed' : 'your Claude login'})`); }
+if (!reviewOff) { const v = await run(CLAUDE, ['--version'], { ms: 60000 }); if (v.code !== 0) reviewOff = `off: "${CLAUDE} --version" failed (${tail(v.out, 2).trim()}): Claude Code is not installed where this window can find it (in PowerShell, \`claude --version\` should print a version; or set CLAUDE_CMD to its full path)`; else log(`Opus reviews with ${CLAUDE} ${v.out.trim()} (model ${MODEL}, ${process.env.ANTHROPIC_API_KEY ? 'API key: billed' : 'your Claude login'})`); }
 if (reviewOff) log(`Opus review ${reviewOff}`);
 log(`watching ${BRANCH} for plans in ${Q} with pi ${PI_ARGS} (Ctrl+C stops)`);
 for (;;) {

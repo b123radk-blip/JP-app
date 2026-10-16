@@ -59,10 +59,10 @@ function ponder(ctx, spec, stage) {
     [G.sphere(k(0.08), k(0.12), k(0.1), 0), 0xffffff], [G.sphere(k(0.06), -k(0.02), -k(0.12), 0), 0xffffff],
   ], 0.25);
   bubble.name = 'bubble';
-  const q = label(u, '?', '#3060c0');
+  const q = label(u, '?', '#3060c0', 0.22);
   const bulb = new THREE.Group();
   bulb.name = 'bulb';
-  bulb.add(solidProp([[G.sphere(k(0.06), 0, k(0.055), 0), 0xffe040]], 1.0), solidProp([[G.cyl(k(0.03), k(0.03), k(0.04), 0, -k(0.03), 0), 0x909498]], 0.15));
+  bulb.add(solidProp([[G.sphere(k(0.095), 0, k(0.06), 0), 0xffe040]], 1.0), solidProp([[G.cyl(k(0.045), k(0.04), k(0.06), 0, -k(0.06), 0), 0x909498]], 0.15));
   const sparkle = burst(u, { s: 0.3, n: 8, color: 0xffe060 });
   group.add(tatami, cushion, stand, board, dot1, dot2, bubble, q, bulb, sparkle);
   dot1.userData.flies = dot2.userData.flies = bubble.userData.flies = true;   // the thought: in the air on purpose
