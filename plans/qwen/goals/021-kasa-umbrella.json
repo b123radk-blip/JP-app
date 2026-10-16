@@ -1,0 +1,11 @@
+[
+ {"goal": "her right hand holds the umbrella's handle at first", "point": "gal2 right hand", "near": "handle", "within": 0.04, "t": [0, 1.0]},
+ {"goal": "her right hand holds the handle while it is up", "point": "gal2 right hand", "near": "handle", "within": 0.04, "t": [1.8, 7.5]},
+ {"goal": "the open canopy is just above her head", "point": "gal2 top of the head", "near": "canopy", "within": 0.25, "t": [2.5, 6.9]},
+ {"goal": "the open canopy covers her head", "point": "canopy", "near": "gal2 top of the head", "within": 0.2, "t": [2.5, 6.9]},
+ {"goal": "nothing passes through her (shaft, canopy and handle outside her; her hand against the handle, not in it)", "clear": "gal2"},
+ {"goal": "the learner sees her", "visible": "gal2", "min": 75},
+ {"goal": "the learner sees the kanji", "visible": "kanji", "min": 95},
+ {"goal": "the open umbrella shows big", "big": "canopy", "min": 25, "t": [2.5, 6.9]},
+ {"goal": "rain falls", "count": "rain", "near": "gal2", "within": 1.5, "min": 1, "t": [0.6, 6.4]}
+]

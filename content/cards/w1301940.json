@@ -8,13 +8,7 @@
   "pos": ["n"],
   "kanji": [],
   "builtFrom": [],
-  "effect": {
-    "material": "ivory",
-    "reveal": "draw",
-    "emblem": "umbrella",
-    "particles": ["rain"],
-    "backdrop": "sky:storm"
-  },
+  "effect": { "material": "ivory", "reveal": "draw", "backdrop": "sky:storm", "vignette": { "type": "q-umbrella" } },
   "sentences": [
     {
       "segments": [ { "text": "タクシーに" }, { "text": "傘", "reading": "かさ" }, { "text": "を" }, { "text": "忘", "reading": "わす" }, { "text": "れてしまった。" } ],
@@ -23,6 +17,6 @@
       "source": { "tatoeba": [203724, 40963] }
     }
   ],
-  "review": { "recipe": "draft", "rule": "word 傘" },
+  "review": { "recipe": "reviewed", "rule": "word 傘" },
   "source": { "jmdict": 1301940, "jlpt": 5 }
 }
