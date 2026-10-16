@@ -1,0 +1,16 @@
+pi exit 0 after 6.9 min
+
+Plan 021 done. Summary:
+
+**Scene** (`src/effects/vignettes/q-umbrella.js`, catalog cost in `vcat-qw.js` → `pdc('gal2') + 4`): a girl holds a closed umbrella by its J-hook (right-hand `grip` every frame), the rain fades in, she hunches with her left hand over her head, swings the umbrella up, the canopy springs open over her head (shaft at x 0.46 at head height, clear of her), rain bounces off in splashes while she sways, the rain stops, the canopy closes, and she lowers it — loop ends where it began.
+
+**Rounds** (check_goals, loop 8):
+- 6/9 → canopy was built but never positioned (sat at her hand); fixed with `canopy.position.set(0, 0.62u, 0)`
+- 8/9 → her swaying hair touched the shaft at t+5; tried via `try_value`: up-pivot x 0.42→0.40 and sway 0.045→0.03 rad
+- **9/9 PASS**
+
+**Checks**: `node --check` clean · `npm test` all pass · `check-piece-costs` → `701 recipes, 0 cost mismatches` · orbit render + full inspect with goals done.
+
+**Left as-is (documented in the report)**: the two recurring whole-loop lines `shaft SUNK INTO canopy` / `canopy SUNK INTO shaft` are the umbrella's own structure (shaft through the canopy's centre, per the plan's single-umbrella design), and `shaft FLOATS ABOVE ground (0.5u)` at t+1.4 is the mid-swing moment. The held close-ups show the palm against the hook, not inside it.
+
+Committed `18d8828 傘: a girl opens her umbrella in the rain (plan 021)` and `7d18dd2 Qwen report: 021-kasa-umbrella.md` — not pushed, per the rules.
