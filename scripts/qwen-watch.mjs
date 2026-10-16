@@ -114,7 +114,7 @@ Do this:
 1. Read the plan and the diff (the whole changed scene code, not only the diff lines).
 2. Render the card from six angles: \`node scripts/orbit.mjs ${c.card ?? '<card id from the plan>'} --out .cache/review/${bare(name)}.jpg\` (add the plan's orbit flags if it gives any) and Read the picture.
 3. Inspect it: \`node scripts/inspect.mjs ${c.card ?? '<card id>'}${c.goalsFile ? ` --goals ${c.goalsFile}` : ''} --out .cache/review/${bare(name)}\`, read its report and Read faults.jpg and overview.jpg.
-Run each command on its own: only these commands are allowed, so a chain (&&, |, mkdir first) is refused. .cache/review/ already exists.
+Run each command on its own: only these commands are allowed, so a chain (&&, |, mkdir first) or "git -C <dir>" is refused (you are already in the repo). .cache/review/ already exists.
 4. Judge: does it do what the plan says, does it read to a child from the learner's seat, and is there any fault the plan doesn't want (floating, sunk, things through people, hidden key thing)?
 
 Only ask for fixes that matter for the card (no style preferences, no new ideas beyond the plan). Each fix must be concrete enough for Qwen: the file and function, what is wrong as you measured or saw it, and the change (numbers when you can). If the problem is the plan's design itself (the scene can't read well even when built exactly), answer needs_opus instead of asking Qwen to redesign.
@@ -140,7 +140,9 @@ function verdict(env) {
 async function review(name, base, c, round, retry) {
   mkdirSync('.cache/review', { recursive: true });
   writeFileSync(SETTINGS, JSON.stringify({ permissions: {
-    allow: ['Read', 'Glob', 'Grep', 'Bash(node scripts/orbit.mjs:*)', 'Bash(node scripts/inspect.mjs:*)', 'Bash(git diff:*)', 'Bash(git log:*)', 'Bash(git show:*)', 'Bash(npm test)'],
+    allow: ['Read', 'Glob', 'Grep', 'Bash(node scripts/orbit.mjs:*)', 'Bash(node scripts/inspect.mjs:*)', 'Bash(git diff:*)', 'Bash(git log:*)', 'Bash(git show:*)', 'Bash(npm test)',
+      // Claude Code on Windows runs commands through its PowerShell tool, which has its own rules
+      'PowerShell(node scripts/orbit.mjs:*)', 'PowerShell(node scripts/inspect.mjs:*)', 'PowerShell(git diff:*)', 'PowerShell(git log:*)', 'PowerShell(git show:*)', 'PowerShell(npm test)'],
     deny: ['Edit', 'Write', 'NotebookEdit', 'WebFetch', 'WebSearch'] } }, null, 1));
   const args = retry ? ['-p', '--resume', retry, '--model', MODEL, '--output-format', 'json', '--permission-mode', 'dontAsk', '--settings', SETTINGS]
     : ['-p', '--model', MODEL, '--effort', EFFORT, '--output-format', 'json', '--permission-mode', 'dontAsk', '--settings', SETTINGS];
