@@ -74,3 +74,4 @@ Watcher's checks: npm test passed; ## Goals: 10 of 13 PASS
   PASS nothing passes through her before the first hat (t+0 to t+1.4): 3 moments, e.g. t+0: nothing passes into it
   PASS nothing passes through her between the hats (t+4 to t+4.35): 1 moments, e.g. t+4: nothing passes into it
 ```
+## Outcome: NOT DONE: 4 Qwen rounds used (43.2 min, 0 Opus calls)
