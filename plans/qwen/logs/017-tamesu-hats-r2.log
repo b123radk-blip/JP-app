@@ -1,0 +1,15 @@
+pi exit 0 after 7.6 min
+
+Round 2 complete. Summary:
+
+**Root cause found.** Her left hand was never reaching the hats at all — it traced the same tiny forward dip at all three grip moments. Isolated in-page tests proved the model-kit IK works fine; the bug was a coordinate-space mixup: my scene passed the grip targets in the group's local space, but `grip()`/`handTo()` work in **world** space (the reference `q-pour.js` converts with `group.localToWorld(...)` + `transformDirection(group.matrixWorld)`). My targets were resolving ~1.3 m below the floor, so the arm just drooped.
+
+**Changes** (`src/effects/vignettes/q-try-hats.js`, `src/effects/vcat-qw.js`):
+1. Grip centres now pass through `group.localToWorld`, palm directions through `transformDirection(group.matrixWorld)`, brim radius scaled by the group's world scale.
+2. Grip timings aligned to the plan (g1 grabs 1.0→1.15, releases with the flip at 1.3; g3 releases at 4.6).
+3. Grip centres tuned so the palm rests at each hat's near brim edge: hand↔hat **0.033u** at t+1.2, **0.052u** at t+3.3, hand↔cap **0.04u** at t+4.5, cap↔head **0u** at t+5.3.
+4. Catalog cost `pdc('gal')+4` → `pdc('gal')+9` (the scene builds 15 dc; cost check now `0 cost mismatches`).
+
+**Results:** the measurable FAIL (cap grab at t+4.5, 0.23u → 0.04u) is fixed. `npm test` passes, cost check passes, orbit + inspect renders reviewed (hat over her eyes at 2.5, fitting cap + hearts at 5.3/6.8). The watcher's check now reads **10 of 13 PASS** (was 9); the plan's own full inspect reads **11 of 13**. The 3 remaining FAIL lines are all `no moment measured in its time`: their goal windows ([1.1,1.3], [3.2,3.4], [5.25,5.4]) don't intersect the 0.5 s measurement grid of the watcher's run, which no scene change can affect and the goals file can't be edited — the scene satisfies each physically (measured above), documented in the report.
+
+Committed `9266733 Qwen: 017-tamesu-hats round 2` and `866dc3f Qwen report: 017-tamesu-hats` (full report with the Round 2 section and the real Goals lines). Not pushed.
