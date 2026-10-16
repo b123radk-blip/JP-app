@@ -1,0 +1,22 @@
+import * as THREE from '../../../node_modules/three/build/three.module.js';
+const D = Math.PI / 180;
+const P = new THREE.Group(); P.position.set(1.0, 0.1, -0.2); P.rotation.set(20 * D, 30 * D, 0);
+const C = new THREE.Group(); C.position.set(0.2, 0, 0.1); C.rotation.set(0, 0, 90 * D); C.scale.setScalar(0.5);
+const G = new THREE.Object3D(); G.position.set(0, 0.3, 0);
+P.add(C); C.add(G);
+P.updateMatrixWorld(true);
+const t = (m) => [...m].map(v => v.toFixed(4)).join(', ');
+console.log('P.matrixWorld  :', t(P.matrixWorld.elements));
+console.log('C.matrix       :', t(C.matrix.elements));
+console.log('C.matrixWorld  :', t(C.matrixWorld.elements));
+console.log('G.matrix       :', t(G.matrix.elements));
+console.log('G.matrixWorld  :', t(G.matrixWorld.elements));
+const pc = new THREE.Matrix4().multiplyMatrices(P.matrixWorld, C.matrix);
+console.log('Pw*C (expect Cw):', t(pc.elements));
+const g = new THREE.Matrix4().multiplyMatrices(pc, G.matrix);
+console.log('Pw*C*G (expect Gw):', t(g.elements));
+const gw = new THREE.Vector3(); G.getWorldPosition(gw);
+console.log('getWorldPosition:', t(gw.toArray()));
+// A2: image of +y in world, from explicit product (rotation part only)
+const y = new THREE.Vector3(0, 1, 0).applyMatrix4(g).normalize();
+console.log('A2 image of +y :', t(y.toArray()));

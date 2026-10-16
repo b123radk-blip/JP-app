@@ -1,0 +1,10 @@
+[
+  { "goal": "right hand grips the crate", "point": "carrier right hand", "near": "crate", "within": 0.1, "t": [0, 6] },
+  { "goal": "left hand grips the crate", "point": "carrier left hand", "near": "crate", "within": 0.1, "t": [0, 6] },
+  { "goal": "crate held in front of him", "point": "crate", "near": "carrier chest", "within": 0.3, "t": [0, 6] },
+  { "goal": "carrier seen by the learner", "visible": "carrier", "min": 85, "t": [0, 6] },
+  { "goal": "the crate shows big", "big": "crate", "min": 10, "t": [0, 6] },
+  { "goal": "the crate is carried, not on the ground", "rests": "crate", "on": "carrier", "t": [0, 6] },
+  { "goal": "loop ends where it starts", "point": "crate", "near": [0.7, 0.52, 0.05], "within": 0.02, "t": [5.9, 6.0] },
+  { "goal": "nothing through the carrier", "clear": "carrier", "t": [0, 6] }
+]

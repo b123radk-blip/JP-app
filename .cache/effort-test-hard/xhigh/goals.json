@@ -1,0 +1,10 @@
+[
+  { "goal": "the right hand holds the crate on the walk out and back", "point": "hiker right hand", "near": "crate", "within": 0.1, "t": [0, 3.8] },
+  { "goal": "the crate rests on the ground at the stop", "rests": "crate", "on": "ground", "t": [4.5, 5.0] },
+  { "goal": "the hiker stands on the ground at the stop", "rests": "hiker", "on": "ground", "t": [4.5, 5.0] },
+  { "goal": "the hiker is seen", "visible": "hiker", "min": 85 },
+  { "goal": "the kanji is seen", "visible": "kanji", "min": 85 },
+  { "goal": "the crate shows big", "big": "crate", "min": 15 },
+  { "goal": "nothing passes through the hiker", "clear": "hiker", "except": ["crate"] },
+  { "goal": "nothing passes through the kanji", "clear": "kanji" }
+]
