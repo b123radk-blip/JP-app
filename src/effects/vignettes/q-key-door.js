@@ -1,10 +1,11 @@
 // 鍵 (plan 022, card w1260490): at night a man stands at his locked front door. Loop 8 s: 0-1.0 Idle, the door shut,
 // he holds his gold key up in front of him, the blade pointing at the door; it glints once at 0.5; 1.0-1.85 he
 // brings the key to the lock, the blade lining up and sliding straight in (the last 0.1u of the move along the
-// door's back direction), the tip 0.01u inside the door's face by 1.85; 1.85-2.3 he turns it a quarter turn (his hand
-// turns with it, the palm on the bow's flat side every frame); at 2.3 a click (a small yellow star at the lock);
-// 2.3-3.3 the door swings open 75° about its hinge onto the warm lit room, the key drawn out at 2.4 (0.1u back along
-// the blade, un-turned) and his hand lowered to about (0.70, 0.40, 0.12) by 3.0; 3.3-5.4 he looks at the open door,
+// door's back direction), the tip 0.01u inside the door's face by 1.85; 2.0-2.45 he turns it about 80° about its blade
+// (the ring sweeping round in the lock, his hand above the bow, the palm down every frame); at 2.45 a click (a small
+// yellow star at the lock); 2.45-3.0 he holds the turned key in the lock; 3.0-3.7 the door swings open 75° about its hinge onto the warm lit
+// room, the key drawn out at 3.0 (0.1u back along the blade, un-turned by 3.3) and his hand lowered to about
+// (0.70, 0.40, 0.12) by 3.55; 3.3-5.4 he looks at the open door,
 // pleased, and nods, the key in his hand; 5.4-6.4 the door swings shut; 6.4-8.0 Idle, the key back up in front of
 // him, so the loop ends where it began. He grips the key by its bow (palm against the ring's flat side, never the
 // fist round it); the key's pivot is its blade's tip.
@@ -66,12 +67,12 @@ function keyDoor(ctx, spec, stage) {
   const glint = burst(u, { s: 0.08, n: 5, color: 0xffffff });                   // the glint at 0.5
   const click = burst(u, { s: 0.12, n: 6, color: 0xffe060 });                   // the click at 2.3
   group.add(man.group, assembly, key, glint, click);
-  man.group.position.set(X(0.44), floor, 0.02 * u);
+  man.group.position.set(X(0.45), floor, -0.02 * u);
   man.group.rotation.y = 0.6;
   // the key's frame: blade along the door's back direction, ring in a vertical plane (its normal n1); the places
   // its bow visits (group space), from the lock's position on the door's face
   // the key's frame: blade along the door's front direction, ring in a vertical plane (its flat side toward the man)
-  const n1 = W2.copy(f).cross(UP);                                             // the ring's flat side, toward the man
+  const n1 = W2.copy(f).cross(UP);                                             // the ring's normal at rest, horizontal
   const qBase = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(f, UP, n1));
   const lockW = new THREE.Vector3(-0.15 * u, 0.44 * u, 0.026 * u).applyMatrix4(R).add(assembly.position);
   const bowLock = lockW.clone().addScaledVector(f, 0.151 * u);                   // the in-lock bow, door shut
@@ -84,28 +85,29 @@ function keyDoor(ctx, spec, stage) {
     group,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { approach: [1.0, 0.6], slide: [1.6, 0.25], turn: [1.85, 0.45], open: [2.3, 1.0],
-        pull: [2.4, 0.25], unturn: [2.4, 0.3], lower: [2.65, 0.35], close: [5.4, 1.0], raise: [6.4, 0.6] });
-      const ws = group.getWorldScale(W).y, r = 0.045 * u * ws;   // the ring's radius: the palm pinches the ring's outer band, the ring never in the fist
+      const T = timeline(v, { approach: [1.0, 0.6], slide: [1.6, 0.25], turn: [2.0, 0.45], open: [3.0, 0.7],
+        pull: [3.0, 0.3], unturn: [3.0, 0.3], lower: [3.15, 0.4], close: [5.4, 1.0], raise: [6.4, 0.6] });
+      // the palm pinches the ring's outer band from above: the radius shrinks as the ring tips toward horizontal,
+      // so the fist stays clear of the ring's band at every angle and the hand stays on the key
+      const ws = group.getWorldScale(W).y, amt = Math.abs(T.turn - T.unturn), r = (0.045 - 0.018 * amt) * u * ws;
       man.pose('Idle', t);
-      man.group.position.set(X(0.44), floor, 0.02 * u);
+      man.group.position.set(X(0.45), floor, -0.02 * u);
       man.group.rotation.y = 0.6;
       const look = between(v, 3.3, 3.6) * (1 - between(v, 5.1, 5.4));           // he looks at the open door
       man.turn('Head', 0, 1.0 * look, 0);
-      man.nod(0.8 * between(v, 3.4, 3.7) * (1 - between(v, 5.0, 5.3)), v);      // pleased
+      man.nod(0.8 * between(v, 4.0, 4.3) * (1 - between(v, 5.0, 5.3)), v);      // pleased
       // the door swings open 75° about its hinge, inward, away from the learner, and back
       hinge.rotation.y = -1.309 * (T.open - T.close);
-      // the key: held up -> to the lock, sliding straight in -> turned a quarter turn -> drawn out, un-turned,
-      // lowered -> up again (it leaves the lock at 2.4, as the door begins to swing)
-      const th = -Math.PI / 2 * (T.turn - T.unturn);                            // a quarter turn; the hand swings up, within his reach
+      // the key: held up -> to the lock, sliding straight in -> turned a quarter turn, held in the lock -> drawn
+      // out, un-turned, lowered -> up again (it leaves the lock at 3.0, as the door begins to swing)
+      const th = -1.4 * (T.turn - T.unturn);                                   // an 80° turn about the blade (in the lock)
       BOW.copy(P0).lerp(Palign, T.approach).lerp(bowLock, T.slide).lerp(Pout, T.pull).lerp(P3, T.lower).lerp(P0, T.raise);
       key.position.copy(BOW).addScaledVector(f, -0.165 * u);                    // the pivot is the blade's tip
-      key.quaternion.copy(qBase).multiply(Q.setFromAxisAngle(f, th));
-      // the palm under the bow (pinching the ring's outer band), turning with the key
-      const tw = W2.set(0, -1, 0).applyAxisAngle(f, th);
-      man.grip('L', group.localToWorld(BOW.clone()), tw, r, 1, { out: 0.6, down: 0.6 });
+      key.quaternion.copy(Q.setFromAxisAngle(f, th)).multiply(qBase);           // the world turn about the blade first, then the key's frame
+      // the palm above the bow (pinching the ring's outer band from above), steady through the turn
+      man.grip('L', group.localToWorld(BOW.clone()), W2.set(0, -1, 0), r, 1, { out: 0.6, down: 0.6 });
       pop(glint, pre ? 0 : bump(v, 0.35, 0.5), BOW.x, BOW.y + 0.03 * u, BOW.z);
-      pop(click, pre ? 0 : bump(v, 2.3, 0.4), lockW.x - 0.014 * u, lockW.y, lockW.z + 0.014 * u);   // in front of the lock
+      pop(click, pre ? 0 : bump(v, 2.45, 0.4), lockW.x - 0.014 * u, lockW.y, lockW.z + 0.014 * u);   // in front of the lock
     },
   };
 }
