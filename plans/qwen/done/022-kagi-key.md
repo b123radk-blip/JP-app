@@ -107,3 +107,35 @@ Last full run (`--times 0.5,2.0,3.5`, loop 8):
 Whole-loop scan (every 0.5 s): only the two lines above repeat (the lock "floats" all along except t+2.0, where it touches
 the key; the room light crosses the door at t+6). No body passes into anything, and the learner sees the man 100% and
 the kanji 100% at every moment.
+
+## Round 2
+
+The watcher's one remaining FAIL was "the key's blade is in the lock (t+1.85 to t+3.3)" — round 1 had left it failing because the plan's timing (key out of the lock at 2.4) contradicts the goal (in the lock until 3.3). This round keeps the blade in the lock until 3.3, as the goal requires.
+
+What I changed (all in `src/effects/vignettes/q-key-door.js`):
+- **Timing**: the door now swings open 3.0-3.7 (was 2.3-3.3), so at every goal moment (t+2.0, 2.5, 3.0) the door is still shut and the blade sits in the lock; by t+3.5 it is 50°+ open (goal 4 needs ≥ 0.06u at 3.5, 4.0, 4.5, 5.0). The key comes out 3.0-3.3 (0.1u along the blade, un-turned), the hand lowers to (0.70, 0.40, 0.12) by 3.55; the click moved to 2.45 (end of the turn); the look/nod follow the open door (3.9-5.3). The plan's beats "door swings 2.3-3.3 / key out at 2.4" are superseded by the goal's window (1.85-3.3) — the plan and the goal disagree and the goal wins.
+- **The turn's bug (found while fixing goal 2)**: `key.quaternion.copy(qBase).multiply(R)` applies the turn in the key's own frame, so the "turn about the blade" actually flipped the whole key (blade swung down, ring swept a wide arc, and the grip point BOW — the un-turned bow position — no longer sat on the ring). The hand then had to reach the turned key's real bow, 0.165u from where it grips, and goal 2 failed at t+2.5/3.0 by 0.06-0.07u no matter where I moved the man or the elbow pole. Fixed by applying the world turn first: `key.quaternion.copy(R).multiply(qBase)` — now the key truly spins in the lock about its blade (the ring sweeps round the keyhole, the bow stays put, the grip point stays on the ring).
+- **The turn is 80° instead of a full quarter turn, starting at 2.0 (2.0-2.45)**: with the key turned 90° the ring is a horizontal wheel, and a paddle fist cannot sit within 0.04u of the key's box AND clear of the ring's band at the same time (the box is only the tube's 0.024u thick in y, the fist is 0.066u thick) — the two goals are geometrically exclusive there. At 80° it works with a small clearance. The turn also starts after the t+2.0 scan moment, so the ring never sweeps through the hand between measured moments.
+- **The grip radius follows the turn**: `r = (0.045 - 0.018 * |turn|) * u * ws` — 0.045u (palm on the ring's outer band, as in round 1) while the ring is vertical, easing to 0.027u as the ring tips toward horizontal, so the fist stays just above the ring's band the whole turn (clear of it) and the hand stays ≤ 0.04u from the key.
+- **The palm no longer rotates with the key** (constant, straight down): the plan's "his hand turns with it" (full 90°) puts the fist 0.265u from the left shoulder — beyond his ~0.23u reach at the in-lock bow. The hand instead stays above the bow, pinching it from above through the whole turn, which is reachable and reads as a grip.
+- **The man's feet at (0.45, -0.02)** (was 0.44, 0.02): 0.01u toward the door and 0.04u back, so the raised hand (0.06-0.08u above the in-lock bow) stays within his arm's reach at t+2.5/3.0. "The key shows big" holds at 2% and the kanji stays 100% visible.
+
+Goals lines of the last inspect run (`--goals plans/qwen/goals/022-kagi-key.json --loop 8 --times 0.5,2.0,3.5`):
+```
+## Goals: 10 of 10 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS he holds the key by its bow at first (t+0 to t+1): 3 moments, e.g. t+0: 0u apart (needs ≤ 0.04)
+  PASS his hand stays on the key while it goes in and turns (t+1 to t+3.4): 5 moments, e.g. t+1: 0u apart (needs ≤ 0.04)
+  PASS the key's blade is in the lock (t+1.85 to t+3.3): 3 moments, e.g. t+2: 0u apart (needs ≤ 0.01)
+  PASS the door swings open (t+3.1 to t+5.4): 4 moments, e.g. t+3.5: 0.13u apart (needs ≥ 0.06)
+  PASS the door is shut at first (t+0 to t+2.2): 5 moments, e.g. t+0: 0u apart (needs ≤ 0.03)
+  PASS nothing passes through him (his hand against the key's bow, never through the door): 16 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees him: 16 moments, e.g. t+0: 99% visible (needs ≥ 85)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the key shows big: 16 moments, e.g. t+0: shows 2% as big as the kanji (needs ≥ 1)
+  PASS the door shows big (t+0 to t+2.2): 5 moments, e.g. t+0: shows 130% as big as the kanji (needs ≥ 40)
+```
+
+Whole-loop faults left, all intended: the lock "floats" 0.42u above the ground line (it is a keyhole on the door's face at y 0.44, not a floor object — same as round 1); the lock disc "sinks into" the gold key t+2 to t+3 (that is goal 3's state: the blade is in the lock, so the boxes overlap); the room light "sinks into" the door at t+6 (the door swings across the light panel while closing — same as round 1, the close-ups show the light correctly behind the door). No body passes into anything.
+
+Rounds (goal counts): initial rebuild with the plan's original timing: 9/10 (goal 3 FAIL, the round-1 state). Door delayed to 3.0-3.7, key in the lock until 3.0: 9/10 (goal 2 FAIL at t+2.5/3.0 — the turned key's real bow was out of the hand's reach because of the turn's quaternion bug). After the quaternion fix + 80° turn from 2.0 + grip radius easing + man at (0.45, -0.02): **10/10 PASS**.
