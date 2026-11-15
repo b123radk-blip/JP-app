@@ -67,6 +67,17 @@ project-trust question never comes up. To use the tools in your own pi chat in t
 `pi --extension scripts/pi/jp-tools.ts`. Tested with pi 1.3.0; the extension imports nothing from pi, so other versions
 should load it too.
 
+## Qwen's skills in pi
+
+`scripts/pi/skills/` holds short pi skills (one folder each with a `SKILL.md`): `fix-a-failing-goal` (the repair-round
+routine and what each fault means), `hold-a-prop` (palm-side grips, drinking), `wear-on-head-or-face` (`headR`/`wear`,
+`onEyes`), `pose-a-person` (clip order, the chibi models' limits) and `read-from-the-seat` (tilt flat tops, make the key
+thing big, framing). pi puts only each skill's name and one-line description in Qwen's prompt and Qwen reads the whole
+skill when it needs it, so they cost almost nothing until used. The watcher loads them with `--skill scripts/pi/skills`
+(outside `.pi/`, so no trust question). In your own pi chat: `pi --extension scripts/pi/jp-tools.ts --skill
+scripts/pi/skills`, then type `/skill:hold-a-prop` (any name) to load one by hand. Lessons that apply only to some
+cards go in a skill, not the cheat sheet.
+
 ## Where the time goes
 
 The watcher keeps pi's full session for each plan in `.cache/pi-sessions/<plan>/` (not committed: it holds the
@@ -79,7 +90,8 @@ same breakdowns.
 
 `plans/qwen/queue/<NNN>-<card>.md`, numbered so they run in order. Give: the card id, scene type, files and functions
 Qwen may change, what the scene must show, every position and size as numbers (multiples of `u`), the commit message,
-and any extra `orbit.mjs` flags. A plan runs once: the watcher writes a `NOT DONE` report when pi ends without one;
+and any extra `orbit.mjs` flags. Add a line `Skills: hold-a-prop, wear-on-head-or-face` naming the skills the card needs: the watcher
+tells Qwen to read those before it starts. A plan runs once: the watcher writes a `NOT DONE` report when pi ends without one;
 delete that report to run the plan again.
 
 Give every plan a goals file, `plans/qwen/goals/<plan>.json` (format at the top of `scripts/lib/goals.mjs`): each

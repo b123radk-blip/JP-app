@@ -74,11 +74,14 @@ function runPi(name, round, prompt, ms) {
   const extra = PI_ARGS.split(' ').filter(Boolean);
   if (round > 1 && REPAIR_THINKING) { const i = extra.indexOf('--thinking'); if (i >= 0) extra[i + 1] = REPAIR_THINKING; else extra.push('--thinking', REPAIR_THINKING); }
   const tools = existsSync('scripts/pi/jp-tools.ts') && !extra.some((a) => a.includes('jp-tools')) ? ['--extension', 'scripts/pi/jp-tools.ts'] : [];
-  const args = [...extra, ...tools, '--session-dir', sd, '-p', '@.cache/qwen-prompt.md', 'Go.'];
+  // the JP-app skills (scripts/pi/skills/*/SKILL.md): pi lists them by name and Qwen reads one when its job comes up
+  const skills = existsSync('scripts/pi/skills') && !extra.some((a) => a.includes('pi/skills')) ? ['--skill', 'scripts/pi/skills'] : [];
+  const args = [...extra, ...tools, ...skills, '--session-dir', sd, '-p', '@.cache/qwen-prompt.md', 'Go.'];
   return run(process.env.PI_CMD || 'pi', args, { ms }).then((r) => ({ ...r, sd }));
 }
-const firstPrompt = (name) => `Read plans/qwen/README.md (your standing rules), plans/qwen/CHEATSHEET.md (how to build a scene and use your tools check_goals, measure and try_value) and then the plan plans/qwen/queue/${name}, and do exactly what the plan says. Finish with your report in plans/qwen/done/${name}, committed, as the rules say. Do not push.\n`;
-const fixPrompt = (name, round, why) => `Read plans/qwen/README.md (your standing rules), plans/qwen/CHEATSHEET.md (your tools: measure the things a FAIL names before changing a number) and the plan plans/qwen/queue/${name}. You already worked on this plan (your commits and your report plans/qwen/done/${name}, if it is there). This is round ${round}. The watcher checked your work, and this is what is still wrong:\n\n${why}\n\nFix exactly these, in the files the plan lets you change, in the plan's style. Run the checks again as the rules say (with the goals file when the plan has one). Commit the code as "Qwen: ${bare(name)} round ${round}". Then add a section "## Round ${round}" at the end of your report (create the report as the rules say if it is missing): what you changed, and the real Goals lines of your last inspect run. Commit the report. Do not push, and never edit the goals file or the plan.\n`;
+const skillsFor = (plan) => { const m = plan.match(/^Skills:\s*(.+)$/m); return m ? ` Before you start, read the SKILL.md of each skill the plan names (${m[1].trim()}); read any other listed skill when its job comes up.` : ' Read a listed skill (scripts/pi/skills) when its job comes up.'; };
+const firstPrompt = (name, plan = '') => `Read plans/qwen/README.md (your standing rules), plans/qwen/CHEATSHEET.md (how to build a scene and use your tools check_goals, measure and try_value) and then the plan plans/qwen/queue/${name}, and do exactly what the plan says.${skillsFor(plan)} Finish with your report in plans/qwen/done/${name}, committed, as the rules say. Do not push.\n`;
+const fixPrompt = (name, round, why, plan = '') => `Read plans/qwen/README.md (your standing rules), plans/qwen/CHEATSHEET.md (your tools: measure the things a FAIL names before changing a number), your skill fix-a-failing-goal, and the plan plans/qwen/queue/${name}.${skillsFor(plan)} You already worked on this plan (your commits and your report plans/qwen/done/${name}, if it is there). This is round ${round}. The watcher checked your work, and this is what is still wrong:\n\n${why}\n\nFix exactly these, in the files the plan lets you change, in the plan's style. Run the checks again as the rules say (with the goals file when the plan has one). Commit the code as "Qwen: ${bare(name)} round ${round}". Then add a section "## Round ${round}" at the end of your report (create the report as the rules say if it is missing): what you changed, and the real Goals lines of your last inspect run. Commit the report. Do not push, and never edit the goals file or the plan.\n`;
 
 // the watcher's own checks, after Qwen stops: npm test, then the goals (numbers only)
 async function check(name, plan) {
@@ -173,7 +176,7 @@ async function doPlan(name) {
     if (round > ROUNDS) { outcome = `NOT DONE: ${ROUNDS} Qwen rounds used`; break; }
     if (Date.now() - t0 > PLAN) { outcome = `NOT DONE: the plan's ${mins(PLAN)} min are used`; break; }
     say(`## Round ${round}: Qwen ${round === 1 ? 'builds' : 'fixes'}`);
-    const r = await runPi(name, round, round === 1 ? firstPrompt(name) : fixPrompt(name, round, why), Math.min(round === 1 ? first : later, PLAN - (Date.now() - t0)));
+    const r = await runPi(name, round, round === 1 ? firstPrompt(name, plan) : fixPrompt(name, round, why, plan), Math.min(round === 1 ? first : later, PLAN - (Date.now() - t0)));
     mkdirSync(L, { recursive: true }); mkdirSync(D, { recursive: true }); mkdirSync(LOOP, { recursive: true });
     const sfx = round > 1 ? `-r${round}` : '', status = r.timedOut ? 'timed out' : r.code ?? r.signal ?? r.error;
     writeFileSync(`${L}/${bare(name)}${sfx}.log`, `pi exit ${status} after ${mins(r.ms)} min\n\n${r.out.trim()}\n`);

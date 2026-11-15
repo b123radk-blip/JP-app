@@ -84,6 +84,10 @@ pi gives you three tools for this repo (plans/qwen/CHEATSHEET.md has the details
 - `try_value` (card, file, changes, goals): tries exact-text edits and shows which goals and faults change, then puts the
   file back. Keep a change that works by making the same edit with your edit tool.
 
+pi also lists five short skills (`scripts/pi/skills/`): `fix-a-failing-goal`, `hold-a-prop`, `wear-on-head-or-face`,
+`pose-a-person`, `read-from-the-seat`. Read each one the plan's `Skills:` line names before you start, and any other
+when its job comes up.
+
 ## The report
 
 ```

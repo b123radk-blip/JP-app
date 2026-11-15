@@ -50,8 +50,7 @@ Register the scene in `vignettes/index.js` and its catalog entry where the plan 
 - Turn the whole person: `a.group.rotation.y` (0 faces the viewer; `-Math.PI / 2` faces left, toward the kanji).
 - Reach: `a.handTo('R', worldPoint, k)`. Point in the person's own frame: `a.local(x, y, z)` (in heights, x to its
   left, z to its front).
-- Hold a thing: `a.grip('R', centre, toward, r, k)` then `a.hold(prop, 'R', group, r)`. The palm rests against the
-  thing (radius r, world units). It never goes inside the fist, because the fist has no fingers.
+- Hold a thing: `a.grip('R', centre, toward, r, k)` then `a.hold(prop, 'R', group, r)` (skill `hold-a-prop`).
 - Gestures (k from 0 to 1): `toMouth sip toEar cupEar shadeEyes wave point holdOut bow nod shake write`.
 - Bend: `a.turn('Abdomen' | 'Torso' | 'Head', ax, ay, az)` (+ax tips forward).
 - Body points: `a.at('mouth' | 'eyes' | 'earR' | 'chest' | 'lap' | 'over')`.
@@ -60,18 +59,8 @@ Register the scene in `vignettes/index.js` and its catalog entry where the plan 
 
 - `solidProp([[G.box(w, h, d, x, y, z), 0xcolor], [G.cyl(rTop, rBot, h, x, y, z), 0xcolor]], glow)` from
   `pieces/kit-rig.js` and `pieces/shape-kit.js`. Sizes are in world units, so multiply by u.
-- **Anything worn on a head** (hat, cap, helmet): never guess its size or place. Size it from the real head with
-  `a.headR(depth)` (the head and hair's radius `depth` below its top, in heights; times `ADULT * u` for world units)
-  and put it on every frame with `a.wear(hat, group, r)`: it slides a hat whose rim's inner radius is r (heights) down
-  the head until it fits, centred on the crown and turned with the head (the hat's pivot is the middle of its rim).
-  Example: the 試 cap, `r = a.headR(0.11) + 0.01`; a big hat that drops over the eyes, `a.headR(0.21) + 0.012`.
-  A `fits` goal measures it: how much of the head and hair the hat covers, how far hair sticks out, how far off-centre.
-  If it FAILs, change r or the hat's height; never shrink the head.
-- **Anything worn on the face** (glasses, a mask): `a.shape().eyes` gives the measured eyes (in heights: `apart` from
-  the outer edge of one eye to the other's, `half` half the face's width at the eyes, `z` the face's front); put it on
-  every frame with `a.onEyes(thing, group, { out })` (its pivot goes to the middle of the eyes, `out` in front of the
-  face, turned with the head). Goals can name the point `<person> eyes`. `held.jpg` (inspect without `--quick`) shows
-  everything worn or held close up from the front and both sides: look at it.
+- **Anything worn on a head or face** (hat, cap, glasses, mask): load the skill `wear-on-head-or-face` first. Never
+  size or place it by hand.
 - **Name every prop the goals or the plan mention**: `glass.name = 'glass'`. Goals and `measure` find things by name;
   an unnamed thing shows up only as a colour.
 - Effects that fly on purpose (stars, hearts, bursts): `burst(u)`, `stars(u)`, `heart(u)` from `pieces/kit-things.js`.
@@ -83,11 +72,15 @@ Register the scene in `vignettes/index.js` and its catalog entry where the plan 
 `between(v, a, b)`: 0 before a, rising to 1 at b. `bump(v, at, dur)`: 0, then up to 1 and back down. `timeline(v,
 { beat: [at, dur, 'out'] })` for eased beats (`smooth`, `in`, `out`, `back`, `bounce`).
 
-## Common faults and their fixes
+## Skills (load one when its job comes up)
 
-- A FLOATS ABOVE / SUNK INTO gap of N u: move that thing's y by exactly N u, the other way.
-- A hand that doesn't reach: check the arm length with `measure` (shoulder to hand). If the target is farther away,
-  move the person closer. Don't stretch the arm.
-- A person under 85% visible: something sits between them and the viewer. Move the thing aside or the person forward
-  (+z).
-- Something passes through a body: `measure` both at that moment and move one by the overlap plus 0.02 u.
+pi lists these skills with your tools; read a skill's SKILL.md when the plan names it (a `Skills:` line) or when its job
+comes up. Each is short.
+
+| Skill | When |
+|---|---|
+| `fix-a-failing-goal` | any FAIL or whole-loop fault, every repair round |
+| `hold-a-prop` | a hand on a thing: hold, carry, pour, drink, hand over |
+| `wear-on-head-or-face` | a hat, cap, helmet, glasses or mask |
+| `pose-a-person` | clips, reaching, bending, sitting, gestures; a pose that looks wrong |
+| `read-from-the-seat` | judging overview.jpg; a `big` or `faces` goal fails |
