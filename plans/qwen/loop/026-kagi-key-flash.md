@@ -29,3 +29,18 @@ Opus: fix (list-price estimate $0.53: on a subscription it is not billed per cal
 - F4 (q-key-door.js, keyDoor(): the door group (YAW, DX, DZ) and the room-light panel): There is no door frame. The room panel is a free plane 0.4u behind, and at t+0.5 (door shut) it already shows as a bright strip to the left of the door, so the light is no reveal. DZ is computed from `floor` (a y value), and YAW is -0.25, not -π/4. -> doorGroup.rotation.y = -Math.PI/4, with the door's middle at x 0.95u and z -0.1u (DZ = -0.1*u; drop floor from it). Add the 'door frame' (dark wood #4a2e1a: two posts and a lintel round a 0.42 x 0.85u opening). Make the door 0.42 x 0.85 x 0.04u, hinged at its right edge. Put the warm panel (#ffd27a, glow high) just behind the opening, inside the frame and no wider than it, so the shut door hides it fully and it only shows when the door swings open.
 - F5 (q-key-door.js, step(): the timeline, OPEN and the grip call): The timing is off-plan: the door opens 3.0-3.5 by 65°, the click comes at 2.5 and the key comes out at 2.75. The glint pops at the lock, not on the key. The grip radius (R + TUBE) * u multiplies by u twice (R already includes u). -> Follow the plan: key in 1.0-1.7 (the last 0.1u straight along the door's back direction, tip in by 1.85); quarter turn 1.85-2.3; click star at the lock at 2.3; door opens 75° over 2.3-3.3; key drawn out 0.1u along the blade at 2.4, then lowered by 3.0; nod 3.3-5.4; door shuts 5.4-6.4; key back up by 8.0. Put the glint (t 0.5) on the key's bow. Call grip('L', bowPoint, toward, 0.012*u) with the palm against the bow's flat side. Re-run check_goals, then inspect --loop 8, and look at held.jpg.
 
+## Round 2: Qwen fixes
+pi (flash, --thinking xhigh): 0 after 11.2 min.
+Watcher's checks: npm test passed; ## Goals: 7 of 10 PASS
+```
+  PASS he holds the key by its bow at first (t+0 to t+1): 3 moments, e.g. t+0: 0.02u apart (needs ≤ 0.04)
+  FAIL his hand stays on the key while it goes in and turns (t+1 to t+3.4): fails at t+2.5 of 5 moments; t+2.5: 0.08u apart (needs ≤ 0.04)
+  FAIL the key's blade is in the lock (t+1.85 to t+3.3): fails at t+3 of 3 moments; t+3: 0.44u apart (needs ≤ 0.01)
+  PASS the door swings open (t+3.1 to t+5.4): 4 moments, e.g. t+3.5: 0.13u apart (needs ≥ 0.06)
+  PASS the door is shut at first (t+0 to t+2.2): 5 moments, e.g. t+0: 0u apart (needs ≤ 0.03)
+  FAIL nothing passes through him (his hand against the key's bow, never through the door): fails at t+3.5 to t+4.5, t+5.5 of 16 moments; t+3.5: model guy3 PASSES INTO mesh gold key (yellow #e0b030) (its own: the hand is inside what it holds): 5 skin points inside it, near the bones FistL; t+4.5: model guy3 PASSES INTO mesh gold key (yellow #e0b030) (its own: the hand is inside what it holds): 4 skin points inside it, near the bones FistL; t+5.5: model guy3 PASSES INTO mesh gold key (yellow #e0b030) (its own: the hand is inside what it holds): 7 skin points inside it, near the bones FistL
+  PASS the learner sees him: 16 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the key shows big: 16 moments, e.g. t+0: shows 2% as big as the kanji (needs ≥ 1)
+  PASS the door shows big (t+0 to t+2.2): 5 moments, e.g. t+0: shows 97% as big as the kanji (needs ≥ 40)
+```
