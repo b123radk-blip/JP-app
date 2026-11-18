@@ -122,3 +122,99 @@ The last run lists no POSSIBLE FAULTS lines at all — the whole-loop scan says 
 - Feet: the report says `touches the ground line` for gal2 at all four moments (her bounding box's bottom reads 0, or
   -0.01 at t+3.5 where she leans in her sway — 1% of the kanji's height, and the scan lists no `SUNK INTO`), and the
   closed umbrella's shaft bottom 0.01 / canopy bottom -0.02: the plan asks for "the tip a little off the floor".
+
+## Round 3
+
+Round line: Opus's F1 + F2 + F3 -> **9 of 9 PASS**, 0 faults over the whole loop.
+
+Only `src/effects/vignettes/q-umbrella.js` changed (the catalog line and the goals file untouched).
+
+**F1 - the rain was one sawtooth line.** `rnd(i, k)` multiplied `i` by the same 7919 for every slot, so a drop's x, z and
+phase were all the same fraction of `i`: 90 drops on one diagonal line, 0.39u wide at t+1.4.
+`rnd = (i, k) => { const s = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453; return s - Math.floor(s); }` (still pure),
+and the spread back to the plan's own box: `xs.push(X(0.05 + 1.1 * rnd(i, 1)))` (was 1.2), `zs.push(-0.2 + 0.5 * rnd(i, 2))`
+(was 0.55). The rain pool's box is now 1.13u wide x 1.66u deep centred at x 0.6, and in the t+1.4 and t+3.5 renders the
+drops cover the whole panel, several of them over her head.
+
+**F2 - the canopy hid her face.** Two problems: it leaned 0.5 rad (29°) at the learner, so its front rim dropped to y 0.73
+(below her eyes at 0.74), and her fist held the grip at (0.56, 0.60) right in front of her chin.
+
+- `HOLD = [-0.18, 0.74, 0.04]` (was `[-0.033, 0.69, 0.05]`): the hand moves to her right side and up. Measured up-pose
+  hand: (0.43-0.46, 0.57-0.58, 0.01), the plan's (0.42, 0.58 to 0.75, 0.06); her head is at x 0.64-0.68, so the fist is
+  0.2u to the learner's left of her face and behind its front plane (eyes z 0.07-0.09), not in front of her chin.
+- `umb.rotation.set(0.10 * e - 1.1 * (1 - e), 0, (Math.PI + 0.06) + e * (Math.PI - 0.32))`: the lean toward the viewer
+  is the `0.10 * e` term (was 0.5), and the z term now ends at 2π - 0.26, so the shaft leans *in* over her head instead
+  of out.
+- That lean alone could not lift the canopy high enough (the shaft was only 0.33 heights to the canopy's middle, and the
+  tilted rim drops about 0.08u), so the umbrella is now the plan's size: `SHAFT = 0.42, TOP = 0.545, CAN = 0.50, CR = 0.33`
+  (was 0.20 / 0.35 / 0.33 / 0.30), the shaft cylinder centred at 0.34 instead of 0.23, and the closed bundle hugs the
+  shaft at `lerp(0.30, CAN, open)` instead of `lerp(0.24, ...)`. Measured at t+2.5, 3.5, 4.5, 6.0, 6.9: canopy centre
+  [0.54-0.60, 1.10, 0.03-0.04] (plan: x 0.52-0.6, y 1.05 or more, z 0), canopy bbox bottom 0.98-1.00 against her head top
+  0.93-0.94 -> the lowest rim point is 0.05-0.06u above her crown at every up moment, and her eyes (0.74-0.75) are
+  0.23u below it. The close-up `look-0.55_0.8_0-front-t3.5.jpg` shows the shaft passing beside her head (a clear gap, the
+  goal `nothing passes through her` reports nothing inside her at all 19 moments) and her whole face free of both the
+  canopy and her fist.
+- The longer umbrella hung through the floor when closed (shaft bottom -0.11 at t+0.4), so the closed pose tilts further
+  toward the learner: -1.1 rad instead of -0.72. Measured closed: shaft bottom 0.02, canopy bottom 0.07, tip a little off
+  the floor as the plan says, at z 0.46 in front of her feet.
+
+**F3 - the splash was a blue hat.** `rainK * (1 + 2 * sp)` on top of `K = 1.7` grew a landed drop to 3x and held it for
+0.18 s, so hits near the apex stacked into a cone the size of her head. Now
+`k = sp < 1 ? rainK * (1 + 0.4 * sp) * (1 - sp) : 0` with the splash window 0.12 s: the fleck is at most 0.6x a falling
+drop and shrinks to nothing. Its y is now taken on the tilted cone at the drop's own x and z - the cone's axis
+(`canopy.getWorldQuaternion`), its rim middle `b = cp - axis * h/2`, then `hit = b.y + ax.y * h * (1 - d / R)` - and the
+radius and height are multiplied by `ADULT * u`, because the umbrella is built in her heights while the rain is in world
+units (the old code compared world distances with unscaled local radii). `look-0.6_1.1_0.03-front-t4.5.jpg` shows small
+blue flecks sitting on the red canopy with a few drops bouncing off its edge; nothing stands up from it.
+
+## Round 3 checks (the real lines)
+
+```
+$ node --check src/effects/vignettes/q-umbrella.js
+(no output)
+```
+```
+npm test: ℹ tests 64 / ℹ pass 63 / ℹ fail 0 / ℹ skipped 1
+content check ok: 855 cards (282 kanji, 573 words), 1 enabled deck(s), 1670 audio clips
+deck n5: 855 recipes (573 words), 0 cards with no recipe yet (default animation)
+  0 pair(s) at or above 0.72
+recipe check ok
+```
+```
+$ node scripts/check-piece-costs.mjs vignette "^q-umbrella$"
+701 recipes, 0 cost mismatches
+```
+```
+$ node scripts/inspect.mjs w1301940 --goals plans/qwen/goals/025-kasa-umbrella-flash.json --loop 8 \
+    --times 0.4,1.4,3.5,7.6 --out plans/qwen/renders/021-kasa-umbrella
+
+## Goals: 9 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS her right hand holds the umbrella's handle at first (t+0 to t+1): 4 moments, e.g. t+0: 0u apart (needs ≤ 0.04)
+  PASS her right hand holds the handle while it is up (t+1.8 to t+7.5): 12 moments, e.g. t+2: 0u apart (needs ≤ 0.04)
+  PASS the open canopy is just above her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0.05u apart (needs ≤ 0.25)
+  PASS the open canopy covers her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0.05u apart (needs ≤ 0.2)
+  PASS nothing passes through her (shaft, canopy and handle outside her; her hand against the handle, not in it): 19 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees her: 19 moments, e.g. t+0: 100% visible (needs ≥ 75)
+  PASS the learner sees the kanji: 19 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the open umbrella shows big (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: shows 31% as big as the kanji (needs ≥ 25)
+  PASS rain falls (t+0.6 to t+6.4): 12 moments, e.g. t+1: 1 of 1 rain within 1.5u of gal2 (needs ≥ 1)
+
+## The whole loop, every 0.5 s from t+0 to t+7.5 (numbers only; the T ids differ from moment to moment)
+
+  no measured faults at any moment
+```
+
+## Round 3: what I see in the pictures
+
+- `overview.jpg` t+0.4: the closed umbrella hangs from her right fist, tip a little off the floor in front of her feet,
+  crook below the fist. t+1.4: rain over the whole panel, drops on her head and shoulders, her left hand over her
+  forehead, the umbrella mid-swing to her left. t+3.5: the red canopy over her head, the shaft down to her fist beside
+  her head, rain falling all round it, her face clear. t+7.6: closed again, lowered across her chest toward her side.
+- `025-kasa-umbrella-flash.jpg` (t+0.5, t+1.5, six angles) and `025-kasa-umbrella-flash-round3.jpg` (t+3.5, t+4.5, six
+  angles, --dist 0.75): nothing floats, nothing sunk, nothing through her body; the top tiles show the splashes as small
+  flecks on the canopy.
+- `held.jpg`: the palm on the wooden grip in both poses, the crook hanging past the fist, nothing inside the hand.
+- Still open (not a fault, and not something F1-F3 asked for): at t+1.4 the swinging closed bundle reaches x 1.08, near
+  the edge of the learner's panel for a moment, and the ferrule tip pokes ~0.03u above the canopy's apex cap, which from
+  a very close look reads as a thin spike on top of the umbrella.
