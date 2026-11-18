@@ -10,7 +10,7 @@
 //   --model: which Qwen runs (a name in scripts/qwen-models.json: its pi flags, repair thinking and round minutes); a
 //   plan's own line "Model: flash" wins for that plan. Every log, loop record and plans/qwen/results.md row names it.
 //   --once: one pass, then exit; --every: seconds between pulls; --minutes: Qwen's first round; --fix-minutes: each later
-//   round; --rounds: Qwen rounds in all; --reviews: Opus calls in all (a retry for a bad answer counts); --plan-minutes:
+//   round; --rounds: Qwen rounds in all; --reviews: Opus calls in all (a retry for a malformed answer is extra); --plan-minutes:
 //   the whole plan; --no-review: no Opus; --review-api: allow Opus to run on ANTHROPIC_API_KEY (billed) when it is set.
 //   REPAIR_THINKING: pi's --thinking for repair rounds (default: the model's repairThinking; empty: same as its pi flags);
 //   PI_ARGS: pi's model flags (replaces the model's; its name in the logs becomes "custom"); PI_CMD: the pi command (default pi); CLAUDE_CMD (default
@@ -211,7 +211,7 @@ async function doPlan(name) {
     if (!lastCheck.ok) { why = checkText(lastCheck) + (g ? `\n\nAlso: the watcher ${g}.` : ''); push(name, rec); continue; }
     if (reviewOff) { outcome = `CHECKS PASS, NOT REVIEWED (review ${reviewOff})`; break; }
     let v = null;
-    for (let tries = 0; tries < 2 && reviews < REVIEWS; tries++) {
+    for (let tries = 0; tries < 2 && (tries || reviews < REVIEWS); tries++) {   // a retry for a malformed answer is always allowed
       reviews++; say(`Opus reviews (call ${reviews} of ${REVIEWS})`);
       v = await review(name, base, lastCheck, round, tries ? v?.session : null);
       rec.push(`Opus: ${v.error ?? v.decision}${v.cost != null ? ` (list-price estimate $${v.cost.toFixed(2)}: on a subscription it is not billed per call)` : ''}${v.denials?.length ? `; denied: ${v.denials.join(', ')}` : ''}`);
