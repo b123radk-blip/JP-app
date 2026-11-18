@@ -1,0 +1,12 @@
+[
+ {"goal": "he holds the key by its bow at first", "point": "guy3 left hand", "near": "gold key", "within": 0.04, "t": [0, 1.0]},
+ {"goal": "his hand stays on the key while it goes in and turns", "point": "guy3 left hand", "near": "gold key", "within": 0.04, "t": [1.0, 3.4]},
+ {"goal": "the key's blade is in the lock", "point": "gold key", "near": "lock", "within": 0.01, "t": [1.85, 3.3]},
+ {"goal": "the door swings open", "point": [0.95, 0.42, -0.1], "near": "door", "beyond": 0.06, "t": [3.1, 5.4]},
+ {"goal": "the door is shut at first", "point": [0.95, 0.42, -0.1], "near": "door", "within": 0.03, "t": [0, 2.2]},
+ {"goal": "nothing passes through him (his hand against the key's bow, never through the door)", "clear": "guy3"},
+ {"goal": "the learner sees him", "visible": "guy3", "min": 85},
+ {"goal": "the learner sees the kanji", "visible": "kanji", "min": 95},
+ {"goal": "the key shows big", "big": "gold key", "min": 1},
+ {"goal": "the door shows big", "big": "door", "min": 40, "t": [0, 2.2]}
+]
