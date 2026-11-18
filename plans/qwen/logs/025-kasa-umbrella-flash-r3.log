@@ -1,0 +1,20 @@
+model flash (Qwen 3.8 Flash Next (gyro M quant, strata)): pi --provider strata --model strata --thinking xhigh --extension scripts/pi/jp-tools.ts --skill scripts/pi/skills
+pi exit 0 after 5.2 min
+
+Done. Round 3 committed (not pushed).
+
+**Code** — `src/effects/vignettes/q-umbrella.js` only:
+
+- **F1 rain spread:** `rnd(i,k)` is now a per-slot hash (`sin(i*12.9898 + k*78.233)*43758.5453`), and the box back to the plan's `X(0.05 + 1.1*rnd(i,1))`, z `-0.2 + 0.5*rnd(i,2)`. The rain pool is now 1.13u × 1.66u centred at x 0.6 (was a 0.39u column); the t+1.4 / t+3.5 renders show drops over the whole panel, several over her head.
+- **F2 up pose:** `HOLD = [-0.18, 0.74, 0.04]` (hand measured at 0.43–0.46, 0.57–0.58, 0.01 — beside her head on her right, behind the face plane, no longer in front of her chin); lean to the viewer `0.5*e → 0.10*e`, and the z term ends at 2π−0.26 so the shaft leans *in*. To reach the plan's canopy height the umbrella is now the plan's size (`SHAFT 0.42, TOP 0.545, CAN 0.50, CR 0.33`, shaft cylinder centred 0.34, closed bundle `lerp(0.30, CAN)`). Measured at t 2.5/3.5/4.5/6.0/6.9: canopy centre x 0.54–0.60, y 1.10, z 0.03–0.04; its lowest point 0.98–1.00 vs head top 0.93–0.94 → 0.05–0.06u clear at every up moment, eyes 0.23u below it. The longer bundle hung through the floor when closed (−0.11), so the closed tilt went to −1.1 rad: tip now 0.02 above the floor.
+- **F3 splash:** `rainK * (1 + 0.4*sp) * (1 - sp)` over 0.12 s (max 0.6× a falling drop, shrinking to nothing), placed on the tilted cone at the drop's own x/z via the canopy's world axis and rim middle, with the radius/height scaled by `ADULT * u` (the old code compared world distances with unscaled local radii). The t+4.5 close-up shows small flecks on the red canopy, nothing standing up.
+
+**Checks:** `node --check` clean; `npm test` 63 pass / 0 fail, recipe check ok; `check-piece-costs.mjs vignette "^q-umbrella$"` → `0 cost mismatches`; orbit + full inspect. Last inspect:
+
+```
+## Goals: 9 of 9 PASS
+  ... (all nine PASS, e.g. canopy 0.05u above her head, big 31%, rain falls)
+  no measured faults at any moment
+```
+
+Report updated with a `## Round 3` section (changes, real Goals lines, what the pictures show, and two still-open notes: the mid-swing bundle reaching x 1.08 for a moment, and the ferrule tip poking ~0.03u above the canopy apex).
