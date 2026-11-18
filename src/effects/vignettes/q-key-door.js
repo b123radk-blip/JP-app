@@ -1,11 +1,12 @@
-// 鍵 / カギ (q-key-door): at night a man stands at his shut front door. He pinches his gold key by its bow (palm against
-// its flat side, never round it), puts the blade into the lock on the door's latch edge, turns it a quarter turn - click -
-// and the door swings open inward onto a warm lit room. He draws the key out and lowers his hand, looks at the open door
-// and nods; the door shuts and he lifts the key again, so the loop ends where it started.
+// 鍵 / カギ (q-key-door): at night a man stands at his shut front door. He pinches his gold key by its bow (palm pressed
+// on its top edge from above, never round it), puts the blade into the lock on the door's latch edge, turns it a quarter
+// turn - click - and the door swings inward onto a warm lit room. He draws the key out toward himself and lowers his hand,
+// looks at the open door and nods; the door shuts and he lifts the key again, so the loop ends where it started.
 // Loop 8 s: 0-1.0 Idle, the key held up in front of him (it glints once at 0.5); 1.0-1.7 he brings it to the lock, the
 // last 0.1u straight along the door's back direction, the tip in by 1.85; 1.85-2.3 a quarter turn about the blade, the
-// click at the lock at 2.3; 2.3-3.3 the door swings open 75° about its hinge, the key drawn back 0.1u along the blade at
-// 2.4 and his hand lowered by 3.0; 3.3-5.4 he nods at the open door; 5.4-6.4 the door swings shut; 6.4-8.0 the key back up.
+// click at the lock at 2.3; 2.9-3.8 the door swings open 75° about its hinge (it starts slowly, so the key still shows
+// against it), the key drawn out of the lock toward his chest from 3.32 and down by 3.9; 3.8-5.4 he nods at the open door;
+// 5.4-6.4 the door swings shut; 6.4-8.0 the key back up.
 // The door, its knob and its lock ride on a pivot at the hinge (its right edge) and swing inward, away from the learner;
 // the frame and the light panel stand behind the opening, so the light only shows when the door opens. The key's pivot is
 // its blade's tip, so putting the tip puts the key in the lock.
@@ -85,7 +86,7 @@ export function keyDoor(ctx, spec, stage) {
   const A1 = new THREE.Vector3(), A2 = new THREE.Vector3(), A3 = new THREE.Vector3(), A4 = new THREE.Vector3();
   const A5 = new THREE.Vector3(), A6 = new THREE.Vector3(), A7 = new THREE.Vector3(), A8 = new THREE.Vector3();
   const A9 = new THREE.Vector3(), A10 = new THREE.Vector3(), A11 = new THREE.Vector3(), A12 = new THREE.Vector3();
-  const A13 = new THREE.Vector3(), A14 = new THREE.Vector3(), A15 = new THREE.Vector3();
+  const A15 = new THREE.Vector3();
   const m4 = new THREE.Matrix4(), m5 = new THREE.Matrix4();
   // A door-local point (x across the panel from the hinge, y above the ground, z out through its face) at the open angle.
   const at = (px, py, pz, o, out) => {
@@ -99,15 +100,15 @@ export function keyDoor(ctx, spec, stage) {
     group, loop,
     step(t) {
       const A = acts(ctx, t, loop), pre = A.u < 0, v = pre ? -1 : A.v;
-      const T = timeline(v, { in: [1, 0.7], slide: [1.6, 0.25], turn: [1.85, 0.45], open: [2.3, 1],
-        out: [2.4, 0.5], down: [2.5, 0.5], shut: [5.4, 1], back: [6.4, 1.6] });
+      const T = timeline(v, { in: [1, 0.7], slide: [1.6, 0.25], turn: [1.85, 0.45], open: [2.9, 0.9],
+        out: [3.32, 0.5], shut: [5.4, 1], back: [6.4, 1.6] });
       pivot.rotation.y = -(T.open - T.shut) * OPEN;
       doorGroup.updateWorldMatrix(true, true);
       who.pose('Idle', t);                       // after the transforms, so the bones' world matrices are fresh
       const look = T.in * (1 - T.back);
       who.turn('Torso', 0, 0.12 * look, 0);
       who.turn('Head', 0, 0.22 * look, 0);       // he watches his hand go in, and the door as it opens
-      who.nod(pre ? 0 : between(v, 3.3, 3.8) * (1 - between(v, 4.9, 5.4)), v - 3.3);   // pleased with the open door
+      who.nod(pre ? 0 : between(v, 3.8, 4.3) * (1 - between(v, 4.9, 5.4)), v - 3.8);   // pleased with the open door
 
       const open = (T.open - T.shut) * OPEN;
       const face = at(LK, KY, DT / 2, open, A1);                       // the keyhole, on the face, swinging with the door
@@ -115,7 +116,7 @@ export function keyDoor(ctx, spec, stage) {
       const bowIn = A3.copy(face).addScaledVector(nrm, BLADE + R - 0.01 * u);   // blade straight in: the tip 0.01u inside
       const bowTouch = A4.copy(bowIn).addScaledVector(nrm, 0.1 * u);            // the blade at the face, not in yet
       const bow = A5.copy(rest).lerp(bowTouch, T.in).lerp(bowIn, T.slide);      // the last 0.1u along the door's back direction
-      if (T.out > 0) bow.addScaledVector(nrm, 0.1 * u * T.out).lerp(lower, T.down).lerp(rest, T.back);
+      if (T.out > 0) bow.lerp(lower, T.out).lerp(rest, T.back);
       // The key's +z from the tip to the bow: at his chest the blade points at the door, at the lock straight out of it,
       // and it spins a quarter turn about the blade as he turns it.
       const dir = A6.copy(face).sub(rest).setY(0).normalize().negate().lerp(nrm, T.in).normalize();
@@ -131,10 +132,10 @@ export function keyDoor(ctx, spec, stage) {
         .multiply(q1.setFromAxisAngle(FWD, Math.max(0, T.turn - T.out) * Math.PI / 2))
         .premultiply(qa.copy(who.group.getWorldQuaternion(q1).invert()));
       key.updateMatrixWorld(true);
-      // His palm on the bow's rim, on the side toward the learner, pressing it flat (held things rest against the palm,
-      // never inside the fist): he holds the key, never the door.
-      const side = A12.copy(LZ).addScaledVector(dw, -dw.dot(LZ)).normalize();  // across the blade, toward the learner
-      who.grip('L', A13.copy(bowW).addScaledVector(side, R), A14.copy(side).negate(), 0.03 * u, 1, { out: 0.5, down: 0.7 });
+      // His palm pressed on the bow's top edge from above, so the fist rests above the ring and never round it (held things
+      // rest against the palm, never inside the fist): he holds the key, never the door.
+      const flat = A12.copy(UP).negate();                     // the bow's flat side, seen from above
+      who.grip('L', bowW, flat, 0.036 * u, 1, { out: 0.5, down: 0.7 });
 
       pop(glint, pre ? 0 : bump(v, 0.5, 0.4) * 1.2, bow.x, bow.y + 0.07 * u, bow.z);   // the bow glints once
       pop(click, pre ? 0 : bump(v, 2.3, 0.4) * 1.2,                                    // the click, at the lock
