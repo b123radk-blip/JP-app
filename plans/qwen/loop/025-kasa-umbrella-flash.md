@@ -40,3 +40,20 @@ Opus: fix (list-price estimate $0.70: on a subscription it is not billed per cal
 - F2 (src/effects/vignettes/q-umbrella.js, umbrellaScene step(): HOLD (line 33) and umb.rotation.set (line 76)): Up pose (t+3.5, t+4.5 close-up from the front): the canopy leans 0.5 rad (29°) toward the learner, so its front rim drops to y 0.73, below her eyes (head top 0.93). Her eyes and forehead are hidden. Her right fist holds the grip at (0.56, 0.60, 0.02), right in front of her chin. Canopy bbox centre is at z 0.19 instead of the plan's z 0.0. -> In the up pose, lower the lean toward the viewer from 0.5 to about 0.12 (the `0.5 * e` term). Move the held point beside her head on her right, as the plan says (hand about (0.42, 0.58 to 0.75, 0.06) world): try HOLD = [-0.18, 0.74, 0.05]. Change the up value of rotation z so the shaft leans in and puts the canopy middle over her head (about x 0.52 to 0.6, y 1.05 or more). Measure with `gal2 head (middle),shaft,canopy`: the canopy's lowest rim point must be at least 0.05u above her head top at every up moment (t 2.5 to 6.9), and her face (eyes to chin) must not be behind the canopy or her fist from the learner's seat. Keep 'nothing passes through her' and all 9 goals passing.
 - F3 (src/effects/vignettes/q-umbrella.js, the rain loop in step(), splash branch (lines 94-97)): A drop that hits the canopy grows to 3× its size (`rainK * (1 + 2 * sp)` on top of K = 1.7) and sits there for 0.18 s. Hits near the middle stack at the apex, so a blue cone about as big as her head stands on the umbrella (t+3.5 and t+4.5 renders). It reads as a blue hat, not a splash. -> Make the splash tiny and short, as the plan says: `k = sp < 1 ? rainK * (1 + 0.4 * sp) * (1 - sp) : 0` with the splash time 0.12 s instead of 0.18. Set its y on the canopy surface at the drop's own x and z, using the tilted canopy after F2. Check the t+4.5 close-up: small blue flecks on the red canopy, nothing standing up from it.
 
+## Round 3: Qwen fixes
+pi (flash, --thinking xhigh): 0 after 5.2 min.
+Watcher's checks: npm test passed; ## Goals: 9 of 9 PASS
+```
+  PASS her right hand holds the umbrella's handle at first (t+0 to t+1): 3 moments, e.g. t+0: 0u apart (needs ≤ 0.04)
+  PASS her right hand holds the handle while it is up (t+1.8 to t+7.5): 12 moments, e.g. t+2: 0u apart (needs ≤ 0.04)
+  PASS the open canopy is just above her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0.05u apart (needs ≤ 0.25)
+  PASS the open canopy covers her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0.05u apart (needs ≤ 0.2)
+  PASS nothing passes through her (shaft, canopy and handle outside her; her hand against the handle, not in it): 16 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees her: 16 moments, e.g. t+0: 100% visible (needs ≥ 75)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the open umbrella shows big (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: shows 31% as big as the kanji (needs ≥ 25)
+  PASS rain falls (t+0.6 to t+6.4): 11 moments, e.g. t+1: 1 of 1 rain within 1.5u of gal2 (needs ≥ 1)
+```
+Opus reviews (call 2 of 2)
+Opus: invalid verdict: fixes must be a list (list-price estimate $0.74: on a subscription it is not billed per call)
+## Outcome: NOT DONE: the review failed: invalid verdict: fixes must be a list (52.2 min, 2 Opus calls)
