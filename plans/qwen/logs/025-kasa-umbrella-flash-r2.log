@@ -1,0 +1,22 @@
+model flash (Qwen 3.8 Flash Next (gyro M quant, strata)): pi --provider strata --model strata --thinking xhigh --extension scripts/pi/jp-tools.ts --skill scripts/pi/skills
+pi exit 0 after 12.4 min
+
+Round 2 done. The failing goal (`nothing passes through her … her hand against the handle, not in it`) is fixed.
+
+**What was wrong** — `measure` at t+0 showed `grip` was scaled by `e` (0 while the umbrella is still down), so her palm was never turned against the shaft in the closed pose; the fist's skin reached ~0.14u past the palm plane and the crook ring (`HOOK = -0.06`) sat inside it.
+
+**Changes** — only `src/effects/vignettes/q-umbrella.js`:
+- `grip('R', P, toward, GRIP * u, 1, …)` — grip live for the whole loop, so the palm faces up the shaft when closed too.
+- `GRIP 0.021 → 0.017`, `HOOK -0.06 → -0.145`; the grip is now a 0.11u cylinder at `+0.075` (starts on the shaft's side of the fist's band), the crook keeps the plan's radius 0.035u / tube 0.012u and hangs past the fist.
+- Closed-pose tilt `umb.rotation.set(0.5*e - 0.72*(1-e), 0, (Math.PI+0.06) + e*(Math.PI-0.23))` — it hangs down and toward the learner instead of into her legs (straight-down and out-at-her-side both reintroduced faults).
+- Header/inline comments now describe the real band.
+
+**Checks**
+- `node --check` — silent; `npm test` — `recipe check ok`, 0 pairs ≥ 0.72
+- `node scripts/check-piece-costs.mjs vignette "^q-umbrella$"` — `701 recipes, 0 cost mismatches`
+- `inspect … --goals … --loop 8 --times 0.4,1.4,3.5,7.6` — **Goals: 9 of 9 PASS**, `no measured faults at any moment`; `held.jpg` shows the palm on the grip in both poses
+- orbit render refreshed at `plans/qwen/renders/025-kasa-umbrella-flash.jpg`
+
+**Commits** (not pushed): `e5075a3 Qwen: 025-kasa-umbrella-flash round 2`, `7c81e10 Qwen report: 025-kasa-umbrella-flash`. Report at `plans/qwen/done/025-kasa-umbrella-flash.md` with the pasted Goals lines.
+
+One thing left on purpose: while the umbrella is closed the crook is partly behind her forearm — it cannot be drawn where her fist's skin is. Headset behaviour is untested from here.
