@@ -44,3 +44,25 @@ Watcher's checks: npm test passed; ## Goals: 7 of 10 PASS
   PASS the key shows big: 16 moments, e.g. t+0: shows 2% as big as the kanji (needs ≥ 1)
   PASS the door shows big (t+0 to t+2.2): 5 moments, e.g. t+0: shows 97% as big as the kanji (needs ≥ 40)
 ```
+## Round 3: Qwen fixes
+pi (flash, --thinking xhigh): 0 after 11.8 min.
+Watcher's checks: npm test passed; ## Goals: 10 of 10 PASS
+```
+  PASS he holds the key by its bow at first (t+0 to t+1): 3 moments, e.g. t+0: 0u apart (needs ≤ 0.04)
+  PASS his hand stays on the key while it goes in and turns (t+1 to t+3.4): 5 moments, e.g. t+1: 0u apart (needs ≤ 0.04)
+  PASS the key's blade is in the lock (t+1.85 to t+3.3): 3 moments, e.g. t+2: 0u apart (needs ≤ 0.01)
+  PASS the door swings open (t+3.1 to t+5.4): 4 moments, e.g. t+3.5: 0.13u apart (needs ≥ 0.06)
+  PASS the door is shut at first (t+0 to t+2.2): 5 moments, e.g. t+0: 0u apart (needs ≤ 0.03)
+  PASS nothing passes through him (his hand against the key's bow, never through the door): 16 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees him: 16 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the key shows big: 16 moments, e.g. t+0: shows 2% as big as the kanji (needs ≥ 1)
+  PASS the door shows big (t+0 to t+2.2): 5 moments, e.g. t+0: shows 101% as big as the kanji (needs ≥ 40)
+```
+Opus reviews (call 2 of 2)
+Opus: needs_opus (list-price estimate $0.59: on a subscription it is not billed per call)
+
+> Built as planned and all 10 goals pass with no measured faults, but from the learner's seat the key, which is the card's meaning, is about 2% the size of the kanji: at t+2 it is a speck behind his arm at the lock, and at t+3.5 a thin yellow stick. A child sees 'a man opens a door', not 'a key'. The plan's real-life key size and a layout that puts the lock behind his body can't read even when built exactly, so the plan needs rescaling: a much bigger key held out where the seat can see it, and the lock not hidden by him (40-60% hidden now). There is also one small code fault to fix in the next round.
+- F1 (src/effects/vignettes/q-key-door.js, keyDoor step(), the `dir` line (line 122)): The key snaps about 26° when the loop restarts. `dir` lerps to the door's normal by T.in, and T.in stays 1 to v=8, so at v≈7.99 the blade points straight along the shut door's normal. At v=0 (T.in=0) it points from his rest point at the lock. For the shut door those two directions are about 19° and 45° from +z. -> Use `.lerp(nrm, T.in * (1 - T.back))` instead of `.lerp(nrm, T.in)`, so the blade turns back to its rest direction while the hand returns to `rest` (6.4-8.0) and the loop ends where it started.
+
+## Outcome: NEEDS OPUS: the plan itself needs work (see the summary) (56.1 min, 2 Opus calls)
