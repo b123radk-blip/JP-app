@@ -1,0 +1,4 @@
+model flash (Qwen 3.8 Flash Next (gyro M quant, strata)): pi --provider strata --model strata --thinking xhigh --extension scripts/pi/jp-tools.ts --skill scripts/pi/skills
+pi exit 0 after 11.2 min
+
+Now let me rewrite the placement logic properly: the fist targets first, and the key hangs from it.
