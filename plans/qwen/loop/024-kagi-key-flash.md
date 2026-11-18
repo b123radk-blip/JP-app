@@ -19,3 +19,21 @@ Watcher's checks: npm test passed; ## Goals: 7 of 10 PASS
   PASS the key shows big: 16 moments, e.g. t+0: shows 3% as big as the kanji (needs ≥ 1)
   PASS the door shows big (t+0 to t+2.2): 5 moments, e.g. t+0: shows 81% as big as the kanji (needs ≥ 40)
 ```
+## Round 2: Qwen fixes
+pi (flash, --thinking xhigh): 0 after 8.0 min.
+Watcher's checks: npm test passed; ## Goals: 10 of 10 PASS
+```
+  PASS he holds the key by its bow at first (t+0 to t+1): 3 moments, e.g. t+0: 0.01u apart (needs ≤ 0.04)
+  PASS his hand stays on the key while it goes in and turns (t+1 to t+3.4): 5 moments, e.g. t+1: 0u apart (needs ≤ 0.04)
+  PASS the key's blade is in the lock (t+1.85 to t+3.3): 3 moments, e.g. t+2: 0u apart (needs ≤ 0.01)
+  PASS the door swings open (t+3.1 to t+5.4): 4 moments, e.g. t+3.5: 0.16u apart (needs ≥ 0.06)
+  PASS the door is shut at first (t+0 to t+2.2): 5 moments, e.g. t+0: 0u apart (needs ≤ 0.03)
+  PASS nothing passes through him (his hand against the key's bow, never through the door): 16 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees him: 16 moments, e.g. t+0: 100% visible (needs ≥ 85)
+  PASS the learner sees the kanji: 16 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the key shows big: 16 moments, e.g. t+0: shows 3% as big as the kanji (needs ≥ 1)
+  PASS the door shows big (t+0 to t+2.2): 5 moments, e.g. t+0: shows 83% as big as the kanji (needs ≥ 40)
+```
+Opus reviews (call 1 of 2)
+Opus: claude ended with success (api_error): Failed to authenticate: OAuth session expired and could not be refreshed (list-price estimate $0.00: on a subscription it is not billed per call)
+## Outcome: NOT DONE: the review failed: claude ended with success (api_error): Failed to authenticate: OAuth session expired and could not be refreshed (38.3 min, 1 Opus call)
