@@ -182,7 +182,7 @@ let reviewOff = has('--no-review') ? 'turned off (--no-review)' : null;
 async function doPlan(name) {
   const t0 = Date.now(), base = git('rev-parse HEAD'), plan = readFileSync(`${Q}/${name}`, 'utf8'), M = modelFor(planModel(plan));
   const rec = [`# Loop: ${name}`, '', `Model: ${M.name} (${M.label}): pi ${M.pi}${M.repair ? `; repair rounds --thinking ${M.repair}` : ''}.`, '', `Started ${new Date().toISOString()} at ${base.slice(0, 7)}.`, ''];
-  let why = null, reviews = 0, outcome = null, lastCheck = null, round = 0;
+  let why = null, reviews = 0, outcome = null, lastCheck = null, round = 0, ran = 0;
   const say = (s) => { rec.push(s); log(s.split('\n')[0]); };
   if (M.error) {   // a model the watcher can't run: say so once (a NOT DONE report), don't retry every minute
     mkdirSync(D, { recursive: true }); writeFileSync(`${D}/${name}`, `# NOT DONE (written by qwen-watch)\n\nThe plan's model can't run: ${M.error}.\n`);
@@ -192,7 +192,7 @@ async function doPlan(name) {
     if (round > ROUNDS) { outcome = `NOT DONE: ${ROUNDS} Qwen rounds used`; break; }
     if (Date.now() - t0 > PLAN) { outcome = `NOT DONE: the plan's ${mins(PLAN)} min are used`; break; }
     say(`## Round ${round}: Qwen ${round === 1 ? 'builds' : 'fixes'}`);
-    const r = await runPi(name, round, round === 1 ? firstPrompt(name, plan) : fixPrompt(name, round, why, plan), Math.min(round === 1 ? M.first : M.later, PLAN - (Date.now() - t0)), M);
+    ran++; const r = await runPi(name, round, round === 1 ? firstPrompt(name, plan) : fixPrompt(name, round, why, plan), Math.min(round === 1 ? M.first : M.later, PLAN - (Date.now() - t0)), M);
     mkdirSync(L, { recursive: true }); mkdirSync(D, { recursive: true }); mkdirSync(LOOP, { recursive: true });
     const sfx = round > 1 ? `-r${round}` : '', status = r.timedOut ? 'timed out' : r.code ?? r.signal ?? r.error;
     writeFileSync(`${L}/${bare(name)}${sfx}.log`, `model ${M.name} (${M.label}): pi ${r.args.join(' ')}\npi exit ${status} after ${mins(r.ms)} min\n\n${r.out.trim()}\n`);
@@ -228,7 +228,7 @@ async function doPlan(name) {
   // one row per finished plan, so the models can be compared side by side
   const R = 'plans/qwen/results.md', goals = lastCheck?.goalsLine?.match(/(\d+) of (\d+)/);
   if (!existsSync(R)) writeFileSync(R, '# Qwen watcher results\n\nOne row per plan the watcher finished (written by qwen-watch.mjs). Details: plans/qwen/loop/<plan>.md.\n\n| Date | Plan | Model | Outcome | Goals | Rounds | Minutes | Opus calls |\n|---|---|---|---|---|---|---|---|\n');
-  writeFileSync(R, `${readFileSync(R, 'utf8')}| ${new Date().toISOString().slice(0, 16).replace('T', ' ')} | ${bare(name)} | ${M.name} | ${outcome.replace(/\s*[:(].*$/, '')} | ${goals ? `${goals[1]}/${goals[2]}` : '-'} | ${Math.max(round - 1, 0)} | ${mins(Date.now() - t0)} | ${reviews} |\n`);
+  writeFileSync(R, `${readFileSync(R, 'utf8')}| ${new Date().toISOString().slice(0, 16).replace('T', ' ')} | ${bare(name)} | ${M.name} | ${outcome.replace(/\s*[:(].*$/, '')} | ${goals ? `${goals[1]}/${goals[2]}` : '-'} | ${ran} | ${mins(Date.now() - t0)} | ${reviews} |\n`);
   push(name, rec);
   return outcome;
 }
