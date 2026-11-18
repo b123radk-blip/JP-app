@@ -1,0 +1,16 @@
+model flash (Qwen 3.8 Flash Next (gyro M quant, strata)): pi --provider strata --model strata --thinking xhigh --extension scripts/pi/jp-tools.ts --skill scripts/pi/skills
+pi exit 0 after 11.0 min
+
+Done — 9 of 9 goals PASS, no faults, committed (not pushed).
+
+**Scene** `src/effects/vignettes/q-umbrella.js` (card `w1301940`, loop 8 s): girl `gal2` with a closed umbrella resting tip-down → rain fades in and she hunches with her left forearm at her hairline → swings it up → the canopy opens over her head → rain splashes on the canopy while she sways → rain stops, canopy folds, she lowers it back to where it started. `handle` / `shaft` / `canopy` named solidProps in one `umbrella` group parented to her; `rain` and `splash` are two `many()` pools of 60 (one draw call each).
+
+**Catalog** `src/effects/vcat-qw.js`: cost `pdc('gal2') + 5` (was +6) — cost check reports 0 mismatches.
+
+**Fix rounds** (N of M PASS): first build 8/9 (handle-hold at first 0.06u) → measured the wrist 0.05u under the hook → palm moved to the hook bowl's underside + up-pose hand 0.60→0.64 = 9/9 → rain stretched 1.5× in y and the shield hand retargeted to `at('over')` = 9/9 → shield hold + canopy glow 0.5→0.3 = 9/9 → tried the plan's hand y 0.40 = 9/9 but the shaft's bottom read −0.08 (tip buried), so back to 0.51 = 9/9, 0 faults.
+
+**Deviations recorded in the report**: down hand y 0.51 (the plan's 0.40 would put the 0.62u shaft 0.22u underground), up hand y 0.64 (0.58 left the rim resting on her hair), drops stretched, palm under the hook's bowl, and the left hand can only reach her hairline (shoulder 0.39u below the crown, arm 0.28u).
+
+**Checks**: `node --check` clean; `check-piece-costs` `701 recipes, 0 cost mismatches`; `npm test` 63 pass / 0 fail, content check ok, `0 pair(s) at or above 0.72`; full inspect rendered to `plans/qwen/renders/021-kasa-umbrella/` (`no measured faults at any moment`). `npm run e2e` not run.
+
+Commits on `claude/project-thread-qtx77d`: `29a8f17` (code + renders), `51872c2` (report `plans/qwen/done/023-kasa-umbrella-flash.md`). Nothing pushed. Headset behaviour unverified — needs a person on the device.
