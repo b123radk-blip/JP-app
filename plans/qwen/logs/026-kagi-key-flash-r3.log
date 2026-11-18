@@ -1,0 +1,17 @@
+model flash (Qwen 3.8 Flash Next (gyro M quant, strata)): pi --provider strata --model strata --thinking xhigh --extension scripts/pi/jp-tools.ts --skill scripts/pi/skills
+pi exit 0 after 11.8 min
+
+Round 3 done — all 10 goals now PASS, no faults.
+
+**What was fixed** (`src/effects/vignettes/q-key-door.js`, plus one number in `src/effects/vcat-qw.js`):
+
+1. **Fist inside the key** (`nothing passes through him`, hand 0.08u off at t+2.5) — the grip now presses the bow's *top edge from above* at `r = 0.036u` instead of the flat side at `0.012u`: the ring hangs out under the fist, the blade out the other side. Hand on key: 0u everywhere; no skin point inside the key.
+2. **Blade out of the lock too early** (0.44u at t+3) — beats are now `open: [2.9, 0.9]`, `out: [3.32, 0.5]`, nod 3.8–4.3: the door starts slowly so it's past 0.06u at t+3.1 while the key stays in the lock to 3.3.
+3. **Key invisible at t+3.5** (0% big) — it was drawn out along the door's face normal, which points *into* the room once the door swings inward, so it went behind the panel and the light. It now leaves the lock toward his lowered hand, silhouetted against the lit doorway (1–2%).
+4. **Cost** — catalog `pdc('guy3') + 6` → `+ 7` (the scene builds 7 meshes; `built 17 / declared 16`).
+
+**Real check output**: `Goals: 10 of 10 PASS`; whole loop `no measured faults at any moment`; `701 recipes, 0 cost mismatches`; `npm test` → `pass 63 / fail 0`, `recipe check ok`. Renders refreshed in `plans/qwen/renders/026-kagi-key-flash/` (orbit + overview + held close-ups, read; nothing floats/sinks/clips).
+
+**Commits** (local, not pushed): `ae2bdc2 Qwen: 026-kagi-key-flash round 3`, `51a0553 Qwen report: 026-kagi-key-flash`.
+
+Left for Opus, noted in the report: with the door fully open it is nearly edge-on from the seat (26% of the kanji, partly behind the man), so "open door" reads mostly as the lit opening — a smaller swing angle or a door turned a bit more toward the learner would make the panel itself read. Headset behaviour still unverified.
