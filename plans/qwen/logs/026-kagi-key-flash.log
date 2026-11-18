@@ -1,0 +1,4 @@
+model flash (Qwen 3.8 Flash Next (gyro M quant, strata)): pi --provider strata --model strata --thinking xhigh --extension scripts/pi/jp-tools.ts --skill scripts/pi/skills
+pi exit timed out after 30.0 min
+
+

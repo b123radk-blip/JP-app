@@ -1,0 +1,80 @@
+# Inspection of card w1260490
+
+## The whole loop, every 0.5 s from t+0 to t+7.5 (numbers only; the T ids differ from moment to moment)
+
+  no measured faults at any moment
+
+## t+1 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh door (beige/brown #d8c078/#a5703c): size 0.41 x 0.9 x 0.2, centre [1, 0.45, -0.19], bottom 0, top 0.9
+  T2 mesh lock (black/beige #2a1f16/#d8c078): size 0.1 x 0.72 x 0.06, centre [0.83, 0.36, -0.16], bottom 0, top 0.72
+  T3 mesh room light (skin #ffc07a): size 0.58 x 0.9 x 0.15, centre [0.91, 0.45, -0.63], bottom 0, top 0.9
+  T4 model guy3: size 0.37 x 1.02 x 0.38, centre [0.6, 0.51, 0.02], bottom 0, top 1.02
+  T5 mesh gold key (yellow #f0c24a): size 0.19 x 0.24 x 0.2, centre [0.62, 0.5, 0], bottom 0.38, top 0.62
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh door (beige/brown #d8c078/#a5703c): touches the ground line (bottom of the kanji)
+  T2 mesh lock (black/beige #2a1f16/#d8c078): touches the ground line (bottom of the kanji)
+  T3 mesh room light (skin #ffc07a): touches the ground line (bottom of the kanji)
+  T4 model guy3: touches the ground line (bottom of the kanji)
+  T5 mesh gold key (yellow #f0c24a): carried or worn by T4 model guy3 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model guy3 right hand at [0.55,0.3,0.15]: nearest own body part right knee 0.15u away; nearest other thing T5 mesh gold key (yellow #f0c24a) 0.1u away
+  T4 model guy3 left hand at [0.59,0.5,-0.01]: nearest own body part chest 0.02u away; nearest other thing T5 mesh gold key (yellow #f0c24a) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T4 model guy3: 100% visible; shows 61% as big as the kanji
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+2.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 mesh door (beige/brown #d8c078/#a5703c): size 0.41 x 0.9 x 0.2, centre [1, 0.45, -0.19], bottom 0, top 0.9
+  T2 mesh lock (black/beige #2a1f16/#d8c078): size 0.1 x 0.72 x 0.06, centre [0.83, 0.36, -0.16], bottom 0, top 0.72
+  T3 mesh room light (skin #ffc07a): size 0.58 x 0.9 x 0.15, centre [0.91, 0.45, -0.63], bottom 0, top 0.9
+  T4 model guy3: size 0.42 x 1.01 x 0.39, centre [0.64, 0.51, 0.02], bottom 0, top 1.01
+  T5 mesh gold key (yellow #f0c24a): size 0.15 x 0.18 x 0.19, centre [0.8, 0.63, -0.05], bottom 0.54, top 0.72
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 mesh door (beige/brown #d8c078/#a5703c): touches the ground line (bottom of the kanji)
+  T2 mesh lock (black/beige #2a1f16/#d8c078): touches the ground line (bottom of the kanji)
+  T3 mesh room light (skin #ffc07a): touches the ground line (bottom of the kanji)
+  T4 model guy3: touches the ground line (bottom of the kanji)
+  T5 mesh gold key (yellow #f0c24a): carried or worn by T4 model guy3 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T4 model guy3 right hand at [0.55,0.29,0.16]: nearest own body part right knee 0.15u away; nearest other thing T5 mesh gold key (yellow #f0c24a) 0.32u away
+  T4 model guy3 left hand at [0.76,0.63,-0.03]: nearest own body part left shoulder 0.11u away; nearest other thing T5 mesh gold key (yellow #f0c24a) 0u away (inside its box: touching or passing through)
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T4 model guy3: 100% visible; shows 65% as big as the kanji
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/026-kagi-key-flash/overview.jpg
+    1. the whole scene from front, t+1 (t1-scene-front.jpg)
+    2. the whole scene from right, t+1 (t1-scene-right.jpg)
+    3. what the learner sees, t+1 (t1-learner.jpg)
+    4. the whole scene from front, t+2.5 (t2.5-scene-front.jpg)
+    5. the whole scene from right, t+2.5 (t2.5-scene-right.jpg)
+    6. what the learner sees, t+2.5 (t2.5-learner.jpg)
+  plans/qwen/renders/026-kagi-key-flash/held.jpg
+    1. mesh gold key (yellow #f0c24a): carried or worn by model guy3 (it moves with them: check it sits right in the close-ups) (from front, t+1) (held-1-front-t1.jpg)
+    2. mesh gold key (yellow #f0c24a): carried or worn by model guy3 (it moves with them: check it sits right in the close-ups) (from left, t+1) (held-2-left-t1.jpg)
+    3. mesh gold key (yellow #f0c24a): carried or worn by model guy3 (it moves with them: check it sits right in the close-ups) (from right, t+1) (held-3-right-t1.jpg)
+  (no fault close-ups: no measured faults)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs w1260490 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
