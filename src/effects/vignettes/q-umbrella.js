@@ -5,11 +5,13 @@
 // bounces off it - every drop over the canopy stops at its surface and pops into a splash - while she sways happily;
 // 6.4-6.9 the rain fades out; 6.9-7.4 the canopy closes; 7.4-8.0 she lowers it back to her side, so the loop ends where
 // it started.
-//   Her right hand holds the handle the whole loop: grip puts her palm against it (never inside the fist) and hold hangs
-//   the umbrella from that palm, so the two cannot drift apart. The umbrella's pivot is the point she holds; the shaft
-//   goes up past her fist to the canopy, which leans 10° over her head and 29° toward the viewer: the shaft passes in
-//   front of her head, and the canopy's rim hangs just above her crown, covering it. Her fist has the band -0.1u..+0.12u
-//   around the pivot to itself - no part of the umbrella is built in it, so the hand is against the handle, not in it.
+//   Her right hand holds the handle the whole loop (grip is live even before she lifts it, so the palm always faces up
+//   the shaft) and hold hangs the umbrella from that palm, so the two cannot drift apart. The umbrella's pivot is the
+//   point she holds; the shaft goes up past her fist to the canopy, which leans 10° over her head and 29° toward the
+//   viewer: the shaft passes in front of her head, and the canopy's rim hangs just above her crown, covering it. Her
+//   fist owns the band -0.017u..-0.084u along the shaft round the pivot (its palm presses on the band's near face):
+//   the crook hangs off the band's far side and the wooden grip starts on the shaft's side, so no part of the umbrella
+//   is ever inside the hand it holds.
 import * as THREE from 'three';
 import { acts, timeline, lerp } from './timeline.js';
 import { actor } from './model-kit.js';
@@ -24,16 +26,17 @@ const K = 1.7;                                // the drops are drawn a little bi
 const FALL = 0.5;                             // a drop falls 1.5u in 0.5 s (a fall time that divides the loop)
 const SPEED = 1.5 / FALL;                     // u per second
 // the umbrella in its own frame: the pivot is the point her palm holds, the shaft runs up +y to the canopy. Her fist
-// has the band -0.1u..+0.12u around the pivot to itself, so no part of the umbrella is ever inside her hand.
-const GRIP = 0.021, HOOK = -0.06, SHAFT = 0.20, TOP = 0.35, CAN = 0.33, CR = 0.30, CH = 0.09;
+// owns the band -0.017u..-0.084u along the shaft, so the handle is built outside it: the grip at +0.02..+0.13, the
+// crook's ring centred at -0.145, just clear of the fist's skin.
+const GRIP = 0.017, HOOK = -0.145, SHAFT = 0.20, TOP = 0.35, CAN = 0.33, CR = 0.30, CH = 0.09;
 // where she holds it up: heights above her feet, a little to her right, a little toward the viewer (all reachable)
 const HOLD = [-0.033, 0.69, 0.05];
 const rnd = (i, k) => ((i * 7919 + k * 104729) % 997) / 997;   // a fixed number per drop (pure, no Math.random)
 
 function umbrella(u) {
   const g = new THREE.Group(); g.name = 'umbrella';
-  const handle = solidProp([[G.torus(CR * 0.11 * u, GRIP * 0.85 * u, Math.PI, 0, HOOK * u, 0, Math.PI), 0x4a2a18],  // the crook in her palm
-    [G.cyl(GRIP * u, GRIP * u, 0.08 * u, 0, (HOOK + 0.045) * u, 0), 0x5a3620]], 0.3);
+  const handle = solidProp([[G.torus(0.035 * u, 0.012 * u, Math.PI, 0, HOOK * u, 0, Math.PI), 0x4a2a18],  // the crook past her fist
+    [G.cyl(GRIP * u, GRIP * u, 0.11 * u, 0, 0.075 * u, 0), 0x5a3620]], 0.3);   // the wooden grip, from the fist up to the shaft
   const shaft = solidProp([[G.cyl(GRIP * 0.7 * u, GRIP * 0.7 * u, SHAFT * u, 0, 0.23 * u, 0), 0x30363e],
     [G.cyl(GRIP * 1.25 * u, GRIP * 1.25 * u, 0.045 * u, 0, 0.15 * u, 0), 0x24292f],
     [G.cone(GRIP * 0.8 * u, 0.07 * u, 0, TOP * u, 0), 0x9aa4b4]], 0.25);   // the ferrule: its tip near the floor when it hangs
@@ -70,12 +73,12 @@ function umbrellaScene(ctx, spec, stage) {
       // the point her hand holds: her idle fist -> the point over her head, on the timeline (never on where the
       // umbrella ended up last frame, so the hand and the umbrella cannot drift away from each other)
       const P = who.fist('R', W).lerp(who.local(HOLD[0], HOLD[1], HOLD[2], W2), e);
-      umb.rotation.set(0.5 * e, 0, Math.PI + 0.75 * (1 - e) + e * (Math.PI - 0.17));   // hung out at her side -> swung out
+      umb.rotation.set(0.5 * e - 0.72 * (1 - e), 0, (Math.PI + 0.06) + e * (Math.PI - 0.23));   // hangs down in front of her feet -> swung up over her head
       canopy.scale.set(0.10 + 0.90 * open, 1 + 1.2 * (1 - open), 0.10 + 0.90 * open);
       canopy.position.y = lerp(0.24, CAN, open) * u;                          // closed it hangs along the shaft as a bundle
       who.group.updateWorldMatrix(true, true);
       const toward = W3.set(0, 1, 0).applyEuler(umb.rotation);                 // up the shaft: the palm presses against it
-      who.grip('R', P, toward, GRIP * u, e, { out: 0.75, down: 0.4 });
+      who.grip('R', P, toward, GRIP * u, 1, { out: 0.75, down: 0.4 });
       who.hold(umb, 'R', who.group, GRIP * u);
       who.group.updateWorldMatrix(true, true);
       // the rain: straight down; over the open canopy a drop stops at its surface and pops into a splash
