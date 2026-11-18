@@ -10,8 +10,8 @@
       "fixMinutes": 15
     },
     "flash": {
-      "label": "Qwen 3.8 Flash",
-      "pi": "--provider FILL-ME --model FILL-ME --thinking medium",
+      "label": "Qwen 3.8 Flash Next (gyro M quant, strata)",
+      "pi": "--provider strata --model strata --thinking xhigh",
       "repairThinking": "xhigh",
       "minutes": 30,
       "fixMinutes": 15
