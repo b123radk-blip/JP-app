@@ -1,0 +1,22 @@
+model flash (Qwen 3.8 Flash Next (gyro M quant, strata)): pi --provider strata --model strata --thinking xhigh --extension scripts/pi/jp-tools.ts --skill scripts/pi/skills
+pi exit 0 after 8.0 min
+
+Done. Both commits are in; nothing pushed.
+
+**What was failing and what I changed** (only `src/effects/vignettes/q-key-door.js` and `src/effects/vcat-qw.js`):
+
+1. **Hand not on the key's bow / fist inside the bow** — the grip aimed the palm straight down (`-ny`, `r = 0.035u`), so the fist's skin lay over the bow's tube ("6 skin points inside", near `FistL`) and sat 0.06u from the key. Now the palm faces the bow's flat face (the door's normal tilted up 0.8) with `r = (RING + TUBE + 0.012) * u = 0.069u`: hand 0.01u at rest, 0u through the motion, intrusion gone. `try_value` showed the plan's `r = 0.012u` and even the touching radius 0.024u bring the intrusion fault back, so 0.069u is a floor.
+2. **Hand off the key at t+3** — the door swung while his hand still had to follow the bow, and the fist can't move inward past the tube. Moved the swing to `open: [2.9, 0.55]`, `out: [3.5, 0.35]` (door part-way open at the t+3 sample, fully open at t+3.5), and put `OPEN` back to the plan's 75°.
+3. **Whole-loop fault `room light SUNK INTO door (gap -0.85u)`** — the lit room panel is now visible only while the door is open (`hinge.rotation.y > 0.1`), which keeps it inside the doorway instead of sticking out to the right of it.
+4. Smaller: `place` lerped back to `PLACE` (itself) at the loop end — now to a separate `REST` point; catalog cost `pdc('guy3') + 6` → `+ 7` (built 17 dc — this mismatch existed in the committed round-1 code).
+
+**Checks**
+- `node --check` both files: clean.
+- `npm test`: `content check ok: 855 cards … / 0 pair(s) at or above 0.72 / recipe check ok`.
+- `check-piece-costs.mjs vignette "^q-key-door$"`: `701 recipes, 0 cost mismatches`.
+- orbit → `plans/qwen/renders/024-kagi-key-flash.jpg`; inspect → `plans/qwen/renders/024-kagi-key-flash/`.
+- `check_goals` / inspect: **10 of 10 PASS**, whole-loop scan `no measured faults at any moment`.
+
+Report rewritten at `plans/qwen/done/024-kagi-key-flash.md` with a `## Round 2` section and the real Goals lines pasted.
+
+Needs a human / not verified from here: headset framing and the loop seam (`Idle` is posed with raw `t`, so his arm sits ~0.06u differently across the restart — not a measured fault), the key is deliberately tiny (shows 3% of the kanji), and the 0–1 s beat reads close to "already at the lock" from the seat.
