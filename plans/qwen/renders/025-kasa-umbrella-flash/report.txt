@@ -1,0 +1,167 @@
+# Inspection of card w1301940
+
+## Goals: 9 of 9 PASS (checked at every moment measured; a goal passes only if it holds at all of them)
+
+  PASS her right hand holds the umbrella's handle at first (t+0 to t+1): 4 moments, e.g. t+0: 0.03u apart (needs ≤ 0.04)
+  PASS her right hand holds the handle while it is up (t+1.8 to t+7.5): 12 moments, e.g. t+2: 0.02u apart (needs ≤ 0.04)
+  PASS the open canopy is just above her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0u apart (needs ≤ 0.25)
+  PASS the open canopy covers her head (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: 0u apart (needs ≤ 0.2)
+  PASS nothing passes through her (shaft, canopy and handle outside her; her hand against the handle, not in it): 19 moments, e.g. t+0: nothing passes into it
+  PASS the learner sees her: 19 moments, e.g. t+0: 97% visible (needs ≥ 75)
+  PASS the learner sees the kanji: 19 moments, e.g. t+0: 100% visible (needs ≥ 95)
+  PASS the open umbrella shows big (t+2.5 to t+6.9): 9 moments, e.g. t+2.5: shows 42% as big as the kanji (needs ≥ 25)
+  PASS rain falls (t+0.6 to t+6.4): 12 moments, e.g. t+1: 1 of 1 rain within 1.5u of gal2 (needs ≥ 1)
+
+## The whole loop, every 0.5 s from t+0 to t+7.5 (numbers only; the T ids differ from moment to moment)
+
+  no measured faults at any moment
+
+## t+0.4 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.38 x 0.94 x 0.42, centre [0.66, 0.47, -0.08], bottom 0, top 0.94
+  T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620): size 0.11 x 0.15 x 0.04, centre [0.55, 0.37, -0.02], bottom 0.3, top 0.45
+  T3 mesh shaft (dark brown/black #30363e/#24292f): size 0.05 x 0.39 x 0.05, centre [0.55, -0.11, -0.02], bottom -0.31, top 0.08
+  T4 mesh canopy (brown/red #a02433/#d03040): size 0.07 x 0.27 x 0.07, centre [0.55, -0.15, -0.02], bottom -0.29, top -0.02
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620): carried or worn by T1 model gal2 (it moves with them: check it sits right in the close-ups)
+  T3 mesh shaft (dark brown/black #30363e/#24292f): carried or worn by T1 model gal2 (it moves with them: check it sits right in the close-ups)
+  T4 mesh canopy (brown/red #a02433/#d03040): carried or worn by T1 model gal2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.51,0.27,-0.05]: nearest own body part right knee 0.14u away; nearest other thing T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620) 0.03u away
+  T1 model gal2 left hand at [0.81,0.27,-0.05]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620) 0.2u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model gal2: 98% visible (2% behind the meaning label); shows 110% as big as the kanji
+  the handle (1 piece): 100% visible; shows 4% as big as the kanji; its top turned 6° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 42% visible (58% behind the meaning label); shows 1% as big as the kanji; its top turned 0° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+1.4 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 pool rain (blue #7fd0ff): size 0.39 x 1.4 x 0.55, centre [0.36, 0.79, -0.12], bottom 0.09, top 1.49
+  T2 model gal2: size 0.39 x 0.94 x 0.59, centre [0.66, 0.47, 0.03], bottom 0, top 0.93
+  T3 mesh handle (dark brown/dark brown #4a2a18/#5a3620): size 0.15 x 0.1 x 0.05, centre [0.79, 0.39, 0.04], bottom 0.34, top 0.44
+  T4 mesh shaft (dark brown/black #30363e/#24292f): size 0.39 x 0.06 x 0.05, centre [0.31, 0.43, 0.05], bottom 0.4, top 0.46
+  T5 mesh canopy (brown/red #a02433/#d03040): size 0.27 x 0.07 x 0.07, centre [0.26, 0.43, 0.05], bottom 0.39, top 0.46
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T2 model gal2: touches the ground line (bottom of the kanji)
+  T3 mesh handle (dark brown/dark brown #4a2a18/#5a3620): carried or worn by T2 model gal2 (it moves with them: check it sits right in the close-ups)
+  T4 mesh shaft (dark brown/black #30363e/#24292f): carried or worn by T2 model gal2 (it moves with them: check it sits right in the close-ups)
+  T5 mesh canopy (brown/red #a02433/#d03040): carried or worn by T2 model gal2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.6,0.41,-0.02]: nearest own body part chest 0.08u away; nearest other thing T4 mesh shaft (dark brown/black #30363e/#24292f) 0.11u away
+  T2 model gal2 left hand at [0.81,0.54,0.23]: nearest own body part eyes 0.27u away; nearest other thing T3 mesh handle (dark brown/dark brown #4a2a18/#5a3620) 0.19u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T2 model gal2: 98% visible (2% behind other things (props, labels)); shows 106% as big as the kanji
+  the handle (1 piece): 100% visible; shows 4% as big as the kanji; its top turned 14° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 100% visible; shows 3% as big as the kanji; its top turned 8° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+3.5 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 pool rain (blue #7fd0ff): size 1.24 x 1.4 x 1.86, centre [0.65, 0.79, 0.23], bottom 0.09, top 1.49
+  T2 model gal2: size 0.44 x 0.94 x 0.42, centre [0.65, 0.46, -0.06], bottom -0.01, top 0.93
+  T3 mesh handle (dark brown/dark brown #4a2a18/#5a3620): size 0.11 x 0.14 x 0.1, centre [0.56, 0.5, -0.02], bottom 0.43, top 0.57
+  T4 mesh shaft (dark brown/black #30363e/#24292f): size 0.1 x 0.34 x 0.2, centre [0.66, 0.91, 0.2], bottom 0.73, top 1.08
+  T5 mesh canopy (brown/red #a02433/#d03040): size 0.66 x 0.35 x 0.6, centre [0.66, 0.91, 0.21], bottom 0.73, top 1.08
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T2 model gal2: touches the ground line (bottom of the kanji)
+  T3 mesh handle (dark brown/dark brown #4a2a18/#5a3620): carried or worn by T2 model gal2 (it moves with them: check it sits right in the close-ups)
+  T4 mesh shaft (dark brown/black #30363e/#24292f): carried or worn by T2 model gal2 (it moves with them: check it sits right in the close-ups)
+  T5 mesh canopy (brown/red #a02433/#d03040): carried or worn by T2 model gal2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T2 model gal2 right hand at [0.56,0.59,0.02]: nearest own body part right shoulder 0.08u away; nearest other thing T3 mesh handle (dark brown/dark brown #4a2a18/#5a3620) 0.02u away
+  T2 model gal2 left hand at [0.81,0.26,-0.04]: nearest own body part left knee 0.14u away; nearest other thing T3 mesh handle (dark brown/dark brown #4a2a18/#5a3620) 0.26u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T2 model gal2: 100% visible; shows 139% as big as the kanji
+  the handle (1 piece): 100% visible; shows 3% as big as the kanji; its top turned 18° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 100% visible; shows 40% as big as the kanji; its top turned 12° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+## t+7.6 (u = 0.300 m; positions are [x from the kanji's right edge, y above the ground line, z toward you], in u)
+
+Things (id, kind, name or colour, size w x h x d, centre, bottom and top height):
+  T1 model gal2: size 0.38 x 0.93 x 0.42, centre [0.65, 0.46, -0.06], bottom 0, top 0.93
+  T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620): size 0.13 x 0.13 x 0.07, centre [0.72, 0.39, 0], bottom 0.33, top 0.46
+  T3 mesh shaft (dark brown/black #30363e/#24292f): size 0.26 x 0.29 x 0.12, centre [0.41, 0.74, 0.13], bottom 0.59, top 0.88
+  T4 mesh canopy (brown/red #a02433/#d03040): size 0.2 x 0.22 x 0.11, centre [0.39, 0.76, 0.13], bottom 0.65, top 0.87
+
+What each solid thing rests on (it should touch it, unless it is meant to fly):
+  T1 model gal2: touches the ground line (bottom of the kanji)
+  T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620): carried or worn by T1 model gal2 (it moves with them: check it sits right in the close-ups)
+  T3 mesh shaft (dark brown/black #30363e/#24292f): carried or worn by T1 model gal2 (it moves with them: check it sits right in the close-ups)
+  T4 mesh canopy (brown/red #a02433/#d03040): carried or worn by T1 model gal2 (it moves with them: check it sits right in the close-ups)
+
+Bodies passing into things (a hand resting ON a thing may show a few points; a head or body inside one is a fault):
+  none
+
+Hands (is each where the plan wants it? "nearest own body part" says where on the body it is):
+  T1 model gal2 right hand at [0.59,0.45,0.01]: nearest own body part chest 0.08u away; nearest other thing T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620) 0.06u away
+  T1 model gal2 left hand at [0.8,0.26,-0.04]: nearest own body part left knee 0.14u away; nearest other thing T2 mesh handle (dark brown/dark brown #4a2a18/#5a3620) 0.07u away
+
+Seen from the learner's seat (the app's own camera): how much of each person or animal, of the kanji and of each prop the goals name, shows
+  T1 model gal2: 100% visible; shows 108% as big as the kanji
+  the handle (1 piece): 100% visible; shows 3% as big as the kanji; its top turned 19° toward you (0 = edge-on, 90 = facing you)
+  the canopy (1 piece): 100% visible; shows 4% as big as the kanji; its top turned 13° toward you (0 = edge-on, 90 = facing you)
+  the kanji: 100% visible
+
+No measured faults. Still look at the pictures: the numbers cannot see everything.
+
+Pictures: open these sheets with your read tool (tiles are numbered; each tile's full-size picture is named after it):
+  plans/qwen/renders/025-kasa-umbrella-flash/overview.jpg
+    1. the whole scene from front, t+0.4 (t0.4-scene-front.jpg)
+    2. the whole scene from right, t+0.4 (t0.4-scene-right.jpg)
+    3. what the learner sees, t+0.4 (t0.4-learner.jpg)
+    4. the whole scene from front, t+1.4 (t1.4-scene-front.jpg)
+    5. the whole scene from right, t+1.4 (t1.4-scene-right.jpg)
+    6. what the learner sees, t+1.4 (t1.4-learner.jpg)
+    7. the whole scene from front, t+3.5 (t3.5-scene-front.jpg)
+    8. the whole scene from right, t+3.5 (t3.5-scene-right.jpg)
+    9. what the learner sees, t+3.5 (t3.5-learner.jpg)
+    10. the whole scene from front, t+7.6 (t7.6-scene-front.jpg)
+    11. the whole scene from right, t+7.6 (t7.6-scene-right.jpg)
+    12. what the learner sees, t+7.6 (t7.6-learner.jpg)
+  plans/qwen/renders/025-kasa-umbrella-flash/held.jpg
+    1. mesh handle (dark brown/dark brown #4a2a18/#5a3620): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from front, t+0.4) (held-1-front-t0.4.jpg)
+    2. mesh handle (dark brown/dark brown #4a2a18/#5a3620): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from left, t+0.4) (held-2-left-t0.4.jpg)
+    3. mesh handle (dark brown/dark brown #4a2a18/#5a3620): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from right, t+0.4) (held-3-right-t0.4.jpg)
+    4. mesh shaft (dark brown/black #30363e/#24292f): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from front, t+0.4) (held-4-front-t0.4.jpg)
+    5. mesh shaft (dark brown/black #30363e/#24292f): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from left, t+0.4) (held-5-left-t0.4.jpg)
+    6. mesh shaft (dark brown/black #30363e/#24292f): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from right, t+0.4) (held-6-right-t0.4.jpg)
+    7. mesh canopy (brown/red #a02433/#d03040): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from front, t+0.4) (held-7-front-t0.4.jpg)
+    8. mesh canopy (brown/red #a02433/#d03040): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from left, t+0.4) (held-8-left-t0.4.jpg)
+    9. mesh canopy (brown/red #a02433/#d03040): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from right, t+0.4) (held-9-right-t0.4.jpg)
+    10. mesh canopy (brown/red #a02433/#d03040): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from front, t+1.4) (held-10-front-t1.4.jpg)
+    11. mesh canopy (brown/red #a02433/#d03040): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from left, t+1.4) (held-11-left-t1.4.jpg)
+    12. mesh canopy (brown/red #a02433/#d03040): carried or worn by model gal2 (it moves with them: check it sits right in the close-ups) (from right, t+1.4) (held-12-right-t1.4.jpg)
+  (no fault close-ups: no measured faults)
+  (no people close-ups: no fault names a person or animal; --people adds them)
+
+For a closer look at anything: node scripts/inspect.mjs w1301940 --look <id or x,y,z> --from <front|right|left|back|top|low|front-right|front-left> --t <seconds> [--zoom 2]
