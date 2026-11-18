@@ -1,0 +1,20 @@
+{
+  "_about": "Models the Qwen watcher can run (docs/QWEN.md). Pick one with `node scripts/qwen-watch.mjs --model flash` or a plan line `Model: flash`. pi: pi's model flags; repairThinking: --thinking for repair rounds (\"\" keeps pi's); minutes / fixMinutes: time per first / later round (--minutes / --fix-minutes override).",
+  "default": "27b",
+  "models": {
+    "27b": {
+      "label": "Qwen 3.8 27B (quasar, ninfer)",
+      "pi": "--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking medium",
+      "repairThinking": "xhigh",
+      "minutes": 30,
+      "fixMinutes": 15
+    },
+    "flash": {
+      "label": "Qwen 3.8 Flash",
+      "pi": "--provider FILL-ME --model FILL-ME --thinking medium",
+      "repairThinking": "xhigh",
+      "minutes": 30,
+      "fixMinutes": 15
+    }
+  }
+}

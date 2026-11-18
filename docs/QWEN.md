@@ -21,9 +21,19 @@ for the rest. Qwen's standing rules: `plans/qwen/README.md`.
 1. Start the model (as usual).
 2. Double-click `Start Qwen watcher.cmd` in the JP-app folder (or run `node scripts/qwen-watch.mjs` there). Leave the
    window open; it prints a line when it starts and finishes a plan. Ctrl+C stops it. It runs pi with your line
-   `--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking medium` (repair rounds switch to `--thinking xhigh`; set REPAIR_THINKING to change that) plus the JP-app tools; to use another model,
-   set `$env:PI_ARGS = "..."` first.
+   `--provider ninfer-quasar --model qwen3.8-27b-quasar --thinking medium` (repair rounds switch to `--thinking xhigh`) plus the JP-app tools.
 3. Tell Opus when it says a plan is done (or just ask Opus to check).
+
+## Choosing the model (27B or Flash)
+
+The models the watcher knows are in `scripts/qwen-models.json`: each has its pi flags, the thinking level for repair
+rounds and the minutes per round. `27b` is the default. To run another one, start the watcher with its name:
+`node scripts\qwen-watch.mjs --model flash` (or drag the same words after the .cmd file). A plan can also pick its own
+model with a line `Model: flash`, which wins over `--model`; that is how Opus queues the same card for both models to
+compare them. Every round's log, the loop record and Opus's review prompt name the model, and each finished plan adds a
+row to `plans/qwen/results.md` (date, plan, model, outcome, goals passed, rounds, minutes, Opus calls).
+`PI_ARGS` still replaces a model's pi flags (logged as model `custom`); `REPAIR_THINKING`, `--minutes` and
+`--fix-minutes` override its other settings.
 
 ## The repair loop (Qwen fixes, Opus reviews)
 
