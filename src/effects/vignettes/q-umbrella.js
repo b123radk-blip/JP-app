@@ -7,8 +7,9 @@
 // it started.
 //   Her right hand holds the handle the whole loop (grip is live even before she lifts it, so the palm always faces up
 //   the shaft) and hold hangs the umbrella from that palm, so the two cannot drift apart. The umbrella's pivot is the
-//   point she holds; the shaft goes up past her fist to the canopy, which leans 10° over her head and 29° toward the
-//   viewer: the shaft passes in front of her head, and the canopy's rim hangs just above her crown, covering it. Her
+//   point she holds; the shaft goes up past her fist to the canopy, which leans 15° in over her head and only 6°
+//   toward the viewer: the shaft passes beside her head, and the whole canopy sits above her crown - its lowest rim
+//   point 0.05u above the top of her head - so her face stays clear of it. Her
 //   fist owns the band -0.017u..-0.084u along the shaft round the pivot (its palm presses on the band's near face):
 //   the crook hangs off the band's far side and the wooden grip starts on the shaft's side, so no part of the umbrella
 //   is ever inside the hand it holds.
@@ -25,19 +26,20 @@ const N = 90;                                // raindrops in one draw call
 const K = 1.7;                                // the drops are drawn a little bigger than DROP's own size, so they read
 const FALL = 0.5;                             // a drop falls 1.5u in 0.5 s (a fall time that divides the loop)
 const SPEED = 1.5 / FALL;                     // u per second
-// the umbrella in its own frame: the pivot is the point her palm holds, the shaft runs up +y to the canopy. Her fist
+// the umbrella in its own frame: the pivot is the point her palm holds, the shaft runs up +y to the canopy, tall enough
+// that the open canopy clears her head (the rim's plane at +0.455, the ferrule tip at +0.545). Her fist
 // owns the band -0.017u..-0.084u along the shaft, so the handle is built outside it: the grip at +0.02..+0.13, the
 // crook's ring centred at -0.145, just clear of the fist's skin.
-const GRIP = 0.017, HOOK = -0.145, SHAFT = 0.20, TOP = 0.35, CAN = 0.33, CR = 0.30, CH = 0.09;
+const GRIP = 0.017, HOOK = -0.145, SHAFT = 0.42, TOP = 0.545, CAN = 0.50, CR = 0.33, CH = 0.09;
 // where she holds it up: heights above her feet, a little to her right, a little toward the viewer (all reachable)
-const HOLD = [-0.033, 0.69, 0.05];
-const rnd = (i, k) => ((i * 7919 + k * 104729) % 997) / 997;   // a fixed number per drop (pure, no Math.random)
+const HOLD = [-0.18, 0.74, 0.04];
+const rnd = (i, k) => { const s = Math.sin(i * 12.9898 + k * 78.233) * 43758.5453; return s - Math.floor(s); };   // a fixed number per drop and per slot (pure, no Math.random)
 
 function umbrella(u) {
   const g = new THREE.Group(); g.name = 'umbrella';
   const handle = solidProp([[G.torus(0.035 * u, 0.012 * u, Math.PI, 0, HOOK * u, 0, Math.PI), 0x4a2a18],  // the crook past her fist
     [G.cyl(GRIP * u, GRIP * u, 0.11 * u, 0, 0.075 * u, 0), 0x5a3620]], 0.3);   // the wooden grip, from the fist up to the shaft
-  const shaft = solidProp([[G.cyl(GRIP * 0.7 * u, GRIP * 0.7 * u, SHAFT * u, 0, 0.23 * u, 0), 0x30363e],
+  const shaft = solidProp([[G.cyl(GRIP * 0.7 * u, GRIP * 0.7 * u, SHAFT * u, 0, 0.34 * u, 0), 0x30363e],
     [G.cyl(GRIP * 1.25 * u, GRIP * 1.25 * u, 0.045 * u, 0, 0.15 * u, 0), 0x24292f],
     [G.cone(GRIP * 0.8 * u, 0.07 * u, 0, TOP * u, 0), 0x9aa4b4]], 0.25);   // the ferrule: its tip near the floor when it hangs
   const canopy = solidProp([[G.cone(CR * u, CH * u, 0, 0, 0), 0xd03040], [G.cyl(CR * 0.09 * u, CR * 0.06 * u, 0.05 * u, 0, CH * 0.6 * u, 0), 0xa02433]], 0.55);
@@ -55,8 +57,8 @@ function umbrellaScene(ctx, spec, stage) {
   const rain = many(DROP(u), N); rain.name = 'rain'; group.add(rain);
   group.add(who.group);
   const xs = [], zs = [], ph = [];
-  for (let i = 0; i < N; i++) { xs.push(X(0.05 + 1.2 * rnd(i, 1))); zs.push(-0.2 + 0.55 * rnd(i, 2)); ph.push(FALL * rnd(i, 3)); }
-  const loop = 8, W = new THREE.Vector3(), W2 = new THREE.Vector3(), W3 = new THREE.Vector3();
+  for (let i = 0; i < N; i++) { xs.push(X(0.05 + 1.1 * rnd(i, 1))); zs.push(-0.2 + 0.5 * rnd(i, 2)); ph.push(FALL * rnd(i, 3)); }
+  const loop = 8, W = new THREE.Vector3(), W2 = new THREE.Vector3(), W3 = new THREE.Vector3(), Q = new THREE.Quaternion();
   return {
     group,
     step(t) {
@@ -73,9 +75,9 @@ function umbrellaScene(ctx, spec, stage) {
       // the point her hand holds: her idle fist -> the point over her head, on the timeline (never on where the
       // umbrella ended up last frame, so the hand and the umbrella cannot drift away from each other)
       const P = who.fist('R', W).lerp(who.local(HOLD[0], HOLD[1], HOLD[2], W2), e);
-      umb.rotation.set(0.5 * e - 0.72 * (1 - e), 0, (Math.PI + 0.06) + e * (Math.PI - 0.23));   // hangs down in front of her feet -> swung up over her head
+      umb.rotation.set(0.10 * e - 1.1 * (1 - e), 0, (Math.PI + 0.06) + e * (Math.PI - 0.32));   // hangs down in front of her feet -> swung up over her head
       canopy.scale.set(0.10 + 0.90 * open, 1 + 1.2 * (1 - open), 0.10 + 0.90 * open);
-      canopy.position.y = lerp(0.24, CAN, open) * u;                          // closed it hangs along the shaft as a bundle
+      canopy.position.y = lerp(0.30, CAN, open) * u;                          // closed it hangs along the shaft as a bundle
       who.group.updateWorldMatrix(true, true);
       const toward = W3.set(0, 1, 0).applyEuler(umb.rotation);                 // up the shaft: the palm presses against it
       who.grip('R', P, toward, GRIP * u, 1, { out: 0.75, down: 0.4 });
@@ -83,18 +85,22 @@ function umbrellaScene(ctx, spec, stage) {
       who.group.updateWorldMatrix(true, true);
       // the rain: straight down; over the open canopy a drop stops at its surface and pops into a splash
       const rainK = between(v, 0.5, 0.8) * (1 - between(v, 6.4, 6.7));
-      const cp = group.worldToLocal(canopy.getWorldPosition(W)), R = CR * u * canopy.scale.x, h = CH * u * canopy.scale.y;
+      const sc = ADULT * u;                                  // the umbrella is built in her heights, so the rain needs its scale
+      const cp = group.worldToLocal(canopy.getWorldPosition(W));
+      const ax = W2.set(0, 1, 0).applyQuaternion(canopy.getWorldQuaternion(Q));   // the cone's axis, tilted with the umbrella
+      const R = CR * canopy.scale.x * sc, h = CH * canopy.scale.y * sc;
+      const b = W3.copy(cp).addScaledVector(ax, -h / 2);     // the middle of the rim (the low side of the tilted cone)
       const top = floor + 1.5 * u;
       for (let i = 0; i < N; i++) {
-        const d = Math.hypot(xs[i] - cp.x, zs[i] - cp.z);
-        const hit = open > 0.6 && d < R ? cp.y + h / 2 - (d / R) * h : floor;
+        const dx = xs[i] - b.x, dz = zs[i] - b.z, d = Math.hypot(dx, dz);
+        const hit = open > 0.6 && d < R ? b.y + ax.y * h * (1 - d / R) : floor;   // the canopy's surface above this drop
         const a = (v + ph[i]) % FALL;
         const y = top - SPEED * a;
         let k = rainK;
-        if (y <= hit) {                                       // landed on the canopy (or on the ground): a splash
-          const sp = (a - (top - hit) / SPEED) / 0.18;
-          k = hit > floor + 0.01 * u ? (sp < 1 ? rainK * (1 + 2 * sp) : 0) : 0;
-          rain.set(i, xs[i], hit + 0.02 * u * Math.max(0, sp), zs[i], pre ? 0 : k * K);
+        if (y <= hit) {                                       // landed on the canopy (or on the ground): a tiny, short splash
+          const sp = (a - (top - hit) / SPEED) / 0.12;
+          k = hit > floor + 0.01 * u ? (sp < 1 ? rainK * (1 + 0.4 * sp) * (1 - sp) : 0) : 0;
+          rain.set(i, xs[i], hit + 0.01 * u * sp, zs[i], pre ? 0 : k * K);
         } else rain.set(i, xs[i], y, zs[i], pre ? 0 : k * K);
       }
       rain.commit();
